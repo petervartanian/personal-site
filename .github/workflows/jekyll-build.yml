@@ -1,0 +1,34 @@
+name: Check website
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Build personal pages
+        run: python build.py
+      - name: Verify content and navigation
+        run: python validate.py
+      - name: Verify encrypted experiment access
+        run: node --test scripts/test-200.mjs
+      - name: Verify private collection boundaries
+        run: node --test scripts/test-correlator.mjs
+      - name: Reject unexpected public source files
+        run: node --test scripts/test-public-snapshot.mjs
+      - name: Verify public-only search notifications
+        run: python -m unittest discover -s scripts -p 'test_indexnow.py'
+      - name: Verify natural shake gestures
+        run: node scripts/test_mobile_shake.cjs
+      - name: Check generated pages are current
+        run: git diff --exit-code

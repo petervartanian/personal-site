@@ -1,0 +1,59 @@
+name: Notify search engines of public updates
+
+on:
+  workflow_run:
+    workflows: ["pages build and deployment", "pages-build-deployment"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      initialize:
+        description: "First migration only: announce all reviewed public pages if no checkpoint exists"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: indexnow-public-updates
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    if: >-
+      github.repository_owner == 'petervartanian' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_repository.full_name == github.repository))
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check submission boundaries
+        run: python -m unittest discover -s scripts -p 'test_indexnow.py'
+      - name: Compare public content and verify deployment before notifying
+        id: notify
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INITIALIZE: ${{ inputs.initialize || false }}
+        run: |
+          args=()
+          if [ "$INITIALIZE" = "true" ]; then args+=(--initialize); fi
+          python scripts/indexnow.py "${args[@]}" --output "$RUNNER_TEMP/indexnow-state.json"
+      - name: Preserve acknowledged content for the next deployment
+        if: steps.notify.outputs.state_written == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-public-state
+          path: ${{ runner.temp }}/indexnow-state.json
+          retention-days: 90
+          if-no-files-found: error
