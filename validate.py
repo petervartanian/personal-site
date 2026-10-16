@@ -7,9 +7,11 @@ import json
 import re
 import xml.etree.ElementTree as ET
 from scholarly_pages import load_publications
+from browser_app import browser_page
 
 ROOT=Path(__file__).parent
 SCHOLARLY_PUBLICATIONS=load_publications(ROOT)
+OMPHALOS_PAGE=browser_page(ROOT)
 PAGES=['index.html','portfolio/index.html','cv/index.html','contact/index.html','site-index/index.html','404.html'] + [work['path'].strip('/')+'/index.html' for work in SCHOLARLY_PUBLICATIONS]
 PROTECTED_PATHS=('/200/', '/agency-costs/', '/backdrive/', '/correlator/', '/haruspex/', '/monitor/', '/arcolens/')
 
@@ -136,14 +138,20 @@ check('artifacts' not in (ROOT/'sitemap.xml').read_text(),'Placeholder route rem
 check('url=/portfolio/' in (ROOT/'artifacts/index.html').read_text(),'Old artifacts bookmarks do not redirect')
 public_projects=json.loads((ROOT/'content/public-pages.json').read_text())
 check(public_projects==[], 'The six protected tools must not be listed as public projects')
-public_paths=['/','/portfolio/','/cv/','/contact/','/site-index/']+[item['path'] for item in SCHOLARLY_PUBLICATIONS]
-check(len(public_paths)==6, 'Expected the five personal/index pages and one scholarly publication page')
+public_paths=['/','/portfolio/','/cv/','/contact/','/site-index/']+[item['path'] for item in SCHOLARLY_PUBLICATIONS]+([OMPHALOS_PAGE['path']] if OMPHALOS_PAGE else [])
+check(len(public_paths)==6+bool(OMPHALOS_PAGE), 'Expected the personal, scholarly, and installed browser-app pages')
 sitemap=ET.parse(ROOT/'sitemap.xml').getroot()
 sitemap_urls=[element.text for element in sitemap.findall('{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
 check(len(sitemap_urls)==len(set(sitemap_urls)), 'Sitemap contains duplicate URLs')
 check(set(sitemap_urls)=={'https://petervartanian.xyz'+path for path in public_paths}, 'Sitemap must include every canonical public page and no private, template, error, or redirect URLs')
 discovery_text=(ROOT/'sitemap.xml').read_text()+(ROOT/'llms.txt').read_text()
 check(not any('https://petervartanian.xyz'+path in discovery_text for path in PROTECTED_PATHS), 'Protected tools appear in a public discovery file')
+for name in ('index.html','site-index/index.html'):
+    check(('/omphalos/' in pages[name].refs)==bool(OMPHALOS_PAGE), f'{name}: omphalOS link does not match the installed app')
+if OMPHALOS_PAGE:
+    browser=Page(ROOT/'omphalos/index.html')
+    check(browser.main and browser.lang, 'omphalOS: missing accessible application shell')
+    check('/omphalos/' in (ROOT/'llms.txt').read_text(), 'The installed omphalOS app is missing from public discovery')
 for path in public_paths:
     filename=ROOT/path.strip('/')/'index.html'
     check(filename.is_file(), f'Missing public page: {path}')

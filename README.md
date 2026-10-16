@@ -20,7 +20,21 @@ The homepage has an interactive SVG mobile with varied colored shapes and a susp
 
 `/portfolio/` retains all published writing. `/writing/` is an alias. The old placeholder collection at `/artifacts/` redirects to `/portfolio/`.
 
-The build produces six canonical public pages: Home, Writing, CV, Contact, Site index, and the scholarly article at `/publications/eu-legal-statecraft/`. All six are listed in the XML sitemap. `content/public-pages.json` is empty: the research tools are private and must not be added to public navigation, the sitemap, or `llms.txt`. Redirects, embed wrappers, raw templates, and the password-protected `/200/` collection are excluded from public discovery.
+The build produces six personal and scholarly pages, plus `/omphalos/` when its verified browser artifact is installed. These canonical public pages are listed in the XML sitemap. `content/public-pages.json` is empty: the six protected research tools must not be added to public navigation, the sitemap, or `llms.txt`. Redirects, embed wrappers, raw templates, and the password-protected `/200/` collection are excluded from public discovery.
+
+## omphalOS browser edition
+
+omphalOS runs at `/omphalos/` using a local WebAssembly Python runtime and browser storage. GitHub Pages serves the application and runtime files; it does not receive investigation records or run a Python server. The application contacts supported public data providers directly when requested. There is no paid hosting service, iframe, or redirect.
+
+Build the browser artifact in the omphalOS source repository, then install that complete artifact here:
+
+```sh
+python3 scripts/install_omphalos.py ../omphalos-platinum/dist/browser
+python3 -m unittest discover -s scripts -p 'test_browser_app.py'
+node --test scripts/test-public-snapshot.mjs
+```
+
+Installation verifies every file against `build-manifest.json`, rejects unlisted files and symbolic links, and copies only the application and its reviewed runtime assets. It updates the public-file allowlist, quiet homepage-footer and Site index links, sitemap, and `llms.txt`. No tool link is generated before the actual artifact is present. Installation builds and validates locally; it does not commit, push, or publish. Keep the original omphalOS publication citation unchanged and the six other tools encrypted and private.
 
 ## Scholarly publication pages
 
@@ -32,7 +46,7 @@ Shared links use four 1200 × 630 preview images with backgrounds matching their
 
 ## Private research tools
 
-Agency Costs, BackDrive, AI Risk Correlator, Haruspex, AI Control Monitor, and Arcolens belong inside the encrypted `/200/` collection. Their HTML, code, data, and downloads must be encrypted before any plaintext deployment copies are removed. The old public routes and asset paths must not remain available as alternate access paths. The personal-page build does not build or publish tool resources.
+Agency Costs, BackDrive, AI Risk Correlator, Haruspex, AI Control Monitor, and Arcolens belong inside the encrypted `/200/` collection. Their HTML, code, data, and downloads must be encrypted before any plaintext deployment copies are removed. The old public routes and asset paths must not remain available as alternate access paths. The personal-page build does not build or publish those protected resources.
 
 The former `/x-oscope/` and `/auspex/` applications and their redirect pages remain removed. Do not recreate those routes. Do not publish unpublished preprints or preview files; access-controlled original-source links remain access controlled.
 

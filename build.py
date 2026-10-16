@@ -7,14 +7,16 @@ from hashlib import sha256
 from cv_markdown import export_cv
 from institution_logos import add_institution_logos
 from scholarly_pages import load_publications, publication_body, publication_head
+from browser_app import browser_page
 
 ROOT = Path(__file__).parent
 DATA = json.loads((ROOT / 'content/site.json').read_text())
 PUBLIC_PROJECTS = json.loads((ROOT / 'content/public-pages.json').read_text())
 SCHOLARLY_PUBLICATIONS = load_publications(ROOT)
+OMPHALOS_PAGE = browser_page(ROOT)
 NAV = [('home', 'Home', '/'), ('writing', 'Writing', '/portfolio/'), ('cv', 'CV', '/cv/'), ('contact', 'Contact', '/contact/')]
 COLORS = {'home': '#ffffff', 'writing': '#faf8fd', 'publication': '#faf8fd', 'cv': '#fffaf5', 'contact': '#f7fbf8', 'site-index': '#ffffff'}
-INDEX_PAGES = [{'title': label, 'path': path} for _, label, path in NAV] + SCHOLARLY_PUBLICATIONS + PUBLIC_PROJECTS
+INDEX_PAGES = [{'title': label, 'path': path} for _, label, path in NAV] + SCHOLARLY_PUBLICATIONS + PUBLIC_PROJECTS + ([OMPHALOS_PAGE] if OMPHALOS_PAGE else [])
 CSS_VERSION = sha256((ROOT / 'assets/css/personal.css').read_bytes()).hexdigest()[:12]
 JS_VERSION = sha256((ROOT / 'assets/js/personal.js').read_bytes()).hexdigest()[:12]
 SITE_URL = 'https://petervartanian.xyz'
@@ -134,7 +136,7 @@ def page(key, title, description, body, path, *, search_title=None, indexable=Tr
       <nav aria-label="Main navigation">{nav}</nav>
     </header>
     <main id="main">{body}</main>
-    <footer>© 2026 Peter H. Vartanian · <a href="/site-index/">Site index</a></footer>
+    <footer>© 2026 Peter H. Vartanian / <a href="/site-index/">Site index</a>{' / <a href="/omphalos/">omphalOS</a>' if key == 'home' and path == '/' and OMPHALOS_PAGE else ''}</footer>
   </div>
 </body>
 </html>
@@ -401,6 +403,8 @@ site_index += ''.join(f'<li><a href="{e(item["path"])}">{e(item["title"])}</a></
 site_index += '</ul></section>'
 if PUBLIC_PROJECTS:
     site_index += '<section><h2>Projects</h2><ul>' + ''.join(f'<li><a href="{e(item["path"])}">{e(item["title"])}</a></li>' for item in PUBLIC_PROJECTS) + '</ul></section>'
+if OMPHALOS_PAGE:
+    site_index += '<p><a href="/omphalos/">omphalOS</a></p>'
 page('site-index', 'Site index', 'Browse Peter H. Vartanian’s public pages, writing, publication abstracts, CV, and contact information.', site_index, '/site-index/')
 
 # Preserve old bookmarks, without publishing an empty collection.

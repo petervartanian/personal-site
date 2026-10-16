@@ -28,6 +28,8 @@ jobs:
         run: node --test scripts/test-public-snapshot.mjs
       - name: Verify public-only search notifications
         run: python -m unittest discover -s scripts -p 'test_indexnow.py'
+      - name: Verify browser app installation
+        run: python -m unittest discover -s scripts -p 'test_browser_app.py'
       - name: Verify natural shake gestures
         run: node scripts/test_mobile_shake.cjs
       - name: Check generated pages are current
