@@ -349,10 +349,10 @@ for section in cv['sections']:
 <div class="education-item"><h3>California Institute of Technology</h3>
 <p class="dates"><span class="date-part">Aug. 2021 –</span> <span class="date-part">May 2025</span></p>
 <div class="education-group"><p>Special Student</p>
-<ul class="education-list"><li><span class="education-label">Field of study</span>: Social Science (SS)</li></ul></div>
+<ul class="education-list"><li><span class="education-label">Field of study</span>: Interdisciplinary Studies Program (ISP)</li></ul></div>
 <details class="academic-record"><summary>Distinctions</summary>
 <div class="education-group"><p class="record-label">Honors</p><ul class="education-list"><li>GPA: 4.00/4.00</li></ul></div>
-<div class="education-group"><p class="record-label">Awards</p><ul class="education-list">{institution_honors("California Institute of Technology")}</ul></div></details></div>'''
+</details></div>'''
     elif section['label'].startswith('Languages'):
         label, anchor = 'Languages', 'languages'
         content = '<section class="cv-subsection"><h3><span class="subsection-number">A.</span> Modern languages</h3><p class="quiet">My proficiencies follow the <a href="https://www.govtilr.org/Skills/ILRscale2.htm">ILR’s 0–5 scale</a> (with + marking intermediate levels).</p><ul class="cv-bullets language-list" role="list" aria-label="Modern languages and ILR proficiency">'

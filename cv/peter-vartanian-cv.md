@@ -82,17 +82,13 @@ Aug. 2021 – May 2025
 
 Special Student
 
-- Field of study: Social Science (SS)
+- Field of study: Interdisciplinary Studies Program (ISP)
 
 #### Distinctions
 
 Honors
 
 - GPA: 4.00/4.00
-
-Awards
-
-- Gordon McClure Memorial Communications Prize in History Jun. 2024
 
 ## III. **Languages**
 
