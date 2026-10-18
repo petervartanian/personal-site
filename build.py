@@ -394,7 +394,7 @@ page('cv', 'CV', 'Peter H. Vartanian’s CV: AI risk research, international aff
 socials = list(SOCIALS)
 social_order = ['LinkedIn', 'Substack', 'GitHub', 'X', 'Hugging Face', 'Google Scholar', 'ORCID']
 socials.sort(key=lambda item: social_order.index(item[0]))
-profile_values = {'LinkedIn': '@petervartanian', 'Substack': '@petersmemos', 'GitHub': '@petervartanian', 'Hugging Face': '@petervartanian', 'X': '@petersmemos', 'Google Scholar': 'DuD0EXEAAAAJ', 'ORCID': '0009-0009-8538-5811'}
+profile_values = {'LinkedIn': '@petervartanian', 'Substack': '', 'GitHub': '@petervartanian', 'Hugging Face': '@petervartanian', 'X': '@petersmemos', 'Google Scholar': 'DuD0EXEAAAAJ', 'ORCID': '0009-0009-8538-5811'}
 def contact_label(label):
     icon = {'Email': 'email', 'Text': 'phone'}.get(label, label.lower().replace(' ', '-'))
     return f'<span class="contact-label"><span class="contact-icon-slot"><img src="/assets/icons/{icon}.svg" class="contact-icon" width="19" height="19" alt="" aria-hidden="true"></span><span class="contact-name">{e(label)}</span></span>'
