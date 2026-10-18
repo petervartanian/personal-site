@@ -65,6 +65,7 @@ Honors
 - GPA: 3.97/4.00
 - *Summa cum Laude*
 - ΦBK (elected as a junior) Oct. 2024
+- Margaret Bundy Scott Scholarship (highest merit scholarship) 2021–2025
 
 Awards
 
@@ -73,7 +74,6 @@ Awards
 - Alternate selection for the James C. Gaither Junior Fellowship at the Carnegie Endowment for International Peace Mar. 2025
 - Critical Language Scholarship Mar. 2024
 - Gilman International Scholarship Dec. 2023
-- Margaret Bundy Scott Scholarship
 
 ### California Institute of Technology
 

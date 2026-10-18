@@ -315,7 +315,7 @@ def experience_rows(rows):
 def institution_honors(institution, academic=False):
     items = cv['institution_honors'][institution]
     if institution == 'Occidental College':
-        items = [item for item in items if item['title'].startswith('ΦBK') == academic]
+        items = [item for item in items if bool(item.get('academic')) == academic]
     result = []
     for item in items:
         title = e(item['title'])
