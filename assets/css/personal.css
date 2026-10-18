@@ -115,8 +115,12 @@ sup a { padding: 4px 0; }
 .education-item p { margin: 7px 0; line-height: 1.65; }
 .education-group { margin: 15px 0; }
 .academic-record { margin: 18px 0 0; color: var(--ink); }
-.academic-record > summary { padding: 4px 0; font-size: 13px; font-weight: 700; color: var(--ink); }
-.academic-record > summary::marker { color: var(--quiet); font-size: 10px; }
+.academic-record > summary { position: relative; padding: 4px 0 4px 20px; list-style: none; font-size: 13px; font-weight: 700; color: var(--ink); }
+.academic-record > summary::marker { content: ""; }
+.academic-record > summary::-webkit-details-marker { display: none; }
+.academic-record > summary::before, .academic-record > summary::after { content: ""; position: absolute; left: 0; top: 50%; width: 8px; height: 1px; background: var(--quiet); transform: translateY(-50%); }
+.academic-record > summary::after { left: 3.5px; width: 1px; height: 8px; }
+.academic-record[open] > summary::after { display: none; }
 .academic-record .education-group { margin: 10px 0 14px 20px; }
 .academic-record .record-label { color: var(--quiet); font-size: 12px; }
 .academic-record .education-list { margin-left: 0; font-size: 12px; }

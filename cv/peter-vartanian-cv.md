@@ -27,7 +27,7 @@ https://petervartanian.xyz/cv/
 | OECD Global Forum on Technology | Dec. 2024 – Jan. 2025 |
 | Verum Legalis: The Occidental College Law Review | Jan. 2024 – Jan. 2025 |
 | **Office of the Chair of the First Committee of the UN General Assembly** | Aug. 2024 – Dec. 2024 |
-| Urban & Environmental Policy Institute at Occidental College | May 2024 – Aug. 2024 |
+| **Urban & Environmental Policy Institute at Occidental College** | May 2024 – Aug. 2024 |
 | **Human Rights Cities Alliance** | Jan. 2024 – May 2024 |
 | **McKinnon Center for Global Affairs & John Parke Young Initiative on the Global Political Economy** | Mar. 2023 – May 2024 |
 | **Bureau of Industry and Security at the U.S. Department of Commerce** | Sep. 2023 – May 2024 |
