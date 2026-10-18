@@ -73,6 +73,7 @@ Awards
 - Alternate selection for the James C. Gaither Junior Fellowship at the Carnegie Endowment for International Peace Mar. 2025
 - Critical Language Scholarship Mar. 2024
 - Gilman International Scholarship Dec. 2023
+- Margaret Bundy Scott Scholarship
 
 ### California Institute of Technology
 
