@@ -394,10 +394,15 @@ def contact_label(label):
     return f'<span class="contact-label"><span class="contact-icon-slot"><img src="/assets/icons/{icon}.svg" class="contact-icon" width="19" height="19" alt="" aria-hidden="true"></span><span class="contact-name">{e(label)}</span></span>'
 
 
+def contact_profile(label, url):
+    value = e(profile_values[label])
+    return value if label == 'Substack' else f'<a href="{e(url)}">{value}</a>'
+
+
 contact = f'''<h1>Contact</h1>
 <p>I am happy to hear from you!</p>
 <table class="cv-table contact-table" aria-label="Contact details"><tbody><tr><th scope="row">{contact_label("Email")}</th><td><a href="mailto:peter.vartanian@icloud.com">peter.vartanian@icloud.com</a></td></tr><tr><th scope="row">{contact_label("Text")}</th><td><a href="sms:+17477869132">+1 747 786 9132</a></td></tr></tbody></table>
-<p class="profile-intro">You can also find me on:</p><table class="cv-table contact-table" aria-label="Profiles"><tbody>''' + ''.join(f'<tr><th scope="row">{contact_label(label)}</th><td><a href="{e(url)}">{e(profile_values[label])}</a></td></tr>' for label, url in socials) + '</tbody></table>'
+<p class="profile-intro">You can also find me on:</p><table class="cv-table contact-table" aria-label="Profiles"><tbody>''' + ''.join(f'<tr><th scope="row">{contact_label(label)}</th><td>{contact_profile(label, url)}</td></tr>' for label, url in socials) + '</tbody></table>'
 page('contact', 'Contact', 'Contact Peter H. Vartanian by email or text, and find his profiles on LinkedIn, Substack, GitHub, Google Scholar, and ORCID.', contact, '/contact/')
 
 site_index = '<h1>Site index</h1><section><h2>Personal pages</h2><ul>'
