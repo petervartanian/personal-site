@@ -64,8 +64,8 @@ Honors
 
 - GPA: 3.97/4.00
 - *Summa cum Laude*
-- ΦBK (elected as a junior) Oct. 2024
-- Margaret Bundy Scott Scholarship (highest merit scholarship) 2021–2025
+- ΦBK (elected as a junior)
+- Margaret Bundy Scott Scholarship (highest merit scholarship)
 
 Awards
 
