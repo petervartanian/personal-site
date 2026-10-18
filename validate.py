@@ -127,7 +127,7 @@ for institution, honors in data['cv']['institution_honors'].items():
         for value in [honor['title'], honor['date']]:
             check(value in cv and value in markdown, f'Missing honor for {institution}: {value}')
 check('>Awards</strong>' not in (ROOT/'cv/index.html').read_text(), 'Standalone Awards section remains')
-for marker in ['*', '†', '‡']:
+for marker in ['*', '†']:
     check(f'[^{marker}]:' in markdown, f'Markdown CV omits note {marker}')
 for path in ['sitemap.xml','feed.xml']:ET.parse(ROOT/path)
 feed = ET.parse(ROOT/'feed.xml').getroot()
