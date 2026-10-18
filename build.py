@@ -316,10 +316,16 @@ def institution_honors(institution, academic=False):
     items = cv['institution_honors'][institution]
     if institution == 'Occidental College':
         items = [item for item in items if item['title'].startswith('ΦBK') == academic]
-    return ''.join(
-        f'<li><span class="education-award"><span>{e(item["title"])}</span>'
-        + (f' <span class="education-award-date">{e(item["date"])}</span>' if item['date'] else '')
-        + '</span></li>' for item in items)
+    result = []
+    for item in items:
+        title = e(item['title'])
+        if item.get('italic'):
+            title = f'<em>{title}</em>'
+        if item.get('detail'):
+            title += f' {e(item["detail"])}'
+        date = f' <span class="education-award-date">{e(item["date"])}</span>' if item['date'] else ''
+        result.append(f'<li><span class="education-award"><span>{title}</span>{date}</span></li>')
+    return ''.join(result)
 
 current_experience = [row for row in cv['experience'] if row['dates'].endswith('Present')]
 previous_experience = [row for row in cv['experience'] if not row['dates'].endswith('Present')]

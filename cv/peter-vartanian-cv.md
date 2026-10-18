@@ -92,7 +92,7 @@ Honors
 
 Awards
 
-- Best Paper Award in multiple courses
+- *Award for Best Paper* in multiple courses
 
 ## III. **Languages**
 
