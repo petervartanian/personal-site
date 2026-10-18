@@ -18,7 +18,7 @@ https://petervartanian.xyz/cv/
 | Organization | Dates |
 | --- | --- |
 | **AI Risk Explorer**[^†] | Feb. 2026 – Jun. 2026 |
-| **Family Office**[^‡] | Sep. 2025 – Jun. 2026 |
+| **Family Office**[^‡] | Aug. 2025 – Jun. 2026 |
 | **Hoover Institution on War, Revolution, and Peace at Stanford University** | Aug. 2025 – Aug. 2025 |
 | Director’s Award from Fmr. SecState Condoleezza Rice | Feb. 2026 |
 | **FutureSafe at the Nuclear Threat Initiative** | Jun. 2025 – Aug. 2025 |
@@ -47,7 +47,7 @@ https://petervartanian.xyz/cv/
 
 [^†]: Facilitated by the [Supervised Program for Alignment Research](https://sparai.org/) (SPAR) and [Kairos](https://kairos-project.org/).
 
-[^‡]: Supported by a micro-grant from a confidential European family office.
+[^‡]: Supported by a micro-grant from a confidential MENA family office.
 
 ## II. **Education**
 

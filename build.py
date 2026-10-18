@@ -339,7 +339,7 @@ def cv_text(text):
 cv_notes = [
     'Facilitated by the <a href="https://www.cbai.ai/">Cambridge Boston Alignment Initiative</a> (CBAI) and <a href="https://coefficientgiving.org/">Coefficient Giving</a>.',
     'Facilitated by the <a href="https://sparai.org/">Supervised Program for Alignment Research</a> (SPAR) and <a href="https://kairos-project.org/">Kairos</a>.',
-    'Supported by a micro-grant from a confidential European family office.'
+    'Supported by a micro-grant from a confidential MENA family office.'
 ]
 experience_notes = '<aside id="experience-notes" class="experience-notes" aria-labelledby="experience-notes-title"><h3 id="experience-notes-title">Notes</h3><p class="contribution-key" id="contribution-key"><span class="primary-contribution">Shaded entries</span> indicate primary authorship or substantive responsibility for my work undertaken.</p>' + ''.join(f'<p class="experience-note" id="experience-note-{i}"><span class="note-badge">{NOTE_SYMBOLS[i]}</span><span>{note}</span></p>' for i, note in enumerate(cv_notes, 1)) + '</aside>'
 cv_sections = ''
