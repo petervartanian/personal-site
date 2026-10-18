@@ -316,7 +316,10 @@ def institution_honors(institution, academic=False):
     items = cv['institution_honors'][institution]
     if institution == 'Occidental College':
         items = [item for item in items if item['title'].startswith('ΦBK') == academic]
-    return ''.join(f'<li><span class="education-award"><span>{e(item["title"])}</span> <span class="education-award-date">{e(item["date"])}</span></span></li>' for item in items)
+    return ''.join(
+        f'<li><span class="education-award"><span>{e(item["title"])}</span>'
+        + (f' <span class="education-award-date">{e(item["date"])}</span>' if item['date'] else '')
+        + '</span></li>' for item in items)
 
 current_experience = [row for row in cv['experience'] if row['dates'].endswith('Present')]
 previous_experience = [row for row in cv['experience'] if not row['dates'].endswith('Present')]
@@ -352,6 +355,7 @@ for section in cv['sections']:
 <ul class="education-list"><li><span class="education-label">Field of study</span>: Interdisciplinary Studies Program (ISP)</li></ul></div>
 <details class="academic-record"><summary>Distinctions</summary>
 <div class="education-group"><p class="record-label">Honors</p><ul class="education-list"><li>GPA: 4.00/4.00</li></ul></div>
+<div class="education-group"><p class="record-label">Awards</p><ul class="education-list">{institution_honors("California Institute of Technology")}</ul></div>
 </details></div>'''
     elif section['label'].startswith('Languages'):
         label, anchor = 'Languages', 'languages'

@@ -90,6 +90,10 @@ Honors
 
 - GPA: 4.00/4.00
 
+Awards
+
+- Best Paper Award in multiple courses
+
 ## III. **Languages**
 
 ### A. Modern languages
