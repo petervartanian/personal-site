@@ -13,6 +13,7 @@ ROOT_FILES = {
     "index.html", "app.js", "box.js", "styles.css", "browser.js",
     "browser-worker.js", "geist.woff2", "geist-mono.woff2", "font-license.txt",
     "LICENSE", "LICENSE.txt", "THIRD-PARTY-LICENSES.txt",
+    "logo.svg", "logo-512.png", "apple-touch-icon.png", "favicon.ico",
 }
 REQUIRED = {"index.html", "app.js", "box.js", "styles.css", "browser.js", "browser-worker.js", "runtime/manifest.json", "runtime/omphalos.zip"}
 PYODIDE_FILES = {"pyodide.js", "pyodide.mjs", "pyodide.asm.mjs", "pyodide.asm.wasm", "pyodide-lock.json", "python_stdlib.zip", "package.json"}
