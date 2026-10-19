@@ -268,7 +268,7 @@ writing += '</ul></section>\n'
 publication_notes = [
     'This white paper received the Director’s Award from Fmr. SecState Condoleezza Rice. <span data-nosnippet>The publication contains an incorrect institutional affiliation; it should read Fas/Jus. <a href="/cv/">See CV.</a></span>',
     '“Geo-legality” was cited and discussed by Hakkı Öcal in <em>Daily Sabah</em> on January 26, 2026.',
-    'The original 2024 Python/Rust/Go toolkit contains more than 20,000 SQL queries for detecting illicit procurement of AI and dual-use hardware, as well as luxury goods.'
+    'An illicit-procurement investigation system in Python/Rust/Go whose SHA-256-verified case files preserve the computational evidence needed for another investigator to reproduce the analysis independently of its author.'
 ]
 writing += '<section id="publication-notes" class="publication-notes"><h2>Notes</h2>' + ''.join(f'<p id="publication-note-{index}"><span class="note-badge">{PUBLICATION_NOTE_LABELS[index]}</span><span>{note}</span></p>' for index, note in zip([1, 2, 4], publication_notes)) + '</section>'
 credited_contributions = [work for work in DATA['contributions'] if not work.get('has_uncredited_editing')]
