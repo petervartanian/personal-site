@@ -218,12 +218,22 @@ def writing_row(item):
     credit_lines = '<br>'.join(e(part.strip()) for part in credit.split(' · '))
     note_link = f'<sup><a class="note-ref" href="#publication-note-{note_id}" aria-label="Publication note {note}">{note}</a></sup>' if note else ''
     abstract_page = next((work for work in SCHOLARLY_PUBLICATIONS if work['title'] == item['title']), None)
-    abstract_link = f'  <p class="credit"><a href="{e(abstract_page["path"])}">Abstract &amp; citation</a></p>\n' if abstract_page else ''
+    abstract_link = (
+        f'  <p class="credit"><a href="{e(abstract_page["path"])}">Abstract &amp; citation</a></p>\n'
+        if abstract_page
+        else ''
+    )
+    edition_link = ''
+    if current_url := item.get('current_application_url'):
+        edition_link = (
+            f'  <p class="credit">{e(item["edition_note"])}. '
+            f'<a href="{e(current_url)}">Current application</a></p>\n'
+        )
     return f'''<li class="publication">
   <a class="publication-title" href="{e(item['url'])}">{title}</a>
   <p class="venue"><em>{e(item['venue'])}</em></p>
   <p class="credit">{credit_lines}{note_link}</p>
-{abstract_link}</li>'''
+{abstract_link}{edition_link}</li>'''
 
 
 def contribution_row(item):
@@ -258,7 +268,7 @@ writing += '</ul></section>\n'
 publication_notes = [
     'This white paper received the Director’s Award from Fmr. SecState Condoleezza Rice. <span data-nosnippet>The publication contains an incorrect institutional affiliation; it should read Fas/Jus. <a href="/cv/">See CV.</a></span>',
     '“Geo-legality” was cited and discussed by Hakkı Öcal in <em>Daily Sabah</em> on January 26, 2026.',
-    'The accompanying Python/Rust/Go toolkit contains more than 20,000 SQL queries for detecting illicit procurement of AI and dual-use hardware, as well as luxury goods.'
+    'The original 2024 Python/Rust/Go toolkit contains more than 20,000 SQL queries for detecting illicit procurement of AI and dual-use hardware, as well as luxury goods.'
 ]
 writing += '<section id="publication-notes" class="publication-notes"><h2>Notes</h2>' + ''.join(f'<p id="publication-note-{index}"><span class="note-badge">{PUBLICATION_NOTE_LABELS[index]}</span><span>{note}</span></p>' for index, note in zip([1, 2, 4], publication_notes)) + '</section>'
 credited_contributions = [work for work in DATA['contributions'] if not work.get('has_uncredited_editing')]

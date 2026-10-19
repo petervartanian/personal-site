@@ -34,7 +34,7 @@ python3 -m unittest discover -s scripts -p 'test_browser_app.py'
 node --test scripts/test-public-snapshot.mjs
 ```
 
-Installation verifies every file against `build-manifest.json`, rejects unlisted files and symbolic links, and copies only the application and its reviewed runtime assets. It updates the public-file allowlist, quiet homepage-footer and Site index links, sitemap, and `llms.txt`. No tool link is generated before the actual artifact is present. Installation builds and validates locally; it does not commit, push, or publish. Keep the original omphalOS publication citation unchanged and the six other tools encrypted and private.
+Installation verifies every file against `build-manifest.json`, rejects unlisted files and symbolic links, and copies only the application and its reviewed runtime assets. It updates the public-file allowlist, quiet homepage-footer and Site index links, sitemap, and `llms.txt`. No tool link is generated before the actual artifact is present. Installation builds and validates locally; it does not commit, push, or publish. Preserve the original omphalOS citation, date, credit, and repository URL; identify the 2024 version as historical and link separately to the current application. Keep the six other tools encrypted and private.
 
 ## Scholarly publication pages
 
