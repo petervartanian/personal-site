@@ -100,12 +100,13 @@ class InstallationTests(unittest.TestCase):
             artifact = temporary / "artifact"
             manifest = fixture(artifact)
             original_data = json.loads((root / "content/site.json").read_text())
+            original_projects = json.loads((root / "content/public-pages.json").read_text())
             original_vault_shell = (root / "200/index.html").read_bytes()
             count = install(root, artifact)
             self.assertEqual(count, len(manifest["files"]))
             self.assertEqual((root / "200/index.html").read_bytes(), original_vault_shell)
             self.assertEqual(json.loads((root / "content/site.json").read_text())["writings"], original_data["writings"])
-            self.assertEqual(json.loads((root / "content/public-pages.json").read_text()), [])
+            self.assertEqual(json.loads((root / "content/public-pages.json").read_text()), original_projects)
             for name in ("index.html", "site-index/index.html"):
                 html = (root / name).read_text()
                 self.assertEqual(html.count('href="/omphalos/"'), 1)

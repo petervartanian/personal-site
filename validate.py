@@ -12,7 +12,7 @@ from browser_app import browser_page
 ROOT=Path(__file__).parent
 SCHOLARLY_PUBLICATIONS=load_publications(ROOT)
 OMPHALOS_PAGE=browser_page(ROOT)
-PAGES=['index.html','portfolio/index.html','cv/index.html','contact/index.html','site-index/index.html','404.html'] + [work['path'].strip('/')+'/index.html' for work in SCHOLARLY_PUBLICATIONS]
+PAGES=['index.html','portfolio/index.html','cv/index.html','contact/index.html','site-index/index.html','ai-benefits/index.html','ai-benefits/sources/index.html','404.html'] + [work['path'].strip('/')+'/index.html' for work in SCHOLARLY_PUBLICATIONS]
 PROTECTED_PATHS=('/200/', '/agency-costs/', '/backdrive/', '/correlator/', '/haruspex/', '/monitor/', '/arcolens/')
 
 class Page(HTMLParser):
@@ -53,7 +53,9 @@ for name,p in pages.items():
     page_copy = ' '.join(p.text)
     if name == 'portfolio/index.html':
         page_copy = page_copy.replace('Sometimes credit isn’t given where it’s due 😔', '')
-    check(not re.search(r"\b(?:I[’']m|I[’']ve|I[’']ll|we[’']re|you[’']re|don[’']t|doesn[’']t|can[’']t|won[’']t|isn[’']t|it[’']s)\b", page_copy, re.I), f'{name}: contraction in page copy')
+    # Personal-page style rules must not rewrite public source titles or quotations.
+    if not name.startswith('ai-benefits/'):
+        check(not re.search(r"\b(?:I[’']m|I[’']ve|I[’']ll|we[’']re|you[’']re|don[’']t|doesn[’']t|can[’']t|won[’']t|isn[’']t|it[’']s)\b", page_copy, re.I), f'{name}: contraction in page copy')
     check(p.h1==1 and p.main and p.lang,f'{name}: missing accessible page structure')
     check(p.canonical and p.og,f'{name}: missing share metadata')
     check(len(set(p.ids))==len(p.ids),f'{name}: duplicate IDs')
@@ -137,9 +139,9 @@ check(len(feed.findall('atom:entry', atom)) == len(data['writings']), 'Writing f
 check('artifacts' not in (ROOT/'sitemap.xml').read_text(),'Placeholder route remains in sitemap')
 check('url=/portfolio/' in (ROOT/'artifacts/index.html').read_text(),'Old artifacts bookmarks do not redirect')
 public_projects=json.loads((ROOT/'content/public-pages.json').read_text())
-check(public_projects==[], 'The six protected tools must not be listed as public projects')
-public_paths=['/','/portfolio/','/cv/','/contact/','/site-index/']+[item['path'] for item in SCHOLARLY_PUBLICATIONS]+([OMPHALOS_PAGE['path']] if OMPHALOS_PAGE else [])
-check(len(public_paths)==6+bool(OMPHALOS_PAGE), 'Expected the personal, scholarly, and installed browser-app pages')
+check([item.get('path') for item in public_projects]==['/ai-benefits/', '/ai-benefits/sources/'], 'Only the AI Benefits Database and its sources page are approved public projects; the six protected tools must remain private')
+public_paths=['/','/portfolio/','/cv/','/contact/','/site-index/']+[item['path'] for item in SCHOLARLY_PUBLICATIONS]+[item['path'] for item in public_projects]+([OMPHALOS_PAGE['path']] if OMPHALOS_PAGE else [])
+check(len(public_paths)==8+bool(OMPHALOS_PAGE), 'Expected the personal, scholarly, AI Benefits Database, sources, and installed browser-app pages')
 sitemap=ET.parse(ROOT/'sitemap.xml').getroot()
 sitemap_urls=[element.text for element in sitemap.findall('{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
 check(len(sitemap_urls)==len(set(sitemap_urls)), 'Sitemap contains duplicate URLs')
@@ -148,6 +150,9 @@ discovery_text=(ROOT/'sitemap.xml').read_text()+(ROOT/'llms.txt').read_text()
 check(not any('https://petervartanian.xyz'+path in discovery_text for path in PROTECTED_PATHS), 'Protected tools appear in a public discovery file')
 for name in ('index.html','site-index/index.html'):
     check(('/omphalos/' in pages[name].refs)==bool(OMPHALOS_PAGE), f'{name}: omphalOS link does not match the installed app')
+    check('/ai-benefits/' in pages[name].refs, f'{name}: AI Benefits Database link is missing')
+check('/ai-benefits/' in (ROOT/'llms.txt').read_text(), 'AI Benefits Database is missing from public discovery')
+check('/ai-benefits/sources/' in (ROOT/'llms.txt').read_text(), 'AI Benefits Database sources are missing from public discovery')
 if OMPHALOS_PAGE:
     browser=Page(ROOT/'omphalos/index.html')
     check(browser.main and browser.lang, 'omphalOS: missing accessible application shell')
