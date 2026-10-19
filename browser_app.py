@@ -10,7 +10,7 @@ import stat
 MANIFEST = "build-manifest.json"
 APP_PATH = "/omphalos/"
 ROOT_FILES = {
-    "index.html", "app.js", "box.js", "styles.css", "browser.js",
+    "index.html", "app.js", "box.js", "reviewer.js", "styles.css", "browser.js",
     "browser-worker.js", "geist.woff2", "geist-mono.woff2", "font-license.txt",
     "LICENSE", "LICENSE.txt", "THIRD-PARTY-LICENSES.txt",
     "logo.svg", "logo-512.png", "apple-touch-icon.png", "favicon.ico",
