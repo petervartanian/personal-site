@@ -15,8 +15,8 @@ from urllib.parse import quote
 BASE = "/ai-benefits/"
 SITE = "https://petervartanian.xyz"
 TOPICS = {
-    "learn": "Learning",
     "discover": "Discovery",
+    "learn": "Learning",
     "health": "Health",
     "safety": "Safety",
     "work": "Work",
@@ -168,10 +168,70 @@ def shell(
 </body></html>"""
 
 
-def preview_body(record: dict[str, Any], copy: dict[str, str]) -> str:
+def evidence_visual(copy: dict[str, Any]) -> str:
+    visual = copy["visual"]
+    kind = visual["kind"]
+    if kind == "bars":
+        content = "".join(
+            f'<div class="bc-visual-row"><span class="bc-visual-label">{e(row["label"])}</span>'
+            f'<strong class="bc-visual-value">{e(row["value"])}</strong>'
+            '<span class="bc-visual-track" aria-hidden="true">'
+            f'<span class="bc-visual-fill" style="--amount:{float(row["amount"]):g}%"></span></span></div>'
+            for row in visual["rows"]
+        )
+    elif kind == "timeline":
+        start, interval, end = (
+            visual["start"],
+            visual["interval"],
+            visual["end"],
+        )
+        content = (
+            '<div class="bc-timeline">'
+            f'<div class="bc-timeline-event"><strong>{e(start["value"])}</strong><span>{e(start["label"])}</span></div>'
+            f'<div class="bc-timeline-interval"><strong>{e(interval["value"])}</strong><span>{e(interval["label"])}</span></div>'
+            f'<div class="bc-timeline-event"><strong>{e(end["value"])}</strong><span>{e(end["label"])}</span></div>'
+            "</div>"
+        )
+    elif kind == "sequence":
+        steps = "".join(
+            f'<li><strong>{e(step["label"])}</strong><span>{e(step["detail"])}</span></li>'
+            for step in visual["steps"]
+        )
+        content = f'<ol class="bc-sequence" role="list">{steps}</ol>'
+    elif kind == "effects":
+        effects = "".join(
+            f'<div><strong>{e(row["value"])}</strong><span>{e(row["label"])}</span></div>'
+            for row in visual["rows"]
+        )
+        content = f'<div class="bc-effects">{effects}</div>'
+    else:
+        raise ValueError(f"Unknown evidence visual: {kind}")
+    note = (
+        f'<span class="bc-visual-note">{e(visual["note"])}</span>'
+        if visual.get("note")
+        else ""
+    )
+    return (
+        f'<figure class="bc-evidence-visual" data-visual="{e(kind)}">'
+        f'{content}<figcaption>{e(visual["caption"])}{note}</figcaption></figure>'
+    )
+
+
+def preview_body(record: dict[str, Any], copy: dict[str, Any]) -> str:
     p = presentation(record)
-    return f"""<div class="bc-feature-color"><h2>{e(copy['title'])}</h2><p class="bc-big-result"><strong>{e(copy['result'])}</strong><span>{e(copy['result_label'])}</span></p><p class="bc-synopsis">{e(copy['synopsis'])}</p></div>
-<div class="bc-feature-evidence"><dl><div><dt>Comparison</dt><dd>{e(copy['comparator'])}</dd></div><div><dt>Evidence</dt><dd>{e(p['kind'])}. {e(copy['qualification'])}</dd></div></dl><div class="bc-feature-source">{link(p['url'], p['source'])}<span>{e(p['place'])}<br>{e(p['date'])}</span></div><nav aria-label="Selected record actions"><a class="bc-open-record" href="{p['path']}">Read the record <span aria-hidden="true">↗</span></a><a href="{BASE}compare/?left={p['id']}">Compare</a><a href="{p['path']}brief.md" download>Brief</a></nav></div>"""
+    visual_kind = copy["visual"]["kind"]
+    synopsis = (
+        ""
+        if visual_kind in {"sequence", "bars"}
+        else f'<p class="bc-synopsis">{e(copy["synopsis"])}</p>'
+    )
+    comparison = (
+        ""
+        if visual_kind in {"bars", "timeline"}
+        else f'<div><dt>Comparison</dt><dd>{e(copy["comparator"])}</dd></div>'
+    )
+    return f"""<div class="bc-feature-color"><h2>{e(copy['title'])}</h2>{evidence_visual(copy)}{synopsis}</div>
+<div class="bc-feature-evidence"><dl>{comparison}<div><dt>Evidence</dt><dd>{e(p['kind'])}. {e(copy['qualification'])}</dd></div></dl><div class="bc-feature-source">{link(p['url'], p['source'])}<span>{e(p['place'])}<br>{e(p['date'])}</span></div><nav aria-label="Selected record actions"><a class="bc-open-record" href="{p['path']}">Read the record <span aria-hidden="true">↗</span></a><a href="{BASE}compare/?left={p['id']}">Compare</a><a href="{p['path']}brief.md" download>Brief</a></nav></div>"""
 
 
 def explorer(records: list[dict[str, Any]], display: dict[str, Any]) -> str:
