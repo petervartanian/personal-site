@@ -1,115 +1,417 @@
-"""Build the benefit-only research database from public-source records."""
-from pathlib import Path
-from html import escape
-from hashlib import sha256
+"""Build the public AI Benefits Database and its permanent evidence records."""
+
+from __future__ import annotations
+
 import csv
 import io
 import json
+from hashlib import sha256
+from html import escape
+from pathlib import Path
+from typing import Any
 
-GRADES = [
-    (0, 'No material change', 'Assessment finds no material change in the outcome being rated. Zero requires an assessment; missing evidence is not zero.'),
-    (-1, 'Minor benefit', 'A small but meaningful improvement in an existing activity or experience.'),
-    (-2, 'Substantial benefit', 'A material improvement in functioning, access, or the ability to pursue a valued activity.'),
-    (-3, 'Major benefit', 'Overcoming a serious limitation in functioning or the ability to pursue an essential activity.'),
-    (-4, 'Profound benefit', 'Creating, preserving, or restoring a foundational capability or condition, such as life, basic agency, or subsistence.'),
-]
-GROUPS = {'tierA':'Episode leads', 'clinical':'Clinical literature', 'feeder':'Sources and collections', 'aim':'Reported benefit leads'}
-SOURCE_NAMES = {'frnsw-hiker-rescue-2026':'Fire and Rescue NSW','grass-valley-fire-alert-2023':'UC San Diego','create-case-1-lung-cancer':'Cureus · case series','royal-surrey-lung-cancer-triage':'Royal Surrey NHS','sussex-stroke-treatment-2021':'East Sussex NHS'}
-PLACES = {'frnsw-hiker-rescue-2026':'Australia','grass-valley-fire-alert-2023':'California, US','create-case-1-lung-cancer':'Turkey / India','royal-surrey-lung-cancer-triage':'United Kingdom','sussex-stroke-treatment-2021':'United Kingdom'}
+BASE = "/ai-benefits/"
+SITE = "https://petervartanian.xyz"
+TOPICS = {
+    "learn": "Learning",
+    "discover": "Discovery",
+    "health": "Health",
+    "safety": "Safety",
+}
+GROUPS = {
+    "tierA": "Episode leads",
+    "clinical": "Clinical literature",
+    "feeder": "Collections",
+    "aim": "Public reports",
+}
+CONTACT = "mailto:peter.vartanian@icloud.com?subject=AI%20Benefits%20Database"
 
-def e(value): return escape(str(value or ''),quote=True)
-def signed(value): return '0' if value == 0 else '−'+str(abs(value))
-def embedded(data): return json.dumps(data,ensure_ascii=False).replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
-def save(path,content): path.write_text('\n'.join(line.rstrip() for line in content.splitlines())+'\n')
 
-def head(root,title,description,path,prefix=''):
-    a=root/'ai-benefits'
-    css=sha256((a/'style.css').read_bytes()).hexdigest()[:12]
-    js=sha256((a/'app.js').read_bytes()).hexdigest()[:12]
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{e(title)}</title><meta name="description" content="{e(description)}"><meta name="theme-color" content="#ffffff"><meta name="author" content="Peter H. Vartanian"><link rel="canonical" href="https://petervartanian.xyz{path}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="https://petervartanian.xyz{path}"><meta property="og:image" content="https://petervartanian.xyz/ai-benefits/social.png"><meta property="og:image:alt" content="AI Benefits Database: reported benefits, beneficiaries, and evidence"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="{prefix}icon.svg" type="image/svg+xml"><link rel="stylesheet" href="{prefix}style.css?v={css}"><script src="{prefix}app.js?v={js}" defer></script>'''
+def e(value: Any) -> str:
+    return escape(str(value or ""), quote=True)
 
-def header(queue=False):
-    base='/ai-benefits/' if queue else ''
-    sections=[('benefits','Benefits'),('collection','Cases'),('beneficiaries','Beneficiaries')]
-    links=''.join(f'<a href="{base}#{key}" data-nav="{key}"><span>{label}</span></a>' for key,label in sections)
-    return f'''<a class="ab-skip" href="#collection">Skip to cases</a><header class="ab-header"><div class="ab-header-inner"><h1><a class="ab-name" href="/ai-benefits/">AI Benefits<br> Database<span>Evidence for beneficial AI</span></a></h1><div class="ab-nav-label">Explore</div><nav class="ab-nav" aria-label="Database sections">{links}<a href="/ai-benefits/sources/"{' aria-current="page"' if queue else ''}><span>Research queue</span></a><a href="{base}#scale" data-nav="scale"><span>Benefit scale</span></a><a href="{base}#methodology" data-nav="methodology"><span>Method &amp; sources</span></a></nav><div class="ab-sidebar-note">An independent research collection.<a class="ab-curator" href="/">Peter H. Vartanian ↗</a></div></div></header>'''
 
-def footer():
-    return '''<footer class="ab-footer"><span>Peter H. Vartanian · October 2026</span><span><a href="/ai-benefits/records.csv" download>Download CSV</a><a href="/ai-benefits/records.json" download>Download JSON</a><a href="mailto:peter.vartanian@icloud.com?subject=AI%20Benefits%20Database%20%E2%80%94%20case%20or%20correction">Submit a case or correction</a></span></footer></body></html>'''
+def embedded(value: Any) -> str:
+    return (
+        json.dumps(value, ensure_ascii=False)
+        .replace("<", "\\u003c")
+        .replace(">", "\\u003e")
+        .replace("&", "\\u0026")
+    )
 
-def taxonomy(records):
-    descriptions={
-        'rescue':('Safety','Locating people in danger and supporting their return to safety.'),
-        'earlier_warning':('Response','Recognizing a developing emergency and informing a timely human response.'),
-        'diagnosis_and_care':('Health','Identifying a condition and connecting a person with clinical care.'),
-        'recovery_and_function':('Health','Supporting recovery and a return to valued everyday activities.'),
+
+def save(path: Path, content: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(line.rstrip() for line in content.splitlines()) + "\n")
+
+
+def record_path(record: dict) -> str:
+    return BASE + "records/" + record["id"] + "/"
+
+
+def link(url: str, text: str, css: str = "") -> str:
+    return f'<a class="{e(css)}" href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(text)} <span aria-hidden="true">↗</span></a>'
+
+
+def shell(
+    root: Path,
+    title: str,
+    description: str,
+    path: str,
+    section: str,
+    content: str,
+    payload: Any = None,
+    record: dict | None = None,
+) -> str:
+    a = root / "ai-benefits"
+    version = {
+        name: sha256((a / name).read_bytes()).hexdigest()[:12]
+        for name in ("style.css", "app.js")
     }
-    # Labels are episode-level editorial classifications, not a copied taxonomy.
-    cards=[]
-    for key in dict.fromkeys(r['benefit_type']['id'] for r in records):
-        cases=[r for r in records if r['benefit_type']['id']==key]
-        label=cases[0]['benefit_type']['label']
-        category,description=descriptions.get(key,('Benefit',cases[0]['benefit_summary']))
-        stakeholders=', '.join(dict.fromkeys(r['stakeholder_class'] for r in cases))
-        sources=''.join(f'<a href="{e(r["sources"][0]["url"])}">{e(SOURCE_NAMES[r["id"]])} ↗</a>' for r in cases)
-        cards.append(f'''<article class="ab-benefit-card" data-benefit-card="{e(key)}" data-stakeholders="{e(stakeholders)}"><div class="ab-card-category">{e(category)}</div><h2><a href="#collection" data-benefit-link="{e(key)}">{e(label)}</a></h2><p>{e(description)}</p><div class="ab-card-sources"><span>Sources</span>{sources}</div><div class="ab-card-bottom"><span>{e(stakeholders)}</span><a href="#collection" data-benefit-link="{e(key)}">{len(cases)} {'case' if len(cases)==1 else 'cases'} <span aria-hidden="true">→</span></a></div></article>''')
-    return f'''<section id="benefits" class="ab-view ab-taxonomy"><div class="ab-page-heading"><div><h2>Benefits</h2><p>Explore beneficial outcomes and the people or organizations they reach.</p></div><span class="ab-total">{len(cards)} benefit types · {len(records)} cases</span></div><form id="taxonomy-filters" class="ab-taxonomy-toolbar" hidden><label><span>Search benefits</span><input id="taxonomy-search" type="search" placeholder="Benefit, source, or beneficiary" autocomplete="off"></label><label><span>Beneficiary</span><select id="taxonomy-stakeholder"><option value="">All beneficiaries</option><option>People</option><option>Organizations</option><option>Society</option></select></label></form><div class="ab-benefit-cards">{''.join(cards)}</div><p id="taxonomy-empty" class="ab-empty" hidden>No matching benefits. Try another term or beneficiary.</p><div class="ab-catalog-note"><strong>From a reported outcome to an inspectable case.</strong><p>Open a benefit to see its episodes, original sources, AI contribution, and conditions for replication. Promotional claims alone do not qualify.</p><p>Current cases draw on one peer-reviewed case series and four institutional accounts. Source review does not independently verify an event or establish causation.</p></div></section>'''
+    navigation = [
+        ("explore", "Explore", BASE),
+        ("compare", "Compare", BASE + "compare/"),
+        ("sources", "Research leads", BASE + "sources/"),
+        ("method", "Method", BASE + "method/"),
+    ]
+    nav = "".join(
+        f'<a href="{url}"'
+        + (' aria-current="page"' if key == section else "")
+        + f">{label}</a>"
+        for key, label, url in navigation
+    )
+    brand_tag = "h1" if section == "explore" else "div"
+    structured = {
+        "@context": "https://schema.org",
+        "@type": "Dataset" if section == "explore" else "WebPage",
+        "name": title,
+        "description": description,
+        "url": SITE + path,
+        "inLanguage": "en-US",
+        "creator": {"@type": "Person", "name": "Peter H. Vartanian"},
+    }
+    if section == "explore":
+        structured["distribution"] = [
+            {
+                "@type": "DataDownload",
+                "encodingFormat": kind,
+                "contentUrl": SITE + BASE + "records." + ext,
+            }
+            for kind, ext in [("application/json", "json"), ("text/csv", "csv")]
+        ]
+    if record:
+        structured["citation"] = [source["url"] for source in record["sources"]]
+        structured["dateModified"] = record["reviewed_date"]
+    return f"""<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{e(title)}</title><meta name="description" content="{e(description)}"><meta name="author" content="Peter H. Vartanian">
+<meta name="color-scheme" content="light dark"><meta name="theme-color" content="#F7F8F4" media="(prefers-color-scheme:light)"><meta name="theme-color" content="#181D1C" media="(prefers-color-scheme:dark)">
+<link rel="canonical" href="{SITE}{path}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="{SITE}{path}"><meta property="og:image" content="{SITE}{BASE}social.png"><meta property="og:image:alt" content="AI Benefits Database. What becomes possible?"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{BASE}icon.svg" type="image/svg+xml"><link rel="preload" href="{BASE}archivo-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="{BASE}style.css?v={version['style.css']}"><script src="{BASE}app.js?v={version['app.js']}" defer></script>
+<script type="application/ld+json">{embedded(structured)}</script>
+</head><body class="benefits-app" data-page="{section}">
+<a class="bc-skip" href="#main">Skip to content</a>
+<header class="bc-header"><{brand_tag} class="bc-brand"><a href="{BASE}">AI Benefits Database</a></{brand_tag}><nav class="bc-nav" aria-label="Main navigation">{nav}</nav></header>
+<main id="main">{content}</main>
+<footer class="bc-footer"><a href="/">Curated by Peter H. Vartanian</a><nav aria-label="Data and contributions"><a href="{BASE}records/">All records</a><a href="{BASE}records.csv" download>CSV</a><a href="{BASE}records.json" download>JSON</a><a href="{BASE}contribute/">Contribute</a></nav></footer>
+<div id="bc-announcement" class="bc-sr" role="status" aria-live="polite"></div>
+{f'<script type="application/json" id="bc-data">{embedded(payload)}</script>' if payload is not None else ''}
+</body></html>"""
 
-def row(r):
-    return f'''<tr class="record" id="{e(r['id'])}"><td><button class="ab-case-button" data-record="{e(r['id'])}" type="button" aria-pressed="false"><span class="ab-ref">{e(r['record_number'])}</span><span>{e(r['display_title'])}</span></button><span class="ab-secondary">{e(PLACES[r['id']])} · Reported {e(r['publication_date'][:4])}</span></td><td><span class="ab-benefit">{e(r['benefit_type']['label'])}</span><span class="ab-secondary">{e(', '.join(r['stakeholder_groups']))}</span></td><td><a class="ab-source" href="{e(r['sources'][0]['url'])}">{e(SOURCE_NAMES[r['id']])} ↗</a><span class="ab-secondary">{e(r['evidence_basis']['source_kind'])}</span></td></tr>'''
 
-def event_date_display(r):
-    from datetime import datetime
+def presentation(record: dict) -> dict:
+    return {
+        **record["presentation"],
+        "id": record["id"],
+        "record_number": record["record_number"],
+        "path": record_path(record),
+        "groups": record["stakeholder_groups"],
+    }
 
-    def readable(value):
-        formats = {10: '%Y-%m-%d', 7: '%Y-%m', 4: '%Y'}
-        try:
-            date = datetime.strptime(value, formats[len(value)])
-        except (KeyError, ValueError):
-            return value
-        if len(value) == 10:
-            return f'{date:%B} {date.day}, {date.year}'
-        return date.strftime('%B %Y' if len(value) == 7 else '%Y')
 
-    value = r.get('event_date')
-    precision = r.get('date_precision', '').strip()
-    if not value:
-        return precision or 'Not reported.'
-    date = '–'.join(readable(part) for part in value.split('/'))
-    if not precision or precision.lower() == 'day':
-        return date
-    return f'{date}. {precision[0].upper()}{precision[1:]}'
+def detail_content(p: dict, view: str = "outcome", horizon: str = "elsewhere") -> str:
+    if view == "evidence":
+        return f'<h3 class="bc-evidence-type">{e(p["kind"])}</h3><p class="bc-evidence-text">{e(p["evidence"])}</p><p class="bc-time">{e(p["duration"])}</p><div class="bc-visible-limit"><h3>Limits and disclosures</h3><p>{e(p["limits"])}</p></div>'
+    if view == "replication":
+        options = "".join(
+            f'<option value="{key}"'
+            + (" selected" if key == horizon else "")
+            + f">{label}</option>"
+            for key, label in [
+                ("elsewhere", "Another setting"),
+                ("more", "More people"),
+                ("longer", "A longer horizon"),
+            ]
+        )
+        questions = "".join(f"<li>{e(q)}</li>" for q in p["questions"][horizon])
+        return f'<h3 class="bc-replication-head">Could this benefit travel?</h3><div class="bc-setting"><label for="bc-setting">Explore</label><select id="bc-setting">{options}</select></div><ul class="bc-questions">{questions}</ul><p class="bc-research-note">Questions to investigate. Transfer has not been established.</p>'
+    return f'<p class="bc-outcome">{e(p["outcome"])}</p><p class="bc-beneficiaries">{e(p["beneficiaries"])}</p><dl class="bc-context"><div><dt>AI contribution</dt><dd>{e(p["ai"])}</dd></div><div><dt>Human contribution</dt><dd>{e(p["people"])}</dd></div></dl>'
 
-def inspector(r):
-    fields=[('Reported benefit',r['observed_outcome']),('AI’s contribution',r['ai_contribution']),('People’s contribution',r['human_contribution'])]
-    return f'''<details class="ab-detail" id="detail-{e(r['id'])}" open><summary>{e(r['record_number'])} · {e(r['display_title'])}</summary><div class="ab-detail-head"><span class="ab-ref">{e(r['record_number'])}</span><a class="ab-permalink" href="#{e(r['id'])}">Record link ↗</a></div><h2>{e(r['display_title'])}</h2><p class="ab-detail-location">{e(r['location'])}</p><a class="ab-primary-source" href="{e(r['sources'][0]['url'])}">Read the original source ↗</a><p class="ab-source-kind">{e(r['evidence_basis']['source_kind'])} · {e(r['sources'][0].get('published'))}</p><dl class="ab-evidence">{''.join(f'<div><dt>{e(label)}</dt><dd>{e(value)}</dd></div>' for label,value in fields)}</dl><details class="ab-more" open><summary>Evidence and attribution limits</summary><p>{e(r['limitations'])}</p><p>{e(r['evidence_basis']['verification_limit'])}</p></details><details class="ab-more"><summary>Beneficiaries and context</summary><p>{e(r['stakeholder_detail'])}</p><dl><dt>System</dt><dd>{e(r['system'])}</dd><dt>Event date</dt><dd>{e(event_date_display(r))}</dd><dt>Benefit magnitude</dt><dd>Unassessed. No magnitude grade has been assigned.</dd></dl></details><details class="ab-more"><summary>Conditions for replication</summary><p>{e(r['replication_hypothesis'])}</p><p>These are hypotheses to investigate, not validated instructions.</p></details><details class="ab-more"><summary>Tradeoffs and missing evidence</summary><p>{e(r['tradeoffs'])}</p></details><p class="ab-review">Source checked {e(r['reviewed_date'])}. Benefit labels are editorial classifications. The event has not been independently verified by this database.</p></details>'''
 
-def scale(palette):
-    buttons=''.join(f'<button type="button" class="ab-grade" data-grade="{value}" aria-pressed="{str(value==0).lower()}"><span class="ab-grade-num">{signed(value)}</span><span class="ab-swatch" style="background:{palette["colors"]["normal"][i]}" aria-hidden="true"></span><span>{e(label)}</span></button>' for i,(value,label,_) in enumerate(GRADES))
-    return f'''<section id="scale" class="ab-view ab-section"><div class="ab-section-heading"><h2>Benefit scale</h2><p>Four degrees of benefit, with zero as the reference point.</p></div><div class="ab-scale-layout"><div><div class="ab-scale-track" role="group" aria-label="Proposed benefit magnitude grades">{buttons}</div><div class="ab-grade-definition" aria-live="polite"><h3 id="grade-title">0 · No material change</h3><p id="grade-description">{e(GRADES[0][2])}</p></div><noscript><dl>{''.join(f'<dt>{signed(v)} · {e(label)}</dt><dd>{e(description)}</dd>' for v,label,description in GRADES)}</dl></noscript></div><aside class="ab-scale-notes"><h3>Unassessed is separate</h3><p>Unknown magnitude is not zero. None of the current records has been graded.</p><p>Assess the depth of benefit for a specified beneficiary. Record reach, duration, and distribution separately.</p><details><summary>Color accessibility</summary><label>Color view<select id="color-view"><option value="normal">Original</option><option value="deuteranopia">Deuteranopia simulation</option><option value="protanopia">Protanopia simulation</option><option value="tritanopia">Tritanopia simulation</option><option value="grayscale">Grayscale</option></select></label><p id="simulation-note" hidden>A modeled view, not a guarantee of individual perception. Numbers and labels remain the primary identifiers.</p></details></aside></div><p class="ab-scale-caption">Proposed ordinal anchors. Increasingly negative numbers indicate greater benefit; they are not equal units. The number of levels and their definitions remain open to refinement.</p></section>'''
+def sheet(p: dict) -> str:
+    tabs = "".join(
+        f'<button type="button" data-detail="{key}" aria-pressed="{str(key == "outcome").lower()}">{label}</button>'
+        for key, label in [
+            ("outcome", "Outcome"),
+            ("evidence", "Evidence"),
+            ("replication", "Replication"),
+        ]
+    )
+    return f"""<div class="bc-record-heading"><h2>{e(p['title'])}</h2><p class="bc-place">{e(p['place'])}. {e(p['date'])}</p></div>
+<div class="bc-tabs" aria-label="Record detail">{tabs}</div><div class="bc-detail">{detail_content(p)}</div>
+<div class="bc-source">{link(p['url'], p['source'])}<span>{e(p['unit'])}</span></div><div class="bc-record-actions"><a href="{p['path']}">Full record <span aria-hidden="true">→</span></a><a href="{BASE}compare/?left={p['id']}">Compare this result</a></div>"""
 
-def method():
-    return '''<section id="methodology" class="ab-view ab-section ab-method"><div class="ab-section-heading"><h2>Method</h2><p>Inspectable sources and specific outcomes.</p></div><div class="ab-method-grid"><div><h3>What belongs here</h3><p>A real episode with a reported benefit, identifiable beneficiaries, an explicit AI role, and an accessible public source. Useful operational outcomes qualify, but are distinguished from downstream improvements to health or welfare.</p></div><div><h3>How evidence is described</h3><p>Research, operational accounts, and institutional patient accounts retain their source type. Checking a source does not independently verify an event. A reported benefit does not establish how much of it was caused by AI.</p></div><div><h3>Who benefits</h3><p>Beneficiary groups are informed by <a href="https://trustible.ai/a-framework-for-measuring-the-benefits-of-ai/">Trustible’s benefits framework</a>: people, organizations, and society. Episode labels and assignments here are editorial judgments, not Trustible endorsements.</p></div><div><h3>How benefits can recur</h3><p>Each case identifies conditions worth investigating for replication over time and across settings. A selected collection cannot establish prevalence, comparative effectiveness, or a benefit’s long-term durability.</p></div></div><details class="ab-method-details"><summary>Research queue, corrections, and reuse</summary><p>The Gazetteer supplies a separate queue of leads screened for relevance to beneficial outcomes. Their source verification and AI attribution remain pending. Legacy severity labels are not imported into this database.</p><p>Submit a public source, the episode it describes, and evidence that changes the interpretation. Cite Peter H. Vartanian, <em>AI Benefits Database</em>, October 2026, the record identifier, and the original sources. Source materials retain their own terms.</p></details></section>'''
 
-def build(root):
-    root=Path(root);a=root/'ai-benefits'
-    data=json.loads((a/'records.json').read_text());records=data['records']
-    palette=json.loads((a/'palette.json').read_text());leads=json.loads((a/'leads.json').read_text())
-    structured={'@context':'https://schema.org','@type':'Dataset','name':'AI Benefits Database','description':data['scope'],'url':'https://petervartanian.xyz/ai-benefits/','dateModified':data['updated'],'creator':{'@type':'Person','name':data['curator']},'distribution':[{'@type':'DataDownload','encodingFormat':typ,'contentUrl':f'https://petervartanian.xyz/ai-benefits/records.{ext}'} for typ,ext in [('text/csv','csv'),('application/json','json')]]}
-    html=head(root,'AI Benefits Database','Publicly reported benefits of AI, organized by beneficiaries, outcomes, and source evidence.','/ai-benefits/')+f'<script type="application/ld+json">{embedded(structured)}</script></head><body class="ab-app" id="top" data-page="records">'+header()
-    types={r['benefit_type']['id']:r['benefit_type']['label'] for r in records}
-    html+=f'''<main>{taxonomy(records)}<section id="collection" class="ab-view ab-collection"><div class="ab-page-heading"><div><h2>Cases</h2><p>Reported outcomes, who benefited, and what the evidence supports.</p></div><span class="ab-total">{len(records)} source-reviewed cases</span></div><form id="filters" class="ab-toolbar" hidden><label class="ab-search-label"><span>Search cases</span><input type="search" id="search" placeholder="Outcome, system, person, or place" autocomplete="off"></label><label><span>Beneficiary</span><select id="stakeholder"><option value="">All beneficiaries</option><option>People</option><option>Organizations</option><option>Society</option></select></label><label><span>Benefit</span><select id="benefit"><option value="">All benefits</option>{''.join(f'<option value="{e(k)}">{e(v)}</option>' for k,v in types.items())}</select></label><label><span>Order</span><select id="sort"><option value="record">Record number</option><option value="newest">Newest report</option><option value="oldest">Oldest report</option></select></label></form><div class="ab-results-line"><p id="result-count" aria-live="polite">{len(records)} cases</p><div id="filter-actions" hidden><button id="reset" type="button">Clear filters</button><button id="export-view" type="button">Export current view</button></div></div><noscript><p>All records and sources are available below. JavaScript adds filtering and the side-by-side evidence viewer.</p></noscript><div class="ab-workspace"><div class="ab-register"><table class="ab-table"><thead><tr><th scope="col">Beneficial episode</th><th scope="col">Benefit / beneficiary</th><th scope="col">Evidence</th></tr></thead><tbody id="records">{''.join(row(r) for r in records)}</tbody></table><div class="ab-empty" id="empty-state" hidden><h2>No matching cases</h2><p>Try a broader term or another beneficiary group.</p><button id="empty-reset" type="button">Clear filters</button></div><p class="ab-register-note">Source type is visible for every case. A source-supported report is not the same as independently verified causation.</p></div><aside class="ab-inspector" id="evidence-panel" aria-label="Selected case evidence">{''.join(inspector(r) for r in records)}</aside></div></section>
-    <section class="ab-view ab-section" id="beneficiaries"><div class="ab-section-heading"><h2>By beneficiary</h2><p>Directly reported benefits; intended downstream beneficiaries remain separate.</p></div><div class="ab-beneficiary-grid">{''.join(f'<button type="button" data-stakeholder="{name}"><span>{name}</span><span>{sum(r["stakeholder_class"]==name for r in records)} cases</span></button>' for name in ['People','Organizations','Society'])}</div></section>'''
-    html+=scale(palette)+method()+f'''<section class="ab-queue-link"><div><h2>Research queue</h2><p>{len(leads['records'])} screened leads from the Gazetteer, awaiting source and attribution review.</p></div><a href="sources/">Browse research leads ↗</a></section></main><script type="application/json" id="records-data">{embedded(data)}</script><script type="application/json" id="scale-data">{embedded({'grades':GRADES,'palette':palette})}</script>'''+footer()
-    save(a/'index.html',html)
-    output=io.StringIO(newline='');keys=list(dict.fromkeys(k for r in records for k in r))
-    writer=csv.DictWriter(output,fieldnames=keys,lineterminator='\n');writer.writeheader();writer.writerows({k:json.dumps(v,ensure_ascii=False) if isinstance(v,(list,dict)) else v for k,v in r.items()} for r in records)
-    (a/'records.csv').write_text(output.getvalue())
-    queue=a/'sources';queue.mkdir(exist_ok=True)
-    html=head(root,'Research queue · AI Benefits Database','Public-source leads about beneficial AI outcomes, screened for relevance and awaiting verification.','/ai-benefits/sources/','../')+'</head><body class="ab-app" id="top" data-page="sources">'+header(True)
-    groups={key:label for key,label in GROUPS.items() if any(r['source_group']==key for r in leads['records'])}
-    html+=f'''<main><section id="collection" class="ab-view ab-collection"><div class="ab-page-heading"><div><h2>Research queue</h2><p>Benefit-focused leads from the Gazetteer. Source verification and AI attribution remain pending.</p></div><span class="ab-total">{len(leads['records'])} leads</span></div><form class="ab-toolbar ab-queue-toolbar" id="lead-filters" hidden><label class="ab-search-label"><span>Search leads</span><input type="search" id="search" placeholder="Report, system, or location" autocomplete="off"></label><label><span>Source group</span><select id="lead-group"><option value="">All groups</option>{''.join(f'<option value="{key}">{label}</option>' for key,label in groups.items())}</select></label></form><div class="ab-results-line"><p id="lead-count" role="status">{len(leads['records'])} research leads</p><div><button id="lead-reset" type="button" hidden>Clear filters</button><a href="../leads.json" download>Download leads</a></div></div><noscript><p><a href="../leads.json">Download the complete research queue as JSON.</a> JavaScript enables searching.</p></noscript><div id="lead-list" class="ab-lead-list"></div><nav id="pagination" class="ab-pagination" aria-label="Research queue pages" hidden><button id="previous" type="button">Previous</button><span id="page-status"></span><button id="next" type="button">Next</button></nav></section></main>'''+footer()
-    save(queue/'index.html',html)
-    print(f'Built benefit-only database: {len(records)} cases, {len(leads["records"])} screened leads, no positive severity grades.')
+def explorer(records: list[dict], leads: dict) -> str:
+    ps = [presentation(r) for r in records]
+    first = next(p for p in ps if p["topic"] == "learn")
+    topic_buttons = "".join(
+        f'<button type="button" class="bc-topic-button" style="--bc-topic:var(--bc-{key})" data-topic="{key}" aria-pressed="{str(key == "learn").lower()}"><span class="bc-topic-name">{label}</span><span class="bc-topic-count" aria-label="{sum(p["topic"] == key for p in ps)} records">{sum(p["topic"] == key for p in ps)}</span></button>'
+        for key, label in TOPICS.items()
+    )
+    people = sorted({group for r in records for group in r["stakeholder_groups"]})
+    options = "".join(f"<option>{e(group)}</option>" for group in people)
+    return f"""<section class="bc-explorer" aria-label="Explore documented benefits"><aside class="bc-index"><h2>What becomes possible?</h2>
+<div class="bc-topic-list" id="bc-topics" aria-label="Benefit topics">{topic_buttons}</div>
+<label class="bc-search" for="bc-search"><span class="bc-sr">Search records</span><input id="bc-search" type="search" placeholder="Search records" autocomplete="off"></label>
+<label class="bc-who" for="bc-who">Who benefits?<select id="bc-who"><option value="">Everyone</option>{options}</select></label>
+<p class="bc-search-status" id="bc-search-status" role="status"></p><button class="bc-text-button" id="bc-clear" type="button" hidden>Clear filters</button>
+<p class="bc-index-foot"><span id="bc-record-count">{len(records)} sourced records</span><br><a href="{BASE}sources/">{len(leads['records'])} research leads</a></p>
+</aside><article class="bc-sheet" id="bc-record" aria-label="Selected record" style="--bc-topic:var(--bc-learn)">{sheet(first)}</article></section>
+<noscript><p>Search and comparison controls need JavaScript. Every record is available in the <a href="{BASE}records/">complete collection</a>.</p></noscript>"""
 
-if __name__=='__main__': build(Path(__file__).resolve().parents[1])
+
+def compare(records: list[dict]) -> str:
+    ps = [presentation(r) for r in records]
+    a = next(p for p in ps if p["topic"] == "learn")
+    b = next(p for p in ps if p["topic"] == "discover")
+    fields = [
+        ("Reported gain", "outcome"),
+        ("Beneficiaries", "beneficiaries"),
+        ("Evidence", "evidence"),
+        ("Over time", "duration"),
+        ("AI contribution", "ai"),
+        ("Attribution limits", "limits"),
+        ("Replication conditions", "conditions"),
+    ]
+    pickers = "".join(
+        f'<div><label for="bc-compare-{suffix}">{label}</label><select id="bc-compare-{suffix}">'
+        + "".join(
+            f'<option value="{p["id"]}"'
+            + (" selected" if p["id"] == chosen["id"] else "")
+            + f'>{e(p["shortTitle"])}</option>'
+            for p in ps
+        )
+        + "</select></div>"
+        for suffix, label, chosen in [
+            ("a", "First record", a),
+            ("b", "Second record", b),
+        ]
+    )
+    rows = "".join(
+        f'<div class="bc-comparison-row"><h2>{label}</h2>'
+        + "".join(
+            f'<p><span class="bc-mobile-record">{e(p["shortTitle"])}</span>{e(p[key])}</p>'
+            for p in [a, b]
+        )
+        + "</div>"
+        for label, key in fields
+    )
+    return f'<section class="bc-compare"><h1 class="bc-page-title">Put the evidence side by side.</h1><p class="bc-compare-intro">Compare gains, beneficiaries, and conditions in their own terms.</p><div class="bc-pickers">{pickers}</div><div id="bc-comparison" class="bc-comparison" aria-live="polite">{rows}</div></section>'
+
+
+def method_body(method: dict) -> str:
+    principles = "".join(
+        f'<section class="bc-method-item"><h2>{e(p["title"])}</h2><p>{e(p["body"])}</p></section>'
+        for p in method["principles"]
+    )
+    foundations = "".join(
+        f'<li>{link(p["url"], p["title"])}<p>{e(p["note"])}</p></li>'
+        for p in method["foundations"]
+    )
+    return f"""<article class="bc-method"><h1 class="bc-page-title">Begin with the benefit.</h1><p class="bc-method-intro">{e(method['intro'])}</p><div class="bc-method-grid">{principles}<section class="bc-method-item"><h2>What belongs here</h2><p>{e(method['inclusion'])}</p></section></div>
+<section class="bc-method-section"><h2>Assessment</h2><p>Outcomes retain their own measures. A benefit profile records gains, beneficiaries, persistence, and conditions for reproduction. These fields are a proposed approach, not a validated universal ranking.</p><p>Reading a source establishes what it reports. Independent verification and causal attribution require further evidence. This selected collection does not estimate prevalence or net benefit.</p></section>
+<section class="bc-method-section"><h2>Foundations</h2><p>These references inform the approach. Their domain-specific scales do not establish a universal AI-benefit grade.</p><ul class="bc-foundations">{foundations}</ul></section>
+<section class="bc-method-section"><h2>Use the collection</h2><p>{e(method['reuse'])} The structured records are available as <a href="{BASE}records.csv" download>CSV</a> and <a href="{BASE}records.json" download>JSON</a>. Original sources retain their own terms.</p></section></article>"""
+
+
+def directory(records: list[dict]) -> str:
+    rows = []
+    for record in records:
+        p = presentation(record)
+        rows.append(
+            f'<article class="bc-directory-row" data-directory-record="{e(record["id"])}"><div><h2><a href="{p["path"]}">{e(p["title"])}</a></h2><p>{e(p["outcome"])}</p><div class="bc-directory-meta"><span>{e(p["source"])}</span><span>{e(p["unit"])}</span></div></div><span class="bc-topic-label" style="--bc-topic:var(--bc-{p["topic"]})">{TOPICS[p["topic"]]}</span></article>'
+        )
+    return f'<section class="bc-directory"><h1 class="bc-page-title">The collection</h1><p class="bc-compare-intro">Five reported episodes and two comparative studies. Every record links to its evidence.</p>{"".join(rows)}</section>'
+
+
+def record_body(record: dict) -> str:
+    p = presentation(record)
+    sources = "".join(
+        f'<li>{link(s["url"], s["title"])}<p>{e(s.get("publisher", s.get("type", "Public source")))}. Published {e(s.get("published", record["publication_date"]))}.</p></li>'
+        for s in record["sources"]
+    )
+    questions = "".join(
+        f"<section><h3>{label}</h3><ul>"
+        + "".join(f"<li>{e(q)}</li>" for q in p["questions"][key])
+        + "</ul></section>"
+        for key, label in [
+            ("elsewhere", "Another setting"),
+            ("more", "More people"),
+            ("longer", "A longer horizon"),
+        ]
+    )
+    evidence = "".join(
+        f"<p>{e(value)}</p>"
+        for value in dict.fromkeys([record["evidence_supports"], p["evidence"]])
+    )
+    system = record["system_details"]
+    system_fields = "".join(
+        f"<div><dt>{label}</dt><dd>{e(value)}</dd></div>"
+        for label, value in [
+            ("System", system["system_name"]),
+            ("Provider", system["provider"] or "Not reported"),
+            ("Model or family", system["model_or_family"] or "Not reported"),
+            ("Version", system["version"] or "Not reported"),
+            ("System evidence", system["source_note"]),
+        ]
+    )
+    citation = f'Peter H. Vartanian. AI Benefits Database, {record["record_number"]}: {p["title"]}. Reviewed {record["reviewed_date"]}. {SITE}{p["path"]}'
+    return f"""<article class="bc-full-record" style="--bc-topic:var(--bc-{p['topic']})"><header class="bc-full-heading"><h1>{e(p['title'])}</h1><p>{e(p['place'])}. {e(p['date'])}</p><div class="bc-full-tools">{link(p['url'], 'Read the source')}<a href="{BASE}compare/?left={p['id']}">Compare this record</a><span>{e(record['record_number'])}</span></div></header>
+<div class="bc-record-layout"><nav class="bc-contents" aria-label="Record sections"><a href="#outcome">Outcome</a><a href="#evidence">Evidence</a><a href="#replication">Replication</a><a href="#sources">Sources and citation</a></nav><div class="bc-record-body">
+<section id="outcome"><h2>The reported benefit</h2><p class="bc-lead-paragraph">{e(record['observed_outcome'])}</p><dl class="bc-record-fields"><div><dt>Who benefits</dt><dd>{e(record['stakeholder_detail'])}</dd></div><div><dt>AI contribution</dt><dd>{e(record['ai_contribution'])}</dd></div><div><dt>Human contribution</dt><dd>{e(record['human_contribution'])}</dd></div>{system_fields}<div><dt>Timing</dt><dd>{e(record['date_precision'])}</dd></div></dl></section>
+<section id="evidence"><h2>What the evidence supports</h2><p class="bc-source-description">{e(p['kind'])}</p>{evidence}<h3>Attribution and limits</h3><p>{e(record['limitations'])}</p><h3>Over time</h3><p>{e(p['duration'])}</p><h3>Context for interpretation</h3><p>{e(record['tradeoffs'])}</p></section>
+<section id="replication"><h2>Could this benefit travel?</h2><p>{e(p['conditions'])}</p><div class="bc-replication-grid">{questions}</div><p class="bc-research-note-light">These are research questions. Transfer to other settings has not been established by this record.</p></section>
+<section id="sources"><h2>Sources and citation</h2><ul class="bc-source-list">{sources}</ul><p>Source reviewed on {e(record['reviewed_date'])}. This is a source review, not independent verification of the event.</p><div class="bc-citation"><p id="bc-citation-text">{e(citation)}</p><button type="button" data-copy-citation>Copy citation</button><span id="bc-copy-status" role="status"></span></div><a href="{BASE}contribute/?record={p['id']}">Add evidence or suggest a correction →</a></section>
+</div></div></article>"""
+
+
+def lead_rows(records: list[dict]) -> str:
+    rows = []
+    for r in records:
+        urls = " ".join(
+            link(
+                url, "Original source" if "oecd.ai" not in url else "OECD monitor entry"
+            )
+            for url in r["source_urls"]
+        )
+        rows.append(
+            f'<article class="bc-lead" id="lead-{e(r["id"])}" data-lead="{e(r["id"])}" data-group="{e(r["source_group"])}"><h2>{e(r["title"])}</h2><p>{e(r.get("outcome",r.get("description","")))}</p><div class="bc-lead-check"><h3>To establish</h3><p>{e(r.get("verification_task", "Check the original source, outcome, and AI contribution."))}</p></div><div class="bc-lead-links">{urls}<span>{e(GROUPS[r["source_group"]])}</span></div></article>'
+        )
+    return "".join(rows)
+
+
+def queue(leads: dict) -> str:
+    buttons = "".join(
+        f'<button type="button" class="bc-topic-button" data-group="{key}" aria-pressed="false"><span class="bc-topic-name">{label}</span><span class="bc-topic-count">{sum(r["source_group"] == key for r in leads["records"])}</span></button>'
+        for key, label in GROUPS.items()
+    )
+    return f"""<section class="bc-queue"><div class="bc-queue-heading"><h1 class="bc-page-title">Where the research goes next.</h1><p>43 leads from the Gazetteer. The underlying sources and AI contribution still need review.</p></div><div class="bc-queue-layout"><aside class="bc-index"><div class="bc-topic-list"><button type="button" class="bc-topic-button" data-group="" aria-pressed="true"><span class="bc-topic-name">All leads</span><span class="bc-topic-count">43</span></button>{buttons}</div><label class="bc-search" for="bc-lead-search"><span class="bc-sr">Search research leads</span><input type="search" id="bc-lead-search" placeholder="Search research leads" autocomplete="off"></label><p class="bc-index-foot">Lead summaries guide research. They are not additional reviewed benefit records.</p><a class="bc-lead-download" href="{BASE}leads.json" download>Download the research leads ↗</a></aside><div><div class="bc-lead-status"><p id="bc-lead-count" role="status">43 research leads</p><button type="button" id="bc-lead-reset" hidden>Clear filters</button></div><div id="bc-lead-list">{lead_rows(leads['records'])}</div><nav class="bc-pagination" aria-label="Research lead pages" hidden><button type="button" id="bc-previous">Previous</button><span id="bc-page-status"></span><button type="button" id="bc-next">Next</button></nav></div></div></section>"""
+
+
+def contribute(method: dict) -> str:
+    return f"""<article class="bc-contribute"><h1 class="bc-page-title">Bring a benefit into view.</h1><p class="bc-method-intro">{e(method['submission'])}</p><div class="bc-contribute-layout"><section><h2>What makes a useful submission</h2><ul><li>A public report or research paper.</li><li>A specific gain and identifiable beneficiaries.</li><li>The AI system and what people contributed.</li><li>Evidence of follow-up, replication, or a changed interpretation.</li></ul><p>A promising lead is welcome even when the full picture is still emerging.</p></section><section class="bc-contact-panel"><h2>Send a source or correction</h2><p>Submissions go directly to Peter H. Vartanian.</p><a href="{CONTACT}" id="bc-contribute-email">Write an email <span aria-hidden="true">↗</span></a><p class="bc-small">Include a record link when updating an existing case.</p></section></div><section class="bc-method-section"><h2>Use the data</h2><p>{e(method['reuse'])}</p><div class="bc-download-links"><a href="{BASE}records.csv" download>Download CSV</a><a href="{BASE}records.json" download>Download JSON</a></div></section></article>"""
+
+
+def build(root: Path) -> None:
+    root = Path(root)
+    a = root / "ai-benefits"
+    data = json.loads((a / "records.json").read_text())
+    records = data["records"]
+    leads = json.loads((a / "leads.json").read_text())
+    method = json.loads((root / "content/ai-benefits/method.json").read_text())
+    payload = {"records": [presentation(r) for r in records]}
+    pages = [
+        (
+            BASE,
+            "AI Benefits Database",
+            "Explore documented AI benefits through learning, discovery, health, and safety. Inspect evidence and investigate how gains can spread and endure.",
+            "explore",
+            explorer(records, leads),
+            payload,
+        ),
+        (
+            BASE + "compare/",
+            "Compare benefits | AI Benefits Database",
+            "Compare reported AI benefits, beneficiaries, evidence, and conditions in their own terms.",
+            "compare",
+            compare(records),
+            payload,
+        ),
+        (
+            BASE + "method/",
+            "Method | AI Benefits Database",
+            "How the AI Benefits Database documents gains, beneficiaries, evidence, persistence, and reproduction.",
+            "method",
+            method_body(method),
+            None,
+        ),
+        (
+            BASE + "sources/",
+            "Research leads | AI Benefits Database",
+            "43 public-source leads for future research on beneficial AI outcomes, awaiting source and attribution review.",
+            "sources",
+            queue(leads),
+            leads,
+        ),
+        (
+            BASE + "records/",
+            "The collection | AI Benefits Database",
+            "Seven public-source records covering reported episodes and comparative research on beneficial AI.",
+            "directory",
+            directory(records),
+            None,
+        ),
+        (
+            BASE + "contribute/",
+            "Contribute | AI Benefits Database",
+            "Submit public evidence, beneficial AI outcomes, follow-up research, or corrections to the AI Benefits Database.",
+            "contribute",
+            contribute(method),
+            None,
+        ),
+    ]
+    for path, title, description, section, content, page_data in pages:
+        save(
+            root / path.strip("/") / "index.html",
+            shell(root, title, description, path, section, content, page_data),
+        )
+    for record in records:
+        p = presentation(record)
+        save(
+            root / record_path(record).strip("/") / "index.html",
+            shell(
+                root,
+                p["title"] + " | AI Benefits Database",
+                p["outcome"],
+                record_path(record),
+                "record",
+                record_body(record),
+                None,
+                record,
+            ),
+        )
+    output = io.StringIO(newline="")
+    keys = list(dict.fromkeys(key for r in records for key in r))
+    writer = csv.DictWriter(output, fieldnames=keys, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(
+        {
+            key: (
+                json.dumps(value, ensure_ascii=False)
+                if isinstance(value, (list, dict))
+                else value
+            )
+            for key, value in r.items()
+        }
+        for r in records
+    )
+    (a / "records.csv").write_text(output.getvalue())
+    print(
+        f"Built AI Benefits Database: {len(records)} sourced records, {len(leads['records'])} research leads, {len(pages) + len(records)} pages."
+    )
+
+
+if __name__ == "__main__":
+    build(Path(__file__).resolve().parents[1])
