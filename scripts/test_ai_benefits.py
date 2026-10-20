@@ -32,6 +32,8 @@ COLLECTION_PAGES = {
     "index.html",
     "compare/index.html",
     "method/index.html",
+}
+REDIRECT_PAGES = {
     "sources/index.html",
     "records/index.html",
     "contribute/index.html",
@@ -95,6 +97,8 @@ class Page(HTMLParser):
         self.classes = set()
         self.links = set()
         self.canonicals = []
+        self.robots = []
+        self.refreshes = []
         self.attributes = []
         self.text = []
         self.stack = []
@@ -115,6 +119,10 @@ class Page(HTMLParser):
             self.links.add(attrs["href"])
         if tag == "link" and "canonical" in attrs.get("rel", "").split():
             self.canonicals.append(attrs.get("href"))
+        if tag == "meta" and attrs.get("name", "").lower() == "robots":
+            self.robots.append(attrs.get("content", "").lower())
+        if tag == "meta" and attrs.get("http-equiv", "").lower() == "refresh":
+            self.refreshes.append(attrs.get("content", ""))
         if tag == "body":
             self.in_body = True
         suppressed = (
@@ -153,7 +161,6 @@ class DatabaseTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.data = json.loads((DATABASE / "records.json").read_text())
-        cls.leads = json.loads((DATABASE / "leads.json").read_text())
         cls.records = cls.data["records"]
         cls.by_id = {record["id"]: record for record in cls.records}
         cls.pages = {
@@ -195,25 +202,21 @@ class DatabaseTests(unittest.TestCase):
             dict(Counter(r["presentation"]["topic"] for r in self.records)),
         )
 
-    def test_research_leads_remain_separate_and_counted(self) -> None:
-        leads = self.leads["records"]
-        ids = {lead["id"] for lead in leads}
-        self.assertEqual(len(leads), 43)
-        self.assertEqual(len(ids), len(leads))
-        self.assertTrue(ids.isdisjoint(self.by_id))
-        self.assertEqual(self.leads["counts"]["total"], len(leads))
-        self.assertEqual(self.data["counts"]["research_leads"], len(leads))
-        self.assertEqual(
-            self.leads["counts"]["by_source_group"],
-            dict(Counter(lead["source_group"] for lead in leads)),
-        )
-        for lead in leads:
-            with self.subTest(lead=lead["id"]):
-                self.assertEqual(
-                    lead["review_status"],
-                    "relevance_screened_source_verification_pending",
-                )
-                self.assertTrue(lead["verification_task"])
+    def test_retired_research_data_is_absent_from_public_outputs(self) -> None:
+        self.assertFalse((DATABASE / "leads.json").exists())
+        for path, value in walk(self.data):
+            if isinstance(value, dict):
+                self.assertNotIn("research_leads", value, path)
+        forbidden = re.compile(r"research leads?|leads\.json", re.IGNORECASE)
+        for name, page in self.pages.items():
+            with self.subTest(page=name):
+                self.assertNotRegex(page.visible_text, forbidden)
+                self.assertFalse(any("leads.json" in link for link in page.links))
+        files = [DATABASE / name for name in ("records.json", "records.csv", "app.js")]
+        files.extend(DATABASE.glob("records/*/brief.md"))
+        for path in files:
+            with self.subTest(file=str(path.relative_to(DATABASE))):
+                self.assertNotRegex(path.read_text(), forbidden)
 
     def test_records_have_evidence_beneficiaries_and_replication_context(self) -> None:
         required = {
@@ -289,11 +292,6 @@ class DatabaseTests(unittest.TestCase):
                     self.assert_public_http_url(source["url"])
                     urls.add(source["url"])
                 self.assertIn(record["presentation"]["url"], urls)
-        for lead in self.leads["records"]:
-            with self.subTest(lead=lead["id"]):
-                self.assertTrue(lead["source_urls"])
-                for url in lead["source_urls"]:
-                    self.assert_public_http_url(url)
 
     def test_study_measurements_keep_their_denominator_qualifications(self) -> None:
         tutor = self.by_id["harvard-physics-tutor-2023"]["research_data"]
@@ -348,14 +346,65 @@ class DatabaseTests(unittest.TestCase):
         expected = COLLECTION_PAGES | {
             f"records/{record_id}/index.html" for record_id in EXPECTED_RECORDS
         }
-        self.assertEqual(set(self.pages), expected)
+        self.assertEqual(len(expected), 10)
+        self.assertEqual(set(self.pages), expected | REDIRECT_PAGES)
         for relative, page in self.pages.items():
             with self.subTest(page=relative):
-                url = ORIGIN + "/ai-benefits/" + relative.removesuffix("index.html")
-                self.assertEqual(page.canonicals, [url])
+                if relative in REDIRECT_PAGES:
+                    self.assertEqual(page.canonicals, [ORIGIN + "/ai-benefits/"])
+                    self.assertTrue(
+                        any(re.search(r"\bnoindex\b", value) for value in page.robots)
+                    )
+                    self.assertIn("/ai-benefits/", page.links)
+                    self.assertEqual(len(page.refreshes), 1)
+                    self.assertRegex(
+                        page.refreshes[0],
+                        r"(?i)^\s*0\s*;\s*url\s*=\s*/ai-benefits/\s*$",
+                    )
+                else:
+                    url = ORIGIN + "/ai-benefits/" + relative.removesuffix("index.html")
+                    self.assertEqual(page.canonicals, [url])
+                    self.assertFalse(
+                        any(
+                            re.search(r"\b(noindex|none)\b", value)
+                            for value in page.robots
+                        )
+                    )
+
+    def test_public_manifests_exclude_retired_routes_and_data(self) -> None:
+        manifest = json.loads((ROOT / "content/public-pages.json").read_text())
+        expected = {
+            "/ai-benefits/" + relative.removesuffix("index.html")
+            for relative in COLLECTION_PAGES
+        } | {f"/ai-benefits/records/{record_id}/" for record_id in EXPECTED_RECORDS}
+        self.assertEqual({entry["path"] for entry in manifest}, expected)
+        self.assertEqual(len(manifest), len(expected))
+        by_path = {entry["path"]: entry for entry in manifest}
+        for record in self.records:
+            page = by_path[f'/ai-benefits/records/{record["id"]}/']
+            self.assertEqual(page["title"], record["presentation"]["title"])
+            self.assertEqual(page["description"], record["presentation"]["outcome"])
+        allowlist = json.loads((ROOT / "content/public-files.json").read_text())
+        self.assertNotIn("ai-benefits/leads.json", allowlist)
+        for relative in self.pages:
+            self.assertIn("ai-benefits/" + relative, allowlist)
+        for record_id in EXPECTED_RECORDS:
+            self.assertIn(f"ai-benefits/records/{record_id}/brief.md", allowlist)
+        retired_paths = {
+            "/ai-benefits/" + relative.removesuffix("index.html")
+            for relative in REDIRECT_PAGES
+        }
+        for relative, page in self.pages.items():
+            if relative not in REDIRECT_PAGES:
+                with self.subTest(page=relative):
+                    self.assertTrue(
+                        retired_paths.isdisjoint(
+                            urlsplit(link).path for link in page.links
+                        )
+                    )
 
     def test_permalinks_expose_outcomes_evidence_sources_and_replication(self) -> None:
-        directory = self.pages["records/index.html"]
+        directory = self.pages["index.html"]
         for record in self.records:
             with self.subTest(record=record["id"]):
                 path = f'/ai-benefits/records/{record["id"]}/'
@@ -363,7 +412,9 @@ class DatabaseTests(unittest.TestCase):
                 self.assertIn(path, directory.links)
                 page = self.pages[f'records/{record["id"]}/index.html']
                 self.assertTrue(
-                    {"outcome", "evidence", "replication", "sources"}.issubset(page.ids)
+                    {"contributions", "evidence", "replication", "sources"}.issubset(
+                        page.ids
+                    )
                 )
                 for text in (
                     record["observed_outcome"],
@@ -375,9 +426,38 @@ class DatabaseTests(unittest.TestCase):
                 for source in record["sources"]:
                     self.assertIn(source["url"], page.links)
                     self.assertIn(normalized(source["title"]), page.visible_text)
-                for questions in record["presentation"]["questions"].values():
-                    for question in questions:
-                        self.assertIn(normalized(question), page.visible_text)
+                self.assertIn(
+                    normalized(record["presentation"]["conditions"]),
+                    page.visible_text,
+                )
+                self.assertIn(
+                    normalized(record["system_details"]["system_name"]),
+                    page.visible_text,
+                )
+                self.assertIn(
+                    normalized(record["system_details"]["source_note"]),
+                    page.visible_text,
+                )
+
+    def test_evidence_briefs_preserve_outcomes_limits_and_sources(self) -> None:
+        briefs = {
+            str(path.relative_to(DATABASE)) for path in DATABASE.glob("**/brief.md")
+        }
+        self.assertEqual(
+            briefs,
+            {f"records/{record_id}/brief.md" for record_id in EXPECTED_RECORDS},
+        )
+        for record in self.records:
+            with self.subTest(record=record["id"]):
+                relative = f'records/{record["id"]}/brief.md'
+                brief = (DATABASE / relative).read_text()
+                page = self.pages[f'records/{record["id"]}/index.html']
+                self.assertIn("/ai-benefits/" + relative, page.links)
+                for field in ("observed_outcome", "evidence_supports", "limitations"):
+                    self.assertIn(normalized(record[field]), normalized(brief))
+                self.assertIn(record["record_url"], brief)
+                for source in record["sources"]:
+                    self.assertIn(source["url"], brief)
 
     def test_generated_prose_has_no_semicolons_or_centered_dots(self) -> None:
         for name, page in self.pages.items():
@@ -414,9 +494,9 @@ class DatabaseTests(unittest.TestCase):
         paths = [
             DATABASE / "records.json",
             DATABASE / "records.csv",
-            DATABASE / "leads.json",
         ]
         paths.extend(DATABASE / relative for relative in self.pages)
+        paths.extend(DATABASE.glob("records/*/brief.md"))
         for path in paths:
             with self.subTest(file=str(path.relative_to(ROOT))):
                 self.assertNotRegex(path.read_text(), PRIVATE_PATH)

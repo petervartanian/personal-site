@@ -297,11 +297,13 @@ benefit_records = json.loads((ROOT / "ai-benefits/records.json").read_text())["r
 expected_benefit_paths = {
     "/ai-benefits/",
     "/ai-benefits/compare/",
-    "/ai-benefits/records/",
-    "/ai-benefits/sources/",
     "/ai-benefits/method/",
-    "/ai-benefits/contribute/",
 } | {"/ai-benefits/records/" + record["id"] + "/" for record in benefit_records}
+retired_benefit_paths = {
+    "/ai-benefits/sources/",
+    "/ai-benefits/records/",
+    "/ai-benefits/contribute/",
+}
 check(
     {item.get("path") for item in public_projects} == expected_benefit_paths,
     "Public projects must contain only the reviewed AI Benefits Database pages and records",
@@ -354,9 +356,33 @@ check(
     "AI Benefits Database is missing from public discovery",
 )
 check(
-    "/ai-benefits/sources/" in (ROOT / "llms.txt").read_text(),
-    "AI Benefits Database sources are missing from public discovery",
+    not (ROOT / "ai-benefits/leads.json").exists(),
+    "Retired AI Benefits Database research data remains in the public tree",
 )
+discovery_links = set(sitemap_urls) | set(
+    re.findall(r"\]\((https?://[^)]+)\)", (ROOT / "llms.txt").read_text())
+)
+for path in retired_benefit_paths:
+    check(
+        "https://petervartanian.xyz" + path not in discovery_links,
+        f"{path}: retired database route remains in public discovery",
+    )
+    filename = ROOT / path.strip("/") / "index.html"
+    check(filename.is_file(), f"Missing database redirect: {path}")
+    if filename.is_file():
+        redirect = Page(filename)
+        check(
+            redirect.canonical_urls == ["https://petervartanian.xyz/ai-benefits/"],
+            f"{path}: retired database route must canonicalize to the collection",
+        )
+        check(
+            any(re.search(r"\bnoindex\b", value) for value in redirect.robots),
+            f"{path}: retired database route must be noindex",
+        )
+        check(
+            "/ai-benefits/" in redirect.refs,
+            f"{path}: database redirect needs a visible fallback link",
+        )
 if OMPHALOS_PAGE:
     browser = Page(ROOT / "omphalos/index.html")
     check(
