@@ -62,7 +62,8 @@
     let country = ''
     let evidence = ''
     let visible = []
-    const values = () => ({ q: query, topic, country, evidence })
+    let selected = ''
+    const values = () => ({ q: query, topic, country, evidence, case: selected })
     const allowed = (selector, value) => [...$(selector).options].some(option => option.value === value) ? value : ''
     function readURL() {
       const params = new URLSearchParams(location.search)
@@ -70,6 +71,7 @@
       topic = ['learn', 'discover', 'health', 'safety', 'work'].includes(params.get('topic')) ? params.get('topic') : ''
       country = allowed('#bc-country', params.get('country'))
       evidence = allowed('#bc-evidence', params.get('evidence'))
+      selected = byId[params.get('case')] ? params.get('case') : ''
     }
     function render() {
       const terms = query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean)
@@ -81,6 +83,19 @@
         row.hidden = !matches
         if (matches) visible.push(row.dataset.record)
       })
+      if (!visible.includes(selected)) selected = visible[0] || ''
+      $('#bc-feature').hidden = !selected
+      if (selected) {
+        const record = byId[selected]
+        $('#bc-feature').dataset.case = selected
+        $('#bc-feature').dataset.topic = record.topic
+        $('#bc-preview-body').innerHTML = record.preview
+        const position = visible.indexOf(selected)
+        $('#bc-preview-position').textContent = `${position + 1} of ${visible.length}`
+        $('#bc-preview-prev').disabled = position === 0
+        $('#bc-preview-next').disabled = position === visible.length - 1
+      }
+      rows.forEach(row => row.querySelector('[data-pick]').setAttribute('aria-pressed', String(row.dataset.record === selected)))
       $('#bc-search').value = query
       $('#bc-country').value = country
       $('#bc-evidence').value = evidence
@@ -89,6 +104,24 @@
       $('#bc-empty').hidden = visible.length !== 0
       $('#bc-clear').hidden = !query && !topic && !country && !evidence
       $('.bc-downloads').hidden = visible.length === 0
+    }
+    function pick(id) {
+      selected = id
+      render()
+      changeURL(values())
+      announce(byId[id].display.title)
+    }
+    $('#bc-record-list').addEventListener('click', event => {
+      const button = event.target.closest('[data-pick]')
+      if (!button) return
+      pick(button.dataset.pick)
+      $('#bc-feature').scrollIntoView({ block: 'start', behavior: 'instant' })
+    })
+    for (const [id, step] of [['bc-preview-prev', -1], ['bc-preview-next', 1]]) {
+      document.getElementById(id).addEventListener('click', () => {
+        const next = visible[visible.indexOf(selected) + step]
+        if (next) pick(next)
+      })
     }
     $('#bc-search').addEventListener('input', event => {
       query = event.target.value
@@ -111,7 +144,7 @@
       })
     }
     $('#bc-clear').addEventListener('click', () => {
-      query = topic = country = evidence = ''
+      query = topic = country = evidence = selected = ''
       render()
       changeURL({})
       $('#bc-search').focus({ preventScroll: true })
