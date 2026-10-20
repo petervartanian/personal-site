@@ -40,6 +40,7 @@ EVIDENCE = {
 }
 VIEWS = {
     "outcome": "Find an example",
+    "briefing": "Prepare a briefing",
     "contribution": "Check AI’s contribution",
     "application": "Assess a similar use",
 }
@@ -149,6 +150,13 @@ def shell(
     if record:
         structured["citation"] = [source["url"] for source in record["sources"]]
         structured["dateModified"] = record["reviewed_date"]
+    custom_assets = ""
+    if section in {"explore", "compare"}:
+        stamps = {
+            name: sha256((assets / name).read_bytes()).hexdigest()[:12]
+            for name in ("personalize.js", "personalize.css")
+        }
+        custom_assets = f'<link rel="stylesheet" href="{BASE}personalize.css?v={stamps["personalize.css"]}"><script src="{BASE}personalize.js?v={stamps["personalize.js"]}" defer></script>'
     method_style = ""
     if section == "method":
         stamp = sha256((assets / "method.css").read_bytes()).hexdigest()[:12]
@@ -160,7 +168,7 @@ def shell(
 {'<meta name="robots" content="noindex, follow">' if archive else ''}
 <meta name="color-scheme" content="light dark"><meta name="theme-color" content="#FCFCFA" media="(prefers-color-scheme:light)"><meta name="theme-color" content="#1E1E23" media="(prefers-color-scheme:dark)">
 <link rel="canonical" href="{SITE}{path}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="{SITE}{path}"><meta property="og:image" content="{SITE}{BASE}social.png?v={version['social.png']}"><meta property="og:image:alt" content="AI Benefits Database"><meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="{BASE}icon.svg?v={version['icon.svg']}" type="image/svg+xml"><link rel="preload" href="{BASE}archivo-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="{BASE}style.css?v={version['style.css']}"><script src="{BASE}app.js?v={version['app.js']}" defer></script>
+<link rel="icon" href="{BASE}icon.svg?v={version['icon.svg']}" type="image/svg+xml"><link rel="preload" href="{BASE}archivo-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="{BASE}style.css?v={version['style.css']}">{custom_assets}<script src="{BASE}app.js?v={version['app.js']}" defer></script>
 {method_style}
 <script type="application/ld+json">{embedded(structured)}</script>
 </head><body class="benefits-app" data-page="{section}">
@@ -228,6 +236,37 @@ def task_choice() -> str:
     return f'<label class="bc-task-choice" for="bc-view"><span>I want to</span><select id="bc-view">{options}</select></label>'
 
 
+def personal_entry() -> str:
+    return """<form id="bc-profile-form" class="bc-profile" hidden>
+<label for="bc-profile-text" class="bc-profile-label">What brings you here?</label>
+<div class="bc-profile-entry"><textarea id="bc-profile-text" rows="2" maxlength="400" placeholder="I work in education and need to brief a school board." aria-describedby="bc-profile-privacy"></textarea><button type="submit">Make my view</button></div>
+<p class="bc-profile-privacy" id="bc-profile-privacy">Your description stays in this browser.</p></form>"""
+
+
+def field_choices() -> str:
+    fields = [
+        ("system", "System details"),
+        ("duration", "Over time"),
+        ("sources", "Source trail"),
+    ]
+    return (
+        '<fieldset class="bc-field-choice" id="bc-field-choice" hidden><legend>Include</legend>'
+        + "".join(
+            f'<label><input type="checkbox" data-field="{key}">{label}</label>'
+            for key, label in fields
+        )
+        + "</fieldset>"
+    )
+
+
+def personal_controls() -> str:
+    options = '<option value="">All topics equally</option>' + "".join(
+        f'<option value="{key}">{label}</option>' for key, label in TOPICS.items()
+    )
+    return f"""<div class="bc-view-controls">{task_choice()}<button type="button" id="bc-reset-profile" hidden>Reset view</button></div>
+<div id="bc-personal-context" class="bc-personal-context" hidden><div class="bc-priorities"><label>Start with <select id="bc-priority">{options}</select></label><label>Location first <select id="bc-setting"><option value="">Any location</option></select></label></div><p id="bc-profile-status" role="status"></p></div>{field_choices()}"""
+
+
 def preview_body(
     record: dict[str, Any],
     copy: dict[str, Any],
@@ -236,7 +275,10 @@ def preview_body(
 ) -> str:
     p = presentation(record)
     visual_kind = copy["visual"]["kind"]
-    if view == "contribution":
+    if view == "briefing":
+        content = f'<p class="bc-brief-takeaway">{e(copy["synopsis"])}</p><p class="bc-brief-beneficiaries">{e(p["beneficiaries"])}</p>'
+        evidence = ""
+    elif view == "contribution":
         role = views[view]
         content = f'<dl class="bc-role-view"><div><dt>AI</dt><dd>{e(role["ai"])}</dd></div><div><dt>People</dt><dd>{e(role["people"])}</dd></div></dl>'
         evidence = f'<div><dt>Attribution</dt><dd>{e(role["basis"])}</dd></div>'
@@ -332,7 +374,7 @@ def explorer(
 <label for="bc-search" class="bc-search"><span class="bc-sr">Search records</span><input id="bc-search" type="search" placeholder="Search tasks, people, places" maxlength="200" autocomplete="off"></label>
 <div class="bc-refine"><label><span class="bc-sr">Study or event location</span><select id="bc-country"><option value="">All locations</option>{country_options}<option value="unreported">Location unreported</option></select></label><label><span class="bc-sr">Evidence type</span><select id="bc-evidence"><option value="">All evidence</option>{evidence_options}</select></label><button type="button" id="bc-clear" hidden>Clear filters</button></div>
 </aside>
-<div class="bc-explore-body">{task_choice()}<article class="bc-feature" id="bc-feature" data-case="{initial['id']}" data-topic="{initial['presentation']['topic']}"><div id="bc-preview-body">{preview_body(initial,display[initial['id']],views[initial['id']])}</div></article>
+<div class="bc-explore-body">{personal_entry()}{personal_controls()}<article class="bc-feature" id="bc-feature" data-case="{initial['id']}" data-topic="{initial['presentation']['topic']}"><div id="bc-preview-body">{preview_body(initial,display[initial['id']],views[initial['id']])}</div></article>
 <div class="bc-result-status"><h2 id="bc-record-count" role="status">{len(records)} records</h2><button type="button" id="bc-save-view" hidden>Save this view</button></div>
 <div id="bc-record-list">{''.join(rows)}</div><p id="bc-empty" hidden>No records in this collection match these filters.</p>
 <noscript><p>Open a title to read its full record. Search and custom views require JavaScript.</p></noscript></div></section>"""
@@ -381,7 +423,7 @@ def compare(
         f'<article class="bc-feature" data-case="{record["id"]}" data-topic="{record["presentation"]["topic"]}">{preview_body(record, display[record["id"]], views[record["id"]])}</article>'
         for record in chosen_records
     )
-    return f"""<section class="bc-compare"><div class="bc-page-heading"><h1>Compare</h1><button type="button" id="bc-download-comparison" hidden>Save comparison</button></div>{task_choice()}<div class="bc-pickers">{pickers}</div><p id="bc-comparison-reason" class="bc-comparison-reason">{e(comparison_reason(a,b))}</p><div id="bc-comparison" class="bc-comparison-cases">{cases}</div><noscript><p>This comparison is fixed. Changing records requires JavaScript.</p></noscript></section>"""
+    return f"""<section class="bc-compare"><div class="bc-page-heading"><h1>Compare</h1><button type="button" id="bc-download-comparison" hidden>Save comparison</button></div>{task_choice()}{field_choices()}<div class="bc-pickers">{pickers}</div><p id="bc-comparison-reason" class="bc-comparison-reason">{e(comparison_reason(a,b))}</p><div id="bc-comparison" class="bc-comparison-cases">{cases}</div><noscript><p>This comparison is fixed. Changing records requires JavaScript.</p></noscript></section>"""
 
 
 def additional_duration(record: dict[str, Any]) -> str:
