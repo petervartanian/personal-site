@@ -7,6 +7,7 @@ Run with ``python3 scripts/test_ai_benefits.py``.
 from collections import Counter
 from collections.abc import Iterator
 import csv
+import hashlib
 from html.parser import HTMLParser
 import ipaddress
 import json
@@ -27,6 +28,18 @@ EXPECTED_RECORDS = {
     "sussex-stroke-treatment-2021": "AI-B-005",
     "harvard-physics-tutor-2023": "AI-B-006",
     "ithaca-historians-2022": "AI-B-007",
+    "customer-support-assistant-2020": "AI-B-008",
+    "professional-writing-chatgpt-2023": "AI-B-009",
+    "copilot-http-server-2022": "AI-B-010",
+}
+PUBLISHED_BASELINE_VERSIONS = {
+    "frnsw-hiker-rescue-2026": "954b08f682fc",
+    "grass-valley-fire-alert-2023": "d433cff3724c",
+    "create-case-1-lung-cancer": "9ddac75eb21d",
+    "royal-surrey-lung-cancer-triage": "7359836dc539",
+    "sussex-stroke-treatment-2021": "15727ce3d91e",
+    "harvard-physics-tutor-2023": "c89d2d03bc1b",
+    "ithaca-historians-2022": "ed703072d058",
 }
 COLLECTION_PAGES = {
     "index.html",
@@ -163,6 +176,14 @@ class DatabaseTests(unittest.TestCase):
         cls.data = json.loads((DATABASE / "records.json").read_text())
         cls.records = cls.data["records"]
         cls.by_id = {record["id"]: record for record in cls.records}
+        cls.history = json.loads(
+            (ROOT / "content/ai-benefits/history.json").read_text()
+        )
+        cls.archives = {
+            f"records/{record_id}/versions/{snapshot['key']}/index.html": snapshot
+            for record_id, snapshots in cls.history.items()
+            for snapshot in snapshots
+        }
         cls.pages = {
             str(path.relative_to(DATABASE)): Page(path.read_text())
             for path in DATABASE.rglob("*.html")
@@ -188,13 +209,13 @@ class DatabaseTests(unittest.TestCase):
 
     def test_record_identities_and_counts(self) -> None:
         self.assertEqual(self.data["schema_version"], "2.0")
-        self.assertEqual(len(self.records), 7)
+        self.assertEqual(len(self.records), 10)
         self.assertEqual(
             {r["id"]: r["record_number"] for r in self.records}, EXPECTED_RECORDS
         )
         self.assertEqual(len(self.by_id), len(self.records))
         types = Counter(r["record_type"] for r in self.records)
-        self.assertEqual(types, {"individual_event": 5, "study_result": 2})
+        self.assertEqual(types, {"individual_event": 5, "study_result": 5})
         self.assertEqual(self.data["counts"]["total"], len(self.records))
         self.assertEqual(self.data["counts"]["by_record_type"], dict(types))
         self.assertEqual(
@@ -212,8 +233,9 @@ class DatabaseTests(unittest.TestCase):
             with self.subTest(page=name):
                 self.assertNotRegex(page.visible_text, forbidden)
                 self.assertFalse(any("leads.json" in link for link in page.links))
-        files = [DATABASE / name for name in ("records.json", "records.csv", "app.js")]
-        files.extend(DATABASE.glob("records/*/brief.md"))
+        files = [DATABASE / name for name in ("records.csv", "app.js")]
+        files.extend(DATABASE.rglob("*.json"))
+        files.extend(DATABASE.rglob("brief.md"))
         for path in files:
             with self.subTest(file=str(path.relative_to(DATABASE))):
                 self.assertNotRegex(path.read_text(), forbidden)
@@ -230,6 +252,8 @@ class DatabaseTests(unittest.TestCase):
             "benefit_profile",
             "presentation",
             "system_details",
+            "evidence_details",
+            "revision",
         }
         for record in self.records:
             with self.subTest(record=record["id"]):
@@ -248,7 +272,14 @@ class DatabaseTests(unittest.TestCase):
                 ):
                     self.assertTrue(p[field], field)
                 self.assertEqual(set(p["questions"]), {"elsewhere", "more", "longer"})
-                self.assertTrue(all(p["questions"].values()))
+                for questions in p["questions"].values():
+                    self.assertIsInstance(questions, list)
+                    self.assertTrue(
+                        all(
+                            isinstance(question, str) and question.strip()
+                            for question in questions
+                        )
+                    )
                 self.assertEqual(record["benefit_profile"]["gain"], p["outcome"])
                 self.assertEqual(
                     record["benefit_profile"]["replication"]["questions"],
@@ -288,10 +319,225 @@ class DatabaseTests(unittest.TestCase):
                 urls = set()
                 for source in record["sources"]:
                     self.assertTrue(source["title"])
-                    self.assertTrue(source["published"])
+                    self.assertTrue(
+                        source["published"] is None
+                        or isinstance(source["published"], str)
+                        and source["published"].strip()
+                    )
                     self.assert_public_http_url(source["url"])
                     urls.add(source["url"])
                 self.assertIn(record["presentation"]["url"], urls)
+
+    def test_evidence_details_have_supported_context_and_traceable_claims(self) -> None:
+        expected_countries = {
+            "frnsw-hiker-rescue-2026": ["AU"],
+            "grass-valley-fire-alert-2023": ["US"],
+            "create-case-1-lung-cancer": [],
+            "royal-surrey-lung-cancer-triage": ["GB"],
+            "sussex-stroke-treatment-2021": ["GB"],
+            "harvard-physics-tutor-2023": ["US"],
+            "ithaca-historians-2022": [],
+            "customer-support-assistant-2020": ["PH", "US"],
+            "professional-writing-chatgpt-2023": [],
+            "copilot-http-server-2022": ["IN", "PK"],
+        }
+        for record in self.records:
+            with self.subTest(record=record["id"]):
+                evidence = record["evidence_details"]
+                for field in (
+                    "application",
+                    "geography_note",
+                    "source_checks",
+                    "documented_conditions",
+                    "transfer_limit",
+                ):
+                    self.assertTrue(evidence[field], field)
+                expected_category = (
+                    "comparative_study"
+                    if record["record_type"] == "study_result"
+                    else "reported_outcome"
+                )
+                self.assertEqual(evidence["evidence_category"], expected_category)
+                countries = evidence["countries"]
+                self.assertIsInstance(countries, list)
+                self.assertEqual(len(countries), len(set(countries)))
+                for country in countries:
+                    self.assertIn(country, {"AU", "GB", "IN", "PK", "PH", "US"})
+                if record["id"] in expected_countries:
+                    self.assertEqual(countries, expected_countries[record["id"]])
+                for check in evidence["source_checks"]:
+                    self.assertTrue(check["claim"].strip())
+                    self.assertTrue(check["locator"].strip())
+                    index = check["source_index"]
+                    self.assertIs(type(index), int)
+                    self.assertGreaterEqual(index, 0)
+                    self.assertLess(index, len(record["sources"]))
+                for condition in evidence["documented_conditions"]:
+                    self.assertTrue(condition.strip())
+                related_ids = []
+                for relation in evidence["related"]:
+                    self.assertIn(relation["id"], self.by_id)
+                    self.assertNotEqual(relation["id"], record["id"])
+                    self.assertTrue(relation["reason"].strip())
+                    self.assertTrue(relation["caution"].strip())
+                    related_ids.append(relation["id"])
+                self.assertEqual(len(related_ids), len(set(related_ids)))
+
+    def test_current_records_preserve_comparators_and_source_locators(self) -> None:
+        for record in self.records:
+            with self.subTest(record=record["id"]):
+                page = self.pages[f'records/{record["id"]}/index.html']
+                brief = (DATABASE / f'records/{record["id"]}/brief.md').read_text()
+                evidence = record["evidence_details"]
+                required = [
+                    record["benefit_profile"]["comparison"],
+                    evidence["application"],
+                    evidence["geography_note"],
+                    evidence["transfer_limit"],
+                    *evidence["documented_conditions"],
+                ]
+                required.extend(check["locator"] for check in evidence["source_checks"])
+                for text in required:
+                    self.assertTrue(text)
+                    self.assertIn(normalized(text), page.visible_text)
+                    self.assertIn(normalized(text), normalized(brief))
+                for relation in evidence["related"]:
+                    self.assertIn(f'/ai-benefits/records/{relation["id"]}/', page.links)
+                    self.assertIn(normalized(relation["reason"]), page.visible_text)
+                    self.assertIn(normalized(relation["caution"]), page.visible_text)
+
+    def test_current_record_versions_are_recoverable_and_content_addressed(
+        self,
+    ) -> None:
+        for record in self.records:
+            with self.subTest(record=record["id"]):
+                revision = record["revision"]
+                content = {
+                    key: value for key, value in record.items() if key != "revision"
+                }
+                digest = hashlib.sha256(
+                    json.dumps(
+                        content,
+                        ensure_ascii=False,
+                        sort_keys=True,
+                        separators=(",", ":"),
+                    ).encode()
+                ).hexdigest()[:12]
+                self.assertEqual(revision["key"], digest)
+                self.assertRegex(revision["date"], r"^\d{4}-\d{2}-\d{2}$")
+                self.assertTrue(revision["note"].strip())
+                relative = f'records/{record["id"]}/versions/{digest}/'
+                self.assertEqual(revision["url"], ORIGIN + "/ai-benefits/" + relative)
+                self.assertTrue((DATABASE / relative / "record.json").is_file())
+                saved = json.loads((DATABASE / relative / "record.json").read_text())
+                self.assertEqual(saved, content)
+                self.assertIn(relative + "index.html", self.pages)
+                current = self.pages[f'records/{record["id"]}/index.html']
+                self.assertTrue(
+                    any(
+                        urlsplit(link).path == "/ai-benefits/" + relative
+                        for link in current.links
+                    )
+                )
+                brief = (DATABASE / f'records/{record["id"]}/brief.md').read_text()
+                self.assertIn(revision["url"], brief)
+
+    def test_every_history_entry_has_a_matching_recoverable_snapshot(self) -> None:
+        self.assertEqual(set(self.history), set(self.by_id))
+        for record_id, snapshots in self.history.items():
+            self.assertTrue(snapshots, record_id)
+            self.assertEqual(
+                len(snapshots), len({snapshot["key"] for snapshot in snapshots})
+            )
+            self.assertEqual(
+                snapshots[-1]["key"], self.by_id[record_id]["revision"]["key"]
+            )
+            for snapshot in snapshots:
+                with self.subTest(record=record_id, version=snapshot["key"]):
+                    self.assertEqual(snapshot["record"]["id"], record_id)
+                    relative = f"records/{record_id}/versions/{snapshot['key']}/"
+                    saved = json.loads(
+                        (DATABASE / relative / "record.json").read_text()
+                    )
+                    self.assertEqual(saved, snapshot["record"])
+                    digest = hashlib.sha256(
+                        json.dumps(
+                            saved,
+                            ensure_ascii=False,
+                            sort_keys=True,
+                            separators=(",", ":"),
+                        ).encode()
+                    ).hexdigest()[:12]
+                    self.assertEqual(digest, snapshot["key"])
+                    page = self.pages[relative + "index.html"]
+                    self.assertIn("Archived version", page.visible_text)
+                    self.assertIn(normalized(snapshot["note"]), page.visible_text)
+                    self.assertIn(f"/ai-benefits/records/{record_id}/", page.links)
+                    self.assertIn("record.json", page.links)
+                    self.assertNotIn(
+                        f"/ai-benefits/records/{record_id}/brief.md", page.links
+                    )
+
+    def test_collection_brief_preserves_all_records_and_evidence_limits(self) -> None:
+        brief = (DATABASE / "brief.md").read_text()
+        self.assertIn("/ai-benefits/brief.md", self.pages["index.html"].links)
+        for record in self.records:
+            with self.subTest(record=record["id"]):
+                for text in (
+                    record["record_number"],
+                    record["observed_outcome"],
+                    record["benefit_profile"]["comparison"],
+                    record["limitations"],
+                    record["revision"]["url"],
+                ):
+                    self.assertIn(normalized(text), normalized(brief))
+
+    def test_published_baseline_versions_cannot_be_silently_rewritten(self) -> None:
+        for record_id, key in PUBLISHED_BASELINE_VERSIONS.items():
+            with self.subTest(record=record_id):
+                path = (
+                    DATABASE / "records" / record_id / "versions" / key / "record.json"
+                )
+                snapshot = json.loads(path.read_text())
+                content = {
+                    field: value
+                    for field, value in snapshot.items()
+                    if field != "revision"
+                }
+                digest = hashlib.sha256(
+                    json.dumps(
+                        content,
+                        ensure_ascii=False,
+                        sort_keys=True,
+                        separators=(",", ":"),
+                    ).encode()
+                ).hexdigest()[:12]
+                self.assertEqual(digest, key)
+                self.assertEqual(snapshot["id"], record_id)
+                page = self.pages[f"records/{record_id}/versions/{key}/index.html"]
+                self.assertIn(
+                    normalized(snapshot["observed_outcome"]), page.visible_text
+                )
+                self.assertIn(normalized(snapshot["limitations"]), page.visible_text)
+
+    def test_comparison_keeps_each_selected_baseline_and_qualification(self) -> None:
+        page = self.pages["compare/index.html"]
+        selected = [
+            attrs["value"]
+            for attrs in page.attributes
+            if "selected" in attrs and attrs.get("value") in self.by_id
+        ]
+        self.assertEqual(len(selected), 2)
+        self.assertEqual(len(set(selected)), 2)
+        for record_id in selected:
+            with self.subTest(record=record_id):
+                record = self.by_id[record_id]
+                for text in (
+                    record["benefit_profile"]["comparison"],
+                    record["presentation"]["limits"],
+                    record["evidence_details"]["transfer_limit"],
+                ):
+                    self.assertIn(normalized(text), page.visible_text)
 
     def test_study_measurements_keep_their_denominator_qualifications(self) -> None:
         tutor = self.by_id["harvard-physics-tutor-2023"]["research_data"]
@@ -346,8 +592,10 @@ class DatabaseTests(unittest.TestCase):
         expected = COLLECTION_PAGES | {
             f"records/{record_id}/index.html" for record_id in EXPECTED_RECORDS
         }
-        self.assertEqual(len(expected), 10)
-        self.assertEqual(set(self.pages), expected | REDIRECT_PAGES)
+        self.assertEqual(len(expected), 13)
+        self.assertEqual(
+            set(self.pages), expected | REDIRECT_PAGES | set(self.archives)
+        )
         for relative, page in self.pages.items():
             with self.subTest(page=relative):
                 if relative in REDIRECT_PAGES:
@@ -361,6 +609,13 @@ class DatabaseTests(unittest.TestCase):
                         page.refreshes[0],
                         r"(?i)^\s*0\s*;\s*url\s*=\s*/ai-benefits/\s*$",
                     )
+                elif relative in self.archives:
+                    url = ORIGIN + "/ai-benefits/" + relative.removesuffix("index.html")
+                    self.assertEqual(page.canonicals, [url])
+                    self.assertTrue(
+                        any(re.search(r"\bnoindex\b", value) for value in page.robots)
+                    )
+                    self.assertFalse(page.refreshes)
                 else:
                     url = ORIGIN + "/ai-benefits/" + relative.removesuffix("index.html")
                     self.assertEqual(page.canonicals, [url])
@@ -390,6 +645,18 @@ class DatabaseTests(unittest.TestCase):
             self.assertIn("ai-benefits/" + relative, allowlist)
         for record_id in EXPECTED_RECORDS:
             self.assertIn(f"ai-benefits/records/{record_id}/brief.md", allowlist)
+        self.assertIn("ai-benefits/brief.md", allowlist)
+        self.assertIn("content/ai-benefits/history.json", allowlist)
+        for relative in self.archives:
+            self.assertIn(
+                "ai-benefits/" + relative.replace("index.html", "record.json"),
+                allowlist,
+            )
+        discovery = (ROOT / "sitemap.xml").read_text() + (ROOT / "llms.txt").read_text()
+        for relative in self.archives:
+            self.assertNotIn(
+                "/ai-benefits/" + relative.removesuffix("index.html"), discovery
+            )
         retired_paths = {
             "/ai-benefits/" + relative.removesuffix("index.html")
             for relative in REDIRECT_PAGES
@@ -427,10 +694,6 @@ class DatabaseTests(unittest.TestCase):
                     self.assertIn(source["url"], page.links)
                     self.assertIn(normalized(source["title"]), page.visible_text)
                 self.assertIn(
-                    normalized(record["presentation"]["conditions"]),
-                    page.visible_text,
-                )
-                self.assertIn(
                     normalized(record["system_details"]["system_name"]),
                     page.visible_text,
                 )
@@ -445,7 +708,8 @@ class DatabaseTests(unittest.TestCase):
         }
         self.assertEqual(
             briefs,
-            {f"records/{record_id}/brief.md" for record_id in EXPECTED_RECORDS},
+            {f"records/{record_id}/brief.md" for record_id in EXPECTED_RECORDS}
+            | {"brief.md"},
         )
         for record in self.records:
             with self.subTest(record=record["id"]):
@@ -491,12 +755,10 @@ class DatabaseTests(unittest.TestCase):
                 self.assertTrue(obsolete.isdisjoint(value), path)
 
     def test_public_outputs_have_no_local_or_private_paths(self) -> None:
-        paths = [
-            DATABASE / "records.json",
-            DATABASE / "records.csv",
-        ]
+        paths = [DATABASE / "records.csv", ROOT / "content/ai-benefits/history.json"]
+        paths.extend(DATABASE.rglob("*.json"))
         paths.extend(DATABASE / relative for relative in self.pages)
-        paths.extend(DATABASE.glob("records/*/brief.md"))
+        paths.extend(DATABASE.rglob("brief.md"))
         for path in paths:
             with self.subTest(file=str(path.relative_to(ROOT))):
                 self.assertNotRegex(path.read_text(), PRIVATE_PATH)

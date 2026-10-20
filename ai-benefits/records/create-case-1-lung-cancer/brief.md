@@ -1,16 +1,25 @@
 # Incidental lung cancer diagnosed and treated
 
-Turkey / India multicenter study. April 2023–December 2024 study period.
+CREATE multicenter study, case location unreported. April 2023–December 2024 study period.
 
 AI Benefits Database, AI-B-003
-Reviewed 2026-10-19
-Permanent record: https://petervartanian.xyz/ai-benefits/records/create-case-1-lung-cancer/
+Source review 2026-10-19
+Current record: https://petervartanian.xyz/ai-benefits/records/create-case-1-lung-cancer/
+Cited version: https://petervartanian.xyz/ai-benefits/records/create-case-1-lung-cancer/versions/94d5f303d98b/
+
+## Task and setting
+
+Finding incidental lung nodules. Multicenter CREATE study. The report does not identify Case 1's center or country.
 
 ## Outcome
 
 A 57-year-old man received a stage IB lung adenocarcinoma diagnosis and underwent right upper lobectomy.
 
 One 57-year-old patient, identified as Case 1 in the published case series.
+
+## Compared with
+
+No usual-care or untreated comparator establishes the incremental benefit of AI.
 
 ## Evidence
 
@@ -32,14 +41,20 @@ False flags can trigger unnecessary investigations. Accuracy and net benefit can
 
 **Timing:** Study period. Individual episode dates are unreported.
 
-## Replication
+## Conditions
 
-Clinician review, confirmatory tests, and treatment referral are candidate conditions to test.
+- The chest X-ray preceded planned anti-TNF treatment for ulcerative colitis.
+- A radiologist or pulmonologist reviewed the AI finding.
+- Further imaging, tissue diagnosis, and thoracic surgery were available.
+
+This selected patient pathway establishes no detection yield, survival improvement, or benefit in a different clinical service.
 
 ## Sources
 
 - [Koksal et al., Cureus (2026)](https://pmc.ncbi.nlm.nih.gov/articles/PMC13058629/)
+  - Case 1 progressed from an AI-flagged nodule to stage IB adenocarcinoma diagnosis and lobectomy. Locator: Table 1, Case 1, PDF page 2.
+  - Clinicians reviewed high-risk flags and decided whether additional imaging was warranted. Locator: Case Presentation, opening paragraph, PDF pages 1–2.
 
 ## Citation
 
-Peter H. Vartanian. AI Benefits Database, AI-B-003: Incidental lung cancer diagnosed and treated. Reviewed 2026-10-19. https://petervartanian.xyz/ai-benefits/records/create-case-1-lung-cancer/
+Peter H. Vartanian. AI Benefits Database, AI-B-003: Incidental lung cancer diagnosed and treated. Version 94d5f303d98b, 2026-10-19. https://petervartanian.xyz/ai-benefits/records/create-case-1-lung-cancer/versions/94d5f303d98b/

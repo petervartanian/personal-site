@@ -3,14 +3,23 @@
 Ancient Greek inscriptions. Published March 2022.
 
 AI Benefits Database, AI-B-007
-Reviewed 2026-10-19
-Permanent record: https://petervartanian.xyz/ai-benefits/records/ithaca-historians-2022/
+Source review 2026-10-19
+Current record: https://petervartanian.xyz/ai-benefits/records/ithaca-historians-2022/
+Cited version: https://petervartanian.xyz/ai-benefits/records/ithaca-historians-2022/versions/dbe9a5274e48/
+
+## Task and setting
+
+Restoring ancient Greek text. Texts from the ancient Mediterranean. The evaluators’ location is unreported.
 
 ## Outcome
 
 On masked known text, historians’ top-choice reconstruction accuracy was 71.7% with Ithaca, compared with 25.3% unaided.
 
 The human evaluation involved two graduate specialists in Greek history and epigraphy. Wider benefits to scholarship or the public were not measured.
+
+## Compared with
+
+Known masked text was reconstructed by historians with and without Ithaca.
 
 ## Evidence
 
@@ -32,14 +41,21 @@ Incorrect reconstructions and uneven corpus coverage are considerations for futu
 
 **Timing:** Evaluation dates unreported.
 
-## Replication
+## Conditions
 
-Digitized corpora, expert interpretation, and contextual checks are candidate conditions to test.
+- Evaluators had seven years of historical and linguistic training.
+- Known text provided a reference against which to check reconstructions.
+- Historians considered ranked suggestions alongside searchable textual parallels.
+
+This controlled restoration task establishes no accuracy for genuinely unknown text, other languages, or different groups of historians.
 
 ## Sources
 
-- [Restoring and attributing ancient texts using deep neural networks](https://pmc.ncbi.nlm.nih.gov/articles/PMC8907065/)
+- [Restoring and attributing ancient texts using deep neural networks](https://www.nature.com/articles/s41586-022-04448-z)
+  - Top-choice accuracy was 71.7% with Ithaca and 25.3% unaided. Locator: Table 1, restoration Top 1 column, ancient historian rows.
+  - The evaluation hid 1–10 known characters and supplied 20 ranked suggestions. Locator: Experimental evaluation, first three paragraphs.
+  - Two graduate specialists could search the training corpus for textual parallels. Locator: Methods, Ancient historian baseline.
 
 ## Citation
 
-Peter H. Vartanian. AI Benefits Database, AI-B-007: Historians reconstructed text more accurately. Reviewed 2026-10-19. https://petervartanian.xyz/ai-benefits/records/ithaca-historians-2022/
+Peter H. Vartanian. AI Benefits Database, AI-B-007: Historians reconstructed text more accurately. Version dbe9a5274e48, 2026-10-19. https://petervartanian.xyz/ai-benefits/records/ithaca-historians-2022/versions/dbe9a5274e48/

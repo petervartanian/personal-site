@@ -3,14 +3,23 @@
 Near Jindabyne, Australia. Reported June 2026.
 
 AI Benefits Database, AI-B-001
-Reviewed 2026-10-19
-Permanent record: https://petervartanian.xyz/ai-benefits/records/frnsw-hiker-rescue-2026/
+Source review 2026-10-19
+Current record: https://petervartanian.xyz/ai-benefits/records/frnsw-hiker-rescue-2026/
+Cited version: https://petervartanian.xyz/ai-benefits/records/frnsw-hiker-rescue-2026/versions/394f88b9e76a/
+
+## Task and setting
+
+Locating missing hikers. Dead Horse Gap walking track, New South Wales, Australia.
 
 ## Outcome
 
 Both hikers were located and guided to safety.
 
 The two hikers are the reported direct beneficiaries. Rescuers are contributing practitioners. A separate benefit to their workload or safety is not established.
+
+## Compared with
+
+No comparison with a search without AI is reported.
 
 ## Evidence
 
@@ -32,14 +41,20 @@ No adverse effects are reported. Costs, surveillance implications, and false det
 
 **Timing:** Reported overdue June 23, 2026. Exact rescue date unreported. Official account published June 25, 2026.
 
-## Replication
+## Conditions
 
-Trained operators, imaging, confirmation, and ground-team coordination are candidate conditions to test.
+- A trained drone operator conducted an aerial grid search as darkness fell.
+- Thermal imaging checked the detection while the hikers signaled with a phone light.
+- The drone spotlight directed Police and State Emergency Service ground teams.
+
+One coordinated rescue is documented, without a comparison that establishes effectiveness in other terrain or weather.
 
 ## Sources
 
 - [Fire and Rescue NSW drone team locates missing hikers using AI technology](https://www.fire.nsw.gov.au/media/news/2026/20260625-fire-and-rescue-nsw-drone-team-locates-missing-hikers-using-ai-technology)
+  - AI detection, thermal confirmation, and ground rescue are described separately. Locator: News account, paragraphs on the aerial grid search, thermal camera, phone light, and spotlight.
+  - Both hikers were guided to safety. Locator: News account, final narrative paragraph before Commander John Marzol's comments.
 
 ## Citation
 
-Peter H. Vartanian. AI Benefits Database, AI-B-001: Two hikers found and guided to safety. Reviewed 2026-10-19. https://petervartanian.xyz/ai-benefits/records/frnsw-hiker-rescue-2026/
+Peter H. Vartanian. AI Benefits Database, AI-B-001: Two hikers found and guided to safety. Version 394f88b9e76a, 2026-10-19. https://petervartanian.xyz/ai-benefits/records/frnsw-hiker-rescue-2026/versions/394f88b9e76a/

@@ -3,14 +3,23 @@
 Brighton, United Kingdom. Stroke on June 7, 2021.
 
 AI Benefits Database, AI-B-005
-Reviewed 2026-10-19
-Permanent record: https://petervartanian.xyz/ai-benefits/records/sussex-stroke-treatment-2021/
+Source review 2026-10-19
+Current record: https://petervartanian.xyz/ai-benefits/records/sussex-stroke-treatment-2021/
+Cited version: https://petervartanian.xyz/ai-benefits/records/sussex-stroke-treatment-2021/versions/53910d9a9d6a/
+
+## Task and setting
+
+Supporting stroke imaging decisions. Royal Sussex County Hospital, Brighton, England, United Kingdom.
 
 ## Outcome
 
 Carol Wilson underwent clot-removal surgery, returned home within two days, and reported resuming work, exercise, and childcare.
 
 One patient, Carol Wilson, whose recovery is described in the hospital's public account.
+
+## Compared with
+
+No comparator separates AI’s contribution from emergency response, surgery, and other care.
 
 ## Evidence
 
@@ -32,14 +41,20 @@ No case-specific AI harms are reported. Missed alerts, false flags, and resource
 
 **Timing:** Stroke occurred on June 7, 2021.
 
-## Replication
+## Conditions
 
-Emergency assessment, connected stroke teams, and thrombectomy access are candidate conditions to test.
+- The regional network used Brainomix software and a mobile app for scan sharing.
+- Carol received emergency transport, brain imaging, and thrombectomy at Brighton.
+- The hospital presented her care as an example of the pathway.
+
+Her recovery is reported, but case-specific AI timings and its contribution relative to other care are unmeasured.
 
 ## Sources
 
 - [East Sussex Healthcare NHS Trust (2021)](https://www.esht.nhs.uk/2021/09/07/cutting-edge-technology-benefits-stroke-patients/)
+  - Carol Wilson reports thrombectomy, discharge within two days, and return to usual activities. Locator: News account, Carol Wilson's account in the final four paragraphs.
+  - The regional pathway shared scans to support decisions about treatment and hospital transfer. Locator: Opening pathway description and the explanation of links to Brighton's thrombectomy center.
 
 ## Citation
 
-Peter H. Vartanian. AI Benefits Database, AI-B-005: Back to work, exercise, and family life. Reviewed 2026-10-19. https://petervartanian.xyz/ai-benefits/records/sussex-stroke-treatment-2021/
+Peter H. Vartanian. AI Benefits Database, AI-B-005: Back to work, exercise, and family life. Version 53910d9a9d6a, 2026-10-19. https://petervartanian.xyz/ai-benefits/records/sussex-stroke-treatment-2021/versions/53910d9a9d6a/
