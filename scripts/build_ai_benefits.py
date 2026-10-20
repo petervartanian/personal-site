@@ -12,6 +12,11 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import quote
 
+try:
+    from .benefits_method import method_body
+except ImportError:
+    from benefits_method import method_body
+
 BASE = "/ai-benefits/"
 SITE = "https://petervartanian.xyz"
 TOPICS = {
@@ -33,7 +38,11 @@ EVIDENCE = {
     "comparative_study": "Comparative studies",
     "reported_outcome": "Reported outcomes",
 }
-CONTACT = "mailto:peter.vartanian@icloud.com?subject=AI%20Benefits%20Database"
+VIEWS = {
+    "outcome": "Find an example",
+    "contribution": "Check AI’s contribution",
+    "application": "Assess a similar use",
+}
 
 
 def e(value: Any) -> str:
@@ -140,15 +149,10 @@ def shell(
     if record:
         structured["citation"] = [source["url"] for source in record["sources"]]
         structured["dateModified"] = record["reviewed_date"]
-    email = (
-        CONTACT
-        if record is None
-        else CONTACT
-        + "%20"
-        + quote(record["record_number"])
-        + "&body="
-        + quote(record["record_url"] + "\n\n")
-    )
+    method_style = ""
+    if section == "method":
+        stamp = sha256((assets / "method.css").read_bytes()).hexdigest()[:12]
+        method_style = f'<link rel="stylesheet" href="{BASE}method.css?v={stamp}">'
     return f"""<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -157,12 +161,12 @@ def shell(
 <meta name="color-scheme" content="light dark"><meta name="theme-color" content="#FCFCFA" media="(prefers-color-scheme:light)"><meta name="theme-color" content="#1E1E23" media="(prefers-color-scheme:dark)">
 <link rel="canonical" href="{SITE}{path}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="{SITE}{path}"><meta property="og:image" content="{SITE}{BASE}social.png?v={version['social.png']}"><meta property="og:image:alt" content="AI Benefits Database"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{BASE}icon.svg?v={version['icon.svg']}" type="image/svg+xml"><link rel="preload" href="{BASE}archivo-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="{BASE}style.css?v={version['style.css']}"><script src="{BASE}app.js?v={version['app.js']}" defer></script>
+{method_style}
 <script type="application/ld+json">{embedded(structured)}</script>
 </head><body class="benefits-app" data-page="{section}">
 <a class="bc-skip" href="#main">Skip to content</a>
 <header class="bc-header"><{brand_tag} class="bc-brand"><a href="{BASE}">AI Benefits Database</a></{brand_tag}><nav class="bc-nav" aria-label="Main navigation">{nav}</nav></header>
 <main id="main">{content}</main>
-<footer class="bc-footer"><a href="/">Peter H. Vartanian</a><nav aria-label="Data and contributions"><a href="{BASE}records.csv" download>All CSV</a><a href="{BASE}records.json" download>All JSON</a><a href="{e(email)}">{'Suggest a correction' if record else 'Suggest a record'}</a></nav></footer>
 <div id="bc-announcement" class="bc-sr" role="status" aria-live="polite"></div>
 {f'<script type="application/json" id="bc-data">{embedded(payload)}</script>' if payload is not None else ''}
 </body></html>"""
@@ -217,24 +221,56 @@ def evidence_visual(copy: dict[str, Any]) -> str:
     )
 
 
-def preview_body(record: dict[str, Any], copy: dict[str, Any]) -> str:
+def task_choice() -> str:
+    options = "".join(
+        f'<option value="{key}">{e(label)}</option>' for key, label in VIEWS.items()
+    )
+    return f'<label class="bc-task-choice" for="bc-view"><span>I want to</span><select id="bc-view">{options}</select></label>'
+
+
+def preview_body(
+    record: dict[str, Any],
+    copy: dict[str, Any],
+    views: dict[str, Any],
+    view: str = "outcome",
+) -> str:
     p = presentation(record)
     visual_kind = copy["visual"]["kind"]
-    synopsis = (
-        ""
-        if visual_kind in {"sequence", "bars"}
-        else f'<p class="bc-synopsis">{e(copy["synopsis"])}</p>'
-    )
+    if view == "contribution":
+        role = views[view]
+        content = f'<dl class="bc-role-view"><div><dt>AI</dt><dd>{e(role["ai"])}</dd></div><div><dt>People</dt><dd>{e(role["people"])}</dd></div></dl>'
+        evidence = f'<div><dt>Attribution</dt><dd>{e(role["basis"])}</dd></div>'
+    elif view == "application":
+        use = views[view]
+        conditions = "".join(f"<li>{e(item)}</li>" for item in use["conditions"])
+        content = f'<p class="bc-view-setting">{e(use["setting"])}</p><h3 class="bc-conditions-title">Documented conditions</h3><ul class="bc-use-conditions">{conditions}</ul>'
+        evidence = f'<div><dt>Transfer</dt><dd>{e(use["limit"])}</dd></div>'
+    else:
+        synopsis = (
+            ""
+            if visual_kind in {"sequence", "bars"}
+            else f'<p class="bc-synopsis">{e(copy["synopsis"])}</p>'
+        )
+        content = evidence_visual(copy) + synopsis
+        evidence = ""
+    if view != "outcome" and visual_kind != "sequence":
+        content = (
+            f'<p class="bc-view-result"><strong>{e(copy["result"])}</strong><span>{e(copy["result_label"])}</span></p>'
+            + content
+        )
     comparison = (
         ""
-        if visual_kind in {"bars", "timeline"}
+        if view == "outcome" and visual_kind in {"bars", "timeline"}
         else f'<div><dt>Comparison</dt><dd>{e(copy["comparator"])}</dd></div>'
     )
-    return f"""<div class="bc-feature-color"><h2>{e(copy['title'])}</h2>{evidence_visual(copy)}{synopsis}</div>
-<div class="bc-feature-evidence"><dl>{comparison}<div><dt>Evidence</dt><dd>{e(p['kind'])}. {e(copy['qualification'])}</dd></div></dl><div class="bc-feature-source">{link(p['url'], p['source'])}<span>{e(p['place'])}<br>{e(p['date'])}</span></div><nav aria-label="Selected record actions"><a class="bc-open-record" href="{p['path']}">Read the record <span aria-hidden="true">↗</span></a><a href="{BASE}compare/?left={p['id']}">Compare</a><a href="{p['path']}brief.md" download>Brief</a></nav></div>"""
+    evidence += f'<div><dt>Evidence</dt><dd>{e(p["kind"])}. {e(copy["qualification"])}</dd></div>'
+    return f"""<div class="bc-feature-color"><h2>{e(copy['title'])}</h2>{content}</div>
+<div class="bc-feature-evidence"><dl>{comparison}{evidence}</dl><div class="bc-feature-source">{link(p['url'], p['source'])}<span>{e(p['place'])}<br>{e(p['date'])}</span></div><a class="bc-evidence-link" href="{p['path']}">Full evidence</a></div>"""
 
 
-def explorer(records: list[dict[str, Any]], display: dict[str, Any]) -> str:
+def explorer(
+    records: list[dict[str, Any]], display: dict[str, Any], views: dict[str, Any]
+) -> str:
     buttons = (
         '<button type="button" data-topic="" aria-pressed="true"><span>All benefits</span></button>'
         + "".join(
@@ -288,81 +324,29 @@ def explorer(records: list[dict[str, Any]], display: dict[str, Any]) -> str:
         )
         rows.append(
             f"""<article class="bc-record-row" data-record="{p['id']}" data-topic="{p['topic']}" data-countries="{' '.join(details['countries'])}" data-evidence="{details['evidence_category']}" data-search="{e(search)}">
-<span class="bc-row-color" aria-hidden="true"></span><div><h3><button type="button" data-pick="{p['id']}" aria-pressed="{'true' if record is ordered[0] else 'false'}">{e(copy['title'])}</button></h3><p>{e(p['kind'])}</p></div><a class="bc-row-open" href="{p['path']}" aria-label="Read {e(copy['title'])}">Read <span aria-hidden="true">↗</span></a></article>"""
+<span class="bc-row-color" aria-hidden="true"></span><div><h3><a href="{p['path']}" data-pick="{p['id']}"{' aria-current="true"' if record is ordered[0] else ''}>{e(copy['title'])}</a></h3><p>{e(p['kind'])}</p></div></article>"""
         )
     initial = ordered[0]
     return f"""<section class="bc-explorer" aria-label="Explore benefit records"><aside class="bc-index">
 <h1>What becomes<br> possible?</h1><nav id="bc-topics" aria-label="Filter by topic">{buttons}</nav>
 <label for="bc-search" class="bc-search"><span class="bc-sr">Search records</span><input id="bc-search" type="search" placeholder="Search tasks, people, places" maxlength="200" autocomplete="off"></label>
 <div class="bc-refine"><label><span class="bc-sr">Study or event location</span><select id="bc-country"><option value="">All locations</option>{country_options}<option value="unreported">Location unreported</option></select></label><label><span class="bc-sr">Evidence type</span><select id="bc-evidence"><option value="">All evidence</option>{evidence_options}</select></label><button type="button" id="bc-clear" hidden>Clear filters</button></div>
-<p class="bc-coverage">Selected cases and studies.<br><a href="{BASE}method/">How records are included</a></p></aside>
-<div class="bc-explore-body"><article class="bc-feature" id="bc-feature" data-case="{initial['id']}" data-topic="{initial['presentation']['topic']}"><div id="bc-preview-body">{preview_body(initial,display[initial['id']])}</div><nav class="bc-preview-pagination" aria-label="Browse matching records"><span id="bc-preview-position">1 of {len(records)}</span><div><button type="button" id="bc-preview-prev" aria-label="Previous record" disabled>←</button><button type="button" id="bc-preview-next" aria-label="Next record">→</button></div></nav></article>
-<div class="bc-result-status"><h2 id="bc-record-count" role="status">{len(records)} records</h2><nav class="bc-downloads" aria-label="Download these results"><span>Download results</span><a id="bc-export-brief" href="{BASE}brief.md" download>Brief</a><a id="bc-export-csv" href="{BASE}records.csv" download>CSV</a><a id="bc-export-json" href="{BASE}records.json" download>JSON</a></nav></div>
+</aside>
+<div class="bc-explore-body">{task_choice()}<article class="bc-feature" id="bc-feature" data-case="{initial['id']}" data-topic="{initial['presentation']['topic']}"><div id="bc-preview-body">{preview_body(initial,display[initial['id']],views[initial['id']])}</div></article>
+<div class="bc-result-status"><h2 id="bc-record-count" role="status">{len(records)} records</h2><button type="button" id="bc-save-view" hidden>Save this view</button></div>
 <div id="bc-record-list">{''.join(rows)}</div><p id="bc-empty" hidden>No records in this collection match these filters.</p>
-<noscript><p>Use the Read links to open any record. Search and preview controls require JavaScript.</p></noscript></div></section>"""
-
-
-def comparison_cell(p: dict[str, Any], key: str) -> str:
-    details = p["details"]
-    if key == "application":
-        return (
-            f'<p>{e(details["application"])}</p><p>{e(details["geography_note"])}</p>'
-        )
-    if key == "evidence":
-        return f'<p class="bc-small">{e(p["kind"])}</p><p>{e(p["evidence"])}</p><p>{e(p["limits"])}</p>'
-    if key == "contributions":
-        return f'<p><strong>AI.</strong> {e(p["ai"])}</p><p><strong>People.</strong> {e(p["people"])}</p>'
-    if key == "system":
-        return f'<p>{e(p["system"])}</p><p>{e(p["system_note"])}</p>'
-    if key == "conditions":
-        return (
-            "".join(
-                f"<p>{e(condition)}</p>"
-                for condition in details["documented_conditions"]
-            )
-            + f'<p>{e(details["transfer_limit"])}</p>'
-        )
-    if key == "source":
-        sources = "".join(
-            f'<p>{link(source["url"], source["title"])}</p>' for source in p["sources"]
-        )
-        return (
-            sources
-            + f'<p><a href="{p["path"]}">Full record</a></p><p><a href="{e(p["revision"]["url"])}">Cited version</a></p>'
-        )
-    return f"<p>{e(p[key])}</p>"
-
-
-COMPARISON_FIELDS = [
-    ("Task and setting", "application"),
-    ("Outcome", "outcome"),
-    ("Compared with", "comparison"),
-    ("Beneficiaries", "beneficiaries"),
-    ("Evidence", "evidence"),
-    ("Contributions", "contributions"),
-    ("System", "system"),
-    ("Duration", "duration"),
-    ("Conditions", "conditions"),
-    ("Sources", "source"),
-]
-
-
-def comparison_rows(a: dict[str, Any], b: dict[str, Any]) -> str:
-    header = f'<div class="bc-sr" role="row"><span role="columnheader">Field</span><span role="columnheader">{e(a["shortTitle"])}</span><span role="columnheader">{e(b["shortTitle"])}</span></div>'
-    return header + "".join(
-        f'<div class="bc-comparison-row" role="row"><h2 role="rowheader">{label}</h2>'
-        + "".join(
-            f'<div role="cell"><span class="bc-mobile-record" aria-hidden="true">{e(p["shortTitle"])}</span>{comparison_cell(p, key)}</div>'
-            for p in [a, b]
-        )
-        + "</div>"
-        for label, key in COMPARISON_FIELDS
-    )
+<noscript><p>Open a title to read its full record. Search and custom views require JavaScript.</p></noscript></div></section>"""
 
 
 def comparison_reason(a: dict[str, Any], b: dict[str, Any]) -> str:
     relationship = next(
-        (item for item in a["details"]["related"] if item["id"] == b["id"]), None
+        (
+            item
+            for source, target in [(a, b), (b, a)]
+            for item in source["details"]["related"]
+            if item["id"] == target["id"]
+        ),
+        None,
     )
     return (
         (relationship["reason"] + " " + relationship["caution"])
@@ -371,9 +355,14 @@ def comparison_reason(a: dict[str, Any], b: dict[str, Any]) -> str:
     )
 
 
-def compare(records: list[dict[str, Any]]) -> str:
+def compare(
+    records: list[dict[str, Any]], display: dict[str, Any], views: dict[str, Any]
+) -> str:
     ps = [presentation(record) for record in records]
-    a, b = [p for p in ps if p["topic"] == "health"][:2]
+    chosen_records = [
+        record for record in records if record["presentation"]["topic"] == "health"
+    ][:2]
+    a, b = [presentation(record) for record in chosen_records]
     pickers = "".join(
         f'<label><span class="bc-sr">{label}</span><select id="bc-compare-{suffix}" aria-label="{label}">'
         + "".join(
@@ -388,19 +377,11 @@ def compare(records: list[dict[str, Any]]) -> str:
             ("b", "Second record", b),
         ]
     )
-    return f"""<section class="bc-compare"><div class="bc-page-heading"><h1>Compare</h1><button type="button" id="bc-download-comparison" hidden>Download brief</button></div><div class="bc-pickers">{pickers}</div><p id="bc-comparison-reason" class="bc-comparison-reason">{e(comparison_reason(a,b))}</p><div id="bc-comparison" class="bc-comparison" role="table" aria-label="Comparison of benefit records">{comparison_rows(a,b)}</div><noscript><p>This comparison is fixed. Changing records requires JavaScript.</p></noscript></section>"""
-
-
-def method_body(method: dict[str, Any]) -> str:
-    principles = "".join(
-        f'<div><dt>{e(p["title"])}</dt><dd>{e(p["body"])}</dd></div>'
-        for p in method["principles"]
+    cases = "".join(
+        f'<article class="bc-feature" data-case="{record["id"]}" data-topic="{record["presentation"]["topic"]}">{preview_body(record, display[record["id"]], views[record["id"]])}</article>'
+        for record in chosen_records
     )
-    references = "".join(
-        f'<li>{link(p["url"], p["title"])}<span>{e(p["note"])}</span></li>'
-        for p in method["foundations"]
-    )
-    return f"""<article class="bc-document"><h1>Method</h1><p class="bc-intro">{e(method['intro'])}</p><section><h2>Inclusion</h2><p>{e(method['inclusion'])}</p><p>Source review establishes what an account reports. It does not independently verify the event. This selected collection does not estimate prevalence or net benefit.</p></section><section><h2>Records</h2><dl class="bc-fields">{principles}</dl><p>Outcomes retain their own measures. There is no universal benefit grade.</p></section><section><h2>References</h2><ul class="bc-references">{references}</ul></section><section><h2>Review and updates</h2><p>Records are assembled through AI-assisted source review and editorial selection. The review date identifies a source check, not independent verification. Each record links to the passages supporting its claims and keeps earlier published versions.</p><p>Corrections and later contrary evidence belong in the record and its history. Inclusion does not imply overall endorsement.</p></section><section><h2>Reuse</h2><p>{e(method['reuse'])} Original sources retain their own terms.</p></section></article>"""
+    return f"""<section class="bc-compare"><div class="bc-page-heading"><h1>Compare</h1><button type="button" id="bc-download-comparison" hidden>Save comparison</button></div>{task_choice()}<div class="bc-pickers">{pickers}</div><p id="bc-comparison-reason" class="bc-comparison-reason">{e(comparison_reason(a,b))}</p><div id="bc-comparison" class="bc-comparison-cases">{cases}</div><noscript><p>This comparison is fixed. Changing records requires JavaScript.</p></noscript></section>"""
 
 
 def additional_duration(record: dict[str, Any]) -> str:
@@ -592,8 +573,15 @@ def build(root: Path) -> None:
     records = data["records"]
     method = json.loads((root / "content/ai-benefits/method.json").read_text())
     display = json.loads((root / "content/ai-benefits/display.json").read_text())
+    views = json.loads((root / "content/ai-benefits/views.json").read_text())
     history = json.loads((root / "content/ai-benefits/history.json").read_text())
+    if set(views) != {record["id"] for record in records}:
+        raise ValueError("Task views must reference the shared record collection")
     for record in records:
+        if views[record["id"]]["source_revision"] != record["revision"]["key"]:
+            raise ValueError(
+                f"Task summaries for {record['id']} need review against its current revision"
+            )
         current = history[record["id"]][-1]
         if current["key"] != record_key(record) or current["record"] != {
             key: value for key, value in record.items() if key != "revision"
@@ -607,11 +595,18 @@ def build(root: Path) -> None:
         }:
             raise ValueError(f"Record {record['id']} has stale version metadata")
     payload = {
+        "viewLabels": VIEWS,
         "records": [
             {
                 **presentation(record),
                 "display": display[record["id"]],
-                "preview": preview_body(record, display[record["id"]]),
+                "views": views[record["id"]],
+                "previews": {
+                    view: preview_body(
+                        record, display[record["id"]], views[record["id"]], view
+                    )
+                    for view in VIEWS
+                },
             }
             for record in records
         ],
@@ -625,7 +620,7 @@ def build(root: Path) -> None:
             "AI Benefits Database",
             "Documented AI benefits, with outcomes, beneficiaries, sources, and evidence for replication.",
             "explore",
-            explorer(records, display),
+            explorer(records, display, views),
             payload,
         ),
         (
@@ -633,7 +628,7 @@ def build(root: Path) -> None:
             "Compare | AI Benefits Database",
             "Compare reported AI benefits, their evidence, and conditions for replication.",
             "compare",
-            compare(records),
+            compare(records, display, views),
             payload,
         ),
         (
@@ -641,7 +636,7 @@ def build(root: Path) -> None:
             "Method | AI Benefits Database",
             "How records of AI benefits are selected, sourced, and assessed.",
             "method",
-            method_body(method),
+            method_body(method, records),
             None,
         ),
     ]

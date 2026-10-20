@@ -480,7 +480,6 @@ class DatabaseTests(unittest.TestCase):
 
     def test_collection_brief_preserves_all_records_and_evidence_limits(self) -> None:
         brief = (DATABASE / "brief.md").read_text()
-        self.assertIn("/ai-benefits/brief.md", self.pages["index.html"].links)
         for record in self.records:
             with self.subTest(record=record["id"]):
                 for text in (
@@ -521,6 +520,7 @@ class DatabaseTests(unittest.TestCase):
                 self.assertIn(normalized(snapshot["limitations"]), page.visible_text)
 
     def test_comparison_keeps_each_selected_baseline_and_qualification(self) -> None:
+        display = json.loads((ROOT / "content/ai-benefits/display.json").read_text())
         page = self.pages["compare/index.html"]
         selected = [
             attrs["value"]
@@ -533,11 +533,12 @@ class DatabaseTests(unittest.TestCase):
             with self.subTest(record=record_id):
                 record = self.by_id[record_id]
                 for text in (
-                    record["benefit_profile"]["comparison"],
-                    record["presentation"]["limits"],
-                    record["evidence_details"]["transfer_limit"],
+                    display[record_id]["comparator"],
+                    display[record_id]["qualification"],
                 ):
                     self.assertIn(normalized(text), page.visible_text)
+                self.assertIn(record["presentation"]["url"], page.links)
+                self.assertIn(f"/ai-benefits/records/{record_id}/", page.links)
 
     def test_study_measurements_keep_their_denominator_qualifications(self) -> None:
         tutor = self.by_id["harvard-physics-tutor-2023"]["research_data"]
