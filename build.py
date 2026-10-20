@@ -8,7 +8,6 @@ from cv_markdown import export_cv
 from institution_logos import add_institution_logos
 from scholarly_pages import load_publications, publication_body, publication_head
 from browser_app import browser_page
-from scripts.build_ai_benefits import build as build_ai_benefits
 
 ROOT = Path(__file__).parent
 DATA = json.loads((ROOT / 'content/site.json').read_text())
@@ -25,8 +24,6 @@ SITE_NAME = 'Peter H. Vartanian'
 NOTE_SYMBOLS = {1: '*', 2: '†', 3: '‡'}
 PUBLICATION_NOTE_LABELS = {1: 'a', 2: 'b', 4: 'c'}
 SOCIALS = [('LinkedIn', 'https://www.linkedin.com/in/petervartanian/'), ('Substack', 'https://substack.com/@petersmemos'), ('GitHub', 'https://github.com/petervartanian'), ('Hugging Face', 'https://huggingface.co/petervartanian'), ('X', 'https://x.com/petersmemos'), ('Google Scholar', 'https://scholar.google.com/citations?user=DuD0EXEAAAAJ'), ('ORCID', 'https://orcid.org/0009-0009-8538-5811')]
-
-build_ai_benefits(ROOT)
 
 
 def structured_data(key, title, description, path):
@@ -99,7 +96,6 @@ def page(key, title, description, body, path, *, search_title=None, indexable=Tr
     if key == 'home' and path == '/':
         if OMPHALOS_PAGE:
             footer_links += ' / <a href="/omphalos/">omphalOS</a>'
-        footer_links += ' / <a href="/ai-benefits/">AI Benefits Database</a>'
     html = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -437,7 +433,7 @@ if PUBLIC_PROJECTS:
     site_index += '<section><h2>Projects</h2><ul>' + ''.join(f'<li><a href="{e(item["path"])}">{e(item["title"])}</a></li>' for item in PUBLIC_PROJECTS) + '</ul></section>'
 if OMPHALOS_PAGE:
     site_index += '<p><a href="/omphalos/">omphalOS</a></p>'
-page('site-index', 'Site index', 'Browse Peter H. Vartanian’s public pages, writing, publication abstracts, AI Benefits Database, CV, and contact information.', site_index, '/site-index/')
+page('site-index', 'Site index', 'Browse Peter H. Vartanian’s public pages, writing, publication abstracts, CV, and contact information.', site_index, '/site-index/')
 
 # Preserve old bookmarks, without publishing an empty collection.
 for old, destination in [('artifacts', '/portfolio/'), ('writing', '/portfolio/')]:
@@ -462,4 +458,4 @@ manifest = json.loads((ROOT / 'site.webmanifest').read_text())
 manifest.update(description='Research and writing by Peter H. Vartanian.', background_color=COLORS['home'], theme_color=COLORS['home'])
 manifest.pop('screenshots', None)
 (ROOT / 'site.webmanifest').write_text(json.dumps(manifest, indent=2) + '\n')
-print(f'Built four personal pages, {len(SCHOLARLY_PUBLICATIONS)} scholarly publication page(s), AI Benefits Database, site index, redirects, 404, and site metadata.')
+print(f'Built four personal pages, {len(SCHOLARLY_PUBLICATIONS)} scholarly publication page(s), site index, redirects, 404, and site metadata.')

@@ -104,16 +104,14 @@ for name, p in pages.items():
         page_copy = page_copy.replace(
             "Sometimes credit isn’t given where it’s due 😔", ""
         )
-    # Personal-page style rules must not rewrite public source titles or quotations.
-    if not name.startswith("ai-benefits/"):
-        check(
-            not re.search(
-                r"\b(?:I[’']m|I[’']ve|I[’']ll|we[’']re|you[’']re|don[’']t|doesn[’']t|can[’']t|won[’']t|isn[’']t|it[’']s)\b",
-                page_copy,
-                re.I,
-            ),
-            f"{name}: contraction in page copy",
-        )
+    check(
+        not re.search(
+            r"\b(?:I[’']m|I[’']ve|I[’']ll|we[’']re|you[’']re|don[’']t|doesn[’']t|can[’']t|won[’']t|isn[’']t|it[’']s)\b",
+            page_copy,
+            re.I,
+        ),
+        f"{name}: contraction in page copy",
+    )
     check(p.h1 == 1 and p.main and p.lang, f"{name}: missing accessible page structure")
     check(p.canonical and p.og, f"{name}: missing share metadata")
     check(len(set(p.ids)) == len(p.ids), f"{name}: duplicate IDs")
@@ -293,21 +291,6 @@ check(
     "Old artifacts bookmarks do not redirect",
 )
 public_projects = json.loads((ROOT / "content/public-pages.json").read_text())
-benefit_records = json.loads((ROOT / "ai-benefits/records.json").read_text())["records"]
-expected_benefit_paths = {
-    "/ai-benefits/",
-    "/ai-benefits/compare/",
-    "/ai-benefits/method/",
-} | {"/ai-benefits/records/" + record["id"] + "/" for record in benefit_records}
-retired_benefit_paths = {
-    "/ai-benefits/sources/",
-    "/ai-benefits/records/",
-    "/ai-benefits/contribute/",
-}
-check(
-    {item.get("path") for item in public_projects} == expected_benefit_paths,
-    "Public projects must contain only the reviewed AI Benefits Database pages and records",
-)
 public_paths = (
     ["/", "/portfolio/", "/cv/", "/contact/", "/site-index/"]
     + [item["path"] for item in SCHOLARLY_PUBLICATIONS]
@@ -318,9 +301,9 @@ check(
     len(public_paths)
     == 5
     + len(SCHOLARLY_PUBLICATIONS)
-    + len(expected_benefit_paths)
+    + len(public_projects)
     + bool(OMPHALOS_PAGE),
-    "Expected the personal, scholarly, AI Benefits Database, and installed browser-app pages",
+    "Expected the personal, scholarly, public project, and installed browser-app pages",
 )
 sitemap = ET.parse(ROOT / "sitemap.xml").getroot()
 sitemap_urls = [
@@ -347,42 +330,6 @@ for name in ("index.html", "site-index/index.html"):
         ("/omphalos/" in pages[name].refs) == bool(OMPHALOS_PAGE),
         f"{name}: omphalOS link does not match the installed app",
     )
-    check(
-        "/ai-benefits/" in pages[name].refs,
-        f"{name}: AI Benefits Database link is missing",
-    )
-check(
-    "/ai-benefits/" in (ROOT / "llms.txt").read_text(),
-    "AI Benefits Database is missing from public discovery",
-)
-check(
-    not (ROOT / "ai-benefits/leads.json").exists(),
-    "Retired AI Benefits Database research data remains in the public tree",
-)
-discovery_links = set(sitemap_urls) | set(
-    re.findall(r"\]\((https?://[^)]+)\)", (ROOT / "llms.txt").read_text())
-)
-for path in retired_benefit_paths:
-    check(
-        "https://petervartanian.xyz" + path not in discovery_links,
-        f"{path}: retired database route remains in public discovery",
-    )
-    filename = ROOT / path.strip("/") / "index.html"
-    check(filename.is_file(), f"Missing database redirect: {path}")
-    if filename.is_file():
-        redirect = Page(filename)
-        check(
-            redirect.canonical_urls == ["https://petervartanian.xyz/ai-benefits/"],
-            f"{path}: retired database route must canonicalize to the collection",
-        )
-        check(
-            any(re.search(r"\bnoindex\b", value) for value in redirect.robots),
-            f"{path}: retired database route must be noindex",
-        )
-        check(
-            "/ai-benefits/" in redirect.refs,
-            f"{path}: database redirect needs a visible fallback link",
-        )
 if OMPHALOS_PAGE:
     browser = Page(ROOT / "omphalos/index.html")
     check(
