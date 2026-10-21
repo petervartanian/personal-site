@@ -130,8 +130,21 @@
   "paired_incident": null,
   "headline": "Wiz finds a critical GitHub RCE with Claude Code and IDA MCP",
   "metric": "went from idea to working exploit in under 48 hours",
-  "comparator": null,
-  "later": null,
+  "comparator": {
+    "against": "manual reverse engineering of GitHub's compiled binaries without AI tooling",
+    "before": "an impractical amount of time and manual effort (Wiz); months' worth of manual analysis, per The Register's account of Wiz",
+    "after": "from idea to working exploit in less than 48 hours",
+    "basis": "assumed",
+    "quote": "However, extracting and auditing the sheer volume of compiled blackbox binaries that run this pipeline historically required an impractical amount of time and manual effort. But this is Round 2, and the landscape has shifted. By leveraging AI-augmented tooling-particularly automated reverse engineering using IDA MCP-we were able to do what was previously too costly.",
+    "url": "https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854"
+  },
+  "later": {
+    "status": "persisted",
+    "date": "2026-04-28",
+    "note": "GitHub's 28 April 2026 disclosure confirmed the same-day fix, patches for all supported GitHub Enterprise Server releases, and a forensic investigation that found no exploitation beyond the researchers' own testing.",
+    "quote": "In less than two hours we had validated the finding, deployed a fix to github.com, and begun a forensic investigation that concluded there was no exploitation.",
+    "url": "https://github.blog/security/securing-the-git-push-pipeline-responding-to-a-critical-remote-code-execution-vulnerability/"
+  },
   "value": null,
   "unrated_because": null,
   "brief_notes": null,
@@ -153,6 +166,12 @@
       "date": "2026-10-21",
       "change": "Benefit type set to Reduced Risk under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
       "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Added what the benefit is measured against, what happened since from the cited sources.",
+      "source": "https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854; https://github.blog/security/securing-the-git-push-pipeline-responding-to-a-critical-remote-code-execution-vulnerability/",
       "editor": "AIBD"
     }
   ],
