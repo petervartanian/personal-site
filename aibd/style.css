@@ -546,3 +546,19 @@ details.fold.small > summary { font-size: 0.8rem; margin: 10px 0 6px; border-bot
 .explorer.tabular .results h3 { font-size: 0.98rem; }
 .explorer.tabular .results .d .mobile { height: 28px; }
 .footer-inner { gap: 18px; }
+
+.kit { position: fixed; right: 22px; bottom: 22px; z-index: 6; margin: 0; padding: 10px 14px 12px; background: var(--paper); border: 1px solid var(--ink); display: block; max-width: 180px; }
+.kit-handle { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); display: block; width: 100%; text-align: left; padding: 0; }
+.kit-tools { display: grid; gap: 3px; margin: 8px 0 0; padding-top: 8px; border-top: 1px solid var(--rule); }
+.kit[data-retracted] .kit-tools { display: none; }
+.kit .tool { display: block; text-align: left; font-size: 0.95rem; color: var(--ink-2); padding: 1px 0; border: 0; }
+.kit .tool.on { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 700px) { .kit { right: 12px; bottom: 12px; padding: 8px 12px 10px; } }
+
+.brief-wrap { display: grid; grid-template-columns: minmax(0, 42rem) minmax(12rem, 16rem); column-gap: 32px; align-items: start; }
+.sidenotes { font-size: 0.8rem; line-height: 1.45; color: var(--ink-2); }
+.sidenotes ol { list-style: none; margin: 4px 0 0; padding: 0; }
+.sidenotes li { margin: 0 0 10px; padding-left: 1.4em; text-indent: -1.4em; }
+.sn-mark { font-family: var(--mono); font-size: 0.72em; color: var(--ink-3); vertical-align: super; line-height: 0; margin: 0 2px 0 1px; }
+.sidenotes .sn-mark { vertical-align: baseline; margin-right: 6px; }
+@media (max-width: 980px) { .brief-wrap { grid-template-columns: 1fr; } .sidenotes { border-top: 1px solid var(--rule); padding-top: 8px; } }

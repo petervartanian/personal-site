@@ -240,12 +240,20 @@
       var b = kit ? kit.querySelector('[data-kit-tool="' + k + '"]') : null; if (b) { b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); }
     });
   }
-  if (kit) kit.addEventListener('click', function (e) {
-    var b = e.target.closest('[data-kit-tool]'); if (!b) return;
-    var k = b.getAttribute('data-kit-tool'); var i = openTools.indexOf(k);
-    if (i === -1) openTools.push(k); else openTools.splice(i, 1);
-    applyTools(); apply();
-  });
+  if (kit) {
+    var handle = kit.querySelector('[data-kit-handle]');
+    var retracted = true; try { retracted = window.localStorage.getItem('aibd-kit') !== 'open'; } catch (e) {}
+    function setKit(open) { if (open) kit.removeAttribute('data-retracted'); else kit.setAttribute('data-retracted', ''); if (handle) handle.setAttribute('aria-expanded', String(open)); try { window.localStorage.setItem('aibd-kit', open ? 'open' : 'shut'); } catch (e) {} }
+    setKit(!retracted || openTools.length > 0);
+    if (handle) handle.addEventListener('click', function () { setKit(kit.hasAttribute('data-retracted')); });
+    kit.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-kit-tool]'); if (!b) return;
+      var k = b.getAttribute('data-kit-tool'); var i = openTools.indexOf(k);
+      if (i === -1) openTools.push(k); else openTools.splice(i, 1);
+      applyTools(); apply();
+      var panel = ex.querySelector('[data-tool-panel="' + k + '"]'); if (panel && !panel.hidden) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
   applyTools();
   var sortState = { key: null, dir: 1 };
   var CONF = { high: 0, medium: 1, low: 2 };
