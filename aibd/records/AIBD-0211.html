@@ -53,13 +53,13 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d2">
+      <g class="d2 conf-medium">
         <circle class="g" cx="70" cy="140" r="8"/>
-        <text class="gl" x="70" y="126" text-anchor="middle">personal</text>
+<path class="half" d="M70,132 A8,8 0 0 0 70,148 Z"/>        <text class="gl" x="70" y="126" text-anchor="middle">personal</text>
       </g>
-      <g class="d1">
+      <g class="d1 conf-medium">
         <circle class="g" cx="140" cy="170" r="8"/>
-        <text class="gl" x="140" y="192" text-anchor="middle">organizational</text>
+<path class="half" d="M140,162 A8,8 0 0 0 140,178 Z"/>        <text class="gl" x="140" y="192" text-anchor="middle">organizational</text>
       </g>
     </svg>
     <dl class="props">
@@ -68,7 +68,7 @@
 <div><dt>Developer</dt><dd>OpenAI</dd></div><div><dt>Deployer</dt><dd>Boston Children&#39;s Hospital, The Manton Center for Orphan Disease Research (with Harvard Medical School and OpenAI co-authors)</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Knowledge Discovery</a></dd></div>
       <div><dt>Sector</dt><dd>Science, Clinical genomics</dd></div>
       <div><dt>Sources</dt><dd class="mono">5</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">0</dd></div>
 <div><dt>Registry</dt><dd><a href="https://oecd.ai/en/incidents/2026-06-20-3da6">OECD AI Incidents Monitor <span class="mono">2026-06-20-3da6</span></a></dd></div>    </dl>
     <p class="cite">Cite AIBD-0211, v1, 20 October 2026. <a href="AIBD-0211.json">JSON</a></p>
@@ -81,17 +81,16 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">In 2025, Boston Children&#39;s Hospital&#39;s Manton Center for Orphan Disease Research, with OpenAI, gave OpenAI&#39;s o3 Deep Research model de-identified notes, phenotype terms and filtered variant tables from 376 unsolved rare-disease genomes. The model proposed evidence-linked candidate diagnoses; at least two reviewers adjudicated each under ACMG/AMP criteria, a CLIA-certified laboratory confirmed the variant, and clinicians returned 18 diagnoses to families (10 neurodevelopmental, 4 neuromuscular, 2 sudden unexpected death in pediatrics, 2 early psychosis), seven of them rediscoveries. One of the 18, Kyra Benton, symptomatic since age 9 and given a tracheotomy at 13, learned in summer 2025, a week before her 20th birthday, that she has myofibrillar myopathy. The study appeared in NEJM AI on 18 June 2026.</p>
       <p class="purpose"><b>What it was built to do.</b> OpenAI o3 Deep Research is a general-purpose reasoning and research model, not a diagnostic device; the Manton Center team built an explanation-first reanalysis workflow around it specifically to propose candidate molecular diagnoses for unsolved cases, so these diagnoses were the workflow&#39;s intended output. OpenAI states that the study does not describe or endorse a customer use of o3 for diagnosis, and Brownstein said that she was shocked that a commercial system could find new diagnoses in genomes analyzed many times.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>personal</small></div><p>Eighteen families received a laboratory-confirmed diagnosis after earlier analyzes had failed; for Kyra Benton, symptomatic from age 9 and diagnosed just before 20, that ended roughly a decade of not knowing. Brownstein says that each one &#39;means an answer for a family&#39; and lets the center find patients when new therapies arrive, but NBC reports no change in treatment, the research team says that diagnosis is often only an early step toward treatment, and the OpenAI post says that changes in care were not measured, so -3 is not established.</p></li>
-        <li class="d1"><div><div class="big"><i class="sw"></i>1</div><small>organizational</small></div><p>The Manton Center resolved 18 cases from a backlog that routine screening against newly identified genes had not cleared, and Brownstein notes that the model &#39;doesn&#39;t get tired&#39;; but the study measured no time saved, cost or clinician effort, and the next stage is grant-funded development of a copilot rather than routine use.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><i class="sw"></i>2</div><small>personal</small></div><p>Eighteen families received a laboratory-confirmed diagnosis after earlier analyzes had failed; for Kyra Benton, symptomatic from age 9 and diagnosed just before 20, that ended roughly a decade of not knowing. Brownstein says that each one &#39;means an answer for a family&#39; and lets the center find patients when new therapies arrive, but NBC reports no change in treatment, the research team says that diagnosis is often only an early step toward treatment, and the OpenAI post says that changes in care were not measured, so -3 is not established.</p></li>
+        <li class="d1 conf-medium"><div><div class="big"><i class="sw"></i>1</div><small>organizational</small></div><p>The Manton Center resolved 18 cases from a backlog that routine screening against newly identified genes had not cleared, and Brownstein notes that the model &#39;doesn&#39;t get tired&#39;; but the study measured no time saved, cost or clinician effort, and the next stage is grant-funded development of a copilot rather than routine use.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -128,20 +127,20 @@
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>Already-sequenced unsolved cases, mostly child-parent trios, assembled into a de-identified packet of Human Phenotype Ontology terms, any clinician notes, age and sex, and a filtered variant table with rarity, predicted effect, ClinVar class and family signal quality</li><li>A general-purpose reasoning model asked for the single most plausible molecular explanation and its evidence, not just a ranked gene, with the prompt refined first on cases of known diagnosis</li><li>Time elapsed since the original analysis, so that newly published gene-disease links and reclassified variants existed to be found</li><li>Expert adjudication under ACMG/AMP criteria by at least two reviewers, CLIA-laboratory confirmation, and return of results by the clinical team</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Human geneticists review every candidate and a model output is never treated as a diagnosis</li><li>Confirmatory testing in a certified laboratory before any result reaches a family</li><li>De-identified data handled inside approved environments</li><li>Yield expectations calibrated to the cohort: single-digit gains in heavily reviewed cases, and seven of the 18 here were rediscoveries</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>Already-sequenced unsolved cases, mostly child-parent trios, assembled into a de-identified packet of Human Phenotype Ontology terms, any clinician notes, age and sex, and a filtered variant table with rarity, predicted effect, ClinVar class and family signal quality</li><li>A general-purpose reasoning model asked for the single most plausible molecular explanation and its evidence, not just a ranked gene, with the prompt refined first on cases of known diagnosis</li><li>Time elapsed since the original analysis, so that newly published gene-disease links and reclassified variants existed to be found</li><li>Expert adjudication under ACMG/AMP criteria by at least two reviewers, CLIA-laboratory confirmation, and return of results by the clinical team</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>Human geneticists review every candidate and a model output is never treated as a diagnosis</li><li>Confirmatory testing in a certified laboratory before any result reaches a family</li><li>De-identified data handled inside approved environments</li><li>Yield expectations calibrated to the cohort: single-digit gains in heavily reviewed cases, and seven of the 18 here were rediscoveries</li></ul></div>
       </div>
     </section>
 
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the OECD Monitor entry and the cited sources.</td><td class="src">https://oecd.ai/en/incidents/2026-06-20-3da6</td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

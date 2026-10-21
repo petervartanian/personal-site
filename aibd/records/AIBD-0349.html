@@ -53,17 +53,17 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d1">
+      <g class="d1 conf-medium">
         <circle class="g" cx="70" cy="170" r="8"/>
-        <text class="gl" x="70" y="156" text-anchor="middle">personal</text>
+<path class="half" d="M70,162 A8,8 0 0 0 70,178 Z"/>        <text class="gl" x="70" y="156" text-anchor="middle">personal</text>
       </g>
-      <g class="unassessed">
+      <g class="unassessed conf-medium">
         <circle class="g" cx="140" cy="218" r="8"/>
-        <text class="gl" x="140" y="240" text-anchor="middle">organizational</text>
+<path class="half" d="M140,210 A8,8 0 0 0 140,226 Z"/>        <text class="gl" x="140" y="240" text-anchor="middle">organizational</text>
       </g>
-      <g class="d2">
+      <g class="d2 conf-medium">
         <circle class="g" cx="210" cy="140" r="8"/>
-        <text class="gl" x="210" y="126" text-anchor="middle">societal</text>
+<path class="half" d="M210,132 A8,8 0 0 0 210,148 Z"/>        <text class="gl" x="210" y="126" text-anchor="middle">societal</text>
       </g>
     </svg>
     <dl class="props">
@@ -72,7 +72,7 @@
 <div><dt>Developer</dt><dd>Google</dd></div><div><dt>Deployer</dt><dd>Google (alerts delivered directly to Android users; launched in Türkiye in June 2021)</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Knowledge Discovery</a></dd></div>
       <div><dt>Sector</dt><dd>Humanitarian, Earthquake early warning</dd></div>
       <div><dt>Sources</dt><dd class="mono">4</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">2</dd></div>
     </dl>
     <p class="cite">Cite AIBD-0349, v1, 20 October 2026. <a href="AIBD-0349.json">JSON</a></p>
@@ -85,18 +85,17 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">On 23 April 2025 the Mw 6.2 Marmara Ereğlisi earthquake struck offshore in the Sea of Marmara, Türkiye; initial reports cited by the evaluation put shaking in Istanbul at MMI V with at least 359 people injured, mostly from panic. Google&#39;s Android Earthquake Alerts (AEA) system, which uses the accelerometers of online Android phones and an on-phone detection algorithm that flags sudden changes in acceleration, detected the event 5.31 seconds after its origin and issued a first &#39;Be Aware&#39; alert 0.43 seconds later on an initial magnitude estimate of Mw 4.83, followed by &#39;Take Action&#39; alerts as the estimate rose; alerts reached more than 16 million Android users in Türkiye, Greece, Romania and Bulgaria. Warning times for weak shaking (MMI III) reached up to 150 seconds with a median of 56 seconds, and the authors report 90% true positives and 99% precision. Because the final magnitude estimate saturated at Mw 6.04, the &#39;Take Action&#39; polygon was too small and inland populations that felt MMI V shaking received only the &#39;Be Aware&#39; warning before stronger shaking arrived. The evaluation (Nature Communications, 11 August 2026) and the system description (Science, 17 July 2025) are written by Google employees, as is the user-feedback data. The same system underestimated the 6 February 2023 Türkiye earthquakes: the BBC reported on 27 July 2025 that only 469 &#39;Take Action&#39; alerts were sent for the M7.8 event when 10 million people could have received one.</p>
       <p class="purpose"><b>What it was built to do.</b> Crowd-sourced earthquake detection and early warning delivered to Android phones in countries without dense seismic networks; the alerts were the intended use.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d1"><div><div class="big"><i class="sw"></i>1</div><small>personal</small></div><p>Google&#39;s feedback data say recipients were likely to drop, cover and hold on or warn others; no individual injury avoided is documented, and the data are vendor-collected.</p></li>
-        <li class="unassessed"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>organizational</small></div><p>No organization&#39;s decision or operation is documented as changed by the alerts.</p></li>
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>societal</small></div><p>More than 16 million users alerted with a median 56 s warning for weak shaking, but &#39;Take Action&#39; alerts did not cover inland MMI V areas in time and no reduction in injuries is demonstrated; evidence is vendor-authored.</p></li>
+        <li class="d1 conf-medium"><div><div class="big"><i class="sw"></i>1</div><small>personal</small></div><p>Google&#39;s feedback data say recipients were likely to drop, cover and hold on or warn others; no individual injury avoided is documented, and the data are vendor-collected.</p></li>
+        <li class="unassessed conf-medium"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>organizational</small></div><p>No organization&#39;s decision or operation is documented as changed by the alerts.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><i class="sw"></i>2</div><small>societal</small></div><p>More than 16 million users alerted with a median 56 s warning for weak shaking, but &#39;Take Action&#39; alerts did not cover inland MMI V areas in time and no reduction in injuries is demonstrated; evidence is vendor-authored.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -145,8 +144,8 @@
         <figcaption>filled recurred, hollow did not, dotted unknown</figcaption>
       </figure>
       <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>Dense network of online Android phones (about 66,000 used for characterization) around an offshore epicentre</li><li>On-phone trigger on P-wave acceleration and server-side magnitude estimation updated over 12 s</li><li>Two-tier alerting (Be Aware, Take Action) delivered through the operating system</li><li>A population with high earthquake awareness after the 2023 Kahramanmaraş disaster, per the authors</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Enough stationary, charging phones near the epicentre to trigger early</li><li>Magnitude estimates that do not saturate below the true magnitude, which failed here at Mw 6.04 and failed badly in 2023</li><li>Alerts that outrun S-wave arrival at the populated distance</li><li>Users who recognize and act on the alert</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>Dense network of online Android phones (about 66,000 used for characterization) around an offshore epicentre</li><li>On-phone trigger on P-wave acceleration and server-side magnitude estimation updated over 12 s</li><li>Two-tier alerting (Be Aware, Take Action) delivered through the operating system</li><li>A population with high earthquake awareness after the 2023 Kahramanmaraş disaster, per the authors</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>Enough stationary, charging phones near the epicentre to trigger early</li><li>Magnitude estimates that do not saturate below the true magnitude, which failed here at Mw 6.04 and failed badly in 2023</li><li>Alerts that outrun S-wave arrival at the populated distance</li><li>Users who recognize and act on the alert</li></ul></div>
       </div>
       <h3 style="margin-top:18px">Tried elsewhere</h3>
       <table class="mini">
@@ -158,12 +157,12 @@
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

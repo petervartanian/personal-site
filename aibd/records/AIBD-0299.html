@@ -53,13 +53,13 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="unassessed">
+      <g class="unassessed conf-medium">
         <circle class="g" cx="70" cy="218" r="8"/>
-        <text class="gl" x="70" y="204" text-anchor="middle">personal</text>
+<path class="half" d="M70,210 A8,8 0 0 0 70,226 Z"/>        <text class="gl" x="70" y="204" text-anchor="middle">personal</text>
       </g>
-      <g class="unassessed">
+      <g class="unassessed conf-medium">
         <circle class="g" cx="140" cy="218" r="8"/>
-        <text class="gl" x="140" y="240" text-anchor="middle">societal</text>
+<path class="half" d="M140,210 A8,8 0 0 0 140,226 Z"/>        <text class="gl" x="140" y="240" text-anchor="middle">societal</text>
       </g>
     </svg>
     <dl class="props">
@@ -68,7 +68,7 @@
 <div><dt>Developer</dt><dd>HEART-SAFE project (Amsterdam UMC with Utek B.V. and MiBida) for the algorithm; Samsung for the Watch5 Pro</dd></div><div><dt>Deployer</dt><dd>Amsterdam UMC intensive care unit (feasibility evaluation with institutional review board approval)</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Knowledge Discovery</a></dd></div>
       <div><dt>Sector</dt><dd>Science, Emergency medicine</dd></div>
       <div><dt>Sources</dt><dd class="mono">3</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">1</dd></div>
     </dl>
     <p class="cite">Cite AIBD-0299, v1, 20 October 2026. <a href="AIBD-0299.json">JSON</a></p>
@@ -81,17 +81,16 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">Van den Beuken, Tuinman, Nideröst, Goossen, van Schuppen, Loer, Schwarte and Schober, of Amsterdam UMC with Utek B.V. and MiBida (the HEART-SAFE project&#39;s partners), reported in Resuscitation Plus on 29 January 2026 (publication date used; the event is undated) what they call the first detailed description of automated detection of a spontaneous, non-procedural cardiac arrest from consumer smartwatch data. An 82-year-old man with a right cerebellar hemorrhage and documented do-not-resuscitate directives was moved to palliative care; after about 42 hours life-sustaining treatment was withdrawn and he died about 1.5 hours later. With the family&#39;s consent a Samsung Watch5 Pro was placed on his right wrist about 40 minutes after withdrawal, with ECG, invasive arterial pressure and clinical photoplethysmography as reference. The green-light PPG signal was later run through the group&#39;s previously described algorithm, which analyzes five-second windows using peak detection with minimum-amplitude safeguards; it flagged circulatory arrest when the ECG showed agonal bradycardia with the monitor reading 0/min and mean arterial pressure had fallen to 9 mmHg, while low-amplitude oscillations at about 30 per minute persisted, and produced no false alarms over the observation period. The authors state that the algorithm was applied retrospectively, that they chose not to run it live on the device because it is still in development and to avoid alarms disturbing the family, and that the controlled end-of-life setting does not represent out-of-hospital cardiac arrest. Their 2025 proof-of-principle study (Resuscitation; abstract read) reported 28 of 31 circulatory arrests identified in volunteers with cuff-restricted arm flow, cardioplegic surgery patients and slaughtered swine, with alerts delivered to the HartslagNu test environment. Samsung is not an author; the fetched text describes peak detection, not machine learning.</p>
       <p class="purpose"><b>What it was built to do.</b> The HEART-SAFE project builds device-independent software to detect circulatory arrest from smartwatch photoplethysmography and alert emergency services; this case tests the detection half on a true arrest.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="unassessed"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>personal</small></div><p>The patient died as expected under palliative withdrawal; the detection was retrospective and no alert, treatment or resuscitation followed.</p></li>
-        <li class="unassessed"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>societal</small></div><p>The authors present the case as a step towards real-world detection of unwitnessed arrests; no deployment or survival outcome exists.</p></li>
+        <li class="unassessed conf-medium"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>personal</small></div><p>The patient died as expected under palliative withdrawal; the detection was retrospective and no alert, treatment or resuscitation followed.</p></li>
+        <li class="unassessed conf-medium"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>societal</small></div><p>The authors present the case as a step towards real-world detection of unwitnessed arrests; no deployment or survival outcome exists.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -133,8 +132,8 @@
         <figcaption>filled recurred, hollow did not, dotted unknown</figcaption>
       </figure>
       <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>A consumer smartwatch collecting green-light PPG through the project&#39;s own data-collection software</li><li>Reference ECG, arterial pressure and clinical PPG to time the arrest</li><li>Retrospective application of the HEART-SAFE peak-detection algorithm with minimum-amplitude safeguards</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>A live on-device implementation, which the authors deliberately did not use</li><li>Specificity high enough not to overburden emergency services, which the 2025 study says is still needed</li><li>Transfer from a slow, bradycardic end-of-life arrest to sudden arrhythmic out-of-hospital arrests, which the authors say the case does not represent</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>A consumer smartwatch collecting green-light PPG through the project&#39;s own data-collection software</li><li>Reference ECG, arterial pressure and clinical PPG to time the arrest</li><li>Retrospective application of the HEART-SAFE peak-detection algorithm with minimum-amplitude safeguards</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>A live on-device implementation, which the authors deliberately did not use</li><li>Specificity high enough not to overburden emergency services, which the 2025 study says is still needed</li><li>Transfer from a slow, bradycardic end-of-life arrest to sudden arrhythmic out-of-hospital arrests, which the authors say the case does not represent</li></ul></div>
       </div>
       <h3 style="margin-top:18px">Tried elsewhere</h3>
       <table class="mini">
@@ -146,12 +145,12 @@
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

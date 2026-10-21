@@ -53,13 +53,13 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d2">
+      <g class="d2 conf-medium">
         <circle class="g" cx="70" cy="140" r="8"/>
-        <text class="gl" x="70" y="126" text-anchor="middle">organizational</text>
+<path class="half" d="M70,132 A8,8 0 0 0 70,148 Z"/>        <text class="gl" x="70" y="126" text-anchor="middle">organizational</text>
       </g>
-      <g class="unassessed">
+      <g class="unassessed conf-medium">
         <circle class="g" cx="140" cy="218" r="8"/>
-        <text class="gl" x="140" y="240" text-anchor="middle">societal</text>
+<path class="half" d="M140,210 A8,8 0 0 0 140,226 Z"/>        <text class="gl" x="140" y="240" text-anchor="middle">societal</text>
       </g>
     </svg>
     <dl class="props">
@@ -68,7 +68,7 @@
 <div><dt>Developer</dt><dd>Princeton University / Princeton Plasma Physics Laboratory (Kolemen group), with Chung-Ang University</dd></div><div><dt>Deployer</dt><dd>DIII-D National Fusion Facility, General Atomics</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Knowledge Discovery</a></dd></div>
       <div><dt>Sector</dt><dd>Energy and infrastructure, Energy research</dd></div>
       <div><dt>Sources</dt><dd class="mono">3</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">1</dd></div>
     </dl>
     <p class="cite">Cite AIBD-0165, v1, 20 October 2026. <a href="AIBD-0165.json">JSON</a></p>
@@ -81,17 +81,16 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">Seo et al. (Nature, published 21 February 2024), from Princeton University, the Princeton Plasma Physics Laboratory and partners, trained a reinforcement-learning controller in an environment built from a multimodal dynamic model that estimates the likelihood of future tearing instability, the leading cause of disruptions. Deployed on DIII-D, the largest magnetic fusion facility in the United States, located at General Atomics in San Diego, the controller adjusted total beam power and plasma triangularity to keep the estimated tearability under a threshold while maintaining H-mode performance, even at low safety factor and low torque. In the experimental session, discharges up to 193276 either had no RL control or tore before control started; of the controlled discharges from 193277, only two (193277 and 193282) were disrupted, whereas before RL control all shots except one were disrupted, and average time-integrated normalized beta rose. Princeton Engineering&#39;s release (21 February 2024) says the model could forecast tearing mode instabilities up to 300 milliseconds in advance. The OECD AI Incidents Monitor logged the result as a positive outcome (record 2024-02-24-7d77). The experiment dates are not given; the date used is the paper&#39;s publication date.</p>
       <p class="purpose"><b>What it was built to do.</b> The controller was built to avoid tearing instability while maintaining high-pressure plasma in DIII-D; the avoided disruptions were its intended use.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>The DIII-D session obtained plasmas tracking a stable path with fewer disruptions and higher time-integrated beta; the paper calls it a path toward ITER-relevant scenarios.</p></li>
-        <li class="unassessed"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>societal</small></div><p>No outcome beyond fusion research is documented.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>The DIII-D session obtained plasmas tracking a stable path with fewer disruptions and higher time-integrated beta; the paper calls it a path toward ITER-relevant scenarios.</p></li>
+        <li class="unassessed conf-medium"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>societal</small></div><p>No outcome beyond fusion research is documented.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -133,8 +132,8 @@
         <figcaption>filled recurred, hollow did not, dotted unknown</figcaption>
       </figure>
       <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>A database of past DIII-D discharges to train the tearability predictor</li><li>Real-time profile reconstruction and equilibrium fitting feeding the DNN</li><li>A plasma control system that accepts high-level beam-power and shape commands</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>A tearability model valid for the operating regime</li><li>Actuators (beam power, triangularity) able to move the plasma along the stable path</li><li>Session-level comparison shots to judge disruption rates</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>A database of past DIII-D discharges to train the tearability predictor</li><li>Real-time profile reconstruction and equilibrium fitting feeding the DNN</li><li>A plasma control system that accepts high-level beam-power and shape commands</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>A tearability model valid for the operating regime</li><li>Actuators (beam power, triangularity) able to move the plasma along the stable path</li><li>Session-level comparison shots to judge disruption rates</li></ul></div>
       </div>
       <h3 style="margin-top:18px">Tried elsewhere</h3>
       <table class="mini">
@@ -146,12 +145,12 @@
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

@@ -53,17 +53,17 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d2">
+      <g class="d2 conf-medium">
         <circle class="g" cx="70" cy="140" r="8"/>
-        <text class="gl" x="70" y="126" text-anchor="middle">personal</text>
+<path class="half" d="M70,132 A8,8 0 0 0 70,148 Z"/>        <text class="gl" x="70" y="126" text-anchor="middle">personal</text>
       </g>
-      <g class="d3">
+      <g class="d3 conf-medium">
         <circle class="g" cx="140" cy="110" r="8"/>
-        <text class="gl" x="140" y="132" text-anchor="middle">organizational</text>
+<path class="half" d="M140,102 A8,8 0 0 0 140,118 Z"/>        <text class="gl" x="140" y="132" text-anchor="middle">organizational</text>
       </g>
-      <g class="d3">
+      <g class="d3 conf-medium">
         <circle class="g" cx="210" cy="110" r="8"/>
-        <text class="gl" x="210" y="96" text-anchor="middle">societal</text>
+<path class="half" d="M210,102 A8,8 0 0 0 210,118 Z"/>        <text class="gl" x="210" y="96" text-anchor="middle">societal</text>
       </g>
     </svg>
     <dl class="props">
@@ -72,7 +72,7 @@
 <div><dt>Developer</dt><dd>University of Michigan team (Jacob Abernethy, Alex Chojnacki, Arya Farahi, Eric Schwartz, Jared Webb)</dd></div><div><dt>Deployer</dt><dd>City of Flint FAST Start service-line replacement program</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Organizational Efficiency</a></dd></div>
       <div><dt>Sector</dt><dd>Energy and infrastructure, Water infrastructure</dd></div>
       <div><dt>Sources</dt><dd class="mono">2</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">0</dd></div>
     </dl>
     <p class="cite">Cite AIBD-0166, v1, 20 October 2026. <a href="AIBD-0166.json">JSON</a></p>
@@ -85,18 +85,17 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">From summer 2016 Jacob Abernethy, Eric Schwartz and colleagues at the University of Michigan worked with Flint&#39;s FAST Start service-line replacement program, building a statistical model (gradient-boosted trees in XGBoost with a hierarchical Bayesian spatial layer) and an active-learning procedure, ActiveRemediation, to choose which homes to inspect and replace (KDD 2018 paper, arXiv 1806.10692). The paper reports 91.6% accuracy on a 1,606-home holdout set and, by September 2017, 4,419 hazardous service lines replaced with the composition of 6,506 homes identified. The Atlantic (Alexis Madrigal, 3 January 2019) reported that through 2017 workers inspected 8,833 homes and replaced pipes at 6,228, a 70 percent rate, and quoted program head Michael McDaniel saying accuracy was above 80 percent in late 2017; after the City hired AECOM in 2018, which discarded the model&#39;s predictions, 10,531 properties were explored by mid-December 2018 and only 1,567 digs found lead, a 15 percent hit rate. In a court filing Schwartz estimated 4,964 to 6,119 homes with hazardous lines remained. The date used is the KDD paper&#39;s publication date; the model-guided phase ran through 2017.</p>
       <p class="purpose"><b>What it was built to do.</b> The model and active-learning rules were built to predict which Flint homes had lead or galvanized service lines and to direct inspections and replacements; the improved hit rate was the intended use.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>personal</small></div><p>Households had lead or galvanized lines replaced faster under model-guided targeting (6,228 replacements through 2017); outcomes are documented in aggregate, no individual named.</p></li>
-        <li class="d3"><div><div class="big"><i class="sw"></i>3</div><small>organizational</small></div><p>FAST Start&#39;s hit rate was 70 percent through 2017, above 80 percent in late 2017 per McDaniel, against 15 percent in 2018 without the model; the KDD paper reports 91.6% holdout accuracy.</p></li>
-        <li class="d3"><div><div class="big"><i class="sw"></i>3</div><small>societal</small></div><p>Flint&#39;s court-ordered lead-removal mandate was served faster while the model guided digs; the Atlantic reports thousands of homes kept lead pipes longer after it was dropped.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><i class="sw"></i>2</div><small>personal</small></div><p>Households had lead or galvanized lines replaced faster under model-guided targeting (6,228 replacements through 2017); outcomes are documented in aggregate, no individual named.</p></li>
+        <li class="d3 conf-medium"><div><div class="big"><i class="sw"></i>3</div><small>organizational</small></div><p>FAST Start&#39;s hit rate was 70 percent through 2017, above 80 percent in late 2017 per McDaniel, against 15 percent in 2018 without the model; the KDD paper reports 91.6% holdout accuracy.</p></li>
+        <li class="d3 conf-medium"><div><div class="big"><i class="sw"></i>3</div><small>societal</small></div><p>Flint&#39;s court-ordered lead-removal mandate was served faster while the model guided digs; the Atlantic reports thousands of homes kept lead pipes longer after it was dropped.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -121,20 +120,20 @@
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>Digitised historical parcel and service-line records plus water-sample data</li><li>Contractor hydrovac inspections and replacements feeding labels back to the model</li><li>City officials who followed the model&#39;s recommendations when selecting homes</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Decision-makers continue to use the predictions (the 2018 hit rate fell when they were dropped)</li><li>Inspection results are returned to the model to update it</li><li>Equity constraints that do not override targeting entirely</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>Digitised historical parcel and service-line records plus water-sample data</li><li>Contractor hydrovac inspections and replacements feeding labels back to the model</li><li>City officials who followed the model&#39;s recommendations when selecting homes</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>Decision-makers continue to use the predictions (the 2018 hit rate fell when they were dropped)</li><li>Inspection results are returned to the model to update it</li><li>Equity constraints that do not override targeting entirely</li></ul></div>
       </div>
     </section>
 
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

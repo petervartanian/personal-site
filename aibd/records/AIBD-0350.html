@@ -53,17 +53,17 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="unassessed">
+      <g class="unassessed conf-medium">
         <circle class="g" cx="70" cy="218" r="8"/>
-        <text class="gl" x="70" y="204" text-anchor="middle">personal</text>
+<path class="half" d="M70,210 A8,8 0 0 0 70,226 Z"/>        <text class="gl" x="70" y="204" text-anchor="middle">personal</text>
       </g>
-      <g class="d2">
+      <g class="d2 conf-medium">
         <circle class="g" cx="140" cy="140" r="8"/>
-        <text class="gl" x="140" y="162" text-anchor="middle">organizational</text>
+<path class="half" d="M140,132 A8,8 0 0 0 140,148 Z"/>        <text class="gl" x="140" y="162" text-anchor="middle">organizational</text>
       </g>
-      <g class="d1">
+      <g class="d1 conf-medium">
         <circle class="g" cx="210" cy="170" r="8"/>
-        <text class="gl" x="210" y="156" text-anchor="middle">societal</text>
+<path class="half" d="M210,162 A8,8 0 0 0 210,178 Z"/>        <text class="gl" x="210" y="156" text-anchor="middle">societal</text>
       </g>
     </svg>
     <dl class="props">
@@ -72,7 +72,7 @@
 <div><dt>Developer</dt><dd>Allen Institute for AI (Ai2), Skylight</dd></div><div><dt>Deployer</dt><dd>Prefectura Naval Argentina (Dirección de Tráfico Marítimo, Fluvial y Lacustre; EICEMAR)</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Environmental Sustainability</a></dd></div>
       <div><dt>Sector</dt><dd>Agriculture and food, Fisheries enforcement</dd></div>
       <div><dt>Sources</dt><dd class="mono">4</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">2</dd></div>
     </dl>
     <p class="cite">Cite AIBD-0350, v1, 20 October 2026. <a href="AIBD-0350.json">JSON</a></p>
@@ -85,18 +85,17 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">On Sunday 5 January 2025 the Prefectura Naval Argentina (PNA) detected the Vanuatu-flagged trawler XinRun 579 inside Argentina&#39;s exclusive economic zone off Caleta Olivia, Santa Cruz, sailing at under 6 knots, which local rules treat as an indication of trawling; the coastguard vessel GC-25 Azopardo intercepted it and the captain was formally notified of an infraction under Law 24.922, opening administrative proceedings (Agenda Malvinas, 8 January 2025, citing official information). Skylight, the free AI maritime-monitoring platform of the Allen Institute for AI, published its own account on 31 March 2025: a rule-based Speed Range Event first alerted the authorities, a Fishing Event alert from its machine-learning model followed 40 minutes later, PNA analysts redirected a nearby coastguard vessel, and the case led to Argentina&#39;s first international electronic fine using AI-powered evidence, with the fine and operational costs paid; it quotes the EICEMAR coordinator and the PNA GIS division lead crediting Skylight. The independent news report attributes the detection to the PNA&#39;s Sistema Guardacostas and does not mention Skylight or AI; the PNA press release that Skylight links to returns 404 live and in the Internet Archive. An NVIDIA Developer blog (3 March 2025) also reports the interdiction and fine.</p>
       <p class="purpose"><b>What it was built to do.</b> Real-time detection of suspicious vessel behavior and fishing activity to support maritime enforcement against illegal, unreported and unregulated fishing; the interception was the intended use.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="unassessed"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>personal</small></div><p>No individual beneficiary is identified.</p></li>
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>The PNA intercepted the vessel within hours and, per Skylight, issued its first international electronic fine with the fine and costs paid; the independent report confirms the interception and administrative proceedings.</p></li>
-        <li class="d1"><div><div class="big"><i class="sw"></i>1</div><small>societal</small></div><p>One vessel among hundreds operating at the edge of Argentina&#39;s EEZ each season; the fishery-level effect is not quantified.</p></li>
+        <li class="unassessed conf-medium"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>personal</small></div><p>No individual beneficiary is identified.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>The PNA intercepted the vessel within hours and, per Skylight, issued its first international electronic fine with the fine and costs paid; the independent report confirms the interception and administrative proceedings.</p></li>
+        <li class="d1 conf-medium"><div><div class="big"><i class="sw"></i>1</div><small>societal</small></div><p>One vessel among hundreds operating at the edge of Argentina&#39;s EEZ each season; the fishery-level effect is not quantified.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -145,8 +144,8 @@
         <figcaption>filled recurred, hollow did not, dotted unknown</figcaption>
       </figure>
       <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>A vessel transmitting AIS inside a monitored area of interest</li><li>A speed-range rule tuned to the local legal definition of trawling speed</li><li>A machine-learning fishing-behavior model producing a second alert within 40 minutes</li><li>PNA analysts integrating Skylight with the Sistema Guardacostas and a coastguard vessel within reach</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>AIS transmissions not switched off or spoofed</li><li>A patrol asset close enough to intercept before the vessel leaves the EEZ</li><li>A legal route to sanction (Law 24.922 and the electronic fine procedure)</li><li>Analyst confirmation of each alert before dispatch</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>A vessel transmitting AIS inside a monitored area of interest</li><li>A speed-range rule tuned to the local legal definition of trawling speed</li><li>A machine-learning fishing-behavior model producing a second alert within 40 minutes</li><li>PNA analysts integrating Skylight with the Sistema Guardacostas and a coastguard vessel within reach</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>AIS transmissions not switched off or spoofed</li><li>A patrol asset close enough to intercept before the vessel leaves the EEZ</li><li>A legal route to sanction (Law 24.922 and the electronic fine procedure)</li><li>Analyst confirmation of each alert before dispatch</li></ul></div>
       </div>
       <h3 style="margin-top:18px">Tried elsewhere</h3>
       <table class="mini">
@@ -158,12 +157,12 @@
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

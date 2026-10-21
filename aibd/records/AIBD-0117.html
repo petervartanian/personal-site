@@ -53,9 +53,9 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d2">
+      <g class="d2 conf-medium">
         <circle class="g" cx="70" cy="140" r="8"/>
-        <text class="gl" x="70" y="126" text-anchor="middle">personal</text>
+<path class="half" d="M70,132 A8,8 0 0 0 70,148 Z"/>        <text class="gl" x="70" y="126" text-anchor="middle">personal</text>
       </g>
     </svg>
     <dl class="props">
@@ -64,7 +64,7 @@
 <div><dt>Developer</dt><dd>Gazi University, Ankara (Department of Neurosurgery and Department of Computer Engineering), within the Turkish Brain Project funded by the Presidency of the Republic of Türkiye, with the Presidency&#39;s Digital Transformation Office credited for the model&#39;s development</dd></div><div><dt>Deployer</dt><dd>Gazi University Faculty of Medicine Hospital, Department of Neurosurgery, Ankara</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Organizational Efficiency</a></dd></div>
       <div><dt>Sector</dt><dd>Health</dd></div>
       <div><dt>Sources</dt><dd class="mono">4</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">0</dd></div>
 <div><dt>Registry</dt><dd><a href="https://oecd.ai/en/incidents/2023-05-20-a638">OECD AI Incidents Monitor <span class="mono">2023-05-20-a638</span></a></dd></div>    </dl>
     <p class="cite">Cite AIBD-0117, v1, 20 October 2026. <a href="AIBD-0117.json">JSON</a></p>
@@ -77,16 +77,15 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">In October 2022 (day not given; first of month used), a 46-year-old woman with a nonspecific headache had a brain MRI at Gazi University Faculty of Medicine Hospital, Ankara. A region-based convolutional neural network algorithm, built within the Turkish Brain Project and running on the hospital network in real time, detected an intraparenchymal mass and alerted the research team while she was still in the scanner. Physicians read the images, judged the finding consistent with a diffuse glioma, and admitted her; a stereotactic biopsy the next day confirmed an isocitrate dehydrogenase wild-type diffuse glioma, and she was referred to oncology for immediate treatment. The case was published on 8 May 2023 and reported by Anadolu Agency on 22 May 2023.</p>
       <p class="purpose"><b>What it was built to do.</b> The Turkish Brain Project algorithm was built to detect abnormalities on brain MRI as the images are acquired and to warn the responsible physicians at once, so that the days the authors say radiology typically needs to report, and the longer wait before treatment, are cut to days; Anadolu Agency reports it was trained on stroke, hemorrhage and tumor cases. Flagging this patient&#39;s tumor mid-scan is that intended use.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>personal</small></div><p>One identifiable patient had a diffuse glioma found during her scan, was biopsied the next day and referred for immediate oncological treatment, instead of waiting the days the authors say radiology typically needs and the longer wait before treatment. The paper reports no follow-up and no changed outcome; the &#39;saved a life&#39; wording is Anadolu Agency&#39;s headline, not the authors&#39; claim, so this is rated a material benefit to one person, not a life-changing or life-saving one.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><i class="sw"></i>2</div><small>personal</small></div><p>One identifiable patient had a diffuse glioma found during her scan, was biopsied the next day and referred for immediate oncological treatment, instead of waiting the days the authors say radiology typically needs and the longer wait before treatment. The paper reports no follow-up and no changed outcome; the &#39;saved a life&#39; wording is Anadolu Agency&#39;s headline, not the authors&#39; claim, so this is rated a material benefit to one person, not a life-changing or life-saving one.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -119,20 +118,20 @@
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>A region-based convolutional neural network object-detection algorithm trained on a brain MRI data set built within the Turkish Brain Project (Anadolu Agency: six months of training on stroke, hemorrhage and tumor cases)</li><li>Integration into the hospital network so that MRI images are processed as they are acquired; Anadolu Agency reports evaluation within 5-10 seconds on the hospital&#39;s three MRI scanners</li><li>An alert channel to the physicians&#39; mobile phones, reported by Anadolu Agency as a GSM operator&#39;s picture-message service carrying the segmented abnormal regions</li><li>A neurosurgery team that reads the alert at once and can admit and biopsy the patient within a day</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>The lesion is of a kind the model was trained on (the team names stroke, hemorrhage and tumor)</li><li>The alert reaches a physician who acts on it before the routine radiology report</li><li>The hospital can schedule a biopsy or operation promptly</li><li>False alerts stay low enough that physicians keep trusting the messages; Anadolu Agency quotes Sağıroğlu that the system had reported over 1,000 abnormal findings and that physicians work closely with it because they trust it</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>A region-based convolutional neural network object-detection algorithm trained on a brain MRI data set built within the Turkish Brain Project (Anadolu Agency: six months of training on stroke, hemorrhage and tumor cases)</li><li>Integration into the hospital network so that MRI images are processed as they are acquired; Anadolu Agency reports evaluation within 5-10 seconds on the hospital&#39;s three MRI scanners</li><li>An alert channel to the physicians&#39; mobile phones, reported by Anadolu Agency as a GSM operator&#39;s picture-message service carrying the segmented abnormal regions</li><li>A neurosurgery team that reads the alert at once and can admit and biopsy the patient within a day</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>The lesion is of a kind the model was trained on (the team names stroke, hemorrhage and tumor)</li><li>The alert reaches a physician who acts on it before the routine radiology report</li><li>The hospital can schedule a biopsy or operation promptly</li><li>False alerts stay low enough that physicians keep trusting the messages; Anadolu Agency quotes Sağıroğlu that the system had reported over 1,000 abnormal findings and that physicians work closely with it because they trust it</li></ul></div>
       </div>
     </section>
 
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the OECD Monitor entry and the cited sources.</td><td class="src">https://oecd.ai/en/incidents/2023-05-20-a638</td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

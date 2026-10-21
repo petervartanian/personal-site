@@ -53,13 +53,13 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d3">
+      <g class="d3 conf-medium">
         <circle class="g" cx="70" cy="110" r="8"/>
-        <text class="gl" x="70" y="96" text-anchor="middle">societal</text>
+<path class="half" d="M70,102 A8,8 0 0 0 70,118 Z"/>        <text class="gl" x="70" y="96" text-anchor="middle">societal</text>
       </g>
-      <g class="d2">
+      <g class="d2 conf-medium">
         <circle class="g" cx="140" cy="140" r="8"/>
-        <text class="gl" x="140" y="162" text-anchor="middle">organizational</text>
+<path class="half" d="M140,132 A8,8 0 0 0 140,148 Z"/>        <text class="gl" x="140" y="162" text-anchor="middle">organizational</text>
       </g>
     </svg>
     <dl class="props">
@@ -68,7 +68,7 @@
 <div><dt>Deployer</dt><dd>U.S. Customs and Border Protection, Office of Field Operations (U.S. Department of Homeland Security)</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Organizational Efficiency</a></dd></div>
       <div><dt>Sector</dt><dd>Safety and rescue, Border security and law enforcement</dd></div>
       <div><dt>Sources</dt><dd class="mono">4</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">0</dd></div>
 <div><dt>Registry</dt><dd><a href="https://oecd.ai/en/incidents/2023-11-28-9430">OECD AI Incidents Monitor <span class="mono">2023-11-28-9430</span></a></dd></div>    </dl>
     <p class="cite">Cite AIBD-0122, v1, 20 October 2026. <a href="AIBD-0122.json">JSON</a></p>
@@ -81,17 +81,16 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">In 2023 a car driving north from Mexico approached the Point of Entry at San Ysidro; one of U.S. Customs and Border Protection&#39;s machine-learning models identified a suspicious pattern in its border-crossing history and flagged it for further review, which revealed 75 kilograms of narcotics hidden in the vehicle and led to the driver&#39;s arrest (DHS AI page, 27 November 2023). At the Axios AI+ Summit on 28 November 2023 Secretary Alejandro Mayorkas described a matching case: the Office of Field Operations model flagged a &#39;truck&#39; in 1.4 seconds that held about 75 kilograms of narcotics. DHS&#39;s 2024 AI Roadmap repeats it: a secondary-review flag yielding over 75 kg of drugs. No source names the drug or the seizure date.</p>
       <p class="purpose"><b>What it was built to do.</b> CBP&#39;s model was built to identify potentially suspicious patterns in vehicle border-crossing histories and flag vehicles for secondary review at ports of entry (DHS AI Roadmap 2024); the San Ysidro seizure was that intended use, not a side effect.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d3"><div><div class="big"><i class="sw"></i>3</div><small>societal</small></div><p>DHS states that 75 kilograms of narcotics hidden in the car were found and the driver arrested, so that load did not reach U.S. streets; the drug is not named in any source, so a life-saving (-4) claim is not supported.</p></li>
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>CBP&#39;s Office of Field Operations obtained a seizure and an arrest from a flag that Mayorkas said took 1.4 seconds; DHS leads both its AI page and its 2024 AI Roadmap with the case as its example of AI in use.</p></li>
+        <li class="d3 conf-medium"><div><div class="big"><i class="sw"></i>3</div><small>societal</small></div><p>DHS states that 75 kilograms of narcotics hidden in the car were found and the driver arrested, so that load did not reach U.S. streets; the drug is not named in any source, so a life-saving (-4) claim is not supported.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>CBP&#39;s Office of Field Operations obtained a seizure and an arrest from a flag that Mayorkas said took 1.4 seconds; DHS leads both its AI page and its 2024 AI Roadmap with the case as its example of AI in use.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -124,20 +123,20 @@
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>A CBP machine-learning model scoring vehicle border-crossing histories was running on traffic at the San Ysidro Point of Entry</li><li>The model&#39;s flag reached officers in time to send the car to further (secondary) review before it left the port</li><li>Officers physically searched the car, found the 75 kilograms of narcotics and arrested the driver</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>The crossing-history pattern the model keys on must actually distinguish smuggling loads; no source gives hit rates or false-positive rates</li><li>Officers must have the discretion and capacity to act on a flag within normal crossing processing</li><li>The seizure is documented only by DHS and the Secretary; an independent CBP release or court filing giving the date, drug and quantity has not been found</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>A CBP machine-learning model scoring vehicle border-crossing histories was running on traffic at the San Ysidro Point of Entry</li><li>The model&#39;s flag reached officers in time to send the car to further (secondary) review before it left the port</li><li>Officers physically searched the car, found the 75 kilograms of narcotics and arrested the driver</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>The crossing-history pattern the model keys on must actually distinguish smuggling loads; no source gives hit rates or false-positive rates</li><li>Officers must have the discretion and capacity to act on a flag within normal crossing processing</li><li>The seizure is documented only by DHS and the Secretary; an independent CBP release or court filing giving the date, drug and quantity has not been found</li></ul></div>
       </div>
     </section>
 
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the OECD Monitor entry and the cited sources.</td><td class="src">https://oecd.ai/en/incidents/2023-11-28-9430</td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

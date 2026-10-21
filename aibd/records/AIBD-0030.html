@@ -53,13 +53,13 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="unassessed">
+      <g class="unassessed conf-medium">
         <circle class="g" cx="70" cy="218" r="8"/>
-        <text class="gl" x="70" y="204" text-anchor="middle">personal</text>
+<path class="half" d="M70,210 A8,8 0 0 0 70,226 Z"/>        <text class="gl" x="70" y="204" text-anchor="middle">personal</text>
       </g>
-      <g class="unassessed">
+      <g class="unassessed conf-medium">
         <circle class="g" cx="140" cy="218" r="8"/>
-        <text class="gl" x="140" y="240" text-anchor="middle">organizational</text>
+<path class="half" d="M140,210 A8,8 0 0 0 140,226 Z"/>        <text class="gl" x="140" y="240" text-anchor="middle">organizational</text>
       </g>
     </svg>
     <dl class="props">
@@ -68,7 +68,7 @@
 <div><dt>Developer</dt><dd>Corti (Copenhagen, Denmark)</dd></div><div><dt>Deployer</dt><dd>Copenhagen Emergency Medical Services, Emergency Medical Dispatch Center Copenhagen</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Organizational Efficiency</a></dd></div>
       <div><dt>Sector</dt><dd>Health, Emergency medical dispatch</dd></div>
       <div><dt>Sources</dt><dd class="mono">3</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">1</dd></div>
     </dl>
     <p class="cite">Cite AIBD-0030, v2, 20 October 2026. <a href="AIBD-0030.json">JSON</a></p>
@@ -81,17 +81,16 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">Copenhagen Emergency Medical Services used a machine-learning framework, identified by the European Emergency Number Association as Corti&#39;s, to listen to 112 calls and flag suspected out-of-hospital cardiac arrest for dispatchers. A retrospective study of 108,607 calls from 2014 found the model recognized cardiac arrest with higher sensitivity than dispatchers (84.1% versus 72.5%) and faster (median 44 versus 54 seconds). A double-masked randomized trial of 169,049 calls from 1 September 2018 to 31 December 2019 then found dispatcher recognition of confirmed arrests of 93.1% with alerts versus 90.5% without, a non-significant difference, although alerts alone were more sensitive than dispatchers (85.0% versus 77.5%). No individual patient outcome attributable to an alert is documented; the date used is the trial start.</p>
       <p class="purpose"><b>What it was built to do.</b> The model was built to recognize out-of-hospital cardiac arrest during emergency calls so dispatchers can start telephone CPR sooner; the measured capability is that intended function, but no discrete changed outcome is documented.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="unassessed"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>personal</small></div><p>General benefit without an event: the evidence is aggregate (sensitivity, time-to-recognition, trial-level recognition rates) with no individually attributable changed outcome, and the randomized trial found no significant improvement in dispatcher recognition.</p></li>
-        <li class="unassessed"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>organizational</small></div><p>General benefit without an event: a capability study and a null randomized trial; no discrete organisational event with an observed outcome is documented.</p></li>
+        <li class="unassessed conf-medium"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>personal</small></div><p>General benefit without an event: the evidence is aggregate (sensitivity, time-to-recognition, trial-level recognition rates) with no individually attributable changed outcome, and the randomized trial found no significant improvement in dispatcher recognition.</p></li>
+        <li class="unassessed conf-medium"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>organizational</small></div><p>General benefit without an event: a capability study and a null randomized trial; no discrete organisational event with an observed outcome is documented.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -133,8 +132,8 @@
         <figcaption>filled recurred, hollow did not, dotted unknown</figcaption>
       </figure>
       <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>Access to recorded 112 call audio with linked outcome data (7,211 hours of Danish training data per the EENA report)</li><li>Speech-recognition pipeline running in real time on live calls</li><li>A dispatch center whose baseline recognition was already high (90.5% in the control arm)</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Dispatchers act on alerts; the trial suggests alerts did not change their behavior enough to shift recognition</li><li>Call language and acoustics match the training data (EENA reports weaker performance on smaller French and Italian datasets)</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>Access to recorded 112 call audio with linked outcome data (7,211 hours of Danish training data per the EENA report)</li><li>Speech-recognition pipeline running in real time on live calls</li><li>A dispatch center whose baseline recognition was already high (90.5% in the control arm)</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>Dispatchers act on alerts; the trial suggests alerts did not change their behavior enough to shift recognition</li><li>Call language and acoustics match the training data (EENA reports weaker performance on smaller French and Italian datasets)</li></ul></div>
       </div>
       <h3 style="margin-top:18px">Tried elsewhere</h3>
       <table class="mini">
@@ -150,12 +149,12 @@
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr><tr><td class="when">20 October 2026</td><td>Paired with AI Incident Database incident 446 (medium confidence); severity not given by the source.</td><td class="src">https://incidentdatabase.ai/cite/446</td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

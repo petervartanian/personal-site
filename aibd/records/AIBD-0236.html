@@ -53,13 +53,13 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d2">
+      <g class="d2 conf-medium">
         <circle class="g" cx="70" cy="140" r="8"/>
-        <text class="gl" x="70" y="126" text-anchor="middle">societal</text>
+<path class="half" d="M70,132 A8,8 0 0 0 70,148 Z"/>        <text class="gl" x="70" y="126" text-anchor="middle">societal</text>
       </g>
-      <g class="d1">
+      <g class="d1 conf-medium">
         <circle class="g" cx="140" cy="170" r="8"/>
-        <text class="gl" x="140" y="192" text-anchor="middle">organizational</text>
+<path class="half" d="M140,162 A8,8 0 0 0 140,178 Z"/>        <text class="gl" x="140" y="192" text-anchor="middle">organizational</text>
       </g>
     </svg>
     <dl class="props">
@@ -68,7 +68,7 @@
 <div><dt>Developer</dt><dd>OpenAI</dd></div><div><dt>Deployer</dt><dd>Sean Heelan (independent researcher)</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Knowledge Discovery</a></dd></div>
       <div><dt>Sector</dt><dd>Safety and rescue, Cybersecurity</dd></div>
       <div><dt>Sources</dt><dd class="mono">3</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">0</dd></div>
     </dl>
     <p class="cite">Cite AIBD-0236, v1, 20 October 2026. <a href="AIBD-0236.json">JSON</a></p>
@@ -81,17 +81,16 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">The date is the CVE record&#39;s publication; Heelan&#39;s write-up followed on 22 May 2025. Heelan, an independent vulnerability researcher auditing ksmbd (the Linux kernel&#39;s in-kernel SMB3 server), used a known bug (CVE-2025-37778) to benchmark OpenAI&#39;s o3 via the plain API, with no scaffolding, agents or tools. When given about 12,000 lines covering all SMB command handlers, o3 reported a previously unknown use-after-free in the handler for the SMB &#39;logoff&#39; command: sess-&gt;user can be freed while another connection bound to the same session still uses it. The Linux kernel CNA&#39;s record describes the fix (&#39;ksmbd: fix use-after-free in session logoff&#39;) with commits in five stable branches; Linuxiac reports the upstream response was fast and patches were merged for every maintained branch. Heelan calls it, to his knowledge, the first public case of an LLM finding a vulnerability of that nature.</p>
       <p class="purpose"><b>What it was built to do.</b> General-purpose reasoning model used by the researcher to audit kernel source code for vulnerabilities.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>societal</small></div><p>A remotely reachable kernel memory-safety bug was fixed across maintained branches before any reported exploitation; exposure of ksmbd users is not quantified.</p></li>
-        <li class="d1"><div><div class="big"><i class="sw"></i>1</div><small>organizational</small></div><p>The kernel project received a report with a fix merged quickly, per Linuxiac.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><i class="sw"></i>2</div><small>societal</small></div><p>A remotely reachable kernel memory-safety bug was fixed across maintained branches before any reported exploitation; exposure of ksmbd users is not quantified.</p></li>
+        <li class="d1 conf-medium"><div><div class="big"><i class="sw"></i>1</div><small>organizational</small></div><p>The kernel project received a report with a fix merged quickly, per Linuxiac.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -120,20 +119,20 @@
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>A code slice under roughly 10k-12k lines chosen by an expert</li><li>Repeated model runs with reports triaged by a human</li><li>A maintainer workflow that accepts and patches reports quickly</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Expert curation of context and validation of candidate bugs</li><li>Tolerance for false positives across runs</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>A code slice under roughly 10k-12k lines chosen by an expert</li><li>Repeated model runs with reports triaged by a human</li><li>A maintainer workflow that accepts and patches reports quickly</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>Expert curation of context and validation of candidate bugs</li><li>Tolerance for false positives across runs</li></ul></div>
       </div>
     </section>
 
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

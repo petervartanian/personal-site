@@ -53,13 +53,13 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d2">
+      <g class="d2 conf-medium">
         <circle class="g" cx="70" cy="140" r="8"/>
-        <text class="gl" x="70" y="126" text-anchor="middle">organizational</text>
+<path class="half" d="M70,132 A8,8 0 0 0 70,148 Z"/>        <text class="gl" x="70" y="126" text-anchor="middle">organizational</text>
       </g>
-      <g class="d1">
+      <g class="d1 conf-medium">
         <circle class="g" cx="140" cy="170" r="8"/>
-        <text class="gl" x="140" y="192" text-anchor="middle">societal</text>
+<path class="half" d="M140,162 A8,8 0 0 0 140,178 Z"/>        <text class="gl" x="140" y="192" text-anchor="middle">societal</text>
       </g>
     </svg>
     <dl class="props">
@@ -68,7 +68,7 @@
 <div><dt>Developer</dt><dd>ZeroPath</dd></div><div><dt>Deployer</dt><dd>Joshua Rogers (independent security researcher); fixes merged by the curl project</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Knowledge Discovery</a></dd></div>
       <div><dt>Sector</dt><dd>Safety and rescue, Cybersecurity</dd></div>
       <div><dt>Sources</dt><dd class="mono">3</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">1</dd></div>
     </dl>
     <p class="cite">Cite AIBD-0237, v1, 20 October 2026. <a href="AIBD-0237.json">JSON</a></p>
@@ -81,17 +81,16 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">The date is that of maintainer Daniel Stenberg&#39;s account; the reports arrived from mid-September 2025. Stenberg writes that a security report received on 16 September accurately identified a possible stack-based buffer overflow in curl&#39;s Kerberos FTP code, not turned into a CVE only because the code could not be reached, after which the project removed krb5-ftp support. The reporter, Joshua Rogers, then forwarded a large list of further potential issues extracted mostly with ZeroPath, an AI-powered code analyzer, producing over two hundred candidate problems despite curl&#39;s existing compilers, static analyzers and fuzzing; from the initial list about 50 separately identifiable bugfixes were merged, with second and third lists of 47 and 158 items following. Stenberg told The Register that about 50 bugfixes based on Rogers&#39; reports had been merged. Rogers&#39; retrospective states that about 98% of the curl bugs reported and fixed were discovered by ZeroPath and puts the running total of fixed bugs around 150.</p>
       <p class="purpose"><b>What it was built to do.</b> AI-powered static analysis of source code to find vulnerabilities and bugs.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>About 50 merged bugfixes from the first list, a potential overflow identified and unused code removed, per the curl maintainer.</p></li>
-        <li class="d1"><div><div class="big"><i class="sw"></i>1</div><small>societal</small></div><p>curl is widely deployed, but no user-facing incident was averted; the merged fixes are described as mostly small mistakes.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>About 50 merged bugfixes from the first list, a potential overflow identified and unused code removed, per the curl maintainer.</p></li>
+        <li class="d1 conf-medium"><div><div class="big"><i class="sw"></i>1</div><small>societal</small></div><p>curl is widely deployed, but no user-facing incident was averted; the merged fixes are described as mostly small mistakes.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -133,8 +132,8 @@
         <figcaption>filled recurred, hollow did not, dotted unknown</figcaption>
       </figure>
       <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>A large, mature C codebase already covered by conventional analyzers and fuzzing</li><li>An expert researcher filtering scanner output before reporting</li><li>Maintainers willing to work through long candidate lists</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Human triage to remove false positives</li><li>Maintainer capacity to review hundreds of items</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>A large, mature C codebase already covered by conventional analyzers and fuzzing</li><li>An expert researcher filtering scanner output before reporting</li><li>Maintainers willing to work through long candidate lists</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>Human triage to remove false positives</li><li>Maintainer capacity to review hundreds of items</li></ul></div>
       </div>
       <h3 style="margin-top:18px">Tried elsewhere</h3>
       <table class="mini">
@@ -146,12 +145,12 @@
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

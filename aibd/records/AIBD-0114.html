@@ -53,9 +53,9 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d4">
+      <g class="d4 conf-medium">
         <circle class="g" cx="70" cy="80" r="8"/>
-        <text class="gl" x="70" y="66" text-anchor="middle">personal</text>
+<path class="half" d="M70,72 A8,8 0 0 0 70,88 Z"/>        <text class="gl" x="70" y="66" text-anchor="middle">personal</text>
       </g>
     </svg>
     <dl class="props">
@@ -64,7 +64,7 @@
 <div><dt>Developer</dt><dd>China Medical University Hospital, Taichung (team of superintendent Der-Yang Cho 周德陽, Po-Ren Hsueh 薛博仁 of the Department of Laboratory Medicine, and Jiaxin Yu 游家鑫)</dd></div><div><dt>Deployer</dt><dd>China Medical University Hospital, Taichung</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Organizational Efficiency</a></dd></div>
       <div><dt>Sector</dt><dd>Science, Healthcare</dd></div>
       <div><dt>Sources</dt><dd class="mono">6</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">0</dd></div>
 <div><dt>Registry</dt><dd><a href="https://oecd.ai/en/incidents/2022-10-25-1879">OECD AI Incidents Monitor <span class="mono">2022-10-25-1879</span></a></dd></div>    </dl>
     <p class="cite">Cite AIBD-0114, v1, 20 October 2026. <a href="AIBD-0114.json">JSON</a></p>
@@ -77,16 +77,15 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">A 78-year-old woman with diabetes, hypertension and chronic kidney disease was admitted to China Medical University Hospital, Taichung, Taiwan, in mid-April 2022 with swollen legs; she developed rhabdomyolysis, acute kidney failure and coma, was intubated, and in late May developed pneumonia, treated with ceftazidime while sputum culture confirmed Stenotrophomonas maltophilia. The hospital&#39;s 智抗菌平台 (Intelligent Anti-bacterial Platform), a machine-learning model over routine MALDI-TOF mass spectra, predicted within one hour that the isolate was ceftazidime-resistant and suggested levofloxacin; the team switched, the lung infection improved within a week, she was extubated in early July (day not given; first of month used) and went home in late July 2022. The hospital presented the case on 26 October 2022.</p>
       <p class="purpose"><b>What it was built to do.</b> The platform&#39;s core, the 智能抗藥性細菌快速預測系統 (intelligent rapid prediction system for antibiotic-resistant bacteria), was built to predict resistance from routine MALDI-TOF spectra within an hour instead of the two to three days the hospital gives for conventional susceptibility testing, so that an effective antibiotic is given earlier; this case is that intended use.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d4"><div><div class="big"><i class="sw"></i>4</div><small>personal</small></div><p>The hospital describes a patient in mortal danger from sepsis and severe pneumonia caused by a multidrug-resistant organism it says carries 33% mortality, on an antibiotic the model predicted to be ineffective; after the switch she improved within a week, was extubated and discharged, and the hospital calls the rescue timely and life-saving. This rests on the treating hospital&#39;s own account at its press conference.</p></li>
+        <li class="d4 conf-medium"><div><div class="big"><i class="sw"></i>4</div><small>personal</small></div><p>The hospital describes a patient in mortal danger from sepsis and severe pneumonia caused by a multidrug-resistant organism it says carries 33% mortality, on an antibiotic the model predicted to be ineffective; after the switch she improved within a week, was extubated and discharged, and the hospital calls the rescue timely and life-saving. This rests on the treating hospital&#39;s own account at its press conference.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -127,20 +126,20 @@
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>The hospital&#39;s own laboratory identifies isolates by MALDI-TOF, so a spectrum exists as soon as a culture grows</li><li>A machine-learning classifier trained on the hospital&#39;s spectra and susceptibility records for Stenotrophomonas maltophilia and ceftazidime, one of nine species the platform covers</li><li>The platform returns the resistance prediction and a suggested alternative to the treating team within an hour</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>The organism and antibiotic are ones the model was trained for</li><li>Clinicians act on the prediction before the conventional susceptibility result arrives</li><li>An effective alternative antibiotic is available and tolerated by the patient</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>The hospital&#39;s own laboratory identifies isolates by MALDI-TOF, so a spectrum exists as soon as a culture grows</li><li>A machine-learning classifier trained on the hospital&#39;s spectra and susceptibility records for Stenotrophomonas maltophilia and ceftazidime, one of nine species the platform covers</li><li>The platform returns the resistance prediction and a suggested alternative to the treating team within an hour</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>The organism and antibiotic are ones the model was trained for</li><li>Clinicians act on the prediction before the conventional susceptibility result arrives</li><li>An effective alternative antibiotic is available and tolerated by the patient</li></ul></div>
       </div>
     </section>
 
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the OECD Monitor entry and the cited sources.</td><td class="src">https://oecd.ai/en/incidents/2022-10-25-1879</td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

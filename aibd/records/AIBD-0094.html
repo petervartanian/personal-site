@@ -53,15 +53,15 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d2">
+      <g class="d2 conf-high">
         <circle class="g" cx="70" cy="140" r="8"/>
         <text class="gl" x="70" y="126" text-anchor="middle">personal</text>
       </g>
-      <g class="d2">
+      <g class="d2 conf-high">
         <circle class="g" cx="140" cy="140" r="8"/>
         <text class="gl" x="140" y="162" text-anchor="middle">organizational</text>
       </g>
-      <g class="d3">
+      <g class="d3 conf-high">
         <circle class="g" cx="210" cy="110" r="8"/>
         <text class="gl" x="210" y="96" text-anchor="middle">societal</text>
       </g>
@@ -72,7 +72,7 @@
 <div><dt>Developer</dt><dd>Joshua Blumenstock (UC Berkeley) and Isabella Smythe (Columbia University), using wealth estimates by Chi et al. (2021), with World Bank economists Jonathan Lain and Tara Vishwanath, for the Government of Nigeria</dd></div><div><dt>Deployer</dt><dd>National Social Safety Nets Coordinating Office (NASSCO), Federal Government of Nigeria</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Accessibility</a></dd></div>
       <div><dt>Sector</dt><dd>Humanitarian, Social protection and cash transfers</dd></div>
       <div><dt>Sources</dt><dd class="mono">5</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-high"></i>high</span></dd></div>
+      <div><dt>Confidence</dt><dd>high</dd></div>
       <div><dt>Replications</dt><dd class="mono">1</dd></div>
     </dl>
     <p class="cite">Cite AIBD-0094, v3, 20 October 2026. <a href="AIBD-0094.json">JSON</a></p>
@@ -85,18 +85,17 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">Lacking a social registry for urban areas, Nigeria&#39;s National Social Safety Nets Coordinating Office built the Rapid Response Register for a government-funded COVID-19 cash transfer. Ward-level poverty maps, produced by applying machine-learning algorithms to satellite imagery with household-survey labels (work by Berkeley and Columbia researchers with World Bank economists), selected 1,163 of the poorest urban wards, population over 20 million. Residents self-registered by USSD after SMS blasts (first wave June 2021), followed by in-person verification. Human Rights Watch records that the program began in January 2021 and the PNAS authors state disbursement began mid-January 2021 (day not given; first day of month used). World Bank monitoring reports 49,000 beneficiary households of the government&#39;s COVID-CT as of 15 October 2021 and over 1.75 million registrations by November 2021, against a government target of one million households.</p>
       <p class="purpose"><b>What it was built to do.</b> Geographically target a COVID-19 urban cash transfer to the poorest wards where no social registry existed.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>personal</small></div><p>Households in selected wards were beneficiaries of the government&#39;s COVID-CT (the PNAS authors say disbursement began mid-January 2021); the World Bank ISR records 49,000 beneficiary households as of 15 October 2021 without saying how many had been paid.</p></li>
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>NASSCO stood up an urban registry within months through USSD self-registration guided by the ML poverty map; over 1.75 million successful registrations (PAD, Nov 2021).</p></li>
-        <li class="d3"><div><div class="big"><i class="sw"></i>3</div><small>societal</small></div><p>Material to many: 1,163 wards with over 20 million residents made eligible; PNAS simulation finds the ML maps would cut inclusion errors by 61.7% versus the survey-based benchmark.</p></li>
+        <li class="d2 conf-high"><div><div class="big"><i class="sw"></i>2</div><small>personal</small></div><p>Households in selected wards were beneficiaries of the government&#39;s COVID-CT (the PNAS authors say disbursement began mid-January 2021); the World Bank ISR records 49,000 beneficiary households as of 15 October 2021 without saying how many had been paid.</p></li>
+        <li class="d2 conf-high"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>NASSCO stood up an urban registry within months through USSD self-registration guided by the ML poverty map; over 1.75 million successful registrations (PAD, Nov 2021).</p></li>
+        <li class="d3 conf-high"><div><div class="big"><i class="sw"></i>3</div><small>societal</small></div><p>Material to many: 1,163 wards with over 20 million residents made eligible; PNAS simulation finds the ML maps would cut inclusion errors by 61.7% versus the survey-based benchmark.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -146,8 +145,8 @@
         <figcaption>filled recurred, hollow did not, dotted unknown</figcaption>
       </figure>
       <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>Deep-learning poverty map trained on geo-located household surveys</li><li>Government decision to adopt the ward ranking for eligibility</li><li>SMS blasts and USSD self-registration</li><li>In-person verification, de-duplication and payment onboarding</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Ground-truth survey data for training labels</li><li>Ward boundaries compatible with map resolution</li><li>Mobile-phone access in target wards</li><li>Government funding for transfers and identity verification capacity</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>Deep-learning poverty map trained on geo-located household surveys</li><li>Government decision to adopt the ward ranking for eligibility</li><li>SMS blasts and USSD self-registration</li><li>In-person verification, de-duplication and payment onboarding</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>Ground-truth survey data for training labels</li><li>Ward boundaries compatible with map resolution</li><li>Mobile-phone access in target wards</li><li>Government funding for transfers and identity verification capacity</li></ul></div>
       </div>
       <h3 style="margin-top:18px">Tried elsewhere</h3>
       <table class="mini">
@@ -163,12 +162,12 @@
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr><tr><td class="when">20 October 2026</td><td>Paired with AI Incident Database incident 546 (high confidence); severity not given by the source.</td><td class="src">https://incidentdatabase.ai/cite/546</td><td class="mono">AIBD</td></tr><tr><td class="when">20 October 2026</td><td>Placed Isabella Smythe at Columbia University and credited Chi et al.&#39;s wealth estimates and the two named World Bank economists as the PNAS paper and World Bank blog state them, removed the unsupported word &#39;paid&#39; from the 49,000-household figure because the ISR says only &#39;beneficiary HHs&#39; as of 15 October 2021, and added the World Bank Novissi case study as the source of the 2 November 2020 echo date that the Nature paper gives only as November 2020.</td><td class="src">https://pmc.ncbi.nlm.nih.gov/articles/PMC9371736/; https://blogs.worldbank.org/en/opendata/using-big-data-and-machine-learning-locate-poor-nigeria; https://documents.worldbank.org/curated/en/099012925120031079/pdf/P17693518b066e0ff1b62c194b8b78c78dd.pdf</td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

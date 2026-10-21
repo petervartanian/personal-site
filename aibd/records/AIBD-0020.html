@@ -53,9 +53,9 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d2">
+      <g class="d2 conf-medium">
         <circle class="g" cx="70" cy="140" r="8"/>
-        <text class="gl" x="70" y="126" text-anchor="middle">societal</text>
+<path class="half" d="M70,132 A8,8 0 0 0 70,148 Z"/>        <text class="gl" x="70" y="126" text-anchor="middle">societal</text>
       </g>
     </svg>
     <dl class="props">
@@ -64,7 +64,7 @@
 <div><dt>Developer</dt><dd>DeepMind</dd></div><div><dt>Deployer</dt><dd>DeepMind</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Knowledge Discovery</a></dd></div>
       <div><dt>Sector</dt><dd>Science, Mathematics</dd></div>
       <div><dt>Sources</dt><dd class="mono">2</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">1</dd></div>
     </dl>
     <p class="cite">Cite AIBD-0020, v3, 20 October 2026. <a href="AIBD-0020.json">JSON</a></p>
@@ -77,16 +77,15 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">On 5 October 2022 Nature published AlphaTensor, a reinforcement-learning system from DeepMind (Fawzi, Balog, Huang, Hubert, Romera-Paredes and others) that treats the search for matrix multiplication algorithms as a single-player game, TensorGame, in which a deep neural network guides a planning procedure derived from AlphaZero. It found an algorithm multiplying two 4x4 matrices over the field with two elements in 47 multiplications, beating Strassen&#39;s two-level algorithm for the first time in about 50 years, and a 96-multiplication scheme for 5x5 matrices over the same field. On 8 October 2022 Manuel Kauers and Jakob Moosbauer posted a preprint, revised on 13 October, that took the published 5x5 scheme as its starting point and improved it to 95 multiplications.</p>
       <p class="purpose"><b>What it was built to do.</b> Built to discover matrix multiplication algorithms by searching for low-rank tensor decompositions; the new schemes were that purpose.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>societal</small></div><p>Researchers in algebraic complexity gained new explicit decompositions that were improved upon within a week by Kauers and Moosbauer; the gains are field-restricted, since Nature reports the 4x4 improvement for matrices &#34;in a finite field&#34; and Kauers and Moosbauer give the 5x5 record of 96 multiplications over Z2.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><i class="sw"></i>2</div><small>societal</small></div><p>Researchers in algebraic complexity gained new explicit decompositions that were improved upon within a week by Kauers and Moosbauer; the gains are field-restricted, since Nature reports the 4x4 improvement for matrices &#34;in a finite field&#34; and Kauers and Moosbauer give the 5x5 record of 96 multiplications over Z2.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -124,8 +123,8 @@
         <figcaption>filled recurred, hollow did not, dotted unknown</figcaption>
       </figure>
       <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>Formulation of algorithm discovery as a tensor-decomposition game</li><li>Neural-network-guided search with exact verification of each decomposition</li><li>Publication of explicit decompositions that others can check and extend</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Decompositions must be verified exactly over the stated ring or field</li><li>Independent reproduction or extension by researchers outside the vendor</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>Formulation of algorithm discovery as a tensor-decomposition game</li><li>Neural-network-guided search with exact verification of each decomposition</li><li>Publication of explicit decompositions that others can check and extend</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>Decompositions must be verified exactly over the stated ring or field</li><li>Independent reproduction or extension by researchers outside the vendor</li></ul></div>
       </div>
       <h3 style="margin-top:18px">Tried elsewhere</h3>
       <table class="mini">
@@ -137,12 +136,12 @@
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr><tr><td class="when">20 October 2026</td><td>Replaced the stitched Nature quote with the abstract sentence as printed, corrected the AlphaEvolve echo to say that the rational 48-multiplication scheme was projected from AlphaEvolve&#39;s complex-valued decomposition rather than derived independently, and confined the societal rating reason to what the cited sources state.</td><td class="src">https://www.nature.com/articles/s41586-022-05172-4 ; https://arxiv.org/abs/2506.13242 ; https://arxiv.org/abs/2210.04045</td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

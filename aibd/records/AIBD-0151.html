@@ -53,11 +53,11 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d3">
+      <g class="d3 conf-high">
         <circle class="g" cx="70" cy="110" r="8"/>
         <text class="gl" x="70" y="96" text-anchor="middle">personal</text>
       </g>
-      <g class="d2">
+      <g class="d2 conf-high">
         <circle class="g" cx="140" cy="140" r="8"/>
         <text class="gl" x="140" y="162" text-anchor="middle">organizational</text>
       </g>
@@ -68,7 +68,7 @@
 <div><dt>Developer</dt><dd>Columbia University Fertility Center, Columbia University Irving Medical Center (team led by Zev Williams and Hemant Suryawanshi)</dd></div><div><dt>Deployer</dt><dd>Columbia University Fertility Center, New York (used on its own patient)</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Accessibility</a></dd></div>
       <div><dt>Sector</dt><dd>Health</dd></div>
       <div><dt>Sources</dt><dd class="mono">32</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-high"></i>high</span></dd></div>
+      <div><dt>Confidence</dt><dd>high</dd></div>
       <div><dt>Replications</dt><dd class="mono">0</dd></div>
 <div><dt>Registry</dt><dd><a href="https://oecd.ai/en/incidents/2025-11-03-2f05">OECD AI Incidents Monitor <span class="mono">2025-11-03-2f05</span></a></dd></div>    </dl>
     <p class="cite">Cite AIBD-0151, v1, 20 October 2026. <a href="AIBD-0151.json">JSON</a></p>
@@ -81,17 +81,16 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">At Columbia University Fertility Center in New York, a 39-year-old man with non-obstructive azoospermia and his 37-year-old wife, called &#39;Rosie&#39; in TIME, had tried for 19 years, through 15 failed IVF cycles and two surgical sperm extractions. His 3.5 mL semen sample, read as sperm-free by manual examination, was run through STAR, which captured about 2.5 million images in roughly two hours and detected seven sperm, two of them motile. The two motile sperm were injected into eggs, two embryos were transferred on day 3, and a pregnancy test was positive 13 days later, in March 2025. The Lancet published the case on 31 October 2025; a girl was born in December 2025.</p>
       <p class="purpose"><b>What it was built to do.</b> STAR (Sperm Tracking and Recovery) was built over about five years at the Columbia University Fertility Center to find, and recover undamaged, the few sperm present in semen samples of men with azoospermia or cryptozoospermia so that they can be used for IVF by intracytoplasmic sperm injection; this pregnancy was exactly that intended use and its first clinical result.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d3"><div><div class="big"><i class="sw"></i>3</div><small>personal</small></div><p>A healthy girl was born in December 2025 to a couple who had tried for 19 years through 15 failed IVF cycles and two surgeries, and whose husband had been told donor sperm or adoption were his only options (BBC, New York Post, DongA Science, NYT in syndication); a life-changing benefit to identifiable individuals, not a life-saving one, so -3 rather than -4.</p></li>
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>The case became the clinic&#39;s published proof of STAR: the service launched in late 2025 at $3,000 per analysis, three systems are in operation, the waiting list runs to hundreds, and STAR was named a TIME Best Invention of 2025 (Columbia service page, NYT in syndication, BBC, TIME); a material gain for one institution.</p></li>
+        <li class="d3 conf-high"><div><div class="big"><i class="sw"></i>3</div><small>personal</small></div><p>A healthy girl was born in December 2025 to a couple who had tried for 19 years through 15 failed IVF cycles and two surgeries, and whose husband had been told donor sperm or adoption were his only options (BBC, New York Post, DongA Science, NYT in syndication); a life-changing benefit to identifiable individuals, not a life-saving one, so -3 rather than -4.</p></li>
+        <li class="d2 conf-high"><div><div class="big"><i class="sw"></i>2</div><small>organizational</small></div><p>The case became the clinic&#39;s published proof of STAR: the service launched in late 2025 at $3,000 per analysis, three systems are in operation, the waiting list runs to hundreds, and STAR was named a TIME Best Invention of 2025 (Columbia service page, NYT in syndication, BBC, TIME); a material gain for one institution.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -236,20 +235,20 @@
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>A man with non-obstructive azoospermia whose 3.5 mL ejaculate still held a handful of sperm (seven, two motile) that manual microscopy and two surgical extractions had missed, rather than no sperm production at all.</li><li>STAR&#39;s full pipeline on that sample: flow through a single-use microfluidic chip, a high-speed camera capturing about 2.5 million frames in roughly two hours, an AI detector flagging sperm among debris, and a gate or robotic step diverting each flagged sperm gently enough to leave it usable.</li><li>A partner with mature eggs available (one fresh, one thawed) and an IVF laboratory able to inject the two motile sperm, culture two embryos and transfer them on day 3.</li><li>About five years of in-house development at an academic fertility center staffed with embryologists, microfabrication, machine-learning and robotics specialists, and a couple who kept trying after 15 failed IVF cycles.</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Some sperm must exist in the sample: STAR finds sperm, it does not create them, and it cannot help men who produce none (NYT in syndication; Williams in the Washington Post).</li><li>Rates are low even at Columbia: about 28% of prior-azoospermia patients have sperm found, about 20% of mature eggs fertilize and about 18% of fertilized eggs become good-quality embryos (service page); across 175 cases sperm were recovered in 26% (NYT) to just under 30% (BBC).</li><li>The evidence is one peer-reviewed case plus clinic-reported series: as of August 2026 no controlled trial and no published success rate (Medical Daily), and the ICSI pioneer Gianpiero Palermo warned the approach may sell false hope (Washington Post).</li><li>Access is narrow: three systems at one New York clinic (NYT), $3,000 per analysis or $1,500 if nothing is found, not billable to insurance (service page).</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>A man with non-obstructive azoospermia whose 3.5 mL ejaculate still held a handful of sperm (seven, two motile) that manual microscopy and two surgical extractions had missed, rather than no sperm production at all.</li><li>STAR&#39;s full pipeline on that sample: flow through a single-use microfluidic chip, a high-speed camera capturing about 2.5 million frames in roughly two hours, an AI detector flagging sperm among debris, and a gate or robotic step diverting each flagged sperm gently enough to leave it usable.</li><li>A partner with mature eggs available (one fresh, one thawed) and an IVF laboratory able to inject the two motile sperm, culture two embryos and transfer them on day 3.</li><li>About five years of in-house development at an academic fertility center staffed with embryologists, microfabrication, machine-learning and robotics specialists, and a couple who kept trying after 15 failed IVF cycles.</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>Some sperm must exist in the sample: STAR finds sperm, it does not create them, and it cannot help men who produce none (NYT in syndication; Williams in the Washington Post).</li><li>Rates are low even at Columbia: about 28% of prior-azoospermia patients have sperm found, about 20% of mature eggs fertilize and about 18% of fertilized eggs become good-quality embryos (service page); across 175 cases sperm were recovered in 26% (NYT) to just under 30% (BBC).</li><li>The evidence is one peer-reviewed case plus clinic-reported series: as of August 2026 no controlled trial and no published success rate (Medical Daily), and the ICSI pioneer Gianpiero Palermo warned the approach may sell false hope (Washington Post).</li><li>Access is narrow: three systems at one New York clinic (NYT), $3,000 per analysis or $1,500 if nothing is found, not billable to insurance (service page).</li></ul></div>
       </div>
     </section>
 
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the OECD Monitor entry and the cited sources.</td><td class="src">https://oecd.ai/en/incidents/2025-11-03-2f05</td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>

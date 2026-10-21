@@ -53,13 +53,13 @@
       <text class="axis" x="30" y="84" text-anchor="end">4</text>
       <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
       <text class="axis" x="30" y="54" text-anchor="end">5</text>
-      <g class="d2">
+      <g class="d2 conf-medium">
         <circle class="g" cx="70" cy="140" r="8"/>
-        <text class="gl" x="70" y="126" text-anchor="middle">personal</text>
+<path class="half" d="M70,132 A8,8 0 0 0 70,148 Z"/>        <text class="gl" x="70" y="126" text-anchor="middle">personal</text>
       </g>
-      <g class="d1">
+      <g class="d1 conf-medium">
         <circle class="g" cx="140" cy="170" r="8"/>
-        <text class="gl" x="140" y="192" text-anchor="middle">societal</text>
+<path class="half" d="M140,162 A8,8 0 0 0 140,178 Z"/>        <text class="gl" x="140" y="192" text-anchor="middle">societal</text>
       </g>
     </svg>
     <dl class="props">
@@ -68,7 +68,7 @@
 <div><dt>Developer</dt><dd>BrainGate consortium: Massachusetts General Hospital Center for Neurotechnology and Neurorecovery, Brown University and VA Providence Healthcare System, with Stanford University and UC Davis co-authors</dd></div><div><dt>Deployer</dt><dd>BrainGate2 pilot clinical trial (sponsor-investigator Leigh R. Hochberg; FDA Investigational Device Exemption G090003), with research sessions at the participants&#39; residences</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Accessibility</a></dd></div>
       <div><dt>Sector</dt><dd>Accessibility, Neurotechnology</dd></div>
       <div><dt>Sources</dt><dd class="mono">8</dd></div>
-      <div><dt>Confidence</dt><dd><span class="conf"><i class="sw conf-medium"></i>medium</span></dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
       <div><dt>Replications</dt><dd class="mono">0</dd></div>
 <div><dt>Registry</dt><dd><a href="https://oecd.ai/en/incidents/2026-03-16-f051">OECD AI Incidents Monitor <span class="mono">2026-03-16-f051</span></a></dd></div>    </dl>
     <p class="cite">Cite AIBD-0204, v1, 20 October 2026. <a href="AIBD-0204.json">JSON</a></p>
@@ -81,17 +81,16 @@
     </div>
 
     <section class="sec">
-      <details class="fold"><summary>What happened</summary>
+      <h2>What happened</h2>
       <p class="prose">In the BrainGate2 pilot trial (NCT00912041), T17, a 33-year-old man with ALS, tetraplegia, anarthria and ventilator dependence, and T18, a 48-year-old man with a C4 ASIA A spinal cord injury about 18 months before enrollment, each received six 64-electrode Utah arrays in precentral gyrus. A five-layer gated recurrent unit decoder with a 5-gram language model turned attempted finger movements into QWERTY keystrokes after as few as 30 calibration sentences. In research sessions at each participant&#39;s place of residence, on trial days 44 to 144, T18 reached 110 characters (22 words) per minute with a 1.6% word error rate and T17 47 characters per minute; both typed sentences of their own choosing. Published in Nature Neuroscience, 16 March 2026.</p>
       <p class="purpose"><b>What it was built to do.</b> The typing neuroprosthesis was built to restore communication for people with paralysis by decoding attempted finger movements into keystrokes; the typing the two participants achieved is exactly that purpose.</p>
     </section>
 
     <section class="sec" data-panel="who">
-      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d2"><div><div class="big"><i class="sw"></i>2</div><small>personal</small></div><p>Two identifiable participants, one of whom has anarthria and only eye movement left, typed sentences of their own choosing at up to 22 words per minute, but only in research sessions; the paper lists independent use as future work, so the gain is material rather than life-changing.</p></li>
-        <li class="d1"><div><div class="big"><i class="sw"></i>1</div><small>societal</small></div><p>The authors report higher throughput than current state-of-the-art hand-motor iBCI decoding, and UCSF&#39;s Edward Chang, not on the paper, called it among the fastest motor-cortex typing BCIs yet; two participants and no population effect.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><i class="sw"></i>2</div><small>personal</small></div><p>Two identifiable participants, one of whom has anarthria and only eye movement left, typed sentences of their own choosing at up to 22 words per minute, but only in research sessions; the paper lists independent use as future work, so the gain is material rather than life-changing.</p></li>
+        <li class="d1 conf-medium"><div><div class="big"><i class="sw"></i>1</div><small>societal</small></div><p>The authors report higher throughput than current state-of-the-art hand-motor iBCI decoding, and UCSF&#39;s Edward Chang, not on the paper, called it among the fastest motor-cortex typing BCIs yet; two participants and no population effect.</p></li>
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
@@ -140,20 +139,20 @@
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
-        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>Six 64-electrode Utah arrays per participant placed in precentral gyrus after fMRI-guided parcellation, giving hand-motor electrodes for both hands.</li><li>A recurrent neural network decoder trained with CTC loss on attempted finger movements, recalibrated from as few as 30 sentences, plus a 5-gram language model.</li><li>A keyboard paradigm the participants already knew; neither was a touch typist, and both learned the layout over sessions.</li><li>A pilot-trial infrastructure that brings research staff and equipment to the participant&#39;s residence.</li></ul></details></div>
-        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Use was confined to research sessions; independent use through online decoder training is described in the paper as future work.</li><li>Performance differed by participant: T18 reached 22 words per minute with word error below 7% across blocks, T17 47 characters per minute with word error mostly below 15%.</li><li>Invasive surgery is required, the device is investigational under an FDA IDE, and the paper reports no clinical-trial safety outcomes.</li></ul></details></div>
+        <div><h3>What produced it</h3><ul class="plain"><li>Six 64-electrode Utah arrays per participant placed in precentral gyrus after fMRI-guided parcellation, giving hand-motor electrodes for both hands.</li><li>A recurrent neural network decoder trained with CTC loss on attempted finger movements, recalibrated from as few as 30 sentences, plus a 5-gram language model.</li><li>A keyboard paradigm the participants already knew; neither was a touch typist, and both learned the layout over sessions.</li><li>A pilot-trial infrastructure that brings research staff and equipment to the participant&#39;s residence.</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>Use was confined to research sessions; independent use through online decoder training is described in the paper as future work.</li><li>Performance differed by participant: T18 reached 22 words per minute with word error below 7% across blocks, T17 47 characters per minute with word error mostly below 15%.</li><li>Invasive surgery is required, the device is investigational under an FDA IDE, and the paper reports no clinical-trial safety outcomes.</li></ul></div>
       </div>
     </section>
 
 
 
     <section class="sec" data-panel="provenance">
-      <details class="fold"><summary>Revisions</summary>
+      <h2>Revisions</h2>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the OECD Monitor entry, the Nature Neuroscience paper (read in full through the Europe PMC open-access copy, PMC13633126), the Mass General Brigham release as reproduced by Neuroscience News, the Brown University release as reproduced by Medical Xpress, Scientific American, ALS News Today, Europa Press via Infosalus (one of the Monitor&#39;s seven Spanish-language sources) and the ClinicalTrials.gov entry via its API. Kept at benefit created or restored following AIBD-0005, AIBD-0051 and AIBD-0052, which file single- and two-participant BCI trial demonstrations as created benefits for identifiable people; the paper is not an aggregate study, but it reports research-session performance only and states that it &#39;does not report any clinical trial-related outcomes&#39;, which the the taxonomy note records. The paper dates sessions only as trial days relative to surgery (T17 days 56–144, T18 days 44–107), so the online publication date, which is also the Monitor&#39;s date, is used. Participant ages and diagnoses come from the paper&#39;s Methods; the Boston Globe&#39;s STAT republication was fetched but its extraction swapped the participants&#39; diagnoses, so it is not cited. La Razón and LaSexta from the Monitor&#39;s list and nature.com without a cookie-bypass could not be fetched. The WebSearch budget was exhausted, so sources were found through Google and Bing news feeds and the Crossref and Europe PMC APIs.</td><td class="src">https://oecd.ai/en/incidents/2026-03-16-f051</td><td class="mono">AIBD</td></tr></tbody>
       </table>
-      </details>
+      
     </section>
   </article>
 </div>
