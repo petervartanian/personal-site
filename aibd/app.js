@@ -224,6 +224,32 @@
 })();
 
 
+// Shelf: the cases a reader keeps, in localStorage, on every page.
+(function () {
+  var KEY = 'aibd-shelf';
+  function ids() { try { var v = JSON.parse(window.localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return []; } }
+  function save(list) { try { window.localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) {} }
+  var shelf = window.aibdShelf = {
+    ids: ids,
+    has: function (id) { return ids().indexOf(id) !== -1; },
+    toggle: function (id) { var list = ids(), i = list.indexOf(id); if (i === -1) list.push(id); else list.splice(i, 1); save(list); return i === -1; },
+    clear: function () { save([]); }
+  };
+  function paint() {
+    var n = ids().length;
+    document.querySelectorAll('[data-shelf-link]').forEach(function (a) { a.textContent = n ? 'Shelf (' + n + ')' : 'Shelf'; });
+    document.querySelectorAll('[data-keep]').forEach(function (b) { var on = shelf.has(b.getAttribute('data-keep')); b.textContent = on ? 'Kept' : 'Keep this case'; b.setAttribute('aria-pressed', String(on)); });
+    document.querySelectorAll('[data-shelf-count]').forEach(function (s) { s.textContent = String(n); });
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-keep]');
+    if (b) { shelf.toggle(b.getAttribute('data-keep')); paint(); return; }
+    if (e.target.closest('[data-shelf-clear]')) { shelf.clear(); paint(); if (window.aibdApply) window.aibdApply(); }
+  });
+  shelf.paint = paint;
+  paint();
+})();
+
 // Tool-kit: the tray in the top-right corner of the masthead. It opens from its
 // handle and shuts on a tool, a click elsewhere or Escape.
 (function () {
@@ -245,7 +271,7 @@
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
   var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'unexpected', 'evidence', 'developer', 'harm'];
-  var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'method', 'data'];
+  var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'shelf', 'method', 'data'];
   var kit = document.querySelector('[data-kit]');
   // One tool at a time: the open one, or none.
   var openTool = (new URLSearchParams(window.location.search).get('open') || '').split(',').filter(function (k) { return PANELS.indexOf(k) !== -1; })[0] || null;
@@ -253,7 +279,7 @@
     PANELS.forEach(function (k) {
       var on = k === openTool;
       var panel = ex.querySelector('[data-tool-panel="' + k + '"]'); if (panel) panel.hidden = !on;
-      if (k === 'table') { ex.classList.toggle('tabular', on); var th = ex.querySelector('[data-table-head]'); if (th) th.hidden = !on; }
+      if (k === 'table' || k === 'shelf') { if (on || (openTool !== 'table' && openTool !== 'shelf')) { ex.classList.toggle('tabular', on); var th = ex.querySelector('[data-table-head]'); if (th) th.hidden = !on; } }
       var b = kit ? kit.querySelector('[data-kit-tool="' + k + '"]') : null;
       if (b) { b.classList.toggle('on', on); if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); }
     });
@@ -323,6 +349,7 @@
   function hasAny(obj) { for (var k in obj) if (obj.hasOwnProperty(k)) return true; return false; }
   function matches(row, ignore) {
     var d = row.dataset;
+    if (openTool === 'shelf' && !(window.aibdShelf && window.aibdShelf.has(d.id))) return false;
     var text = q ? q.value.trim().toLowerCase() : '';
     if (text && d.text.indexOf(text) === -1) return false;
     for (var i = 0; i < KEYS.length; i++) {
@@ -334,6 +361,7 @@
     }
     return true;
   }
+  window.aibdApply = function () { apply(); };
   function apply() {
     var shown = 0;
     rows.forEach(function (r) { var ok = matches(r, null); if (ok) { r.hidden = !showAll && shown >= PAGE; shown++; } else { r.hidden = true; } });
@@ -347,7 +375,10 @@
       b.setAttribute('aria-pressed', String(on));
       b.classList.toggle('zero', n === 0 && !on);
     });
-    if (count) count.textContent = shown + ' of ' + rows.length + ' records';
+    if (count) {
+      var filtered = (q && q.value.trim()) || openTool === 'shelf' || KEYS.some(function (k) { return hasAny(active[k]); });
+      count.textContent = filtered ? shown + ' of ' + rows.length + ' cases' : rows.length + ' cases, updated ' + (count.dataset.updated || '');
+    }
     KEYS.forEach(function (k) { if (hasAny(active[k])) { var g = ex.querySelector('[data-facet-group="' + k + '"]'); if (g) { g.removeAttribute('data-collapsed'); var h = g.querySelector('[data-facet-head]'); if (h) h.setAttribute('aria-expanded', 'true'); } } });
     var activeBox = ex.querySelector('[data-active]');
     if (activeBox) {
