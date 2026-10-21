@@ -228,8 +228,8 @@
 (function () {
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
-  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'unexpected', 'evidence', 'developer'];
-  var LABELS = { type: 'type', group: 'group', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', developer: 'developer' };
+  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'unexpected', 'evidence', 'developer', 'harm'];
+  var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', developer: 'developer' };
   var PAGE = 40, showAll = false;
   var more = ex.querySelector('[data-more-rows]');
   var rows = Array.prototype.slice.call(ex.querySelectorAll('[data-row]'));
