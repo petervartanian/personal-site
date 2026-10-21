@@ -236,6 +236,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var KEY = 'aibd-shelf';
   function ids() { try { var v = JSON.parse(window.localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return []; } }
   function save(list) { try { window.localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) {} }
+  var lastCleared = [];
   var shelf = window.aibdShelf = {
     ids: ids,
     has: function (id) { return ids().indexOf(id) !== -1; },
@@ -252,7 +253,8 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-keep]');
     if (b) { shelf.toggle(b.getAttribute('data-keep')); paint(); return; }
-    if (e.target.closest('[data-shelf-clear]')) { shelf.clear(); paint(); if (window.aibdApply) window.aibdApply(); }
+    if (e.target.closest('[data-shelf-clear]')) { lastCleared = ids(); shelf.clear(); paint(); document.querySelectorAll('[data-shelf-undo]').forEach(function (u) { u.hidden = !lastCleared.length; }); if (window.aibdApply) window.aibdApply(); return; }
+    if (e.target.closest('[data-shelf-restore]')) { save(lastCleared); lastCleared = []; paint(); document.querySelectorAll('[data-shelf-undo]').forEach(function (u) { u.hidden = true; }); if (window.aibdApply) window.aibdApply(); }
   });
   shelf.paint = paint;
   paint();
@@ -331,26 +333,28 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   applyTools();
   var sortState = { key: null, dir: 1 };
   var CONF = { high: 0, medium: 1, low: 2 };
+  function sortBy(key, dir) {
+    sortState.key = key; sortState.dir = dir;
+    var list = ex.querySelector('ol.results');
+    var val = function (r) {
+      var d = r.dataset;
+      if (key === 'depth') return d.depth === 'n/a' ? -1 : parseInt(d.depth, 10);
+      if (key === 'year') return parseInt(d.year, 10);
+      if (key === 'sources') return parseInt(d.sources, 10);
+      if (key === 'evidence') return -(CONF[d.evidence] || 0);
+      return d[key] || '';
+    };
+    var sorted = rows.slice().sort(function (p, q) { var x = val(p), y = val(q); return (x < y ? -1 : x > y ? 1 : 0) * -dir; });
+    if (key === 'headline' || key === 'sector') sorted.reverse();
+    sorted.forEach(function (r) { list.appendChild(r); });
+    rows = sorted;
+    ex.querySelectorAll('[data-sort-key]').forEach(function (x) { var on = x.getAttribute('data-sort-key') === key; x.classList.toggle('on', on); if (on) x.setAttribute('aria-sort', dir === 1 ? 'descending' : 'ascending'); else x.removeAttribute('aria-sort'); });
+  }
   ex.querySelectorAll('[data-sort-key]').forEach(function (h) {
     h.addEventListener('click', function () {
       var key = h.getAttribute('data-sort-key');
-      sortState.dir = sortState.key === key ? -sortState.dir : 1; sortState.key = key;
-      ex.querySelectorAll('[data-sort-key]').forEach(function (o) { o.removeAttribute('aria-sort'); });
-      h.setAttribute('aria-sort', sortState.dir === 1 ? 'descending' : 'ascending');
-      var list = ex.querySelector('ol.results');
-      var val = function (r) {
-        var d = r.dataset;
-        if (key === 'depth') return d.depth === 'n/a' ? -1 : parseInt(d.depth, 10);
-        if (key === 'year') return parseInt(d.year, 10);
-        if (key === 'sources') return parseInt(d.sources, 10);
-        if (key === 'evidence') return -(CONF[d.evidence] || 0);
-        return d[key] || '';
-      };
-      var sorted = rows.slice().sort(function (p, q) { var x = val(p), y = val(q); return (x < y ? -1 : x > y ? 1 : 0) * -sortState.dir; });
-      if (key === 'headline' || key === 'sector') sorted.reverse();
-      sorted.forEach(function (r) { list.appendChild(r); });
-      ex.querySelectorAll('[data-sort-key]').forEach(function (x) { x.classList.toggle('on', x === h); });
-      apply();
+      sortBy(key, sortState.key === key ? -sortState.dir : 1);
+      apply(true);
     });
   });
   function bindAtlas() {
@@ -393,6 +397,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (q) q.value = p.get('q') || '';
   }
   readFilters(params);
+  (function () { var s = (params.get('sort') || '').split(':'); if (s[0] && ex.querySelector('[data-sort-key="' + s[0] + '"]')) sortBy(s[0], s[1] === 'asc' ? -1 : 1); })();
   function hasAny(obj) { for (var k in obj) if (obj.hasOwnProperty(k)) return true; return false; }
   var searchText = null, searchLoading = false;
   function loadSearch() {
@@ -425,7 +430,8 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var shown = 0;
     rows.forEach(function (r) { var ok = matches(r, null); if (ok) { r.hidden = !showAll && shown >= PAGE; shown++; } else { r.hidden = true; } });
     if (more) { more.hidden = showAll || shown <= PAGE; more.textContent = 'Show all ' + shown; }
-    var empty = ex.querySelector('[data-empty]'); if (empty) empty.hidden = shown > 0;
+    var empty = ex.querySelector('[data-empty]'); if (empty) empty.hidden = shown > 0 || openTool === 'shelf';
+    if (openTool === 'shelf' && window.aibdRenderCompare) window.aibdRenderCompare();
     buttons.forEach(function (b) {
       var k = b.dataset.facet, v = b.dataset.value, n = 0;
       rows.forEach(function (r) { if ((r.dataset[k] || '').split('|').indexOf(v) !== -1 && matches(r, k)) n++; });
@@ -434,6 +440,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       b.classList.toggle('on', on);
       b.setAttribute('aria-pressed', String(on));
       b.classList.toggle('zero', n === 0 && !on);
+      if (b.tagName === 'BUTTON') b.disabled = n === 0 && !on;
     });
     if (count) {
       var filtered = (q && q.value.trim()) || openTool === 'shelf' || KEYS.some(function (k) { return hasAny(active[k]); });
@@ -470,6 +477,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (q && q.value.trim()) next.set('q', q.value.trim());
     KEYS.forEach(function (k) { var vs = Object.keys(active[k]); if (vs.length) next.set(k, vs.join('|')); });
     if (openTool) next.set('open', openTool);
+    if (sortState.key) next.set('sort', sortState.key + ':' + (sortState.dir === 1 ? 'desc' : 'asc'));
     var qs = next.toString();
     var url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
     if (push) history.pushState(null, '', url); else history.replaceState(null, '', url);
@@ -478,7 +486,17 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var b = e.target.closest('[data-facet]'); if (!b || !ex.contains(b)) return;
     var k = b.dataset.facet, v = b.dataset.value;
     if (active[k][v]) delete active[k][v]; else active[k][v] = true;
-    apply();
+    apply(true);
+  });
+  function clearAll() { KEYS.forEach(function (k) { active[k] = {}; }); if (q) q.value = ''; apply(true); }
+  ex.addEventListener('click', function (e) {
+    if (e.target.closest('[data-clear-all]')) { clearAll(); return; }
+    var o = e.target.closest('[data-open-tool]');
+    if (o) {
+      e.preventDefault(); openTool = o.getAttribute('data-open-tool'); applyTools(); apply(true);
+      var target = o.getAttribute('data-scroll') ? ex.querySelector('[data-facet-group="' + o.getAttribute('data-scroll') + '"]') : null;
+      if (target) target.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
+    }
   });
   if (q) q.addEventListener('input', apply);
   if (more) more.addEventListener('click', function () { showAll = true; apply(); });
@@ -516,7 +534,37 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     }
   });
   var clear = ex.querySelector('[data-clear]');
-  if (clear) clear.addEventListener('click', function () { KEYS.forEach(function (k) { active[k] = {}; }); if (q) q.value = ''; apply(); });
+  if (clear) clear.addEventListener('click', clearAll);
+  var compareData = null, compareLoading = false;
+  window.aibdRenderCompare = function () {
+    var box = ex.querySelector('[data-compare]'); if (!box) return;
+    var ids = window.aibdShelf ? window.aibdShelf.ids() : [];
+    if (!ids.length) { box.innerHTML = ''; return; }
+    if (!compareData) {
+      if (!compareLoading) { compareLoading = true; fetch('compare.json').then(function (r) { return r.json(); }).then(function (d) { compareData = d; compareLoading = false; window.aibdRenderCompare(); }).catch(function () { compareLoading = false; }); }
+      return;
+    }
+    var GW = { personal: 'a person', organizational: 'an organization', societal: 'society' };
+    var fields = [
+      ['Depth', function (c) { return Object.keys(c.dep).map(function (g) { return (c.dep[g] === null ? 'not rated' : c.dep[g]) + ' for ' + GW[g]; }).join('; '); }],
+      ['Confidence', function (c) { return c.conf; }],
+      ['Claim', function (c) { return c.claim; }],
+      ['Observed', function (c) { return c.d; }],
+      ['Sector', function (c) { return c.sec; }],
+      ['Country', function (c) { return c.c; }],
+      ['Benefit type', function (c) { return c.type; }],
+      ['System', function (c) { return c.sys; }],
+      ['Developer', function (c) { return c.dev; }],
+      ['Measured against', function (c) { if (!c.cmp) return 'No source states a comparison.'; var s = c.cmp; if (c.before || c.after) s += ' (' + (c.before || '') + (c.before && c.after ? ' to ' : '') + (c.after || '') + ')'; return s + (c.basis ? ', ' + (c.basis === 'measured' ? 'measured' : 'asserted') : ''); }],
+      ['Since then', function (c) { return c.later || ''; }],
+      ['Value as stated', function (c) { return c.val || ''; }]
+    ];
+    var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]; }); };
+    var cases = ids.filter(function (id) { return compareData[id]; });
+    var html = '<table class="compare"><thead><tr><th class="f"></th>' + cases.map(function (id) { return '<th><a href="records/' + id + '.html">' + esc(compareData[id].h) + '</a><small>' + id + '</small></th>'; }).join('') + '</tr></thead><tbody>';
+    fields.forEach(function (f) { html += '<tr><th class="f" scope="row">' + f[0] + '</th>' + cases.map(function (id) { return '<td>' + esc(f[1](compareData[id])) + '</td>'; }).join('') + '</tr>'; });
+    box.innerHTML = html + '</tbody></table>';
+  };
   apply();
 })();
 
