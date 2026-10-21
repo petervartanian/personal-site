@@ -229,13 +229,14 @@
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
   var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'unexpected', 'evidence', 'developer', 'harm'];
-  var PANELS = ['map', 'lists', 'timeline', 'matrix'];
+  var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'method', 'data'];
   var kit = ex.querySelector('[data-kit]');
   var openTools = (new URLSearchParams(window.location.search).get('open') || '').split(',').filter(function (k) { return PANELS.indexOf(k) !== -1; });
   function applyTools() {
     PANELS.forEach(function (k) {
       var on = openTools.indexOf(k) !== -1;
       var panel = ex.querySelector('[data-tool-panel="' + k + '"]'); if (panel) panel.hidden = !on;
+      if (k === 'table') { ex.classList.toggle('tabular', on); var th = ex.querySelector('[data-table-head]'); if (th) th.hidden = !on; }
       var b = kit ? kit.querySelector('[data-kit-tool="' + k + '"]') : null; if (b) { b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); }
     });
   }
@@ -246,6 +247,28 @@
     applyTools(); apply();
   });
   applyTools();
+  var sortState = { key: null, dir: 1 };
+  var CONF = { high: 0, medium: 1, low: 2 };
+  ex.querySelectorAll('[data-sort-key]').forEach(function (h) {
+    h.addEventListener('click', function () {
+      var key = h.getAttribute('data-sort-key');
+      sortState.dir = sortState.key === key ? -sortState.dir : 1; sortState.key = key;
+      var list = ex.querySelector('ol.results');
+      var val = function (r) {
+        var d = r.dataset;
+        if (key === 'depth') return d.depth === 'n/a' ? -1 : parseInt(d.depth, 10);
+        if (key === 'year') return parseInt(d.year, 10);
+        if (key === 'sources') return parseInt(d.sources, 10);
+        if (key === 'evidence') return -(CONF[d.evidence] || 0);
+        return d[key] || '';
+      };
+      var sorted = rows.slice().sort(function (p, q) { var x = val(p), y = val(q); return (x < y ? -1 : x > y ? 1 : 0) * -sortState.dir; });
+      if (key === 'headline' || key === 'sector') sorted.reverse();
+      sorted.forEach(function (r) { list.appendChild(r); });
+      ex.querySelectorAll('[data-sort-key]').forEach(function (x) { x.classList.toggle('on', x === h); });
+      apply();
+    });
+  });
   var atlas = ex.querySelector('.worldmap');
   if (atlas) {
     var readout = ex.querySelector('[data-atlas-readout]');
