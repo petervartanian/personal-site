@@ -224,33 +224,50 @@
 })();
 
 
+// Tool-kit: the tray in the top-right corner of the masthead. It opens from its
+// handle and shuts on a tool, a click elsewhere or Escape.
+(function () {
+  var kit = document.querySelector('[data-kit]');
+  if (!kit) return;
+  var handle = kit.querySelector('[data-kit-handle]');
+  function setKit(open) {
+    if (open) kit.removeAttribute('data-retracted'); else kit.setAttribute('data-retracted', '');
+    if (handle) handle.setAttribute('aria-expanded', String(open));
+  }
+  if (handle) handle.addEventListener('click', function () { setKit(kit.hasAttribute('data-retracted')); });
+  document.addEventListener('click', function (e) { if (!kit.contains(e.target)) setKit(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setKit(false); });
+  window.aibdKit = { shut: function () { setKit(false); } };
+})();
+
 // Faceted explorer on the front page: every facet recounts against the other active filters.
 (function () {
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
   var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'unexpected', 'evidence', 'developer', 'harm'];
   var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'method', 'data'];
-  var kit = ex.querySelector('[data-kit]');
-  var openTools = (new URLSearchParams(window.location.search).get('open') || '').split(',').filter(function (k) { return PANELS.indexOf(k) !== -1; });
+  var kit = document.querySelector('[data-kit]');
+  // One tool at a time: the open one, or none.
+  var openTool = (new URLSearchParams(window.location.search).get('open') || '').split(',').filter(function (k) { return PANELS.indexOf(k) !== -1; })[0] || null;
   function applyTools() {
     PANELS.forEach(function (k) {
-      var on = openTools.indexOf(k) !== -1;
+      var on = k === openTool;
       var panel = ex.querySelector('[data-tool-panel="' + k + '"]'); if (panel) panel.hidden = !on;
       if (k === 'table') { ex.classList.toggle('tabular', on); var th = ex.querySelector('[data-table-head]'); if (th) th.hidden = !on; }
-      var b = kit ? kit.querySelector('[data-kit-tool="' + k + '"]') : null; if (b) { b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); }
+      var b = kit ? kit.querySelector('[data-kit-tool="' + k + '"]') : null;
+      if (b) { b.classList.toggle('on', on); if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); }
     });
+    var label = kit ? kit.querySelector('[data-kit-on]') : null;
+    if (label) { var name = openTool ? kit.querySelector('[data-kit-tool="' + openTool + '"] .tn') : null; label.textContent = name ? name.textContent : ''; }
   }
   if (kit) {
-    var handle = kit.querySelector('[data-kit-handle]');
-    var retracted = true; try { retracted = window.localStorage.getItem('aibd-kit') !== 'open'; } catch (e) {}
-    function setKit(open) { if (open) kit.removeAttribute('data-retracted'); else kit.setAttribute('data-retracted', ''); if (handle) handle.setAttribute('aria-expanded', String(open)); try { window.localStorage.setItem('aibd-kit', open ? 'open' : 'shut'); } catch (e) {} }
-    setKit(!retracted || openTools.length > 0);
-    if (handle) handle.addEventListener('click', function () { setKit(kit.hasAttribute('data-retracted')); });
     kit.addEventListener('click', function (e) {
       var b = e.target.closest('[data-kit-tool]'); if (!b) return;
-      var k = b.getAttribute('data-kit-tool'); var i = openTools.indexOf(k);
-      if (i === -1) openTools.push(k); else openTools.splice(i, 1);
+      e.preventDefault();
+      var k = b.getAttribute('data-kit-tool');
+      openTool = openTool === k ? null : k;
       applyTools(); apply();
+      if (window.aibdKit) window.aibdKit.shut();
       var panel = ex.querySelector('[data-tool-panel="' + k + '"]'); if (panel && !panel.hidden) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }
@@ -360,7 +377,7 @@
     var next = new URLSearchParams();
     if (q && q.value.trim()) next.set('q', q.value.trim());
     KEYS.forEach(function (k) { var vs = Object.keys(active[k]); if (vs.length) next.set(k, vs.join('|')); });
-    if (openTools.length) next.set('open', openTools.join(','));
+    if (openTool) next.set('open', openTool);
     var qs = next.toString();
     history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
   }
