@@ -720,3 +720,11 @@ sup, .sn-mark { font-size: 0.75em; line-height: 0; }
 .worldmap .bubble.made { fill: #7a5c2e; }
 .atlas-key [data-made-note] { display: block; margin-top: 2px; }
 .worldmap .layer-off { display: none; }
+
+/* The tools handle: a circled plus that turns into a cross when the tray is open. */
+.kit-handle { padding: 2px 0; }
+.kit-handle .plus { fill: none; stroke: var(--ink); stroke-width: 1.3; stroke-linecap: round; display: block; transition: transform 160ms ease; }
+.kit-handle[aria-expanded="true"] .plus { transform: rotate(45deg); }
+.kit-handle:hover .plus { stroke-width: 1.6; }
+.kit-handle .kit-on { border-left: 0; padding-left: 0; margin-right: 10px; }
+@media (prefers-reduced-motion: reduce) { .kit-handle .plus { transition: none; } }
