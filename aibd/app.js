@@ -281,7 +281,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
 (function () {
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
-  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'unexpected', 'evidence', 'claim', 'developer', 'harm'];
+  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'harm'];
   var compareData = null, compareLoading = false;
   var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'shelf', 'roles', 'method', 'data'];
   var kit = document.querySelector('[data-kit]');
@@ -375,6 +375,14 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       if (!land) { readout.textContent = ''; return; }
       var t = land.querySelector('title'); readout.textContent = t ? t.textContent : '';
     });
+    ex.querySelectorAll('[data-layer-btn]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var layer = b.getAttribute('data-layer-btn');
+        ex.querySelectorAll('[data-layer-btn]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+        atlas.querySelectorAll('[data-layer]').forEach(function (g) { g.classList.toggle('layer-off', g.getAttribute('data-layer') !== layer); });
+        var note = ex.querySelector('[data-made-note]'); if (note) note.hidden = layer !== 'made';
+      });
+    });
     atlas.addEventListener('keydown', function (e) {
       var land = e.target.closest('.land'); if (!land) return;
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); land.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })); }
@@ -383,7 +391,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     atlas.addEventListener('mouseleave', function () { if (readout) readout.textContent = ''; });
   }
   bindAtlas();
-  var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer' };
+  var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', made: 'made in' };
   var PAGE = 40, showAll = false;
   var more = ex.querySelector('[data-more-rows]');
   var rows = Array.prototype.slice.call(ex.querySelectorAll('[data-row]'));
@@ -403,7 +411,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   function roleLine(c) {
     if (role === 'buyer') {
       var s = c.sys + (c.dev && c.dev !== 'Unstated' ? ', by ' + c.dev : '') + '. ';
-      s += c.cmp ? 'Measured against ' + c.cmp + (c.before && c.after ? ': ' + c.before + ' to ' + c.after : '') + '.' : 'No comparison stated.';
+      s += c.cmp ? 'Measured against ' + c.cmp + (c.before && c.after && c.before.length <= 60 && c.after.length <= 60 ? ': ' + c.before + ' to ' + c.after : '') + '.' : 'No comparison stated.';
       if (c.lstatus && c.lstatus !== 'unknown') s += ' Since then: ' + c.lstatus + (c.ldate ? ', ' + c.ldate : '') + '.';
       return s;
     }
