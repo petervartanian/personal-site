@@ -24,7 +24,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html { background: #d9d4c7; color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-feature-settings: "tnum" 1; }
 body { margin: 0; min-height: 100vh; }
-body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: #d9d4c7 url("marble.svg") center / cover no-repeat; }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: #d9d4c7 url("marble.jpg") center / cover no-repeat; }
 .page { max-width: 1280px; margin: 18px auto 44px; padding: 0 18px; display: grid; gap: 16px; }
 .sheet { background: var(--paper); padding: 26px 36px; }
 main.stack { background: transparent; padding: 0; display: grid; gap: 16px; }
@@ -400,3 +400,9 @@ h1.wordmark { margin: 0; font-size: 1.45rem; line-height: inherit; }
   table.records.evidence th:nth-child(n+3), table.records.evidence td:nth-child(n+3), table.records.evidence th:first-child, table.records.evidence td:first-child { display: none; }
   table.records.evidence .rec { width: auto; }
 }
+
+details.fold > summary { cursor: pointer; list-style: none; font-family: var(--sans); font-weight: 600; font-size: 0.86rem; color: var(--ink); margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+details.fold > summary::-webkit-details-marker { display: none; }
+details.fold > summary::after { content: "+"; float: right; font-family: var(--mono); color: var(--ink-3); }
+details.fold[open] > summary::after { content: "\2013"; }
+details.fold.small > summary { font-size: 0.8rem; margin: 10px 0 6px; border-bottom: 0; }

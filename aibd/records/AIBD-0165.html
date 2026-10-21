@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Princeton RL controller cuts DIII-D disruptions to two shots – AI Benefits Database</title>
-<meta name="description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta name="description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <link rel="canonical" href="https://petervartanian.xyz/aibd/records/AIBD-0165.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Benefits Database">
 <meta property="og:title" content="Princeton RL controller cuts DIII-D disruptions to two shots – AI Benefits Database">
-<meta property="og:description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta property="og:description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <meta property="og:url" content="https://petervartanian.xyz/aibd/records/AIBD-0165.html">
 <meta property="og:image" content="https://petervartanian.xyz/aibd/share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Princeton RL controller cuts DIII-D disruptions to two shots – AI Benefits Database">
-<meta name="twitter:description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta name="twitter:description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <meta name="twitter:image" content="https://petervartanian.xyz/aibd/share.png">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -81,12 +81,13 @@
     </div>
 
     <section class="sec">
-      <h2>What happened</h2>
+      <details class="fold"><summary>What happened</summary>
       <p class="prose">Seo et al. (Nature, published 21 February 2024), from Princeton University, the Princeton Plasma Physics Laboratory and partners, trained a reinforcement-learning controller in an environment built from a multimodal dynamic model that estimates the likelihood of future tearing instability, the leading cause of disruptions. Deployed on DIII-D, the largest magnetic fusion facility in the United States, located at General Atomics in San Diego, the controller adjusted total beam power and plasma triangularity to keep the estimated tearability under a threshold while maintaining H-mode performance, even at low safety factor and low torque. In the experimental session, discharges up to 193276 either had no RL control or tore before control started; of the controlled discharges from 193277, only two (193277 and 193282) were disrupted, whereas before RL control all shots except one were disrupted, and average time-integrated normalised beta rose. Princeton Engineering&#39;s release (21 February 2024) says the model could forecast tearing mode instabilities up to 300 milliseconds in advance. The OECD AI Incidents Monitor logged the result as a positive outcome (record 2024-02-24-7d77). The experiment dates are not given; the date used is the paper&#39;s publication date.</p>
       <p class="purpose"><b>What it was built to do.</b> The controller was built to avoid tearing instability while maintaining high-pressure plasma in DIII-D; the avoided disruptions were its intended use.</p>
     </section>
 
     <section class="sec" data-panel="who">
+      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
         <li class="d2"><div><div class="big"><i class="sw"></i>-2</div><small>organizational</small></div><p>The DIII-D session obtained plasmas tracking a stable path with fewer disruptions and higher time-integrated beta; the paper calls it a path toward ITER-relevant scenarios.</p></li>
@@ -132,8 +133,8 @@
         <figcaption>filled recurred, hollow did not, dotted unknown</figcaption>
       </figure>
       <div class="grid-2">
-        <div><h3>What produced it</h3><ul class="plain"><li>A database of past DIII-D discharges to train the tearability predictor</li><li>Real-time profile reconstruction and equilibrium fitting feeding the DNN</li><li>A plasma control system that accepts high-level beam-power and shape commands</li></ul></div>
-        <div><h3>What must hold again</h3><ul class="plain"><li>A tearability model valid for the operating regime</li><li>Actuators (beam power, triangularity) able to move the plasma along the stable path</li><li>Session-level comparison shots to judge disruption rates</li></ul></div>
+        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>A database of past DIII-D discharges to train the tearability predictor</li><li>Real-time profile reconstruction and equilibrium fitting feeding the DNN</li><li>A plasma control system that accepts high-level beam-power and shape commands</li></ul></details></div>
+        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>A tearability model valid for the operating regime</li><li>Actuators (beam power, triangularity) able to move the plasma along the stable path</li><li>Session-level comparison shots to judge disruption rates</li></ul></details></div>
       </div>
       <h3 style="margin-top:18px">Tried elsewhere</h3>
       <table class="mini">
@@ -145,11 +146,12 @@
 
 
     <section class="sec" data-panel="provenance">
-      <h2>Revisions</h2>
+      <details class="fold"><summary>Revisions</summary>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr></tbody>
       </table>
+      </details>
     </section>
   </article>
 </div>

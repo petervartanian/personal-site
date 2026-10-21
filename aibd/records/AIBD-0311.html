@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Cerebral says CMD-1 cuts triage from 9 hours to 8-13 minutes – AI Benefits Database</title>
-<meta name="description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta name="description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <link rel="canonical" href="https://petervartanian.xyz/aibd/records/AIBD-0311.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Benefits Database">
 <meta property="og:title" content="Cerebral says CMD-1 cuts triage from 9 hours to 8-13 minutes – AI Benefits Database">
-<meta property="og:description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta property="og:description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <meta property="og:url" content="https://petervartanian.xyz/aibd/records/AIBD-0311.html">
 <meta property="og:image" content="https://petervartanian.xyz/aibd/share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cerebral says CMD-1 cuts triage from 9 hours to 8-13 minutes – AI Benefits Database">
-<meta name="twitter:description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta name="twitter:description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <meta name="twitter:image" content="https://petervartanian.xyz/aibd/share.png">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -81,12 +81,13 @@
     </div>
 
     <section class="sec">
-      <h2>What happened</h2>
+      <details class="fold"><summary>What happened</summary>
       <p class="prose">Swaminathan, López and colleagues at Cerebral Inc., a national tele-mental-health provider, and Stanford University School of Medicine published in npj Digital Medicine on 21 November 2023 the development and deployment of Crisis Message Detector 1 (CMD-1), a two-stage natural-language-processing system (key-word filtering followed by logistic regression) that flags patient chat messages indicating possible suicidal or homicidal ideation, domestic violence or non-suicidal self-injury and surfaces them to Cerebral&#39;s crisis specialists through a Slack interface. The model was trained on 721 messages (32% potential crises) sent between 1 April 2021 and 1 April 2022 and evaluated on a retrospective test set (481 messages; AUC 0.82, sensitivity 0.99, PPV 0.35) and a prospective test set of 102,471 messages from 1 to 31 October 2022 (AUC 0.98; sensitivity 0.98; PPV 0.66), of which 9,795 passed the key-word filter. The daily median time from message receipt to crisis-specialist triage during the prospective period ranged from 8 to 13 minutes, against more than 9 hours on average before deployment according to Cerebral&#39;s internal analysis; false negatives reached specialists through usual channels. Seven authors report salary and equity in Cerebral and three part-time employment there. Stanford HAI&#39;s account (8 January 2024) gives the reduction as &#39;from 10 hours to under 10 minutes&#39; with 97% sensitivity and specificity, figures that differ slightly from the paper&#39;s. No downstream patient outcome (hospitalisation, ED use, attempts) is reported. The date observed is the end of the prospective deployment month in which the triage times were measured.</p>
       <p class="purpose"><b>What it was built to do.</b> Built to detect and surface crisis chat messages so that crisis specialists triage them sooner; the measured triage-time reduction is that purpose.</p>
     </section>
 
     <section class="sec" data-panel="who">
+      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
         <li class="unassessed"><div><div class="big unrated-word"><i class="sw"></i>unrated</div><small>personal</small></div><p>Patients in crisis were triaged within minutes rather than hours on median, but the paper reports no clinical outcome for any patient.</p></li>
@@ -115,19 +116,20 @@
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
-        <div><h3>What produced it</h3><ul class="plain"><li>Thousands of daily patient chat messages on a telehealth platform with a crisis response team already in place</li><li>A key-word filter followed by a logistic-regression classifier trained on 721 labelled messages</li><li>A Slack-based workflow in which crisis specialists review and label surfaced messages</li></ul></div>
-        <div><h3>What must hold again</h3><ul class="plain"><li>Crisis specialists available to act on surfaced messages within minutes</li><li>A high-recall filter stage, since messages that do not pass it are classified as non-crises automatically</li><li>Message volume and language similar to the training data; the authors note the prospective PPV was 0.66</li></ul></div>
+        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>Thousands of daily patient chat messages on a telehealth platform with a crisis response team already in place</li><li>A key-word filter followed by a logistic-regression classifier trained on 721 labelled messages</li><li>A Slack-based workflow in which crisis specialists review and label surfaced messages</li></ul></details></div>
+        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Crisis specialists available to act on surfaced messages within minutes</li><li>A high-recall filter stage, since messages that do not pass it are classified as non-crises automatically</li><li>Message volume and language similar to the training data; the authors note the prospective PPV was 0.66</li></ul></details></div>
       </div>
     </section>
 
 
 
     <section class="sec" data-panel="provenance">
-      <h2>Revisions</h2>
+      <details class="fold"><summary>Revisions</summary>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr></tbody>
       </table>
+      </details>
     </section>
   </article>
 </div>

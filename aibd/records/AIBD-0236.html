@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>OpenAI o3 finds CVE-2025-37899, a use-after-free in ksmbd – AI Benefits Database</title>
-<meta name="description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta name="description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <link rel="canonical" href="https://petervartanian.xyz/aibd/records/AIBD-0236.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Benefits Database">
 <meta property="og:title" content="OpenAI o3 finds CVE-2025-37899, a use-after-free in ksmbd – AI Benefits Database">
-<meta property="og:description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta property="og:description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <meta property="og:url" content="https://petervartanian.xyz/aibd/records/AIBD-0236.html">
 <meta property="og:image" content="https://petervartanian.xyz/aibd/share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OpenAI o3 finds CVE-2025-37899, a use-after-free in ksmbd – AI Benefits Database">
-<meta name="twitter:description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta name="twitter:description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <meta name="twitter:image" content="https://petervartanian.xyz/aibd/share.png">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -81,12 +81,13 @@
     </div>
 
     <section class="sec">
-      <h2>What happened</h2>
+      <details class="fold"><summary>What happened</summary>
       <p class="prose">The date is the CVE record&#39;s publication; Heelan&#39;s write-up followed on 22 May 2025. Heelan, an independent vulnerability researcher auditing ksmbd (the Linux kernel&#39;s in-kernel SMB3 server), used a known bug (CVE-2025-37778) to benchmark OpenAI&#39;s o3 via the plain API, with no scaffolding, agents or tools. When given about 12,000 lines covering all SMB command handlers, o3 reported a previously unknown use-after-free in the handler for the SMB &#39;logoff&#39; command: sess-&gt;user can be freed while another connection bound to the same session still uses it. The Linux kernel CNA&#39;s record describes the fix (&#39;ksmbd: fix use-after-free in session logoff&#39;) with commits in five stable branches; Linuxiac reports the upstream response was fast and patches were merged for every maintained branch. Heelan calls it, to his knowledge, the first public case of an LLM finding a vulnerability of that nature.</p>
       <p class="purpose"><b>What it was built to do.</b> General-purpose reasoning model used by the researcher to audit kernel source code for vulnerabilities.</p>
     </section>
 
     <section class="sec" data-panel="who">
+      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
         <li class="d2"><div><div class="big"><i class="sw"></i>-2</div><small>societal</small></div><p>A remotely reachable kernel memory-safety bug was fixed across maintained branches before any reported exploitation; exposure of ksmbd users is not quantified.</p></li>
@@ -119,19 +120,20 @@
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
-        <div><h3>What produced it</h3><ul class="plain"><li>A code slice under roughly 10k-12k lines chosen by an expert</li><li>Repeated model runs with reports triaged by a human</li><li>A maintainer workflow that accepts and patches reports quickly</li></ul></div>
-        <div><h3>What must hold again</h3><ul class="plain"><li>Expert curation of context and validation of candidate bugs</li><li>Tolerance for false positives across runs</li></ul></div>
+        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>A code slice under roughly 10k-12k lines chosen by an expert</li><li>Repeated model runs with reports triaged by a human</li><li>A maintainer workflow that accepts and patches reports quickly</li></ul></details></div>
+        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>Expert curation of context and validation of candidate bugs</li><li>Tolerance for false positives across runs</li></ul></details></div>
       </div>
     </section>
 
 
 
     <section class="sec" data-panel="provenance">
-      <h2>Revisions</h2>
+      <details class="fold"><summary>Revisions</summary>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the cited sources.</td><td class="src"></td><td class="mono">AIBD</td></tr></tbody>
       </table>
+      </details>
     </section>
   </article>
 </div>

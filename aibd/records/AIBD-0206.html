@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Wiz finds a critical GitHub RCE with Claude Code and IDA MCP – AI Benefits Database</title>
-<meta name="description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta name="description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <link rel="canonical" href="https://petervartanian.xyz/aibd/records/AIBD-0206.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AI Benefits Database">
 <meta property="og:title" content="Wiz finds a critical GitHub RCE with Claude Code and IDA MCP – AI Benefits Database">
-<meta property="og:description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta property="og:description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <meta property="og:url" content="https://petervartanian.xyz/aibd/records/AIBD-0206.html">
 <meta property="og:image" content="https://petervartanian.xyz/aibd/share.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Wiz finds a critical GitHub RCE with Claude Code and IDA MCP – AI Benefits Database">
-<meta name="twitter:description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta name="twitter:description" content="Documented cases of AI doing good: who gained, how deeply, on what evidence.">
 <meta name="twitter:image" content="https://petervartanian.xyz/aibd/share.png">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -77,12 +77,13 @@
     </div>
 
     <section class="sec">
-      <h2>What happened</h2>
+      <details class="fold"><summary>What happened</summary>
       <p class="prose">On 4 March 2026 Wiz Research reported to GitHub a critical remote code execution flaw, later CVE-2026-3854, in GitHub&#39;s internal git infrastructure: git push options were not sanitized before being written into internal headers, so any authenticated user could run arbitrary commands on GitHub&#39;s servers with a single git push. Wiz says AI-augmented tooling, particularly automated reverse engineering of GitHub&#39;s compiled binaries with IDA MCP, made the research feasible; The Register reports that the team used Claude Code and went from idea to working exploit in under 48 hours. GitHub reproduced the bug within 40 minutes, deployed a fix to github.com at 7:00 pm UTC that day, released GitHub Enterprise Server patches from 10 March, and found no exploitation.</p>
       <p class="purpose"><b>What it was built to do.</b> Claude Code is Anthropic&#39;s agentic coding tool, built to read a codebase, edit files, run commands and connect to external tools over MCP; Wiz used it, with IDA MCP, to automate reverse engineering of GitHub&#39;s compiled binaries. Analysing code for flaws is within that general purpose, so the benefit was an application of what the tool was built to do rather than a departure from it.</p>
     </section>
 
     <section class="sec" data-panel="who">
+      </details>
       <h2>Who benefited</h2>
       <ul class="ratings">
         <li class="d2"><div><div class="big"><i class="sw"></i>-2</div><small>organizational</small></div><p>GitHub closed a critical remote code execution hole in its git push pipeline within hours of the report (fix on github.com at 7:00 pm UTC on 4 March 2026) and shipped patches for six GitHub Enterprise Server release lines; Wiz earned what GitHub calls one of the highest rewards in the history of its Bug Bounty program. The loss avoided is hypothetical: GitHub&#39;s forensic investigation found that no other account had triggered the code path and no customer data was accessed, modified or exfiltrated, so the benefit is an exposure closed rather than a demonstrated loss prevented.</p></li>
@@ -138,19 +139,20 @@
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
-        <div><h3>What produced it</h3><ul class="plain"><li>A closed-source target that researchers could obtain and disassemble: GitHub&#39;s backend git services are also shipped as GitHub Enterprise Server binaries, which gave automated reverse engineering something to work on and a place (GHES 3.19.1) to confirm the exploit.</li><li>AI-augmented tooling for reverse engineering: IDA MCP (per Wiz) driven by Claude Code (per The Register), used to reconstruct internal protocols and trace where user input could influence server behaviour across the pipeline.</li><li>Experienced vulnerability researchers (six named Wiz authors) to form the hypothesis, build and confirm a working exploit, and write what GitHub called a thorough report that clearly demonstrated the impact.</li><li>A beneficiary with a Bug Bounty intake and an on-call security team: GitHub reproduced the bug within 40 minutes of the report and deployed a fix to github.com at 7:00 pm UTC the same day.</li></ul></div>
-        <div><h3>What must hold again</h3><ul class="plain"><li>AI output has to be verified by exploit, not trusted: Wiz confirmed RCE on a GHES 3.19.1 instance before reporting, which is why GitHub could validate the report in 40 minutes.</li><li>The receiving organisation must be able to patch its own service and ship fixes to self-hosted customers; GHES customers stayed exposed until they upgraded to the patched versions released from 10 March 2026.</li><li>Disclosure must wait for the patches (here 4 March to 28 April 2026); and because no exploitation had occurred, the benefit is an exposure closed, not a loss recovered.</li></ul></div>
+        <div><details class="fold small"><summary>What produced it</summary><ul class="plain"><li>A closed-source target that researchers could obtain and disassemble: GitHub&#39;s backend git services are also shipped as GitHub Enterprise Server binaries, which gave automated reverse engineering something to work on and a place (GHES 3.19.1) to confirm the exploit.</li><li>AI-augmented tooling for reverse engineering: IDA MCP (per Wiz) driven by Claude Code (per The Register), used to reconstruct internal protocols and trace where user input could influence server behaviour across the pipeline.</li><li>Experienced vulnerability researchers (six named Wiz authors) to form the hypothesis, build and confirm a working exploit, and write what GitHub called a thorough report that clearly demonstrated the impact.</li><li>A beneficiary with a Bug Bounty intake and an on-call security team: GitHub reproduced the bug within 40 minutes of the report and deployed a fix to github.com at 7:00 pm UTC the same day.</li></ul></details></div>
+        <div><details class="fold small"><summary>What must hold again</summary><ul class="plain"><li>AI output has to be verified by exploit, not trusted: Wiz confirmed RCE on a GHES 3.19.1 instance before reporting, which is why GitHub could validate the report in 40 minutes.</li><li>The receiving organisation must be able to patch its own service and ship fixes to self-hosted customers; GHES customers stayed exposed until they upgraded to the patched versions released from 10 March 2026.</li><li>Disclosure must wait for the patches (here 4 March to 28 April 2026); and because no exploitation had occurred, the benefit is an exposure closed, not a loss recovered.</li></ul></details></div>
       </div>
     </section>
 
 
 
     <section class="sec" data-panel="provenance">
-      <h2>Revisions</h2>
+      <details class="fold"><summary>Revisions</summary>
       <table class="mini">
         <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
         <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the OECD Monitor entry and the cited sources. the date observed is 4 March 2026, the day Wiz reported the flaw and GitHub fixed github.com (GitHub&#39;s post: root cause identified at 5:45 pm UTC, fix deployed at 7:00 pm UTC; Wiz and The Verge say within six hours of the report; GitHub&#39;s standfirst says under two hours); the Monitor&#39;s 28 April 2026 is the public-disclosure date. Filed as benefit created or restored: the AI-assisted discovery produced a concrete fix for an identifiable organisation, and the harm avoided is hypothetical because GitHub&#39;s forensic investigation found no exploitation. The AI tool is named differently by the sources: The Register (byline Connor Jones on the page as first fetched) and WebProNews say Claude Code, and WebProNews names Anthropic; Wiz&#39;s own write-up credits &#39;AI-augmented tooling, particularly automated reverse engineering using IDA MCP&#39;, and a search of its text as fetched found no occurrence of &#39;Claude&#39; or &#39;Anthropic&#39;, so the record names Claude Code on The Register&#39;s authority and IDA MCP on Wiz&#39;s. No Claude model is named anywhere. Severity: the CVE record (CNA GitHub) gives CVSS 4.0 8.7; The Register reports an 8.8 rating from NIST. GHES patch dates: Wiz&#39;s timeline says 10 March 2026, the 3.14.25 release notes are dated 12 March 2026. The Wiz post is marked as written by the makers because it is the discoverer&#39;s own account of its tooling, although Wiz is not the AI vendor; GitHub&#39;s post is the beneficiary&#39;s statement and is not flagged. Anthropic&#39;s Claude Code overview is cited only for what the product is. The Monitor lists The Register&#39;s headline as &#39;Wiz hands GitHub AI-aided bug report that isn&#39;t total slop&#39;; the page as read carries the longer headline used in the citation. The Verge and Dark Reading refused direct fetches and were read through the r.jina.ai text proxy; NVD&#39;s page did not render; WebSearch was exhausted and Brave and DuckDuckGo rate-limited or challenged, so the CVE record&#39;s reference list was used to locate the Wiz and GitHub posts.</td><td class="src">https://oecd.ai/en/incidents/2026-04-28-f5d8</td><td class="mono">AIBD</td></tr></tbody>
       </table>
+      </details>
     </section>
   </article>
 </div>
