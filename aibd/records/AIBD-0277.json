@@ -8,7 +8,7 @@
   "unexpected": false,
   "purpose": "Automatically translate Akkadian cuneiform texts into English to assist scholars",
   "system": "Akkadian-to-English neural machine translation (C2E and T2E models)",
-  "model_version": null,
+  "model_version": "Fairseq convolutional model",
   "developer": "Tel Aviv University (Gutherz, Levy, Berant) and Ariel University (Gordin)",
   "deployer": "None (research demonstration)",
   "location": "Israel",
@@ -56,6 +56,15 @@
       "date": "2020-10-28",
       "written_by": "makers",
       "quote": "with an accuracy reaching up to 97% for automatically transliterating and segmenting standard Unicode cuneiform glyphs into words."
+    },
+    {
+      "kind": "preprint",
+      "citation": "Wang Z (14 May 2026). TabletCraft: Bridging a 4,000-Year Cultural Gap with Bidirectional Akkadian NMT and Cuneiform Rendering. arXiv:2608.02609.",
+      "title": "TabletCraft: Bridging a 4,000-Year Cultural Gap with Bidirectional Akkadian NMT and Cuneiform Rendering",
+      "url": "https://arxiv.org/abs/2608.02609",
+      "date": "2026-05-14",
+      "written_by": "independent",
+      "quote": null
     }
   ],
   "replication": {
@@ -78,8 +87,21 @@
   "paired_incident": null,
   "headline": "Tel Aviv and Ariel models translate Akkadian at BLEU4 36.5-37.5",
   "metric": "BLEU4 scores of 36.52 and 37.47",
-  "comparator": null,
-  "later": null,
+  "comparator": {
+    "against": "a translation memory baseline on the same test data",
+    "before": "the translation memory baseline achieved a BLEU4 score of 23.51",
+    "after": "36.52 and 37.47 Best Bilingual Evaluation Understudy 4 (BLEU4) scores for C2E and T2E, respectively",
+    "basis": "measured",
+    "quote": "we get 36.52 and 37.47 Best Bilingual Evaluation Understudy 4 (BLEU4) scores for C2E and T2E, respectively. For C2E, our model is better than the translation memory baseline in 9.43, and for T2E, the difference is even higher and stands at 13.96.",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10153418/"
+  },
+  "later": {
+    "status": "persisted",
+    "date": "2026-05-14",
+    "note": "The approach was built upon rather than contradicted: a May 2026 arXiv preprint by Zhaohui Wang (USC) cites the 2023 system and reports a bidirectional ByT5-based model reaching 49.1 BLEU for Akkadian-to-English on the same Akkademia validation split; no later report from the Tel Aviv and Ariel group itself was found.",
+    "quote": "On the held-out Akkademia validation split (2,812 samples), we report 49.1 BLEU for Akkadian-to-English and 48.5 BLEU for English-to-Akkadian",
+    "url": "https://arxiv.org/abs/2608.02609"
+  },
   "value": null,
   "unrated_because": null,
   "brief_notes": null,
@@ -96,9 +118,15 @@
       "change": "Benefit type set to Improved Task Accuracy under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
       "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Added what the benefit is measured against, what happened since, the model version from the cited sources.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10153418/; https://arxiv.org/abs/2608.02609; https://pmc.ncbi.nlm.nih.gov/articles/PMC10153418/",
+      "editor": "AIBD"
     }
   ],
   "confidence": "medium",
-  "claim_status": "The makers' claim",
-  "claim_basis": "Two peer-reviewed studies from the makers are on file. There is no independent source and no finding by a regulator or court."
+  "claim_status": "Independently reported",
+  "claim_basis": "One independent preprint and two peer-reviewed studies from the makers are on file. There is no independent study or report and no finding by a regulator or court."
 }
