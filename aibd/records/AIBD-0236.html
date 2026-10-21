@@ -68,7 +68,7 @@
       <div><dt>Claim</dt><dd>Independently reported</dd></div>
       <div><dt>Replications</dt><dd class="mono">0</dd></div>
     </dl>
-    <p class="cite">Cite AIBD-0236, 20 October 2026. <a href="AIBD-0236.json">JSON</a></p>
+    <p class="cite">Cite AIBD-0236, 21 October 2026. <a href="AIBD-0236.json">JSON</a></p>
   </aside>
 
   <article>
@@ -92,6 +92,12 @@
       </ul>
     </section>
     <section class="sec" data-panel="evidence">
+      <h2>Measured against</h2>
+      <dl class="props facts">
+        <div><dt>Compared with</dt><dd>Claude Sonnet 3.7 and Claude Sonnet 3.5 on the same 100-run benchmark (the known ksmbd Kerberos bug)</dd></div>
+<div><dt>Before</dt><dd>Claude Sonnet 3.7 finds it 3 out of 100 runs and Claude Sonnet 3.5 does not find it in 100 runs</dd></div><div><dt>After</dt><dd>o3 finds the kerberos authentication vulnerability in the benchmark in 8 of the 100 runs</dd></div>        <div><dt>Basis</dt><dd>measured<q class="fq">o3 finds the kerberos authentication vulnerability in the benchmark in 8 of the 100 runs. In another 66 of the runs o3 concludes there is no bug present in the code (false negatives), and the remaining 28 reports are false positives. For comparison, Claude Sonnet 3.7 finds it 3 out of 100 runs and Claude Sonnet 3.5 does not find it in 100 runs.</q> <a class="fsrc" href="https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/">source</a></dd></div>
+        <div><dt>Since then</dt><dd>persisted, 29 May 2025. Linuxiac reported that the upstream fix was merged quickly into every maintained kernel branch, and the CVE record lists five stable-branch commits.<q class="fq">Upstream response was really fast, and the patches merged for every still-maintained kernel branch.</q> <a class="fsrc" href="https://linuxiac.com/chatgpt-o3-model-found-remote-zeroday-in-linux-kernel-code/">source</a></dd></div>
+      </dl>
       <h2>Sources</h2>
       <p class="prose basis">Independently reported. One independent news report, a registry entry and the deployer&#39;s report are on file. There is no independent study or report and no finding by a regulator or court.</p>
       <ol class="sources">
@@ -127,7 +133,7 @@
 
     <section class="sec" data-panel="provenance">
       <h2>Revisions</h2>
-      <ul class="plain revs"><li><span class="when">20 October 2026</span> Record drafted from the cited sources.</li></ul>
+      <ul class="plain revs"><li><span class="when">20 October 2026</span> Record drafted from the cited sources.</li><li><span class="when">21 October 2026</span> Added what the benefit is measured against, what happened since from the cited sources. <a href="https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/; https://linuxiac.com/chatgpt-o3-model-found-remote-zeroday-in-linux-kernel-code/">source</a></li></ul>
       
     </section>
   </article>

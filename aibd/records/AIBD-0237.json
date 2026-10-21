@@ -85,8 +85,21 @@
   "paired_incident": null,
   "headline": "curl merges about 50 bugfixes from ZeroPath-assisted scans",
   "metric": "about 50 separately identifiable bugfixes were merged",
-  "comparator": null,
-  "later": null,
+  "comparator": {
+    "against": "curl's existing compilers, static analyzers and fuzzers (scan-build, clang-tidy, CodeSonar, Coverity, CodeQL, OSS-Fuzz), whose findings were already all fixed",
+    "before": "we always address and fix every warning and complaint they report",
+    "after": "over two hundred new potential problems",
+    "basis": "measured",
+    "quote": "In the curl project we continuously run compilers with maximum pickiness enabled and we throw scan-build, clang-tidy, CodeSonar, Coverity, CodeQL and OSS-Fuzz at it and we always address and fix every warning and complaint they report so it was a little surprising that this tool now suddenly could produce over two hundred new potential problems.",
+    "url": "https://daniel.haxx.se/blog/2025/10/10/a-new-breed-of-analyzers/"
+  },
+  "later": {
+    "status": "persisted",
+    "date": "2025-10-19",
+    "note": "Rogers' retrospective of 19 October 2025 put curl's count of fixed ZeroPath-detected bugs at around 150 and expected about 200 within a week.",
+    "quote": "At the moment, the curl project has fixed around 150 of the bugs detected by ZeroPath, but I believe that by the end of next week, it will be around 200.",
+    "url": "https://joshua.hu/retrospective-zeropath-ai-sast-source-code-security-scanners-vulnerability"
+  },
   "value": null,
   "unrated_because": null,
   "brief_notes": null,
@@ -96,6 +109,12 @@
       "date": "2026-10-20",
       "change": "Record drafted from the cited sources.",
       "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Added what the benefit is measured against, what happened since from the cited sources.",
+      "source": "https://daniel.haxx.se/blog/2025/10/10/a-new-breed-of-analyzers/; https://joshua.hu/retrospective-zeropath-ai-sast-source-code-security-scanners-vulnerability",
       "editor": "AIBD"
     }
   ],

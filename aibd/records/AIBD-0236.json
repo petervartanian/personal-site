@@ -77,8 +77,21 @@
   "paired_incident": null,
   "headline": "OpenAI o3 finds CVE-2025-37899, a use-after-free in ksmbd",
   "metric": null,
-  "comparator": null,
-  "later": null,
+  "comparator": {
+    "against": "Claude Sonnet 3.7 and Claude Sonnet 3.5 on the same 100-run benchmark (the known ksmbd Kerberos bug)",
+    "before": "Claude Sonnet 3.7 finds it 3 out of 100 runs and Claude Sonnet 3.5 does not find it in 100 runs",
+    "after": "o3 finds the kerberos authentication vulnerability in the benchmark in 8 of the 100 runs",
+    "basis": "measured",
+    "quote": "o3 finds the kerberos authentication vulnerability in the benchmark in 8 of the 100 runs. In another 66 of the runs o3 concludes there is no bug present in the code (false negatives), and the remaining 28 reports are false positives. For comparison, Claude Sonnet 3.7 finds it 3 out of 100 runs and Claude Sonnet 3.5 does not find it in 100 runs.",
+    "url": "https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/"
+  },
+  "later": {
+    "status": "persisted",
+    "date": "2025-05-29",
+    "note": "Linuxiac reported that the upstream fix was merged quickly into every maintained kernel branch, and the CVE record lists five stable-branch commits.",
+    "quote": "Upstream response was really fast, and the patches merged for every still-maintained kernel branch.",
+    "url": "https://linuxiac.com/chatgpt-o3-model-found-remote-zeroday-in-linux-kernel-code/"
+  },
   "value": null,
   "unrated_because": null,
   "brief_notes": null,
@@ -88,6 +101,12 @@
       "date": "2026-10-20",
       "change": "Record drafted from the cited sources.",
       "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Added what the benefit is measured against, what happened since from the cited sources.",
+      "source": "https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/; https://linuxiac.com/chatgpt-o3-model-found-remote-zeroday-in-linux-kernel-code/",
       "editor": "AIBD"
     }
   ],

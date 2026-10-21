@@ -8,7 +8,7 @@
   "unexpected": false,
   "purpose": "Machine-learning global medium-range weather forecasting (10 days, 0.25 degree), including severe-event prediction such as tropical cyclone tracks; this forecast was that purpose.",
   "system": "GraphCast (Google DeepMind graph neural network weather model), experimental live run on ECMWF public charts",
-  "model_version": null,
+  "model_version": "GraphCast (live version deployed on the ECMWF website)",
   "developer": "Google DeepMind",
   "deployer": "ECMWF (experimental data-driven forecasts on its public charts pages)",
   "location": "Long Island, southwestern Nova Scotia, Canada (landfall)",
@@ -101,6 +101,15 @@
       "date": "2022-12-24",
       "written_by": "makers",
       "quote": "its forecasts support better severe event prediction, including tropical cyclones, atmospheric rivers, and extreme temperatures"
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Olivetti L, Messori G (2024). Do data-driven models beat numerical models in forecasting weather extremes? A comparison of IFS HRES, Pangu-Weather, and GraphCast. Geoscientific Model Development 17:7915-7962, doi:10.5194/gmd-17-7915-2024.",
+      "title": "Do data-driven models beat numerical models in forecasting weather extremes? A comparison of IFS HRES, Pangu-Weather, and GraphCast",
+      "url": "https://gmd.copernicus.org/articles/17/7915/2024/",
+      "date": "2024-11-07",
+      "written_by": "independent",
+      "quote": null
     }
   ],
   "replication": {
@@ -127,8 +136,21 @@
   "paired_incident": null,
   "headline": "GraphCast may have forecast Lee's landfall nine days ahead",
   "metric": "forecast Lee's Nova Scotia landfall about nine days ahead",
-  "comparator": null,
-  "later": null,
+  "comparator": {
+    "against": "traditional physics-based forecasts of Hurricane Lee's landfall (DeepMind's own account)",
+    "before": "only locked in on Nova Scotia about six days in advance",
+    "after": "about nine days in advance",
+    "basis": "assumed",
+    "quote": "In September, a live version of our publicly available GraphCast model, deployed on the ECMWF website, accurately predicted about nine days in advance that Hurricane Lee would make landfall in Nova Scotia. By contrast, traditional forecasts had greater variability in where and when landfall would occur, and only locked in on Nova Scotia about six days in advance.",
+    "url": "https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/"
+  },
+  "later": {
+    "status": "persisted",
+    "date": "2024-11-07",
+    "note": "An independent Uppsala University evaluation published 7 November 2024 confirmed GraphCast's general advantage over ECMWF's IFS HRES, including on near-surface temperature and wind extremes; it does not examine the Hurricane Lee forecast, and the NHC's March 2024 report on Lee names no AI model.",
+    "quote": "Both data-driven models perform significantly better than ECMWF's IFS HRES globally and in most regions. Most impressively, GraphCast significantly outperforms IFS HRES across all regions and lead times.",
+    "url": "https://gmd.copernicus.org/articles/17/7915/2024/"
+  },
   "value": null,
   "unrated_because": null,
   "brief_notes": null,
@@ -151,9 +173,15 @@
       "change": "Title reworded to state the event without naming who claims it.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Added what the benefit is measured against, what happened since, the model version from the cited sources.",
+      "source": "https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/; https://gmd.copernicus.org/articles/17/7915/2024/; https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/",
+      "editor": "AIBD"
     }
   ],
   "confidence": "high",
-  "claim_status": "Independently reported",
-  "claim_basis": "Two independent reports, two independent news reports, the makers' preprint, the makers' press release and the deployer's press release are on file. There is no finding by a regulator or court."
+  "claim_status": "Independently studied",
+  "claim_basis": "One independent peer-reviewed study, two independent reports, two independent news reports, the makers' preprint, the makers' press release and the deployer's press release are on file. There is no finding by a regulator or court."
 }

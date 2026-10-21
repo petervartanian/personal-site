@@ -8,7 +8,7 @@
   "unexpected": false,
   "purpose": "Prioritise the poorest cantons and the poorest mobile subscribers within them for COVID-19 emergency cash transfers in the absence of a social registry.",
   "system": "Novissi rural targeting pipeline: satellite-imagery poverty maps for canton ranking plus supervised machine learning on anonymized mobile-phone call detail records for individual eligibility",
-  "model_version": null,
+  "model_version": "gradient boosting regressor with Microsoft's LightGBM",
   "developer": "Academic team from IPA, CEGA and UC Berkeley (Aiken and Blumenstock, UC Berkeley; Bellue, University of Mannheim; Karlan and Udry, Northwestern University) for the Government of Togo",
   "deployer": "Government of Togo, Ministry of Digital Economy and Transformation, with GiveDirectly",
   "location": "Rural cantons, Togo",
@@ -101,7 +101,14 @@
   },
   "headline": "Novissi targeting pays 138,531 rural beneficiaries in Togo",
   "metric": "reduced exclusion errors by 4–21% relative to geographic alternatives",
-  "comparator": null,
+  "comparator": {
+    "against": "the geographic targeting options considered by the Government of Togo",
+    "before": "errors of exclusion of 59%–78% for the feasible alternatives",
+    "after": "errors of exclusion of 53% for the phone-based approach, a reduction of 4–21%",
+    "basis": "measured",
+    "quote": "Relative to the geographic targeting options considered by the Government of Togo, the machine-learning approach reduces errors of exclusion by 4–21%.",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8967719/"
+  },
   "later": null,
   "value": null,
   "unrated_because": null,
@@ -124,6 +131,12 @@
       "date": "2026-10-20",
       "change": "Corrected the GiveDirectly item to its printed title and 20 April 2021 date, marked the World Bank discussion paper as month-only, restored '(middle)' to the Nature quote and labeled it as the Extended Data Fig. 1 caption, re-stated the developer team from the Nature affiliations (Bellue at Mannheim, Karlan and Udry at Northwestern) and the World Bank's IPA/CEGA/UC Berkeley description, reworded summary and headline because the ML set eligibility while 138,531 is the count of registrants validated and paid, and cited HRW and PNAS rather than the PAD for the January 2021 Nigeria echo date since the PAD gives June 2021.",
       "source": "https://www.givedirectly.org/togo/; https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8967719/fullTextXML; https://documents.worldbank.org/curated/en/099751009222330502/pdf/IDU0e83f857301ff1047bf082710a8d21ddf42c3.pdf; https://www.hrw.org/report/2021/07/28/between-hunger-and-the-virus/the-impact-of-the-covid-19-pandemic-on-people-living",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Added what the benefit is measured against, the model version from the cited sources.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8967719/; https://pmc.ncbi.nlm.nih.gov/articles/PMC8967719/",
       "editor": "AIBD"
     }
   ],

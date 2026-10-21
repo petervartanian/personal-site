@@ -1,97 +1,103 @@
 {
   "id": "AIBD-0365",
-  "version": 1,
-  "title": "Rapiscan and Taronga/Macquarie 3D X-ray CT algorithms auto-detect dried shark fins, seahorses and sea cucumbers at 86-96% in a proof of concept; no customs deployment",
-  "summary": "Pirotta et al. (2026) trained 3D CNN algorithms on 298 CT scans: detection 95% shark fin, 96% seahorse, 86% sea cucumber with low false alarms; authors say front-line implementation is the next step.",
-  "date_observed": "2026-06-08",
-  "account": "Pirotta et al., in Frontiers in Ocean Sustainability (published 8 June 2026), used Rapiscan 3D X-ray CT technology to build AI algorithms for autodetection of marine wildlife in mail and air-traveller pathways: 298 scans from 68 samples of dried shark fin, seahorse and sea cucumber, expanded with 3D convolutional neural networks and 3D Threat Image Projection, gave detection rates of 95% (shark fin), 96% (seahorse) and 86% (sea cucumber) with false alarm rates of 2%, 9% and 1%. The authors, who include Rapiscan Systems staff and researchers at Taronga Conservation Society, Macquarie University, NSW DPIRD, the Australian Museum and others, state that the paper 'demonstrates the efficacy and potential impact of AI detection tools to complement existing methods'. In The Conversation (7 June 2026) the lead authors reported success rates of 95%, 95% and 85% and wrote that 'The next step is relying on implementation of these algorithms at the front lines'; the earlier verifier found, via Earth.Org (21 May 2026, not re-fetched here), that the tool is a proof of concept with no operational customs use and that a Buenos Aires seizure it mentioned did not involve the tool. The date used is the journal publication date.",
-  "category": "general benefit",
+  "title": "WeChat Pay's 'anti-fraud customer service reminder' interrupts a Yunnan man's 190,000 yuan transfer to a suspected romance scammer, and he cancels the payment (14 December 2021)",
+  "summary": "WeChat says its anti-fraud reminder, with Tencent Cloud online service, led a Yunnan man to cancel a 190,000 yuan transfer to a 'goddess' he had met online; reported by ChinaZ, 14 Dec 2021.",
+  "date_observed": "2021-12-14",
+  "account": "According to WeChat (ChinaZ, 14 December 2021; ZOL, 16 December 2021), WeChat Pay launched an 'anti-fraud customer service reminder': when a payment is flagged as a risky transaction, the screen shows an 'answer the reminder' button, the system connects automatically, and Tencent Cloud Zhifu provides online customer service to help the user judge the risk. ChinaZ reports that a Mr. Zhang in Yunnan had met a woman on a video platform who, within a week, asked to borrow 190,000 yuan for medical treatment; as he initiated the transfer, a WeChat Pay voice reminder appeared, and the customer service, judging from experience that this looked like a dating scam, explained the pattern and advised him to cancel, so he avoided a loss of 190,000 yuan. The Monitor bundles this with Shanghai police figures for 2021 (115,000 scam calls blocked daily; 510 million yuan directly recovered), which Xinmin attributes to police, the communications administration and carriers without naming AI.",
+  "category": "harm prevented",
   "unexpected": false,
-  "purpose": "Automated detection of trafficked marine wildlife in 3D X-ray screening of mail and luggage to support customs inspection; no operational use yet.",
-  "system": "Rapiscan 3D X-ray CT marine-wildlife detection algorithms (3D convolutional neural networks with 3D Threat Image Projection)",
-  "model_version": "Initial algorithms trained on 298 scans from 68 samples (2026)",
-  "developer": "Rapiscan Systems Ltd with Taronga Conservation Society Australia and Macquarie University",
-  "deployer": "None; proof of concept with no customs authority deployment",
-  "location": "Sydney, New South Wales, Australia (research setting)",
-  "domain": "Wildlife trafficking detection at borders",
-  "segment": "Security-screening vendor and conservation research partnership",
-  "benefit_type": "Improved Environmental Sustainability",
-  "taxonomy_note": "Protection of trafficked marine species fits environmental sustainability; the operational benefit would accrue to customs agencies. Both fetched sources are authored by the system's developers (Rapiscan-affiliated lead author); no customs or Wildlife Justice Commission seizure involved the tool.",
-  "registry_ids": {},
+  "purpose": "The reminder was built to warn WeChat Pay users during risky transactions and connect them to online customer service that helps judge the risk; stopping a transfer to a suspected scammer was that purpose.",
+  "system": "WeChat Pay 'anti-fraud customer service reminder' (防骗客服提醒) with Tencent Cloud Zhifu (腾讯云智服) online customer service",
+  "model_version": null,
+  "developer": "Tencent (WeChat Pay and Tencent Cloud)",
+  "deployer": "WeChat Pay",
+  "location": "Yunnan, China",
+  "domain": "Payments fraud prevention",
+  "segment": "Consumer mobile payments",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "None of the six types names loss prevention; organizational efficiency is used to match the database's other scam-prevention records, with 'Improved Customer Retention' the alternative since the protected funds are a customer's.",
+  "registry_ids": {
+    "oecd_aim": "2021-12-15-3cd7"
+  },
   "ratings": [
     {
       "group": "personal",
-      "depth": null,
-      "reason": "General benefit; no individual outcome."
-    },
-    {
-      "group": "organizational",
-      "depth": null,
-      "reason": "General benefit; no customs authority has used the algorithms."
-    },
-    {
-      "group": "societal",
-      "depth": null,
-      "reason": "General benefit; laboratory detection rates only."
+      "depth": 4,
+      "reason": "A 190,000-yuan transfer to a suspected romance scammer was canceled on the reminder, a serious financial loss for one person averted on WeChat's account; the man is identified only by surname and province, no police or bank confirmation is reported, and the case date is not given."
     }
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The AI algorithms are the whole of the reported result (detection and false-alarm rates on CT scans), documented in a peer-reviewed paper and a Conversation article both written by the developers, including a Rapiscan-affiliated lead author; no seizure, inspection or deployment outcome exists, and the sole independent account (Earth.Org, per the earlier verifier) describes a proof of concept."
+    "statement": "The automated part the sources describe is the flagging of a risky transaction, which triggers the on-screen reminder and connects the payer to Tencent Cloud Zhifu, a service the Monitor calls AI; ChinaZ says the WeChat Pay customer service judged 'from experience' that this was a dating scam, which reads as a human agent, and neither report says how the transaction was flagged or whether any model was involved. The advice, not the flag alone, led Zhang to cancel."
   },
   "evidence": [
     {
-      "kind": "peer-reviewed study",
-      "citation": "Pirotta, V., Meagher, P., Phan, H. T. H., Shen, K., Thompson, W., Dolman, B., Bending, Z., Smoothey, A. F., Hay, A., Rowe, C. E., Motamayor, A., Liddell, B., Allende, A., Allman, B. E., O'Brien, J. K. (2026). Marine wildlife trafficking: use of AI algorithms for the autodetection of shark fins, seahorses and sea cucumbers. Frontiers in Ocean Sustainability. doi:10.3389/focsu.2026.1776978",
-      "title": "Marine wildlife trafficking: use of AI algorithms for the autodetection of shark fins, seahorses and sea cucumbers",
-      "url": "https://doi.org/10.3389/focsu.2026.1776978",
-      "date": "2026-06-08",
-      "vendor_authored": true,
-      "quote": "This paper demonstrates the efficacy and potential impact of AI detection tools to complement existing methods (e.g., human inspection) to combat the trafficking of target marine species globally."
+      "kind": "news report",
+      "citation": "ChinaZ (2021). 微信支付上线“防骗客服提醒”功能 为一男子保住19万元. 站长之家, 14 December 2021.",
+      "title": "微信支付上线“防骗客服提醒”功能 为一男子保住19万元",
+      "url": "https://www.chinaz.com/2021/1214/1341135.shtml",
+      "date": "2021-12-14",
+      "written_by": "independent",
+      "quote": "凭借经验判断张先生可能陷入了交友诈骗的骗局"
     },
     {
       "kind": "news report",
-      "citation": "Pirotta, V., Bending, Z., Meagher, P., O'Brien, J. (2026). Seahorses and shark fins are illegally trafficked. An AI tool could help stop this crime. The Conversation, 7 Jun 2026.",
-      "title": "Seahorses and shark fins are illegally trafficked. An AI tool could help stop this crime",
-      "url": "https://theconversation.com/seahorses-and-shark-fins-are-illegally-trafficked-an-ai-tool-could-help-stop-this-crime-284448",
-      "date": "2026-06-07",
-      "vendor_authored": true,
-      "quote": "our algorithm had success rates of 95%, 95% and 85% for shark fins, seahorses and sea cucumbers, respectively"
+      "citation": "ZOL (2021). 年底了 微信支付正式上线“防骗客服提醒”功能. 中关村在线, 16 December 2021.",
+      "title": "年底了 微信支付正式上线“防骗客服提醒”功能",
+      "url": "https://mobile.zol.com.cn/783/7832465.html",
+      "date": "2021-12-16",
+      "written_by": "independent",
+      "quote": "腾讯云智服提供实时在线客服，协助大家判断当前交易风险"
     },
     {
       "kind": "news report",
-      "citation": "Pirotta et al. (2026). Same Conversation article, next steps.",
-      "title": "Seahorses and shark fins are illegally trafficked (next step)",
-      "url": "https://theconversation.com/seahorses-and-shark-fins-are-illegally-trafficked-an-ai-tool-could-help-stop-this-crime-284448",
-      "date": "2026-06-07",
-      "vendor_authored": true,
-      "quote": "The next step is relying on implementation of these algorithms at the front lines"
+      "citation": "Yang J (2021). 上海日均阻断诈骗电话11.5万通 今年以来直接挽损5.1亿余元. 新民晚报 / 新民网, 17 December 2021.",
+      "title": "上海日均阻断诈骗电话11.5万通 今年以来直接挽损5.1亿余元",
+      "url": "http://newsxmwb.xinmin.cn/shizheng/szt/2021/12/17/32082134.html",
+      "date": "2021-12-17",
+      "written_by": "independent",
+      "quote": "今年以来，日均阻断诈骗电话11.5万通，较去年同比增加6倍"
+    },
+    {
+      "kind": "registry label",
+      "citation": "OECD.AI (2021). AI Systems in Shanghai and Banking Sector Prevent Large-Scale Financial Fraud. OECD AI Incidents and Hazards Monitor, entry 2021-12-15-3cd7.",
+      "title": "AI Systems in Shanghai and Banking Sector Prevent Large-Scale Financial Fraud",
+      "url": "https://oecd.ai/en/incidents/2021-12-15-3cd7",
+      "date": null,
+      "written_by": "independent",
+      "quote": "AI-based risk detection in banks and WeChat Pay helped identify suspects and stop fraudulent transactions, safeguarding users' financial assets."
     }
   ],
   "replication": {
     "produced_by": [
-      "Rapiscan 3D X-ray CT scanners already used for security screening",
-      "Reference specimens of dried shark fin, seahorse and sea cucumber from Taronga and museum collections",
-      "Synthetic data expansion with 3D Threat Image Projection",
-      "Vendor funding of the research"
+      "A WeChat Pay transfer flagged as a risky transaction, which shows an 'answer the reminder' button and connects the payer to Tencent Cloud Zhifu online customer service",
+      "A customer-service exchange in which the agent asks about the transaction context and recognizes a known scam pattern"
     ],
     "must_hold": [
-      "Access to CT scanners at mail and airport screening points",
-      "Algorithm performance on concealed, mixed consignments",
-      "Customs authority adoption",
-      "Legal basis for seizure on algorithm alerts"
+      "The flag fires before the transfer completes",
+      "The payer answers the reminder and accepts the advice to cancel",
+      "The scam matches a pattern the service recognizes; here a week-old online acquaintance asking for medical money"
     ],
     "echoes": []
   },
   "paired_incident": null,
-  "headline": null,
-  "metric": null,
+  "headline": "WeChat Pay reminder stops a 190,000 yuan romance-scam transfer",
+  "metric": "avoided a loss of 190,000 yuan",
+  "comparator": null,
+  "later": null,
+  "value": null,
+  "unrated_because": null,
+  "brief_notes": null,
+  "brief": null,
   "revisions": [
     {
-      "date": "2026-10-20",
-      "change": "Record drafted from the cited sources.",
-      "source": null,
-      "editor": "draft"
+      "date": "2026-10-21",
+      "change": "Record drafted from the OECD Monitor entry and the cited sources.",
+      "source": "https://oecd.ai/en/incidents/2021-12-15-3cd7",
+      "editor": "AIBD"
     }
-  ]
+  ],
+  "confidence": "medium",
+  "claim_status": "Independently reported",
+  "claim_basis": "Three independent news reports and a registry entry are on file. There is no independent study or report and no finding by a regulator or court."
 }
