@@ -376,7 +376,7 @@ h1.wordmark { margin: 0; font-size: 1.45rem; line-height: inherit; }
   table.records td.rec a { white-space: normal; }
   table.records td.rec .sum { white-space: normal; }
   table.records .rec { min-width: 0; }
-  table.records [data-col="sources"].num, table.records td.when, table.records th:nth-child(2) { display: none; }
+  table.records:not(.evidence) [data-col="sources"].num, table.records:not(.evidence) td.when, table.records:not(.evidence) th:nth-child(2) { display: none; }
   table.records th, table.records td { padding-right: 8px; }
   table.records { table-layout: fixed; width: 100%; }
   table.records .rec { width: 60%; }
@@ -390,3 +390,13 @@ h1.wordmark { margin: 0; font-size: 1.45rem; line-height: inherit; }
 .record h2.brief-head strong { font-weight: 700; }
 
 .ratings .big.unrated-word { font-size: 0.86rem; color: var(--ink-3); }
+
+@media (max-width: 700px) {
+  table.mini, table.mini tbody, table.mini tr, table.mini td { display: block; }
+  table.mini thead { display: none; }
+  table.mini tr { padding: 8px 0; border-bottom: 1px solid var(--rule); }
+  table.mini td { border: 0; padding: 2px 0; max-width: none; }
+  table.mini td.when, table.mini td.outcome { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-3); }
+  table.records.evidence th:nth-child(n+3), table.records.evidence td:nth-child(n+3), table.records.evidence th:first-child, table.records.evidence td:first-child { display: none; }
+  table.records.evidence .rec { width: auto; }
+}
