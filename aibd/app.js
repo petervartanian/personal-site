@@ -229,6 +229,30 @@
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
   var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'unexpected', 'evidence', 'developer', 'harm'];
+  var TOOLS = ['sector', 'type', 'group', 'depth', 'evidence', 'harm', 'country'];
+  var kit = ex.querySelector('[data-kit]');
+  function toolSet() {
+    var p = new URLSearchParams(window.location.search).get('tools');
+    var saved = null; try { saved = window.localStorage.getItem('aibd-tools'); } catch (e) {}
+    var list = (p || saved || TOOLS.join(',')).split(',').filter(function (k) { return TOOLS.indexOf(k) !== -1; });
+    return list.length ? list : TOOLS.slice();
+  }
+  var activeTools = toolSet();
+  function applyTools() {
+    TOOLS.forEach(function (k) {
+      var on = activeTools.indexOf(k) !== -1;
+      var g = ex.querySelector('[data-facet-group="' + k + '"]'); if (g) g.hidden = !on;
+      var b = kit ? kit.querySelector('[data-tool="' + k + '"]') : null; if (b) { b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); }
+    });
+    try { window.localStorage.setItem('aibd-tools', activeTools.join(',')); } catch (e) {}
+  }
+  if (kit) kit.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-tool]'); if (!b) return;
+    var k = b.getAttribute('data-tool'); var i = activeTools.indexOf(k);
+    if (i === -1) activeTools.push(k); else if (activeTools.length > 1) activeTools.splice(i, 1);
+    applyTools(); apply();
+  });
+  applyTools();
   var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', developer: 'developer' };
   var PAGE = 40, showAll = false;
   var more = ex.querySelector('[data-more-rows]');
@@ -297,6 +321,7 @@
     var next = new URLSearchParams();
     if (q && q.value.trim()) next.set('q', q.value.trim());
     KEYS.forEach(function (k) { var vs = Object.keys(active[k]); if (vs.length) next.set(k, vs.join('|')); });
+    if (activeTools.length !== TOOLS.length) next.set('tools', activeTools.join(','));
     var qs = next.toString();
     history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
   }
