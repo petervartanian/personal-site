@@ -172,8 +172,11 @@
 // Product chrome: chart hover card, theme toggle, keyboard search, segmented view control.
 (function () {
   var tip = document.querySelector('[data-tip]');
-  if (tip) {
-    document.querySelectorAll('.soundings .mark').forEach(function (mark) {
+  function bindTips(root) {
+    if (!tip) return;
+    (root || document).querySelectorAll('.soundings .mark').forEach(function (mark) {
+      if (mark.dataset.tipBound) return;
+      mark.dataset.tipBound = '1';
       function show(e) {
         tip.innerHTML = '<b></b><div class="row meta"></div><div class="row sub"></div>';
         tip.querySelector('b').textContent = mark.dataset.tipTitle || '';
@@ -197,6 +200,8 @@
       mark.addEventListener('blur', hide);
     });
   }
+  window.aibdBindTips = bindTips;
+  bindTips(document);
   var input = document.querySelector('[data-search-input]');
   if (input) {
     document.addEventListener('keydown', function (e) {
@@ -279,10 +284,18 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var kit = document.querySelector('[data-kit]');
   // One tool at a time: the open one, or none.
   var openTool = (new URLSearchParams(window.location.search).get('open') || '').split(',').filter(function (k) { return PANELS.indexOf(k) !== -1; })[0] || null;
+  function loadFragment(panel) {
+    var slot = panel.querySelector('[data-fragment]'); if (!slot || slot.dataset.loaded || slot.dataset.loading) return;
+    slot.dataset.loading = '1'; slot.setAttribute('aria-busy', 'true'); slot.textContent = 'Loading…';
+    fetch(slot.getAttribute('data-fragment')).then(function (r) { return r.text(); }).then(function (html) {
+      slot.innerHTML = html; slot.dataset.loaded = '1'; slot.removeAttribute('aria-busy'); delete slot.dataset.loading;
+      collectButtons(); bindAtlas(); if (window.aibdBindTips) window.aibdBindTips(slot); apply();
+    }).catch(function () { slot.textContent = 'This chart could not be loaded.'; slot.removeAttribute('aria-busy'); delete slot.dataset.loading; });
+  }
   function applyTools() {
     PANELS.forEach(function (k) {
       var on = k === openTool;
-      var panel = ex.querySelector('[data-tool-panel="' + k + '"]'); if (panel) panel.hidden = !on;
+      var panel = ex.querySelector('[data-tool-panel="' + k + '"]'); if (panel) { panel.hidden = !on; if (on) loadFragment(panel); }
       if (k === 'table' || k === 'shelf') { if (on || (openTool !== 'table' && openTool !== 'shelf')) { ex.classList.toggle('tabular', on); var th = ex.querySelector('[data-table-head]'); if (th) th.hidden = !on; } }
       var b = kit ? kit.querySelector('[data-kit-tool="' + k + '"]') : null;
       if (b) { b.classList.toggle('on', on); if (b.tagName === 'BUTTON') b.setAttribute('aria-pressed', String(on)); else if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); }
@@ -340,8 +353,10 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       apply();
     });
   });
-  var atlas = ex.querySelector('.worldmap');
-  if (atlas) {
+  function bindAtlas() {
+    var atlas = ex.querySelector('.worldmap');
+    if (!atlas || atlas.dataset.bound) return;
+    atlas.dataset.bound = '1';
     var readout = ex.querySelector('[data-atlas-readout]');
     ex.querySelectorAll('[data-plate]').forEach(function (b) {
       b.addEventListener('click', function () {
@@ -361,11 +376,14 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     atlas.addEventListener('focusin', function (e) { var land = e.target.closest('.land'); if (land && readout) { var t = land.querySelector('title'); readout.textContent = t ? t.textContent : ''; } });
     atlas.addEventListener('mouseleave', function () { if (readout) readout.textContent = ''; });
   }
+  bindAtlas();
   var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', developer: 'developer' };
   var PAGE = 40, showAll = false;
   var more = ex.querySelector('[data-more-rows]');
   var rows = Array.prototype.slice.call(ex.querySelectorAll('[data-row]'));
-  var buttons = Array.prototype.slice.call(ex.querySelectorAll('[data-facet]'));
+  var buttons = [];
+  function collectButtons() { buttons = Array.prototype.slice.call(ex.querySelectorAll('[data-facet]')); }
+  collectButtons();
   var q = ex.querySelector('[data-q]') || document.querySelector('[data-search-input]');
   var count = ex.querySelector('[data-count]');
   var params = new URLSearchParams(window.location.search);
@@ -376,11 +394,23 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   }
   readFilters(params);
   function hasAny(obj) { for (var k in obj) if (obj.hasOwnProperty(k)) return true; return false; }
+  var searchText = null, searchLoading = false;
+  function loadSearch() {
+    if (searchText || searchLoading) return;
+    searchLoading = true;
+    fetch('search.json').then(function (r) { return r.json(); }).then(function (data) {
+      searchText = {}; for (var id in data) if (data.hasOwnProperty(id)) searchText[id] = String(data[id]).toLowerCase();
+      searchLoading = false; apply();
+    }).catch(function () { searchLoading = false; });
+  }
   function matches(row, ignore) {
     var d = row.dataset;
     if (openTool === 'shelf' && !(window.aibdShelf && window.aibdShelf.has(d.id))) return false;
     var text = q ? q.value.trim().toLowerCase() : '';
-    if (text && d.text.indexOf(text) === -1) return false;
+    if (text) {
+      if (!searchText) { loadSearch(); if ((d.headline || '').indexOf(text) === -1) return false; }
+      else if ((searchText[d.id] || '').indexOf(text) === -1) return false;
+    }
     for (var i = 0; i < KEYS.length; i++) {
       var k = KEYS[i];
       if (k === ignore || !hasAny(active[k])) continue;
@@ -444,12 +474,11 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
     if (push) history.pushState(null, '', url); else history.replaceState(null, '', url);
   }
-  buttons.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var k = b.dataset.facet, v = b.dataset.value;
-      if (active[k][v]) delete active[k][v]; else active[k][v] = true;
-      apply();
-    });
+  ex.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-facet]'); if (!b || !ex.contains(b)) return;
+    var k = b.dataset.facet, v = b.dataset.value;
+    if (active[k][v]) delete active[k][v]; else active[k][v] = true;
+    apply();
   });
   if (q) q.addEventListener('input', apply);
   if (more) more.addEventListener('click', function () { showAll = true; apply(); });
