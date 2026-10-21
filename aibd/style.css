@@ -22,7 +22,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { background: #d9d4c7; color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-feature-settings: "tnum" 1; }
+html { background: #d9d4c7; color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-feature-settings: "tnum" 1; }
 body { margin: 0; min-height: 100vh; }
 body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: #d9d4c7 url("marble.jpg") center / cover no-repeat; background-image: image-set(url("marble.webp") type("image/webp"), url("marble.jpg") type("image/jpeg")); }
 .page { max-width: 1280px; margin: 18px auto 44px; padding: 0 18px; display: grid; gap: 16px; }
@@ -646,3 +646,42 @@ table.compare { border-collapse: collapse; font-size: 0.9rem; margin: 10px 0 18p
 .worldmap .dot { stroke: var(--paper); stroke-width: 1; }
 .browse .row button:disabled, .facet button:disabled { opacity: 0.45; cursor: default; }
 @media (max-width: 700px) { .phone-only { display: block; } }
+
+/* Type scale: eight roles on a 16 px root, leadings in multiples of 4 px; measures per role. */
+:root { --t-h1: 2.125rem; --l-h1: 40px; --t-lede: 1.75rem; --l-lede: 36px; --t-head: 1.25rem; --l-head: 28px; --t-title: 1.0625rem; --l-title: 24px; --t-body: 1rem; --l-body: 24px; --t-data: 0.9375rem; --l-data: 24px; --t-small: 0.875rem; --l-small: 20px; --t-cap: 0.8125rem; --l-cap: 20px; }
+.mono { font-size: inherit; }
+body { font-size: var(--t-body); line-height: var(--l-body); }
+.record-head h1, .record h1 { font-size: var(--t-h1); line-height: var(--l-h1); letter-spacing: -0.02em; font-weight: 500; }
+.lede { font-size: var(--t-lede); line-height: var(--l-lede); font-weight: 400; max-width: 32rem; }
+.wordmark, h1.wordmark { font-size: var(--t-head); line-height: var(--l-head); }
+.panel-name, .figure-head h2, .sec h2, .record h2, .method h2, .panel h2, .tax-group, .panel-h, .brief-head, .kit-handle { font-size: var(--t-head); line-height: var(--l-head); }
+.results h3, .sources h3, .case h3, .compare thead th, .kit .tool .tn, .record-head .sum, .sum { font-size: var(--t-title); line-height: var(--l-title); }
+.record-head .sum { max-width: 32rem; }
+.prose, .orient, .orient p, .brief, .ratings p, .facts dd, .purpose, .basis, .revs-line, .conds p, .method p, .panel p.prose, .not-admitted p, .case p, .do, .like, .quick, .shelf p, .marks-line { font-size: var(--t-body); line-height: var(--l-body); }
+.prose, .orient, .brief, .ratings p, .purpose, .basis, .revs-line, .conds p, .method p, .case p { max-width: 34rem; }
+.metric, .metric-big, .results .metric, .ratings .big, .readout, [data-count], .list-head [data-count], .cite .mono, .props dd.mono, .props .mono, .matrix td, .matrix-cell, .compare thead th small, .crumbs { font-size: var(--t-data); line-height: var(--l-data); }
+.metric-big { font-size: 1.0625rem; line-height: 24px; max-width: 34rem; }
+.note, .legend, .subtitle, .atlas-key, .cit, .sidenotes, .sidenotes li, .props, .props dt, .props dd, .aside, .facets, .browse, .browse .row button, .fgroup, .flabel, .thead, .thead button, .list-head, .key, .figure-head .key, .tip, .compare th, .compare td, .matrix th, .matrix thead th, .matrix .mt small, .mini, .mini td, .mini th, .footer-inner, .find input, .kit .tool .tw, .sources blockquote, .plain, .revs, .empty, .panel > .note, .panel-head [data-count-mirror], .panel-head [data-show-cases], .panel-head .panel-close, .compare th.f { font-size: var(--t-small); line-height: var(--l-small); }
+.note, .legend, .subtitle, .atlas-key, .cit, .empty { max-width: 30rem; }
+.legend { max-width: 34rem; }
+.meta, .results .meta, .results .meta span, .kind, .kind span, .cite, .sn-mark, .sidenotes .sn-mark, .why, .marks-line .why, .matrix tfoot th, .matrix tfoot td, .kw, .figure-head .key .kw, .thead, .thead button, .crumbs, .list-head, .tip .row, .plates .plate, .compare thead th small { font-size: var(--t-cap); line-height: var(--l-cap); }
+sup, .sn-mark { font-size: 0.75em; line-height: 0; }
+.sidenotes .sn-mark { font-size: var(--t-cap); line-height: inherit; }
+.ratings .big { font-size: var(--t-head); line-height: var(--l-head); }
+.figure-head h2, .panel h2 { margin-bottom: 4px; }
+/* Phone: figures scroll instead of shrinking; grids stack; the column widens. */
+.echoes { overflow-x: auto; }
+.matrix-wrap { overflow-x: auto; }
+@media (max-width: 700px) {
+  .page { padding: 0 12px; }
+  .sheet { padding: 20px 18px; }
+  .echoes svg { min-width: 640px; }
+  .ratings li, .facts.wide div, .props div, .props.facts div { grid-template-columns: 1fr; }
+  .record-head h1 { font-size: 1.75rem; line-height: 36px; }
+}
+/* Scale stragglers and the phone overflow. */
+.more-rows, .ratings small, .big.unrated-word, q.fq, .fq, p.cit, .ink3.small, .small { font-size: var(--t-small); line-height: var(--l-small); }
+.rn, .props .rn, .fsrc, a.fsrc { font-size: var(--t-cap); line-height: var(--l-cap); }
+.record-head .metric-big { font-size: var(--t-title); line-height: var(--l-title); }
+.record > article, .record article { min-width: 0; }
+@media (max-width: 700px) { .record { grid-template-columns: minmax(0, 1fr); } .record .aside { min-width: 0; } }
