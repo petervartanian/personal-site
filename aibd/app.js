@@ -245,7 +245,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   };
   function paint() {
     var n = ids().length;
-    document.querySelectorAll('[data-shelf-link]').forEach(function (a) { a.textContent = n ? 'Shelf (' + n + ')' : 'Shelf'; });
+    document.querySelectorAll('[data-shelf-link]').forEach(function (a) { a.textContent = n ? 'Compare (' + n + ')' : 'Compare'; });
     document.querySelectorAll('[data-keep]').forEach(function (b) { var on = shelf.has(b.getAttribute('data-keep')); b.textContent = on ? 'Kept' : 'Keep this case'; b.setAttribute('aria-pressed', String(on)); });
     document.querySelectorAll('[data-shelf-count]').forEach(function (s) { s.textContent = String(n); });
     document.querySelectorAll('[data-shelf-words]').forEach(function (s) { s.textContent = n ? n + (n === 1 ? ' case kept' : ' cases kept') : 'Nothing kept yet'; });
@@ -260,7 +260,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   paint();
 })();
 
-// Tool-kit: the tray in the top-right corner of the masthead. It opens from its
+// Instruments: the tray in the top-right corner of the masthead. It opens from its
 // handle and shuts on a tool, a click elsewhere or Escape.
 (function () {
   var kit = document.querySelector('[data-kit]');
@@ -281,7 +281,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
 (function () {
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
-  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'unexpected', 'evidence', 'developer', 'harm'];
+  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'unexpected', 'evidence', 'claim', 'developer', 'harm'];
   var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'shelf', 'method', 'data'];
   var kit = document.querySelector('[data-kit]');
   // One tool at a time: the open one, or none.
@@ -332,7 +332,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   }
   applyTools();
   var sortState = { key: null, dir: 1 };
-  var CONF = { high: 0, medium: 1, low: 2 };
+  var CONF = { found: 0, studied: 1, reported: 2, claimed: 3 };
   function sortBy(key, dir) {
     sortState.key = key; sortState.dir = dir;
     var list = ex.querySelector('ol.results');
@@ -381,7 +381,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     atlas.addEventListener('mouseleave', function () { if (readout) readout.textContent = ''; });
   }
   bindAtlas();
-  var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', developer: 'developer' };
+  var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer' };
   var PAGE = 40, showAll = false;
   var more = ex.querySelector('[data-more-rows]');
   var rows = Array.prototype.slice.call(ex.querySelectorAll('[data-row]'));
@@ -444,7 +444,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     });
     if (count) {
       var filtered = (q && q.value.trim()) || openTool === 'shelf' || KEYS.some(function (k) { return hasAny(active[k]); });
-      count.textContent = filtered ? shown + ' of ' + rows.length + ' cases' : rows.length + ' cases, updated ' + (count.dataset.updated || '');
+      count.textContent = filtered ? shown + ' of ' + rows.length + ' cases' : rows.length + ' cases';
       var mirror = ex.querySelector('[data-count-mirror]'); if (mirror) mirror.textContent = shown + ' of ' + rows.length + ' cases';
     }
     KEYS.forEach(function (k) { if (hasAny(active[k])) { var g = ex.querySelector('[data-facet-group="' + k + '"]'); if (g) { g.removeAttribute('data-collapsed'); var h = g.querySelector('[data-facet-head]'); if (h) h.setAttribute('aria-expanded', 'true'); } } });

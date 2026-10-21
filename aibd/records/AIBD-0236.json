@@ -1,9 +1,9 @@
 {
   "id": "AIBD-0236",
-  "title": "OpenAI o3 finds CVE-2025-37899, a remote use-after-free in the Linux kernel's ksmbd; patched in all maintained branches",
-  "summary": "Sean Heelan, benchmarking o3 on ksmbd with no scaffolding, had the model surface an unknown use-after-free in the SMB logoff handler; the kernel CNA published CVE-2025-37899 on 20 May 2025.",
+  "title": "OpenAI o3 finds CVE-2025–37899, a remote use-after-free in the Linux kernel's ksmbd; patched in all maintained branches",
+  "summary": "Sean Heelan, benchmarking o3 on ksmbd with no scaffolding, had the model surface an unknown use-after-free in the SMB logoff handler; the kernel CNA published CVE-2025–37899 on 20 May 2025.",
   "date_observed": "2025-05-20",
-  "account": "The date is the CVE record's publication; Heelan's write-up followed on 22 May 2025. Heelan, an independent vulnerability researcher auditing ksmbd (the Linux kernel's in-kernel SMB3 server), used a known bug (CVE-2025-37778) to benchmark OpenAI's o3 via the plain API, with no scaffolding, agents or tools. When given about 12,000 lines covering all SMB command handlers, o3 reported a previously unknown use-after-free in the handler for the SMB 'logoff' command: sess->user can be freed while another connection bound to the same session still uses it. The Linux kernel CNA's record describes the fix ('ksmbd: fix use-after-free in session logoff') with commits in five stable branches; Linuxiac reports the upstream response was fast and patches were merged for every maintained branch. Heelan calls it, to his knowledge, the first public case of an LLM finding a vulnerability of that nature.",
+  "account": "The date is the CVE record's publication; Heelan's write-up followed on 22 May 2025. Heelan, an independent vulnerability researcher auditing ksmbd (the Linux kernel's in-kernel SMB3 server), used a known bug (CVE-2025–37778) to benchmark OpenAI's o3 via the plain API, with no scaffolding, agents or tools. When given about 12,000 lines covering all SMB command handlers, o3 reported a previously unknown use-after-free in the handler for the SMB “logoff” command: sess->user can be freed while another connection bound to the same session still uses it. The Linux kernel CNA's record describes the fix (“ksmbd: fix use-after-free in session logoff”) with commits in five stable branches; Linuxiac reports the upstream response was fast and patches were merged for every maintained branch. Heelan calls it, to his knowledge, the first public case of an LLM finding a vulnerability of that nature.",
   "category": "benefit created",
   "unexpected": false,
   "purpose": "General-purpose reasoning model used by the researcher to audit kernel source code for vulnerabilities.",
@@ -75,7 +75,7 @@
     "echoes": []
   },
   "paired_incident": null,
-  "headline": "OpenAI o3 finds CVE-2025-37899, a use-after-free in ksmbd",
+  "headline": "OpenAI o3 finds CVE-2025–37899, a use-after-free in ksmbd",
   "metric": null,
   "comparator": {
     "against": "Claude Sonnet 3.7 and Claude Sonnet 3.5 on the same 100-run benchmark (the known ksmbd Kerberos bug)",
@@ -116,7 +116,8 @@
       "editor": "AIBD"
     }
   ],
-  "confidence": "medium",
+  "confidence": "reported",
+  "shade": "medium",
   "claim_status": "Independently reported",
   "claim_basis": "One independent news report, a registry entry and the deployer's report are on file. There is no independent study or report and no finding by a regulator or court."
 }
