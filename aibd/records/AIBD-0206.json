@@ -1,6 +1,6 @@
 {
   "id": "AIBD-0206",
-  "title": "Wiz Research's AI-augmented reverse engineering of GitHub's closed-source git binaries (Claude Code, per The Register; IDA MCP, per Wiz) finds a critical push-option injection giving remote code execution on GitHub.com and GitHub Enterprise Server; GitHub reproduces it in 40 minutes, patches github.com by 7:00 pm UTC on 4 March 2026 and finds no exploitation",
+  "title": "Wiz Research's AI-augmented reverse engineering of GitHub's closed-source git binaries, with Claude Code and IDA MCP, finds a critical push-option injection giving remote code execution on GitHub.com and GitHub Enterprise Server; GitHub reproduces it in 40 minutes, patches github.com by 7:00 pm UTC on 4 March 2026 and finds no exploitation",
   "summary": "Wiz's AI-aided reverse engineering found a critical GitHub RCE (CVE-2026-3854); github.com was patched the same day, no exploitation found.",
   "date_observed": "2026-03-04",
   "account": "On 4 March 2026 Wiz Research reported to GitHub a critical remote code execution flaw, later CVE-2026-3854, in GitHub's internal git infrastructure: git push options were not sanitized before being written into internal headers, so any authenticated user could run arbitrary commands on GitHub's servers with a single git push. Wiz says AI-augmented tooling, particularly automated reverse engineering of GitHub's compiled binaries with IDA MCP, made the research feasible; The Register reports that the team used Claude Code and went from idea to working exploit in under 48 hours. GitHub reproduced the bug within 40 minutes, deployed a fix to github.com at 7:00 pm UTC that day, released GitHub Enterprise Server patches from 10 March, and found no exploitation.",
@@ -141,6 +141,12 @@
       "date": "2026-10-20",
       "change": "Record drafted from the OECD Monitor entry and the cited sources. the date observed is 4 March 2026, the day Wiz reported the flaw and GitHub fixed github.com (GitHub's post: root cause identified at 5:45 pm UTC, fix deployed at 7:00 pm UTC; Wiz and The Verge say within six hours of the report; GitHub's standfirst says under two hours); the Monitor's 28 April 2026 is the public-disclosure date. Filed as benefit created or restored: the AI-assisted discovery produced a concrete fix for an identifiable organization, and the harm avoided is hypothetical because GitHub's forensic investigation found no exploitation. The AI tool is named differently by the sources: The Register (byline Connor Jones on the page as first fetched) and WebProNews say Claude Code, and WebProNews names Anthropic; Wiz's own write-up credits 'AI-augmented tooling, particularly automated reverse engineering using IDA MCP', and a search of its text as fetched found no occurrence of 'Claude' or 'Anthropic', so the record names Claude Code on The Register's authority and IDA MCP on Wiz's. No Claude model is named anywhere. Severity: the CVE record (CNA GitHub) gives CVSS 4.0 8.7; The Register reports an 8.8 rating from NIST. GHES patch dates: Wiz's timeline says 10 March 2026, the 3.14.25 release notes are dated 12 March 2026. The Wiz post is marked as written by the makers because it is the discoverer's own account of its tooling, although Wiz is not the AI vendor; GitHub's post is the beneficiary's statement and is not flagged. Anthropic's Claude Code overview is cited only for what the product is. The Monitor lists The Register's headline as 'Wiz hands GitHub AI-aided bug report that isn't total slop'; the page as read carries the longer headline used in the citation. The Verge and Dark Reading refused direct fetches and were read through the r.jina.ai text proxy; NVD's page did not render; WebSearch was exhausted and Brave and DuckDuckGo rate-limited or challenged, so the CVE record's reference list was used to locate the Wiz and GitHub posts.",
       "source": "https://oecd.ai/en/incidents/2026-04-28-f5d8",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Title reworded to state the event without naming who claims it.",
+      "source": null,
       "editor": "AIBD"
     }
   ],
