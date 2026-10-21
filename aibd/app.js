@@ -260,7 +260,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   paint();
 })();
 
-// Instruments: the tray in the top-right corner of the masthead. It opens from its
+// Tools: the tray in the top-right corner of the masthead. It opens from its
 // handle and shuts on a tool, a click elsewhere or Escape.
 (function () {
   var kit = document.querySelector('[data-kit]');
@@ -282,7 +282,8 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
   var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'unexpected', 'evidence', 'claim', 'developer', 'harm'];
-  var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'shelf', 'method', 'data'];
+  var compareData = null, compareLoading = false;
+  var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'shelf', 'roles', 'method', 'data'];
   var kit = document.querySelector('[data-kit]');
   // One tool at a time: the open one, or none.
   var openTool = (new URLSearchParams(window.location.search).get('open') || '').split(',').filter(function (k) { return PANELS.indexOf(k) !== -1; })[0] || null;
@@ -315,6 +316,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var p = new URLSearchParams(window.location.search);
     openTool = (p.get('open') || '').split(',').filter(function (k) { return PANELS.indexOf(k) !== -1; })[0] || null;
     if (typeof readFilters === 'function') readFilters(p);
+    if (typeof setRole === 'function') setRole(p.get('role') || '');
     applyTools(); apply();
   });
   if (kit) {
@@ -396,7 +398,45 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     KEYS.forEach(function (k) { var v = p.get(k); active[k] = {}; if (v) v.split('|').forEach(function (x) { active[k][x] = true; }); });
     if (q) q.value = p.get('q') || '';
   }
+  var role = params.get('role') || '';
+  var ROLE_SORT = { buyer: ['evidence', 1], regulator: ['evidence', 1], insurer: ['depth', 1], reporter: ['year', 1] };
+  function roleLine(c) {
+    if (role === 'buyer') {
+      var s = c.sys + (c.dev && c.dev !== 'Unstated' ? ', by ' + c.dev : '') + '. ';
+      s += c.cmp ? 'Measured against ' + c.cmp + (c.before && c.after ? ': ' + c.before + ' to ' + c.after : '') + '.' : 'No comparison stated.';
+      if (c.lstatus && c.lstatus !== 'unknown') s += ' Since then: ' + c.lstatus + (c.ldate ? ', ' + c.ldate : '') + '.';
+      return s;
+    }
+    if (role === 'regulator') return c.claim + '.' + (c.dep_name ? ' Deployed by ' + c.dep_name + '.' : '') + (c.lstatus === 'litigated' ? ' Litigated' + (c.ldate ? ' on ' + c.ldate : '') + '.' : '') + (c.harm ? ' A harm of the same kind is on record.' : '');
+    if (role === 'insurer') return (c.val ? c.val + '.' : 'No value stated by a source.') + (c.lstatus && c.lstatus !== 'unknown' ? ' Since then: ' + c.lstatus + '.' : '') + ' ' + c.cat + '.';
+    if (role === 'reporter') return c.sum + ' ' + c.cb;
+    return '';
+  }
+  function paintRole() {
+    rows.forEach(function (r) {
+      var box = r.querySelector('.extra');
+      if (!role) { if (box) box.remove(); return; }
+      if (!compareData) return;
+      var c = compareData[r.dataset.id]; if (!c) return;
+      if (!box) { box = document.createElement('div'); box.className = 'extra'; r.querySelector('div:nth-child(2)').appendChild(box); }
+      box.textContent = roleLine(c);
+    });
+  }
+  function setRole(r) {
+    role = r || '';
+    if (role) ex.setAttribute('data-role', role); else ex.removeAttribute('data-role');
+    if (role && !compareData && !compareLoading) { compareLoading = true; fetch('compare.json').then(function (x) { return x.json(); }).then(function (d) { compareData = d; compareLoading = false; paintRole(); }).catch(function () { compareLoading = false; }); }
+    paintRole();
+    ex.querySelectorAll('[data-role]').forEach(function (b) { b.setAttribute('aria-pressed', String((b.getAttribute('data-role') || '') === role)); });
+    if (role && ROLE_SORT[role]) sortBy(ROLE_SORT[role][0], ROLE_SORT[role][1]);
+  }
+  ex.addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-role]'); if (!b) return;
+    setRole(b.getAttribute('data-role')); apply(true);
+    var head = document.getElementById('cases'); if (head && role) head.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
+  });
   readFilters(params);
+  if (role) setRole(role);
   (function () { var s = (params.get('sort') || '').split(':'); if (s[0] && ex.querySelector('[data-sort-key="' + s[0] + '"]')) sortBy(s[0], s[1] === 'asc' ? -1 : 1); })();
   function hasAny(obj) { for (var k in obj) if (obj.hasOwnProperty(k)) return true; return false; }
   var searchText = null, searchLoading = false;
@@ -477,6 +517,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (q && q.value.trim()) next.set('q', q.value.trim());
     KEYS.forEach(function (k) { var vs = Object.keys(active[k]); if (vs.length) next.set(k, vs.join('|')); });
     if (openTool) next.set('open', openTool);
+    if (role) next.set('role', role);
     if (sortState.key) next.set('sort', sortState.key + ':' + (sortState.dir === 1 ? 'desc' : 'asc'));
     var qs = next.toString();
     var url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
@@ -535,7 +576,6 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   });
   var clear = ex.querySelector('[data-clear]');
   if (clear) clear.addEventListener('click', clearAll);
-  var compareData = null, compareLoading = false;
   window.aibdRenderCompare = function () {
     var box = ex.querySelector('[data-compare]'); if (!box) return;
     var ids = window.aibdShelf ? window.aibdShelf.ids() : [];

@@ -12,7 +12,7 @@
 :root {
   --paper: #ffffff; --paper-2: #f6f6f4; --rule: #e4e4e0; --rule-2: #c9c9c3;
   --ink: #161616; --ink-2: #4f4f4c; --ink-3: #6b6b66;
-  --d1: #5fd3a4; --d2: #1fb26b; --d3: #148f85; --d4: #6b4fc0; --d5: #c28a0f; --una: #8f8f8a;
+  --d1: #5fd3a4; --d2: #1fb26b; --d3: #148f85; --d4: #6b4fc0; --d5: #3b1f73; --una: #8f8f8a;
   --h1: #94a3b8; --h2: #60a5fa; --h3: #f59e0b; --h4: #ef4444; --h5: #911a33;
   --c: var(--ink-3);
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
@@ -685,3 +685,30 @@ sup, .sn-mark { font-size: 0.75em; line-height: 0; }
 .record-head .metric-big { font-size: var(--t-title); line-height: var(--l-title); }
 .record > article, .record article { min-width: 0; }
 @media (max-width: 700px) { .record { grid-template-columns: minmax(0, 1fr); } .record .aside { min-width: 0; } }
+
+/* Atlas: outlines in one quiet tone; circles carry the counts. */
+.worldmap .land { fill: #e6e3dc; }
+.worldmap .land.on { fill: #cfcbc2; }
+.worldmap .bubble { fill: #2f5876; fill-opacity: 0.72; stroke: var(--paper); stroke-width: 1; }
+.worldmap .bubble:hover, .worldmap .bubble.on { fill-opacity: 0.95; stroke: var(--ink); }
+.atlas-key .bk { vertical-align: middle; margin: 0 2px; } .atlas-key .bk circle { fill: #2f5876; fill-opacity: 0.72; stroke: var(--paper); }
+
+/* Roles: a line per case for the reader's work; the role buttons as a plain list. */
+.roles { max-width: 40rem; }
+.roles button { display: block; width: 100%; text-align: left; padding: 10px 0; border: 0; border-bottom: 1px solid var(--rule); background: none; font: inherit; cursor: pointer; }
+.roles button b { font-family: var(--serif); font-weight: 500; font-size: var(--t-title); line-height: var(--l-title); display: block; }
+.roles button span { display: block; color: var(--ink-2); font-size: var(--t-small); line-height: var(--l-small); }
+.roles button[aria-pressed="true"] b { text-decoration: underline; text-underline-offset: 4px; }
+.extra { display: none; margin-top: 4px; max-width: 34rem; font-size: var(--t-small); line-height: var(--l-small); color: var(--ink-2); }
+.extra .x { display: none; }
+.explorer[data-role] .extra { display: block; }
+.explorer[data-role="buyer"] .x.buyer, .explorer[data-role="regulator"] .x.regulator, .explorer[data-role="insurer"] .x.insurer, .explorer[data-role="reporter"] .x.reporter { display: inline; }
+.explorer.tabular .extra { display: none; }
+
+/* Depth 5: a halo, two thin rings around the mark. */
+.mk, .mobile, .soundings { overflow: visible; }
+.halo { fill: none; stroke: var(--c); stroke-width: 0.8; opacity: 0.6; }
+.halo.far { stroke-width: 0.6; opacity: 0.3; }
+.sw.d5, .d5 .sw { box-shadow: 0 0 0 1.5px var(--paper), 0 0 0 2.5px var(--d5); }
+
+.explorer[data-role] .extra { display: block; }
