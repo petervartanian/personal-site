@@ -36,6 +36,7 @@ export function privatePath(url, origin) {
   if (path === '' || path === 'index.html') return 'index.html';
   if (path === 'arcolens' || path === 'arcolens/') return 'arcolens/OPEN_REVIEW.html';
   const directory = path.replace(/\/$/, '');
+  if (directory === 'correlator/plan') return 'correlator/plan/index.html';
   if (projectDirectories.has(directory)) return directory + '/index.html';
   return path;
 }

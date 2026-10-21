@@ -26,6 +26,7 @@ const fixtures = {
   'index.html': { file: 'b'.repeat(64) + '.bin', type: 'text/html; charset=utf-8' },
   'arcolens/OPEN_REVIEW.html': { file: 'c'.repeat(64) + '.bin', type: 'text/html; charset=utf-8' },
   'arcolens/downloads/data.csv': { file: 'd'.repeat(64) + '.bin', type: 'text/csv', download: 'data.csv' },
+  'correlator/plan/index.html': { file: createHash('sha256').update('correlator/plan/index.html').digest('hex') + '.bin', type: 'text/html; charset=utf-8' },
 };
 for (const project of projects) {
   for (const [file, type] of [['index.html', 'text/html; charset=utf-8'], ['assets/app.js', 'text/javascript; charset=utf-8']]) {
@@ -199,6 +200,27 @@ test('worker restart preserves an unexpired session; expiry requires unlocking a
   const expired = worker(state);
   assert.equal((await expired.message('status')).unlocked, false);
   assert.equal((await expired.request('/200/arcolens/downloads/data.csv', 'cors')).status, 401);
+});
+
+test('the Correlator Plan directory opens its protected index and preserves the password gate', async () => {
+  for (const suffix of ['', '/', '/index.html']) {
+    assert.equal(privatePath(origin + '/200/correlator/plan' + suffix, origin), 'correlator/plan/index.html');
+  }
+  const instance = worker();
+  const locked = await instance.request('/200/correlator/plan/?view=all');
+  assert.equal(locked.status, 302);
+  assert.equal(new URL(locked.headers.get('location')).searchParams.get('next'), '/200/correlator/plan/?view=all');
+  assert.equal((await instance.request('/200/correlator/plan/', 'cors')).status, 401);
+  await instance.message('unlock', { password });
+  const canonical = await instance.request('/200/correlator/plan?view=all');
+  assert.equal(canonical.headers.get('location'), origin + '/200/correlator/plan/?view=all');
+  for (const suffix of ['/', '/index.html']) {
+    const response = await instance.request('/200/correlator/plan' + suffix);
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get('cache-control'), 'no-store');
+    assert.equal(await response.text(), privateHTML.toString());
+  }
+  assert.equal((await instance.request('/200/correlator/plan/missing.html')).status, 404);
 });
 
 test('logout clears persisted access and returns only experiment tabs to the gate', async () => {
