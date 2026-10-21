@@ -1,0 +1,93 @@
+{
+  "id": "AIBD-0269",
+  "version": 1,
+  "title": "EchoNext ECG flag finds severe aortic stenosis in an asymptomatic 84-year-old; TAVR after hip-fracture surgery",
+  "summary": "At Columbia/NewYork-Presbyterian, EchoNext flagged a pre-operative ECG (score 0.6094), triggering an EHR advisory; echo showed LVEF 40% and severe aortic stenosis; cardiac anaesthesia, surgery, TAVR.",
+  "date_observed": "2026-03-04",
+  "account": "Tat et al. (JACC: Case Reports, 4 March 2026) describe an 84-year-old woman with hypertension admitted after a fall with a left femur fracture. Her ECG was analysed by EchoNext, a deep-learning model for structural heart disease developed at Columbia; the earlier verifier recorded a score of 0.6094 (the model's high-risk cutoff is 0.6), which triggered an electronic-health-record advisory. Transthoracic echocardiography showed an ejection fraction of 40% and severe aortic stenosis (valve area 0.6 cm2, peak velocity 3.9 m/s, mean gradient 34 mm Hg); cardiology recommended cardiac anaesthesia for the orthopaedic operation, and the patient then underwent transcatheter aortic valve replacement (on day 8 per the earlier reason). The authors call it the first report of an AI-ECG algorithm detecting undiagnosed severe aortic stenosis that led to TAVR. EchoNext's development paper (Poterucha et al., Nature, July 2025) reports training on more than 1 million ECG and imaging records and that 73% of patients flagged high-risk in prospective evaluation had newly diagnosed disease. All authors are the Columbia developers; Dr Elias reports research support including from Edwards. The date is the publication date.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Screen ECGs for unrecognised structural heart disease and alert clinicians through the electronic health record",
+  "system": "EchoNext deep-learning ECG model integrated into the electronic health record",
+  "model_version": null,
+  "developer": "Columbia University (Poterucha, Elias and colleagues)",
+  "deployer": "Columbia University Irving Medical Center / NewYork-Presbyterian",
+  "location": "New York, New York, USA",
+  "domain": "Health; cardiology",
+  "segment": "Hospital patients with an ECG and no known structural heart disease",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "Developer-authored case report (academic in-house model); no non-developer account of the case exists, which is why the earlier verifier set it aside while calling it a strong candidate. The 0.6094 score and day-8 TAVR come from the earlier reason; the fetched text gives the 0.6 cutoff and the echo findings.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -3,
+      "reason": "Severe aortic stenosis found before non-cardiac surgery, changing perioperative management and leading to TAVR."
+    },
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "No organisational outcome reported for this case."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "Single case."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The EHR advisory from EchoNext prompted the echocardiogram in an asymptomatic patient, according to the developers' own case report. Evidence is developer-authored (case report and the Nature development paper), with disclosed industry research support; no independent account was found."
+  },
+  "evidence": [
+    {
+      "kind": "case report",
+      "citation": "Tat E, Oliver FR, Malta P, Castillo M, Poterucha TJ, Elias P. JACC Case Rep 31(14):107184 (2026)",
+      "title": "Artificial Intelligence-Enabled Electrocardiographic Detection of Severe Aortic Stenosis Leading to Transcatheter Aortic Valve Replacement",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13080615/",
+      "date": "2026-03-04",
+      "written_by": "makers",
+      "quote": "To our knowledge, this is the first report of an artificial intelligence-enabled ECG algorithm detecting undiagnosed severe AS that led to transcatheter aortic valve replacement."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Poterucha TJ, Jing L, Ricart RP, et al. Nature (2025)",
+      "title": "Detecting structural heart disease from electrocardiograms using AI",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12328201/",
+      "date": "2025-07-16",
+      "written_by": "makers",
+      "quote": "we introduce a deep learning model, EchoNext, trained on more than 1 million heart rhythm and imaging records across a large and diverse health system"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "EchoNext scoring of a routine ECG",
+      "EHR-integrated advisory to the primary team",
+      "Cardiology consultation and echocardiography"
+    ],
+    "must_hold": [
+      "Model deployed with alerts in the health record",
+      "Clinicians act on the advisory before surgery"
+    ],
+    "echoes": [
+      {
+        "date": "2025-07-16",
+        "setting": "Prospective evaluation in the development paper: 73% of patients flagged high-risk had newly diagnosed disease",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12328201/"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "EchoNext ECG flag finds severe aortic stenosis, leads to TAVR",
+  "metric": "echo showed LVEF 40% and severe aortic stenosis",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

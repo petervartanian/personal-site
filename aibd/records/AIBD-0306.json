@@ -1,0 +1,101 @@
+{
+  "id": "AIBD-0306",
+  "version": 1,
+  "title": "Two-week diary study: 16 blind and low-vision adults use a Cornell Tech scene-description app built on Microsoft Azure AI Vision for 354 everyday tasks; satisfaction averages 2.76/5",
+  "summary": "Gonzalez Penuela et al. (CHI 2024) log 354 diary entries from 16 BLV participants using an Azure AI Vision app; uses include telling sunglasses from reading glasses without calling a spouse.",
+  "date_observed": "2024-03-22",
+  "account": "Ricardo Gonzalez Penuela, Jazmin Collins, Cynthia Bennett and Shiri Azenkot (Cornell Tech and Google) ran a two-week diary study in which 16 blind and low-vision adults in the United States, recruited through National Federation of the Blind mailing lists (five men, 11 women, aged 24 to 67), used an iPhone scene-description app the researchers built on Microsoft's Azure AI Vision image description API, chosen because it 'exposes the latest deep learning algorithms' and is also used by Seeing AI. The participants submitted 354 entries (13 to 39 each). Documented uses include P1 photographing a pair of glasses because she 'was not sure if this was my husband's sunglasses or my old pair of reading glasses from 4 years ago' and getting an answer without calling her husband; P5 photographing a hotel bed to check his roommate was not in it; and P15 photographing wine bottles in a shop rather than touching them. Participants scored descriptions 2.76 out of 5 for satisfaction and 2.43 out of 4 for trust on average, and the authors say satisfaction did not track accuracy because users inferred information from partially correct descriptions. The paper appeared at CHI 2024 (doi 10.1145/3613904.3642211); the arXiv version was submitted on 22 March 2024, the date used because the study dates are not given in the fetched text. The earlier verifier notes that the CHI EA 2025 follow-up used a custom app, VisionPal, and documented failures such as hallucinated braille labels.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "The study app was built to describe photographed scenes for blind and low-vision users, emulating Seeing AI's scene channel; the documented identifications were that purpose.",
+  "system": "Cornell Tech study scene-description app (unnamed) built on the Microsoft Azure AI Vision image description API",
+  "model_version": null,
+  "developer": "Cornell Tech researchers (app); Microsoft (Azure AI Vision image description API)",
+  "deployer": "Study participants (16 blind and low-vision adults)",
+  "location": "United States",
+  "domain": "Accessibility / visual assistance",
+  "segment": "Blind and low-vision users",
+  "benefit_type": "Improved Accessibility",
+  "taxonomy_note": "Accessibility fits directly. Classed as benefit created because the paper documents specific completed identifications (P1's glasses), but the same paper's aggregate scores are low, so the depth is shallow. The researchers built the app themselves, so the paper is the builders' own evaluation of Microsoft's API output; it is treated as independent of Microsoft but not of the study app. The follow-up extended abstract (Gonzalez Penuela et al., CHI EA 2025, arXiv 2503.05899) is listed as an echo with a different, MLLM-based app.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -1,
+      "reason": "Participants completed small daily identifications without asking family, but rated descriptions 2.76/5 for satisfaction and 2.43/4 for trust on average, and the app could not read text."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "Azure AI Vision generated every description; the researchers' app only submitted photos and collected ratings. The paper documents individual successful uses and an overall judgement that descriptions 'still need significant improvements'. Participants were allowed to use other tools during the study, so the diary covers only what they chose to photograph with this app."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Gonzalez Penuela RE, Collins J, Bennett CL, Azenkot S (2024). Investigating Use Cases of AI-Powered Scene Description Applications for Blind and Low Vision People. Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24). doi:10.1145/3613904.3642211; arXiv:2403.15604.",
+      "title": "Investigating Use Cases of AI-Powered Scene Description Applications for Blind and Low Vision People",
+      "url": "https://arxiv.org/abs/2403.15604",
+      "date": "2024-03-22",
+      "written_by": "makers",
+      "quote": "we conducted a two-week diary study where 16 BLV participants used an AI-powered scene description application we designed."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Gonzalez Penuela et al. (2024), arXiv HTML version (P1 example).",
+      "title": "Investigating Use Cases of AI-Powered Scene Description Applications for Blind and Low Vision People",
+      "url": "https://arxiv.org/html/2403.15604",
+      "date": "2024-03-22",
+      "written_by": "makers",
+      "quote": "She was happy to get an answer without having to call her husband."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Gonzalez Penuela et al. (2024), arXiv HTML version (system and scores).",
+      "title": "Investigating Use Cases of AI-Powered Scene Description Applications for Blind and Low Vision People",
+      "url": "https://arxiv.org/html/2403.15604",
+      "date": "2024-03-22",
+      "written_by": "makers",
+      "quote": "We collected a total of 354 diary entries from our 16 participants. On average, each participant submitted 22 entries."
+    },
+    {
+      "kind": "other",
+      "citation": "Semantic Scholar record for doi 10.1145/3613904.3642211 (venue, authors and open-access link).",
+      "title": "Investigating Use Cases of AI-Powered Scene Description Applications for Blind and Low Vision People",
+      "url": "https://doi.org/10.1145/3613904.3642211",
+      "date": "2024-03-22",
+      "written_by": "independent",
+      "quote": null
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "An iPhone app sending photos to the Azure AI Vision image description API",
+      "Blind and low-vision users photographing objects they did not want to touch or ask others about",
+      "A minimum of one photo per day for two weeks with a short questionnaire per entry"
+    ],
+    "must_hold": [
+      "The description is accurate enough for the user to infer what they need, since users sometimes extracted answers from partially correct output",
+      "The task does not require reading text, which the app could not do"
+    ],
+    "echoes": [
+      {
+        "date": "2025-03-07",
+        "setting": "Follow-up two-week diary study with 20 BLV people using an MLLM-enabled visual-interpretation app the authors developed (VisionPal per the earlier verifier); 553 entries, preliminary analysis of 60 from six participants: trust 3.75/5, satisfaction 4.15/5, with trust in high-stakes uses such as medical dosage advice (CHI EA 2025, arXiv 2503.05899)",
+        "model_version": "multimodal large language model (unspecified)",
+        "outcome": "recurred",
+        "source": "https://arxiv.org/abs/2503.05899"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "Azure AI Vision app helps blind, low-vision adults in 354 tasks",
+  "metric": "2.76 out of 5 for satisfaction and 2.43 out of 4 for trust on average",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

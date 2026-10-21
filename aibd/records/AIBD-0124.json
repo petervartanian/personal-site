@@ -1,0 +1,115 @@
+{
+  "id": "AIBD-0124",
+  "version": 1,
+  "title": "Code Intelligence's Spark agent found a heap use-after-free in wolfSSL's pem_read_bio_key() during its beta test; wolfSSL merged a fix within days and shipped it in 5.7.6",
+  "summary": "Spark, an AI fuzz-test agent, found a heap use-after-free in wolfSSL in late Oct 2024; fixed in PR 8139 and shipped in 5.7.6 on 31 Dec 2024.",
+  "date_observed": "2024-11-01",
+  "account": "Spark, the AI test agent in Code Intelligence GmbH's CI Fuzz product, was run on wolfSSL, an open-source cryptography library for embedded and IoT devices, in its final beta test in late October 2024. By the vendor's account, after one command the agent chose the target, generated and ran a fuzz test, and exposed a heap use-after-free in pem_read_bio_key(), where a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024 and shipped it in release 5.7.6 on 31 December 2024, crediting 'Peter' in the release notes; the vendor's blog post on the find is by its engineer Peter Samarin.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Spark was built to find bugs and vulnerabilities autonomously by selecting functions to fuzz and generating and running fuzz tests; finding this flaw was exactly that function, exercised in the vendor's own beta test.",
+  "system": "Spark, AI test agent in Code Intelligence's CI Fuzz (invoked as 'cifuzz spark')",
+  "model_version": null,
+  "developer": "Code Intelligence GmbH",
+  "deployer": "Code Intelligence GmbH (beta test run by the vendor)",
+  "location": "Bonn, Germany",
+  "domain": "Software security / open-source cryptography library testing",
+  "segment": "Open-source TLS and cryptography library for embedded and IoT systems",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "No listed type covers security hardening. Chosen because the agent surfaced a flaw the maintainers did not know about, which is the information they needed to fix it. The vendor's claim that Spark saves up to 1,000 hours of manual effort is marketing about the product, not part of this event.",
+  "registry_ids": {
+    "oecd_aim": "2025-01-09-764d"
+  },
+  "ratings": [
+    {
+      "group": "organizational",
+      "depth": -2,
+      "reason": "wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path and merged the fix within days (PR 8139, 1 November 2024), shipping it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release's Vulnerabilities section, no CVE for it appears on wolfSSL's vulnerabilities page, and the vendor itself says the exploit conditions 'don't seem easy to meet', so the benefit is material but bounded."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "On the vendor's account, Spark selected the target, generated the fuzz test and ran it after a single 'cifuzz spark' command, with one manual step to confirm that the finding was real and exploitable under narrow conditions. wolfSSL's pull request and release notes confirm the bug, its location in pem_read_bio_key(), the timing and the reporter's first name, but mention neither AI nor Code Intelligence; the autonomous discovery therefore rests on the vendor's statements, repeated by QA Financial and SC Media, not on an independent test."
+  },
+  "evidence": [
+    {
+      "kind": "other",
+      "citation": "wolfSSL (2024). wolfSSL Release 5.7.6 (Dec 31, 2024), release notes, Bug Fixes. GitHub, wolfSSL/wolfssl, tag v5.7.6-stable, published 31 December 2024.",
+      "title": "wolfSSL Release 5.7.6 (Dec 31, 2024)",
+      "url": "https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable",
+      "date": "2024-12-31",
+      "written_by": "beneficiary",
+      "quote": "Fix for potential heap use after free with wolfSSL_PEM_read_bio_PrivateKey. Thanks to Peter for the issue reported. (PR 8139)"
+    },
+    {
+      "kind": "other",
+      "citation": "douzzer (2024). 20241031-fixes. wolfSSL/wolfssl pull request 8139, GitHub, opened and merged 1 November 2024; commit b41ce042 changes src/pk.c.",
+      "title": "20241031-fixes (wolfSSL pull request 8139)",
+      "url": "https://github.com/wolfSSL/wolfssl/pull/8139",
+      "date": "2024-11-01",
+      "written_by": "beneficiary",
+      "quote": "src/pk.c: in pem_read_bio_key(), fix invalid read (ZD#18875)."
+    },
+    {
+      "kind": "press release",
+      "citation": "Samarin, P. (2025). How AI-generated fuzz test uncovered a vulnerability in wolfSSL. Code Intelligence blog, 3 January 2025; Wayback Machine capture of 9 January 2025 (the live domain did not resolve on 20 October 2026).",
+      "title": "How AI-generated fuzz test uncovered a vulnerability in wolfSSL",
+      "url": "https://web.archive.org/web/20250109141038/https://www.code-intelligence.com/blog/ai-generated-fuzz-test-wolfssl-vulnerability",
+      "date": "2025-01-03",
+      "written_by": "makers",
+      "quote": "The vulnerability was identified in wolfSSL, an open-source cryptography library widely used in developing embedded devices and IoT systems, during the final week of October 2024."
+    },
+    {
+      "kind": "press release",
+      "citation": "Code Intelligence (2025). Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction. PR Newswire, Bonn, 9 January 2025.",
+      "title": "Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction",
+      "url": "https://www.prnewswire.com/news-releases/code-intelligence-launches-spark-its-ai-test-agent-that-autonomously-uncovers-vulnerabilities-without-human-interaction-302345548.html",
+      "date": "2025-01-09",
+      "written_by": "makers",
+      "quote": "The only human involvement was launching a single command to run the AI Test Agent; analyzing the code, generating a relevant test case, and running it was done autonomously."
+    },
+    {
+      "kind": "news report",
+      "citation": "Willems, M. (2025). German startup to launch world's first AI test agent. QA Financial, 13 January 2025.",
+      "title": "German startup to launch world's first AI test agent",
+      "url": "https://qa-financial.com/german-startup-to-launch-worlds-first-ai-test-agent/",
+      "date": "2025-01-13",
+      "written_by": "independent",
+      "quote": "Brueggemann claimed his firm shared the bug with WolfSSL’s team, which went on to issue a warning and update in December of last year."
+    },
+    {
+      "kind": "news report",
+      "citation": "French, L. (2025). How AI can revolutionize vulnerability research. SC Media, 3 February 2025.",
+      "title": "How AI can revolutionize vulnerability research",
+      "url": "https://www.scworld.com/feature/how-ai-can-revolutionize-vulnerability-research",
+      "date": "2025-02-03",
+      "written_by": "independent",
+      "quote": "Code Intelligence’s Spark autonomously discovering a heap-based user-after-free vulnerability in popular open-source wolfSSL library during its beta testing in October 2024."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "wolfSSL's source tree (before 5.7.6) set up as a CI Fuzz project by the vendor",
+      "A single 'cifuzz spark' command, after which the agent chose pem_read_bio_key() as a target and generated and ran a fuzz test",
+      "A sanitizer-detectable heap use-after-free in the BIO write-back path of pem_read_bio_key() that a generated input could trigger",
+      "A maintainer team that tracked the report as ZD#18875 and merged a fix within three days of the discovery"
+    ],
+    "must_hold": [
+      "A human must confirm the finding: the vendor says the one manual step was assessing that the bug exists and is exploitable under specific conditions",
+      "The beneficiary must be an identifiable project with a public fix record; without wolfSSL's PR and release notes the event would rest on vendor claims alone",
+      "The AI's share of the work is described only by the vendor; wolfSSL's records name the reporter, not the tool, so the autonomy claim cannot be replicated without the vendor's product"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "Code Intelligence's Spark finds a heap use-after-free in wolfSSL",
+  "metric": null,
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the OECD Monitor entry and the cited sources.",
+      "source": "https://oecd.ai/en/incidents/2025-01-09-764d",
+      "editor": "AIBD"
+    }
+  ]
+}

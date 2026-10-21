@@ -1,0 +1,84 @@
+{
+  "id": "AIBD-0015",
+  "version": 1,
+  "title": "FunSearch produces a cap set of size 512 in dimension 8 and improves the asymptotic cap set lower bound",
+  "summary": "FunSearch produced a size-512 cap set in dimension 8 and new asymptotic bounds, published in Nature with independent commentary.",
+  "date_observed": "2023-12-14",
+  "account": "On 14 December 2023 Nature published a paper by Google DeepMind researchers with mathematician Jordan Ellenberg (University of Wisconsin–Madison) describing FunSearch, which pairs a pretrained large language model that proposes programs with an automated evaluator that scores them, in an island-based evolutionary loop. Applied to the cap set problem, FunSearch produced a program generating a cap set of size 512 in dimension 8, exceeding the previous best known construction of 496, and found admissible sets that raised the asymptotic lower bound from 2.2180 to 2.2202 after Ellenberg exploited a symmetry noticed in the program's output. Independent commentary by Ernest Davis (NYU, 11 January 2024) accepts the constructions as genuine but rates their mathematical importance as moderate; Terence Tao called the approach a promising paradigm.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Built to search program space for constructions and heuristics in mathematics and computer science; the cap set constructions were that purpose.",
+  "system": "FunSearch (LLM-guided evolutionary program search with automated evaluator)",
+  "model_version": null,
+  "developer": "Google DeepMind",
+  "deployer": "Google DeepMind with Jordan Ellenberg (University of Wisconsin–Madison)",
+  "location": "London, United Kingdom",
+  "domain": "Mathematics / combinatorics",
+  "segment": "Industrial research laboratory with academic collaborator",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": null,
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "societal",
+      "depth": -2,
+      "reason": "Mathematicians gained an explicit cap set of size 512 in dimension 8 and an improved asymptotic bound; Davis's independent comment judges the results moderately interesting mathematically."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "FunSearch generated the programs whose outputs are the cap sets and admissible sets; these are explicit finite objects that the evaluator and readers can verify mechanically. The 2.2202 bound depended on a human (Ellenberg) noticing a symmetry in FunSearch's output and refocusing the search, which Davis identifies as the most notable aspect."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Romera-Paredes, B. et al. (2024). Mathematical discoveries from program search with large language models. Nature 625, 468–475 (published online 14 December 2023).",
+      "title": "Mathematical discoveries from program search with large language models",
+      "url": "https://www.nature.com/articles/s41586-023-06924-6",
+      "date": "2023-12-14",
+      "written_by": "makers",
+      "quote": "FunSearch combines a pretrained (frozen) LLM, whose goal is to provide creative solutions, with an evaluator, which guards against confabulations and incorrect ideas."
+    },
+    {
+      "kind": "news report",
+      "citation": "Heaven, W. D. (2023). Google DeepMind used a large language model to solve an unsolved math problem. MIT Technology Review.",
+      "title": "Google DeepMind used a large language model to solve an unsolved math problem",
+      "url": "https://www.technologyreview.com/2023/12/14/1085318/google-deepmind-large-language-model-solve-unsolvable-math-problem-cap-set/",
+      "date": "2023-12-14",
+      "written_by": "independent",
+      "quote": "This is a promising paradigm. It is an interesting way to leverage the power of large language models."
+    },
+    {
+      "kind": "other",
+      "citation": "Davis, E. (2024). Comment on (Romera-Paredes et al., 2023), 'Mathematical discoveries from program search with large language models'. New York University, 11 January 2024.",
+      "title": "Comment on (Romera-Paredes et al., 2023), Mathematical discoveries from program search with large language models",
+      "url": "https://cs.nyu.edu/~davise/papers/FunSearchComment.pdf",
+      "date": "2024-01-11",
+      "written_by": "independent",
+      "quote": "FunSearch found a cap set of size 512 for n = 8. The previous best known cap set had size 496."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "A problem with a fast, exact evaluator for candidate solutions",
+      "An LLM sampling program variants in an evolutionary loop",
+      "Human inspection of discovered programs to refine the search"
+    ],
+    "must_hold": [
+      "The evaluator must reject invalid constructions exactly",
+      "Results must be explicit objects that can be checked independently of the system"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "DeepMind's FunSearch finds a size-512 cap set in dimension 8",
+  "metric": "cap set of size 512 in dimension 8, exceeding the previous best known construction of 496",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

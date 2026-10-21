@@ -1,0 +1,120 @@
+{
+  "id": "AIBD-0005",
+  "version": 4,
+  "title": "First direct decoding of full words from the cortex of a paralysed, anarthric man (UCSF, BRAVO trial)",
+  "summary": "128-electrode ECoG and deep-learning decoder let a man mute since 2003 produce sentences at 15.2 wpm from a 50-word vocabulary",
+  "date_observed": "2019-04-01",
+  "account": "At the University of California, San Francisco, a 36-year-old man with anarthria and severe spastic quadriparesis from an extensive pontine stroke at age 20 (known in press by the pseudonym Pancho) was implanted with a 128-electrode subdural electrocorticography array over sensorimotor cortex in the BRAVO trial (NCT03698149). Deep-learning models detected his attempted speech and classified words from a 50-word vocabulary, with a natural-language model and Viterbi decoder assembling sentences; he produced sentences at a median 15.2 words per minute with a median word error rate of 25.6%, having previously typed about five words per minute with a head-controlled pointer (Moses et al., NEJM, 15 July 2021). The paper dates implantation to February 2019 and the start of data collection to April 2019, with 50 sessions over 81 weeks at the participant's residence or a nearby office; the session on which the reported sentence decoding was achieved is not dated, so the start of data collection (1 April 2019) is used as the observation date.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Built to decode attempted speech into words and sentences for a person with anarthria; restoring word-level communication was the intended benefit and is what occurred.",
+  "system": "UCSF speech neuroprosthesis (BRAVO trial)",
+  "model_version": "128-electrode high-density ECoG array (16-by-8 lattice, 4 mm spacing); deep-learning speech-detection and word-classification models with natural-language model and Viterbi decoder; 50-word vocabulary",
+  "developer": "UCSF Chang Lab",
+  "deployer": "University of California, San Francisco",
+  "location": "San Francisco, United States",
+  "domain": "Healthcare / assistive communication",
+  "segment": "Post-stroke anarthria",
+  "benefit_type": "Improved Accessibility",
+  "taxonomy_note": "Filed as benefit created or restored on the strength of an individually observed outcome for an identifiable beneficiary; the event is a research-session demonstration (50 sessions over 81 weeks), not a device in everyday use, which is why it is not filed as a category-3 accuracy study.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -2,
+      "reason": "Material benefit to one identifiable person: first decoding of his own full words, three times faster than his pointer typing, but limited to a 50-word vocabulary in research sessions."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "Deep-learning models detected attempted speech in 98% of attempts and classified words, and a language model with Viterbi decoding assembled sentences; the output depended entirely on these models. Funding included a research contract under Facebook's Sponsored Academic Research Agreement; the paper states that no study hardware or data were transferred to any sponsor and that author disclosure forms are available at NEJM.org."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Moses DA, Metzger SL, Liu JR, et al. (2021). Neuroprosthesis for Decoding Speech in a Paralyzed Person with Anarthria. N Engl J Med.",
+      "title": "Neuroprosthesis for Decoding Speech in a Paralyzed Person with Anarthria",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8972947/",
+      "date": "2021-07-15",
+      "written_by": "makers",
+      "quote": "median rate of 15.2 words per minute, with a median word error rate of 25.6%"
+    },
+    {
+      "kind": "news report",
+      "citation": "Advisory Board (2021). For the first time since 2003, this paralyzed man can 'speak'. Advisory Board Daily Briefing.",
+      "title": "For the first time since 2003, this paralyzed man can 'speak'",
+      "url": "https://www.advisory.com/daily-briefing/2021/07/16/paralyzed-man",
+      "date": "2021-07-16",
+      "written_by": "independent",
+      "quote": "To our knowledge, this is the first successful demonstration of direct decoding of full words from the brain activity of someone who is paralyzed and cannot speak."
+    },
+    {
+      "kind": "other",
+      "citation": "Reis e Sousa C, Poirier E (2021). Scientists Detect Brain Signals to Help a Paralyzed Man Speak. Harvard Science in the News.",
+      "title": "Scientists Detect Brain Signals to Help a Paralyzed Man Speak",
+      "url": "https://sites.harvard.edu/sitn/2021/09/22/scientists-detect-brain-signals-to-help-a-paralyzed-man-speak",
+      "date": "2021-09-22",
+      "written_by": "independent",
+      "quote": "In this way, the electrodes allowed Pancho to communicate about 15 words per minute with near 50% accuracy."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Preserved speech-motor cortical pathways more than 15 years after loss of speech",
+      "High-density ECoG array over sensorimotor cortex",
+      "Deep-learning models trained on 22 hours of attempted-speech data plus language-model decoding"
+    ],
+    "must_hold": [
+      "Participant can attempt speech and retains intact cognition",
+      "Implant remains stable with adequate signal quality",
+      "Accumulated training data maintained over time"
+    ],
+    "echoes": [
+      {
+        "date": "2023-08-23",
+        "setting": "UCSF, a different participant (47-year-old woman, brainstem stroke 2005): 253-channel ECoG, 78 words per minute, 1,024-word vocabulary, voice and avatar",
+        "model_version": "253-channel ECoG; bidirectional RNN decoders",
+        "outcome": "recurred",
+        "source": "Metzger SL, et al. (2023). A high-performance neuroprosthesis for speech decoding and avatar control. Nature. https://pmc.ncbi.nlm.nih.gov/articles/PMC10826467/"
+      },
+      {
+        "date": "2024-05-20",
+        "setting": "UCSF, same participant (the full text at PMC11554235 describes a 36-year-old Spanish-English bilingual with anarthria and severe spastic quadriparesis after a bilateral pontine stroke, a 128-electrode ECoG array and the BRAVO trial, and refers to initial work with this participant): bilingual (Spanish-English) sentence decoding without specifying the target language",
+        "model_version": "ECoG with deep-learning and bilingual natural-language models",
+        "outcome": "recurred",
+        "source": "Silva AB, et al. (2024). A bilingual speech neuroprosthesis driven by cortical articulatory representations shared between languages. Nature Biomedical Engineering. doi:10.1038/s41551-024-01207-5"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "732",
+    "title": "Whisper Speech-to-Text AI Reportedly Found to Create Violent Hallucinations",
+    "url": "https://incidentdatabase.ai/cite/732",
+    "severity": null,
+    "group": "personal",
+    "basis": "Both decode speech for people with impaired speech; Whisper fabricated words and violent phrases when transcribing impaired speech."
+  },
+  "headline": "UCSF neuroprosthesis lets Pancho produce sentences at 15.2 wpm",
+  "metric": "sentences at a median 15.2 words per minute with a median word error rate of 25.6%",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 732 (medium confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/732",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Moved the date observed from the publication date to April 2019, when the paper says data collection began after the February 2019 implant, replaced the unsupported 'no competing interests' claim with the paper's sponsor and disclosure-form statements, added a taxonomy note on why a research-session demonstration is filed as a benefit created or restored, and verified the Silva 2024 echo as the same participant against the PMC full text.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8972947/; https://pmc.ncbi.nlm.nih.gov/articles/PMC11554235/",
+      "editor": "AIBD"
+    }
+  ]
+}

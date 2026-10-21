@@ -1,0 +1,101 @@
+{
+  "id": "AIBD-0174",
+  "version": 1,
+  "title": "HKMA case study: Bank F's network analytics uncover a third linked company in a 2015 trade-based laundering probe",
+  "summary": "In the HKMA's 2021 AML/CFT Regtech report, an anonymised global bank's network analytics tool linked companies through shared phone numbers and email addresses; account reviews found potential mone...",
+  "date_observed": "2021-01-21",
+  "account": "The Hong Kong Monetary Authority's report 'AML/CFT Regtech: Case Studies and Insights' (January 2021; press release 21 January 2021) presents anonymised bank case studies. Bank F, described as a subsidiary and regional head office of a large global bank in Asia-Pacific, implemented a network (graph) analytics solution in Hong Kong in 2013 that identified high-risk customers and transactions from wholesale client, correspondent banking, trade, payments and external registry data. In an example from 2015, a relationship manager gathered intelligence about trade-based money laundering related to a drug cartel in one account and linked it to a second account through the CRM tool; the network analytics tool then identified additional companies linked to the first two parties through linked phone numbers and email addresses, and account reviews for Companies A, B and C revealed potential money laundering concerns. The report states that by 2016 Bank F covered its top 20 commercial banking sites and about 80% of its trade lending book, that the tool has led to the review of around 100 customer relationships holding around USD 500 million in clean or unsecured exposures, and that even if 10% were unrecoverable the tool contributed around USD 50 million in savings. The foreword adds that such techniques are already neutralising mule account networks linked to face mask scams. The 2015 example carries no day, so the publication date is used.",
+  "category": "protective response",
+  "unexpected": false,
+  "purpose": "Identify high-risk customers, transactions and hidden relationships for AML/CFT and trade-based money laundering investigations.",
+  "system": "Bank F network (graph) analytics solution implemented in Hong Kong in 2013",
+  "model_version": null,
+  "developer": "Bank F (anonymised subsidiary and regional head office of a large global bank); the report names no vendor",
+  "deployer": "Bank F, Hong Kong",
+  "location": "Hong Kong, China",
+  "domain": "Anti-money laundering",
+  "segment": "Trade finance and trade-based money laundering",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "Regulator-authored case study with an anonymised bank; the outcomes are the bank's own figures relayed by the HKMA, and the USD 50 million saving is a hypothetical 'even if 10%' calculation. No suspicious transaction report count, prosecution or arrest is given for this case; network analytics is not described as machine learning.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "organizational",
+      "depth": -2,
+      "reason": "The report records reviews of around 100 customer relationships and identification of a third linked company whose review revealed potential money laundering concerns; losses avoided are estimated, not observed."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "The foreword's statement about neutralising mule account networks is general and not tied to a documented outcome."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The HKMA report attributes the identification of Company C to the network analytics tool's matching of linked phone numbers and email addresses, after a human relationship manager supplied the initial lead; whether the tool uses machine learning is not stated. The bank built and deployed the tool itself; the HKMA, which wrote the report, is the regulator."
+  },
+  "evidence": [
+    {
+      "kind": "regulatory document",
+      "citation": "Hong Kong Monetary Authority, 'AML/CFT Regtech: Case Studies and Insights', January 2021, case study Bank F, pp. 24-25",
+      "title": "AML/CFT Regtech: Case Studies and Insights",
+      "url": "https://brdr.hkma.gov.hk/eng/doc-ldg/docId/20210121-2-EN",
+      "date": "2021-01-21",
+      "written_by": "independent",
+      "quote": "Since deployment, the tool has led to the review of around 100 customer relationships for AML/CFT reasons."
+    },
+    {
+      "kind": "regulatory document",
+      "citation": "Hong Kong Monetary Authority, press release, 21 January 2021",
+      "title": "AML/CFT Regtech: Case Studies and Insights",
+      "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2021/01/20210121-3/",
+      "date": "2021-01-21",
+      "written_by": "independent",
+      "quote": "AML/CFT Regtech: Case Studies and Insights"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Integration of wholesale client, correspondent banking, trade, payments and external registry data in one network model",
+      "A human intelligence lead (the relationship manager's TBML suspicion) used as the seed for network expansion"
+    ],
+    "must_hold": [
+      "Data of sufficient quality across sources, which the report says Bank F stressed",
+      "Governance that lets analytic findings trigger account reviews and STR filings"
+    ],
+    "echoes": [
+      {
+        "date": null,
+        "setting": "Bank F, top 20 commercial banking sites globally (2016)",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "HKMA report: coverage of about 80% of the trade lending book; around 100 relationships reviewed since deployment"
+      },
+      {
+        "date": null,
+        "setting": "Bank A, Hong Kong, pilot using IP addresses and login data for about 50 customers (2020)",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "HKMA report: undisclosed clusters of relationships identified from shared IP addresses and simultaneous logins"
+      },
+      {
+        "date": "2021-01-21",
+        "setting": "Fraud and Money Laundering Intelligence Taskforce member banks",
+        "model_version": null,
+        "outcome": "unknown",
+        "source": "HKMA foreword: techniques 'neutralising mule account networks linked to face mask scams', no figures"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "Bank F's network analytics uncover a third linked company",
+  "metric": "even if 10% were unrecoverable the tool contributed around USD 50 million in savings",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

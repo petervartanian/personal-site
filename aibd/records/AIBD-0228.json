@@ -1,0 +1,98 @@
+{
+  "id": "AIBD-0228",
+  "version": 1,
+  "title": "INEC's Automated Biometric Identification System invalidates 2,780,756 ineligible voter registrations (22.6%) before Nigeria's 2023 election",
+  "summary": "INEC chairman Mahmood Yakubu reported on 26 Oct 2022 that ABIS cleaning of 2021-22 registrations identified 2,780,756 (22.6%) double, underage or fake entries, leaving 9,518,188 valid new registrants.",
+  "date_observed": "2022-10-26",
+  "account": "The date is that of Professor Mahmood Yakubu's address to political parties in Abuja, reproduced by the Nigerian Democratic Report. He stated that after cleaning the Continuous Voter Registration data (28 June 2021 to 31 July 2022) with the Automated Biometric Identification System, 2,780,756 registrations (22.6%) were identified as ineligible and invalidated, among them double or multiple registrants, underage persons and fake registrations failing INEC's business rules, leaving 9,518,188 valid post-ABIS registrations; 23 registration officers were identified for sanctions. Earlier, on 12 September 2022, INEC commissioner Festus Okoye said that 1,126,359 of 2,523,458 registrants from 28 June 2021 to 14 January 2022 had been found invalid and delisted, with ABIS processing of later registrations ongoing (Punch). BusinessDay later argued that some fake and underage registrants evaded ABIS and that invalidation rates were regionally lopsided. The vendor of ABIS is not named in the fetched sources.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "De-duplicate and validate biometric voter registrations (fingerprints and faces) to remove double, multiple, underage and fake entries from the national register.",
+  "system": "Automated Biometric Identification System (ABIS)",
+  "model_version": null,
+  "developer": "Not named in the fetched sources",
+  "deployer": "Independent National Electoral Commission (INEC), Nigeria",
+  "location": null,
+  "domain": "Electoral integrity / voter registration",
+  "segment": "Government",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "Biometric de-duplication is pattern matching rather than a learned model in the sources; the task brief explicitly admits biometric checks by electoral authorities. Nationwide deployment, so no city.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "societal",
+      "depth": -3,
+      "reason": "2,780,756 ineligible entries (22.6% of new registrations) were removed from the register used for the 2023 general election, per INEC's chairman; BusinessDay disputes completeness and regional balance."
+    },
+    {
+      "group": "organizational",
+      "depth": -2,
+      "reason": "INEC obtained a cleaned register and identified 23 of its own officers for sanctions over multiple registrations."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The figures come from INEC's own statements (the deployer) relayed by two Nigerian outlets, not from an audit; INEC's website could not be searched. ABIS's matching method, error rates and the share of invalidations due to biometrics versus business rules are not stated. BusinessDay's critique (registrants evading ABIS; 49.3% of invalidations from two regions) is included as a limit."
+  },
+  "evidence": [
+    {
+      "kind": "news report",
+      "citation": "Akindele Orimolade, Nigerian Democratic Report, 26 Oct 2022 (reproducing INEC chairman's address)",
+      "title": "Nigeria’s Voter Register Hits 93.5 million as 12m New Registrants Are Added",
+      "url": "https://www.ndr.org.ng/nigerias-voter-register-hits-93-5-million-as-12m-new-registrants-are-added/",
+      "date": "2022-10-26",
+      "written_by": "independent",
+      "quote": "a total of 2,780,756 (22.6%) were identified as ineligible registrants and invalidated from the record"
+    },
+    {
+      "kind": "news report",
+      "citation": "Donatus Anichukwueze, Punch, 13 Sep 2022",
+      "title": "Double registration: INEC delists 1.1m newly registered voters",
+      "url": "https://punchng.com/double-registration-inec-delists-1-1m-newly-registered-voters/",
+      "date": "2022-09-13",
+      "written_by": "independent",
+      "quote": "cleaning up of the register of voters using the Automated Biometric Identification System (ABIS) is ongoing"
+    },
+    {
+      "kind": "news report",
+      "citation": "BusinessDay, 20 Jan 2023",
+      "title": "Eight questions INEC must answer Before the first ballot is cast",
+      "url": "https://businessday.ng/uncategorized/article/eight-questions-inec-must-answer-before-the-first-ballot-is-cast/",
+      "date": "2023-01-20",
+      "written_by": "independent",
+      "quote": "Yet, those registrants found a way to evade the prying eyes of the ABIS and made it successfully to the voter register."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Biometric capture (fingerprints, face) at registration with a central de-duplication pass",
+      "Business rules defining ineligible entries applied after matching",
+      "Public display of the register for claims and objections"
+    ],
+    "must_hold": [
+      "Biometric capture quality adequate for matching",
+      "Independent audit of matching accuracy (absent here)",
+      "Officers unable to bypass capture protocols"
+    ],
+    "echoes": [
+      {
+        "date": "2022-09-12",
+        "setting": "Earlier CVR phase (28 Jun 2021 to 14 Jan 2022): 1,126,359 of 2,523,458 registrations invalidated",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://punchng.com/double-registration-inec-delists-1-1m-newly-registered-voters/"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "INEC's ABIS invalidates 2,780,756 ineligible voter registrations",
+  "metric": "2,780,756 registrations (22.6%) were identified as ineligible and invalidated",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

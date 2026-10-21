@@ -1,0 +1,101 @@
+{
+  "id": "AIBD-0059",
+  "version": 3,
+  "title": "Speaker-tailored neural speech recognition outperforms familiar listeners for a woman with global aphasia and dysarthria (single case)",
+  "summary": "A CNN trained only on one patient's voice recognised 72.65% of her words versus 56.75% for 12 familiar professionals; lab result only.",
+  "date_observed": "2022-11-01",
+  "account": "A 34-year-old right-handed woman with right hemiparesis, global aphasia and dysarthria from a massive left-hemisphere haemorrhage at age 19 took part in a single-case proof of concept at the University of Messina and IRCCS Centro Neurolesi Bonino-Pulejo (Frontiers in Rehabilitation Sciences, 2026). A compact convolutional neural network inside the CapisciAMe voice-input communication app was trained only on her voice, using 1,120 utterances of 13 Italian target words recorded in 33 sessions over one month in a therapy room; utterances from November 2022 (day not given, so 1 November is used) formed the held-out test set. The tailored recogniser identified 680 of 936 test utterances (72.65%), against a mean of 56.75% for 12 rehabilitation professionals who knew her. No real-world communication use is documented.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "Recognise the impaired speech of a person with aphasia and dysarthria so a communication aid can voice her intended words",
+  "system": "CapisciAMe speaker-dependent ASR (compact convolutional neural network, cnn-trad-fpool3) in a voice-input voice-output communication aid",
+  "model_version": "cnn-trad-fpool3 trained on 1,120 patient utterances",
+  "developer": "University of Messina and IRCCS Centro Neurolesi Bonino-Pulejo research team (CapisciAMe app developed in Italy as a research tool)",
+  "deployer": "University of Messina research team (therapy-room sessions)",
+  "location": "Messina, Italy",
+  "domain": "Speech-language rehabilitation / augmentative communication",
+  "segment": "Adults with post-stroke aphasia and dysarthria",
+  "benefit_type": "Improved Accessibility",
+  "taxonomy_note": null,
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": null,
+      "reason": "General benefit without an event: the result is a recognition-accuracy capability measured in test sessions; the paper documents no use of the system for the patient's real communication."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "General benefit without an event: single-case proof of concept with a 13-word vocabulary."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The personalised CNN is the entire intervention; its 72.65% word accuracy exceeded the 56.75% mean of familiar listeners, but the comparison used a 13-word closed set and the authors state the single-case design and limited vocabulary constrain generalisation."
+  },
+  "evidence": [
+    {
+      "kind": "case report",
+      "citation": "University of Messina and IRCCS Centro Neurolesi Bonino-Pulejo authors (2026). Case Report: Tailored automatic speech recognition in global aphasia with dysarthria - a single case proof of concept. Frontiers in Rehabilitation Sciences.",
+      "title": "Case Report: Tailored automatic speech recognition in global aphasia with dysarthria - a single case proof of concept",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13271983/",
+      "date": null,
+      "written_by": "makers",
+      "quote": "The tailored ASR correctly identified 680 of 936 test utterances, yielding an overall word-level accuracy of 72.65%"
+    },
+    {
+      "kind": "case report",
+      "citation": "Same article (listener benchmark).",
+      "title": "Case Report: Tailored automatic speech recognition in global aphasia with dysarthria (listener benchmark)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13271983/",
+      "date": null,
+      "written_by": "makers",
+      "quote": "Individual listener accuracy ranged from 38.5% to 73.1% (mean = 56.75%, SD = 12.91%)"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Speaker-dependent training on hundreds of the patient's own utterances",
+      "Closed, small target vocabulary",
+      "Multiple prompting modalities during recording"
+    ],
+    "must_hold": [
+      "Patient can produce consistent vocalisations for each target word",
+      "Quiet recording environment with a headset microphone",
+      "Clinician time to collect and label training data"
+    ],
+    "echoes": []
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "732",
+    "title": "Whisper Speech-to-Text AI Reportedly Found to Create Violent Hallucinations",
+    "url": "https://incidentdatabase.ai/cite/732",
+    "severity": null,
+    "group": "personal",
+    "basis": "Both decode speech for people with impaired speech; Whisper fabricated words and violent phrases when transcribing impaired speech."
+  },
+  "headline": "CapisciAMe CNN outperforms familiar listeners on impaired speech",
+  "metric": "recognised 72.65% of her words versus 56.75% for 12 familiar professionals",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 732 (high confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/732",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Verification sweep: the CapisciAMe case report is written by the app's developers; those sources are now marked as written by the makers. The record is admitted on its peer-reviewed or independent source.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

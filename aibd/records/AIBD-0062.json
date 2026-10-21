@@ -1,0 +1,118 @@
+{
+  "id": "AIBD-0062",
+  "version": 2,
+  "title": "Mia AI breast-screening reader flags a 6 mm cancer that NHS Grampian radiologists missed; patient treated with surgery and five days of radiotherapy",
+  "summary": "In NHS Grampian's GEMINI pilot, Mia flagged Barbara's 6 mm breast cancer missed by radiologists; surgery plus five days' radiotherapy.",
+  "date_observed": "2024-03-21",
+  "account": "Mia, an AI mammography reader developed by Kheiron Medical Technologies, was used alongside radiologists in NHS Grampian's GEMINI breast-screening evaluation in Aberdeen, Scotland, covering 10,889 women. BBC News reported on 21 March 2024 that Barbara, an Aberdeen patient, was one of 11 women whose cancer Mia flagged but hospital radiologists had not spotted on her scan; because her 6 mm tumour was caught so early she had an operation and needed only five days of radiotherapy. Dr Gerald Lip, clinical director of breast screening at NHS Grampian, led the evaluation; a University of Aberdeen statement the same day reported that Mia helped find 12% more cancers than routine practice. The date of Barbara's screening is not given.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Mia was built to read screening mammograms and flag suspicious findings alongside human readers; detecting a cancer missed by readers is exactly its intended function.",
+  "system": "Mia",
+  "model_version": null,
+  "developer": "Kheiron Medical Technologies",
+  "deployer": "NHS Grampian",
+  "location": "Aberdeen, United Kingdom",
+  "domain": "Healthcare - breast cancer screening",
+  "segment": "AI reader in population mammography screening",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "Closest fit: detection of a cancer not found by human readers; none of the six types names diagnostic accuracy or patient safety. the date observed is the report date; the screening date is not given.",
+  "registry_ids": {
+    "oecd_aim": "2024-03-21-b742"
+  },
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -3,
+      "reason": "A 6 mm cancer was treated at an early stage with surgery and a short radiotherapy course; Dr Lip states that cancers picked up under 15 mm carry around 95% survival, so the benefit is potentially life-saving but not demonstrated as such for this patient."
+    },
+    {
+      "group": "organizational",
+      "depth": -2,
+      "reason": "Across the 10,889-woman evaluation Mia helped find 12% more cancers, and the University of Aberdeen statement says this would not put more women through additional tests."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "Mia flagged a lesion that the hospital radiologists had not identified on the same scan; clinicians then confirmed and treated the cancer. Both the BBC and the University of Aberdeen attribute the detection to Mia. The counterfactual is that the cancer would have been found later, at a larger size, rather than never."
+  },
+  "evidence": [
+    {
+      "kind": "news report",
+      "citation": "Kleinman Z (2024). NHS AI test spots tiny cancers missed by doctors. BBC News, 21 March 2024.",
+      "title": "NHS AI test spots tiny cancers missed by doctors",
+      "url": "https://www.bbc.com/news/technology-68607059",
+      "date": "2024-03-21",
+      "written_by": "independent",
+      "quote": "Barbara was one of the 11 patients whose cancer was flagged by Mia but had not been spotted on her scan when it was studied by the hospital radiologists."
+    },
+    {
+      "kind": "news report",
+      "citation": "Kleinman Z (2024). NHS AI test spots tiny cancers missed by doctors. BBC News, 21 March 2024 (second quotation).",
+      "title": "NHS AI test spots tiny cancers missed by doctors",
+      "url": "https://www.bbc.com/news/technology-68607059",
+      "date": "2024-03-21",
+      "written_by": "independent",
+      "quote": "Because her 6mm tumour was caught so early she had an operation but only needed five days of radiotherapy."
+    },
+    {
+      "kind": "press release",
+      "citation": "University of Aberdeen (2024). More breast cancers detected in first evaluation of breast screening AI. University news release, 21 March 2024 (quotation attributed to Dr Gerald Lip).",
+      "title": "More breast cancers detected in first evaluation of breast screening AI",
+      "url": "https://www.abdn.ac.uk/news/22964/",
+      "date": "2024-03-21",
+      "written_by": "independent",
+      "quote": "If you pick up cancer under 15mm, most women now will have a 95 percent survival rate."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Deployment of Mia alongside routine human double reading in a screening programme",
+      "A safety-net workflow in which AI-flagged, reader-negative cases are re-reviewed"
+    ],
+    "must_hold": [
+      "Clinicians act on AI-only flags rather than discarding them",
+      "The AI's recall threshold is set so that extra flags do not overwhelm the service"
+    ],
+    "echoes": [
+      {
+        "date": "2024-03-21",
+        "setting": "Same NHS Grampian GEMINI evaluation, 10,889 women: 11 cancers flagged by Mia that the doctors had not identified",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "BBC News 21 March 2024, https://www.bbc.com/news/technology-68607059"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "81",
+    "title": "Researchers find evidence of racial, gender, and socioeconomic bias in chest X-ray classifiers",
+    "url": "https://incidentdatabase.ai/cite/81",
+    "severity": null,
+    "group": "personal",
+    "basis": "Same task, AI lesion detection on radiographs, though chest X-rays rather than mammograms: the classifiers showed unequal performance that underdiagnoses women, Hispanic and low-income patients, the patient group Mia's screening flag benefited."
+  },
+  "headline": "Mia flags a 6 mm cancer missed by NHS Grampian radiologists",
+  "metric": "Mia helped find 12% more cancers than routine practice",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 81 (medium confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/81",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Linked the OECD AI Incidents Monitor entry 2024-03-21-b742, which describes this event.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

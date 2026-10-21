@@ -1,0 +1,94 @@
+{
+  "id": "AIBD-0078",
+  "version": 2,
+  "title": "Viz ICH Plus detects a parieto-occipital haemorrhage and auto-alerts the transfer team; 47-year-old moved between hospitals of a large urban health system in 101 minutes, mRS 1 at one year",
+  "summary": "Viz ICH Plus flagged a 47-year-old's haematoma and alerted the transfer team; transfer in 101 min vs 199.7 average; mRS 1 at one year.",
+  "date_observed": "2025-03-18",
+  "account": "A 47-year-old man presented to the transferring hospital of the authors' large urban healthcare system (the paper names neither the hospitals nor the city; all authors are at the Icahn School of Medicine at Mount Sinai, New York) with severe headache, nausea and vomiting but no speech or motor deficits. Viz ICH Plus (Viz.ai) analysed his CT, revealing a substantial right parieto-occipital haematoma with ventricular extension, and automatically alerted the Neuroemergencies Management and Transfer (NEMAT) team at the receiving specialised stroke centre. With an ICH score of 2 he was transferred within 101 minutes across 13.7 miles, against an average interhospital transfer time of 199.7 minutes, and underwent supratentorial craniotomy with endoscopic haematoma evacuation and ventriculoperitoneal shunt placement. His scores were mRS 4 and NIHSS 6 at one month, 3 and 5 at three months, and mRS 1 and NIHSS 2 at one year.",
+  "category": "harm prevented",
+  "unexpected": false,
+  "purpose": "Viz ICH Plus is built to detect intracranial haemorrhage on non-contrast CT and automatically notify care and transfer teams; faster interhospital transfer is its intended function.",
+  "system": "Viz ICH Plus",
+  "model_version": null,
+  "developer": "Viz.ai",
+  "deployer": "Large urban healthcare system, not named in the report; the city is not stated, and all authors are affiliated with Neurosurgery, Icahn School of Medicine at Mount Sinai, New York",
+  "location": null,
+  "domain": "Healthcare - neurosurgery / intracerebral haemorrhage",
+  "segment": "AI haemorrhage detection with automated transfer notification",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "Good fit: the documented gain is a halved interhospital transfer time. Specific harm prevented because a haemorrhage with ventricular extension was already evolving and the automated alert changed transfer timing; the counterfactual is the system's 199.7-minute average rather than an individual comparison. The case date is not given, so the date observed is the publication date. The paper names neither the hospitals nor their city, describing only 'our large urban healthcare system'; New York appears only in the authors' affiliation, so location is null rather than inferred from it.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -3,
+      "reason": "After a haemorrhage with ventricular extension the patient improved from mRS 4 at one month to mRS 1 at one year; the AI's share is the time saved in transfer, the surgery being the treatment."
+    },
+    {
+      "group": "organizational",
+      "depth": -2,
+      "reason": "Interhospital transfer took 101 minutes against the system's 199.7-minute average, with the receiving team engaged before the patient left the first hospital."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The software detected the haematoma and auto-alerted the receiving team, which coordinated stabilisation advice and transfer; a CT ordered for severe headache would have shown the bleed regardless, so the AI's contribution is the speed of notification and transfer. Dr Kellner discloses research grant support from Viz.AI among other companies; no author is a Viz.ai employee."
+  },
+  "evidence": [
+    {
+      "kind": "case report",
+      "citation": "Afreen R, Ezzat B, Kalagara R, Dangayach NS, Kellner CP (2025). Optimizing Intracerebral Hemorrhage Management and Interhospital Transfer With Viz ICH Plus AI Technology. Cureus 17(3):e80790.",
+      "title": "Optimizing Intracerebral Hemorrhage Management and Interhospital Transfer With Viz ICH Plus AI Technology",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12006056/",
+      "date": "2025-03-18",
+      "written_by": "deployer",
+      "quote": "Viz ICH Plus analyzed the patient's CT, revealing a substantial right parieto-occipital hematoma with ventricular extension, and automatically alerted the Neuroemergencies Management and Transfer (NEMAT) team"
+    },
+    {
+      "kind": "case report",
+      "citation": "Afreen R et al. (2025). Cureus 17(3):e80790 (second quotation).",
+      "title": "Optimizing Intracerebral Hemorrhage Management and Interhospital Transfer With Viz ICH Plus AI Technology",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12006056/",
+      "date": "2025-03-18",
+      "written_by": "deployer",
+      "quote": "With an ICH score of 2, the patient was transferred within 101 minutes across a 13.7-mile distance - much faster than the average IHT time of 199.7 minutes"
+    },
+    {
+      "kind": "case report",
+      "citation": "Afreen R et al. (2025). Cureus 17(3):e80790 (third quotation, one-year outcome).",
+      "title": "Optimizing Intracerebral Hemorrhage Management and Interhospital Transfer With Viz ICH Plus AI Technology",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12006056/",
+      "date": "2025-03-18",
+      "written_by": "deployer",
+      "quote": "one year, his scores had further improved to mRS 1 and NIHSS 2"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Viz ICH Plus running on CT scans at the transferring hospital with automatic notification to a centralised neuro-emergency transfer team",
+      "A command-centre workflow that coordinates stabilisation advice and ambulance transfer"
+    ],
+    "must_hold": [
+      "A receiving centre able to operate promptly",
+      "Clinicians act on the automated alert rather than waiting for a formal radiology read"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "Viz ICH Plus flags a haematoma; transfer in 101 minutes, mRS 1",
+  "metric": "transfer in 101 min vs 199.7 average; mRS 1 at one year",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Removed the New York placement from the title, account and deployer and set location to null, stating instead that the paper names neither the hospitals nor the city and that the authors are affiliated with the Icahn School of Medicine at Mount Sinai, New York, because the paper describes only 'our large urban healthcare system' and the city had been inferred from the affiliation line.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12006056/",
+      "editor": "AIBD"
+    }
+  ]
+}

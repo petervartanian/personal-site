@@ -1,0 +1,98 @@
+{
+  "id": "AIBD-0016",
+  "version": 3,
+  "title": "Halicin: a deep-learning-identified antibiotic validated in vitro and in mice, with no verified human outcome",
+  "summary": "A deep-learning screen identified halicin, active in vitro and in mice and confirmed by other labs; no human outcome (general benefit without an event).",
+  "date_observed": "2020-02-20",
+  "account": "A Cell paper published on 20 February 2020 by Jonathan Stokes, Regina Barzilay, James Collins and colleagues at MIT, the Broad Institute, Harvard and McMaster University reported halicin, a molecule identified by a directed-message-passing neural network trained on 2,335 molecules to predict inhibition of E. coli growth. Halicin, originally investigated as a kinase inhibitor for diabetes, is structurally divergent from conventional antibiotics; it reduced Acinetobacter baumannii in a mouse wound model and cleared Clostridioides difficile in a mouse infection model. Independent laboratories at KACST in Riyadh (December 2021) and Central South University in Changsha (September 2022) confirmed antibacterial activity in vitro, the latter also in a mouse abscess model. No clinical use or human trial result appears in any fetched source.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "Built to predict molecules that inhibit bacterial growth and surface antibiotic candidates; halicin was that purpose.",
+  "system": "Directed-message-passing neural network (D-MPNN) for antibacterial activity prediction (Chemprop-style, MIT)",
+  "model_version": null,
+  "developer": "Massachusetts Institute of Technology (Collins and Barzilay laboratories) with the Broad Institute",
+  "deployer": "MIT / Broad Institute / McMaster University research teams",
+  "location": "Cambridge, United States",
+  "domain": "Biomedicine / antibiotic discovery",
+  "segment": "Academic research",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": null,
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "General benefit without an event: the fetched sources document in vitro and murine results and independent laboratory confirmation, but no individually attributable real-world outcome such as a treated patient or an approved drug."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The neural network's prediction selected halicin for testing from compounds not previously recognised as antibiotics; wet-lab experiments by the authors and later by independent groups confirmed the activity. The outcome so far is a laboratory and animal-model result."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Stokes, J. M. et al. (2020). A Deep Learning Approach to Antibiotic Discovery. Cell 180, 688–702 (PMC8349178).",
+      "title": "A deep learning approach to antibiotic discovery",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8349178/",
+      "date": "2020-02-20",
+      "written_by": "makers",
+      "quote": "sterilization of 3 out of 4 mice after 72 hr of treatment, and 4 out of 4 mice after 96 hr of treatment."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Booq, R. Y., Tawfik, E. A., Alfassam, H. A., Alfahad, A. J. and Alyamani, E. J. (2021). Assessment of the Antibacterial Efficacy of Halicin against Pathogenic Bacteria. Antibiotics 10(12), 1480 (PMC8698312).",
+      "title": "Assessment of the Antibacterial Efficacy of Halicin against Pathogenic Bacteria",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8698312/",
+      "date": "2021-12-02",
+      "written_by": "independent",
+      "quote": "The new antibacterial agent was able to inhibit all tested gram-positive and gram-negative bacterial strains, but in different concentrations—including the A. baumannii multidrug-resistant (MDR) isolate."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Hussain, Z. et al. (2022). Study on antibacterial effect of halicin (SU3327) against Enterococcus faecalis and Enterococcus faecium. Pathogens and Disease 80(1), ftac037.",
+      "title": "Study on antibacterial effect of halicin (SU3327) against Enterococcus faecalis and Enterococcus faecium",
+      "url": "https://academic.oup.com/femspd/article/80/1/ftac037/6713948",
+      "date": "2022-09-24",
+      "written_by": "independent",
+      "quote": "the minimum inhibitory concentrations (MIC) of halicin against different strains of Enterococcus faecalis and Enterococcus faecium ranged from 4 to 8 μg/ml."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "A growth-inhibition training set of a few thousand molecules",
+      "A message-passing network ranking large chemical libraries",
+      "Wet-lab confirmation of predicted actives and animal-model testing"
+    ],
+    "must_hold": [
+      "Predicted compounds must be available for synthesis or purchase",
+      "Activity must be confirmed experimentally; a verified real-world outcome would require clinical use"
+    ],
+    "echoes": [
+      {
+        "date": "2023-05-25",
+        "setting": "Abaucin, a narrow-spectrum anti-Acinetobacter baumannii compound identified by a neural network trained on about 7,500 screened molecules (McMaster and MIT), controlled infection in a mouse wound model; preclinical only",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://www.nature.com/articles/s41589-023-01349-8"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "MIT neural network finds halicin, active in vitro and in mice",
+  "metric": null,
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Replaced all three evidence quotes with the sentences as printed in the cited papers, because the Booq quote had been given a subject borrowed from the Discussion and the Hussain and Stokes quotes silently abbreviated or dropped words.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8349178/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC8698312/ ; https://academic.oup.com/femspd/article/80/1/ftac037/6713948",
+      "editor": "AIBD"
+    }
+  ]
+}

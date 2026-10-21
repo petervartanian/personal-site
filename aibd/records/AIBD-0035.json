@@ -1,0 +1,135 @@
+{
+  "id": "AIBD-0035",
+  "version": 3,
+  "title": "Reykjavik University speech recognizer replaces first-stage manual transcription of Icelandic parliamentary speeches at Althingi",
+  "summary": "Reykjavik University's ASR has produced Althingi's first-draft speech transcripts in production since January 2019 (Interspeech 2019).",
+  "date_observed": "2019-01-01",
+  "account": "Alþingi, the Icelandic parliament, has collaborated with Reykjavik University since 2016 to replace the first, manual stage of transcribing members' speeches with automatic speech recognition. The Interspeech 2019 paper by Helgadóttir and colleagues states: 'The system entered a test phase in October 2018, and has been in production since January 2019.' The production system used a time-delay deep neural network acoustic model with an n-gram language model (8.52% word error rate on the test set; 15.0 ± 6.0% over 625 speeches in the wild), and Althingi's transcribers graded 77% of transcripts as Good. Morgunblaðið reported on 16 November 2019 that about 640 hours of speeches had been transcribed. The date observed is 1 January 2019, the first day of the production month.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Built specifically to transcribe Althingi speeches for post-editing and publication; this benefit was that purpose.",
+  "system": "Althingi ASR system (time-delay deep neural network acoustic model, n-gram language model, punctuation and paragraph models)",
+  "model_version": null,
+  "developer": "Reykjavik University Language and Voice Lab (ASR for Althingi project)",
+  "deployer": "Alþingi (Icelandic parliament) speech department",
+  "location": "Alþingi, Reykjavík, Iceland",
+  "domain": "Government / language technology",
+  "segment": "Parliamentary transcription",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "Candidate c asked for an endangered or low-resource language; the fetched sources do not use the term 'low-resource' for Icelandic, so that framing is the verifier's rather than the sources'. Reykjavík is given as Alþingi's seat; none of the cited sources states where Alþingi sits, and the city appears in them only in Reykjavik University's name.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "organizational",
+      "depth": -2,
+      "reason": "Althingi replaced first-stage manual transcription with ASR drafts graded Good for 77% of speeches, with about 640 hours transcribed by November 2019."
+    },
+    {
+      "group": "societal",
+      "depth": -1,
+      "reason": "Vísir reported on 4 March 2018 that the recognizer was released under an open-source licence for Icelandic-language developers; a small, diffuse benefit."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The ASR produces the first-draft transcript; Althingi's editors still post-edit, so the benefit is editing time saved rather than full automation."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Helgadóttir IR, Nikulásdóttir AB, Borský M, Fong JY, Kjaran R, Guðnason J (2019). The Althingi ASR System. Interspeech 2019, Graz.",
+      "title": "The Althingi ASR System",
+      "url": "https://www.isca-archive.org/interspeech_2019/helgadottir19_interspeech.pdf",
+      "date": "2019-09-15",
+      "written_by": "makers",
+      "quote": "The system entered a test phase in October 2018, and has been in production since January 2019."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Helgadóttir IR et al. (2019). The Althingi ASR System. ISCA Archive abstract page.",
+      "title": "ISCA Archive - The Althingi ASR System",
+      "url": "https://www.isca-archive.org/interspeech_2019/helgadottir19_interspeech.html",
+      "date": "2019-09-15",
+      "written_by": "makers",
+      "quote": "The transcribers of Althingi graded 77% of the speech transcripts as Good."
+    },
+    {
+      "kind": "news report",
+      "citation": "Morgunblaðið (16 Nov 2019). Talgreinir skrifar ræður alþingismanna.",
+      "title": "Talgreinir skrifar ræður alþingismanna",
+      "url": "https://www.mbl.is/frettir/innlent/2019/11/16/talgreinir_skrifar_raedur_althingismanna/",
+      "date": "2019-11-16",
+      "written_by": "independent",
+      "quote": "Talgreinir er lykilverkfæri í þessari máltækni"
+    },
+    {
+      "kind": "news report",
+      "citation": "Vísir (4 Mar 2018). Gefa út íslenskan talgreini með opnu hugbúnaðarleyfi.",
+      "title": "Gefa út íslenskan talgreini með opnu hugbúnaðarleyfi",
+      "url": "https://www.visir.is/g/2018218636d",
+      "date": "2018-03-04",
+      "written_by": "independent",
+      "quote": "Við erum að búa til lausnir sem greina ræður Alþingismanna og hjálpa riturunum þar við að gefa ræðurnar út á ritmáli"
+    },
+    {
+      "kind": "dataset",
+      "citation": "Linguistic Data Consortium (2021). Althingi Parliamentary Speech, LDC2021S01 (authors Helgadóttir IR, Kjaran R, Nikulásdóttir AB, Guðnason J, the system's developers).",
+      "title": "Althingi Parliamentary Speech - Linguistic Data Consortium",
+      "url": "https://catalog.ldc.upenn.edu/LDC2021S01",
+      "date": null,
+      "written_by": "makers",
+      "quote": "The purpose of that project was to develop an ASR (automatic speech recognition) system for parliamentary speech to replace the procedure of manually transcribing performed speeches."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "About 6,300 hours of aligned parliamentary speech, of which a re-cleaned 1,000-hour subset trained the production recognizer (Interspeech 2019); the 542 hours of 2005-2016 speeches released as LDC2021S01 are a dataset publication, not the production training set",
+      "An existing manual transcription and editing workflow to slot into",
+      "Integration with Althingi's publishing systems from October 2018"
+    ],
+    "must_hold": [
+      "Editors accept ASR drafts (77% graded Good)",
+      "Continued model maintenance by the developing lab"
+    ],
+    "echoes": [
+      {
+        "date": "2019-11-16",
+        "setting": "Althingi, Reykjavík; about 640 hours of speeches transcribed, roughly ten minutes of speech in three and a half minutes (Morgunblaðið)",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://www.mbl.is/frettir/innlent/2019/11/16/talgreinir_skrifar_raedur_althingismanna/"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "708",
+    "title": "Reportedly Faulty AI Transcription Threatens Integrity of Genoa Bribery Probe",
+    "url": "https://incidentdatabase.ai/cite/708",
+    "severity": null,
+    "group": "organizational",
+    "basis": "Same task: automatic transcription of official proceedings for a public institution; Althingi's ASR drafts parliamentary transcripts, while the Italian judiciary's AI transcription recorded 'illicit' for 'licit', harming the Genoa Prosecutor's Office and defendants."
+  },
+  "headline": "Reykjavik University ASR drafts Althingi speech transcripts",
+  "metric": "transcribers graded 77% of transcripts as Good",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 708 (medium confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/708",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Marked the Interspeech paper, its abstract page and the LDC dataset as vendor-authored because the system's developers wrote them (the admission gate now rests on the Morgunblaðið and Vísir reports), corrected the training data to the paper's roughly 1,000 re-cleaned hours drawn from about 6,300 hours rather than the 542-hour LDC release, and flagged that no cited source states Alþingi's seat.",
+      "source": "https://www.isca-archive.org/interspeech_2019/helgadottir19_interspeech.pdf",
+      "editor": "AIBD"
+    }
+  ]
+}

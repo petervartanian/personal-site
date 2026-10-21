@@ -1,0 +1,110 @@
+{
+  "id": "AIBD-0068",
+  "version": 2,
+  "title": "Imagene AI infers EGFR mutation from an H&E slide, letting a woman with leptomeningeal lung cancer start osimertinib two days after biopsy and avoid neuraxis radiotherapy",
+  "summary": "Imagene AI predicted EGFR from an H&E slide in <48 h; rapid PCR confirmed; osimertinib began 2 days post-biopsy, no neuraxis radiotherapy.",
+  "date_observed": "2022-07-01",
+  "account": "In July 2022 (day not given; first day used) a healthy woman in her early 40s was admitted to Tel Aviv Sourasky Medical Center, Tel Aviv, Israel, with a month of worsening headaches; imaging showed a 2.6 cm left apical lung adenocarcinoma with leptomeningeal spread, and biopsy tissue was scarce. To guide gene testing without exhausting tissue, the team ran Imagene's deep-learning algorithm on the H&E slide; within 48 hours of biopsy it inferred EGFR mutation positivity. A rapid Idylla PCR assay confirmed the L858R exon 21 mutation and osimertinib started two days after biopsy, which the authors state was one week earlier than routine practice and avoided whole-neuraxis radiotherapy. MRI after two months showed disappearance of the enhancement.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Imagene's algorithm is built to infer genomic alteration status from routine pathology slides in order to direct molecular testing; this benefit is its intended function.",
+  "system": "Imagene AI (H&E-based molecular inference)",
+  "model_version": null,
+  "developer": "Imagene",
+  "deployer": "Tel Aviv Sourasky Medical Center",
+  "location": "Tel Aviv, Israel",
+  "domain": "Healthcare - oncology / molecular pathology",
+  "segment": "AI-guided biomarker testing in non-small-cell lung cancer",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "Good fit: the gain was a shorter, tissue-sparing molecular workflow that moved targeted therapy forward by a week.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -3,
+      "reason": "Targeted therapy for leptomeningeal disease started a week earlier and whole-neuraxis radiotherapy was avoided, with MRI improvement at two months; survival benefit is not reported."
+    },
+    {
+      "group": "organizational",
+      "depth": -1,
+      "reason": "The slide-based inference let the team choose a single rapid PCR test instead of waiting for sequencing on limited tissue."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The AI inference directed which rapid test to run; treatment began only after PCR confirmation. The AI therefore changed the sequence and speed of testing rather than the final diagnosis. Authors are Tel Aviv Sourasky / Tel Aviv University clinicians declaring no competing interests; a second patient in the report (February 2023) followed the same path."
+  },
+  "evidence": [
+    {
+      "kind": "case report",
+      "citation": "Waissengrin B, Garasimov A, Bainhoren O, Merimsky O, Shamai S, Erental A, Wolf I, Hershkovitz D (2023). Artificial intelligence (AI) molecular analysis tool assists in rapid treatment decision in lung cancer: a case report. Journal of Clinical Pathology 76(11):790-792.",
+      "title": "Artificial intelligence (AI) molecular analysis tool assists in rapid treatment decision in lung cancer: a case report",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10646899/",
+      "date": null,
+      "written_by": "deployer",
+      "quote": "The algorithmic inference identified positivity for EGFR mutation."
+    },
+    {
+      "kind": "case report",
+      "citation": "Waissengrin B et al. (2023). J Clin Pathol 76(11):790-792 (second quotation).",
+      "title": "Artificial intelligence (AI) molecular analysis tool assists in rapid treatment decision in lung cancer: a case report",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10646899/",
+      "date": null,
+      "written_by": "deployer",
+      "quote": "The incorporation of the AI solution not only enabled targeted treatment 1 week earlier than in the routine practice"
+    },
+    {
+      "kind": "case report",
+      "citation": "Waissengrin B et al. (2023). J Clin Pathol 76(11):790-792 (third quotation).",
+      "title": "Artificial intelligence (AI) molecular analysis tool assists in rapid treatment decision in lung cancer: a case report",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10646899/",
+      "date": null,
+      "written_by": "deployer",
+      "quote": "resulted in avoiding altogether whole neuroaxis radiotherapy"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Scanning the diagnostic H&E slide and running the inference within 48 hours of biopsy",
+      "A rapid single-gene PCR assay available for confirmation"
+    ],
+    "must_hold": [
+      "PCR or sequencing confirmation before treatment",
+      "A tumour with a targetable driver the model can infer"
+    ],
+    "echoes": [
+      {
+        "date": "2023-02-01",
+        "setting": "Second woman in her early 40s with EGFR-mutant NSCLC at the same centre, February 2023 (day not given; first day used); same AI-guided path, MRI improvement at two months",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "Waissengrin B et al. (2023) J Clin Pathol 76(11):790-792, https://pmc.ncbi.nlm.nih.gov/articles/PMC10646899/"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "225",
+    "title": "IBM Watson for Oncology Criticized by Customers for Allegedly Unsafe and Inaccurate Cancer Treatment Recommendations",
+    "url": "https://incidentdatabase.ai/cite/225",
+    "severity": null,
+    "group": "personal",
+    "basis": "Same domain and task, AI decision support steering cancer treatment: Watson for Oncology gave allegedly unsafe and incorrect treatment recommendations, harming cancer patients and oncologists, the groups Imagene's EGFR inference served."
+  },
+  "headline": "Imagene AI infers EGFR from H&E; osimertinib 2 days post-biopsy",
+  "metric": "one week earlier than routine practice and avoided whole-neuraxis radiotherapy",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 225 (medium confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/225",
+      "editor": "AIBD"
+    }
+  ]
+}

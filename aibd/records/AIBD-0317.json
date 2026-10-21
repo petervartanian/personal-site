@@ -1,0 +1,93 @@
+{
+  "id": "AIBD-0317",
+  "version": 1,
+  "title": "Vyntra (formerly NetGuardians) publishes undated case studies of its AI risk models blocking fraudulent payments at unnamed banks, including a USD 500,000 ATM scheme",
+  "summary": "Vendor 'Fraud Cases' page lists blocked payments from CHF 19,990 to USD 850,000 and a USD 500,000 (KSh 58 million) ATM fraud ending in arrests; customers, banks and dates are not given.",
+  "date_observed": "2022-04-04",
+  "account": "Vyntra's 'Fraud Cases' page (published 4 April 2022 according to the page metadata returned by the reader proxy; the cases themselves are undated) states that 'Our solutions stop the fraud before the money leaves the bank' and lists about two dozen short case studies at unnamed banks: an account takeover after pharming stopped before a CHF 19,990 payment; an impersonation that led a bank employee to validate a CHF 1,000,000 transaction, blocked because the beneficiary was unusual at bank level; vishing, tech-support, CEO-fraud, business-email-compromise, romance and invoice-redirection cases with payments of EUR 22,114, EUR 33,170, USD 7,500, GBP 21,000, EUR 125,000, EUR 170,000, USD 100,000, USD 170,000 and USD 850,000 stopped because transaction or e-banking session variables (beneficiary, country, amount, currency, browser, screen resolution, language) did not match the customer's or the bank's usual profile; two internal-fraud cases; and one case in which 'fraudsters were arrested while attempting to withdraw USD 500,000 (KSh 58 million) from the second bank's ATMs' after the models flagged unusual timing and frequency of withdrawals. One entry still names 'NetGuardians solution', the Swiss company that merged with Belgium's Intix to form Vyntra in June 2025 (FinTech Global, 19 June 2025). No customer, bank, country, date, regulator or court record is given for any case, and the earlier verifier found none; the page is the vendor's own account.",
+  "category": "harm prevented",
+  "unexpected": false,
+  "purpose": "The risk models are built to score payments and e-banking sessions against customer and bank profiles in real time and block fraudulent transfers; each case is that intended use.",
+  "system": "Vyntra (NetGuardians) AI risk models for real-time payment and e-banking fraud detection",
+  "model_version": null,
+  "developer": "Vyntra (NetGuardians SA, merged with Intix in June 2025)",
+  "deployer": "Unnamed client banks",
+  "location": "Not stated; amounts are given in Swiss francs, euros, pounds, US dollars and Kenyan shillings",
+  "domain": "Banking fraud prevention",
+  "segment": "Retail and corporate payment fraud at client banks",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "None of the six types names loss prevention; organizational efficiency is used because the stated benefit is the bank stopping fraudulent payments before release, with 'Improved Customer Retention' the alternative since the protected funds are customers'. Written as 'harm prevented' because the vendor describes specific blocked payments, but every depth is null: the only source is the vendor's own page, with no named bank, customer, date, regulator or court record, as the earlier verifier also found.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": null,
+      "reason": "The vendor describes customers whose payments were blocked (for example EUR 125,000 and USD 170,000 social-engineering transfers); none is identifiable or independently documented."
+    },
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "The vendor states losses were stopped before funds left client banks and, in one case, that police arrested the fraudsters at ATMs; no bank, regulator or court confirms any case."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "No aggregate verified by a regulator is given."
+    }
+  ],
+  "ai_role": {
+    "status": "unassessed",
+    "statement": "Only the maker's own account could be fetched: Vyntra's page attributes each block to its AI risk models detecting variables outside the customer's or bank's usual profile. No customer, bank, date or official record is available to assess whether the models, rather than staff or other controls, produced the outcome, so the AI's contribution is unassessed."
+  },
+  "evidence": [
+    {
+      "kind": "press release",
+      "citation": "Vyntra (2022). Fraud Cases. vyntra.com (vendor case-study page; page metadata gives 4 April 2022; cases undated).",
+      "title": "Fraud Cases - Vyntra",
+      "url": "https://www.vyntra.com/fraud-cases/",
+      "date": "2022-04-04",
+      "written_by": "makers",
+      "quote": "Vyntra's AI risk models prevented the fraud due to the unusual timing and frequency of ATM withdrawals."
+    },
+    {
+      "kind": "press release",
+      "citation": "Vyntra (2022). Fraud Cases, same page, ATM case.",
+      "title": "Fraud Cases - Vyntra",
+      "url": "https://www.vyntra.com/fraud-cases/",
+      "date": "2022-04-04",
+      "written_by": "makers",
+      "quote": "fraudsters were arrested while attempting to withdraw USD 500,000 (KSh 58 million) from the second bank's ATMs."
+    },
+    {
+      "kind": "news report",
+      "citation": "FinTech Global (2025). Vyntra launched by NetGuardians and Intix to boost banking intelligence. 19 June 2025.",
+      "title": "Vyntra launched by NetGuardians and Intix to boost banking intelligence",
+      "url": "https://fintech.global/2025/06/19/vyntra-launched-by-netguardians-and-intix-to-boost-banking-intelligence/",
+      "date": "2025-06-19",
+      "written_by": "independent",
+      "quote": "NetGuardians brings its advanced artificial intelligence tools to detect and prevent financial crime, while Intix contributes its expertise in transaction data analysis and visibility."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Behavioural profiles of each customer's and the bank's usual transaction and e-banking session variables (beneficiary, country, amount, currency, browser, screen resolution, language)",
+      "Real-time scoring before a payment is released"
+    ],
+    "must_hold": [
+      "The fraudulent transaction departs from the profile on several variables; the vendor notes cases with little customer history relied on bank-level anomalies",
+      "The bank acts on the alert before the money leaves"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "Vyntra says its AI risk models stopped a USD 500,000 ATM fraud",
+  "metric": "fraudsters were arrested while attempting to withdraw USD 500,000 (KSh 58 million)",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

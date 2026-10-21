@@ -1,0 +1,111 @@
+{
+  "id": "AIBD-0030",
+  "version": 2,
+  "title": "Machine-learning cardiac-arrest recognition on Copenhagen 112 calls: capability study and null randomised trial",
+  "summary": "Copenhagen EMS call model beat dispatchers on sensitivity (84.1% vs 72.5%); RCT found no significant gain in dispatcher recognition.",
+  "date_observed": "2018-09-01",
+  "account": "Copenhagen Emergency Medical Services used a machine-learning framework, identified by the European Emergency Number Association as Corti's, to listen to 112 calls and flag suspected out-of-hospital cardiac arrest for dispatchers. A retrospective study of 108,607 calls from 2014 found the model recognised cardiac arrest with higher sensitivity than dispatchers (84.1% versus 72.5%) and faster (median 44 versus 54 seconds). A double-masked randomised trial of 169,049 calls from 1 September 2018 to 31 December 2019 then found dispatcher recognition of confirmed arrests of 93.1% with alerts versus 90.5% without, a non-significant difference, although alerts alone were more sensitive than dispatchers (85.0% versus 77.5%). No individual patient outcome attributable to an alert is documented; the date used is the trial start.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "The model was built to recognise out-of-hospital cardiac arrest during emergency calls so dispatchers can start telephone CPR sooner; the measured capability is that intended function, but no discrete changed outcome is documented.",
+  "system": "Corti machine-learning call-analysis framework for out-of-hospital cardiac arrest recognition (the peer-reviewed papers describe it only as 'a machine learning framework'; the EENA report names Corti)",
+  "model_version": null,
+  "developer": "Corti (Copenhagen, Denmark)",
+  "deployer": "Copenhagen Emergency Medical Services, Emergency Medical Dispatch Center Copenhagen",
+  "location": "Copenhagen, Denmark",
+  "domain": "Emergency medical dispatch / public safety",
+  "segment": "112 emergency call handling",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "No category fits a clinical decision-support capability; Organizational Efficiency is closest because the documented effect is faster and more sensitive recognition by the dispatch organisation, not a patient outcome.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": null,
+      "reason": "General benefit without an event: the evidence is aggregate (sensitivity, time-to-recognition, trial-level recognition rates) with no individually attributable changed outcome, and the randomised trial found no significant improvement in dispatcher recognition."
+    },
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "General benefit without an event: a capability study and a null randomised trial; no discrete organisational event with an observed outcome is documented."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The AI listened to live calls and alerted dispatchers; in the randomised trial its alerts were more sensitive than dispatchers alone (85.0% vs 77.5%) but did not significantly change dispatcher recognition (93.1% vs 90.5%, P = .15). The benefit is therefore a demonstrated detection capability, not a verified change in any patient's course."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Blomberg SN, Christensen HC, Lippert F, et al. (2021). Effect of Machine Learning on Dispatcher Recognition of Out-of-Hospital Cardiac Arrest During Calls to Emergency Medical Services: A Randomized Clinical Trial. JAMA Network Open 4(1):e2032320.",
+      "title": "Effect of Machine Learning on Dispatcher Recognition of Out-of-Hospital Cardiac Arrest During Calls to Emergency Medical Services: A Randomized Clinical Trial",
+      "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2774644",
+      "date": "2021-01-05",
+      "written_by": "deployer",
+      "quote": "Machine learning alerts alone had a significantly higher sensitivity than dispatchers without alerts for confirmed OHCA (85.0% vs 77.5%; P < .001)"
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Blomberg SN, Folke F, Ersboll AK, Christensen HC, Torp-Pedersen C, Sayre MR, Counts CR, Lippert FK (2019). Machine learning as a supportive tool to recognize cardiac arrest in emergency calls. Resuscitation 138:322-329. doi:10.1016/j.resuscitation.2019.01.015.",
+      "title": "Machine learning as a supportive tool to recognize cardiac arrest in emergency calls",
+      "url": "https://doi.org/10.1016/j.resuscitation.2019.01.015",
+      "date": null,
+      "written_by": "deployer",
+      "quote": "Compared with medical dispatchers, the machine learning framework had a significantly higher sensitivity (72.5% vs. 84.1%, p < 0.001) with lower specificity (98.8% vs. 97.3%, p < 0.001)."
+    },
+    {
+      "kind": "report",
+      "citation": "European Emergency Number Association and Corti (2020). Detecting out-of-hospital cardiac arrest using artificial intelligence: project report. EENA, Brussels.",
+      "title": "Detecting out-of-hospital cardiac arrest using artificial intelligence: project report",
+      "url": "https://eena.org/wp-content/uploads/2020_01_13_Corti_Report.pdf",
+      "date": "2020-01-13",
+      "written_by": "makers",
+      "quote": "This document is authored by EENA and Corti staff members with contributions from individual members of EENA and Corti."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Access to recorded 112 call audio with linked outcome data (7,211 hours of Danish training data per the EENA report)",
+      "Speech-recognition pipeline running in real time on live calls",
+      "A dispatch centre whose baseline recognition was already high (90.5% in the control arm)"
+    ],
+    "must_hold": [
+      "Dispatchers act on alerts; the trial suggests alerts did not change their behaviour enough to shift recognition",
+      "Call language and acoustics match the training data (EENA reports weaker performance on smaller French and Italian datasets)"
+    ],
+    "echoes": [
+      {
+        "date": "2018-09-01",
+        "setting": "Randomised trial at Copenhagen EMS, 1 September 2018 to 31 December 2019: the model's sensitivity advantage recurred (85.0% vs 77.5%) but improved dispatcher recognition did not materialise (93.1% vs 90.5%, P = .15)",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2774644"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "446",
+    "title": "ShotSpotter Failed to Alert Authorities of Mass Shooting in North Carolina",
+    "url": "https://incidentdatabase.ai/cite/446",
+    "severity": null,
+    "group": "organizational",
+    "basis": "Machine listening for emergencies to alert responders: Corti flags cardiac arrest on 112 calls, while ShotSpotter's acoustic classifier missed a Durham drive-by shooting, leaving police unalerted and five victims hospitalised."
+  },
+  "headline": "Corti model beats dispatchers on sensitivity; RCT shows no gain",
+  "metric": "higher sensitivity than dispatchers (84.1% versus 72.5%)",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 446 (medium confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/446",
+      "editor": "AIBD"
+    }
+  ]
+}

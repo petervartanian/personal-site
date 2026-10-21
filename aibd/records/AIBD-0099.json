@@ -1,0 +1,132 @@
+{
+  "id": "AIBD-0099",
+  "version": 3,
+  "title": "ARMMAN's mMitra used a Google Research restless-bandit model to pick which mothers received service calls, cutting engagement drops about 30% (2021)",
+  "summary": "RMAB picked weekly service calls among 23,003 mMitra mothers from 26 Apr 2021; 32% fewer engagement drops than standard care",
+  "date_observed": "2021-04-26",
+  "account": "ARMMAN's mMitra programme sends automated voice messages to low-income pregnant women and new mothers in India, many of whom stop listening. With Google Research India and Harvard, ARMMAN tested a restless multi-armed bandit (RMAB) that selects which beneficiaries receive limited staff service calls each week. In a seven-week field study starting 26 April 2021, 23,003 women were split into RMAB, round-robin and current-standard-of-care groups (7,668/7,668/7,667); 225 RMAB-selected women per week were called. The RMAB group had 32.0% fewer cumulative engagement drops than standard care (p = 0.044) and 28.3% fewer than round robin (p = 0.098, significant only at the 10% level); round robin was not significantly better than standard care. ARMMAN reports the AI reduced drop-off risk by up to 32% and Google Research reports the system was deployed for weekly call scheduling.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "Allocate limited health-worker service calls to the beneficiaries whose programme engagement they are most likely to preserve.",
+  "system": "Restless multi-armed bandit (Whittle index) service-call scheduler with clustering-based inference of transition parameters",
+  "model_version": null,
+  "developer": "Google Research India and Harvard University (Milind Tambe's group) with ARMMAN",
+  "deployer": "ARMMAN",
+  "location": "India (ARMMAN mMitra programme areas)",
+  "domain": "Maternal and child health mHealth",
+  "segment": "Non-profit health programme",
+  "benefit_type": "Improved Customer Retention",
+  "taxonomy_note": "Loose fit: the measured outcome is retention of programme beneficiaries (engagement), not customers; Improved Organizational Efficiency is the alternative reading. General benefit without an event because the benefit is an aggregate engagement effect for a cohort, not a discrete health result for identifiable people.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": null,
+      "reason": "General benefit without an event: aggregate engagement effect; no individual health outcome documented in the field study."
+    },
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "General benefit without an event: the efficiency gain in call allocation is an aggregate programme result."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "General benefit without an event: no population-level outcome documented."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The RMAB output determined which 225 women per week received ARMMAN-initiated service calls; calls were made by ARMMAN staff blind to group. The peer-reviewed AAAI paper is authored by the developers together with ARMMAN, so it is marked vendor-authored; the non-vendor documentation is ARMMAN's own programme page as the implementing NGO."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Mate, A., Madaan, L., Taneja, A., Madhiwalla, N., Verma, S., Singh, G., Hegde, A., Varakantham, P., Tambe, M. (2022). Field Study in Deploying Restless Multi-Armed Bandits: Assisting Non-profits in Improving Maternal and Child Health. Proceedings of the AAAI Conference on Artificial Intelligence 36(11).",
+      "title": "Field Study in Deploying Restless Multi-Armed Bandits: Assisting Non-profits in Improving Maternal and Child Health",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/21460",
+      "date": "2022-06-28",
+      "written_by": "makers",
+      "quote": "The RMAB group provides statistically significant improvement over other comparison groups, reducing ~30% engagement drops"
+    },
+    {
+      "kind": "preprint",
+      "citation": "Mate, A., et al. (2021). Field Study in Deploying Restless Multi-Armed Bandits: Assisting Non-Profits in Improving Maternal and Child Health. arXiv:2109.08075v2 (full text).",
+      "title": "Field Study in Deploying Restless Multi-Armed Bandits (arXiv full text)",
+      "url": "https://arxiv.org/pdf/2109.08075",
+      "date": "2021-10-27",
+      "written_by": "makers",
+      "quote": "the RMAB group has 32.0% and 28.3% less cumulative engagement drops as compared to the CSOC and RR groups respectively by the end of the study"
+    },
+    {
+      "kind": "press release",
+      "citation": "ARMMAN (n.d.). mMitra programme page (implementing NGO).",
+      "title": "mMitra",
+      "url": "https://armman.org/mmitra/",
+      "date": null,
+      "written_by": "deployer",
+      "quote": "Results demonstrated that the use of AI technology was able to bring down the risk of drop-offs by up to 32% for women at high risk of dropping out."
+    },
+    {
+      "kind": "press release",
+      "citation": "Taneja, A., Tambe, M. (2022). Using ML to Boost Engagement with a Maternal and Child Health Program in India. Google Research Blog.",
+      "title": "Using ML to Boost Engagement with a Maternal and Child Health Program in India",
+      "url": "https://research.google/blog/using-ml-to-boost-engagement-with-a-maternal-and-child-health-program-in-india/",
+      "date": "2022-08-24",
+      "written_by": "makers",
+      "quote": "After thorough testing, the NGO has currently deployed this system for scheduling of service calls on a weekly basis."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "RMAB Whittle-index policy over per-beneficiary engagement states",
+      "Historical engagement data for parameter inference via clustering",
+      "ARMMAN call-centre capacity (fixed weekly call budget)"
+    ],
+    "must_hold": [
+      "Engagement defined as listening at least 30 seconds to weekly messages",
+      "Call budget small relative to cohort",
+      "Beneficiary behaviour patterns stable enough for transition estimates"
+    ],
+    "echoes": [
+      {
+        "date": "2020-01-01",
+        "setting": "SAHELI project 2020–2025 at ARMMAN: decision-focused-learning RMAB reported 31% fewer cumulative engagement drops than standard care (year only known; first day used)",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "Verma et al. (2026) arXiv:2604.07384, https://arxiv.org/abs/2604.07384"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "124",
+    "title": "Optum Algorithmic Health Risk Scores Reportedly Underestimated Black Patients' Needs",
+    "url": "https://incidentdatabase.ai/cite/124",
+    "severity": null,
+    "group": "personal",
+    "basis": "Optum's algorithm choosing which patients get extra-care outreach under-predicted Black patients' needs; ARMMAN's bandit likewise selects which mothers receive limited service calls."
+  },
+  "headline": "Google Research RMAB cuts mMitra engagement drops by 32%",
+  "metric": "32.0% fewer cumulative engagement drops than standard care",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 124 (high confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/124",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Verification sweep: the p-values now follow the paper's Table 3 (0.044 against standard care, 0.098 against round robin); ARMMAN's page is marked as written by a co-developer. The record is admitted on the peer-reviewed AAAI paper.",
+      "source": "https://ojs.aaai.org/index.php/AAAI/article/view/21460",
+      "editor": "AIBD"
+    }
+  ]
+}

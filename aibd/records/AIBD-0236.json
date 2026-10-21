@@ -1,0 +1,89 @@
+{
+  "id": "AIBD-0236",
+  "version": 1,
+  "title": "OpenAI o3 finds CVE-2025-37899, a remote use-after-free in the Linux kernel's ksmbd; patched in all maintained branches",
+  "summary": "Sean Heelan, benchmarking o3 on ksmbd with no scaffolding, had the model surface an unknown use-after-free in the SMB logoff handler; the kernel CNA published CVE-2025-37899 on 20 May 2025.",
+  "date_observed": "2025-05-20",
+  "account": "The date is the CVE record's publication; Heelan's write-up followed on 22 May 2025. Heelan, an independent vulnerability researcher auditing ksmbd (the Linux kernel's in-kernel SMB3 server), used a known bug (CVE-2025-37778) to benchmark OpenAI's o3 via the plain API, with no scaffolding, agents or tools. When given about 12,000 lines covering all SMB command handlers, o3 reported a previously unknown use-after-free in the handler for the SMB 'logoff' command: sess->user can be freed while another connection bound to the same session still uses it. The Linux kernel CNA's record describes the fix ('ksmbd: fix use-after-free in session logoff') with commits in five stable branches; Linuxiac reports the upstream response was fast and patches were merged for every maintained branch. Heelan calls it, to his knowledge, the first public case of an LLM finding a vulnerability of that nature.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "General-purpose reasoning model used by the researcher to audit kernel source code for vulnerabilities.",
+  "system": "OpenAI o3",
+  "model_version": "o3",
+  "developer": "OpenAI",
+  "deployer": "Sean Heelan (independent researcher)",
+  "location": null,
+  "domain": "Cybersecurity / vulnerability research",
+  "segment": "Technology",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "Vulnerability discovery and patching rather than attack detection; admitted via the researcher's first-hand report plus the kernel CNA's CVE record.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "societal",
+      "depth": -2,
+      "reason": "A remotely reachable kernel memory-safety bug was fixed across maintained branches before any reported exploitation; exposure of ksmbd users is not quantified."
+    },
+    {
+      "group": "organizational",
+      "depth": -1,
+      "reason": "The kernel project received a report with a fix merged quickly, per Linuxiac."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The model produced the finding unprompted during a benchmark; Heelan selected the code, validated the report and handled disclosure, and he notes the model also produced false positives in other runs. The account is the independent deployer's own, corroborated by the CVE record and third-party coverage, not by OpenAI."
+  },
+  "evidence": [
+    {
+      "kind": "report",
+      "citation": "Sean Heelan, personal blog, 22 May 2025",
+      "title": "How I used o3 to find CVE-2025-37899, a remote zeroday vulnerability in the Linux kernel’s SMB implementation",
+      "url": "https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/",
+      "date": "2025-05-22",
+      "written_by": "deployer",
+      "quote": "I found the vulnerability with nothing more complicated than the o3 API – no scaffolding, no agentic frameworks, no tool use."
+    },
+    {
+      "kind": "registry label",
+      "citation": "CVE Program record CVE-2025-37899 (CNA: Linux), published 20 May 2025",
+      "title": "CVE-2025-37899",
+      "url": "https://www.cve.org/CVERecord?id=CVE-2025-37899",
+      "date": "2025-05-20",
+      "written_by": "independent",
+      "quote": "The sess->user object can currently be in use by another thread, for example if another connection has sent a session setup request to bind to the session being free'd."
+    },
+    {
+      "kind": "news report",
+      "citation": "Bobby Borisov, Linuxiac, 29 May 2025",
+      "title": "ChatGPT’s o3 Model Found Remote Zeroday in Linux Kernel Code",
+      "url": "https://linuxiac.com/chatgpt-o3-model-found-remote-zeroday-in-linux-kernel-code/",
+      "date": "2025-05-29",
+      "written_by": "independent",
+      "quote": "Upstream response was really fast, and the patches merged for every still-maintained kernel branch."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "A code slice under roughly 10k-12k lines chosen by an expert",
+      "Repeated model runs with reports triaged by a human",
+      "A maintainer workflow that accepts and patches reports quickly"
+    ],
+    "must_hold": [
+      "Expert curation of context and validation of candidate bugs",
+      "Tolerance for false positives across runs"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "OpenAI o3 finds CVE-2025-37899, a use-after-free in ksmbd",
+  "metric": null,
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+<defs>
+<filter id="m" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+<feGaussianBlur in="SourceGraphic" stdDeviation="26" result="soft"/>
+<feTurbulence type="turbulence" baseFrequency="0.0021 0.011" numOctaves="4" seed="17" result="t1"/>
+<feDisplacementMap in="soft" in2="t1" scale="360" xChannelSelector="R" yChannelSelector="G" result="d1"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.008 0.0035" numOctaves="3" seed="5" result="t2"/>
+<feDisplacementMap in="d1" in2="t2" scale="170" xChannelSelector="G" yChannelSelector="B" result="d2"/>
+<feTurbulence type="turbulence" baseFrequency="0.045 0.010" numOctaves="2" seed="23" result="t3"/>
+<feDisplacementMap in="d2" in2="t3" scale="46" xChannelSelector="B" yChannelSelector="R" result="d3"/>
+<feColorMatrix in="d3" type="saturate" values="0.55"/>
+</filter>
+<filter id="grain" x="0" y="0" width="100%" height="100%">
+<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="9" result="g"/>
+<feColorMatrix in="g" type="saturate" values="0" result="gs"/>
+<feComponentTransfer in="gs"><feFuncA type="linear" slope="0.16" intercept="0"/></feComponentTransfer>
+</filter>
+</defs>
+<g filter="url(#m)">
+<rect x="-400" y="-400" width="2400" height="1800" fill="#d6d0c3"/>
+<ellipse cx="160" cy="120" rx="470" ry="250" fill="#94a3b8" opacity="0.8"/>
+<ellipse cx="610" cy="40" rx="430" ry="230" fill="#60a5fa" opacity="0.72"/>
+<ellipse cx="1060" cy="120" rx="500" ry="240" fill="#f59e0b" opacity="0.66"/>
+<ellipse cx="1440" cy="70" rx="400" ry="260" fill="#ef4444" opacity="0.62"/>
+<ellipse cx="1230" cy="330" rx="340" ry="180" fill="#911a33" opacity="0.6"/>
+<ellipse cx="420" cy="330" rx="400" ry="150" fill="#f3eee2" opacity="0.95"/>
+<ellipse cx="900" cy="380" rx="340" ry="110" fill="#ebe5d7" opacity="0.9"/>
+<ellipse cx="800" cy="500" rx="820" ry="48" fill="#faf7f0" opacity="0.95"/>
+<ellipse cx="300" cy="470" rx="300" ry="40" fill="#fbf9f3" opacity="0.9"/>
+<ellipse cx="1300" cy="540" rx="300" ry="36" fill="#fbf9f3" opacity="0.9"/>
+<ellipse cx="180" cy="660" rx="470" ry="250" fill="#5fd3a4" opacity="0.78"/>
+<ellipse cx="640" cy="780" rx="440" ry="230" fill="#1fb26b" opacity="0.7"/>
+<ellipse cx="1010" cy="640" rx="460" ry="240" fill="#148f85" opacity="0.7"/>
+<ellipse cx="1400" cy="780" rx="420" ry="250" fill="#6b4fc0" opacity="0.7"/>
+<ellipse cx="1130" cy="950" rx="470" ry="200" fill="#3b1f73" opacity="0.7"/>
+<ellipse cx="480" cy="980" rx="400" ry="150" fill="#f3eee2" opacity="0.95"/>
+<ellipse cx="860" cy="870" rx="280" ry="100" fill="#ebe5d7" opacity="0.8"/>
+<ellipse cx="700" cy="620" rx="260" ry="30" fill="#faf7f0" opacity="0.85"/>
+</g>
+<rect width="1600" height="1000" filter="url(#grain)" fill="#000"/>
+</svg>

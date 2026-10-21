@@ -1,0 +1,134 @@
+{
+  "id": "AIBD-0268",
+  "version": 1,
+  "title": "Mayo Clinic AI-ECG flags low ejection fraction at 97.88%; 41-year-old treated, EF recovers to 55%",
+  "summary": "At Mayo Clinic two ECGs scored 97.88% and 98.67% for reduced ejection fraction in a 41-year-old with no cardiac history; echo confirmed HFrEF, therapy followed, EF 55% at 4 months. Developer-authored.",
+  "date_observed": "2021-08-24",
+  "account": "Harmon, Witt, Friedman and Attia (Cardiovascular Digital Health Journal, 24 August 2021) report a 41-year-old man with class III obesity and sleep apnoea and no cardiac history whose two ECGs, run through Mayo's AI-ECG dashboard, gave probabilities of reduced ejection fraction of 97.88% and 98.67%; echocardiography the next day confirmed reduced function, guideline-directed therapy for new HFrEF was started, and at four months his ejection fraction had improved to 55%, which the authors attribute to therapy, recovery from post-viral sequelae and weight loss. All four authors are at Mayo Clinic, which developed the algorithm and licensed it to Eko and Anumana; Friedman, Attia and other inventors may receive financial benefit. The same developer group published further cases: Dhawan et al. (PACE, 2024) on AI-ECGs predicting left-bundle-branch-block cardiomyopathy six years before presentation, Kenyon et al. (J Pers Med, 2024) on AI-ECG prompting an early AL amyloidosis diagnosis, and Liu et al. (HeartRhythm Case Reports, 2025) on defibrillator decision-making. No source outside Mayo was found for these cases, which is why the earlier verifier set them aside. The date is the publication date.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Screen 12-lead ECGs for a low left-ventricular ejection fraction with a convolutional neural network",
+  "system": "Mayo Clinic AI-ECG low-ejection-fraction algorithm (AI-ECG dashboard)",
+  "model_version": null,
+  "developer": "Mayo Clinic (licensed to Eko and Anumana)",
+  "deployer": "Mayo Clinic, Rochester",
+  "location": "Rochester, Minnesota, USA",
+  "domain": "Health; cardiology",
+  "segment": "Adults presenting with unexplained symptoms and an ECG",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "All case reports are written by the developing institution, with inventors among the authors; no non-developer account exists for this case. Recorded as a benefit with that provenance stated; the three later Mayo cases are listed as echoes.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -3,
+      "reason": "New HFrEF identified and treated; ejection fraction 55% at four months."
+    },
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "No organisational outcome reported for this case."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "Single case."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The AI-ECG probabilities (97.88% and 98.67%) prompted the echocardiogram and treatment, according to the authors. The source is the developer's own case report; the authors disclose that Mayo licensed the technology and that inventors may receive financial benefit. No independent account of the case exists."
+  },
+  "evidence": [
+    {
+      "kind": "case report",
+      "citation": "Harmon DM, Witt DR, Friedman PA, Attia ZI. Cardiovasc Digit Health J 2(5):282-284 (2021)",
+      "title": "Diagnosis and treatment of new heart failure with reduced ejection fraction by the artificial intelligence-enhanced electrocardiogram",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8890344/",
+      "date": "2021-08-24",
+      "written_by": "makers",
+      "quote": "The 2 ECGs evaluated by the AI-ECG algorithm revealed high probabilities of reduced ejection fraction (97.88% and 98.67%)"
+    },
+    {
+      "kind": "case report",
+      "citation": "Harmon DM, et al. (2021), disclosures",
+      "title": "Diagnosis and treatment of new heart failure with reduced ejection fraction by the artificial intelligence-enhanced electrocardiogram",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8890344/",
+      "date": "2021-08-24",
+      "written_by": "makers",
+      "quote": "Drs Friedman and Attia and other Mayo inventors may also receive financial benefit from this agreement through Mayo Clinic policies."
+    },
+    {
+      "kind": "case report",
+      "citation": "Dhawan R, Omer M, Carpenter C, Friedman PA, Liu X. Pacing Clin Electrophysiol (2024)",
+      "title": "Successful prediction of left bundle branch block-induced cardiomyopathy and treatment effect by artificial intelligence-enabled electrocardiogram",
+      "url": "https://doi.org/10.1111/pace.14980",
+      "date": "2024-04-07",
+      "written_by": "makers",
+      "quote": "Artificial intelligence-enabled ECGs performed 6 years prior to clinical presentation consistently predicted a high probability (up to 91%) of low EF."
+    },
+    {
+      "kind": "case report",
+      "citation": "Kenyon CR, Pietri MP, Rosenthal JL, Arsanjani R, Ayoub C. J Pers Med 14(6):559 (2024)",
+      "title": "Artificial Intelligence Assists in the Early Identification of Cardiac Amyloidosis",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11205191/",
+      "date": "2024-05-24",
+      "written_by": "makers",
+      "quote": "This facilitated an early diagnosis by the biopsy of AL cardiac amyloidosis and the prompt initiation of targeted therapy."
+    },
+    {
+      "kind": "case report",
+      "citation": "Liu X, Friedman P, Cha YM, Deshmukh A, Mulpuru S, Asirvatham S. HeartRhythm Case Rep (2025)",
+      "title": "Prospective use of artificial intelligence-enabled electrocardiogram to assist in clinical decision making regarding defibrillator therapy",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12666949/",
+      "date": "2025-07-26",
+      "written_by": "makers",
+      "quote": "Prospective use of artificial intelligence-enabled electrocardiogram to assist in clinical decision making regarding defibrillator therapy"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Routine 12-lead ECGs scored by the low-EF network",
+      "A dashboard that clinicians consult during evaluation",
+      "Confirmatory echocardiography and guideline-directed therapy"
+    ],
+    "must_hold": [
+      "The algorithm is deployed in the clinical workflow",
+      "Clinicians act on a high probability score"
+    ],
+    "echoes": [
+      {
+        "date": "2024-04-07",
+        "setting": "Mayo Clinic Rochester: 70-year-old with LBBB-induced cardiomyopathy",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://doi.org/10.1111/pace.14980"
+      },
+      {
+        "date": "2024-05-24",
+        "setting": "Mayo Clinic Phoenix: 69-year-old woman, AI-ECG amyloidosis probability prompted biopsy",
+        "model_version": "AI-ECG amyloidosis model",
+        "outcome": "recurred",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11205191/"
+      },
+      {
+        "date": "2025-07-26",
+        "setting": "Mayo Clinic Health System, La Crosse: AI-ECG used in defibrillator decision",
+        "model_version": null,
+        "outcome": "unknown",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12666949/"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "Mayo authors: AI-ECG flags low EF, 41-year-old recovers to 55%",
+  "metric": "at four months his ejection fraction had improved to 55%",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

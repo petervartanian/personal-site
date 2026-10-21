@@ -1,0 +1,99 @@
+{
+  "id": "AIBD-0063",
+  "version": 3,
+  "title": "Lunit INSIGHT CXR flags incidental nodules on chest radiographs taken for other reasons; 13 patients at Yongin Severance Hospital had resectable lung cancer",
+  "summary": "AI on routine chest X-rays flagged nodules in 13 patients not suspected of lung cancer; all had resectable cancer, 7 stage I, and surgery.",
+  "date_observed": "2020-03-01",
+  "account": "At Yongin Severance Hospital, Yongin, South Korea, the deep-learning software Lunit INSIGHT CXR (versions 2 and 3, Lunit Inc.) was applied to chest radiographs. Kwak and colleagues reported in PLOS ONE on 10 March 2023 that among 75 patients with resectable lung cancer between March 2020 and February 2022, 13 (17.3%) had cancers found incidentally because the software flagged a nodule on a radiograph taken for an unrelated reason, for example a 60-year-old man, a current smoker, imaged before cholecystectomy, whose left upper lobe adenocarcinoma was stage IA1 (he saw a pulmonologist three days later, after the radiologist's report). The paper reports that eight of the 13 saw a pulmonologist the same day, before the radiologist's official report (its Table 1 is not fully consistent with this figure); all 13 had resection and seven were stage I needing no further treatment.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Lunit INSIGHT CXR is built to detect and localise abnormalities, including nodules, on chest radiographs; incidental detection of lung cancer is its intended function.",
+  "system": "Lunit INSIGHT CXR",
+  "model_version": "versions 2 and 3",
+  "developer": "Lunit Inc.",
+  "deployer": "Yongin Severance Hospital, Yonsei University College of Medicine",
+  "location": "Yongin, South Korea",
+  "domain": "Healthcare - thoracic radiology / lung cancer",
+  "segment": "AI applied to routine hospital chest radiographs",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "Closest fit for detection of unsuspected disease. The paper is a case series of 13 individually tabulated patients with surgical outcomes, so it is treated as discrete events (benefit created or restored) rather than a general benefit without an event cohort. Individual case dates are not given; the date observed is the first day of the March 2020 to February 2022 collection period.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -3,
+      "reason": "Thirteen patients had early, resectable lung cancer diagnosed and operated on; seven were stage I and needed no further treatment. A survival benefit is plausible but not demonstrated in the paper."
+    },
+    {
+      "group": "organizational",
+      "depth": -1,
+      "reason": "Eight patients were seen by a pulmonologist on the day of the radiograph, before the formal report, shortening the diagnostic pathway."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The software flagged all 13 nodules and its results were visible to ordering clinicians on PACS immediately after the radiograph; the authors assume from medical-record timestamps that the AI results aided the same-day consultations in 8 of 13 patients, and acknowledge that whether clinicians acted on the AI result or on the radiologist's report cannot be settled from the study. Radiologists also read the films. In 12 of 13 cases the radiologist's report described an abnormality at the site, so there the contribution is earlier attention to findings nobody was looking for; in one (patient 12) the report read 'No active lung disease', so the AI flagged a cancer that the formal report missed."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Kwak SH, Kim EK, Kim MH, Lee EH, Shin HJ (2023). Incidentally found resectable lung cancer with the usage of artificial intelligence on chest radiographs. PLOS ONE 18(3):e0281690.",
+      "title": "Incidentally found resectable lung cancer with the usage of artificial intelligence on chest radiographs",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10004566/",
+      "date": "2023-03-10",
+      "written_by": "deployer",
+      "quote": "Eight patients (61.5%) consulted a pulmonologist promptly on the same day when the chest radiograph was taken and before they received the radiologist's official report."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Kwak SH et al. (2023). PLOS ONE 18(3):e0281690 (second quotation).",
+      "title": "Incidentally found resectable lung cancer with the usage of artificial intelligence on chest radiographs",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10004566/",
+      "date": "2023-03-10",
+      "written_by": "deployer",
+      "quote": "Seven patients (53.8%) were in stage I, which meant no additional treatment was required after surgery."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Routine AI analysis of chest radiographs with results visible to ordering clinicians in real time",
+      "A prompt pulmonology referral pathway for AI-flagged nodules"
+    ],
+    "must_hold": [
+      "Clinicians review AI flags on films ordered for non-pulmonary reasons",
+      "CT follow-up and tissue diagnosis for flagged nodules"
+    ],
+    "echoes": []
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "81",
+    "title": "Researchers find evidence of racial, gender, and socioeconomic bias in chest X-ray classifiers",
+    "url": "https://incidentdatabase.ai/cite/81",
+    "severity": null,
+    "group": "personal",
+    "basis": "Same system class and task, AI classification of routine chest radiographs: the classifiers studied showed gender, racial and socioeconomic bias that underdiagnoses patients, the group Lunit's incidental nodule flags benefited."
+  },
+  "headline": "Lunit INSIGHT CXR finds 13 resectable lung cancers incidentally",
+  "metric": "13 (17.3%) had cancers found incidentally because the software flagged a nodule",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 81 (high confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/81",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Account and AI-role statement corrected against the paper's Table 1 and limitations: the example patient (patient 2) is a current smoker who saw a pulmonologist three days after the radiologist's report, the same-day consultations are the authors' timestamp-based assumption rather than a demonstrated AI effect, and one of the 13 radiologist reports (patient 12) read 'No active lung disease'.",
+      "source": "Kwak SH, Kim EK, Kim MH, Lee EH, Shin HJ (2023). PLOS ONE 18(3):e0281690, Table 1 and Discussion (limitations), https://pmc.ncbi.nlm.nih.gov/articles/PMC10004566/",
+      "editor": "AIBD"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "id": "AIBD-0114",
+  "version": 1,
+  "title": "China Medical University Hospital's AI mass-spectrometry platform predicts ceftazidime-resistant Stenotrophomonas maltophilia within an hour; 78-year-old woman switched to levofloxacin, extubated and discharged",
+  "summary": "AI read of a MALDI-TOF spectrum flagged ceftazidime resistance in 1 hour; 78-year-old septic woman switched to levofloxacin and recovered.",
+  "date_observed": "2022-07-01",
+  "account": "A 78-year-old woman with diabetes, hypertension and chronic kidney disease was admitted to China Medical University Hospital, Taichung, Taiwan, in mid-April 2022 with swollen legs; she developed rhabdomyolysis, acute kidney failure and coma, was intubated, and in late May developed pneumonia, treated with ceftazidime while sputum culture confirmed Stenotrophomonas maltophilia. The hospital's 智抗菌平台 (Intelligent Anti-bacterial Platform), a machine-learning model over routine MALDI-TOF mass spectra, predicted within one hour that the isolate was ceftazidime-resistant and suggested levofloxacin; the team switched, the lung infection improved within a week, she was extubated in early July (day not given; first of month used) and went home in late July 2022. The hospital presented the case on 26 October 2022.",
+  "category": "harm prevented",
+  "unexpected": false,
+  "purpose": "The platform's core, the 智能抗藥性細菌快速預測系統 (intelligent rapid prediction system for antibiotic-resistant bacteria), was built to predict resistance from routine MALDI-TOF spectra within an hour instead of the two to three days the hospital gives for conventional susceptibility testing, so that an effective antibiotic is given earlier; this case is that intended use.",
+  "system": "智抗菌平台 (Intelligent Anti-bacterial Platform) of China Medical University Hospital, in hospital-wide use since February 2022; its core 智能抗藥性細菌快速預測系統 applies machine learning to routine MALDI-TOF mass spectra linked to susceptibility records, covering nine bacterial species including Stenotrophomonas maltophilia",
+  "model_version": null,
+  "developer": "China Medical University Hospital, Taichung (team of superintendent Der-Yang Cho 周德陽, Po-Ren Hsueh 薛博仁 of the Department of Laboratory Medicine, and Jiaxin Yu 游家鑫)",
+  "deployer": "China Medical University Hospital, Taichung",
+  "location": "Taichung, Taiwan",
+  "domain": "Healthcare - clinical microbiology and antibiotic therapy",
+  "segment": "Hospital laboratory AI (antibiotic-resistance prediction from MALDI-TOF spectra)",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "No listed type names a health outcome. Chosen because the documented gain is turnaround time: a resistance prediction in one hour where the hospital says conventional susceptibility testing takes two to three days, which is what let the team switch antibiotics earlier. Improved Knowledge Discovery was the alternative, but the same result was obtainable by standard testing; the AI changed when it arrived.",
+  "registry_ids": {
+    "oecd_aim": "2022-10-25-1879"
+  },
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -4,
+      "reason": "The hospital describes a patient in mortal danger from sepsis and severe pneumonia caused by a multidrug-resistant organism it says carries 33% mortality, on an antibiotic the model predicted to be ineffective; after the switch she improved within a week, was extubated and discharged, and the hospital calls the rescue timely and life-saving. This rests on the treating hospital's own account at its press conference."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The platform's model read the isolate's routine MALDI-TOF spectrum and predicted ceftazidime resistance within one hour, about two days ahead of the conventional susceptibility result the hospital says takes two to three days, and suggested levofloxacin; the clinicians made the switch and the antibiotic did the curing. The hospital puts the model's accuracy at 92% and argues that each hour of delayed effective therapy in sepsis raises mortality by 7.6%, but the case is reported only by the treating hospital, without independent review, and the counterfactual is earlier rather than different treatment."
+  },
+  "evidence": [
+    {
+      "kind": "news report",
+      "citation": "中央社 (Central News Agency), 記者郝雪卿 (2022). 78歲婦人感染超級細菌命危 AI質譜儀輔助治療. CNA, Taichung, 26 October 2022, reporting the hospital's press conference and quoting superintendent 周德陽 and vice-superintendent 薛博仁.",
+      "title": "78歲婦人感染超級細菌命危 AI質譜儀輔助治療",
+      "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
+      "date": "2022-10-26",
+      "written_by": "independent",
+      "quote": "關鍵1小時內運用智抗菌平台啟用AI質譜儀輔助分析，選出正確藥物"
+    },
+    {
+      "kind": "news report",
+      "citation": "中央社 (Central News Agency), 記者郝雪卿 (2022). CNA, 26 October 2022 (second quotation, on the outcome).",
+      "title": "78歲婦人感染超級細菌命危 AI質譜儀輔助治療",
+      "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
+      "date": "2022-10-26",
+      "written_by": "independent",
+      "quote": "患者後續肺部浸潤改善，7月上旬順利拔管後，康復出院"
+    },
+    {
+      "kind": "news report",
+      "citation": "自由健康網 (Liberty Times), 記者蔡淑媛 (2022). 7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命. Liberty Times, Taichung, 26 October 2022, quoting 周德陽 and 薛博仁.",
+      "title": "7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命",
+      "url": "https://health.ltn.com.tw/article/breakingnews/4102412",
+      "date": "2022-10-26",
+      "written_by": "independent",
+      "quote": "1小時能快速預測有抗藥性，準確率達92%"
+    },
+    {
+      "kind": "news report",
+      "citation": "自由健康網 (Liberty Times), 記者蔡淑媛 (2022). Liberty Times, 26 October 2022 (second quotation, on the drug switch).",
+      "title": "7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命",
+      "url": "https://health.ltn.com.tw/article/breakingnews/4102412",
+      "date": "2022-10-26",
+      "written_by": "independent",
+      "quote": "醫療團隊發現原先用藥有抗藥性，立刻換上無抗藥性的抗生素"
+    },
+    {
+      "kind": "news report",
+      "citation": "華人健康網 (Top1Health), 記者黃曼瑩 (2022). 8旬嬤感染「超級細菌」陷昏迷…AI質譜儀快找抗藥性，阻止病情惡化. 26 October 2022.",
+      "title": "8旬嬤感染「超級細菌」陷昏迷…AI質譜儀快找抗藥性，阻止病情惡化",
+      "url": "https://www.top1health.com/Article/240/90334",
+      "date": "2022-10-26",
+      "written_by": "independent",
+      "quote": "1小時內即預測該超級細菌對抗生素Ceftazidime具有其抗藥性"
+    },
+    {
+      "kind": "news report",
+      "citation": "中天新聞網 (CTi News), 記者藍麗琪 (2022). 八旬老婦感染「超級細菌」 黃金救命關鍵1小時 靠AI精準選藥「成功續命」！. Syndicated on Yahoo奇摩新聞, 26 October 2022.",
+      "title": "八旬老婦感染「超級細菌」 黃金救命關鍵1小時 靠AI精準選藥「成功續命」！",
+      "url": "https://tw.news.yahoo.com/%E5%85%AB%E6%97%AC%E8%80%81%E5%A9%A6%E6%84%9F%E6%9F%93-%E8%B6%85%E7%B4%9A%E7%B4%B0%E8%8F%8C-%E9%BB%83%E9%87%91%E6%95%91%E5%91%BD%E9%97%9C%E9%8D%B51%E5%B0%8F%E6%99%82-%E9%9D%A0ai%E7%B2%BE%E6%BA%96%E9%81%B8%E8%97%A5-%E6%88%90%E5%8A%9F%E7%BA%8C%E5%91%BD-020303572.html",
+      "date": "2022-10-26",
+      "written_by": "independent",
+      "quote": "系統並建議改用氟喹諾酮類抗生素（levofloxacin）"
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Yu J, Lin HH, Tseng KH, Tien N, Hsueh PR, Cho DY (2023). Direct prediction of ceftazidime-resistant Stenotrophomonas maltophilia from routine MALDI-TOF mass spectra using machine learning. Journal of Infection 86(2): e58-e60, letter, online 9 September 2022, doi:10.1016/j.jinf.2022.09.005. All authors at China Medical University Hospital; the letter has no abstract, so its keywords are quoted.",
+      "title": "Direct prediction of ceftazidime-resistant Stenotrophomonas maltophilia from routine MALDI-TOF mass spectra using machine learning",
+      "url": "https://doi.org/10.1016/j.jinf.2022.09.005",
+      "date": "2022-09-09",
+      "written_by": "makers",
+      "quote": "Ceftazidime; Levofloxacin; Stenotrophomonas maltophilia; Machine Learning; Maldi–tof Mass Spectra"
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Yu J, Tien N, Liu YC, Cho DY, Chen JW, Tsai YT, Huang YC, Chao HJ, Chen CJ (2022). Rapid Identification of Methicillin-Resistant Staphylococcus aureus Using MALDI-TOF MS and Machine Learning from over 20,000 Clinical Isolates. Microbiology Spectrum 10(2): e00483-22, online 16 March 2022, doi:10.1128/spectrum.00483-22. Validation of the platform's MRSA model, not of the S. maltophilia model used in this case.",
+      "title": "Rapid Identification of Methicillin-Resistant Staphylococcus aureus Using MALDI-TOF MS and Machine Learning from over 20,000 Clinical Isolates",
+      "url": "https://doi.org/10.1128/spectrum.00483-22",
+      "date": "2022-03-16",
+      "written_by": "makers",
+      "quote": "For the data set comprising 20,359 clinical isolates, the area under the receiver operating curve of the classification model was 0.78 to 0.88."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "The hospital's own laboratory identifies isolates by MALDI-TOF, so a spectrum exists as soon as a culture grows",
+      "A machine-learning classifier trained on the hospital's spectra and susceptibility records for Stenotrophomonas maltophilia and ceftazidime, one of nine species the platform covers",
+      "The platform returns the resistance prediction and a suggested alternative to the treating team within an hour"
+    ],
+    "must_hold": [
+      "The organism and antibiotic are ones the model was trained for",
+      "Clinicians act on the prediction before the conventional susceptibility result arrives",
+      "An effective alternative antibiotic is available and tolerated by the patient"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "Intelligent Anti-bacterial Platform flags resistance in an hour",
+  "metric": "flagged ceftazidime resistance in 1 hour",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the OECD Monitor entry and the cited sources.",
+      "source": "https://oecd.ai/en/incidents/2022-10-25-1879",
+      "editor": "AIBD"
+    }
+  ]
+}

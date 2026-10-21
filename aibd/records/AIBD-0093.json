@@ -1,0 +1,125 @@
+{
+  "id": "AIBD-0093",
+  "version": 3,
+  "title": "Togo's Novissi programme targeted rural emergency cash with machine learning on satellite imagery and mobile-phone data",
+  "summary": "ML on satellite imagery and phone metadata set eligibility for Novissi rural cash; 138,531 beneficiaries paid, Nov 2020 to Aug 2021",
+  "date_observed": "2020-11-02",
+  "account": "The Government of Togo launched the Novissi emergency cash programme on 8 April 2020 and on 2 November 2020 extended it to rural areas using a machine-learning pipeline built with UC Berkeley and IPA researchers. Satellite imagery produced poverty estimates for every canton to rank the poorest; within eligible cantons a model trained on mobile-phone metadata predicted each subscriber's consumption to decide who was paid. Beneficiaries self-registered by USSD and received mobile-money installments of 8,170 CFA (women) or 7,000 CFA (men). The World Bank and Government of Togo report 138,531 rural beneficiaries from November 2020 to August 2021, funded by GiveDirectly (US$10 million). The Nature evaluation found phone-based targeting reduced exclusion errors by 4–21% relative to geographic alternatives.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Prioritise the poorest cantons and the poorest mobile subscribers within them for COVID-19 emergency cash transfers in the absence of a social registry.",
+  "system": "Novissi rural targeting pipeline: satellite-imagery poverty maps for canton ranking plus supervised machine learning on anonymised mobile-phone call detail records for individual eligibility",
+  "model_version": null,
+  "developer": "Academic team from IPA, CEGA and UC Berkeley (Aiken and Blumenstock, UC Berkeley; Bellue, University of Mannheim; Karlan and Udry, Northwestern University) for the Government of Togo",
+  "deployer": "Government of Togo, Ministry of Digital Economy and Transformation, with GiveDirectly",
+  "location": "Rural cantons, Togo",
+  "domain": "Social protection and humanitarian cash transfers",
+  "segment": "Government social assistance",
+  "benefit_type": "Improved Accessibility",
+  "taxonomy_note": "Closest fit: the benefit is access to emergency cash for rural poor people with no registry coverage; the targeting-accuracy gain itself has no taxonomy category. Benefit created or restored chosen because the sources identify the deployment (Novissi model 2), the registry-identified beneficiaries (138,531) and the outcome (installments paid).",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -2,
+      "reason": "Five mobile-money installments of 8,170 CFA (women) or 7,000 CFA (men) to each of 138,531 rural beneficiaries during COVID-19 restrictions (World Bank case study, Table 1)."
+    },
+    {
+      "group": "organizational",
+      "depth": -2,
+      "reason": "The Government of Togo delivered shock-responsive rural assistance without a social registry; the World Bank documents the model as a reusable case study."
+    },
+    {
+      "group": "societal",
+      "depth": -3,
+      "reason": "Material to many: 138,531 rural beneficiaries reached, and the Nature evaluation reports exclusion errors 4–21% lower than geographic targeting."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "Decisive for who was paid: canton ranking and individual eligibility were both set by machine-learning predictions, while humans fixed the budget, thresholds and registration rules. The Nature evaluation is co-authored by the team that built the targeting method; the World Bank/Government of Togo case study is independent of the developers."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Aiken, E., Bellue, S., Karlan, D., Udry, C., Blumenstock, J. E. (2022). Machine learning and phone data can improve targeting of humanitarian aid. Nature 603, 864–870 (the quotation is the Extended Data Fig. 1 caption, panel a, with its reference markers omitted).",
+      "title": "Machine learning and phone data can improve targeting of humanitarian aid",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8967719/",
+      "date": "2022-03-16",
+      "written_by": "makers",
+      "quote": "Satellite imagery of Togo is used to construct micro-estimates of poverty (middle), which are overlayed with population data to produce canton-level estimates of wealth."
+    },
+    {
+      "kind": "report",
+      "citation": "Lawson, C., Koudeka, M., Cárdenas Martínez, A. L., Alberro Encinas, L. I., George Karippacheril, T. (2023). Novissi Togo: Harnessing Artificial Intelligence to Deliver Shock-Responsive Social Protection. World Bank and Government of Togo, Social Protection and Jobs Discussion Paper No. 2306, September 2023 (month only; first day used).",
+      "title": "Novissi Togo: Harnessing Artificial Intelligence to Deliver Shock-Responsive Social Protection",
+      "url": "https://documents.worldbank.org/curated/en/099751009222330502/pdf/IDU0e83f857301ff1047bf082710a8d21ddf42c3.pdf",
+      "date": "2023-09-01",
+      "written_by": "deployer",
+      "quote": "Subsequently, the program was extended on November 2, 2020, to rural areas with a high prevalence of poverty (henceforth referred to as model 2)."
+    },
+    {
+      "kind": "press release",
+      "citation": "GiveDirectly (2021). Innovations in Togo and the future of cash distribution. GiveDirectly, The Future of Cash, published 20 April 2021 (implementing partner and funder, not the AI developer).",
+      "title": "Innovations in Togo and the future of cash distribution",
+      "url": "https://www.givedirectly.org/togo/",
+      "date": "2021-04-20",
+      "written_by": "deployer",
+      "quote": "Leveraging machine learning in combination with satellite imagery and cell phone metadata, the program was able to identify those living in extreme poverty"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Satellite-imagery poverty map ranking cantons",
+      "Consumption model trained on mobile-phone metadata with a recent phone survey as ground truth",
+      "USSD self-registration and mobile-money payment rails",
+      "Government and GiveDirectly funding decision"
+    ],
+    "must_hold": [
+      "Target population owns and uses mobile phones (non-subscribers are excluded by design)",
+      "Operators provide anonymised call detail records",
+      "Recent ground-truth survey available for training",
+      "Mobile-money infrastructure in place"
+    ],
+    "echoes": [
+      {
+        "date": "2021-01-01",
+        "setting": "Nigeria Rapid Response Register: ML poverty maps from satellite imagery selected 1,163 poorest urban wards for COVID-19 cash (month only known; first day used)",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "Date: Human Rights Watch (2021) 'began in January 2021', https://www.hrw.org/report/2021/07/28/between-hunger-and-the-virus/the-impact-of-the-covid-19-pandemic-on-people-living, and Smythe and Blumenstock (2022) PNAS 'mid-January 2021', https://pmc.ncbi.nlm.nih.gov/articles/PMC9371736/; ward count: World Bank (2021) PAD P176935, https://documents.worldbank.org/curated/en/717321706545772846/pdf/Nigeria-National-Social-Safety-Net-Program-Scale-Up-Project.pdf (the PAD itself dates the USSD self-registration launch to June 2021)"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "546",
+    "title": "Algorithm to Distribute Social Welfare Reported for Oversimplifying Economic Vulnerability",
+    "url": "https://incidentdatabase.ai/cite/546",
+    "severity": null,
+    "group": "personal",
+    "basis": "World Bank-backed poverty-targeting algorithm for cash transfers oversimplified household vulnerability, excluding poor Jordanians; Novissi used the same machine-learning targeting of the poor."
+  },
+  "headline": "Novissi targeting pays 138,531 rural beneficiaries in Togo",
+  "metric": "reduced exclusion errors by 4–21% relative to geographic alternatives",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 546 (high confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/546",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Corrected the GiveDirectly item to its printed title and 20 April 2021 date, marked the World Bank discussion paper as month-only, restored '(middle)' to the Nature quote and labelled it as the Extended Data Fig. 1 caption, re-stated the developer team from the Nature affiliations (Bellue at Mannheim, Karlan and Udry at Northwestern) and the World Bank's IPA/CEGA/UC Berkeley description, reworded summary and headline because the ML set eligibility while 138,531 is the count of registrants validated and paid, and cited HRW and PNAS rather than the PAD for the January 2021 Nigeria echo date since the PAD gives June 2021.",
+      "source": "https://www.givedirectly.org/togo/; https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8967719/fullTextXML; https://documents.worldbank.org/curated/en/099751009222330502/pdf/IDU0e83f857301ff1047bf082710a8d21ddf42c3.pdf; https://www.hrw.org/report/2021/07/28/between-hunger-and-the-virus/the-impact-of-the-covid-19-pandemic-on-people-living",
+      "editor": "AIBD"
+    }
+  ]
+}

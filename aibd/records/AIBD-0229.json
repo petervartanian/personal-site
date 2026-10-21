@@ -1,0 +1,75 @@
+{
+  "id": "AIBD-0229",
+  "version": 1,
+  "title": "Pindrop's deepfake detector attributes the Biden New Hampshire robocall to ElevenLabs technology, corroborated by UC Berkeley",
+  "summary": "After a deepfake Biden robocall targeted New Hampshire's Jan 2024 primary, Pindrop's analysis against 120+ voice engines pointed to ElevenLabs; Hany Farid's Berkeley team reached the same conclusion.",
+  "date_observed": "2024-01-26",
+  "account": "The date is WIRED's publication; Pindrop's blog post appeared the day before. Voters in New Hampshire received an AI-generated robocall impersonating President Biden before the 23 January 2024 primary. Pindrop, a company that builds synthetic-audio detection tools, analysed a 39-second clip, checking its patterns against more than 120 voice synthesis engines, and its CEO Vijay Balasubramaniyan told WIRED the result came back well north of 99 percent for ElevenLabs. Hany Farid's UC Berkeley team, initially skeptical, ran its own model on the same sample and concluded with high confidence that it was AI-generated and likely ElevenLabs; ElevenLabs' own detector returned 84 percent, a result WIRED reproduced. In May 2024 the New Hampshire Attorney General announced 26 charges against Steven Kramer and the FCC proposed a $6 million fine (NHPR); the fetched sources do not connect those actions to Pindrop's analysis.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Identify synthetic (deepfake) audio and attribute it to the generating system.",
+  "system": "Pindrop deepfake audio analysis (voice-engine attribution)",
+  "model_version": null,
+  "developer": "Pindrop",
+  "deployer": "Pindrop research team (developer and deployer are the same company); independent corroboration by Hany Farid's UC Berkeley model",
+  "location": null,
+  "domain": "Election integrity / deepfake detection",
+  "segment": "Technology",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "The system attributed a harm after the fact rather than stopping it; the brief's 'stopped a specific documented harm' condition is not met and the record is admitted under the owner's relaxed rule with that limit stated.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "societal",
+      "depth": -1,
+      "reason": "Public attribution of the robocall's toolchain, corroborated by an academic team; no enforcement outcome in the fetched sources is traced to the analysis."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The attribution is the vendor's own analysis, reported by WIRED with named sources and independently replicated by Farid's team; ElevenLabs did not comment on the incident. The sources document no harm stopped and do not link the later charges against Kramer or the FCC fine to Pindrop's finding."
+  },
+  "evidence": [
+    {
+      "kind": "news report",
+      "citation": "Kate Knibbs, WIRED, 26 Jan 2024",
+      "title": "Researchers Say the Deepfake Biden Robocall Was Likely Made With Tools From AI Startup ElevenLabs",
+      "url": "https://www.wired.com/story/biden-robocall-deepfake-elevenlabs/",
+      "date": "2024-01-26",
+      "written_by": "independent",
+      "quote": "Our model says with high confidence that it is AI-generated and likely to be ElevenLabs,"
+    },
+    {
+      "kind": "news report",
+      "citation": "Todd Bookman, New Hampshire Public Radio, 23 May 2024",
+      "title": "Political operative linked to AI Biden robocalls facing charges in NH, FCC fines",
+      "url": "https://www.nhpr.org/politics/2024-05-23/political-operative-linked-to-ai-biden-robocalls-facing-charges-in-nh-fcc-fines",
+      "date": "2024-05-23",
+      "written_by": "independent",
+      "quote": "In total, he’s facing 26 charges, including 13 felonies."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "A clean audio sample of the deepfake",
+      "A library of fingerprints for many commercial voice-synthesis engines",
+      "A second, independent model run on the same sample"
+    ],
+    "must_hold": [
+      "The generating engine must be among those fingerprinted",
+      "Sample length and quality sufficient for attribution"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "Pindrop traces the Biden New Hampshire robocall to ElevenLabs",
+  "metric": "the result came back well north of 99 percent for ElevenLabs",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

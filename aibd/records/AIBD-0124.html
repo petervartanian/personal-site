@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Code Intelligence&#39;s Spark finds a heap use-after-free in wolfSSL – AIBD</title>
+<meta name="description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<link rel="canonical" href="https://petervartanian.xyz/aibd/records/AIBD-0124.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI Benefits Database">
+<meta property="og:title" content="Code Intelligence&#39;s Spark finds a heap use-after-free in wolfSSL – AIBD">
+<meta property="og:description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta property="og:url" content="https://petervartanian.xyz/aibd/records/AIBD-0124.html">
+<meta property="og:image" content="https://petervartanian.xyz/aibd/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Code Intelligence&#39;s Spark finds a heap use-after-free in wolfSSL – AIBD">
+<meta name="twitter:description" content="Documented cases of AI systems producing benefits, each with its sources, the depth of benefit for the people, organisations and society involved, and a confidence grade.">
+<meta name="twitter:image" content="https://petervartanian.xyz/aibd/share.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="record-page d2">
+<div class="page">
+<header class="masthead sheet">
+  <div class="mast-row">
+<a class="wordmark" href="../index.html">AI Benefits Database</a>    <form class="find" data-search="../records/index.html" role="search"><input name="q" type="search" aria-label="Search records" data-search-input placeholder="Search"></form>
+    <nav class="mast-nav" aria-label="Site">
+      <a href="../index.html" >Cases</a>
+      <a href="../records/index.html" aria-current="page">Table</a>
+      <a href="../method.html" >Method</a>
+      <a href="../data.html" >Data</a>
+    </nav>
+  </div>
+</header>
+<main class="sheet">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Table</a> / AIBD-0124 / v1</nav>
+<div class="record">
+  <aside class="aside">
+    <svg class="gauge" viewBox="0 0 250 200" role="img" aria-label="This record's depth by stakeholder group">
+      <line class="zero" x1="40" y1="20" x2="240" y2="20"/>
+      <text class="axis zero-label" x="30" y="24" text-anchor="end">0</text>
+      <line class="tick" x1="40" y1="50" x2="240" y2="50"/>
+      <text class="axis" x="30" y="54" text-anchor="end">-1</text>
+      <line class="tick" x1="40" y1="80" x2="240" y2="80"/>
+      <text class="axis" x="30" y="84" text-anchor="end">-2</text>
+      <line class="tick" x1="40" y1="110" x2="240" y2="110"/>
+      <text class="axis" x="30" y="114" text-anchor="end">-3</text>
+      <line class="tick" x1="40" y1="140" x2="240" y2="140"/>
+      <text class="axis" x="30" y="144" text-anchor="end">-4</text>
+      <line class="tick" x1="40" y1="170" x2="240" y2="170"/>
+      <text class="axis" x="30" y="174" text-anchor="end">-5</text>
+      <g class="d2">
+        <circle class="g" cx="70" cy="80" r="8"/>
+        <text class="gl" x="70" y="66" text-anchor="middle">organizational</text>
+      </g>
+    </svg>
+    <dl class="props">
+      <div><dt>Observed</dt><dd>1 November 2024</dd></div>
+<div><dt>Location</dt><dd>Bonn, Germany</dd></div>      <div><dt>System</dt><dd>Spark, AI test agent in Code Intelligence&#39;s CI Fuzz (invoked as &#39;cifuzz spark&#39;)</dd></div>
+<div><dt>Developer</dt><dd>Code Intelligence GmbH</dd></div><div><dt>Deployer</dt><dd>Code Intelligence GmbH (beta test run by the vendor)</dd></div>      <div><dt>Type</dt><dd><a href="../taxonomy.html">Improved Knowledge Discovery</a></dd></div>
+      <div><dt>Sector</dt><dd>Safety and rescue, Software security</dd></div>
+      <div><dt>Sources</dt><dd class="mono">6</dd></div>
+      <div><dt>Confidence</dt><dd>medium</dd></div>
+      <div><dt>Replications</dt><dd class="mono">0</dd></div>
+<div><dt>oecd aim</dt><dd class="mono">2025-01-09-764d</dd></div>    </dl>
+    <p class="cite">Cite AIBD-0124, v1, 20 October 2026. <a href="AIBD-0124.json">JSON</a></p>
+  </aside>
+
+  <article>
+    <div class="record-head">
+      <h1>Code Intelligence&#39;s Spark finds a heap use-after-free in wolfSSL</h1>
+      <p class="sum">Spark, an AI fuzz-test agent, found a heap use-after-free in wolfSSL in late Oct 2024; fixed in PR 8139 and shipped in 5.7.6 on 31 Dec 2024.</p>
+    </div>
+
+    <section class="sec">
+      <h2>What happened</h2>
+      <p class="prose">Spark, the AI test agent in Code Intelligence GmbH&#39;s CI Fuzz product, was run on wolfSSL, an open-source cryptography library for embedded and IoT devices, in its final beta test in late October 2024. By the vendor&#39;s account, after one command the agent chose the target, generated and ran a fuzz test, and exposed a heap use-after-free in pem_read_bio_key(), where a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024 and shipped it in release 5.7.6 on 31 December 2024, crediting &#39;Peter&#39; in the release notes; the vendor&#39;s blog post on the find is by its engineer Peter Samarin.</p>
+      <p class="purpose"><b>What it was built to do.</b> Spark was built to find bugs and vulnerabilities autonomously by selecting functions to fuzz and generating and running fuzz tests; finding this flaw was exactly that function, exercised in the vendor&#39;s own beta test.</p>
+    </section>
+
+    <section class="sec" data-panel="who">
+      <h2>Who benefited</h2>
+      <ul class="ratings">
+        <li class="d2"><div><div class="big"><i class="sw"></i>-2</div><small>organizational</small></div><p>wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path and merged the fix within days (PR 8139, 1 November 2024), shipping it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release&#39;s Vulnerabilities section, no CVE for it appears on wolfSSL&#39;s vulnerabilities page, and the vendor itself says the exploit conditions &#39;don&#39;t seem easy to meet&#39;, so the benefit is material but bounded.</p></li>
+      </ul>
+    </section>
+    <section class="sec" data-panel="evidence">
+      <h2>Sources</h2>
+      <ol class="sources">
+        <li><div>
+          <div class="kind"><span>other</span><span>written by the beneficiary</span><span>31 December 2024</span></div>
+          <h3><a href="https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable" rel="noopener">wolfSSL Release 5.7.6 (Dec 31, 2024)</a></h3>
+<p class="cit">wolfSSL (2024). wolfSSL Release 5.7.6 (Dec 31, 2024), release notes, Bug Fixes. GitHub, wolfSSL/wolfssl, tag v5.7.6-stable, published 31 December 2024.</p><blockquote>Fix for potential heap use after free with wolfSSL_PEM_read_bio_PrivateKey. Thanks to Peter for the issue reported. (PR 8139)</blockquote>        </div></li>
+        <li><div>
+          <div class="kind"><span>other</span><span>written by the beneficiary</span><span>1 November 2024</span></div>
+          <h3><a href="https://github.com/wolfSSL/wolfssl/pull/8139" rel="noopener">20241031-fixes (wolfSSL pull request 8139)</a></h3>
+<p class="cit">douzzer (2024). 20241031-fixes. wolfSSL/wolfssl pull request 8139, GitHub, opened and merged 1 November 2024; commit b41ce042 changes src/pk.c.</p><blockquote>src/pk.c: in pem_read_bio_key(), fix invalid read (ZD#18875).</blockquote>        </div></li>
+        <li><div>
+          <div class="kind"><span>press release</span><span>written by the makers</span><span>3 January 2025</span></div>
+          <h3><a href="https://web.archive.org/web/20250109141038/https://www.code-intelligence.com/blog/ai-generated-fuzz-test-wolfssl-vulnerability" rel="noopener">How AI-generated fuzz test uncovered a vulnerability in wolfSSL</a></h3>
+<p class="cit">Samarin, P. (2025). How AI-generated fuzz test uncovered a vulnerability in wolfSSL. Code Intelligence blog, 3 January 2025; Wayback Machine capture of 9 January 2025 (the live domain did not resolve on 20 October 2026).</p><blockquote>The vulnerability was identified in wolfSSL, an open-source cryptography library widely used in developing embedded devices and IoT systems, during the final week of October 2024.</blockquote>        </div></li>
+        <li><div>
+          <div class="kind"><span>press release</span><span>written by the makers</span><span>9 January 2025</span></div>
+          <h3><a href="https://www.prnewswire.com/news-releases/code-intelligence-launches-spark-its-ai-test-agent-that-autonomously-uncovers-vulnerabilities-without-human-interaction-302345548.html" rel="noopener">Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction</a></h3>
+<p class="cit">Code Intelligence (2025). Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction. PR Newswire, Bonn, 9 January 2025.</p><blockquote>The only human involvement was launching a single command to run the AI Test Agent; analyzing the code, generating a relevant test case, and running it was done autonomously.</blockquote>        </div></li>
+        <li><div>
+          <div class="kind"><span>news report</span><span>13 January 2025</span></div>
+          <h3><a href="https://qa-financial.com/german-startup-to-launch-worlds-first-ai-test-agent/" rel="noopener">German startup to launch world&#39;s first AI test agent</a></h3>
+<p class="cit">Willems, M. (2025). German startup to launch world&#39;s first AI test agent. QA Financial, 13 January 2025.</p><blockquote>Brueggemann claimed his firm shared the bug with WolfSSL’s team, which went on to issue a warning and update in December of last year.</blockquote>        </div></li>
+        <li><div>
+          <div class="kind"><span>news report</span><span>3 February 2025</span></div>
+          <h3><a href="https://www.scworld.com/feature/how-ai-can-revolutionize-vulnerability-research" rel="noopener">How AI can revolutionize vulnerability research</a></h3>
+<p class="cit">French, L. (2025). How AI can revolutionize vulnerability research. SC Media, 3 February 2025.</p><blockquote>Code Intelligence’s Spark autonomously discovering a heap-based user-after-free vulnerability in popular open-source wolfSSL library during its beta testing in October 2024.</blockquote>        </div></li>
+      </ol>
+    </section>
+
+    <section class="sec" data-panel="system">
+      <h2>The system's part</h2>
+      <p class="prose">On the vendor&#39;s account, Spark selected the target, generated the fuzz test and ran it after a single &#39;cifuzz spark&#39; command, with one manual step to confirm that the finding was real and exploitable under narrow conditions. wolfSSL&#39;s pull request and release notes confirm the bug, its location in pem_read_bio_key(), the timing and the reporter&#39;s first name, but mention neither AI nor Code Intelligence; the autonomous discovery therefore rests on the vendor&#39;s statements, repeated by QA Financial and SC Media, not on an independent test.</p>
+    </section>
+
+    <section class="sec" data-panel="replication">
+      <h2>Replication</h2>
+<p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="grid-2">
+        <div><h3>What produced it</h3><ul class="plain"><li>wolfSSL&#39;s source tree (before 5.7.6) set up as a CI Fuzz project by the vendor</li><li>A single &#39;cifuzz spark&#39; command, after which the agent chose pem_read_bio_key() as a target and generated and ran a fuzz test</li><li>A sanitizer-detectable heap use-after-free in the BIO write-back path of pem_read_bio_key() that a generated input could trigger</li><li>A maintainer team that tracked the report as ZD#18875 and merged a fix within three days of the discovery</li></ul></div>
+        <div><h3>What must hold again</h3><ul class="plain"><li>A human must confirm the finding: the vendor says the one manual step was assessing that the bug exists and is exploitable under specific conditions</li><li>The beneficiary must be an identifiable project with a public fix record; without wolfSSL&#39;s PR and release notes the event would rest on vendor claims alone</li><li>The AI&#39;s share of the work is described only by the vendor; wolfSSL&#39;s records name the reporter, not the tool, so the autonomy claim cannot be replicated without the vendor&#39;s product</li></ul></div>
+      </div>
+    </section>
+
+
+
+    <section class="sec" data-panel="provenance">
+      <h2>Revisions</h2>
+      <table class="mini">
+        <thead><tr><th>Date</th><th>Change</th><th>Source</th><th>Editor</th></tr></thead>
+        <tbody><tr><td class="when">20 October 2026</td><td>Record drafted from the OECD Monitor entry and the cited sources.</td><td class="src">https://oecd.ai/en/incidents/2025-01-09-764d</td><td class="mono">AIBD</td></tr></tbody>
+      </table>
+    </section>
+  </article>
+</div>
+</main>
+<footer class="footer sheet">
+  <div class="footer-inner">
+    <a href="../data/records.json">records.json</a>
+    <a href="../data/records.csv">records.csv</a>
+    <a href="../index.html#matrix">Matrix</a>
+    <a href="../taxonomy.html">Benefit types</a>
+    <a href="../evidence.html">Off the scale</a>
+    <a href="../rejected.html">Not admitted</a>
+    <a href="../method.html">Method</a>
+    <a href="../colophon.html">Colophon</a>
+    <span>CC BY 4.0</span>
+  </div>
+</footer>
+</div>
+<div class="tip" data-tip aria-hidden="true"></div>
+<script src="../app.js"></script>
+</body>
+</html>

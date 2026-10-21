@@ -1,0 +1,129 @@
+{
+  "id": "AIBD-0177",
+  "version": 1,
+  "title": "VeriPol flags 25 and 39 false robbery reports in Murcia and Málaga in a one-week 2017 pilot; Spain's police drop it in 2024",
+  "summary": "The Spanish National Police's text-based false-report classifier flagged 25 false robberies in Murcia and 39 in Málaga in a week in June 2017 (versus 3 and 12 in the same month over the prior decad...",
+  "date_observed": "2019-02-01",
+  "account": "VeriPol, a model for detecting false robbery reports from their text, was developed by researchers from the Complutense and Carlos III universities with police officer Miguel Camacho-Collados and published in Knowledge-Based Systems (Quijano-Sánchez, Liberatore, Camacho-Collados and Camacho-Collados, 2018); the abstract reports a validation accuracy of 91% on more than 1,000 reports from 2015, an improvement of more than 15% over expert officers, and a pilot study in June 2017 showing a lower bound on empirical precision of about 83%. Scientific American (1 February 2019) reported that the one-week pilot in Murcia and Málaga detected 25 and 39 false robberies respectively, against 3 and 12 in the same month over the previous decade, and quoted Camacho Collados on colleagues wasting time on cases that never occurred. Civio (25 March 2025) reported that the police said that in 83.54% of reports flagged false the complainant confessed, that the Interior Ministry announced nationwide use in 2018, that 49,702 complaints were analysed in 2019 with 2,338 deemed false and 3,762 in 2022 with 511 deemed false, and that use stopped on 21 October 2024 because the tool was not valid in judicial proceedings; a University of Valencia report (September 2024) criticised the 1,122-report training sample, missing officer training and regional language variation. AlgorithmWatch (27 October 2020) found no independent verification of effectiveness since deployment. The pilot month carries no day, so Scientific American's publication date is used.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "Estimate the probability that a robbery report is false from its text to support police decisions.",
+  "system": "VeriPol",
+  "model_version": null,
+  "developer": "Researchers at Universidad Complutense de Madrid and Universidad Carlos III de Madrid with Spanish National Police officer Miguel Camacho-Collados",
+  "deployer": "Spanish National Police (Policía Nacional), Ministry of the Interior",
+  "location": "Murcia and Málaga, Spain",
+  "domain": "Fraud and false reporting",
+  "segment": "False robbery reports filed with police",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "Benefit figures are the developers' and police's own; the independent sources document the absence of evaluation, the Valencia report's criticisms and the 2024 discontinuation. Pilot counts are cohort totals, so general benefit with null depths. Scientific American notes that false robbery reports are filed to cash in on insurance claims.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "Flagged-report counts and confession rates are police aggregates with no independent confirmation."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "No measured effect on insurance fraud or police resources is documented."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The peer-reviewed paper describes a natural-language-processing and machine-learning classifier with L1 feature selection that outputs the probability a report is false; the paper's authors include the police developer, and AlgorithmWatch and Civio report that no independent verification was done before the police stopped using it in October 2024."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Lara Quijano-Sánchez, Federico Liberatore, José Camacho-Collados and Miguel Camacho-Collados, Knowledge-Based Systems, June 2018, DOI 10.1016/j.knosys.2018.03.010",
+      "title": "Applying automatic text-based detection of deceptive language to police reports: Extracting behavioral patterns from a multi-step classification model to understand how we lie to the police",
+      "url": "https://doi.org/10.1016/j.knosys.2018.03.010",
+      "date": null,
+      "written_by": "makers",
+      "quote": "A pilot study shows a lower bound on the empirical precision of 83%, approx."
+    },
+    {
+      "kind": "news report",
+      "citation": "Emiliano Rodríguez Mega, Scientific American, 1 February 2019",
+      "title": "An Algorithm That Can Spot When People Lie to the Police",
+      "url": "https://www.scientificamerican.com/article/an-algorithm-that-can-spot-when-people-lie-to-the-police/",
+      "date": "2019-02-01",
+      "written_by": "independent",
+      "quote": "Many colleagues were wasting a lot of time investigating cases that had never occurred. It was a problem."
+    },
+    {
+      "kind": "news report",
+      "citation": "Naiara Bellio, AlgorithmWatch, 27 October 2020",
+      "title": "Spanish police plan to extend use of its lie-detector while efficacy is unclear",
+      "url": "https://algorithmwatch.org/en/spain-police-veripol/",
+      "date": "2020-10-27",
+      "written_by": "independent",
+      "quote": "only labeled 5 of 100 true complaints as false"
+    },
+    {
+      "kind": "news report",
+      "citation": "Ter García, Carmen Torrecillas, Adrián Maqueda, David Cabo and Lucas Laursen, Civio, 25 March 2025",
+      "title": "Spanish National Police stop using Veripol, its star AI for detecting false reports",
+      "url": "https://civio.es/transparencia/2025/03/25/national-police-stop-using-veripol-its-star-ai-for-detecting-false-reports/",
+      "date": "2025-03-25",
+      "written_by": "independent",
+      "quote": "in 83.54% of the reports identified as false by Veripol, the complainant ended up confessing to lying."
+    },
+    {
+      "kind": "news report",
+      "citation": "Adrián Maqueda, Carmen Torrecillas, David Cabo, Lucas Laursen and Ter García, AlgorithmWatch, 1 April 2025",
+      "title": "Spanish National Police Halts Veripol, Its Flagship AI To Detect False Reports",
+      "url": "https://algorithmwatch.org/en/spanish-police-halts-veripol/",
+      "date": "2025-04-01",
+      "written_by": "independent",
+      "quote": "it had been proved being of no validity in judicial proceedings."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Training on 1,122 robbery reports from 2015 (534 genuine, 588 false) labelled by one experienced officer",
+      "Text features selected by L1 penalisation plus heuristic rules, scoring reports at the police station"
+    ],
+    "must_hold": [
+      "Reports written in the same language register as the training data (the Valencia report faulted missing regional variation)",
+      "Officer training and protocols for acting on scores",
+      "Independent field evaluation, absent before discontinuation"
+    ],
+    "echoes": [
+      {
+        "date": null,
+        "setting": "Nationwide use in Spain (2019)",
+        "model_version": null,
+        "outcome": "unknown",
+        "source": "AlgorithmWatch and Civio: 49,702 complaints analysed, 2,338 flagged false, no verification"
+      },
+      {
+        "date": null,
+        "setting": "Spain (2022)",
+        "model_version": null,
+        "outcome": "unknown",
+        "source": "Civio: 3,762 complaints analysed, 511 deemed false"
+      },
+      {
+        "date": "2024-10-21",
+        "setting": "Spanish National Police",
+        "model_version": null,
+        "outcome": "did not recur",
+        "source": "Civio: use stopped; Ministry said the tool is not valid in judicial proceedings"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "VeriPol flags 25 and 39 false robberies in Murcia and Málaga",
+  "metric": "25 and 39 false robberies respectively, against 3 and 12 in the same month",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

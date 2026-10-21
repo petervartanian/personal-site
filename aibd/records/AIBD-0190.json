@@ -1,0 +1,80 @@
+{
+  "id": "AIBD-0190",
+  "version": 1,
+  "title": "Chicago's food inspection forecasting model finds critical violations 7.5 days earlier in a double-blind retrodiction",
+  "summary": "Double-blind retrodiction of 1,637 Chicago inspections (Sept-Oct 2014): the model would have found 69% of critical-violation sites in the first half of the work versus 55%, 7.5 days earlier.",
+  "date_observed": "2015-05-19",
+  "account": "Chicago's Department of Innovation and Technology and Department of Public Health, with pro bono data scientists from Allstate Insurance and the Civic Consulting Alliance, built a model that assigns each of the city's 15,000+ food establishments a likelihood of a critical violation from predictors such as previous critical or serious violations, three-day average high temperature, nearby garbage and sanitation complaints, facility type, nearby burglaries, licences, time since last inspection, length of operation and the inspector assigned. In a double-blind retrodiction, the Department of Public Health inspected 1,637 establishments in its normal order during September and October 2014; 258 (almost 16%) had at least one critical violation, 141 (55%) found in the first month. Re-ordering the same inspections by the model's probabilities would have found 178 (69%) in the first half of the work, on average 7.5 days earlier, with an additional 37 establishments cited in the first month. The Harvard Ash Center's Data-Smart City Solutions wrote up the pilot on 19 May 2015, which is the date used here because the city page carries no date; the code is open source in R.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "Forecast which Chicago food establishments are most likely to have critical sanitation violations so that inspectors visit them first.",
+  "system": "Food Inspection Forecasting (predictive analytics model, open-sourced in R)",
+  "model_version": null,
+  "developer": "City of Chicago Department of Innovation and Technology with the Department of Public Health, Allstate Insurance data scientists and the Civic Consulting Alliance",
+  "deployer": "Chicago Department of Public Health",
+  "location": "Chicago, United States",
+  "domain": "Food safety / public health",
+  "segment": "Restaurant inspection targeting",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "General benefit because the 7.5-day gain comes from a simulation applied to a fixed two-month inspection record, not from a live re-ordering of inspections; depths are null. The city page is an official report by the body that built and uses the tool; the Data-Smart article is an independent write-up. The fetched sources describe a probability model over a dozen variables but do not name the algorithm, so whether it is machine learning rather than conventional statistics is not stated.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "The sources document a retrospective simulation (69% vs 55% found in the first half; 7.5 days earlier) and no live-deployment outcome."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "Earlier discovery 'potentially after patrons became ill' is stated as a rationale; no illness outcome is documented."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "Developer and deployer are the same body: the City of Chicago built the model in-house with pro bono partners and the Department of Public Health is the user. The evaluation re-scored inspections after they were completed, so the model did not change any inspection in the pilot. Model type is not stated in the fetched sources."
+  },
+  "evidence": [
+    {
+      "kind": "report",
+      "citation": "City of Chicago. Food Inspection Forecasting: Optimizing Inspections with Analytics. chicago.github.io (undated; copyright 2014-2017).",
+      "title": "Food Inspection Forecasting - City of Chicago",
+      "url": "https://chicago.github.io/food-inspections-evaluation/",
+      "date": null,
+      "written_by": "makers",
+      "quote": "Over the two month pilot, establishments with violations were found, on average, 7 and a half days earlier."
+    },
+    {
+      "kind": "news report",
+      "citation": "Thornton S. Delivering Faster Results with Food Inspection Forecasting: Chicago's Analytics-Driven Plan to Prevent Foodborne Illness. Data-Smart City Solutions, Harvard Ash Center, 19 May 2015.",
+      "title": "Delivering Faster Results with Food Inspection Forecasting",
+      "url": "http://datasmart.ash.harvard.edu/news/article/delivering-faster-results-with-food-inspection-forecasting-631",
+      "date": "2015-05-19",
+      "written_by": "independent",
+      "quote": "When using an analytics-based procedure, Chicago was able to discover critical violations, on average, seven days earlier than if they had used the traditional inspection procedure."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Open inspection, 311 complaint, business licence and weather data on the city's data portal",
+      "Fewer than three dozen inspectors for 15,000+ establishments, so ordering matters",
+      "A fixed two-month inspection record to re-score"
+    ],
+    "must_hold": [
+      "The predictor set (prior violations, nearby sanitation complaints, facility type, days since last inspection, inspector) remains available",
+      "A critical-violation base rate near 15%"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "Chicago's model finds critical violations 7.5 days earlier",
+  "metric": "69% of critical-violation sites in the first half of the work versus 55%, 7.5 days earlier",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

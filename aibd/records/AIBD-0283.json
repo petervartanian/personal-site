@@ -1,0 +1,79 @@
+{
+  "id": "AIBD-0283",
+  "version": 1,
+  "title": "MADGRAV anomaly-detection pipeline reports 47 gravitational-wave detections in LIGO O3 and O4 data, 44 shared with coherent WaveBurst and none new",
+  "summary": "Inguglia et al. (arXiv:2609.39583, 30 Sep 2026; v2 19 Oct 2026): sequential CNNs recover 47 catalogued high-mass events over 442.9 days of coincident LIGO data; no uncatalogued candidate survives.",
+  "date_observed": "2026-09-30",
+  "account": "Gianluca Inguglia, Huw Haigh and Ulyana Dupletsa of the Marietta Blau Institute for Particle Physics (Austrian Academy of Sciences, Vienna) and Alessandro Longo (University of Urbino and INFN Florence) posted 'MADGRAV: a multilevel anomaly-detection pipeline for gravitational-wave searches applied to LIGO data' on arXiv on 30 September 2026 (version 2, 19 October 2026; submitted to the European Physical Journal C). The pipeline is 'a series of sequential convolutional neural networks that perform anomaly detection, glitch classification, coherence testing, and signal ranking' applied to one-second Q-transform windows of Hanford and Livingston data from O3a, O3b, O4a and O4b, 442.9 days of coincident livetime in total. The abstract reports 47 detections with a false alarm rate below one per year and p_astro above 0.9, of which '44 are shared with the minimally modelled coherent WaveBurst search'; the three others are catalogued events, and the paper states that 'no candidate without a catalog counterpart survives the analysis'. Recovery rises with mass: 8.1% of confident catalogue events below 30 solar masses, 39.8% between 30 and 100, and 53.3% above 100 for network SNR above 10. The authors conclude that anomaly-detection pipelines 'can serve as an independent detection channel complementary to matched filtering in the high-mass high-SNR regime'. The earlier verifier noted the paper confirms no new event independently; the date observed is the preprint date.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "MADGRAV was built to search LIGO data for high-mass compact binary coalescences by anomaly detection; recovering catalogued events was that purpose.",
+  "system": "MADGRAV (multilevel anomaly-detection pipeline of sequential convolutional neural networks)",
+  "model_version": "arXiv:2609.39583v2",
+  "developer": "Marietta Blau Institute for Particle Physics, Austrian Academy of Sciences, with the University of Urbino and INFN Florence",
+  "deployer": "The same authors, on public LIGO O3 and O4 data",
+  "location": "Vienna, Austria",
+  "domain": "Astrophysics / gravitational-wave astronomy",
+  "segment": "Academic research on public detector data",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "General benefit: the pipeline re-detects catalogued events and claims no new one, so there is no attributable discovery and all depths are null. The claimed value is an independent, minimally modelled detection channel; the only source is the authors' preprint, not yet peer reviewed. All evidence is developer-authored, marked as written by the makers in line with the database's convention for developer-written papers; no independent source for the result was found.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "Recovery of 47 known events with 44 shared with coherent WaveBurst demonstrates the method; no new event, catalogue adoption or operational use is documented."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "A complementary search channel is proposed; no scientific result beyond re-detection is claimed."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The convolutional networks performed the whole detection chain from anomaly detection to ranking, and the authors are the developers. Every detection matches a published catalogue event; the authors state that no candidate without a catalogue counterpart survives, so the pipeline added no new discovery in this analysis."
+  },
+  "evidence": [
+    {
+      "kind": "preprint",
+      "citation": "Inguglia G, Haigh H, Dupletsa U, Longo A (2026). MADGRAV: a multilevel anomaly-detection pipeline for gravitational-wave searches applied to LIGO data. arXiv:2609.39583 (v1 30 September 2026, v2 19 October 2026); submitted to EPJ C. (Authored by the pipeline's developers.)",
+      "title": "MADGRAV: a multilevel anomaly-detection pipeline for gravitational-wave searches applied to LIGO data",
+      "url": "https://arxiv.org/abs/2609.39583",
+      "date": "2026-09-30",
+      "written_by": "makers",
+      "quote": "Of the 47 detections, 44 are shared with the minimally modelled coherent WaveBurst search."
+    },
+    {
+      "kind": "preprint",
+      "citation": "Inguglia G et al. (2026), arXiv:2609.39583v2, HTML version (statement on catalogue counterparts). (Authored by the pipeline's developers.)",
+      "title": "MADGRAV: a multilevel anomaly-detection pipeline for gravitational-wave searches applied to LIGO data",
+      "url": "https://arxiv.org/html/2609.39583v2",
+      "date": "2026-10-19",
+      "written_by": "makers",
+      "quote": "no candidate without a catalog counterpart survives the analysis"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Sequential CNNs for anomaly detection, glitch classification, coherence testing and signal ranking on one-second Q-transform windows of Hanford and Livingston data",
+      "442.9 days of coincident livetime across O3a, O3b, O4a and O4b"
+    ],
+    "must_hold": [
+      "High-mass, high-SNR sources: the recovered fraction rises from 8.1% below 30 solar masses to 53.3% above 100",
+      "Two-detector coherence between Hanford and Livingston"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "MADGRAV recovers 47 catalogued LIGO events; no new candidate",
+  "metric": "47 detections with a false alarm rate below one per year and p_astro above 0.9",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

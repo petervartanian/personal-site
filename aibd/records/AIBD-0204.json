@@ -1,0 +1,138 @@
+{
+  "id": "AIBD-0204",
+  "version": 1,
+  "title": "BrainGate participants T17 (ALS) and T18 (spinal cord injury) type on a two-handed QWERTY keyboard through an intracortical neuroprosthesis, reaching 22 words per minute at 1.6% word error",
+  "summary": "Two BrainGate2 participants typed by attempted finger movement at up to 22 wpm, 1.6% word error, in at-home research sessions (Mar 2026).",
+  "date_observed": "2026-03-16",
+  "account": "In the BrainGate2 pilot trial (NCT00912041), T17, a 33-year-old man with ALS, tetraplegia, anarthria and ventilator dependence, and T18, a 48-year-old man with a C4 ASIA A spinal cord injury about 18 months before enrolment, each received six 64-electrode Utah arrays in precentral gyrus. A five-layer gated recurrent unit decoder with a 5-gram language model turned attempted finger movements into QWERTY keystrokes after as few as 30 calibration sentences. In research sessions at each participant's place of residence, on trial days 44 to 144, T18 reached 110 characters (22 words) per minute with a 1.6% word error rate and T17 47 characters per minute; both typed sentences of their own choosing. Published in Nature Neuroscience, 16 March 2026.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "The typing neuroprosthesis was built to restore communication for people with paralysis by decoding attempted finger movements into keystrokes; the typing the two participants achieved is exactly that purpose.",
+  "system": "BrainGate2 intracortical typing neuroprosthesis: six 64-electrode Utah arrays (Blackrock Microsystems) per participant, a five-layer gated recurrent unit decoder trained with connectionist temporal classification loss, and a 5-gram language model implemented as a Kaldi weighted finite-state transducer",
+  "model_version": null,
+  "developer": "BrainGate consortium: Massachusetts General Hospital Center for Neurotechnology and Neurorecovery, Brown University and VA Providence Healthcare System, with Stanford University and UC Davis co-authors",
+  "deployer": "BrainGate2 pilot clinical trial (sponsor-investigator Leigh R. Hochberg; FDA Investigational Device Exemption G090003), with research sessions at the participants' residences",
+  "location": null,
+  "domain": "Neurotechnology / assistive communication",
+  "segment": "People with tetraplegia from ALS or cervical spinal cord injury",
+  "benefit_type": "Improved Accessibility",
+  "taxonomy_note": "Filed as a created benefit on the strength of individually observed outcomes for two identifiable trial participants; the event is a research-session demonstration, not a device in everyday use, and the paper states that it 'does not report any clinical trial-related outcomes', which is why it is not filed as a category-3 study.",
+  "registry_ids": {
+    "oecd_aim": "2026-03-16-f051"
+  },
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -2,
+      "reason": "Two identifiable participants, one of whom has anarthria and only eye movement left, typed sentences of their own choosing at up to 22 words per minute, but only in research sessions; the paper lists independent use as future work, so the gain is material rather than life-changing."
+    },
+    {
+      "group": "societal",
+      "depth": -1,
+      "reason": "The authors report higher throughput than current state-of-the-art hand-motor iBCI decoding, and UCSF's Edward Chang, not on the paper, called it among the fastest motor-cortex typing BCIs yet; two participants and no population effect."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The decoder is the component that makes typing possible: a recurrent neural network of five gated recurrent unit layers with 512 units each, trained with CTC loss on 20 ms bins of threshold crossings and spike-band power, maps attempted finger movements to characters, and a 5-gram language model corrects them; without it the arrays only record. The error rate figures are post-language-model word error rates. Performance figures come from the developers' own peer-reviewed paper; the paper declares that the MGH Translational Research Center has research support agreements with several BCI companies for which L.R.H. provides consultative input."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Jude, J. J., Levi-Aharoni, H., Acosta, A. J., et al. (2026). Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis. Nature Neuroscience 29, 2613–2622, online 16 March 2026.",
+      "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis",
+      "url": "https://www.nature.com/articles/s41593-026-02218-y",
+      "date": "2026-03-16",
+      "written_by": "makers",
+      "quote": "Typing speed is user-regulated, reaching 110 characters per minute, resulting in 22 words per minute with a word error rate of 1.6%."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Jude, J. J., et al. (2026). Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis. Open-access full text, Europe PMC PMC13633126 (PMID 41840138).",
+      "title": "Restoring rapid natural bimanual typing with a neuroprosthesis after paralysis (Europe PMC full text)",
+      "url": "https://europepmc.org/article/PMC/PMC13633126",
+      "date": "2026-03-16",
+      "written_by": "makers",
+      "quote": "All research sessions were performed at each participant's place of residence."
+    },
+    {
+      "kind": "press release",
+      "citation": "Mass General Brigham (2026). Investigational Brain Implant Restores High-Speed Communication. Press release as reproduced by Neuroscience News, 16 March 2026.",
+      "title": "Investigational Brain Implant Restores High-Speed Communication",
+      "url": "https://neurosciencenews.com/brain-computer-interface-typing-paralysis-30325/",
+      "date": "2026-03-16",
+      "written_by": "makers",
+      "quote": "Both participants used the device from the comfort of their own place of residence, demonstrating the potential for translation and at-home use in the future."
+    },
+    {
+      "kind": "press release",
+      "citation": "Brown University (2026). Brain computer interface enables rapid communication for two people with paralysis. Release as reproduced by Medical Xpress, 16 March 2026.",
+      "title": "Brain computer interface enables rapid communication for two people with paralysis",
+      "url": "https://medicalxpress.com/news/2026-03-brain-interface-enables-rapid-communication.html",
+      "date": "2026-03-16",
+      "written_by": "makers",
+      "quote": "BCIs are on track to become an important new alternative to what's currently offered."
+    },
+    {
+      "kind": "news report",
+      "citation": "Lewis, T. / Scientific American (2026). Brain implant allows people who are paralyzed to type using their thoughts at speed of texting. Scientific American, 16 March 2026.",
+      "title": "Brain implant allows people who are paralyzed to type using their thoughts at speed of texting",
+      "url": "https://www.scientificamerican.com/article/brain-implant-allows-people-who-are-paralyzed-to-type-using-their-thoughts/",
+      "date": "2026-03-16",
+      "written_by": "independent",
+      "quote": "At about 22 words per minute, this is among the fastest motor-cortex typing BCIs yet"
+    },
+    {
+      "kind": "news report",
+      "citation": "Horak, M. / ALS News Today (2026). Brain implant decodes finger moves so paralyzed patients can type. ALS News Today, 18 March 2026.",
+      "title": "Brain implant decodes finger moves so paralyzed patients can type",
+      "url": "https://alsnewstoday.com/news/brain-implant-decodes-finger-moves-paralyzed-patients-type/",
+      "date": "2026-03-18",
+      "written_by": "independent",
+      "quote": "For many people with paralysis, when losing use of both the hands and the muscles of speech, communication can become difficult or impossible."
+    },
+    {
+      "kind": "news report",
+      "citation": "Europa Press / Infosalus (2026). Una neuroprótesis experimental permite a personas con parálisis escribir con la mente como si usaran un teclado. Infosalus, 17 March 2026.",
+      "title": "Una neuroprótesis experimental permite a personas con parálisis escribir con la mente como si usaran un teclado",
+      "url": "https://www.infosalus.com/salud-investigacion/noticia-neuroprotesis-experimental-permite-personas-paralisis-escribir-mente-si-usaran-teclado-20260317071649.html",
+      "date": "2026-03-17",
+      "written_by": "independent",
+      "quote": "Para muchas personas con parálisis, al perder el uso de las manos y los músculos del habla, la comunicación puede volverse difícil o imposible."
+    },
+    {
+      "kind": "other",
+      "citation": "ClinicalTrials.gov (n.d.). BrainGate2: Feasibility Study of an Intracortical Neural Interface System for Persons With Tetraplegia. NCT00912041, sponsor Leigh R. Hochberg, MD, PhD.",
+      "title": "BrainGate2: Feasibility Study of an Intracortical Neural Interface System for Persons With Tetraplegia",
+      "url": "https://clinicaltrials.gov/study/NCT00912041",
+      "date": null,
+      "written_by": "makers",
+      "quote": "BrainGate2: Feasibility Study of an Intracortical Neural Interface System for Persons With Tetraplegia"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Six 64-electrode Utah arrays per participant placed in precentral gyrus after fMRI-guided parcellation, giving hand-motor electrodes for both hands.",
+      "A recurrent neural network decoder trained with CTC loss on attempted finger movements, recalibrated from as few as 30 sentences, plus a 5-gram language model.",
+      "A keyboard paradigm the participants already knew; neither was a touch typist, and both learned the layout over sessions.",
+      "A pilot-trial infrastructure that brings research staff and equipment to the participant's residence."
+    ],
+    "must_hold": [
+      "Use was confined to research sessions; independent use through online decoder training is described in the paper as future work.",
+      "Performance differed by participant: T18 reached 22 words per minute with word error below 7% across blocks, T17 47 characters per minute with word error mostly below 15%.",
+      "Invasive surgery is required, the device is investigational under an FDA IDE, and the paper reports no clinical-trial safety outcomes."
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "BrainGate2 neuroprosthesis lets a paralysed man type 22 wpm",
+  "metric": "T18 reached 110 characters (22 words) per minute with a 1.6% word error rate",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the OECD Monitor entry, the Nature Neuroscience paper (read in full through the Europe PMC open-access copy, PMC13633126), the Mass General Brigham release as reproduced by Neuroscience News, the Brown University release as reproduced by Medical Xpress, Scientific American, ALS News Today, Europa Press via Infosalus (one of the Monitor's seven Spanish-language sources) and the ClinicalTrials.gov entry via its API. Kept at benefit created or restored following AIBD-0005, AIBD-0051 and AIBD-0052, which file single- and two-participant BCI trial demonstrations as created benefits for identifiable people; the paper is not an aggregate study, but it reports research-session performance only and states that it 'does not report any clinical trial-related outcomes', which the the taxonomy note records. The paper dates sessions only as trial days relative to surgery (T17 days 56–144, T18 days 44–107), so the online publication date, which is also the Monitor's date, is used. Participant ages and diagnoses come from the paper's Methods; the Boston Globe's STAT republication was fetched but its extraction swapped the participants' diagnoses, so it is not cited. La Razón and LaSexta from the Monitor's list and nature.com without a cookie-bypass could not be fetched. The WebSearch budget was exhausted, so sources were found through Google and Bing news feeds and the Crossref and Europe PMC APIs.",
+      "source": "https://oecd.ai/en/incidents/2026-03-16-f051",
+      "editor": "AIBD"
+    }
+  ]
+}

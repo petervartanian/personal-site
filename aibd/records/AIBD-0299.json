@@ -1,0 +1,116 @@
+{
+  "id": "AIBD-0299",
+  "version": 1,
+  "title": "HEART-SAFE algorithm on Samsung Watch5 Pro PPG data identifies an 82-year-old's terminal cardiac arrest during palliative withdrawal at Amsterdam UMC; retrospective, no outcome changed",
+  "summary": "Amsterdam UMC case: a Samsung Watch5 Pro worn after treatment withdrawal captured PPG; the HEART-SAFE algorithm, run afterwards, marked circulatory arrest in step with the ECG; the patient died.",
+  "date_observed": "2026-01-29",
+  "account": "Van den Beuken, Tuinman, Nideröst, Goossen, van Schuppen, Loer, Schwarte and Schober, of Amsterdam UMC with Utek B.V. and MiBida (the HEART-SAFE project's partners), reported in Resuscitation Plus on 29 January 2026 (publication date used; the event is undated) what they call the first detailed description of automated detection of a spontaneous, non-procedural cardiac arrest from consumer smartwatch data. An 82-year-old man with a right cerebellar haemorrhage and documented do-not-resuscitate directives was moved to palliative care; after about 42 hours life-sustaining treatment was withdrawn and he died about 1.5 hours later. With the family's consent a Samsung Watch5 Pro was placed on his right wrist about 40 minutes after withdrawal, with ECG, invasive arterial pressure and clinical photoplethysmography as reference. The green-light PPG signal was later run through the group's previously described algorithm, which analyses five-second windows using peak detection with minimum-amplitude safeguards; it flagged circulatory arrest when the ECG showed agonal bradycardia with the monitor reading 0/min and mean arterial pressure had fallen to 9 mmHg, while low-amplitude oscillations at about 30 per minute persisted, and produced no false alarms over the observation period. The authors state that the algorithm was applied retrospectively, that they chose not to run it live on the device because it is still in development and to avoid alarms disturbing the family, and that the controlled end-of-life setting does not represent out-of-hospital cardiac arrest. Their 2025 proof-of-principle study (Resuscitation; abstract read) reported 28 of 31 circulatory arrests identified in volunteers with cuff-restricted arm flow, cardioplegic surgery patients and slaughtered swine, with alerts delivered to the HartslagNu test environment. Samsung is not an author; the fetched text describes peak detection, not machine learning.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "The HEART-SAFE project builds device-independent software to detect circulatory arrest from smartwatch photoplethysmography and alert emergency services; this case tests the detection half on a true arrest.",
+  "system": "HEART-SAFE photoplethysmography cardiac-arrest detection algorithm applied to Samsung Watch5 Pro sensor data",
+  "model_version": "Samsung Watch5 Pro; HEART-SAFE preliminary algorithm as described in the 2025 proof-of-principle",
+  "developer": "HEART-SAFE project (Amsterdam UMC with Utek B.V. and MiBida) for the algorithm; Samsung for the Watch5 Pro",
+  "deployer": "Amsterdam UMC intensive care unit (feasibility evaluation with institutional review board approval)",
+  "location": "Amsterdam, the Netherlands",
+  "domain": "Emergency medicine / resuscitation",
+  "segment": "Research use of a consumer smartwatch for automated cardiac-arrest detection",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "General benefit with null depths: the patient was dying under palliative care, the algorithm ran afterwards, and nothing changed for anyone; the output is evidence that a consumer watch's signal suffices to detect a true arrest. Knowledge Discovery is the nearest type. The case report and the proof-of-principle are written by the algorithm's developers and are marked vendor-authored; the only independent item is the accompanying editorial, whose text was not read. The fetched description is of a peak-detection algorithm with amplitude thresholds, not a machine-learning model.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": null,
+      "reason": "The patient died as expected under palliative withdrawal; the detection was retrospective and no alert, treatment or resuscitation followed."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "The authors present the case as a step towards real-world detection of unwitnessed arrests; no deployment or survival outcome exists."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The algorithm, applied after the fact to exported green-PPG data, marked the arrest when residual pulse amplitude fell below its thresholds, shortly before the monitor flatlined, with no false alarms; it was not running on the watch and triggered nothing. Only the developers' own papers describe the event, and they describe peak detection with amplitude safeguards rather than machine learning; Samsung's role is limited to the hardware."
+  },
+  "evidence": [
+    {
+      "kind": "case report",
+      "citation": "van den Beuken WMF, Tuinman PR, Nideröst B, Goossen SA, van Schuppen H, Loer SA, Schwarte LA, Schober P (2026). First automated detection of a cardiac arrest using a commercially available smartwatch: a case report. Resuscitation Plus 28:101247 (PMC12914423). Authors are the algorithm's developers (HEART-SAFE).",
+      "title": "First automated detection of a cardiac arrest using a commercially available smartwatch: a case report",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914423/",
+      "date": "2026-01-29",
+      "written_by": "makers",
+      "quote": "The algorithm accurately identified the moment of cardiac arrest in concordance with the clinical reference signals."
+    },
+    {
+      "kind": "case report",
+      "citation": "van den Beuken et al. (2026), Resusc Plus 28:101247, case presentation.",
+      "title": "First automated detection of a cardiac arrest using a commercially available smartwatch: a case report",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914423/",
+      "date": "2026-01-29",
+      "written_by": "makers",
+      "quote": "a commercial consumer-grade smartwatch, Samsung Watch5 Pro, was placed on the patient's right wrist approximately 40 min after WLST."
+    },
+    {
+      "kind": "case report",
+      "citation": "van den Beuken et al. (2026), Resusc Plus 28:101247, discussion.",
+      "title": "First automated detection of a cardiac arrest using a commercially available smartwatch: a case report",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914423/",
+      "date": "2026-01-29",
+      "written_by": "makers",
+      "quote": "A key limitation of this report is that the algorithm was applied retrospectively rather than in real time."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "van den Beuken WMF, Nideröst B, Goossen SA, Kooy TA, Demirtas D, Autar D, Loer SA, Eberl S, van Halm VP, Winkler BE, van Schuppen H, Tuinman PR, Schwarte LA, Schober P (2025). Automated cardiac arrest detection and emergency service alerting using device-independent smartwatch technology: proof-of-principle. Resuscitation 213:110657; doi:10.1016/j.resuscitation.2025.110657.",
+      "title": "Automated cardiac arrest detection and emergency service alerting using device-independent smartwatch technology: proof-of-principle",
+      "url": "https://doi.org/10.1016/j.resuscitation.2025.110657",
+      "date": "2025-05-22",
+      "written_by": "makers",
+      "quote": "Across all three groups, 28 of 31 circulatory arrests were correctly identified, sensitivity 90.3% (95% CI: 74.2%-98.0%), and hour-level specificity was 94.1% (95% CI: 71.3%-99.9%)."
+    },
+    {
+      "kind": "other",
+      "citation": "Veigl C, Billig S (2026). A digital witness for cardiac arrest: are wearables ready for real-world use? Resuscitation Plus 28:101246 (editorial accompanying the case report; PMC12914390).",
+      "title": "A digital witness for cardiac arrest: are wearables ready for real-world use?",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914390/",
+      "date": "2026-01-29",
+      "written_by": "independent",
+      "quote": null
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "A consumer smartwatch collecting green-light PPG through the project's own data-collection software",
+      "Reference ECG, arterial pressure and clinical PPG to time the arrest",
+      "Retrospective application of the HEART-SAFE peak-detection algorithm with minimum-amplitude safeguards"
+    ],
+    "must_hold": [
+      "A live on-device implementation, which the authors deliberately did not use",
+      "Specificity high enough not to overburden emergency services, which the 2025 study says is still needed",
+      "Transfer from a slow, bradycardic end-of-life arrest to sudden arrhythmic out-of-hospital arrests, which the authors say the case does not represent"
+    ],
+    "echoes": [
+      {
+        "date": "2025-05-22",
+        "setting": "Proof-of-principle: volunteers with cuff-restricted arm flow, cardioplegic cardiac-surgery patients and slaughtered swine, with test alerts to the HartslagNu responder network",
+        "model_version": "Samsung Watch5 and Watch5 Pro",
+        "outcome": "recurred",
+        "source": "van den Beuken et al. (2025) Resuscitation, doi:10.1016/j.resuscitation.2025.110657 (28 of 31 arrests detected)"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "HEART-SAFE algorithm flags a terminal arrest from Watch5 Pro PPG",
+  "metric": null,
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

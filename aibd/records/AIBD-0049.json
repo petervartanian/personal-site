@@ -1,0 +1,114 @@
+{
+  "id": "AIBD-0049",
+  "version": 3,
+  "title": "Exomiser prioritisation contributed to rare-disease diagnoses in the 100,000 Genomes Project pilot",
+  "summary": "Phenotype-driven ML prioritisation helped diagnose 25% of 2,183 probands in the NHS pilot; a quarter of diagnoses were immediately actionable.",
+  "date_observed": "2021-11-11",
+  "account": "The 100,000 Genomes Project pilot on rare-disease diagnosis, published in the New England Journal of Medicine on 11 November 2021, applied Exomiser's phenotype-based prioritisation to genome sequences from 2,183 families in the English NHS. Genetic diagnoses were found in 25% of probands, rising to 35% for monogenic disorders, and 92% of the 490 diagnoses came from applied gene panels or Exomiser's top five candidates. Clinicians reported that 134 of the 533 genetic diagnoses, 25%, were of immediate clinical actionability, including medication changes, surveillance recommendations, clinical trial eligibility and reproductive planning.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "Score and rank candidate causative variants against patient phenotypes to make genome-scale rare-disease diagnosis tractable for clinical teams.",
+  "system": "Exomiser phenotype-driven variant prioritisation (machine-learning-assisted scoring and ranking)",
+  "model_version": null,
+  "developer": "Not named in the cited sources; the pilot's phenotype-based prioritisation analysis was led by Damian Smedley's team at Queen Mary University of London and Genomics England.",
+  "deployer": "Genomics England and NHS Genomic Medicine Centres",
+  "location": "England, United Kingdom",
+  "domain": "Clinical genomics / rare disease diagnosis",
+  "segment": "Families with undiagnosed rare disease in a national health system",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "Loose fit. The benefit is clinical diagnosis at cohort scale; the fixed taxonomy has no diagnostic or health-outcome category, and an organisational-efficiency reading also applies because the tool reduces manual variant review.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": null,
+      "reason": "General benefit without an event: clinicians reported that 134 of 533 genetic diagnoses (25%) were of immediate clinical actionability, including medication changes and surveillance, but that is a cohort figure and no individually attributable changed outcome is cited here; cohort-level evidence is not placed on the scale."
+    },
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "General benefit without an event: Exomiser's top five candidates together with applied panels accounted for 92% of the 490 diagnoses, which is an aggregate reduction in manual interpretation burden across the pilot rather than a discrete organisational event; cohort-level evidence is not placed on the scale."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "General benefit without an event: a 25% diagnostic yield across 2,183 families is reported for a national health-system pilot rather than population-wide deployment; cohort-level evidence is not placed on the scale."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "Exomiser scored and ranked candidate variants against each proband's phenotype; the pilot reports that diagnoses were detected in 77% of top-ranked candidate variants and that panels and Exomiser's top five were complementary. Clinical confirmation and reporting were performed by NHS diagnostic laboratories and clinicians, not by the software. Neither cited source says who developed Exomiser; the pilot's prioritisation analysis was led by Damian Smedley's team at Queen Mary University of London and Genomics England, who are among the paper's authors, so an independent evaluation is cited alongside it."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "100,000 Genomes Project Pilot Investigators; Smedley D, Smith KR, Martin A, et al. (2021). 100,000 Genomes Pilot on Rare-Disease Diagnosis in Health Care - Preliminary Report. N Engl J Med.",
+      "title": "100,000 Genomes Pilot on Rare-Disease Diagnosis in Health Care - Preliminary Report",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7613219/",
+      "date": "2021-11-11",
+      "written_by": "deployer",
+      "quote": "With the use of phenotype-based prioritization with the Exomiser to score and rank the most likely causative variants, diagnoses were detected in 77% of the top-ranked candidate variants."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Cooperstein IB, Marwaha S, Ward A, et al. (2025). An optimized variant prioritization process for rare disease diagnostics: recommendations for Exomiser and Genomiser. Genome Med.",
+      "title": "An optimized variant prioritization process for rare disease diagnostics",
+      "url": "https://doi.org/10.1186/s13073-025-01546-1",
+      "date": "2025-10-21",
+      "written_by": "independent",
+      "quote": "the percentage of coding diagnostic variants ranked within the top 10 candidates increased from 49.7% to 85.5%"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Genome sequencing with family data across a national pilot",
+      "Structured phenotype terms of adequate quality",
+      "Exomiser ranking used alongside applied gene panels, with clinical review before reporting"
+    ],
+    "must_hold": [
+      "Genome or exome sequencing with family data where available",
+      "Structured HPO phenotype terms of adequate quality",
+      "Clinical review of ranked candidates before reporting"
+    ],
+    "echoes": [
+      {
+        "date": "2025-10-21",
+        "setting": "Undiagnosed Diseases Network, 386 diagnosed probands, University of Utah and Stanford",
+        "model_version": "Exomiser/Genomiser",
+        "outcome": "recurred",
+        "source": "Cooperstein IB, et al. Genome Med 2025. doi 10.1186/s13073-025-01546-1"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "535",
+    "title": "COVID-19 Detection and Prognostication Models Allegedly Flagged for Methodological Flaws and Underlying Biases",
+    "url": "https://incidentdatabase.ai/cite/535",
+    "severity": null,
+    "group": "societal",
+    "basis": "Both are machine-learning diagnostic decision-support models relied on across health systems; the COVID detection and prognostication models proved unfit for clinical use, harming COVID patients and their healthcare providers."
+  },
+  "headline": "Exomiser helps diagnose 25% of 2,183 probands in the NHS pilot",
+  "metric": "Genetic diagnoses were found in 25% of probands, rising to 35% for monogenic disorders",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 535 (medium confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/535",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Corrected the observation and evidence dates to the paper's publication date of 11 November 2021, restored the 'Preliminary Report' subtitle to the evidence title, moved the record to general benefit without an event with all three depths unset because everything it reports is aggregate, and stopped naming Exomiser's developer, because neither cited source says who built the tool.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7613219/",
+      "editor": "AIBD"
+    }
+  ]
+}

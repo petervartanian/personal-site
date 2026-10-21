@@ -1,0 +1,104 @@
+{
+  "id": "AIBD-0023",
+  "version": 3,
+  "title": "Apple Watch Fall Detection summoning help after out-of-hospital cardiac arrest",
+  "summary": "Apple Watch Fall Detection called 112 and family after a runner's VF collapse; CPR at 6-7 min, full neurological recovery (NL).",
+  "date_observed": "2026-08-12",
+  "account": "In a case report published on 12 August 2026 (event date not stated; publication date used), a 69-year-old man in the Netherlands (the country is not stated in the text; the authors' hospitals are Radboud University Medical Center, Nijmegen, and Slingeland Hospital, Doetinchem) collapsed from ventricular fibrillation while running alone on a dead-end road, hidden behind a hedge. His Apple Watch (reported as Apple Watch 10) with Fall Detection enabled detected the fall and automatically alerted his predefined emergency contacts and the emergency medical services by calling 112. Family members reached him, found him unresponsive and began CPR about 6-7 minutes after the collapse; an ambulance arrived about 1.5 minutes later, defibrillated him and restored circulation. He underwent coronary artery bypass grafting and defibrillator implantation, was discharged on day 29 and made a full neurological recovery.",
+  "category": "harm prevented",
+  "unexpected": false,
+  "purpose": "Fall Detection is built to recognise a hard fall and, if the wearer stays immobile, to call emergency services and notify contacts with the location; that is what it did.",
+  "system": "Apple Watch Fall Detection",
+  "model_version": "Apple Watch Series 10 (reported as 'Apple Watch 10')",
+  "developer": "Apple",
+  "deployer": null,
+  "location": null,
+  "domain": "Emergency medicine / resuscitation",
+  "segment": "Consumer wearables",
+  "benefit_type": "Improved Accessibility",
+  "taxonomy_note": "No listed type covers rescue; chosen because the feature gave an unaccompanied, unconscious person access to emergency services.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -4,
+      "reason": "The patient was alone and hidden from view in cardiac arrest; the automatic alerts brought CPR within 6-7 minutes and he left hospital neurologically intact, which the source presents as life-saving."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The watch's fall-detection classifier recognised the collapse and, with no response from the wearer, placed the 112 call and contact alerts that brought responders; defibrillation and surgery were delivered by humans. The counterfactual is strong because nobody else could see him."
+  },
+  "evidence": [
+    {
+      "kind": "case report",
+      "citation": "Jansen CE, Jaspers Focks J, Manglani Rodriguez S, Pol L, Edgar R, van Royen N, Bonnes JL (2026). Wearable saving lives: a case report. Resuscitation Plus 31:101447.",
+      "title": "Wearable saving lives: a case report",
+      "url": "https://europepmc.org/article/PMC/PMC13543876",
+      "date": "2026-08-12",
+      "written_by": "independent",
+      "quote": "The Apple Watch detected the fall and automatically alerted predefined emergency contacts as well as the emergency medical services by calling 112."
+    },
+    {
+      "kind": "case report",
+      "citation": "Grautoff S, Watol M (2024). Life-saving fall detection by a smartwatch in a case of ventricular fibrillation. Herzschrittmachertherapie + Elektrophysiologie 35(2):140-143. (Abstract only; full text paywalled; smartwatch brand not stated in the abstract.)",
+      "title": "Life-saving fall detection by a smartwatch in a case of ventricular fibrillation",
+      "url": "https://doi.org/10.1007/s00399-024-01026-w",
+      "date": "2024-05-13",
+      "written_by": "independent",
+      "quote": "Through the intervention of the wearer's device, the activated dispatcher called the patient's wife, who found her husband lying unresponsive on the floor."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Fall Detection is enabled on a worn Apple Watch with cellular or phone connectivity",
+      "The wearer collapses with an impact the classifier recognises and then stays immobile",
+      "Emergency services and contacts can reach the shared location quickly"
+    ],
+    "must_hold": [
+      "The watch has connectivity at the scene",
+      "The collapse produces a detectable fall signature",
+      "Responders arrive within the window in which resuscitation can succeed"
+    ],
+    "echoes": [
+      {
+        "date": "2024-05-13",
+        "setting": "elderly man, found by his wife lying unresponsive on the floor; place and setting not stated in the abstract (authors: EMS medical director for the District of Herford and Herford Hospital, Germany); smartwatch brand NOT stated in the accessible abstract (full text paywalled); watch auto-reported the fall from ventricular fibrillation to the local emergency control centre, the dispatcher phoned his wife, EMS resuscitated him, discharged without long-term complications (publication date)",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "Grautoff & Watol (2024). Herzschr Elektrophys 35(2):140-143. https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1007/s00399-024-01026-w&resultType=core&format=json"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "463",
+    "title": "Apple Devices Mistook Skiing Activities, Dialed False Distress Emergency Calls",
+    "url": "https://incidentdatabase.ai/cite/463",
+    "severity": null,
+    "group": "personal",
+    "basis": "Same developer and feature family: Apple Watch automatic emergency calling; Fall Detection summoned 112 for a collapsed runner, while Crash Detection placed false 911 calls for skiers, harming Apple Watch users and emergency dispatchers."
+  },
+  "headline": "Apple Watch Fall Detection calls 112 after runner's VF collapse",
+  "metric": "CPR at 6-7 min, full neurological recovery",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 463 (high confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/463",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Noted in the account that the Netherlands is inferred from the authors' affiliations rather than stated in the case text, and removed 'at home' and 'Herford district' from the Grautoff & Watol echo because the abstract gives no place or setting beyond the patient lying on the floor.",
+      "source": "https://europepmc.org/article/PMC/PMC13543876 ; https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1007/s00399-024-01026-w&resultType=core&format=json",
+      "editor": "AIBD"
+    }
+  ]
+}

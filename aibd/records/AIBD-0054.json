@@ -1,0 +1,104 @@
+{
+  "id": "AIBD-0054",
+  "version": 2,
+  "title": "Myoelectric pattern recognition with augmented reality relieves 48-year phantom limb pain in a treatment-resistant amputee",
+  "summary": "A 72-year-old with 48 years of intractable phantom limb pain reached pain-free periods after ML-driven phantom motor execution.",
+  "date_observed": "2013-03-01",
+  "account": "A 72-year-old man whose below-elbow amputation in 1965 had left him with 48 years of phantom limb pain, resistant to mirror therapy, drugs, acupuncture and hypnosis, was treated by a Chalmers University of Technology / Sahlgrenska University Hospital team (both in Gothenburg; the paper does not name the treatment site) from March 2013 (day not given, so the first of the month is used) over 18 weeks. Surface electromyography from his stump was classified by myoelectric pattern recognition (linear discriminant analysis and a multilayer perceptron in the open-source BioPatRec platform) to drive a virtual limb shown in augmented reality and a racing game. After four weeks he reported episodes of lower pain intensity, after ten weeks near-absent pain developing into completely pain-free periods; his phantom fist relaxed and he could move the phantom freely (Frontiers in Neuroscience, 2014).",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Treat phantom limb pain by letting the patient execute phantom movements decoded from stump muscle activity",
+  "system": "Phantom motor execution: BioPatRec myoelectric pattern recognition (LDA and MLP classifiers) driving augmented/virtual reality and a racing game",
+  "model_version": "BioPatRec, LDA one-vs-one and MLP per degree of freedom",
+  "developer": "Chalmers University of Technology, Biomedical Engineering Division (academic lab; study part-funded by Integrum AB)",
+  "deployer": "Chalmers University of Technology and Sahlgrenska University Hospital, Gothenburg (inferred from author affiliations; the paper does not name the treatment site)",
+  "location": "Gothenburg, Sweden (inferred from author affiliations)",
+  "domain": "Rehabilitation medicine / chronic pain",
+  "segment": "Upper-limb amputees with phantom limb pain",
+  "benefit_type": "Improved Accessibility",
+  "taxonomy_note": "Loose fit; the benefit is pain relief and regained phantom mobility, a health outcome with no exact category in the taxonomy. Evidence is marked independent under the academic-developer convention; note that the 2014 case report states it was partially funded by Integrum AB, and that the first author of the 2016 Lancet trial lists Integrum AB, Mölndal, among his affiliations.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -2,
+      "reason": "An identifiable patient with 48 years of treatment-resistant pain reached pain-free periods and regained phantom movement; the case gives no long-term follow-up, so a durable life-changing effect (-3) is not established."
+    },
+    {
+      "group": "societal",
+      "depth": -1,
+      "reason": "Single case; the same group later ran a 14-patient trial; no population effect shown here."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The pattern-recognition classifiers are what turn stump EMG into predicted phantom movements that the virtual limb executes; the authors argue this engagement of motor circuitry, rather than a mirror of the contralateral limb, is the therapeutic mechanism, so the AI component is central though the single-case design cannot isolate it."
+  },
+  "evidence": [
+    {
+      "kind": "case report",
+      "citation": "Ortiz-Catalan M, Sander N, Kristoffersen MB, Håkansson B, Brånemark R (2014). Treatment of phantom limb pain (PLP) based on augmented reality and gaming controlled by myoelectric pattern recognition: a case study of a chronic PLP patient. Frontiers in Neuroscience 8:24.",
+      "title": "Treatment of phantom limb pain (PLP) based on augmented reality and gaming controlled by myoelectric pattern recognition: a case study of a chronic PLP patient",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3935120/",
+      "date": "2014-02-25",
+      "written_by": "makers",
+      "quote": "The sustained level of pain reported by the patient was gradually reduced to complete pain-free periods."
+    },
+    {
+      "kind": "case report",
+      "citation": "Ortiz-Catalan M, et al. (2014). Frontiers in Neuroscience 8:24 (methods).",
+      "title": "Treatment of phantom limb pain (PLP) based on augmented reality and gaming controlled by myoelectric pattern recognition: a case study of a chronic PLP patient",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3935120/",
+      "date": "2014-02-25",
+      "written_by": "makers",
+      "quote": "Individual and simultaneous phantom movements were predicted using myoelectric pattern recognition and were then used as input for VR and AR environments, as well as for a racing game."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Ortiz-Catalan M, Guðmundsdóttir RA, Kristoffersen MB, et al. (2016). Phantom motor execution facilitated by machine learning and augmented reality as treatment for phantom limb pain: a single group, clinical trial in patients with chronic intractable phantom limb pain. Lancet 388(10062):2885-2894.",
+      "title": "Phantom motor execution facilitated by machine learning and augmented reality as treatment for phantom limb pain: a single group, clinical trial in patients with chronic intractable phantom limb pain",
+      "url": "https://europepmc.org/abstract/MED/27916234",
+      "date": "2016-12-02",
+      "written_by": "makers",
+      "quote": "Phantom limb pain decreased from pre-treatment to the last treatment session by 47% (SD 39; absolute mean change 1·0 [0·8]; p=0·001) for weighted pain distribution"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Decodable residual muscle activity in the stump",
+      "Classifier-driven virtual limb that responds to the patient's own effort",
+      "Repeated sessions with gamified motor execution"
+    ],
+    "must_hold": [
+      "Patient can produce distinguishable EMG patterns for phantom movements",
+      "Weekly or twice-weekly sessions sustained over months",
+      "Augmented-reality display of the restored limb"
+    ],
+    "echoes": [
+      {
+        "date": "2014-09-15",
+        "setting": "Single-group trial of 14 patients with intractable phantom limb pain at three clinics in Sweden and one in Slovenia",
+        "model_version": "Phantom motor execution with machine learning and AR",
+        "outcome": "recurred",
+        "source": "Ortiz-Catalan et al. (2016) Lancet, PMID 27916234"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "BioPatRec pattern recognition eases 48-year phantom limb pain",
+  "metric": "after ten weeks near-absent pain developing into completely pain-free periods",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Reworded the account, deployer and location to say that the Gothenburg treatment site is inferred from author affiliations because the case report never names it; dropped the unsupported claim that the case 'motivated' the 14-patient trial; restored the full source titles on evidence 2 and 3; and noted the Integrum AB funding and affiliation in the taxonomy note.",
+      "source": "Ortiz-Catalan et al. (2014) Front Neurosci 8:24, PMC3935120; Ortiz-Catalan et al. (2016) Lancet 388:2885-2894, PMID 27916234",
+      "editor": "AIBD"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "AIBD-0293",
+  "version": 1,
+  "title": "Oura ring heart-rate and HRV trends inform a stress test and Holter that document frequent PVCs in a diabetic man in his early 40s; the ring raised no alert",
+  "summary": "Dubai clinic case: Oura ring heart-rate and HRV summaries, read by clinicians, fed into a stress test and Holter showing 2,078 PVCs in 24 h; the ring detects no arrhythmia and issued no alert.",
+  "date_observed": "2024-07-18",
+  "account": "Zakaria, Roman, Almarzooqi and Hashemi of GluCare.Health, Dubai, reported in Cureus (16 June 2025) a man in his early 40s with type 2 diabetes and a smoking history who had been issued an ŌURA ring under the clinic's hybrid care model and attended for cardiac risk assessment before half-marathon training. The paper says a treadmill stress test was pursued because of his risk profile, 'which included poorly controlled diabetes and an elevated resting heart rate observed during wearable-based remote monitoring'; the test on 18 July 2024, the date the cardiologist made the diagnosis, showed frequent PVCs in bigeminy and abnormal heart-rate recovery. The team then reviewed the ring's data for the previous two weeks retrospectively and found a persistently elevated daytime heart rate and a downward HRV trend; a 24-hour Holter recorded 2,078 ventricular events (1.75% of beats, no couplets or runs). The PVCs were judged idiopathic, of right ventricular outflow tract origin; management was non-pharmacological (stop smoking, cut caffeine from more than five cups of coffee a day, stress reduction), and a 12-lead ECG three days later showed no PVCs. Follow-up ring data showed resting heart rate falling from 83 to 74 bpm and RMSSD rising from 15.2 to 32.8 ms over two months, which the authors say supported deferring drug therapy. The paper states that the ring 'does not detect arrhythmias like PVCs', that data review 'was conducted retrospectively', and describes no alert and no machine-learning component. It is internally inconsistent on sequence: the case presentation says the stress-test findings prompted the retrospective ring review, while the data-analysis section says the ring data 'raised clinical suspicion and prompted further evaluation through ECG and Holter monitoring'.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "The ring tracks heart rate, HRV and sleep for consumers; the clinic used those daily summaries as remote-monitoring markers in its diabetes programme, and the paper does not claim the ring was built to find arrhythmias.",
+  "system": "ŌURA ring (heart-rate and heart-rate-variability summaries) used within GluCare.Health's hybrid care model",
+  "model_version": null,
+  "developer": "Maker of the ŌURA ring (company not named in the paper)",
+  "deployer": "GluCare.Health, Dubai",
+  "location": "Dubai, United Arab Emirates",
+  "domain": "Healthcare (cardiology; diabetes care)",
+  "segment": "Consumer wearables",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "Chosen because the ring's contribution, as the clinic describes it, was information (heart-rate and HRV trends) that clinicians used to decide on testing and to defer drug treatment; no health type exists in the taxonomy. The only source is the treating clinic's own case report, not the device maker's; it describes no alert and does not call any part of the ring machine learning, so the AI character of the system is not established by the fetched text.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -1,
+      "reason": "One asymptomatic man had a low PVC burden (1.75%) characterised, judged benign, and managed with lifestyle change; the report documents no drug or procedure, and the ring's share in prompting the work-up is stated inconsistently within the paper."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The ring generated no alert and, per the paper, cannot detect PVCs; its heart-rate and HRV summaries were read by clinicians, once before the stress test (an elevated resting heart rate seen in remote monitoring is listed among the reasons for testing) and once retrospectively afterwards; the ECG, stress test and Holter made the diagnosis. The paper does not describe any machine-learning component, so whether an AI system was involved is not shown by the fetched text. The only source is the treating clinic's case report."
+  },
+  "evidence": [
+    {
+      "kind": "case report",
+      "citation": "Zakaria H, Roman I, Almarzooqi I, Hashemi A (2025). Integrating Wearables Into a Hybrid Care Model: Continuous Remote Monitoring of a Diabetic Patient With Frequent Premature Ventricular Contractions Using an ŌURA Ring. Cureus 17(6):e86174 (PMC12268106).",
+      "title": "Integrating Wearables Into a Hybrid Care Model: Continuous Remote Monitoring of a Diabetic Patient With Frequent Premature Ventricular Contractions Using an ŌURA Ring",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12268106/",
+      "date": "2025-06-16",
+      "written_by": "deployer",
+      "quote": "While the ŌURA ring does not detect arrhythmias like PVCs, it supplies surrogate physiological markers, such as heart rate and HRV, that can support early clinical insight"
+    },
+    {
+      "kind": "case report",
+      "citation": "Zakaria et al. (2025), Cureus 17(6):e86174, abstract (on the timing of the data review).",
+      "title": "Integrating Wearables Into a Hybrid Care Model",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12268106/",
+      "date": "2025-06-16",
+      "written_by": "deployer",
+      "quote": "The patient wore an ŌURA ring before, during, and after a treadmill stress test; however, data review was conducted retrospectively."
+    },
+    {
+      "kind": "case report",
+      "citation": "Zakaria et al. (2025), Cureus 17(6):e86174, ECG section (on why the stress test was ordered).",
+      "title": "Integrating Wearables Into a Hybrid Care Model",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12268106/",
+      "date": "2025-06-16",
+      "written_by": "deployer",
+      "quote": "a treadmill stress test was pursued due to his high-risk profile, which included poorly controlled diabetes and an elevated resting heart rate observed during wearable-based remote monitoring"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Continuous ring wear under a clinic hybrid care model in which staff review daily synced heart-rate and HRV summaries",
+      "Risk factors (type 2 diabetes, smoking) that led to a treadmill stress test",
+      "Access to ECG, 24-hour Holter and echocardiography to confirm and characterise the PVCs"
+    ],
+    "must_hold": [
+      "Clinicians act on wearable trend deviations; the clinic later wrote thresholds into its workflow (an RMSSD drop of more than 30% or a resting heart rate above 110 bpm prompts review)",
+      "The patient keeps wearing and syncing the ring so that trends can be compared with a baseline"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "Oura ring trends feed into a Holter showing 2,078 PVCs in 24 h",
+  "metric": "a 24-hour Holter recorded 2,078 ventricular events (1.75% of beats, no couplets or runs)",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

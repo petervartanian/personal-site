@@ -1,0 +1,124 @@
+{
+  "id": "AIBD-0001",
+  "version": 3,
+  "title": "Brain-spine interface restores volitional walking after cervical spinal cord injury (Lausanne, STIMO-BSI trial)",
+  "summary": "Brain-spine interface let Gert-Jan Oskam, paralysed since 2011, stand, walk and climb stairs by thought (Nature, May 2023)",
+  "date_observed": "2021-01-01",
+  "account": "In the STIMO-BSI trial in Lausanne, a 38-year-old man with an incomplete C5/C6 spinal cord injury from a cycling accident ten years earlier (named in press as Gert-Jan Oskam) received two WIMAGINE 64-electrode cortical implants and a spinal paddle lead. A decoder trained on his cortical signals controlled spinal stimulation, letting him stand, walk, climb stairs and cross complex terrain; performance stayed stable for over a year, including independent use at home. Lorach et al. reported in Nature on 24 May 2023 that he regained the ability to walk with crutches with the interface switched off. News reports place the implant surgery in 2021; as only the year is given, 1 January 2021 is used as the observation date.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Built to restore volitional control of leg movement after spinal cord injury by decoding movement intentions from cortical recordings and driving epidural spinal stimulation; standing and walking were the intended benefit. The recovery of crutch-assisted walking with the interface switched off was a secondary finding the authors attribute to BSI-supported neurorehabilitation.",
+  "system": "STIMO-BSI brain-spine interface (digital bridge)",
+  "model_version": "Two WIMAGINE 64-electrode epidural cortical implants (CEA-Clinatec) with a Specify 5-6-5 implantable paddle lead; Markov-switching multilinear decoder with REW-NPLS online calibration",
+  "developer": "NeuroRestore (EPFL/CHUV/UNIL) with CEA-Clinatec and ONWARD Medical",
+  "deployer": "Lausanne University Hospital (CHUV)",
+  "location": "Lausanne, Switzerland",
+  "domain": "Healthcare / neurorehabilitation",
+  "segment": "Spinal cord injury rehabilitation",
+  "benefit_type": "Improved Accessibility",
+  "taxonomy_note": "Restored mobility for a person with paralysis is treated as accessibility; no category in the taxonomy covers restored bodily function.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -3,
+      "reason": "Life-changing benefit to one identifiable person: standing, walking, stair climbing and independent home use restored after ten years of paralysis, with some recovery persisting when the device is switched off."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The AI component is the decoder: a Hidden-Markov/multilinear model calibrated on the participant's cortical signals that predicts intended movement and modulates stimulation amplitude in real time; the paper reports hip-muscle control within two minutes of calibration. Surgery and stimulation hardware are conventional; the walking benefit depends on the decoder translating intention into stimulation."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Lorach H, Galvez A, Spagnolo V, et al. (2023). Walking naturally after spinal cord injury using a brain-spine interface. Nature. (Author affiliations include ONWARD Medical alongside EPFL/CHUV/UNIL and CEA Clinatec.)",
+      "title": "Walking naturally after spinal cord injury using a brain-spine interface",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10232367/",
+      "date": "2023-05-24",
+      "written_by": "makers",
+      "quote": "The participant regained the ability to walk with crutches overground even when the BSI was switched off."
+    },
+    {
+      "kind": "news report",
+      "citation": "Chasan A (2023). Paralyzed man walks again using implants connecting brain with spinal cord. CBS News.",
+      "title": "Paralyzed man walks again using implants connecting brain with spinal cord",
+      "url": "https://www.cbsnews.com/news/paralyzed-man-walks-again-using-implants-connecting-brain-with-spinal-cord/",
+      "date": "2023-05-24",
+      "written_by": "independent",
+      "quote": "The brain-spine interface (BSI) has remained stable for a year, allowing Gert-Jan Oskam to stand, walk, climb stairs and traverse complex terrains."
+    },
+    {
+      "kind": "news report",
+      "citation": "Do Couto S (2023). Paralyzed man can walk again with new brain and spine implants. Global News.",
+      "title": "Paralyzed man can walk again with new brain and spine implants",
+      "url": "https://globalnews.ca/news/9722725/paralyzed-man-walks-brain-implants-netherlands",
+      "date": "2023-05-25",
+      "written_by": "independent",
+      "quote": "In 2021, Oskam's surgeons performed a craniectomy and created two circular incisions on either side of his skull to insert two disc-shaped implants."
+    },
+    {
+      "kind": "news report",
+      "citation": "Al Jazeera and news agencies (2023). Paralysed man walks with device that connects brain, spinal cord. Al Jazeera.",
+      "title": "Paralysed man walks with device that connects brain, spinal cord",
+      "url": "https://www.aljazeera.com/news/2023/5/25/paralysed-man-walks-with-device-that-connects-brain-spinal-cord",
+      "date": "2023-05-25",
+      "written_by": "independent",
+      "quote": "Within five to 10 minutes I could control my hips, like the brain implant picked up what I was doing with my hips so that was the best outcome I think for everyone."
+    },
+    {
+      "kind": "press release",
+      "citation": "EPFL (2023). Thought-controlled walking again after spinal cord injury. EPFL News (developer institution release).",
+      "title": "Thought-controlled walking again after spinal cord injury",
+      "url": "https://actu.epfl.ch/news/thought-controlled-walking-again-after-spinal-co-4",
+      "date": "2023-05-24",
+      "written_by": "makers",
+      "quote": "Thanks to algorithms based on adaptive artificial intelligence methods, movement intentions are decoded in real time from brain recordings."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Incomplete cervical spinal cord injury with preserved cortical movement intention and residual lumbosacral circuits that epidural stimulation can recruit",
+      "Epidural cortical recording (WIMAGINE) paired with lumbosacral epidural stimulation, decoder calibrated to the individual",
+      "Supervised neurorehabilitation within a regulated feasibility trial (STIMO-BSI, NCT04632290)"
+    ],
+    "must_hold": [
+      "Decoder calibration remains fast and decoding performance stable over months",
+      "Spinal stimulation still recruits leg muscles (intact circuits below the lesion)",
+      "Participant can tolerate implanted hardware and use the wireless system independently"
+    ],
+    "echoes": [
+      {
+        "date": "2024-09-19",
+        "setting": "CHUV, Lausanne; a further participant paralysed from the waist down implanted with the ARC-BCI system (Clinatec WIMAGINE plus ONWARD ARC-IM) in a feasibility study",
+        "model_version": "ARC-BCI (WIMAGINE + ARC-IM)",
+        "outcome": "unknown",
+        "source": "Clinical Trials Arena, 19 Sep 2024, https://www.clinicaltrialsarena.com/news/onward-implants-second-patient-with-brain-chip-in-spinal-cord-injury-trial/"
+      },
+      {
+        "date": "2026-01-22",
+        "setting": "CHUV, Lausanne; two further participants (35-year-old woman, upper limb; 39-year-old man, lower limb), bringing the total to seven ARC-BCI implants",
+        "model_version": "ARC-BCI",
+        "outcome": "unknown",
+        "source": "ONWARD Medical press release via BioSpace, 22 Jan 2026 (vendor-authored), https://www.biospace.com/press-releases/onward-medical-completes-two-additional-brain-computer-interface-implants-paired-with-spinal-cord-stimulation-technology-to-restore-thought-driven-movement"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "Brain-spine interface lets Gert-Jan Oskam walk by thought",
+  "metric": "performance stayed stable for over a year, including independent use at home",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Corrected the Global News evidence title from the URL slug to the printed headline and added the byline to its citation, and extended the Al Jazeera quote to the full sentence so that it no longer ends mid-sentence without an ellipsis.",
+      "source": "https://globalnews.ca/news/9722725/paralyzed-man-walks-brain-implants-netherlands; https://www.aljazeera.com/news/2023/5/25/paralysed-man-walks-with-device-that-connects-brain-spinal-cord",
+      "editor": "AIBD"
+    }
+  ]
+}

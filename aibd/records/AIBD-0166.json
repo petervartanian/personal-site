@@ -1,0 +1,104 @@
+{
+  "id": "AIBD-0166",
+  "version": 1,
+  "title": "Flint's ML-guided lead-pipe search hits 70% through 2017; hit rate falls to 15% after the model is dropped",
+  "summary": "A University of Michigan XGBoost and active-learning model guided Flint's FAST Start digs; 6,228 of 8,833 homes inspected through 2017 had lead pipes replaced (70%), versus 15% in 2018 without it.",
+  "date_observed": "2018-07-19",
+  "account": "From summer 2016 Jacob Abernethy, Eric Schwartz and colleagues at the University of Michigan worked with Flint's FAST Start service-line replacement programme, building a statistical model (gradient-boosted trees in XGBoost with a hierarchical Bayesian spatial layer) and an active-learning procedure, ActiveRemediation, to choose which homes to inspect and replace (KDD 2018 paper, arXiv 1806.10692). The paper reports 91.6% accuracy on a 1,606-home holdout set and, by September 2017, 4,419 hazardous service lines replaced with the composition of 6,506 homes identified. The Atlantic (Alexis Madrigal, 3 January 2019) reported that through 2017 workers inspected 8,833 homes and replaced pipes at 6,228, a 70 percent rate, and quoted programme head Michael McDaniel saying accuracy was above 80 percent in late 2017; after the City hired AECOM in 2018, which discarded the model's predictions, 10,531 properties were explored by mid-December 2018 and only 1,567 digs found lead, a 15 percent hit rate. In a court filing Schwartz estimated 4,964 to 6,119 homes with hazardous lines remained. The date used is the KDD paper's publication date; the model-guided phase ran through 2017.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "The model and active-learning rules were built to predict which Flint homes had lead or galvanised service lines and to direct inspections and replacements; the improved hit rate was the intended use.",
+  "system": "ActiveRemediation: XGBoost classifier with hierarchical Bayesian spatial model and importance-weighted active learning for service-line selection",
+  "model_version": null,
+  "developer": "University of Michigan team (Jacob Abernethy, Alex Chojnacki, Arya Farahi, Eric Schwartz, Jared Webb)",
+  "deployer": "City of Flint FAST Start service-line replacement programme",
+  "location": "Flint, United States",
+  "domain": "Water infrastructure",
+  "segment": "Lead service-line replacement",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "The underlying benefit is public health (lead removal), which has no Trustible category; organizational efficiency captures the higher hit rate per excavation. The 2018 comparison is confounded by other changes the Atlantic describes (the mayor's demand to dig across all wards).",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -2,
+      "reason": "Households had lead or galvanised lines replaced faster under model-guided targeting (6,228 replacements through 2017); outcomes are documented in aggregate, no individual named."
+    },
+    {
+      "group": "organizational",
+      "depth": -3,
+      "reason": "FAST Start's hit rate was 70 percent through 2017, above 80 percent in late 2017 per McDaniel, against 15 percent in 2018 without the model; the KDD paper reports 91.6% holdout accuracy."
+    },
+    {
+      "group": "societal",
+      "depth": -3,
+      "reason": "Flint's court-ordered lead-removal mandate was served faster while the model guided digs; the Atlantic reports thousands of homes kept lead pipes longer after it was dropped."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The model's predictions guided which homes were excavated through 2017, and the hit-rate collapse after AECOM discarded them supports its contribution; the comparison is observational and confounded by the City's simultaneous shift to digging across wards. Sources are the makers' peer-reviewed paper and an independent news report with named sources."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Abernethy, J., Chojnacki, A., Farahi, A., Schwartz, E., Webb, J., 'ActiveRemediation: The Search for Lead Pipes in Flint, Michigan', KDD '18, doi:10.1145/3219819.3219896; arXiv:1806.10692",
+      "title": "ActiveRemediation: The Search for Lead Pipes in Flint, Michigan",
+      "url": "https://arxiv.org/abs/1806.10692",
+      "date": "2018-07-19",
+      "written_by": "makers",
+      "quote": "The overall accuracy of the best performing XGBoost model, based on a holdout set of 1,606 homes (25% of available data), is 91.6%"
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Abernethy et al., KDD 2018, Table 1 timeline",
+      "title": "ActiveRemediation: The Search for Lead Pipes in Flint, Michigan",
+      "url": "https://arxiv.org/abs/1806.10692",
+      "date": "2018-07-19",
+      "written_by": "makers",
+      "quote": "2017 Sept. Fast Start replaced 4,419 hazardous service lines so far, identifying composition of a total of 6,506 homes."
+    },
+    {
+      "kind": "news report",
+      "citation": "Alexis C. Madrigal, 'How a Feel-Good AI Story Went Wrong in Flint', The Atlantic, 3 January 2019",
+      "title": "How a Feel-Good AI Story Went Wrong in Flint",
+      "url": "https://www.theatlantic.com/technology/archive/2019/01/how-machine-learning-found-flints-lead-pipes/578692/",
+      "date": "2019-01-03",
+      "written_by": "independent",
+      "quote": "Workers inspected 8,833 homes, and of those, 6,228 homes had their pipes replaced—a 70 percent rate of accuracy."
+    },
+    {
+      "kind": "news report",
+      "citation": "Alexis C. Madrigal, The Atlantic, 3 January 2019",
+      "title": "How a Feel-Good AI Story Went Wrong in Flint",
+      "url": "https://www.theatlantic.com/technology/archive/2019/01/how-machine-learning-found-flints-lead-pipes/578692/",
+      "date": "2019-01-03",
+      "written_by": "independent",
+      "quote": "AECOM discarded the machine-learning model’s predictions, which had guided excavations."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Digitised historical parcel and service-line records plus water-sample data",
+      "Contractor hydrovac inspections and replacements feeding labels back to the model",
+      "City officials who followed the model's recommendations when selecting homes"
+    ],
+    "must_hold": [
+      "Decision-makers continue to use the predictions (the 2018 hit rate fell when they were dropped)",
+      "Inspection results are returned to the model to update it",
+      "Equity constraints that do not override targeting entirely"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "ActiveRemediation guides Flint digs to a 70% lead-pipe hit rate",
+  "metric": "6,228 of 8,833 homes inspected through 2017 had lead pipes replaced (70%)",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

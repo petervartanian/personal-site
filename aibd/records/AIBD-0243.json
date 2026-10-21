@@ -1,0 +1,85 @@
+{
+  "id": "AIBD-0243",
+  "version": 1,
+  "title": "Camera-based AI feedback on 100 Spin e-scooters in Santa Monica cuts time ridden on sidewalks by 22% in a randomised field test",
+  "summary": "University of Washington study in Findings (20 Nov 2024): feedback disabled at random on 50 of 100 camera-equipped Spin scooters from 23 Nov 2022 to 14 Feb 2023; feedback-equipped scooters spent 22...",
+  "date_observed": "2023-02-14",
+  "account": "Mohammad Mehdi Oshanreh, Daniel Malarkey and Don MacKenzie, working in partnership with the operator Spin, fitted 100 shared e-scooters in Santa Monica, California with a camera-based computer-vision system that classifies the riding surface (sidewalk, roadway or bike lane) without GPS and, when it detects sidewalk riding, issues in-app notifications, audible beeps and a speed reduction. From 23 Nov 2022, 50 of the 100 scooters were randomly selected to have the feedback disabled while riders were unaware of the assignment; data were collected until 14 Feb 2023. The paper's abstract cites 488 trips and its methods section 456 trips for analysis (289 with feedback, 167 without). The feedback group spent 22% less time and 20% less distance on sidewalks and 5% more time on streets; Kolmogorov-Smirnov tests and a logistic regression found feedback reduced street-to-sidewalk transitions but not bike-lane-to-sidewalk transitions, and about 10% of trips in both groups spent over 60% of their time on sidewalks. Targeted theft of camera-equipped scooters led Spin to withdraw them, limiting the sample. The paper does not name the maker of the camera system. Funding came from the U.S. Department of Transportation through the C2SMART Center. The date given is the end of data collection.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "The camera system was built to detect sidewalk riding in real time and discourage it through alerts and speed limits.",
+  "system": "Camera-based computer-vision riding-surface detection with in-app notifications, audible beeps and speed reduction on Spin shared e-scooters (maker not named in the paper)",
+  "model_version": null,
+  "developer": "Not named in the paper",
+  "deployer": "Spin (shared e-scooter operator), with University of Washington researchers",
+  "location": "Santa Monica, United States",
+  "domain": "Micromobility safety",
+  "segment": "Shared e-scooters / pedestrian conflict",
+  "benefit_type": "Improved Accessibility",
+  "taxonomy_note": "Reduced sidewalk riding is framed by the authors as mitigating pedestrian-scooter conflicts, which they note fall hardest on people with disabilities; Improved Accessibility is the nearest of the six types. Cohort-level randomised comparison with no individually attributable outcome, so depths are null. The abstract (488 trips) and methods (456 trips) disagree on the trip count.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "Behavioural proxy (sidewalk time) measured across a cohort; no crash or injury outcome."
+    },
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "No outcome for Spin or the city is documented beyond compliance behaviour."
+    },
+    {
+      "group": "personal",
+      "depth": null,
+      "reason": "No identifiable individual outcome."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The computer-vision classifier produced the surface detections that triggered feedback; the randomised disabling of feedback isolates the feedback effect but not detection accuracy, which the paper does not report. Independent university authors with operator cooperation; the vendor is unnamed."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Oshanreh MM, Malarkey D, MacKenzie D (2024). AI-Driven Feedback Systems Reduce Sidewalk Riding on Shared E-Scooters. Findings (Transport Findings), 20 Nov 2024. doi:10.32866/001c.125892.",
+      "title": "AI-Driven Feedback Systems Reduce Sidewalk Riding on Shared E-Scooters",
+      "url": "https://findingspress.org/article/125892-ai-driven-feedback-systems-reduce-sidewalk-riding-on-shared-e-scooters",
+      "date": "2024-11-20",
+      "written_by": "deployer",
+      "quote": "Data from 488 trips revealed that feedback-equipped scooters spent 22% less time and 20% less distance on sidewalks."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Camera-based surface classification that does not depend on GPS",
+      "Randomised disabling of feedback on half the equipped fleet with riders unaware of assignment",
+      "A dense urban grid with sidewalks, streets and bike lanes where sidewalk riding is unlawful"
+    ],
+    "must_hold": [
+      "Equipped scooters remain in service (theft removed them here)",
+      "Riders cannot tell which scooters give feedback",
+      "Enough trips per arm for distributional tests"
+    ],
+    "echoes": [
+      {
+        "date": "2026-03-20",
+        "setting": "Lime's in-house 'Lime Vision' camera AI with audible sidewalk alerts rolling out to 3,500 Seattle scooters by 1 June 2026; no outcome data reported",
+        "model_version": null,
+        "outcome": "unknown",
+        "source": "https://www.spokesman.com/stories/2026/mar/20/ai-to-warn-seattle-lime-scooters-to-stay-off-sidew/"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "Camera AI on Spin e-scooters cuts time ridden on sidewalks 22%",
+  "metric": "The feedback group spent 22% less time and 20% less distance on sidewalks",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

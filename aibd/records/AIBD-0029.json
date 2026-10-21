@@ -1,0 +1,119 @@
+{
+  "id": "AIBD-0029",
+  "version": 2,
+  "title": "PAWS patrol-planning field test removes over 1,000 snares in Srepok Wildlife Sanctuary, Cambodia",
+  "summary": "PAWS-directed ranger patrols in Srepok Wildlife Sanctuary removed over 1,000 snares in December 2018, versus 200-300 in a typical month.",
+  "date_observed": "2018-12-01",
+  "account": "PAWS (Protection Assistant for Wildlife Security), a machine-learning pipeline that predicts poaching risk and plans patrols, was field-tested with WWF Cambodia and Ministry of Environment rangers in Srepok Wildlife Sanctuary, Cambodia, from December 2018 (only the month is given, so the first day is used). Rangers received centre coordinates of fifteen 3 x 3 km blocks chosen from PAWS risk predictions, without being told each block's risk class. In the first month, 72 rangers in teams of eight detected poaching in 32 cells and removed over one thousand snares, against the two or three hundred they reported removing in an average month. Low-risk blocks yielded no poaching. A second trial ran February to March 2019.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "PAWS was built to predict where poaching will occur and to prescribe patrol routes that maximise detection and removal of snares; the snare removals are exactly this intended benefit.",
+  "system": "PAWS (Protection Assistant for Wildlife Security), enhanced iWare-E predictive model with Gaussian-process uncertainty and game-theoretic patrol planning",
+  "model_version": "iWare-E with Gaussian-process weak learners trained on January 2015 to April 2018 dry-season data (Xu et al., ICDE 2020)",
+  "developer": "Harvard University / University of Southern California research groups (Milind Tambe and colleagues), with WWF, WCS and Uganda Wildlife Authority co-authors",
+  "deployer": "WWF Cambodia with Cambodia Ministry of Environment rangers, Srepok Wildlife Sanctuary",
+  "location": "Srepok Wildlife Sanctuary (Mondulkiri), Cambodia",
+  "domain": "Conservation / anti-poaching law enforcement",
+  "segment": "Protected-area ranger patrols",
+  "benefit_type": "Improved Environmental Sustainability",
+  "taxonomy_note": null,
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "organizational",
+      "depth": -2,
+      "reason": "The ranger force's monthly snare removals rose from a reported two or three hundred to over one thousand, a material gain in patrol effectiveness for the operating team, with a chi-squared test confirming predictions discriminated risk (p = 0.023)."
+    },
+    {
+      "group": "societal",
+      "depth": -3,
+      "reason": "Over one thousand snares were removed from a sanctuary identified as a tiger-reintroduction site; the paper states each snare 'represents the life of one animal potentially saved', a material landscape-scale conservation benefit rather than a documented population-level change."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The AI's output (risk-ranked 3 x 3 km blocks) determined where patrols went; rangers were blinded to risk class, and high-risk blocks yielded detections while low-risk blocks yielded none. The paper itself cautions that the first QENP test's increased findings 'may be partially explained by factors beyond the predictive model', and the 1,000-versus-200-300 comparison relies on rangers' reported averages, not a controlled baseline. The peer-reviewed paper is written by the system's academic developers together with staff of the operating organisations (WWF, WCS, Uganda Wildlife Authority); there is no commercial vendor."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Xu L, Gholami S, Mc Carthy S, Dilkina B, Plumptre A, Tambe M, Singh R, Nsubuga M, Mabonga J, Driciru M, Wanyama F, Rwetsiba A, Okello T, Enyel E (2020). Stay Ahead of Poachers: Illegal Wildlife Poaching Prediction and Patrol Planning Under Uncertainty with Field Test Evaluations. IEEE ICDE 2020.",
+      "title": "Stay Ahead of Poachers: Illegal Wildlife Poaching Prediction and Patrol Planning Under Uncertainty with Field Test Evaluations",
+      "url": "https://arxiv.org/pdf/1903.06669",
+      "date": "2019-11-06",
+      "written_by": "makers",
+      "quote": "During the first month of field tests in SWS, park rangers detected poaching in 32 cells and removed over one thousand snares"
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Xu L et al. (2020). Stay Ahead of Poachers (abstract page; states the work is a short paper published in ICDE 2020). arXiv.",
+      "title": "Stay Ahead of Poachers: Illegal Wildlife Poaching Prediction and Patrol Planning Under Uncertainty with Field Test Evaluations (abstract)",
+      "url": "https://arxiv.org/abs/1903.06669",
+      "date": "2019-11-06",
+      "written_by": "makers",
+      "quote": "confirm that the predictive power of PAWS extends promisingly to multiple parks"
+    },
+    {
+      "kind": "news report",
+      "citation": "Geib C (2020). Where to patrol next: 'Netflix' of ranger AI serves up poaching predictions. Mongabay.",
+      "title": "Where to patrol next: 'Netflix' of ranger AI serves up poaching predictions",
+      "url": "https://news.mongabay.com/2020/11/where-to-patrol-next-netflix-of-ranger-ai-serves-up-poaching-predictions/",
+      "date": "2020-11-05",
+      "written_by": "independent",
+      "quote": "rangers in the park have reported finding between 5 and 20 times more snares since they started using the PAWS system"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Historical SMART patrol data (2015-2018) sufficient to train a risk model despite 3.6% positive labels",
+      "Rangers willing to patrol the suggested blocks and record findings in SMART",
+      "Dry-season deployment when rivers are passable and poaching concentrates in the north of the sanctuary"
+    ],
+    "must_hold": [
+      "Patrol capacity exists to act on predictions (SWS ranger numbers had more than doubled since 2016)",
+      "Poacher behaviour remains spatially predictable from past detections",
+      "Findings are measured against a comparable baseline; the paper notes increases may partly reflect factors beyond the model"
+    ],
+    "echoes": [
+      {
+        "date": "2019-02-01",
+        "setting": "Second SWS trial, February-March 2019: high-risk blocks yielded 7 detections in 22 cells, low-risk blocks 0 in 34 cells (Table III of the same paper)",
+        "model_version": "iWare-E predictions for January-February 2019",
+        "outcome": "recurred",
+        "source": "https://arxiv.org/pdf/1903.06669"
+      },
+      {
+        "date": "2020-11-05",
+        "setting": "Ongoing use in Srepok Wildlife Sanctuary; rangers reported finding 5 to 20 times more snares since adopting PAWS, and PAWS was incorporated into SMART",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://news.mongabay.com/2020/11/where-to-patrol-next-netflix-of-ranger-ai-serves-up-poaching-predictions/"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "219",
+    "title": "Poachers Evaded AI Cameras and Killed Four Rhinos",
+    "url": "https://incidentdatabase.ai/cite/219",
+    "severity": null,
+    "group": "societal",
+    "basis": "Same task and domain: AI-directed anti-poaching in a protected area; PAWS patrols removed 1,000 snares, while Ezemvelo KZN Wildlife's AI cameras failed to detect poachers and four rhinos were killed."
+  },
+  "headline": "PAWS-directed patrols remove over 1,000 snares in Cambodia",
+  "metric": "removed over 1,000 snares in December 2018, versus 200-300 in a typical month",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 219 (high confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/219",
+      "editor": "AIBD"
+    }
+  ]
+}

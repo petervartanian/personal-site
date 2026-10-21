@@ -1,0 +1,98 @@
+{
+  "id": "AIBD-0117",
+  "version": 1,
+  "title": "Gazi University's Turkish Brain Project algorithm flags a glioma on a 46-year-old woman's brain MRI while she is still in the scanner; physicians alerted at once, stereotactic biopsy the next day",
+  "summary": "Real-time MRI algorithm at Gazi University Hospital alerted doctors to a 46-year-old woman's glioma mid-scan; biopsy next day, Oct 2022.",
+  "date_observed": "2022-10-01",
+  "account": "In October 2022 (day not given; first of month used), a 46-year-old woman with a nonspecific headache had a brain MRI at Gazi University Faculty of Medicine Hospital, Ankara. A region-based convolutional neural network algorithm, built within the Turkish Brain Project and running on the hospital network in real time, detected an intraparenchymal mass and alerted the research team while she was still in the scanner. Physicians read the images, judged the finding consistent with a diffuse glioma, and admitted her; a stereotactic biopsy the next day confirmed an isocitrate dehydrogenase wild-type diffuse glioma, and she was referred to oncology for immediate treatment. The case was published on 8 May 2023 and reported by Anadolu Agency on 22 May 2023.",
+  "category": "protective response",
+  "unexpected": false,
+  "purpose": "The Turkish Brain Project algorithm was built to detect abnormalities on brain MRI as the images are acquired and to warn the responsible physicians at once, so that the days the authors say radiology typically needs to report, and the longer wait before treatment, are cut to days; Anadolu Agency reports it was trained on stroke, haemorrhage and tumour cases. Flagging this patient's tumour mid-scan is that intended use.",
+  "system": "Turkish Brain Project real-time brain MRI alert system at Gazi University: a region-based convolutional neural network object-detection algorithm integrated into the hospital network, which processes MRI images in real time; Anadolu Agency reports that it evaluates a brain MRI within 5-10 seconds while the patient is still in the scanner and sends the physicians' mobile phones a message with the abnormal regions segmented, through a GSM operator's picture-message service",
+  "model_version": null,
+  "developer": "Gazi University, Ankara (Department of Neurosurgery and Department of Computer Engineering), within the Turkish Brain Project funded by the Presidency of the Republic of Türkiye, with the Presidency's Digital Transformation Office credited for the model's development",
+  "deployer": "Gazi University Faculty of Medicine Hospital, Department of Neurosurgery, Ankara",
+  "location": "Ankara, Turkey",
+  "domain": "Healthcare - neurosurgery / brain MRI",
+  "segment": "Hospital real-time MRI anomaly alerting (academic, non-commercial)",
+  "benefit_type": "Improved Organizational Efficiency",
+  "taxonomy_note": "No listed type names a health outcome. Chosen because the documented gain is turnaround: an alert during the scan and a biopsy the next day, where the authors say radiology typically takes days to report and cite a median of about 3 months from radiological diagnosis to first-line treatment. Improved Knowledge Discovery was the alternative, but the same finding would have come from the radiology read; the AI changed when it arrived.",
+  "registry_ids": {
+    "oecd_aim": "2023-05-20-a638"
+  },
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -2,
+      "reason": "One identifiable patient had a diffuse glioma found during her scan, was biopsied the next day and referred for immediate oncological treatment, instead of waiting the days the authors say radiology typically needs and the longer wait before treatment. The paper reports no follow-up and no changed outcome; the 'saved a life' wording is Anadolu Agency's headline, not the authors' claim, so this is rated a material benefit to one person, not a life-changing or life-saving one."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The algorithm detected the mass on the real-time MRI data and raised the alert while the patient was still in the scanner; physicians then read the images, judged the finding consistent with a diffuse glioma and admitted her, and the diagnosis itself came from the pathology report after the stereotactic biopsy. What the AI contributed is detection and speed, not a different diagnosis or treatment. The counterfactual is unproven: the authors say radiology would typically take days to report and that further investigations are needed on the advantages of earlier treatment, and they give no evidence of what delay this patient would otherwise have faced. The case is reported by the team that built and deployed the algorithm, and the Anadolu Agency coverage carries that team's account; no independent clinical review is cited."
+  },
+  "evidence": [
+    {
+      "kind": "case report",
+      "citation": "Sozer A, Borcek AO, Sagiroglu S, Poshtkouh A, Demirtas Z, Karaaslan MM, Kuzucu P, Celtikci E (2023). The first case of glioma detected by an artificial intelligence algorithm running on real-time data in neurosurgery: illustrative case. Journal of Neurosurgery: Case Lessons 5(19): CASE22536, published 8 May 2023, doi:10.3171/CASE22536, PMID 37158388, PMCID PMC10550689, CC BY-NC-ND 4.0. All authors at Gazi University; their team built and deployed the algorithm, so marked as maker-authored.",
+      "title": "The first case of glioma detected by an artificial intelligence algorithm running on real-time data in neurosurgery: illustrative case",
+      "url": "https://doi.org/10.3171/CASE22536",
+      "date": "2023-05-08",
+      "written_by": "makers",
+      "quote": "detected by an AI algorithm running on real-time patient data while the patient was still in the MRI scanner"
+    },
+    {
+      "kind": "case report",
+      "citation": "Sozer A et al. (2023). Journal of Neurosurgery: Case Lessons 5(19): CASE22536 (second quotation, on the operation; the case narrative dates the alert to October 2022, the biopsy to the following day, and the pathology to an isocitrate dehydrogenase wild-type diffuse glioma). Open-access copy at PubMed Central.",
+      "title": "The first case of glioma detected by an artificial intelligence algorithm running on real-time data in neurosurgery: illustrative case",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10550689/",
+      "date": "2023-05-08",
+      "written_by": "makers",
+      "quote": "The day after MRI, a stereotactic biopsy was performed."
+    },
+    {
+      "kind": "news report",
+      "citation": "TRT Haber, from Anadolu Agency (2023). Tıp tarihinde ilk: Yapay zeka hayat kurtardı [A first in medical history: artificial intelligence saved a life]. TRT Haber, Health, 22 May 2023, source credited as AA; quotes Assoc. Prof. Emrah Çeltikçi and Prof. Şeref Sağıroğlu of Gazi University on the 5-10 second evaluation, the phone alerts and the six-month training.",
+      "title": "Tıp tarihinde ilk: Yapay zeka hayat kurtardı",
+      "url": "https://www.trthaber.com/haber/saglik/tip-tarihinde-ilk-yapay-zeka-hayat-kurtardi-769140.html",
+      "date": "2023-05-22",
+      "written_by": "independent",
+      "quote": "yapay zeka algoritmasının hasta daha MR cihazındayken 5-10 saniye arasında değişen sürelerde çekilen beyin MR'ında anormal bir durum içerip içermediğini değerlendirmeyi başardığını"
+    },
+    {
+      "kind": "news report",
+      "citation": "Habertürk, from Anadolu Ajansı (2023). Yapay zekanın erken uyarıyla hayatını kurtardığı hasta tıp tarihine geçti [Patient whose life was saved by AI's early warning enters medical history]. Habertürk, Health, 23 May 2023, byline Anadolu Ajansı; identifies the patient as a 46-year-old woman, quotes Çeltikçi on the phone alert and Sağıroğlu on over 1,000 abnormal findings reported from the hospital's three MRI scanners and a pledge to install the system free in all public hospitals.",
+      "title": "Yapay zekanın erken uyarıyla hayatını kurtardığı hasta tıp tarihine geçti",
+      "url": "https://www.haberturk.com/yapay-zekanin-erken-uyariyla-hayatini-kurtardigi-hasta-3593925",
+      "date": "2023-05-23",
+      "written_by": "independent",
+      "quote": "Telefona baktığımızda yapay zekanın hastamızın beyninin ciddi bir kısmında beyin ödemi ve tümör tespiti yaptığına dair mesaj gördük. Doktorlarımız hemen harekete geçti ve gerekli önlemleri aldı."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "A region-based convolutional neural network object-detection algorithm trained on a brain MRI data set built within the Turkish Brain Project (Anadolu Agency: six months of training on stroke, haemorrhage and tumour cases)",
+      "Integration into the hospital network so that MRI images are processed as they are acquired; Anadolu Agency reports evaluation within 5-10 seconds on the hospital's three MRI scanners",
+      "An alert channel to the physicians' mobile phones, reported by Anadolu Agency as a GSM operator's picture-message service carrying the segmented abnormal regions",
+      "A neurosurgery team that reads the alert at once and can admit and biopsy the patient within a day"
+    ],
+    "must_hold": [
+      "The lesion is of a kind the model was trained on (the team names stroke, haemorrhage and tumour)",
+      "The alert reaches a physician who acts on it before the routine radiology report",
+      "The hospital can schedule a biopsy or operation promptly",
+      "False alerts stay low enough that physicians keep trusting the messages; Anadolu Agency quotes Sağıroğlu that the system had reported over 1,000 abnormal findings and that physicians work closely with it because they trust it"
+    ],
+    "echoes": []
+  },
+  "paired_incident": null,
+  "headline": "Turkish Brain Project algorithm flags a glioma mid-scan at Gazi",
+  "metric": null,
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the OECD Monitor entry and the cited sources.",
+      "source": "https://oecd.ai/en/incidents/2023-05-20-a638",
+      "editor": "AIBD"
+    }
+  ]
+}

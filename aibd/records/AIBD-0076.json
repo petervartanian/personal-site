@@ -1,0 +1,116 @@
+{
+  "id": "AIBD-0076",
+  "version": 3,
+  "title": "AlphaEvolve finds a 48-multiplication algorithm for 4x4 complex matrices; Dumas, Pernet and Sedoglavic derive a rational-coefficient variant from its decomposition",
+  "summary": "AlphaEvolve found a 48-multiplication 4x4 complex matrix algorithm (May 2025); Dumas, Pernet and Sedoglavic derived rational variants from its decomposition",
+  "date_observed": "2025-05-14",
+  "account": "On 14 May 2025 Google DeepMind announced AlphaEvolve, a Gemini-powered evolutionary coding agent, and reported that it had found an algorithm multiplying two 4x4 complex-valued matrices with 48 scalar multiplications, improving on the 49 obtained from two recursion levels of Strassen's 1969 algorithm. On 16 June 2025 Jean-Guillaume Dumas, Clément Pernet and Alexandre Sedoglavic (CASC and CRIStAL, France), researchers independent of DeepMind, posted a preprint presenting a 48-multiplication algorithm with only rational coefficients, removing the need for complex arithmetic; they state that it was derived from AlphaEvolve's algorithm under the action of an isotropy that projects the decomposition onto the field of rational numbers, so the derivation is not independent of the AI result and the preprint contains no explicit verification statement. On 19 March 2026 the same authors posted a more accurate variant of that rational algorithm, valid over any ring containing an inverse of 2. These derived variants corroborate and extend the rank-48 bound; the preprints are not yet recorded as journal-published.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Evolve and verify algorithms and constructions for open mathematical and computational problems",
+  "system": "AlphaEvolve",
+  "model_version": "AlphaEvolve (May 2025), Gemini-powered",
+  "developer": "Google DeepMind",
+  "deployer": "Google DeepMind",
+  "location": null,
+  "domain": "Mathematics",
+  "segment": "Algebraic complexity and matrix multiplication",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": null,
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "organizational",
+      "depth": -1,
+      "reason": "Small: a research result for the developer; DeepMind's blog reports improvements on about 20% of the open problems tested"
+    },
+    {
+      "group": "societal",
+      "depth": -1,
+      "reason": "Small: a one-multiplication improvement for 4x4 matrices, since taken up by independent researchers in two preprints"
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "AlphaEvolve discovered the 48-multiplication scheme over the complex numbers; researchers independent of DeepMind corroborated the rank-48 bound by deriving rational and more accurate variants from the AI's decomposition, through an isotropy that projects it onto the rational numbers, which is the community acceptance relied on here. The derivation is not independent of the AI result and the 2025 preprint does not state an explicit verification of it. Both sources are preprints by authors independent of DeepMind."
+  },
+  "evidence": [
+    {
+      "kind": "press release",
+      "citation": "Google DeepMind (2025). AlphaEvolve: A Gemini-powered coding agent for designing advanced algorithms. Google DeepMind blog.",
+      "title": "AlphaEvolve: A Gemini-powered coding agent for designing advanced algorithms",
+      "url": "https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+      "date": "2025-05-14",
+      "written_by": "makers",
+      "quote": "AlphaEvolve's procedure found an algorithm to multiply 4x4 complex-valued matrices using 48 scalar multiplications, improving upon Strassen's 1969 algorithm that was previously known as the best in this setting."
+    },
+    {
+      "kind": "preprint",
+      "citation": "Dumas, J.-G., Pernet, C., Sedoglavic, A. (2025). A non-commutative algorithm for multiplying 4x4 matrices using 48 non-complex multiplications. arXiv:2506.13242 (quotation from the v1 abstract, 16 June 2025; the preprint was revised through v7, 27 July 2026).",
+      "title": "A non-commutative algorithm for multiplying 4x4 matrices using 48 non-complex multiplications",
+      "url": "https://arxiv.org/abs/2506.13242",
+      "date": "2025-06-16",
+      "written_by": "independent",
+      "quote": "We propose an algorithm in 48 multiplications with only rational coefficients, hence removing the complex number requirement. It was derived from the latter one, under the action of an isotropy which happen to project the algorithm on the field of rational numbers."
+    },
+    {
+      "kind": "preprint",
+      "citation": "Dumas, J.-G., Pernet, C., Sedoglavic, A. (2026). A more accurate rational non-commutative algorithm for multiplying 4x4 matrices using 48 multiplications. arXiv:2603.18699.",
+      "title": "A more accurate rational non-commutative algorithm for multiplying 4x4 matrices using 48 multiplications",
+      "url": "https://arxiv.org/abs/2603.18699",
+      "date": "2026-03-19",
+      "written_by": "independent",
+      "quote": "We propose a more accurate variant of an algorithm for multiplying 4x4 matrices using 48 multiplications over any ring containing an inverse of 2."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Evolutionary search over candidate programs generated by Gemini with automatic evaluation",
+      "A rank-48 decomposition target for the 4x4 matrix multiplication tensor"
+    ],
+    "must_hold": [
+      "An automatic verifier scores every candidate algorithm",
+      "Independent researchers can reproduce and extend the decomposition"
+    ],
+    "echoes": [
+      {
+        "date": "2026-03-19",
+        "setting": "More accurate rational variant derived from AlphaEvolve's decomposition by Dumas, Pernet and Sedoglavic",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://arxiv.org/abs/2603.18699"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "1673",
+    "title": "Google Gemini 3.5 Coding Agent Reportedly Caused Production Portal Outage and Generated Fabricated Recovery Records",
+    "url": "https://incidentdatabase.ai/cite/1673",
+    "severity": null,
+    "group": "organizational",
+    "basis": "Same developer, Google DeepMind, and same system class, a Gemini-powered coding agent: the Gemini 3.5 agent overreached a requested fix, caused a 33-minute production outage and fabricated post-mortem records, harming developers and site operators."
+  },
+  "headline": "AlphaEvolve finds 48-multiplication 4x4 complex matrix algorithm",
+  "metric": "4x4 complex-valued matrices with 48 scalar multiplications, improving on the 49",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 1673 (medium confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/1673",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Reworded the title, summary, account, AI-role statement and echo setting so that the Dumas-Pernet-Sedoglavic rational algorithm is described as derived from AlphaEvolve's decomposition by an isotropy (corroborating, not independently verifying, the rank-48 bound), and replaced the second evidence quotation with the v1 abstract wording of 16 June 2025, because the preprint itself states that its algorithm was derived from AlphaEvolve's and the record had quoted the revised v7 abstract under the v1 date.",
+      "source": "https://arxiv.org/abs/2506.13242v1",
+      "editor": "AIBD"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "AIBD-0165",
+  "version": 1,
+  "title": "Princeton deep RL controller steers DIII-D plasmas clear of tearing instability; only two of the controlled shots disrupt",
+  "summary": "An RL controller trained on a tearing-likelihood model kept DIII-D plasmas below the instability threshold; before RL control all but one shot disrupted, after it only two did (Nature, 21 Feb 2024).",
+  "date_observed": "2024-02-21",
+  "account": "Seo et al. (Nature, published 21 February 2024), from Princeton University, the Princeton Plasma Physics Laboratory and partners, trained a reinforcement-learning controller in an environment built from a multimodal dynamic model that estimates the likelihood of future tearing instability, the leading cause of disruptions. Deployed on DIII-D, the largest magnetic fusion facility in the United States, located at General Atomics in San Diego, the controller adjusted total beam power and plasma triangularity to keep the estimated tearability under a threshold while maintaining H-mode performance, even at low safety factor and low torque. In the experimental session, discharges up to 193276 either had no RL control or tore before control started; of the controlled discharges from 193277, only two (193277 and 193282) were disrupted, whereas before RL control all shots except one were disrupted, and average time-integrated normalised beta rose. Princeton Engineering's release (21 February 2024) says the model could forecast tearing mode instabilities up to 300 milliseconds in advance. The OECD AI Incidents Monitor logged the result as a positive outcome (record 2024-02-24-7d77). The experiment dates are not given; the date used is the paper's publication date.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "The controller was built to avoid tearing instability while maintaining high-pressure plasma in DIII-D; the avoided disruptions were its intended use.",
+  "system": "Deep reinforcement learning tearing-avoidance controller with a DNN tearability predictor (Keras model converted to real-time C)",
+  "model_version": null,
+  "developer": "Princeton University / Princeton Plasma Physics Laboratory (Kolemen group), with Chung-Ang University",
+  "deployer": "DIII-D National Fusion Facility, General Atomics",
+  "location": "San Diego, United States",
+  "domain": "Energy research (magnetic confinement fusion)",
+  "segment": "Tokamak plasma control",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "A capability demonstration on a DOE user facility; disruption counts are reported for one experimental session, not routine operation. Classed as benefit created for the identified controlled discharges.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "organizational",
+      "depth": -2,
+      "reason": "The DIII-D session obtained plasmas tracking a stable path with fewer disruptions and higher time-integrated beta; the paper calls it a path toward ITER-relevant scenarios."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "No outcome beyond fusion research is documented."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The RL controller set the high-level actuator commands that the plasma control system executed, so the disruption outcomes in the controlled shots are attributable to it, with the caveats that the comparison is within one session and the paper is authored by the system's developers; independent evaluation is the journal's peer review and the OECD AIM registry entry."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Seo, J., Kim, S., Jalalvand, A. et al., 'Avoiding fusion plasma tearing instability with deep reinforcement learning', Nature (2024), doi:10.1038/s41586-024-07024-9",
+      "title": "Avoiding fusion plasma tearing instability with deep reinforcement learning",
+      "url": "https://www.nature.com/articles/s41586-024-07024-9",
+      "date": "2024-02-21",
+      "written_by": "makers",
+      "quote": "We demonstrate artificial intelligence control to lower the possibility of disruptive tearing instabilities in DIII-D, the largest magnetic fusion facility in the United States."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Seo et al., Nature 2024, results on controlled discharges",
+      "title": "Avoiding fusion plasma tearing instability with deep reinforcement learning",
+      "url": "https://www.nature.com/articles/s41586-024-07024-9",
+      "date": "2024-02-21",
+      "written_by": "makers",
+      "quote": "after RL control was applied, only two (193277 and 193282) were disrupted"
+    },
+    {
+      "kind": "press release",
+      "citation": "Princeton Engineering news, 'Engineers use AI to wrangle fusion power for the grid', 21 February 2024",
+      "title": "Engineers use AI to wrangle fusion power for the grid",
+      "url": "https://engineering.princeton.edu/news/2024/02/21/engineers-use-ai-wrangle-fusion-power-grid",
+      "date": "2024-02-21",
+      "written_by": "makers",
+      "quote": "could forecast potential plasma instabilities known as tearing mode instabilities up to 300 milliseconds in advance"
+    },
+    {
+      "kind": "registry label",
+      "citation": "OECD AI Incidents Monitor, record 2024-02-24-7d77",
+      "title": "AI Breakthrough Enables Real-Time Prediction and Prevention of Plasma Instabilities in Nuclear Fusion Reactors",
+      "url": "https://oecd.ai/en/incidents/2024-02-24-7d77",
+      "date": "2024-02-24",
+      "written_by": "independent",
+      "quote": "This is a clear example of AI use leading to a positive outcome by preventing harm"
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "A database of past DIII-D discharges to train the tearability predictor",
+      "Real-time profile reconstruction and equilibrium fitting feeding the DNN",
+      "A plasma control system that accepts high-level beam-power and shape commands"
+    ],
+    "must_hold": [
+      "A tearability model valid for the operating regime",
+      "Actuators (beam power, triangularity) able to move the plasma along the stable path",
+      "Session-level comparison shots to judge disruption rates"
+    ],
+    "echoes": [
+      {
+        "date": "2022-02-16",
+        "setting": "TCV, Lausanne; DeepMind deep RL magnetic controller (different objective)",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://www.nature.com/articles/s41586-021-04301-9"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "Princeton RL controller cuts DIII-D disruptions to two shots",
+  "metric": "before RL control all but one shot disrupted, after it only two did",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

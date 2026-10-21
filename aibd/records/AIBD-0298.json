@@ -1,0 +1,132 @@
+{
+  "id": "AIBD-0298",
+  "version": 1,
+  "title": "Corsano CardioWatch 287-2 algorithm recognises a real-life ventricular-fibrillation arrest and collapse in post-processing; the patient's ICD, not the wristband, ended it",
+  "summary": "Radboudumc DETECT-3 case: a 64-year-old's VF arrest while cycling was ended by his ICD; the CardioWatch PPG algorithm later detected pulselessness at 09:50:17 and the fall; no live alert was sent.",
+  "date_observed": "2026-01-29",
+  "account": "Edgar, Jansen, Pol, Pisters, van Royen and Bonnes of Radboud University Medical Center (with Rijnstate Hospital) reported in Resuscitation Plus on 29 January 2026 (the publication date is used; the paper gives no calendar date for the event) the first real-life cardiac arrest captured by a wristband with cardiac-arrest detection. A 64-year-old man with heart failure, permanent atrial fibrillation and a secondary-prevention Biotronik ICD was wearing the CE-certified CardioWatch 287-2 (Corsano Health, The Hague) in the DETECT-3 study. After three weeks, while cycling alone, he developed monomorphic ventricular tachycardia that accelerated to ventricular fibrillation after an antitachycardia pacing burst; the ICD delivered a 40 J shock, he regained consciousness, cycled home, and was admitted for rhythm observation with a good recovery. The wristband's 32 Hz photoplethysmography and accelerometry data were exported afterwards and run, by a Corsano Health data scientist blinded to the event, through the DETECT photoplethysmography algorithm, which detected cardiac arrest at 09:50:17 after loss of pulse and ended the alert at 09:50:57 when pulsations returned; the group's fall-detection algorithm flagged the fall about 8-10 seconds after pulselessness. The authors state the detection was retrospective and that the study collects data to measure false-positive rates for a future live system. Companion papers from the same programme report 98% sensitivity in induced circulatory arrests (DETECT-1a), external validation in 50 patients with induced VT/VF (DETECT-1b, April 2026) and 100% sensitivity (23 of 23) with one false positive in true non-shockable arrests after withdrawal of life-sustaining treatment (Lancet Regional Health Europe, July 2026), where the algorithm is described as rule-based. The patient's survival is attributable to the ICD; the wristband changed nothing for him.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "Built to detect out-of-hospital cardiac arrest from wrist photoplethysmography and accelerometry and, in future, alert emergency services; the retrospective detection demonstrates the first half of that purpose.",
+  "system": "Corsano CardioWatch 287-2 with the DETECT photoplethysmography cardiac-arrest detection and accelerometry fall-detection algorithms",
+  "model_version": "CardioWatch 287-2 (CE-certified); DETECT algorithm as developed in DETECT-1a",
+  "developer": "DETECT programme, Radboud University Medical Center, with Corsano Health, The Hague (device and algorithm processing)",
+  "deployer": "Radboud University Medical Center (DETECT-3 study)",
+  "location": "Netherlands (DETECT-3 study, Nijmegen; the cycling incident's location is not named)",
+  "domain": "Emergency medicine / resuscitation",
+  "segment": "Research wristband for automated cardiac-arrest detection",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "General benefit with null depths because the detection happened in post-processing and changed nothing for the patient, whose ICD terminated the arrest; what the case produced is evidence of feasibility. Knowledge Discovery is the nearest type for a research result. The case report and companion studies are written by the algorithm's developers (Radboudumc with Corsano Health), so they are marked vendor-authored; the only independent item is an accompanying editorial whose text was not read. The Lancet paper calls the algorithm rule-based, and no fetched source calls it machine learning.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": null,
+      "reason": "The patient was saved by his ICD; the wristband's detection was retrospective and produced no alert or treatment."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "The authors argue a live system could act as a first witness for unwitnessed arrests, but no deployment outcome exists yet."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The algorithm, run afterwards on exported data by a blinded Corsano data scientist, correctly flagged the loss of pulse and the fall; it was not running live and sent no alert, and the ICD shock is what restored circulation. The developers' own papers are the only full sources, and they describe a rule-based detector of absent pulsations by signal amplitude and waveform morphology rather than a machine-learning model."
+  },
+  "evidence": [
+    {
+      "kind": "case report",
+      "citation": "Edgar R, Jansen CE, Pol LR, Pisters R, van Royen N, Bonnes JL (2026). Out-of-hospital cardiac arrest detection by a wearable: the first real-life case. Resuscitation Plus 28:101245 (PMC12914388). Authors are the DETECT algorithm's developers.",
+      "title": "Out-of-hospital cardiac arrest detection by a wearable: the first real-life case",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914388/",
+      "date": "2026-01-29",
+      "written_by": "makers",
+      "quote": "The cardiac arrest detection algorithm of the CardioWatch correctly recognized the cardiac arrest event and subsequent collapse based on photoplethysmography and accelerometry data during post-processing."
+    },
+    {
+      "kind": "case report",
+      "citation": "Edgar et al. (2026), Resusc Plus 28:101245, case description.",
+      "title": "Out-of-hospital cardiac arrest detection by a wearable: the first real-life case",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914388/",
+      "date": "2026-01-29",
+      "written_by": "makers",
+      "quote": "While cycling, the patient experienced a ventricular fibrillation cardiac arrest that was successfully terminated by the ICD."
+    },
+    {
+      "kind": "case report",
+      "citation": "Edgar et al. (2026), Resusc Plus 28:101245, on who ran the algorithm.",
+      "title": "Out-of-hospital cardiac arrest detection by a wearable: the first real-life case",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914388/",
+      "date": "2026-01-29",
+      "written_by": "makers",
+      "quote": "A data scientist at Corsano Health, who was blinded to the cardiac arrest event, ran the data through the photoplethysmography-based cardiac arrest detection algorithm."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Edgar R, Jansen CE, Pol LR, Ebrahimkheil K, van Kaam RC, Ronner E, Brouwer MA, Beukema RJ, Cetinyurek-Yavuz A, Stas PC, Boersma E, Hoedemaekers CWE, van Royen N, Bonnes JL (2026). Automated cardiac arrest detection using wrist-derived photoplethysmography during withdrawal of life-sustaining treatment: a prospective clinical validation study. The Lancet Regional Health - Europe 67:101791 (PMC13427576). Corsano Health co-authors.",
+      "title": "Automated cardiac arrest detection using wrist-derived photoplethysmography during withdrawal of life-sustaining treatment: a prospective clinical validation study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13427576/",
+      "date": "2026-07-24",
+      "written_by": "makers",
+      "quote": "The previously developed rule-based algorithm was refined using two training cohorts and evaluated in a separate test cohort."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Edgar R, Scholte NTB, Ebrahimkheil K, et al. (2026). Automated Cardiac Arrest Detection Using Wrist-Worn Photoplethysmography: External Validation in Patients With Induced Shockable Cardiac Arrest (DETECT-1b). Circulation: Arrhythmia and Electrophysiology 19(5):e014708 (PMC13182813). Corsano Health co-authors.",
+      "title": "Automated Cardiac Arrest Detection Using Wrist-Worn Photoplethysmography: External Validation in Patients With Induced Shockable Cardiac Arrest (DETECT-1b)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13182813/",
+      "date": "2026-04-14",
+      "written_by": "makers",
+      "quote": "In the DETECT-1a study, we developed a wrist-derived photoplethysmography (PPG) algorithm for cardiac arrest detection using patient data from induced short‑lasting circulatory arrests, achieving 98% sensitivity."
+    },
+    {
+      "kind": "other",
+      "citation": "Veigl C, Billig S (2026). A digital witness for cardiac arrest: are wearables ready for real-world use? Resuscitation Plus 28:101246 (editorial accompanying the two case reports; PMC12914390).",
+      "title": "A digital witness for cardiac arrest: are wearables ready for real-world use?",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914390/",
+      "date": "2026-01-29",
+      "written_by": "independent",
+      "quote": null
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Continuous wristband wear with 32 Hz photoplethysmography and accelerometry uploaded to a study cloud",
+      "A shockable arrest with clear loss of pulsations during cycling, in a patient whose ICD provided the reference and the rescue",
+      "Blinded post-hoc processing by the developers' data scientist"
+    ],
+    "must_hold": [
+      "Adequate photoplethysmography quality during motion (the authors note it is typically disturbed by motion)",
+      "A live implementation with acceptable false-positive rates, which DETECT-3 is still measuring",
+      "An alerting chain to emergency services, which does not yet exist for this device"
+    ],
+    "echoes": [
+      {
+        "date": "2026-07-24",
+        "setting": "Radboudumc ICU, 44 patients with planned withdrawal of life-sustaining treatment, all non-shockable arrests; test cohort of 23",
+        "model_version": "CardioWatch with the refined rule-based DETECT algorithm",
+        "outcome": "recurred",
+        "source": "Edgar et al. (2026) Lancet Reg Health Eur 67:101791 (quote: 'In the test set, sensitivity was 100% (23/23; 95% CI 82–100%), with one false positive alert.')"
+      },
+      {
+        "date": "2026-04-14",
+        "setting": "Multicentre DETECT-1b, 50 adults with induced pulseless VT or VF during ablation or S-ICD implantation, Netherlands",
+        "model_version": "CardioWatch, DETECT-1a algorithm with a 10-second window",
+        "outcome": "recurred",
+        "source": "Edgar et al. (2026) Circ Arrhythm Electrophysiol 19(5):e014708, https://pmc.ncbi.nlm.nih.gov/articles/PMC13182813/"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "Corsano CardioWatch recognises a VF arrest in post-processing",
+  "metric": "detected cardiac arrest at 09:50:17 after loss of pulse",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "AIBD-0225",
+  "version": 1,
+  "title": "Google's Big Sleep agent isolates SQLite CVE-2025-6965 from threat-intel artifacts; fixed in 3.50.2 before exploitation",
+  "summary": "Google says Big Sleep, fed indicators that attackers were staging a zero-day, isolated SQLite CVE-2025-6965; SQLite shipped the fix in 3.50.2 on 28 Jun 2025, announced 15 Jul 2025.",
+  "date_observed": "2025-07-15",
+  "account": "The date is Google's announcement; the SQLite 3.50.2 release carrying the fix is dated 28 June 2025 and the CVE record was published 15 July 2025. Google's post says that, based on intel from Google Threat Intelligence, the Big Sleep agent discovered an SQLite vulnerability known only to threat actors and at risk of being exploited. A Google spokesperson told The Record that its threat intelligence group found artifacts indicating a zero-day was being staged but could not identify the vulnerability, and that Big Sleep was used to isolate it; Google declined to name the actors or describe the indicators. The CVE record, assigned by Google, credits Vlad Stolyarov of Google's Threat Analysis Group with assistance from Google Big Sleep, and SQLite's release log lists the corresponding fix. Independent confirmation that exploitation was imminent is absent; the claim rests on Google.",
+  "category": "protective response",
+  "unexpected": false,
+  "purpose": "Actively search for and find unknown security vulnerabilities in software using an LLM-based agent (Google DeepMind and Project Zero).",
+  "system": "Big Sleep",
+  "model_version": null,
+  "developer": "Google DeepMind and Google Project Zero",
+  "deployer": "Google (Threat Analysis Group / Big Sleep team)",
+  "location": null,
+  "domain": "Cybersecurity / vulnerability research",
+  "segment": "Technology",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "Filed as protective response rather than harm prevented: the safeguard acted and a patch shipped, but that exploitation was imminent and was foiled is Google's own claim, unverified by a CERT or independent incident report.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "organizational",
+      "depth": -2,
+      "reason": "SQLite fixed the flaw in 3.50.2 (release log entry on aggregate terms exceeding column count) before public exploitation was reported."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "No source documents an outcome for users beyond the patch; the foiled-exploitation claim is Google's."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "Per Google's spokesperson, human threat analysts supplied limited indicators and Big Sleep isolated the specific vulnerability; the CVE credit names a human finder 'with assistance from Google Big Sleep'. Developer and the organisation reporting the benefit are the same company; The Record and the SQLite release log are the independent sources, and neither confirms the threat-actor staging."
+  },
+  "evidence": [
+    {
+      "kind": "news report",
+      "citation": "Jonathan Greig, The Record from Recorded Future News, 15 Jul 2025",
+      "title": "Google says ‘Big Sleep’ AI tool found bug hackers planned to use",
+      "url": "https://therecord.media/google-big-sleep-ai-tool-found-bug",
+      "date": "2025-07-15",
+      "written_by": "independent",
+      "quote": "who leveraged Big Sleep to isolate the vulnerability the adversary was preparing to exploit in their operations"
+    },
+    {
+      "kind": "registry label",
+      "citation": "CVE Program record CVE-2025-6965 (CNA: Google), published 15 Jul 2025",
+      "title": "CVE-2025-6965",
+      "url": "https://www.cve.org/CVERecord?id=CVE-2025-6965",
+      "date": "2025-07-15",
+      "written_by": "makers",
+      "quote": "Vlad Stolyarov of Google's Threat Analysis Group, with assistance from Google Big Sleep"
+    },
+    {
+      "kind": "other",
+      "citation": "SQLite release log, version 3.50.2, 28 Jun 2025",
+      "title": "SQLite Release 3.50.2 On 2025-06-28",
+      "url": "https://sqlite.org/releaselog/3_50_2.html",
+      "date": "2025-06-28",
+      "written_by": "independent",
+      "quote": "Raise an error early if the number of aggregate terms in a query exceeds the maximum number of columns, to avoid downstream assertion faults."
+    },
+    {
+      "kind": "press release",
+      "citation": "Kent Walker, Google blog, 15 Jul 2025",
+      "title": "A summer of security: empowering cyber defenders with AI",
+      "url": "https://blog.google/technology/safety-security/cybersecurity-updates-summer-2025/",
+      "date": "2025-07-15",
+      "written_by": "makers",
+      "quote": "Google was able to actually predict that a vulnerability was imminently going to be used and we were able to cut it off beforehand."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Threat-intelligence artifacts narrowing the target without identifying the bug",
+      "An LLM agent with code navigation, sandboxed execution and debugging tools pointed at a specific codebase",
+      "A responsive upstream maintainer shipping a fix before disclosure"
+    ],
+    "must_hold": [
+      "Partial indicators of a staged exploit must exist and be shared with the agent's operators",
+      "Target code must be small enough for the agent to reason over",
+      "Coordinated disclosure before the actor's exploitation window"
+    ],
+    "echoes": [
+      {
+        "date": "2024-11-04",
+        "setting": "Big Sleep's first real-world find: a stack buffer underflow in a SQLite development branch, fixed in October 2024",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://thehackernews.com/2024/11/googles-ai-tool-big-sleep-finds-zero.html"
+      },
+      {
+        "date": "2025-08-11",
+        "setting": "Big Sleep team reports a curl vulnerability later published as CVE-2025-9086, confirmed by the curl maintainer",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://daniel.haxx.se/blog/2025/10/10/a-new-breed-of-analyzers/"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "Google says Big Sleep isolated SQLite zero-day CVE-2025-6965",
+  "metric": null,
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

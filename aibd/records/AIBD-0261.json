@@ -1,0 +1,128 @@
+{
+  "id": "AIBD-0261",
+  "version": 1,
+  "title": "GNoME predicts 2.2 million crystal structures; independent reviewers find scant evidence of useful new compounds",
+  "summary": "Google DeepMind's GNoME proposed 2.2 million crystal structures (380,000 stable); independent reviews (Cheetham & Seshadri 2024, Kurlin 2026) find duplicates and scant evidence of useful compounds.",
+  "date_observed": "2023-11-29",
+  "account": "On 29 November 2023 Google DeepMind published GNoME in Nature, reporting 2.2 million structures below the convex hull, calling it 'an order-of-magnitude expansion in stable materials known to humanity' and stating that 736 of the stable structures had already been independently realised; the company blog adds that the Berkeley Lab A-Lab synthesised more than 41 materials from the predictions. Cheetham and Seshadri (UC Santa Barbara, Chem. Mater., 8 April 2024) examined the listings and reported 'scant evidence for compounds that fulfill the trifecta of novelty, credibility, and utility'; 404 Media (11 April 2024) quoted Cheetham that the paper 'falls way short' as a practical contribution and DeepMind that it stands by all claims. C&EN (15 October 2026) reported an arXiv analysis by Vitaliy Kurlin (Liverpool) finding more than 15% near-duplicates within GNoME, about 24% duplicating Materials Project entries and about 17% close to ICSD entries, with Leslie Schoop (Princeton) calling some entries 'completely unrealistic'. The earlier verifier could not read the Chem. Mater. critique (HTTP 403); its abstract was fetched here through Europe PMC (PMC11044265). The date is the Nature publication date.",
+  "category": "general benefit",
+  "unexpected": false,
+  "purpose": "Predict stable inorganic crystal structures at scale to accelerate materials discovery",
+  "system": "GNoME (Graph Networks for Materials Exploration)",
+  "model_version": null,
+  "developer": "Google DeepMind",
+  "deployer": "Google DeepMind (dataset released openly; stable structures contributed to the Materials Project)",
+  "location": "Mountain View, California, USA",
+  "domain": "Materials science",
+  "segment": "Materials researchers",
+  "benefit_type": "Improved Knowledge Discovery",
+  "taxonomy_note": "Out of the biology theme but recorded under the no-discard rule. The primary paper and blog are vendor-authored; the only independent assessments fetched (Cheetham & Seshadri 2024; Kurlin via C&EN 2026) dispute novelty and utility, and no independently verified downstream material was found, so the record is a general benefit with all depths null.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": null,
+      "reason": "No individual beneficiary; a dataset release."
+    },
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "Use by the Materials Project and A-Lab is reported only by the vendor; independent reviewers find scant utility."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "No demonstrated downstream technology; novelty of the predictions is disputed."
+    }
+  ],
+  "ai_role": {
+    "status": "unassessed",
+    "statement": "The graph-network model is the vendor's; its predictions are documented in a vendor-authored Nature paper and blog. Independent reviewers (Cheetham & Seshadri 2024; Kurlin 2026 as reported by C&EN) report near-duplicates, unrealistic compounds and little evidence of useful novel materials. Benefit therefore rests on the vendor's account and is contested."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Merchant A, Batzner S, Schoenholz SS, Aykol M, Cheon G, Cubuk ED. Nature 624:80-85 (2023)",
+      "title": "Scaling deep learning for materials discovery",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10700131/",
+      "date": "2023-11-29",
+      "written_by": "makers",
+      "quote": "Our work represents an order-of-magnitude expansion in stable materials known to humanity."
+    },
+    {
+      "kind": "press release",
+      "citation": "Google DeepMind blog, 29 Nov 2023",
+      "title": "Millions of new materials discovered with deep learning",
+      "url": "https://deepmind.google/discover/blog/millions-of-new-materials-discovered-with-deep-learning/",
+      "date": "2023-11-29",
+      "written_by": "makers",
+      "quote": "External researchers in labs around the world have independently created 736 of these new structures experimentally in concurrent work"
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Cheetham AK, Seshadri R. Chem. Mater. 36:3490-3495 (2024)",
+      "title": "Artificial Intelligence Driving Materials Discovery? Perspective on the Article: Scaling Deep Learning for Materials Discovery",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11044265/",
+      "date": "2024-04-08",
+      "written_by": "independent",
+      "quote": "unfortunately finding scant evidence for compounds that fulfill the trifecta of novelty, credibility, and utility"
+    },
+    {
+      "kind": "news report",
+      "citation": "Koebler J. 404 Media, 11 Apr 2024",
+      "title": "Google Says It Discovered Millions of New Materials With AI. Human Researchers Say...",
+      "url": "https://www.404media.co/google-says-it-discovered-millions-of-new-materials-with-ai-human-researchers/",
+      "date": "2024-04-11",
+      "written_by": "independent",
+      "quote": "the Google paper falls way short in terms of it being a useful, practical contribution to the experimental materials scientists."
+    },
+    {
+      "kind": "news report",
+      "citation": "Chemical & Engineering News, 15 Oct 2026",
+      "title": "Google DeepMind AI crystallography database includes near duplicate structures and unrealistic compounds",
+      "url": "https://cen.acs.org/research-integrity/Google-DeepMind-structures-near-duplicates-questionable/104/web/2026/10",
+      "date": "2026-10-15",
+      "written_by": "independent",
+      "quote": "My biggest problem with GNoME is that there are materials in there that are completely unrealistic."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Graph neural network trained on existing crystal databases with iterative active learning",
+      "High-throughput DFT stability checks of candidates",
+      "Open release of the predicted structures"
+    ],
+    "must_hold": [
+      "Predicted structures are genuinely novel rather than near-duplicates of known entries",
+      "Predicted compounds are synthesisable and have useful properties",
+      "Independent experimental confirmation of utility"
+    ],
+    "echoes": [
+      {
+        "date": "2024-04-08",
+        "setting": "Independent review of GNoME listings by Cheetham and Seshadri (UC Santa Barbara)",
+        "model_version": null,
+        "outcome": "did not recur",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11044265/"
+      },
+      {
+        "date": "2026-10-09",
+        "setting": "Kurlin et al. arXiv analysis of the November 2024 GNoME update, reported by C&EN",
+        "model_version": "GNoME dataset update, Nov 2024",
+        "outcome": "did not recur",
+        "source": "https://cen.acs.org/research-integrity/Google-DeepMind-structures-near-duplicates-questionable/104/web/2026/10"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "GNoME predicts 2.2 million crystal structures, reviewers dispute",
+  "metric": "2.2 million crystal structures (380,000 stable)",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}

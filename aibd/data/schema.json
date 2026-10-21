@@ -1,0 +1,627 @@
+{
+  "$defs": {
+    "AIRole": {
+      "additionalProperties": false,
+      "description": "What the system contributed to the benefit, assessed on its own.",
+      "properties": {
+        "status": {
+          "enum": [
+            "assessed",
+            "unassessed"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "statement"
+      ],
+      "title": "AIRole",
+      "type": "object"
+    },
+    "Echo": {
+      "additionalProperties": false,
+      "description": "One attempt to make the benefit happen again.",
+      "properties": {
+        "date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Date"
+        },
+        "setting": {
+          "minLength": 1,
+          "title": "Setting",
+          "type": "string"
+        },
+        "model_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Version"
+        },
+        "outcome": {
+          "enum": [
+            "recurred",
+            "did not recur",
+            "unknown"
+          ],
+          "title": "Outcome",
+          "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        }
+      },
+      "required": [
+        "setting",
+        "outcome"
+      ],
+      "title": "Echo",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "description": "One source. Confidence is computed from who wrote the sources and what kind they are.",
+      "properties": {
+        "kind": {
+          "enum": [
+            "peer-reviewed study",
+            "case report",
+            "preprint",
+            "regulatory document",
+            "court document",
+            "news report",
+            "registry label",
+            "dataset",
+            "report",
+            "press release",
+            "other"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "citation": {
+          "minLength": 1,
+          "title": "Citation",
+          "type": "string"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Title"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "format": "uri",
+              "maxLength": 2083,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Date"
+        },
+        "written_by": {
+          "default": "independent",
+          "enum": [
+            "makers",
+            "deployer",
+            "beneficiary",
+            "independent"
+          ],
+          "title": "Written By",
+          "type": "string"
+        },
+        "quote": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quote"
+        }
+      },
+      "required": [
+        "kind",
+        "citation"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "PairedIncident": {
+      "additionalProperties": false,
+      "description": "A comparable harm to the same stakeholder group in an incident database.",
+      "properties": {
+        "database": {
+          "minLength": 1,
+          "title": "Database",
+          "type": "string"
+        },
+        "identifier": {
+          "minLength": 1,
+          "title": "Identifier",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "format": "uri",
+              "maxLength": 2083,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        },
+        "severity": {
+          "anyOf": [
+            {
+              "maximum": 5,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "1 to 5 on the harm scale; null when the source gives none.",
+          "title": "Severity"
+        },
+        "group": {
+          "$ref": "#/$defs/StakeholderGroup"
+        },
+        "basis": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Why this incident is the comparable one.",
+          "title": "Basis"
+        }
+      },
+      "required": [
+        "database",
+        "identifier",
+        "title",
+        "group"
+      ],
+      "title": "PairedIncident",
+      "type": "object"
+    },
+    "Rating": {
+      "additionalProperties": false,
+      "description": "How deep the benefit runs for one stakeholder group, and why.",
+      "properties": {
+        "group": {
+          "$ref": "#/$defs/StakeholderGroup"
+        },
+        "depth": {
+          "anyOf": [
+            {
+              "maximum": -1,
+              "minimum": -5,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "-1 to -5; null means unassessed.",
+          "title": "Depth"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "group",
+        "reason"
+      ],
+      "title": "Rating",
+      "type": "object"
+    },
+    "Replication": {
+      "additionalProperties": false,
+      "description": "The conditions that produced the benefit and the attempts to repeat it.",
+      "properties": {
+        "produced_by": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Produced By",
+          "type": "array"
+        },
+        "must_hold": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Must Hold",
+          "type": "array"
+        },
+        "echoes": {
+          "items": {
+            "$ref": "#/$defs/Echo"
+          },
+          "title": "Echoes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "produced_by",
+        "must_hold"
+      ],
+      "title": "Replication",
+      "type": "object"
+    },
+    "Revision": {
+      "additionalProperties": false,
+      "description": "One change to the record, with its source and the editor responsible.",
+      "properties": {
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string"
+        },
+        "change": {
+          "minLength": 1,
+          "title": "Change",
+          "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "editor": {
+          "minLength": 1,
+          "title": "Editor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "change",
+        "editor"
+      ],
+      "title": "Revision",
+      "type": "object"
+    },
+    "StakeholderGroup": {
+      "description": "The three stakeholder groups of the benefits taxonomy.",
+      "enum": [
+        "personal",
+        "organizational",
+        "societal"
+      ],
+      "title": "StakeholderGroup",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "One beneficial outcome.",
+  "properties": {
+    "id": {
+      "pattern": "^AIBD-\\d{4}$",
+      "title": "Id",
+      "type": "string"
+    },
+    "version": {
+      "minimum": 1,
+      "title": "Version",
+      "type": "integer"
+    },
+    "title": {
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    },
+    "summary": {
+      "description": "One line.",
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Summary",
+      "type": "string"
+    },
+    "date_observed": {
+      "format": "date",
+      "title": "Date Observed",
+      "type": "string"
+    },
+    "account": {
+      "description": "What happened, in one paragraph.",
+      "minLength": 1,
+      "title": "Account",
+      "type": "string"
+    },
+    "category": {
+      "description": "The kind of event: a benefit created or restored, a specific harm prevented, a protective response with prevention unproven, or a general benefit without an event (kept off the scale).",
+      "enum": [
+        "benefit created",
+        "harm prevented",
+        "protective response",
+        "general benefit"
+      ],
+      "title": "Category",
+      "type": "string"
+    },
+    "unexpected": {
+      "title": "Unexpected",
+      "type": "boolean"
+    },
+    "purpose": {
+      "description": "What the system was built to do, and whether this benefit was that.",
+      "minLength": 1,
+      "title": "Purpose",
+      "type": "string"
+    },
+    "system": {
+      "minLength": 1,
+      "title": "System",
+      "type": "string"
+    },
+    "model_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Model Version"
+    },
+    "developer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Developer"
+    },
+    "deployer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Deployer"
+    },
+    "location": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Location"
+    },
+    "domain": {
+      "minLength": 1,
+      "title": "Domain",
+      "type": "string"
+    },
+    "segment": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Segment"
+    },
+    "benefit_type": {
+      "minLength": 1,
+      "title": "Benefit Type",
+      "type": "string"
+    },
+    "taxonomy_note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Taxonomy Note"
+    },
+    "registry_ids": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Ids in other registries, e.g. oecd_aim, aiid.",
+      "title": "Registry Ids",
+      "type": "object"
+    },
+    "ratings": {
+      "items": {
+        "$ref": "#/$defs/Rating"
+      },
+      "minItems": 1,
+      "title": "Ratings",
+      "type": "array"
+    },
+    "ai_role": {
+      "$ref": "#/$defs/AIRole"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/Evidence"
+      },
+      "minItems": 1,
+      "title": "Evidence",
+      "type": "array"
+    },
+    "replication": {
+      "$ref": "#/$defs/Replication"
+    },
+    "paired_incident": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PairedIncident"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "headline": {
+      "anyOf": [
+        {
+          "maxLength": 72,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Short title; adds no fact.",
+      "title": "Headline"
+    },
+    "metric": {
+      "anyOf": [
+        {
+          "maxLength": 100,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "The key quantified outcome, verbatim from the summary or account.",
+      "title": "Metric"
+    },
+    "revisions": {
+      "items": {
+        "$ref": "#/$defs/Revision"
+      },
+      "minItems": 1,
+      "title": "Revisions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "title",
+    "summary",
+    "date_observed",
+    "account",
+    "category",
+    "unexpected",
+    "purpose",
+    "system",
+    "domain",
+    "benefit_type",
+    "ratings",
+    "ai_role",
+    "evidence",
+    "replication",
+    "revisions"
+  ],
+  "title": "Record",
+  "type": "object"
+}

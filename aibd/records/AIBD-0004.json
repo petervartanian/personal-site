@@ -1,0 +1,114 @@
+{
+  "id": "AIBD-0004",
+  "version": 4,
+  "title": "Intracortical speech neuroprosthesis decodes attempted speech at 62 words per minute for a woman with ALS (Stanford)",
+  "summary": "Four 64-electrode microelectrode arrays and an RNN with a 125,000-word language model let Pat Bennett (ALS) produce text at 62 wpm, 23.8% word error rate",
+  "date_observed": "2022-08-01",
+  "account": "At Stanford University, a participant with bulbar-onset amyotrophic lateral sclerosis (identified in news reports as Pat Bennett, 68) had four 64-electrode arrays implanted in ventral premotor cortex (area 6v) and area 44 under the BrainGate2 trial; Stanford's release dates the surgery to 29 March 2022. A recurrent neural network converted her neural activity into phoneme probabilities and a 125,000-word language model assembled sentences: she produced text at 62 words per minute, with a 9.1% word error rate on a 50-word vocabulary and 23.8% on the full vocabulary (Willett et al., Nature, 23 August 2023). The work was described as a proof of concept in research sessions. The paper dates its sessions by post-implant day (119, 136 and 141 for the reported data) rather than by calendar date; the Stanford release says research sessions began about a month after the 29 March 2022 surgery and that 62 words per minute was reached after four months, which places the result in about August 2022, so 1 August 2022 is used as the observation date.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Built to restore communication by decoding attempted speech from intracortical recordings into text; large-vocabulary text communication was the intended benefit and is what occurred.",
+  "system": "Stanford intracortical speech neuroprosthesis (BrainGate2 trial)",
+  "model_version": "Four 64-electrode microelectrode arrays in area 6v and area 44; five-layer gated recurrent-unit RNN with a 125,000-word trigram language model",
+  "developer": "Stanford Neural Prosthetics Translational Laboratory (Willett, Henderson, Shenoy) with the BrainGate consortium",
+  "deployer": "Stanford Medicine",
+  "location": "Stanford, United States",
+  "domain": "Healthcare / assistive communication",
+  "segment": "ALS with loss of intelligible speech",
+  "benefit_type": "Improved Accessibility",
+  "taxonomy_note": "Filed as benefit created or restored on the strength of an individually observed outcome for a named beneficiary; the event is a research-session demonstration that Stanford itself calls a scientific proof of concept rather than a device for everyday life, which is why it is not filed as a category-3 accuracy study.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -2,
+      "reason": "Material benefit to one identifiable person: large-vocabulary communication at conversational pace in research sessions; the team itself called it a proof of concept rather than an everyday device."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "An RNN decoder plus an n-gram language model is the mechanism translating neural activity into text; the Stanford neurosurgeon describes the language model as 'a sophisticated auto-correct'. The benefit is attributable to the decoding system."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Willett FR, Kunz EM, Fan C, et al. (2023). A high-performance speech neuroprosthesis. Nature.",
+      "title": "A high-performance speech neuroprosthesis",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10468393/",
+      "date": "2023-08-23",
+      "written_by": "makers",
+      "quote": "T12 spoke at an average pace of 62 words per minute, which more than triples the speed of the previous state of the art for any type of BCI (18 words per minute for a handwriting BCI)."
+    },
+    {
+      "kind": "news report",
+      "citation": "Hamilton J (2023). These experimental brain implants can restore speech to paralyzed patients. NPR (via BPR).",
+      "title": "These experimental brain implants can restore speech to paralyzed patients",
+      "url": "https://www.bpr.org/2023-08-23/these-experimental-brain-implants-can-restore-speech-to-paralyzed-patients",
+      "date": "2023-08-23",
+      "written_by": "independent",
+      "quote": "For Pat Bennett, 68, every spoken word is a struggle."
+    },
+    {
+      "kind": "press release",
+      "citation": "Goldman B (2023). Brain implants, software guide speech-disabled person's intended words to computer screen. Stanford Medicine News (developer institution release).",
+      "title": "Brain implants, software guide speech-disabled person's intended words to computer screen",
+      "url": "https://med.stanford.edu/news/all-news/2023/08/brain-implant-speech-als.html",
+      "date": "2023-08-23",
+      "written_by": "makers",
+      "quote": "On March 29, 2022, a Stanford Medicine neurosurgeon placed two tiny sensors apiece in two separate regions - both implicated in speech production - along the surface of Bennett's brain."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "Preserved articulatory code for phonemes in ventral premotor cortex years after loss of speech",
+      "Four intracortical arrays in speech-related cortex",
+      "RNN decoder plus large-vocabulary language model trained on the participant's attempted speech",
+      "Regulated trial setting (BrainGate2) with research support"
+    ],
+    "must_hold": [
+      "Array signal quality remains adequate",
+      "Participant can attempt speech and tolerate recording sessions",
+      "Decoder retraining available across sessions"
+    ],
+    "echoes": [
+      {
+        "date": "2024-08-15",
+        "setting": "UC Davis, a different participant (45-year-old man with ALS), same intracortical phoneme-decoding approach with Willett as co-author; 97.5% accuracy over 248 hours of conversation",
+        "model_version": "256 electrodes; phoneme decoder with 125,000-word language models",
+        "outcome": "recurred",
+        "source": "Card NS, et al. (2024). An Accurate and Rapidly Calibrating Speech Neuroprosthesis. N Engl J Med. https://pmc.ncbi.nlm.nih.gov/articles/PMC11328962/"
+      }
+    ]
+  },
+  "paired_incident": {
+    "database": "AI Incident Database",
+    "identifier": "732",
+    "title": "Whisper Speech-to-Text AI Reportedly Found to Create Violent Hallucinations",
+    "url": "https://incidentdatabase.ai/cite/732",
+    "severity": null,
+    "group": "personal",
+    "basis": "Both decode speech for people with impaired speech; Whisper fabricated words and violent phrases when transcribing impaired speech."
+  },
+  "headline": "Stanford neuroprosthesis decodes Pat Bennett's speech at 62 wpm",
+  "metric": "produce text at 62 wpm, 23.8% word error rate",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Paired with AI Incident Database incident 732 (medium confidence); severity not given by the source.",
+      "source": "https://incidentdatabase.ai/cite/732",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-20",
+      "change": "Moved the date observed from the publication date to August 2022, where the paper's post-implant-day sessions fall given the 29 March 2022 surgery date in the Stanford release, replaced 'Utah arrays' with the sources' '64-electrode microelectrode arrays', extended two truncated quotes to full sentences, corrected the NEJM echo date to the 15 August 2024 issue date, and added a taxonomy note on why a proof-of-concept demonstration is filed as a benefit created or restored.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10468393/; https://med.stanford.edu/news/all-news/2023/08/brain-implant-speech-als.html; https://pmc.ncbi.nlm.nih.gov/articles/PMC11328962/",
+      "editor": "AIBD"
+    }
+  ]
+}

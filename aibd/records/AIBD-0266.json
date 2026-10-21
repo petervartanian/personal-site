@@ -1,0 +1,102 @@
+{
+  "id": "AIBD-0266",
+  "version": 1,
+  "title": "Johns Hopkins LSTM click detector lets a man with ALS spell 10.2 characters a minute for 90 days without retraining",
+  "summary": "A chronically implanted high-density ECoG BCI with an LSTM click detector trained on under 44 minutes of data supported switch-scan spelling for 626 minutes over 90 days, all in the laboratory.",
+  "date_observed": "2024-10-22",
+  "account": "Candrea et al. (Communications Medicine, 22 October 2024) report a clinical-trial participant with ALS (NCT03567213) using a chronically implanted high-density electrocorticographic BCI over sensorimotor cortex at Johns Hopkins. High-gamma power vectors from 128 channels fed a long short-term memory layer with 25 hidden units and fully connected layers that classified rest versus grasp every 100 ms. The click detector was trained on almost 44 minutes of data (480 trials) collected up to 21 days before use and then run for 90 days without retraining; the participant controlled a switch-scanning speller for a total of 626 minutes and maintained a median spelling rate of 10.2 characters per minute. The paper states that all data collection and testing were performed in the laboratory. The earlier verifier excluded it for lack of home use and the record cap. The date is the publication date.",
+  "category": "benefit created",
+  "unexpected": false,
+  "purpose": "Restore text communication for a person with ALS through a single neural click command driving a switch-scanning speller",
+  "system": "Click-based electrocorticographic brain-computer interface with an LSTM click detector (NCT03567213)",
+  "model_version": "LSTM (25 hidden units) with two fully connected layers, Keras/TensorFlow 2.8.0",
+  "developer": "Johns Hopkins University School of Medicine (Crone lab and co-authors)",
+  "deployer": "Johns Hopkins University (laboratory sessions)",
+  "location": "Baltimore, Maryland, USA",
+  "domain": "Health; assistive communication",
+  "segment": "People with ALS and impaired speech or movement",
+  "benefit_type": "Improved Accessibility",
+  "taxonomy_note": "Peer-reviewed single-participant trial report by the system's developers (academic); laboratory use only, which is why the earlier verifier set it aside. Depth is limited to in-session communication.",
+  "registry_ids": {},
+  "ratings": [
+    {
+      "group": "personal",
+      "depth": -2,
+      "reason": "Functional text-based communication at 10.2 characters per minute in laboratory sessions totalling 626 minutes over 90 days; no home use."
+    },
+    {
+      "group": "organizational",
+      "depth": null,
+      "reason": "No organisational outcome reported."
+    },
+    {
+      "group": "societal",
+      "depth": null,
+      "reason": "Single participant."
+    }
+  ],
+  "ai_role": {
+    "status": "assessed",
+    "statement": "The LSTM click detector is the decoding element; its stability without retraining is the paper's main result. The source is a peer-reviewed report by the developers, with no outside corroboration and no use outside the laboratory."
+  },
+  "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Candrea DN, Shah S, Luo S, et al. Commun Med 4:207 (2024)",
+      "title": "A click-based electrocorticographic brain-computer interface enables long-term high-performance switch scan spelling",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11494178/",
+      "date": "2024-10-22",
+      "written_by": "makers",
+      "quote": "the study participant can maintain a median spelling rate of 10.2 characters per min"
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Candrea DN, et al. Commun Med 4:207 (2024), Methods",
+      "title": "A click-based electrocorticographic brain-computer interface enables long-term high-performance switch scan spelling",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11494178/",
+      "date": "2024-10-22",
+      "written_by": "makers",
+      "quote": "All data collection and testing were performed in the laboratory."
+    },
+    {
+      "kind": "preprint",
+      "citation": "Candrea DN, et al. Research Square, 25 Sep 2023",
+      "title": "A click-based electrocorticographic brain-computer interface enables long-term high-performance switch-scan spelling",
+      "url": "https://doi.org/10.21203/rs.3.rs-3158792/v1",
+      "date": "2023-09-25",
+      "written_by": "makers",
+      "quote": "a new click decoder achieved comparable performance despite being trained with even less data (< 15 min, within one day)."
+    }
+  ],
+  "replication": {
+    "produced_by": [
+      "High-density ECoG over sensorimotor cortex",
+      "LSTM click detector trained on under 44 minutes of data",
+      "Switch-scanning speller interface"
+    ],
+    "must_hold": [
+      "Signal power modulation remains stable (a transient reduction interrupted use of the fixed model)",
+      "Laboratory setting with research staff"
+    ],
+    "echoes": [
+      {
+        "date": "2016-11-12",
+        "setting": "Utrecht fully implanted click-based BCI, home use over seven years",
+        "model_version": null,
+        "outcome": "recurred",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5326682/"
+      }
+    ]
+  },
+  "paired_incident": null,
+  "headline": "Johns Hopkins LSTM BCI lets a man with ALS spell for 90 days",
+  "metric": "median spelling rate of 10.2 characters per minute",
+  "revisions": [
+    {
+      "date": "2026-10-20",
+      "change": "Record drafted from the cited sources.",
+      "source": null,
+      "editor": "AIBD"
+    }
+  ]
+}
