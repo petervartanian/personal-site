@@ -25,6 +25,77 @@
       "title": "AIRole",
       "type": "object"
     },
+    "Comparator": {
+      "additionalProperties": false,
+      "description": "What the benefit is measured against, as a source states it.",
+      "properties": {
+        "against": {
+          "description": "The baseline: human alone, the prior process, no tool.",
+          "minLength": 1,
+          "title": "Against",
+          "type": "string"
+        },
+        "before": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The figure or state without the AI, verbatim where given.",
+          "title": "Before"
+        },
+        "after": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The figure with the AI, verbatim where given.",
+          "title": "After"
+        },
+        "basis": {
+          "enum": [
+            "measured",
+            "assumed"
+          ],
+          "title": "Basis",
+          "type": "string"
+        },
+        "quote": {
+          "description": "The passage that states the comparison, verbatim.",
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        }
+      },
+      "required": [
+        "against",
+        "basis",
+        "quote"
+      ],
+      "title": "Comparator",
+      "type": "object"
+    },
     "Echo": {
       "additionalProperties": false,
       "description": "One attempt to make the benefit happen again.",
@@ -183,6 +254,72 @@
         "citation"
       ],
       "title": "Evidence",
+      "type": "object"
+    },
+    "Later": {
+      "additionalProperties": false,
+      "description": "What happened after the first report.",
+      "properties": {
+        "status": {
+          "enum": [
+            "persisted",
+            "scaled",
+            "reversed",
+            "withdrawn",
+            "litigated",
+            "unknown"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Date"
+        },
+        "note": {
+          "minLength": 1,
+          "title": "Note",
+          "type": "string"
+        },
+        "quote": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quote"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        }
+      },
+      "required": [
+        "status",
+        "note"
+      ],
+      "title": "Later",
       "type": "object"
     },
     "PairedIncident": {
@@ -379,6 +516,66 @@
       ],
       "title": "StakeholderGroup",
       "type": "string"
+    },
+    "StatedValue": {
+      "additionalProperties": false,
+      "description": "A money figure a source states for the benefit, never an estimate of ours.",
+      "properties": {
+        "amount": {
+          "description": "Verbatim, with its currency.",
+          "minLength": 1,
+          "title": "Amount",
+          "type": "string"
+        },
+        "what": {
+          "description": "What the amount is: saved per year, fraud blocked.",
+          "minLength": 1,
+          "title": "What",
+          "type": "string"
+        },
+        "who": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Who gains or pays.",
+          "title": "Who"
+        },
+        "estimate": {
+          "title": "Estimate",
+          "type": "boolean"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        }
+      },
+      "required": [
+        "amount",
+        "what",
+        "estimate",
+        "quote"
+      ],
+      "title": "StatedValue",
+      "type": "object"
     }
   },
   "additionalProperties": false,
@@ -588,6 +785,42 @@
       "default": null,
       "description": "The key quantified outcome, verbatim from the summary or account.",
       "title": "Metric"
+    },
+    "comparator": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Comparator"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Better than what: the baseline the benefit is measured against."
+    },
+    "later": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Later"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "What happened after the first report."
+    },
+    "value": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/StatedValue"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "A money figure a source states for the benefit."
     },
     "brief_notes": {
       "anyOf": [
