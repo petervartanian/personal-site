@@ -429,6 +429,19 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     atlas.addEventListener('mouseleave', function () { if (readout) readout.textContent = ''; });
   }
   bindAtlas();
+  ex.addEventListener('click', function (e) {
+    var route = e.target.closest('.gazetteer [data-route]'); if (!route) return;
+    var parts = route.getAttribute('data-route').split('|');
+    var same = active.made && active.made[parts[0]] && active.country && active.country[parts[1]];
+    KEYS.forEach(function (k) { active[k] = {}; });
+    if (!same) { active.made = {}; active.made[parts[0]] = true; active.country = {}; active.country[parts[1]] = true; }
+    apply(true);
+  });
+  ex.addEventListener('click', function (e) {
+    var land = e.target.closest('.worldmap [data-facet="country"], .worldmap [data-facet="made"]'); if (!land) return;
+    var sec = document.getElementById('j-' + land.getAttribute('data-value').replace(/ /g, '-').toLowerCase());
+    if (sec) setTimeout(function () { sec.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' }); }, 80);
+  });
   var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', deployer: 'deployer', made: 'made in' };
   var PAGE = 40, showAll = false;
   var more = ex.querySelector('[data-more-rows]');
@@ -559,7 +572,8 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     });
     paintAtlas();
     var places = Object.keys(active.country || {}).concat(Object.keys(active.made || {}));
-    ex.querySelectorAll('.ent[data-country]').forEach(function (li) { li.hidden = places.length > 0 && places.indexOf(li.getAttribute('data-country')) === -1; });
+    ex.querySelectorAll('.juris[data-country]').forEach(function (sec) { sec.hidden = places.length > 0 && places.indexOf(sec.getAttribute('data-country')) === -1; });
+    ex.querySelectorAll('.gazetteer [data-route]').forEach(function (b) { var parts = b.getAttribute('data-route').split('|'); b.classList.toggle('on', !!(active.made && active.made[parts[0]] && active.country && active.country[parts[1]])); });
     if (count) {
       var filtered = (q && q.value.trim()) || openTool === 'shelf' || KEYS.some(function (k) { return hasAny(active[k]); });
       count.textContent = filtered ? shown + ' of ' + rows.length + ' cases' : rows.length + ' cases';
