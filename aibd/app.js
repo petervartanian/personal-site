@@ -277,14 +277,21 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   window.aibdKit = { shut: function () { setKit(false); } };
 })();
 
-// Faceted explorer on the front page: every facet recounts against the other active filters.
+// The door forwards any explorer address (a tool, a query, a filter) to the cases page.
+(function () {
+  if (!document.querySelector('[data-door]')) return;
+  if (window.location.search.length > 1) window.location.replace('cases.html' + window.location.search);
+})();
+
+// Faceted explorer on the cases page: every facet recounts against the other active filters.
 (function () {
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
   var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'deployer', 'harm'];
   var compareData = null, compareLoading = false;
-  var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'shelf', 'roles', 'latest', 'entities', 'submit', 'method', 'data'];
+  var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'shelf', 'roles', 'latest', 'briefs', 'entities', 'submit', 'method', 'data'];
   var kit = document.querySelector('[data-kit]');
+  var rail = document.querySelector('[data-rail]');
   // One tool at a time: the open one, or none.
   var openTool = (new URLSearchParams(window.location.search).get('open') || '').split(',').filter(function (k) { return PANELS.indexOf(k) !== -1; })[0] || null;
   function loadFragment(panel) {
@@ -300,8 +307,10 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       var on = k === openTool;
       var panel = ex.querySelector('[data-tool-panel="' + k + '"]'); if (panel) { panel.hidden = !on; if (on) loadFragment(panel); }
       if (k === 'table' || k === 'shelf') { if (on || (openTool !== 'table' && openTool !== 'shelf')) { ex.classList.toggle('tabular', on); var th = ex.querySelector('[data-table-head]'); if (th) th.hidden = !on; } }
-      var b = kit ? kit.querySelector('[data-kit-tool="' + k + '"]') : null;
-      if (b) { b.classList.toggle('on', on); if (b.tagName === 'BUTTON') b.setAttribute('aria-pressed', String(on)); else if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); }
+      [kit, rail].forEach(function (box) {
+        var b = box ? box.querySelector('[data-kit-tool="' + k + '"]') : null;
+        if (b) { b.classList.toggle('on', on); if (b.tagName === 'BUTTON') b.setAttribute('aria-pressed', String(on)); else if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); }
+      });
     });
     var label = kit ? kit.querySelector('[data-kit-on]') : null;
     if (label) { var name = openTool ? kit.querySelector('[data-kit-tool="' + openTool + '"] .tn') : null; label.textContent = name ? name.textContent : ''; }
@@ -319,8 +328,9 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (typeof setRole === 'function') setRole(p.get('role') || '');
     applyTools(); apply();
   });
-  if (kit) {
-    kit.addEventListener('click', function (e) {
+  [kit, rail].forEach(function (box) {
+    if (!box) return;
+    box.addEventListener('click', function (e) {
       var b = e.target.closest('[data-kit-tool]'); if (!b) return;
       e.preventDefault();
       var k = b.getAttribute('data-kit-tool');
@@ -330,9 +340,9 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       if (window.aibdKit) window.aibdKit.shut();
       var panel = ex.querySelector('[data-tool-panel="' + k + '"]');
       if (panel && !panel.hidden) { panel.setAttribute('tabindex', '-1'); panel.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' }); panel.focus({ preventScroll: true }); }
-      else if (kit) { var hd = kit.querySelector('[data-kit-handle]'); if (hd) hd.focus(); }
+      else if (box === kit) { var hd = kit.querySelector('[data-kit-handle]'); if (hd) hd.focus(); }
     });
-  }
+  });
   applyTools();
   var sortState = { key: null, dir: 1 };
   var CONF = { found: 0, studied: 1, reported: 2, claimed: 3 };
