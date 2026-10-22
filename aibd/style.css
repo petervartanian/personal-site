@@ -822,22 +822,28 @@ body.door .masthead .find { display: none; }
 /* The atlas readout keeps two lines of height so the map does not move when it fills. */
 [data-atlas-readout] { display: block; min-height: calc(2 * var(--l-small)); }
 
-
-/* Jurisdictions and parties: one block per country, its parties with their marks, its routes out and in. */
-.gazetteer { max-width: 58rem; }
-.juris { padding: 14px 0 10px; border-bottom: 1px solid var(--rule); }
-.juris-h { font-family: var(--serif); font-size: var(--t-head); line-height: var(--l-head); font-weight: 500; margin: 0 0 6px; }
-.juris-h .flag { height: 0.8em; vertical-align: -0.05em; margin-right: 4px; }
-.juris-h .n { font-family: var(--mono); font-size: var(--t-cap); color: var(--ink-3); margin-left: 12px; }
-.juris-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin: 0 0 6px; max-width: none; }
-.juris-l { font-size: var(--t-cap); line-height: var(--l-cap); color: var(--ink-3); min-width: 9.5rem; }
-.party { display: inline-flex; align-items: center; gap: 7px; color: var(--ink-2); font-size: var(--t-body); line-height: var(--l-body); padding: 2px 0; }
-.party .logo { height: var(--s); width: auto; max-width: 72px; margin: 0; vertical-align: middle; }
-.party .n, .route .n { font-family: var(--mono); font-size: var(--t-cap); color: var(--ink-3); margin-left: 2px; }
-.party.on .v, .route.on { text-decoration: underline; text-underline-offset: 3px; color: var(--ink); }
-.route { display: inline-flex; align-items: center; gap: 5px; color: var(--ink-2); font-size: var(--t-small); line-height: var(--l-small); }
-.route .flag { height: 0.9em; }
-@media (max-width: 700px) { .juris-l { min-width: 100%; } }
-
-/* The door fits the window: no scroll at 1440 by 820. */
-body.door .page { margin-bottom: 0; }
+/* Gazetteer rows: a jurisdiction, its parties as marks sized by their cases, its routes as flags. */
+.gaz { list-style: none; margin: 18px 0 0; padding: 0; max-width: 62rem; border-top: 1px solid var(--rule); }
+.juris { border-bottom: 1px solid var(--rule); padding: 8px 0; }
+.juris-h { display: flex; align-items: baseline; gap: 10px; font-family: var(--serif); font-size: var(--t-title); line-height: var(--l-title); color: var(--ink); text-align: left; }
+.juris-h .flag { height: 0.85em; align-self: center; }
+.juris-h .n { font-family: var(--mono); font-size: var(--t-cap); color: var(--ink-3); }
+.juris-h .n.made::before { content: "made "; }
+.juris.folded .juris-body { display: none; }
+.juris-body { padding: 4px 0 2px 0; }
+.parties { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 0 0 6px; max-width: none; }
+.party { display: inline-flex; align-items: center; line-height: 1; color: var(--ink-2); }
+.party .logo { height: var(--s); width: auto; max-width: 96px; margin: 0; display: block; }
+.party .v { font-size: var(--t-small); line-height: var(--l-small); }
+.party.on { outline: 1px solid var(--ink); outline-offset: 3px; }
+.party.more { display: none; }
+.parties.all .party.more { display: inline-flex; }
+.morep { font-size: var(--t-cap); color: var(--ink-3); }
+.routes { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 0; max-width: none; }
+.rl { font-family: var(--mono); font-size: var(--t-cap); color: var(--ink-3); margin-right: 2px; }
+.rl:not(:first-child) { margin-left: 12px; }
+.route { display: inline-flex; align-items: center; gap: 4px; color: var(--ink-2); font-size: var(--t-cap); line-height: var(--l-cap); }
+.route .flag { height: 1em; }
+.route .n { font-family: var(--mono); color: var(--ink-3); }
+.route.on { outline: 1px solid var(--ink); outline-offset: 3px; }
+.layers { margin-bottom: 10px; }
