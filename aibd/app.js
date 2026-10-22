@@ -382,6 +382,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       apply(true);
     });
   });
+  var atlasZoom = 1;
   function bindAtlas() {
     var atlas = ex.querySelector('.worldmap');
     if (!atlas || atlas.dataset.bound) return;
@@ -391,12 +392,15 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       b.addEventListener('click', function () {
         atlas.setAttribute('viewBox', b.getAttribute('data-plate'));
         ex.querySelectorAll('[data-plate]').forEach(function (x) { x.classList.toggle('on', x === b); });
+        atlasZoom = 960 / (parseFloat(b.getAttribute('data-plate').split(' ')[2]) || 960);
+        var arrow = atlas.querySelector('#arrow'); if (arrow) { var mw = (7 / Math.pow(atlasZoom, 0.75)).toFixed(2); arrow.setAttribute('markerWidth', mw); arrow.setAttribute('markerHeight', mw); }
+        paintAtlas();
       });
     });
     function show(land) {
       if (!readout) return;
       if (!land) { readout.textContent = ''; return; }
-      var key = land.getAttribute('data-route');
+      var key = land.getAttribute('data-route-key') || land.getAttribute('data-route');
       var card = key ? ex.querySelector('[data-route-card="' + key.replace(/"/g, '\\"') + '"]') : null;
       if (card) { readout.innerHTML = card.innerHTML; return; }
       var t = land.querySelector('title'); readout.textContent = t ? t.textContent : '';
@@ -518,18 +522,16 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var where = {}, made = {}, routes = {};
     rows.forEach(function (r) {
       if (!matches(r, null)) return;
-      var c = r.dataset.country, m = r.dataset.made;
-      if (c && c !== 'Unstated') where[c] = (where[c] || 0) + 1;
-      if (m && m !== 'Unstated') made[m] = (made[m] || 0) + 1;
-      if (m && m !== 'Unstated' && c && c !== 'Unstated') routes[m + '|' + c] = (routes[m + '|' + c] || 0) + 1;
+      var pks = r.dataset.place ? r.dataset.place.split(';') : [], ok = r.dataset.origin;
+      if (ok) made[ok] = (made[ok] || 0) + 1;
+      pks.forEach(function (pk) { where[pk] = (where[pk] || 0) + 1; if (ok) routes[ok + '|' + pk] = (routes[ok + '|' + pk] || 0) + 1; });
     });
-    function size(n) { return (2.2 + 2.6 * Math.sqrt(n)).toFixed(1); }
-    function label(el, text) { var t = el.querySelector('title'); if (t) t.textContent = text; }
-    atlas.querySelectorAll('[data-layer="where"] circle').forEach(function (c) { var n = where[c.dataset.value] || 0; c.style.display = n ? '' : 'none'; if (n) { c.setAttribute('r', size(n)); label(c, c.dataset.value + ', ' + n + ' case' + (n !== 1 ? 's' : '')); } });
-    atlas.querySelectorAll('[data-layer="made"] circle').forEach(function (c) { var n = made[c.dataset.value] || 0; c.style.display = n ? '' : 'none'; if (n) { c.setAttribute('r', size(n)); label(c, c.dataset.value + ', systems from here in ' + n + ' case' + (n !== 1 ? 's' : '')); } });
-    atlas.querySelectorAll('[data-route]').forEach(function (el) {
-      var n = routes[el.dataset.route] || 0, vis = el.nextElementSibling && el.nextElementSibling.classList.contains('flow-vis') ? el.nextElementSibling : null;
-      el.style.display = n ? '' : 'none'; if (vis) { vis.style.display = n ? '' : 'none'; if (n) vis.style.strokeWidth = (0.7 + 0.7 * Math.sqrt(n)).toFixed(2); }
+    function size(n) { return ((1.8 + 1.5 * Math.sqrt(n)) / Math.pow(atlasZoom, 0.75)).toFixed(2); }
+    atlas.querySelectorAll('[data-layer="where"] circle').forEach(function (c) { var n = where[c.dataset.place] || 0; c.style.display = n ? '' : 'none'; if (n) c.setAttribute('r', size(n)); });
+    atlas.querySelectorAll('[data-layer="made"] circle').forEach(function (c) { var n = made[c.dataset.place] || 0; c.style.display = n ? '' : 'none'; if (n) c.setAttribute('r', size(n)); });
+    atlas.querySelectorAll('.worldmap [data-route]').forEach(function (el) {
+      var k = el.getAttribute('data-route-keys') || '', n = k ? (routes[k] || 0) : 0, vis = el.nextElementSibling && el.nextElementSibling.classList.contains('flow-vis') ? el.nextElementSibling : null;
+      el.style.display = n ? '' : 'none'; if (vis) { vis.style.display = n ? '' : 'none'; if (n) vis.style.strokeWidth = (1 + Math.sqrt(n)).toFixed(2); }
       if (n && el.classList.contains('ring')) el.setAttribute('r', size(n));
     });
   }
