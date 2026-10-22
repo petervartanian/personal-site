@@ -25,7 +25,12 @@ test('all six tools have static entry pages at their existing URLs', () => {
   }
   assert.match(read('200/arcolens/index.html'), /OPEN_REVIEW\.html/);
   assert.match(read('200/arcolens/OPEN_REVIEW.html'), /Arcolens/);
-  assert(existsSync(path.join(root, '200/correlator/plan/index.html')));
+  const plan = read('200/correlator/plan/index.html');
+  const planTab = 'https://docs.google.com/document/d/1g9dQQXl5b8GwscmhZqLvXFifs8z2XD0p9JmsGogwc_0/edit?tab=t.qgntom4a0dv7';
+  assert(plan.includes(`<meta http-equiv="refresh" content="0; url=${planTab}">`));
+  assert(plan.includes(`<a href="${planTab}">`), 'The retired Plan URL needs a fallback link');
+  assert(!/timeline|schedule-row|@font-face/.test(plan), 'The standalone Plan must stay retired');
+  assert(!existsSync(path.join(root, '200/correlator/plan/figtree-latin.woff2')));
 });
 
 test('every tool HTML page retains search exclusion, including saved HTML reports', () => {
