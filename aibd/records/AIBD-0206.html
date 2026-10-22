@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/atom+xml" title="Feed of new and revised cases" href="../feed.xml">
-<link rel="stylesheet" href="../style.css?v=b55da6ee08">
+<link rel="stylesheet" href="../style.css?v=bf00652533">
 </head>
 <body class="record-page d2">
 <div class="page">
@@ -66,13 +66,13 @@
 
     <section class="sec">
       <h2>What happened</h2>
-<p class="prose">On 4 March 2026 Wiz Research reported to GitHub a critical remote code execution flaw, later CVE-2026–3854, in GitHub&#39;s internal git infrastructure: git push options were not sanitized before being written into internal headers, so any authenticated user could run arbitrary commands on GitHub&#39;s servers with a single git push. Wiz says AI-augmented tooling, particularly automated reverse engineering of GitHub&#39;s compiled binaries with IDA MCP, made the research feasible; The Register reports that the team used Claude Code and went from idea to working exploit in under 48 hours. GitHub reproduced the bug within 40 minutes, deployed a fix to github.com at 7:00 pm UTC that day, released GitHub Enterprise Server patches from 10 March, and found no exploitation.</p>      <p class="purpose"><b>What it was built to do.</b> Claude Code is Anthropic&#39;s agentic coding tool, built to read a codebase, edit files, run commands and connect to external tools over MCP; Wiz used it, with IDA MCP, to automate reverse engineering of GitHub&#39;s compiled binaries. Analyzing code for flaws is within that general purpose, so the benefit was an application of what the tool was built to do rather than a departure from it.</p>
+<p class="prose">On 4 March 2026 Wiz Research reported a critical remote code execution (RCE) flaw to GitHub, later CVE-2026–3854. It sat in GitHub&#39;s internal git infrastructure. Git push options were not sanitized before being written into internal headers. Any authenticated user could therefore run arbitrary commands on GitHub&#39;s servers with a single git push. Wiz says AI-augmented tooling made the research feasible, particularly automated reverse engineering of GitHub&#39;s compiled binaries with IDA MCP. The Register reports that the team used Claude Code and went from idea to working exploit in under 48 hours. GitHub reproduced the bug within 40 minutes and deployed a fix to github.com at 7:00 pm UTC that day. It released GitHub Enterprise Server (GHES) patches from 10 March, and found no exploitation.</p>      <p class="purpose"><b>What it was built to do.</b> Claude Code is Anthropic&#39;s agentic coding tool, built to read a codebase, edit files, run commands and connect to external tools over MCP. Wiz used it, with IDA MCP, to automate reverse engineering of GitHub&#39;s compiled binaries. Analyzing code for flaws is within that general purpose. The benefit was an application of what the tool was built to do rather than a departure from it.</p>
     </section>
 
     <section class="sec" data-panel="who">
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d2 conf-medium"><div><div class="big"><svg class="mk d2 conf-medium" viewBox="0 0 16 16" width="18" height="18" aria-label="square: organizational"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></svg>2</div><small>an organization</small></div><p>GitHub closed a critical remote code execution hole in its git push pipeline within hours of the report (fix on github.com at 7:00 pm UTC on 4 March 2026) and shipped patches for six GitHub Enterprise Server release lines; Wiz earned what GitHub calls one of the highest rewards in the history of its Bug Bounty program. The loss avoided is hypothetical: GitHub&#39;s forensic investigation found that no other account had triggered the code path and no customer data was accessed, modified or exfiltrated, so the benefit is an exposure closed rather than a demonstrated loss prevented.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><svg class="mk d2 conf-medium" viewBox="0 0 16 16" width="18" height="18" aria-label="square: organizational"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></svg>2</div><small>an organization</small></div><p>GitHub closed a critical remote code execution hole in its git push pipeline within hours of the report. The fix reached github.com at 7:00 pm UTC on 4 March 2026. GitHub also shipped patches for six GitHub Enterprise Server release lines. Wiz earned what GitHub calls one of the highest rewards in the history of its Bug Bounty program. The loss avoided is hypothetical. GitHub&#39;s forensic investigation found that no other account had triggered the code path. No customer data was accessed, modified or exfiltrated. The benefit is an exposure closed rather than a demonstrated loss prevented.</p></li>
       </ul>
     </section>
 
@@ -131,14 +131,14 @@
 
     <section class="sec" data-panel="system">
       <h2>The system's part</h2>
-      <p class="prose">The AI&#39;s documented contribution is speed of analysis, on the researchers&#39; own account. Wiz writes that AI-augmented reverse-engineering tooling, particularly IDA MCP, let it rapidly analyze GitHub&#39;s compiled binaries and reconstruct internal protocols at a speed that would not have been feasible manually, and Sagi Tzadik told Dark Reading that with AI tools it took under 48 hours from idea to working exploit; The Register adds that the team used Claude Code “to take a lot of the legwork out of the process”. The hypothesis, the exploit, the report and the fix were human work: six named Wiz researchers confirmed RCE on GHES 3.19.1 and wrote what GitHub called a thorough report, and GitHub&#39;s security and engineering teams reproduced the bug within 40 minutes and deployed the fix. GitHub&#39;s own post, the CVE record and the GHES release notes describe a Bug Bounty report without mentioning AI, so the AI-assistance claim rests on Wiz and on outlets quoting Wiz; Wiz&#39;s write-up, in the text as read, names IDA MCP and not Claude.</p>
+      <p class="prose">The AI&#39;s documented contribution is speed of analysis, on the researchers&#39; own account. Wiz writes that AI-augmented reverse-engineering tooling, particularly IDA MCP, let it rapidly analyze GitHub&#39;s compiled binaries and reconstruct internal protocols. Wiz says that speed would not have been feasible manually. Sagi Tzadik told Dark Reading that with AI tools it took under 48 hours from idea to working exploit. The Register adds that the team used Claude Code “to take a lot of the legwork out of the process”. The hypothesis, the exploit, the report and the fix were human work. Six named Wiz researchers confirmed RCE on GHES 3.19.1 and wrote what GitHub called a thorough report. GitHub&#39;s security and engineering teams reproduced the bug within 40 minutes and deployed the fix. GitHub&#39;s own post, the CVE record and the GHES release notes describe a Bug Bounty report without mentioning AI. The AI-assistance claim therefore rests on Wiz and on outlets quoting Wiz. Wiz&#39;s write-up, in the text as read, names IDA MCP and not Claude.</p>
     </section>
 
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="conds">
-        <p class="prose"><b>What produced it.</b> A closed-source target that researchers could obtain and disassemble: GitHub&#39;s backend git services are also shipped as GitHub Enterprise Server binaries, which gave automated reverse engineering something to work on and a place (GHES 3.19.1) to confirm the exploit. AI-augmented tooling for reverse engineering: IDA MCP (per Wiz) driven by Claude Code (per The Register), used to reconstruct internal protocols and trace where user input could influence server behavior across the pipeline. Experienced vulnerability researchers (six named Wiz authors) to form the hypothesis, build and confirm a working exploit, and write what GitHub called a thorough report that clearly demonstrated the impact. A beneficiary with a Bug Bounty intake and an on-call security team: GitHub reproduced the bug within 40 minutes of the report and deployed a fix to github.com at 7:00 pm UTC the same day.</p>
-        <p class="prose"><b>What must hold again.</b> AI output has to be verified by exploit, not trusted: Wiz confirmed RCE on a GHES 3.19.1 instance before reporting, which is why GitHub could validate the report in 40 minutes. The receiving organization must be able to patch its own service and ship fixes to self-hosted customers; GHES customers stayed exposed until they upgraded to the patched versions released from 10 March 2026. Disclosure must wait for the patches (here 4 March to 28 April 2026); and because no exploitation had occurred, the benefit is an exposure closed, not a loss recovered.</p>
+        <p class="prose"><b>What produced it.</b> A closed-source target that researchers could obtain and disassemble. GitHub&#39;s backend git services also ship as GitHub Enterprise Server binaries. Those binaries gave automated reverse engineering something to work on, and GHES 3.19.1 gave a place to confirm the exploit. AI-augmented tooling for reverse engineering: IDA MCP (per Wiz) driven by Claude Code (per The Register). It reconstructed internal protocols and traced where user input could influence server behavior across the pipeline. Experienced vulnerability researchers: six named Wiz authors formed the hypothesis and built and confirmed a working exploit. They wrote what GitHub called a thorough report that clearly demonstrated the impact. A beneficiary with a Bug Bounty intake and an on-call security team. GitHub reproduced the bug within 40 minutes of the report. It deployed a fix to github.com at 7:00 pm UTC the same day.</p>
+        <p class="prose"><b>What must hold again.</b> AI output has to be confirmed by exploit, not trusted. Wiz confirmed RCE on a GHES 3.19.1 instance before reporting. That is why GitHub could validate the report in 40 minutes. The receiving organization must be able to patch its own service and ship fixes to self-hosted customers. GHES customers stayed exposed until they upgraded to the patched versions released from 10 March 2026. Disclosure must wait for the patches, here from 4 March to 28 April 2026. No exploitation had occurred, so the benefit is an exposure closed, not a loss recovered.</p>
       </div>
     </section>
 
@@ -146,7 +146,7 @@
 
     <section class="sec" data-panel="provenance">
       <h2>Revisions</h2>
-      <p class="prose revs-line">Drafted 20 October 2026; last revised 21 October 2026, 4 changes; the last: Country of the developer and the deployer added from the organization&#39;s own site or a registry. The full list is in the <a href="AIBD-0206.json">JSON</a>.</p>
+      <p class="prose revs-line">Drafted 20 October 2026; last revised 21 October 2026, 5 changes; the last: Prose pass: a rating reason, account, purpose, the replication conditions, the system&#39;s part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged. The full list is in the <a href="AIBD-0206.json">JSON</a>.</p>
 
     </section>
   </article>
@@ -162,6 +162,6 @@
 </footer>
 </div>
 <div class="tip" data-tip aria-hidden="true"></div>
-<script src="../app.js?v=b55da6ee08"></script>
+<script src="../app.js?v=bf00652533"></script>
 </body>
 </html>

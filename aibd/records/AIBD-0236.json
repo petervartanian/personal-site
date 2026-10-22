@@ -3,7 +3,7 @@
   "title": "OpenAI o3 finds CVE-2025–37899, a remote use-after-free in the Linux kernel's ksmbd; patched in all maintained branches",
   "summary": "Sean Heelan, benchmarking o3 on ksmbd with no scaffolding, had the model surface an unknown use-after-free in the SMB logoff handler; the kernel CNA published CVE-2025–37899 on 20 May 2025.",
   "date_observed": "2025-05-20",
-  "account": "The date is the CVE record's publication; Heelan's write-up followed on 22 May 2025. Heelan, an independent vulnerability researcher auditing ksmbd (the Linux kernel's in-kernel SMB3 server), used a known bug (CVE-2025–37778) to benchmark OpenAI's o3 via the plain API, with no scaffolding, agents or tools. When given about 12,000 lines covering all SMB command handlers, o3 reported a previously unknown use-after-free in the handler for the SMB “logoff” command: sess->user can be freed while another connection bound to the same session still uses it. The Linux kernel CNA's record describes the fix (“ksmbd: fix use-after-free in session logoff”) with commits in five stable branches; Linuxiac reports the upstream response was fast and patches were merged for every maintained branch. Heelan calls it, to his knowledge, the first public case of an LLM finding a vulnerability of that nature.",
+  "account": "The date is the CVE record's publication. Heelan's write-up followed on 22 May 2025. Heelan is an independent vulnerability researcher auditing ksmbd (the Linux kernel's in-kernel SMB3 server). He used a known bug (CVE-2025–37778) to benchmark OpenAI's o3 via the plain application programming interface (API), with no scaffolding, agents or tools. Given about 12,000 lines covering all SMB command handlers, o3 reported a previously unknown use-after-free in the handler for the SMB “logoff” command. sess->user can be freed while another connection bound to the same session still uses it. The Linux kernel CNA's record describes the fix (“ksmbd: fix use-after-free in session logoff”) with commits in five stable branches. Linuxiac reports the upstream response was fast and patches were merged for every maintained branch. Heelan calls it, to his knowledge, the first public case of a large language model (LLM) finding a vulnerability of that nature.",
   "category": "benefit created",
   "unexpected": false,
   "purpose": "General-purpose reasoning model used by the researcher to audit kernel source code for vulnerabilities.",
@@ -21,7 +21,7 @@
     {
       "group": "societal",
       "depth": 2,
-      "reason": "A remotely reachable kernel memory-safety bug was fixed across maintained branches before any reported exploitation; exposure of ksmbd users is not quantified."
+      "reason": "A remotely reachable kernel memory-safety bug was fixed across maintained branches before any reported exploitation. Exposure of ksmbd users is not quantified."
     },
     {
       "group": "organizational",
@@ -31,7 +31,7 @@
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The model produced the finding unprompted during a benchmark; Heelan selected the code, validated the report and handled disclosure, and he notes the model also produced false positives in other runs. The account is the independent deployer's own, corroborated by the CVE record and third-party coverage, not by OpenAI."
+    "statement": "The model produced the finding unprompted during a benchmark. Heelan selected the code, validated the report and handled disclosure. He notes the model also produced false positives in other runs. The account is the independent deployer's own, corroborated by the CVE record and third-party coverage, not by OpenAI."
   },
   "evidence": [
     {
@@ -121,6 +121,12 @@
       "date": "2026-10-21",
       "change": "Country of the developer added from the organization's own site or a registry.",
       "source": "https://en.wikipedia.org/wiki/OpenAI",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Prose pass: a rating reason, account, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+      "source": null,
       "editor": "AIBD"
     }
   ],

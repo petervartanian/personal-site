@@ -3,10 +3,10 @@
   "title": "China Medical University Hospital's exercise-ECG AI catching a 99% coronary stenosis that manual reading had rated moderate, Taichung, 2022",
   "summary": "CMUH's exercise-ECG AI put severe-blockage odds at 72% where manual reading said follow-up; angiography found a 99% LAD stenosis, stented.",
   "date_observed": "2022-12-28",
-  "account": "A 75-year-old man surnamed Chen, with controlled hypertension, woke one day with chest tightness and palpitations first taken for reflux; Liberty Times dates the onset to 2021. At China Medical University Hospital, Taichung, his exercise ECG's manual reading and risk score rated the blockage at about 50%, moderate risk, follow-up only. The hospital's own Exercise ECG AI-Assisted Interpretation System, in clinical use since May 2022, put the probability of severe (over 70%) narrowing at 72%, so cardiologist 吳宏彬 ordered angiography, found a 99% stenosis of the left anterior descending artery and stented it at once. He went home with the chest tightness resolved. The hospital presented the case on 28 December 2022; the test and procedure dates were not reported.",
+  "account": "A 75-year-old man surnamed Chen, with controlled hypertension, woke one day with chest tightness and palpitations first taken for reflux. Liberty Times puts the onset in 2021. At China Medical University Hospital (CMUH), Taichung, his exercise electrocardiogram (ECG) was read manually with a risk score. That gave about 50% blockage, moderate risk, follow-up only. The hospital's own Exercise ECG AI-Assisted Interpretation System, in use since May 2022, put the probability of severe (over 70%) narrowing at 72%. So cardiologist 吳宏彬 ordered angiography, found a 99% stenosis of the left anterior descending artery and stented it at once. He went home, chest tightness resolved. The hospital presented it on 28 December 2022. Test and procedure dates are not reported.",
   "category": "harm prevented",
   "unexpected": false,
-  "purpose": "The hospital's AI Center built the system to judge from an exercise ECG whether a patient's coronary arteries are severely narrowed (over 70%), because manual reading of a dozen tracings is slow and, the hospital says, only 40–50% accurate. Flagging this patient's severe stenosis was exactly that purpose.",
+  "purpose": "The hospital's AI Center built the system to judge from an exercise ECG whether a patient's coronary arteries are severely narrowed (over 70%). Manual reading of a dozen tracings is slow and, the hospital says, only 40–50% accurate. Flagging this patient's severe stenosis was exactly that purpose.",
   "system": "運動心電圖AI輔助判讀系統 (Exercise ECG AI-Assisted Interpretation System), China Medical University Hospital",
   "model_version": "Not reported. The hospital describes a deep-learning model that takes exercise-ECG signals at three time points plus 10 measured and 2 derived features (such as history and maximum workload), trained on nearly 1,000 exercise ECGs matched to catheterization data, accuracy about 80%, sensitivity 88%, in clinical use since May 2022; the authors' 2025 paper describes a convolutional recurrent network with three ECG slices and 12 features, AUC 0.83, sensitivity 0.89, specificity 0.60.",
   "developer": "China Medical University Hospital Artificial Intelligence Center (中國醫藥大學附設醫院人工智慧中心), director 許凱程",
@@ -23,12 +23,12 @@
     {
       "group": "personal",
       "depth": 3,
-      "reason": "A man with a 99% stenosis of the left anterior descending artery, which the manual exercise-ECG reading had rated moderate and left for drug treatment and follow-up, had it stented after the AI flagged a 72% probability of severe narrowing; the cardiologist put his chance of an acute infarction at 8 in 10 and said the stent removed the sudden-death risk, and he left hospital with his symptoms resolved. The hospital's headlines call it life-saving, but the harm was prospective and the account is the developer-hospital's own, so -4 is not established."
+      "reason": "A man with a 99% stenosis of the left anterior descending artery had it stented after the AI flagged a 72% probability of severe narrowing. The manual exercise-ECG reading had rated it moderate and left it for drug treatment and follow-up. The cardiologist put his chance of an acute infarction at 8 in 10. He said the stent removed the sudden-death risk. He left hospital, symptoms resolved. The hospital's headlines call it life-saving, but the harm was prospective and the account is the developer-hospital's own, so life-saving is not established."
     }
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The model read the exercise-ECG signals and report features and returned a 72% probability of severe coronary narrowing, above the moderate-risk verdict of the manual reading and risk score; on that basis the cardiologist ordered angiography, which showed the 99% stenosis, and he stented it. The counterfactual rests on the treating cardiologist's statement, carried by three outlets and the hospital's release, that the manual reading would have led to drug treatment and follow-up only; the hospital that says so also built the model, the dates of the reading and procedure are not reported, and the published model's specificity of 0.60 means such flags are often false positives."
+    "statement": "The model read the exercise-ECG signals and report features. It returned a 72% probability of severe coronary narrowing, above the moderate-risk verdict of the manual reading and risk score. On that basis the cardiologist ordered angiography, which showed the 99% stenosis, and he stented it. The counterfactual rests on the treating cardiologist's statement, carried by three outlets and the hospital's release. He said the manual reading would have led to drug treatment and follow-up only. The hospital that says so also built the model. The dates of the reading and procedure are not reported. The published model's specificity of 0.60 means such flags are often false positives."
   },
   "evidence": [
     {
@@ -80,13 +80,13 @@
   "replication": {
     "produced_by": [
       "A patient with atypical symptoms has an exercise ECG at a hospital that runs the AI model alongside the manual reading",
-      "The model's probability of severe (over 70%) stenosis exceeds what the manual reading and risk score suggest, and the cardiologist acts on it by ordering angiography",
+      "The model's probability of severe (over 70%) stenosis exceeds what the manual reading and risk score suggest. The cardiologist acts on it by ordering angiography",
       "Angiography confirms a severe stenosis that can be treated at once by stenting"
     ],
     "must_hold": [
-      "The model is run in addition to, not instead of, the clinician's reading; the hospital calls it assisted interpretation and a clinician made every decision",
-      "The clinician is willing to send a patient to invasive angiography on an AI probability score; with the published model's specificity of 0.60, some such patients will have no severe lesion",
-      "The patient is seen at a hospital that has the system; the sources describe it only at CMUH, in use from May 2022"
+      "The model is run in addition to, not instead of, the clinician's reading. The hospital calls it assisted interpretation and a clinician made every decision",
+      "The clinician is willing to send a patient to invasive angiography on an AI probability score. With the published model's specificity of 0.60, some such patients will have no severe lesion",
+      "The patient is seen at a hospital that has the system. The sources describe it only at CMUH, in use from May 2022"
     ],
     "echoes": []
   },
@@ -130,6 +130,12 @@
       "date": "2026-10-21",
       "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
       "source": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9C%8B%E9%86%AB%E8%97%A5%E5%A4%A7%E5%AD%B8%E9%99%84%E8%A8%AD%E9%86%AB%E9%99%A2; https://en.wikipedia.org/wiki/China_Medical_University_(Taiwan)",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+      "source": null,
       "editor": "AIBD"
     }
   ],

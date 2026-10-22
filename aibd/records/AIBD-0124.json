@@ -3,10 +3,10 @@
   "title": "Code Intelligence's Spark agent found a heap use-after-free in wolfSSL's pem_read_bio_key() during its beta test; wolfSSL merged a fix within days and shipped it in 5.7.6",
   "summary": "Spark, an AI fuzz-test agent, found a heap use-after-free in wolfSSL in late Oct 2024; fixed in PR 8139 and shipped in 5.7.6 on 31 December 2024.",
   "date_observed": "2024-11-01",
-  "account": "Spark, the AI test agent in Code Intelligence GmbH's CI Fuzz product, was run on wolfSSL, an open-source cryptography library for embedded and IoT devices, in its final beta test in late October 2024. By the vendor's account, after one command the agent chose the target, generated and ran a fuzz test, and exposed a heap use-after-free in pem_read_bio_key(), where a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024 and shipped it in release 5.7.6 on 31 December 2024, crediting “Peter” in the release notes; the vendor's blog post on the find is by its engineer Peter Samarin.",
+  "account": "Spark is the AI test agent in Code Intelligence GmbH's CI Fuzz product. Its final beta test in late October 2024 ran it on wolfSSL, an open-source cryptography library for embedded and IoT devices. By the vendor's account, after one command the agent chose the target, generated and ran a fuzz test and exposed a heap use-after-free in pem_read_bio_key(). There a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024. It shipped in release 5.7.6 on 31 December 2024, crediting “Peter” in the release notes. The vendor's blog post on the find is by engineer Peter Samarin.",
   "category": "benefit created",
   "unexpected": false,
-  "purpose": "Spark was built to find bugs and vulnerabilities autonomously by selecting functions to fuzz and generating and running fuzz tests; finding this flaw was exactly that function, exercised in the vendor's own beta test.",
+  "purpose": "Spark was built to find bugs and vulnerabilities autonomously by selecting functions to fuzz and generating and running fuzz tests. Finding this flaw was exactly that function, exercised in the vendor's own beta test.",
   "system": "Spark, AI test agent in Code Intelligence's CI Fuzz (invoked as 'cifuzz spark')",
   "model_version": null,
   "developer": "Code Intelligence GmbH",
@@ -23,12 +23,12 @@
     {
       "group": "organizational",
       "depth": 2,
-      "reason": "wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path and merged the fix within days (PR 8139, 1 November 2024), shipping it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release's Vulnerabilities section, no CVE for it appears on wolfSSL's vulnerabilities page, and the vendor itself says the exploit conditions “don't seem easy to meet”, so the benefit is material but bounded."
+      "reason": "wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path. It merged the fix within days (PR 8139, 1 November 2024) and shipped it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release's Vulnerabilities section. No CVE for it appears on wolfSSL's vulnerabilities page. The vendor itself says the exploit conditions “don't seem easy to meet”, so the benefit is material but bounded."
     }
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "On the vendor's account, Spark selected the target, generated the fuzz test and ran it after a single “cifuzz spark” command, with one manual step to confirm that the finding was real and exploitable under narrow conditions. wolfSSL's pull request and release notes confirm the bug, its location in pem_read_bio_key(), the timing and the reporter's first name, but mention neither AI nor Code Intelligence; the autonomous discovery therefore rests on the vendor's statements, repeated by QA Financial and SC Media, not on an independent test."
+    "statement": "On the vendor's account, Spark selected the target, generated the fuzz test and ran it after a single “cifuzz spark” command. One manual step confirmed that the finding was real and exploitable under narrow conditions. wolfSSL's pull request and release notes confirm the bug, its location in pem_read_bio_key(), the timing and the reporter's first name. They mention neither AI nor Code Intelligence. The autonomous discovery therefore rests on the vendor's statements, repeated by QA Financial and SC Media, not on an independent test."
   },
   "evidence": [
     {
@@ -94,9 +94,9 @@
       "A maintainer team that tracked the report as ZD#18875 and merged a fix within three days of the discovery"
     ],
     "must_hold": [
-      "A human must confirm the finding: the vendor says the one manual step was assessing that the bug exists and is exploitable under specific conditions",
-      "The beneficiary must be an identifiable project with a public fix record; without wolfSSL's PR and release notes the event would rest on vendor claims alone",
-      "The AI's share of the work is described only by the vendor; wolfSSL's records name the reporter, not the tool, so the autonomy claim cannot be replicated without the vendor's product"
+      "A human must confirm the finding. The vendor says the one manual step was assessing that the bug exists and is exploitable under specific conditions",
+      "The beneficiary must be an identifiable project with a public fix record. Without wolfSSL's PR and release notes the event would rest on vendor claims alone",
+      "The AI's share of the work is described only by the vendor. wolfSSL's records name the reporter, not the tool, so the autonomy claim cannot be replicated without the vendor's product"
     ],
     "echoes": []
   },
@@ -140,6 +140,12 @@
       "date": "2026-10-21",
       "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
       "source": "https://www.northdata.de/Code+Intelligence+GmbH,+Bonn; https://www.northdata.de/Code+Intelligence+GmbH,+Bonn",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+      "source": null,
       "editor": "AIBD"
     }
   ],

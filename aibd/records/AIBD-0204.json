@@ -3,10 +3,10 @@
   "title": "BrainGate participants T17 (ALS) and T18 (spinal cord injury) type on a two-handed QWERTY keyboard through an intracortical neuroprosthesis, reaching 22 words per minute at 1.6% word error",
   "summary": "Two BrainGate2 participants typed by attempted finger movement at up to 22 wpm, 1.6% word error, in at-home research sessions (Mar 2026).",
   "date_observed": "2026-03-16",
-  "account": "In the BrainGate2 pilot trial (NCT00912041), T17, a 33-year-old man with ALS, tetraplegia, anarthria and ventilator dependence, and T18, a 48-year-old man with a C4 ASIA A spinal cord injury about 18 months before enrollment, each received six 64-electrode Utah arrays in precentral gyrus. A five-layer gated recurrent unit decoder with a 5-gram language model turned attempted finger movements into QWERTY keystrokes after as few as 30 calibration sentences. In research sessions at each participant's place of residence, on trial days 44 to 144, T18 reached 110 characters (22 words) per minute with a 1.6% word error rate and T17 47 characters per minute; both typed sentences of their own choosing. Published in Nature Neuroscience, 16 March 2026.",
+  "account": "T17 and T18 took part in the BrainGate2 pilot trial (NCT00912041). T17 is a 33-year-old man with ALS, tetraplegia, anarthria and ventilator dependence. T18 is a 48-year-old man with a C4 ASIA A spinal cord injury about 18 months before enrollment. Each received six 64-electrode Utah arrays in precentral gyrus. A five-layer gated recurrent unit decoder with a 5-gram language model turned attempted finger movements into QWERTY keystrokes. It needed as few as 30 calibration sentences. Research sessions took place at each participant's place of residence, on trial days 44 to 144. T18 reached 110 characters (22 words) per minute with a 1.6% word error rate. T17 reached 47 characters per minute. Both typed sentences of their own choosing. The work was published in Nature Neuroscience, 16 March 2026.",
   "category": "benefit created",
   "unexpected": false,
-  "purpose": "The typing neuroprosthesis was built to restore communication for people with paralysis by decoding attempted finger movements into keystrokes; the typing the two participants achieved is exactly that purpose.",
+  "purpose": "The typing neuroprosthesis was built to restore communication for people with paralysis. It decodes attempted finger movements into keystrokes. The typing the two participants achieved is exactly that purpose.",
   "system": "BrainGate2 intracortical typing neuroprosthesis: six 64-electrode Utah arrays (Blackrock Microsystems) per participant, a five-layer gated recurrent unit decoder trained with connectionist temporal classification loss, and a 5-gram language model implemented as a Kaldi weighted finite-state transducer",
   "model_version": null,
   "developer": "BrainGate consortium: Massachusetts General Hospital Center for Neurotechnology and Neurorecovery, Brown University and VA Providence Healthcare System, with Stanford University and UC Davis co-authors",
@@ -23,17 +23,17 @@
     {
       "group": "personal",
       "depth": 2,
-      "reason": "Two identifiable participants, one of whom has anarthria and only eye movement left, typed sentences of their own choosing at up to 22 words per minute, but only in research sessions; the paper lists independent use as future work, so the gain is material rather than life-changing."
+      "reason": "Two identifiable participants typed sentences of their own choosing at up to 22 words per minute. One of them has anarthria and only eye movement left. The typing happened only in research sessions. The paper lists independent use as future work, so the gain is material rather than life-changing."
     },
     {
       "group": "societal",
       "depth": 1,
-      "reason": "The authors report higher throughput than current state-of-the-art hand-motor iBCI decoding, and UCSF's Edward Chang, not on the paper, called it among the fastest motor-cortex typing BCIs yet; two participants and no population effect."
+      "reason": "The authors report higher throughput than current state-of-the-art hand-motor iBCI decoding. UCSF's Edward Chang, who is not on the paper, called it among the fastest motor-cortex typing BCIs yet. There were two participants and no population effect."
     }
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The decoder is the component that makes typing possible: a recurrent neural network of five gated recurrent unit layers with 512 units each, trained with CTC loss on 20 ms bins of threshold crossings and spike-band power, maps attempted finger movements to characters, and a 5-gram language model corrects them; without it the arrays only record. The error rate figures are post-language-model word error rates. Performance figures come from the developers' own peer-reviewed paper; the paper declares that the MGH Translational Research Center has research support agreements with several BCI companies for which L.R.H. provides consultative input."
+    "statement": "The decoder is the component that makes typing possible. It is a recurrent neural network of five gated recurrent unit layers with 512 units each. It was trained with CTC loss on 20 ms bins of threshold crossings and spike-band power. It maps attempted finger movements to characters, and a 5-gram language model corrects them. Without it the arrays only record. The error rate figures are word error rates after the language model. Performance figures come from the developers' own peer-reviewed paper. The paper declares that the MGH Translational Research Center has research support agreements with several BCI companies, for which L.R.H. provides consultative input."
   },
   "evidence": [
     {
@@ -113,13 +113,13 @@
     "produced_by": [
       "Six 64-electrode Utah arrays per participant placed in precentral gyrus after fMRI-guided parcellation, giving hand-motor electrodes for both hands.",
       "A recurrent neural network decoder trained with CTC loss on attempted finger movements, recalibrated from as few as 30 sentences, plus a 5-gram language model.",
-      "A keyboard paradigm the participants already knew; neither was a touch typist, and both learned the layout over sessions.",
+      "A keyboard setup the participants already knew. Neither was a touch typist, and both learned the layout over sessions.",
       "A pilot-trial infrastructure that brings research staff and equipment to the participant's residence."
     ],
     "must_hold": [
-      "Use was confined to research sessions; independent use through online decoder training is described in the paper as future work.",
-      "Performance differed by participant: T18 reached 22 words per minute with word error below 7% across blocks, T17 47 characters per minute with word error mostly below 15%.",
-      "Invasive surgery is required, the device is investigational under an FDA IDE, and the paper reports no clinical-trial safety outcomes."
+      "Use was confined to research sessions. The paper describes independent use through online decoder training as future work.",
+      "Performance differed by participant. T18 reached 22 words per minute with word error below 7% across blocks. T17 reached 47 characters per minute with word error mostly below 15%.",
+      "Invasive surgery is required. The device is investigational under an FDA investigational device exemption. The paper reports no clinical-trial safety outcomes."
     ],
     "echoes": []
   },
@@ -164,6 +164,12 @@
       "date": "2026-10-21",
       "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
       "source": "https://en.wikipedia.org/wiki/BrainGate; https://clinicaltrials.gov/api/v2/studies/NCT00912041",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+      "source": null,
       "editor": "AIBD"
     }
   ],

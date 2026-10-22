@@ -645,7 +645,7 @@ table.compare { border-collapse: collapse; font-size: 0.9rem; margin: 10px 0 18p
 .quick { font-size: 0.92rem; color: var(--ink-2); margin: 4px 0 0; }
 .worldmap .dot { stroke: var(--paper); stroke-width: 1; }
 .browse .row button:disabled, .facet button:disabled { opacity: 0.45; cursor: default; }
-@media (max-width: 700px) { .phone-only { display: block; } }
+@media (max-width: 700px) { .phone-only { display: block; } .quick { margin-bottom: 8px; } }
 
 /* Type scale: eight roles on a 16 px root, leadings in multiples of 4 px; measures per role. */
 :root { --t-h1: 2.125rem; --l-h1: 40px; --t-lede: 1.75rem; --l-lede: 36px; --t-head: 1.25rem; --l-head: 28px; --t-title: 1.0625rem; --l-title: 24px; --t-body: 1rem; --l-body: 24px; --t-data: 0.9375rem; --l-data: 24px; --t-small: 0.875rem; --l-small: 20px; --t-cap: 0.8125rem; --l-cap: 20px; }
@@ -730,12 +730,12 @@ sup, .sn-mark { font-size: 0.75em; line-height: 0; }
 @media (prefers-reduced-motion: reduce) { .kit-handle .plus { transition: none; } }
 
 /* Latest, Entities and Submit. */
-.latest { list-style: none; margin: 0; padding: 0; max-width: 46rem; }
-.latest li { display: grid; grid-template-columns: 128px 1fr; gap: 14px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
-.latest .when { color: var(--ink-3); font-size: var(--t-cap); line-height: var(--l-small); padding-top: 2px; }
+.latest { list-style: none; margin: 0 0 18px; padding: 0; max-width: 46rem; }
+.latest li { padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.latest-when { font-weight: 400; color: var(--ink-3); font-size: var(--t-cap); line-height: var(--l-small); margin: 18px 0 2px; }
 .latest a { text-decoration: none; }
-.latest li > div > a { font-family: var(--serif); font-size: var(--t-title); line-height: var(--l-title); }
-.latest li > div > a:hover { text-decoration: underline; }
+.latest li > a { font-family: var(--serif); font-size: var(--t-title); line-height: var(--l-title); }
+.latest li > a:hover { text-decoration: underline; }
 .latest .src { display: block; color: var(--ink-3); font-size: var(--t-small); line-height: var(--l-small); }
 .latest .src a { color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--rule-2); }
 .ents { display: flex; flex-wrap: wrap; gap: 4px 18px; max-width: 70rem; }

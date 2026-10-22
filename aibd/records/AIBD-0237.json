@@ -3,7 +3,7 @@
   "title": "curl merges about 50 bugfixes from Joshua Rogers' ZeroPath-assisted scans; maintainer calls the reports a new breed of analyzer output",
   "summary": "In Sept 2025 curl received hundreds of candidate issues found mainly with the ZeroPath AI analyzer by Joshua Rogers; maintainer Daniel Stenberg merged about 50 bugfixes from the first list.",
   "date_observed": "2025-10-10",
-  "account": "The date is that of maintainer Daniel Stenberg's account; the reports arrived from mid-September 2025. Stenberg writes that a security report received on 16 September accurately identified a possible stack-based buffer overflow in curl's Kerberos FTP code, not turned into a CVE only because the code could not be reached, after which the project removed krb5-ftp support. The reporter, Joshua Rogers, then forwarded a large list of further potential issues extracted mostly with ZeroPath, an AI-powered code analyzer, producing over two hundred candidate problems despite curl's existing compilers, static analyzers and fuzzing; from the initial list about 50 separately identifiable bugfixes were merged, with second and third lists of 47 and 158 items following. Stenberg told The Register that about 50 bugfixes based on Rogers' reports had been merged. Rogers' retrospective states that about 98% of the curl bugs reported and fixed were discovered by ZeroPath and puts the running total of fixed bugs around 150.",
+  "account": "The date is that of maintainer Daniel Stenberg's account. The reports arrived from mid-September 2025. Stenberg writes that a security report received on 16 September accurately identified a possible stack-based buffer overflow in curl's Kerberos FTP code. It was not turned into a CVE only because the code could not be reached. The project then removed krb5-ftp support. The reporter, Joshua Rogers, then forwarded a large list of further potential issues found mostly with ZeroPath, an AI-powered code analyzer. That produced over two hundred possible problems despite curl's existing compilers, static analyzers and fuzzing. From the initial list about 50 separately identifiable bugfixes were merged. Second and third lists of 47 and 158 items followed. Stenberg told The Register that about 50 bugfixes based on Rogers' reports had been merged. Rogers' retrospective states that about 98% of the curl bugs reported and fixed were discovered by ZeroPath. It puts the running total of fixed bugs around 150.",
   "category": "benefit created",
   "unexpected": false,
   "purpose": "AI-powered static analysis of source code to find vulnerabilities and bugs.",
@@ -26,12 +26,12 @@
     {
       "group": "societal",
       "depth": 1,
-      "reason": "curl is widely deployed, but no user-facing incident was averted; the merged fixes are described as mostly small mistakes."
+      "reason": "curl is widely deployed, but no user-facing incident was averted. The merged fixes are described as mostly small mistakes."
     }
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The maintainer confirms the reports' quality and the merged fixes while noting he does not know the exact split between tool and human; Rogers attributes ~98% of the fixed curl bugs to ZeroPath. Both the deployer and the confirming maintainer are independent of the vendor."
+    "statement": "The maintainer confirms the reports' quality and the merged fixes. He notes he does not know the exact split between tool and human. Rogers attributes ~98% of the fixed curl bugs to ZeroPath. Both the deployer and the confirming maintainer are independent of the vendor."
   },
   "evidence": [
     {
@@ -129,6 +129,12 @@
       "date": "2026-10-21",
       "change": "Country of the developer added from the organization's own site or a registry.",
       "source": "https://zeropath.com/privacy",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Prose pass: a rating reason, account, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+      "source": null,
       "editor": "AIBD"
     }
   ],

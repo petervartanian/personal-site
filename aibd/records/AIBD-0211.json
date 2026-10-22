@@ -3,10 +3,10 @@
   "title": "o3 Deep Research reanalysis at Boston Children's Hospital returned 18 confirmed rare-disease diagnoses to families; Kyra Benton learned hers a week before turning 20",
   "summary": "o3 Deep Research reanalysis of 376 unsolved genomes at Boston Children's gave 18 families confirmed rare-disease diagnoses in 2025.",
   "date_observed": "2026-06-18",
-  "account": "In 2025, Boston Children's Hospital's Manton Center for Orphan Disease Research, with OpenAI, gave OpenAI's o3 Deep Research model de-identified notes, phenotype terms and filtered variant tables from 376 unsolved rare-disease genomes. The model proposed evidence-linked candidate diagnoses; at least two reviewers adjudicated each under ACMG/AMP criteria, a CLIA-certified laboratory confirmed the variant, and clinicians returned 18 diagnoses to families (10 neurodevelopmental, 4 neuromuscular, 2 sudden unexpected death in pediatrics, 2 early psychosis), seven of them rediscoveries. One of the 18, Kyra Benton, symptomatic since age 9 and given a tracheotomy at 13, learned in summer 2025, a week before her 20th birthday, that she has myofibrillar myopathy. The study appeared in NEJM AI on 18 June 2026.",
+  "account": "In 2025, Boston Children's Hospital's Manton Center for Orphan Disease Research worked with OpenAI on unsolved rare-disease cases. They gave OpenAI's o3 Deep Research model de-identified notes, phenotype terms and filtered variant tables from 376 unsolved rare-disease genomes. The model proposed evidence-linked candidate diagnoses. At least two reviewers adjudicated each under ACMG/AMP criteria, and a CLIA-certified laboratory confirmed the variant. Clinicians returned 18 diagnoses to families: 10 neurodevelopmental, 4 neuromuscular, 2 sudden unexpected death in pediatrics and 2 early psychosis. Seven of them were rediscoveries. One of the 18, Kyra Benton, had been symptomatic since age 9 and was given a tracheotomy at 13. She learned in summer 2025, a week before her 20th birthday, that she has myofibrillar myopathy. The study appeared in NEJM AI on 18 June 2026.",
   "category": "benefit created",
   "unexpected": false,
-  "purpose": "OpenAI o3 Deep Research is a general-purpose reasoning and research model, not a diagnostic device; the Manton Center team built an explanation-first reanalysis workflow around it specifically to propose candidate molecular diagnoses for unsolved cases, so these diagnoses were the workflow's intended output. OpenAI states that the study does not describe or endorse a customer use of o3 for diagnosis, and Brownstein said that she was shocked that a commercial system could find new diagnoses in genomes analyzed many times.",
+  "purpose": "OpenAI o3 Deep Research is a general-purpose reasoning and research model, not a diagnostic device. The Manton Center team built an explanation-first reanalysis workflow around it to propose candidate molecular diagnoses for unsolved cases. These diagnoses were the workflow's intended output. OpenAI states that the study does not describe or endorse a customer use of o3 for diagnosis. Brownstein said that she was shocked that a commercial system could find new diagnoses in genomes analyzed many times.",
   "system": "OpenAI o3 Deep Research, used as the reasoning layer of an LLM-assisted genome reanalysis workflow (Human Phenotype Ontology terms, clinician notes and a filtered variant table in; explanation-linked candidate diagnoses out)",
   "model_version": "o3 Deep Research",
   "developer": "OpenAI",
@@ -23,17 +23,17 @@
     {
       "group": "personal",
       "depth": 2,
-      "reason": "Eighteen families received a laboratory-confirmed diagnosis after earlier analyzes had failed; for Kyra Benton, symptomatic from age 9 and diagnosed just before 20, that ended roughly a decade of not knowing. Brownstein says that each one “means an answer for a family” and lets the center find patients when new therapies arrive, but NBC reports no change in treatment, the research team says that diagnosis is often only an early step toward treatment, and the OpenAI post says that changes in care were not measured, so -3 is not established."
+      "reason": "Eighteen families received a laboratory-confirmed diagnosis after earlier analyses had failed. For Kyra Benton, symptomatic from age 9 and diagnosed just before 20, that ended roughly a decade of not knowing. Brownstein says that each one “means an answer for a family” and lets the center find patients when new therapies arrive. NBC reports no change in treatment, and the research team says that diagnosis is often only an early step toward treatment. The OpenAI post says that changes in care were not measured, so a higher rating is not established."
     },
     {
       "group": "organizational",
       "depth": 1,
-      "reason": "The Manton Center resolved 18 cases from a backlog that routine screening against newly identified genes had not cleared, and Brownstein notes that the model “doesn't get tired”; but the study measured no time saved, cost or clinician effort, and the next stage is grant-funded development of a copilot rather than routine use."
+      "reason": "The Manton Center resolved 18 cases from a backlog that routine screening against newly identified genes had not cleared. Brownstein notes that the model “doesn't get tired”. The study measured no time saved, cost or clinician effort, and the next stage is grant-funded development of a copilot rather than routine use."
     }
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "o3 Deep Research read each de-identified case packet and proposed the most plausible molecular explanation with its supporting evidence; it diagnosed no one. Humans did the rest: at least two reviewers adjudicated each candidate under ACMG/AMP criteria, a CLIA-certified laboratory confirmed each variant, and the clinical team returned results to families. Its distinct contribution was surfacing candidates in cases that commercial and institutional pipelines and multidisciplinary teams had already reviewed, and in one early-psychosis case inferring a 22q11.2 deletion absent from the input data that genome sequencing then confirmed. Seven of the 18 were rediscoveries already established externally; the study was retrospective, reviewers were not blinded to model confidence, and the authors call for prospective evaluation with comparator baselines, so the gain over renewed human reanalysis is unmeasured."
+    "statement": "o3 Deep Research read each de-identified case packet and proposed the most plausible molecular explanation with its supporting evidence. It diagnosed no one. Humans did the rest. At least two reviewers adjudicated each candidate under ACMG/AMP criteria, a CLIA-certified laboratory confirmed each variant, and the clinical team returned results to families. Its distinct contribution was surfacing candidates in cases that commercial and institutional analyses and multidisciplinary teams had already reviewed. In one early-psychosis case it inferred a 22q11.2 deletion absent from the input data, which genome sequencing then confirmed. Seven of the 18 were rediscoveries already established externally. The study was retrospective, and reviewers were not blinded to model confidence. The authors call for prospective evaluation with comparator baselines, so the gain over renewed human reanalysis is unmeasured."
   },
   "evidence": [
     {
@@ -93,8 +93,8 @@
   ],
   "replication": {
     "produced_by": [
-      "Already-sequenced unsolved cases, mostly child-parent trios, assembled into a de-identified packet of Human Phenotype Ontology terms, any clinician notes, age and sex, and a filtered variant table with rarity, predicted effect, ClinVar class and family signal quality",
-      "A general-purpose reasoning model asked for the single most plausible molecular explanation and its evidence, not just a ranked gene, with the prompt refined first on cases of known diagnosis",
+      "Already-sequenced unsolved cases, mostly child-parent trios, assembled into a de-identified packet. Each packet held Human Phenotype Ontology terms, any clinician notes, age and sex. It also held a filtered variant table with rarity, predicted effect, ClinVar class and family signal quality",
+      "A general-purpose reasoning model asked for the single most plausible molecular explanation and its evidence, not just a ranked gene. The prompt was refined first on cases of known diagnosis",
       "Time elapsed since the original analysis, so that newly published gene-disease links and reclassified variants existed to be found",
       "Expert adjudication under ACMG/AMP criteria by at least two reviewers, CLIA-laboratory confirmation, and return of results by the clinical team"
     ],
@@ -159,6 +159,12 @@
       "date": "2026-10-21",
       "change": "Country of the developer added from the organization's own site or a registry.",
       "source": "https://en.wikipedia.org/wiki/OpenAI",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+      "source": null,
       "editor": "AIBD"
     }
   ],

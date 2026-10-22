@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/atom+xml" title="Feed of new and revised cases" href="../feed.xml">
-<link rel="stylesheet" href="../style.css?v=b55da6ee08">
+<link rel="stylesheet" href="../style.css?v=bf00652533">
 </head>
 <body class="record-page d2">
 <div class="page">
@@ -66,13 +66,13 @@
 
     <section class="sec">
       <h2>What happened</h2>
-<p class="prose">Spark, the AI test agent in Code Intelligence GmbH&#39;s CI Fuzz product, was run on wolfSSL, an open-source cryptography library for embedded and IoT devices, in its final beta test in late October 2024. By the vendor&#39;s account, after one command the agent chose the target, generated and ran a fuzz test, and exposed a heap use-after-free in pem_read_bio_key(), where a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024 and shipped it in release 5.7.6 on 31 December 2024, crediting “Peter” in the release notes; the vendor&#39;s blog post on the find is by its engineer Peter Samarin.</p>      <p class="purpose"><b>What it was built to do.</b> Spark was built to find bugs and vulnerabilities autonomously by selecting functions to fuzz and generating and running fuzz tests; finding this flaw was exactly that function, exercised in the vendor&#39;s own beta test.</p>
+<p class="prose">Spark is the AI test agent in Code Intelligence GmbH&#39;s CI Fuzz product. Its final beta test in late October 2024 ran it on wolfSSL, an open-source cryptography library for embedded and IoT devices. By the vendor&#39;s account, after one command the agent chose the target, generated and ran a fuzz test and exposed a heap use-after-free in pem_read_bio_key(). There a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024. It shipped in release 5.7.6 on 31 December 2024, crediting “Peter” in the release notes. The vendor&#39;s blog post on the find is by engineer Peter Samarin.</p>      <p class="purpose"><b>What it was built to do.</b> Spark was built to find bugs and vulnerabilities autonomously by selecting functions to fuzz and generating and running fuzz tests. Finding this flaw was exactly that function, exercised in the vendor&#39;s own beta test.</p>
     </section>
 
     <section class="sec" data-panel="who">
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="d2 conf-medium"><div><div class="big"><svg class="mk d2 conf-medium" viewBox="0 0 16 16" width="18" height="18" aria-label="square: organizational"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></svg>2</div><small>an organization</small></div><p>wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path and merged the fix within days (PR 8139, 1 November 2024), shipping it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release&#39;s Vulnerabilities section, no CVE for it appears on wolfSSL&#39;s vulnerabilities page, and the vendor itself says the exploit conditions “don&#39;t seem easy to meet”, so the benefit is material but bounded.</p></li>
+        <li class="d2 conf-medium"><div><div class="big"><svg class="mk d2 conf-medium" viewBox="0 0 16 16" width="18" height="18" aria-label="square: organizational"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></svg>2</div><small>an organization</small></div><p>wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path. It merged the fix within days (PR 8139, 1 November 2024) and shipped it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release&#39;s Vulnerabilities section. No CVE for it appears on wolfSSL&#39;s vulnerabilities page. The vendor itself says the exploit conditions “don&#39;t seem easy to meet”, so the benefit is material but bounded.</p></li>
       </ul>
     </section>
 
@@ -118,14 +118,14 @@
 
     <section class="sec" data-panel="system">
       <h2>The system's part</h2>
-      <p class="prose">On the vendor&#39;s account, Spark selected the target, generated the fuzz test and ran it after a single “cifuzz spark” command, with one manual step to confirm that the finding was real and exploitable under narrow conditions. wolfSSL&#39;s pull request and release notes confirm the bug, its location in pem_read_bio_key(), the timing and the reporter&#39;s first name, but mention neither AI nor Code Intelligence; the autonomous discovery therefore rests on the vendor&#39;s statements, repeated by QA Financial and SC Media, not on an independent test.</p>
+      <p class="prose">On the vendor&#39;s account, Spark selected the target, generated the fuzz test and ran it after a single “cifuzz spark” command. One manual step confirmed that the finding was real and exploitable under narrow conditions. wolfSSL&#39;s pull request and release notes confirm the bug, its location in pem_read_bio_key(), the timing and the reporter&#39;s first name. They mention neither AI nor Code Intelligence. The autonomous discovery therefore rests on the vendor&#39;s statements, repeated by QA Financial and SC Media, not on an independent test.</p>
     </section>
 
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="conds">
         <p class="prose"><b>What produced it.</b> wolfSSL&#39;s source tree (before 5.7.6) set up as a CI Fuzz project by the vendor. A single “cifuzz spark” command, after which the agent chose pem_read_bio_key() as a target and generated and ran a fuzz test. A sanitizer-detectable heap use-after-free in the BIO write-back path of pem_read_bio_key() that a generated input could trigger. A maintainer team that tracked the report as ZD#18875 and merged a fix within three days of the discovery.</p>
-        <p class="prose"><b>What must hold again.</b> A human must confirm the finding: the vendor says the one manual step was assessing that the bug exists and is exploitable under specific conditions. The beneficiary must be an identifiable project with a public fix record; without wolfSSL&#39;s PR and release notes the event would rest on vendor claims alone. The AI&#39;s share of the work is described only by the vendor; wolfSSL&#39;s records name the reporter, not the tool, so the autonomy claim cannot be replicated without the vendor&#39;s product.</p>
+        <p class="prose"><b>What must hold again.</b> A human must confirm the finding. The vendor says the one manual step was assessing that the bug exists and is exploitable under specific conditions. The beneficiary must be an identifiable project with a public fix record. Without wolfSSL&#39;s PR and release notes the event would rest on vendor claims alone. The AI&#39;s share of the work is described only by the vendor. wolfSSL&#39;s records name the reporter, not the tool, so the autonomy claim cannot be replicated without the vendor&#39;s product.</p>
       </div>
     </section>
 
@@ -133,7 +133,7 @@
 
     <section class="sec" data-panel="provenance">
       <h2>Revisions</h2>
-      <p class="prose revs-line">Drafted 20 October 2026; last revised 21 October 2026, 3 changes; the last: Country of the developer and the deployer added from the organization&#39;s own site or a registry. The full list is in the <a href="AIBD-0124.json">JSON</a>.</p>
+      <p class="prose revs-line">Drafted 20 October 2026; last revised 21 October 2026, 4 changes; the last: Prose pass: a rating reason, account, purpose, the replication conditions, the system&#39;s part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged. The full list is in the <a href="AIBD-0124.json">JSON</a>.</p>
 
     </section>
   </article>
@@ -149,6 +149,6 @@
 </footer>
 </div>
 <div class="tip" data-tip aria-hidden="true"></div>
-<script src="../app.js?v=b55da6ee08"></script>
+<script src="../app.js?v=bf00652533"></script>
 </body>
 </html>

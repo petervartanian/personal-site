@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/atom+xml" title="Feed of new and revised cases" href="../feed.xml">
-<link rel="stylesheet" href="../style.css?v=b55da6ee08">
+<link rel="stylesheet" href="../style.css?v=bf00652533">
 </head>
 <body class="record-page unassessed">
 <div class="page">
@@ -66,14 +66,14 @@
 
     <section class="sec">
       <h2>What happened</h2>
-<p class="prose">Swaminathan, López and colleagues at Cerebral Inc., a national tele-mental-health provider, and Stanford University School of Medicine published in npj Digital Medicine on 21 November 2023 the development and deployment of Crisis Message Detector 1 (CMD-1), a two-stage natural-language-processing system (key-word filtering followed by logistic regression) that flags patient chat messages indicating possible suicidal or homicidal ideation, domestic violence or non-suicidal self-injury and surfaces them to Cerebral&#39;s crisis specialists through a Slack interface.</p><p class="prose">The model was trained on 721 messages (32% potential crises) sent between 1 April 2021 and 1 April 2022 and evaluated on a retrospective test set (481 messages; AUC 0.82, sensitivity 0.99, PPV 0.35) and a prospective test set of 102,471 messages from 1 to 31 October 2022 (AUC 0.98; sensitivity 0.98; PPV 0.66), of which 9,795 passed the key-word filter. The daily median time from message receipt to crisis-specialist triage during the prospective period ranged from 8 to 13 minutes, against more than 9 hours on average before deployment according to Cerebral&#39;s internal analysis; false negatives reached specialists through usual channels. Seven authors report salary and equity in Cerebral and three part-time employment there.</p><p class="prose">Stanford HAI&#39;s account (8 January 2024) gives the reduction as “from 10 hours to under 10 minutes” with 97% sensitivity and specificity, figures that differ slightly from the paper&#39;s. No downstream patient outcome (hospitalization, ED use, attempts) is reported. The date observed is the end of the prospective deployment month in which the triage times were measured.</p>      <p class="purpose"><b>What it was built to do.</b> Built to detect and surface crisis chat messages so that crisis specialists triage them sooner; the measured triage-time reduction is that purpose.</p>
+<p class="prose">Swaminathan, López and colleagues published in npj Digital Medicine on 21 November 2023. They are at Cerebral Inc., a national tele-mental-health provider, and Stanford University School of Medicine. They described developing and deploying Crisis Message Detector 1 (CMD-1). CMD-1 is a two-stage natural-language-processing system: key-word filtering, then logistic regression. It flags patient chat messages indicating possible suicidal or homicidal ideation, domestic violence or non-suicidal self-injury. It surfaces them to Cerebral&#39;s crisis specialists via a Slack interface. The model was trained on 721 messages (32% potential crises) sent between 1 April 2021 and 1 April 2022. It was evaluated on a retrospective test set of 481 messages: AUC 0.82, sensitivity 0.99, PPV 0.35.</p><p class="prose">A prospective test set had 102,471 messages from 1 to 31 October 2022 (AUC 0.98; sensitivity 0.98; PPV 0.66). 9,795 of these passed the key-word filter. In the prospective period the daily median time from message receipt to crisis-specialist triage was 8 to 13 minutes. Before deployment it averaged more than 9 hours, per Cerebral&#39;s internal analysis. False negatives reached specialists through usual channels. Seven authors report salary and equity in Cerebral and three part-time employment there. Stanford HAI&#39;s account (8 January 2024) gives the reduction as “from 10 hours to under 10 minutes” with 97% sensitivity and specificity. Those figures differ slightly from the paper&#39;s. No downstream patient outcome (hospitalization, emergency department (ED) use, attempts) is reported. The date observed is the end of the prospective month, when the triage times were measured.</p>      <p class="purpose"><b>What it was built to do.</b> Built to detect and surface crisis chat messages so that crisis specialists triage them sooner. The measured triage-time reduction is that purpose.</p>
     </section>
 
     <section class="sec" data-panel="who">
       <h2>Who benefited</h2>
       <ul class="ratings">
-        <li class="unassessed conf-low"><div><div class="big unrated-word"><svg class="mk unassessed conf-low" viewBox="0 0 16 16" width="18" height="18" aria-label="circle: personal"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></svg>unrated</div><small>a person</small></div><p>Patients in crisis were triaged within minutes rather than hours on median, but the paper reports no clinical outcome for any patient.</p></li>
-        <li class="unassessed conf-low"><div><div class="big unrated-word"><svg class="mk unassessed conf-low" viewBox="0 0 16 16" width="18" height="18" aria-label="square: organizational"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></svg>unrated</div><small>an organization</small></div><p>The 9-hour baseline comes from Cerebral&#39;s internal analysis and the 8–13 minute figure from the company-authored evaluation; no independent measurement exists.</p></li>
+        <li class="unassessed conf-low"><div><div class="big unrated-word"><svg class="mk unassessed conf-low" viewBox="0 0 16 16" width="18" height="18" aria-label="circle: personal"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></svg>unrated</div><small>a person</small></div><p>Patients in crisis were triaged within minutes rather than hours on median. The paper reports no clinical outcome for any patient.</p></li>
+        <li class="unassessed conf-low"><div><div class="big unrated-word"><svg class="mk unassessed conf-low" viewBox="0 0 16 16" width="18" height="18" aria-label="square: organizational"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></svg>unrated</div><small>an organization</small></div><p>The 9-hour baseline comes from Cerebral&#39;s internal analysis. The 8–13 minute figure is from the company-authored evaluation. No independent measurement exists.</p></li>
       </ul>
     </section>
 
@@ -104,14 +104,14 @@
 
     <section class="sec" data-panel="system">
       <h2>The system's part</h2>
-      <p class="prose">The classifier decides which messages are surfaced to crisis specialists, who then triage them; humans labeled the outcomes and false negatives still reached specialists through usual channels. The effect is reported by the company that built and runs the system, with Stanford co-authors; the pre-deployment baseline is an internal figure, and Stanford HAI&#39;s summary gives slightly different numbers (10 hours to under 10 minutes; 97%).</p>
+      <p class="prose">The classifier decides which messages are surfaced to crisis specialists, who then triage them. Humans labeled the outcomes. False negatives still reached specialists through usual channels. The effect is reported by the company that built and runs the system, with Stanford co-authors. The pre-deployment baseline is an internal figure. Stanford HAI&#39;s summary gives slightly different numbers (10 hours to under 10 minutes; 97%).</p>
     </section>
 
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
 <p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="conds">
         <p class="prose"><b>What produced it.</b> Thousands of daily patient chat messages on a telehealth platform with a crisis response team already in place. A key-word filter followed by a logistic-regression classifier trained on 721 labeled messages. A Slack-based workflow in which crisis specialists review and label surfaced messages.</p>
-        <p class="prose"><b>What must hold again.</b> Crisis specialists available to act on surfaced messages within minutes. A high-recall filter stage, since messages that do not pass it are classified as non-crises automatically. Message volume and language similar to the training data; the authors note the prospective PPV was 0.66.</p>
+        <p class="prose"><b>What must hold again.</b> Crisis specialists available to act on surfaced messages within minutes. A high-recall filter stage, since messages that do not pass it are classified as non-crises automatically. Message volume and language similar to the training data. The authors note the prospective PPV was 0.66.</p>
       </div>
     </section>
 
@@ -119,7 +119,7 @@
 
     <section class="sec" data-panel="provenance">
       <h2>Revisions</h2>
-      <p class="prose revs-line">Drafted 20 October 2026; last revised 21 October 2026, 4 changes; the last: Country of the developer and the deployer added from the organization&#39;s own site or a registry. The full list is in the <a href="AIBD-0311.json">JSON</a>.</p>
+      <p class="prose revs-line">Drafted 20 October 2026; last revised 21 October 2026, 5 changes; the last: Prose pass: a rating reason, account, purpose, the replication conditions, the system&#39;s part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged. The full list is in the <a href="AIBD-0311.json">JSON</a>.</p>
 
     </section>
   </article>
@@ -135,6 +135,6 @@
 </footer>
 </div>
 <div class="tip" data-tip aria-hidden="true"></div>
-<script src="../app.js?v=b55da6ee08"></script>
+<script src="../app.js?v=bf00652533"></script>
 </body>
 </html>

@@ -3,10 +3,10 @@
   "title": "Corsano CardioWatch 287–2 algorithm recognizes a real-life ventricular-fibrillation arrest and collapse in post-processing; the patient's ICD, not the wristband, ended it",
   "summary": "Radboudumc DETECT-3 case: a 64-year-old's VF arrest while cycling was ended by his ICD; the CardioWatch PPG algorithm later detected pulselessness at 09:50:17 and the fall; no live alert was sent.",
   "date_observed": "2026-01-29",
-  "account": "Edgar, Jansen, Pol, Pisters, van Royen and Bonnes of Radboud University Medical Center (with Rijnstate Hospital) reported in Resuscitation Plus on 29 January 2026 (the publication date is used; the paper gives no calendar date for the event) the first real-life cardiac arrest captured by a wristband with cardiac-arrest detection. A 64-year-old man with heart failure, permanent atrial fibrillation and a secondary-prevention Biotronik ICD was wearing the CE-certified CardioWatch 287–2 (Corsano Health, The Hague) in the DETECT-3 study. After three weeks, while cycling alone, he developed monomorphic ventricular tachycardia that accelerated to ventricular fibrillation after an antitachycardia pacing burst; the ICD delivered a 40 J shock, he regained consciousness, cycled home, and was admitted for rhythm observation with a good recovery. The wristband's 32 Hz photoplethysmography and accelerometry data were exported afterwards and run, by a Corsano Health data scientist blinded to the event, through the DETECT photoplethysmography algorithm, which detected cardiac arrest at 09:50:17 after loss of pulse and ended the alert at 09:50:57 when pulsations returned; the group's fall-detection algorithm flagged the fall about 8–10 seconds after pulselessness. The authors state the detection was retrospective and that the study collects data to measure false-positive rates for a future live system. Companion papers from the same program report 98% sensitivity in induced circulatory arrests (DETECT-1a), external validation in 50 patients with induced VT/VF (DETECT-1b, April 2026) and 100% sensitivity (23 of 23) with one false positive in true non-shockable arrests after withdrawal of life-sustaining treatment (Lancet Regional Health Europe, July 2026), where the algorithm is described as rule-based. The patient's survival is attributable to the ICD; the wristband changed nothing for him.",
+  "account": "Edgar, Jansen, Pol, Pisters, van Royen and Bonnes of Radboud University Medical Center (with Rijnstate Hospital) reported in Resuscitation Plus on 29 January 2026. The publication date is used. The paper gives no calendar date for the event. They report the first real-life cardiac arrest captured by a wristband with cardiac-arrest detection. A 64-year-old man with heart failure, permanent atrial fibrillation and a secondary-prevention Biotronik ICD was wearing the CE-certified CardioWatch 287–2 (Corsano Health, The Hague). He wore it in the DETECT-3 study. After three weeks, while cycling alone, he developed monomorphic ventricular tachycardia (VT). It accelerated to ventricular fibrillation (VF) after an antitachycardia pacing burst. The ICD delivered a 40 J shock. He regained consciousness, cycled home, and was admitted for rhythm observation with a good recovery. The wristband's 32 Hz photoplethysmography and accelerometry data were exported afterwards. A Corsano Health data scientist blinded to the event ran them through the DETECT photoplethysmography algorithm. It detected cardiac arrest at 09:50:17 after loss of pulse. It ended the alert at 09:50:57 when pulsations returned. The group's fall-detection algorithm flagged the fall about 8–10 seconds after pulselessness. The authors state the detection was retrospective. They state that the study collects data to measure false-positive rates for a future live system. Companion papers from the same program report 98% sensitivity in induced circulatory arrests (DETECT-1a). They report external validation in 50 patients with induced VT/VF (DETECT-1b, April 2026). They report 100% sensitivity (23 of 23) with one false positive in true non-shockable arrests after withdrawal of life-sustaining treatment. That paper (Lancet Regional Health Europe, July 2026) describes the algorithm as rule-based. The patient's survival is attributable to the ICD. The wristband changed nothing for him.",
   "category": "general benefit",
   "unexpected": false,
-  "purpose": "Built to detect out-of-hospital cardiac arrest from wrist photoplethysmography and accelerometry and, in future, alert emergency services; the retrospective detection demonstrates the first half of that purpose.",
+  "purpose": "Built to detect out-of-hospital cardiac arrest from wrist photoplethysmography and accelerometry and, in future, alert emergency services. The retrospective detection demonstrates the first half of that purpose.",
   "system": "Corsano CardioWatch 287-2 with the DETECT photoplethysmography cardiac-arrest detection and accelerometry fall-detection algorithms",
   "model_version": "CardioWatch 287-2 (CE-certified); DETECT algorithm as developed in DETECT-1a",
   "developer": "DETECT program, Radboud University Medical Center, with Corsano Health, The Hague (device and algorithm processing)",
@@ -21,17 +21,17 @@
     {
       "group": "personal",
       "depth": null,
-      "reason": "The patient was saved by his ICD; the wristband's detection was retrospective and produced no alert or treatment."
+      "reason": "The patient was saved by his ICD. The wristband's detection was retrospective and produced no alert or treatment."
     },
     {
       "group": "societal",
       "depth": null,
-      "reason": "The authors argue a live system could act as a first witness for unwitnessed arrests, but no deployment outcome exists yet."
+      "reason": "The authors argue a live system could act as a first witness for unwitnessed arrests. No deployment outcome exists yet."
     }
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The algorithm, run afterwards on exported data by a blinded Corsano data scientist, correctly flagged the loss of pulse and the fall; it was not running live and sent no alert, and the ICD shock is what restored circulation. The developers' own papers are the only full sources, and they describe a rule-based detector of absent pulsations by signal amplitude and waveform morphology rather than a machine-learning model."
+    "statement": "The algorithm was run afterwards on exported data by a blinded Corsano data scientist. It correctly flagged the loss of pulse and the fall. It was not running live and sent no alert. The ICD shock is what restored circulation. The developers' own papers are the only full sources. They describe a rule-based detector of absent pulsations by signal amplitude and waveform morphology rather than a machine-learning model."
   },
   "evidence": [
     {
@@ -93,7 +93,7 @@
     "produced_by": [
       "Continuous wristband wear with 32 Hz photoplethysmography and accelerometry uploaded to a study cloud",
       "A shockable arrest with clear loss of pulsations during cycling, in a patient whose ICD provided the reference and the rescue",
-      "Blinded post-hoc processing by the developers' data scientist"
+      "Blinded after-the-fact processing by the developers' data scientist"
     ],
     "must_hold": [
       "Adequate photoplethysmography quality during motion (the authors note it is typically disturbed by motion)",
@@ -164,6 +164,12 @@
       "date": "2026-10-21",
       "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
       "source": "https://clinicaltrials.gov/api/v2/studies/NCT06692374?fields=NCTId,BriefTitle,OfficialTitle,Acronym,LeadSponsorName,CollaboratorName,LocationFacility,LocationCity,LocationCountry,BriefSummary; https://en.wikipedia.org/wiki/Radboud_University_Medical_Center",
+      "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-21",
+      "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+      "source": null,
       "editor": "AIBD"
     }
   ],
