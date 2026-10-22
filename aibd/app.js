@@ -393,7 +393,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
         atlas.setAttribute('viewBox', b.getAttribute('data-plate'));
         ex.querySelectorAll('[data-plate]').forEach(function (x) { x.classList.toggle('on', x === b); });
         atlasZoom = 960 / (parseFloat(b.getAttribute('data-plate').split(' ')[2]) || 960);
-        var arrow = atlas.querySelector('#arrow'); if (arrow) { var mw = (7 / Math.pow(atlasZoom, 0.75)).toFixed(2); arrow.setAttribute('markerWidth', mw); arrow.setAttribute('markerHeight', mw); }
+        var arrow = atlas.querySelector('#arrow'); if (arrow) { var mw = (5 / Math.pow(atlasZoom, 0.75)).toFixed(2); arrow.setAttribute('markerWidth', mw); arrow.setAttribute('markerHeight', mw); }
         paintAtlas();
       });
     });
@@ -531,7 +531,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     atlas.querySelectorAll('[data-layer="made"] circle').forEach(function (c) { var n = made[c.dataset.place] || 0; c.style.display = n ? '' : 'none'; if (n) c.setAttribute('r', size(n)); });
     atlas.querySelectorAll('.worldmap [data-route]').forEach(function (el) {
       var k = el.getAttribute('data-route-keys') || '', n = k ? (routes[k] || 0) : 0, vis = el.nextElementSibling && el.nextElementSibling.classList.contains('flow-vis') ? el.nextElementSibling : null;
-      el.style.display = n ? '' : 'none'; if (vis) { vis.style.display = n ? '' : 'none'; if (n) vis.style.strokeWidth = (1 + Math.sqrt(n)).toFixed(2); }
+      el.style.display = n ? '' : 'none'; if (vis) { vis.style.display = n ? '' : 'none'; if (n) vis.style.strokeWidth = (0.6 + 0.35 * Math.sqrt(n)).toFixed(2); }
       if (n && el.classList.contains('ring')) el.setAttribute('r', size(n));
     });
   }
