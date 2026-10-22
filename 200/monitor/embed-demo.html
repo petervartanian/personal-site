@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Embedded views | AI Control Monitor</title>
+    <style>
+      @font-face { font-family: Figtree; src: url('./assets/figtree-latin.woff2') format('woff2'); font-style: normal; font-weight: 300 900; font-display: swap; }
+      :root { color-scheme: light; font-family: Figtree, Arial, sans-serif; color: #262626; background: #f4f4f4; }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      a { color: inherit; text-underline-offset: 3px; }
+      a:focus-visible { outline: 2px solid #525252; outline-offset: 4px; }
+      .page-heading { max-width: 1240px; margin: auto; padding: 28px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+      h1 { margin: 0; font-size: 26px; font-weight: 650; }
+      .page-heading a { font-size: 14px; }
+      main { padding-bottom: 28px; }
+      section { background: #fff; border-block: 1px solid #e0e0e0; margin-bottom: 28px; }
+      .host-heading { background: #393939; color: #fff; }
+      .host-heading-inner { max-width: 1240px; margin: auto; padding: 18px 28px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+      h2 { margin: 0; font-size: 18px; font-weight: 600; }
+      .host-heading a { font-size: 13px; }
+      .frame-wrap { max-width: 1240px; margin: auto; }
+      iframe { display: block; width: 100%; height: 760px; border: 0; background: #fff; }
+      iframe:not([data-embed-ready]) { min-height: 620px; }
+    </style>
+  <meta name="robots" content="noindex, nofollow, noarchive"><meta name="referrer" content="same-origin"><script type="module" src="/200/session.mjs?public=20261022"></script></head>
+  <body>
+    <header class="page-heading">
+      <h1>AI Control Monitor</h1>
+      <a href="./#/incidents">Open Monitor</a>
+    </header>
+    <main>
+      <section aria-labelledby="incidents-heading">
+        <header class="host-heading"><div class="host-heading-inner">
+          <h2 id="incidents-heading">Incidents</h2>
+          <a href="./#/incidents">Open this view</a>
+        </div></header>
+        <div class="frame-wrap">
+          <iframe data-risk-pathways
+            data-pathway-src="./?embed=1&amp;embedId=monitor-incidents#/incidents"
+            title="AI Control Monitor incidents"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-downloads"></iframe>
+        </div>
+      </section>
+      <section aria-labelledby="indicators-heading">
+        <header class="host-heading"><div class="host-heading-inner">
+          <h2 id="indicators-heading">Indicators</h2>
+          <a href="./#/indicators">Open this view</a>
+        </div></header>
+        <div class="frame-wrap">
+          <iframe data-risk-pathways
+            data-pathway-src="./?embed=1&amp;embedId=monitor-indicators#/indicators"
+            title="AI Control Monitor indicators and warning criteria"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-downloads"></iframe>
+        </div>
+      </section>
+    </main>
+    <script src="./embed.js"></script>
+    <script>
+      document.querySelectorAll('iframe[data-pathway-src]').forEach(function (frame) {
+        var url = new URL(frame.getAttribute('data-pathway-src'), window.location.href);
+        url.searchParams.set('parentOrigin', window.location.origin);
+        frame.src = url.href;
+      });
+    </script>
+  </body>
+</html>

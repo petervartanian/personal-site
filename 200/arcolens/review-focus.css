@@ -1,0 +1,30 @@
+/* Keep wording and placement visible, with the full evidence one step away. */
+.review-intro{max-width:68ch;font-size:1.08rem;line-height:1.65}
+.review-scope{color:var(--muted);font-size:.9rem}
+.shortlist{list-style:none;padding:0;margin:0;display:grid;gap:1.2rem}
+.shortlist-card{padding:1.4rem 1.5rem;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.shortlist-card h3{margin:0 0 .65rem;font-size:1.15rem;line-height:1.4}
+.shortlist-card h3 a{text-decoration-thickness:1px;text-underline-offset:3px}
+.shortlist-card p{margin:.65rem 0;max-width:76ch}
+.priority-reason{color:var(--muted);font-size:.92rem}
+.key-limitation{padding:.8rem 1rem;border-left:3px solid var(--line);background:var(--surface-muted);font-size:.94rem;line-height:1.6}
+.source-attribution h4{font-size:.83rem;margin:1rem 0 .4rem;font-weight:600}
+.tracker-sources{list-style:disc;padding-left:1.25rem;margin:.5rem 0;display:block}
+.tracker-sources li{display:list-item;font-size:.92rem;line-height:1.6;overflow-wrap:anywhere}
+.tracker-sources li+li{margin-top:.4rem}
+.source-arrow,.source-chart{color:var(--muted)}
+.chart-fit{font-size:.85rem;color:var(--muted)}
+.review-detail{margin:1rem 0;border:1px solid var(--line);border-radius:6px}
+.review-detail summary{cursor:pointer;padding:1rem 1.15rem;font-size:.98rem;font-weight:600;min-height:44px}
+.review-detail summary:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.review-detail-body{padding:0 1.15rem 1.15rem;overflow-wrap:anywhere}
+.review-detail-body .table-scroll{max-width:100%}
+.review-next{margin-top:1.5rem}
+@media(min-width:1180px){.shortlist{grid-template-columns:repeat(2,minmax(0,1fr))}.shortlist-card:last-child:nth-child(odd){grid-column:1/-1}}
+@media(max-width:620px){.shortlist-card{padding:1rem}}
+@media print{.shortlist{display:block}.shortlist-card{break-inside:avoid}.review-detail-body{display:block}}
+
+.selected-insight h3 a{color:inherit;text-decoration:none}.selected-insight h3 a:hover{text-decoration:underline}
+.selected-insight .selected-limit,.selected-insight .tracker-sources{font-size:.86rem;color:var(--muted);margin-top:.5rem}
+.selected-insight .tracker-sources li{font-size:inherit}
+.review-detail summary h2{display:inline;margin:0;font-size:inherit}

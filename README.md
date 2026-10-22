@@ -20,7 +20,7 @@ The homepage has an interactive SVG mobile with varied colored shapes and a susp
 
 `/portfolio/` retains all published writing. `/writing/` is an alias. The old placeholder collection at `/artifacts/` redirects to `/portfolio/`.
 
-The build produces the personal and scholarly pages and `/omphalos/` when its verified browser artifact is installed. These canonical public pages are listed in the XML sitemap. `content/public-pages.json` lists reviewed public project pages and is currently empty. The six protected research tools must remain outside public navigation, the sitemap, and `llms.txt`.
+The build produces the personal and scholarly pages and `/omphalos/` when its verified browser artifact is installed. These canonical public pages are listed in the XML sitemap. `content/public-pages.json` lists reviewed public project pages and is currently empty. The six research tools at `/200/` open without a password and remain outside public navigation, the sitemap, and `llms.txt`.
 
 ## omphalOS browser edition
 
@@ -34,7 +34,7 @@ python3 -m unittest discover -s scripts -p 'test_browser_app.py'
 node --test scripts/test-public-snapshot.mjs
 ```
 
-Installation verifies every file against `build-manifest.json`, rejects unlisted files and symbolic links, and copies only the application and its reviewed runtime assets. It updates the public-file allowlist, quiet homepage-footer and Site index links, sitemap, and `llms.txt`. No tool link is generated before the actual artifact is present. Installation builds and validates locally; it does not commit, push, or publish. Preserve the original omphalOS citation, date, credit, and repository URL; identify the 2024 version as historical and link separately to the current application. Keep the six other tools encrypted and private.
+Installation verifies every file against `build-manifest.json`, rejects unlisted files and symbolic links, and copies only the application and its reviewed runtime assets. It updates the public-file allowlist, quiet homepage-footer and Site index links, sitemap, and `llms.txt`. No tool link is generated before the actual artifact is present. Installation builds and validates locally; it does not commit, push, or publish. Preserve the original omphalOS citation, date, credit, and repository URL; identify the 2024 version as historical and link separately to the current application. Keep the six other tools out of public discovery files.
 
 ## Scholarly publication pages
 
@@ -44,20 +44,16 @@ The two approved editorial asides on Writing use `data-nosnippet`: the affiliati
 
 Shared links use four 1200 × 630 preview images with backgrounds matching their pages. The preview artwork can be regenerated with `scripts/preview_cards.py` (Pillow) and `scripts/render_preview_cards.cjs` (Sharp); these optional tools are not needed to build the site. Approved PNGs live in `assets/img/social-*.png`.
 
-## Private research tools
+## Unlisted research tools
 
-Agency Costs, BackDrive, AI Risk Correlator, Haruspex, AI Control Monitor, and Arcolens belong inside the encrypted `/200/` collection. Their HTML, code, data, and downloads must be encrypted before any plaintext deployment copies are removed. The old public routes and asset paths must not remain available as alternate access paths. The personal-page build does not build or publish those protected resources.
+Agency Costs, BackDrive, AI Risk Correlator, Haruspex, AI Control Monitor, and Arcolens open directly beneath `/200/`. The catalog is `/200/`; Arcolens also has a directory alias for its `OPEN_REVIEW.html` entry. Preserve these paths, queries, and fragments when publishing updates. Deploy the complete reviewed static build, including its data and assets, and add its exact file paths to `content/public-files.json`. The personal-page build does not regenerate these tools.
 
-The former `/x-oscope/` and `/auspex/` applications and their redirect pages remain removed. Do not recreate those routes. Do not publish unpublished preprints or preview files; access-controlled original-source links remain access controlled.
+The tools are accessible to anyone with their URLs. Every HTML page has `noindex, nofollow` metadata, and the tool routes remain excluded from public navigation, the sitemap, `llms.txt`, and IndexNow submissions. Search exclusion is not access control. Do not add tool routes to discovery files when updating the tools.
 
-`/200/` is an unlisted password gate. Its catalog and protected resources are encrypted with AES-256-GCM before publication. The password derives a non-extractable browser key using PBKDF2-SHA-256 with a random 32-byte salt and 600,000 iterations. No password or plaintext protected exports belong in the deployment package.
+`200/session.mjs` and `200/entry.mjs` retire the previous password loader for returning visitors. They update only existing `/200/` service workers. The replacement `200/sw.js` stops intercepting requests, deletes the saved session key, and unregisters itself. Keep these compatibility files at their original URLs so that old browser profiles can recover. Fresh visitors do not register a service worker. The previous ciphertext and derivation settings remain temporarily available for older workers during migration; no password is published or needed by the new pages.
 
-A service worker scoped to `/200/` decrypts pages and downloads after unlocking. An eight-hour session stores a non-extractable key in IndexedDB, never the password; Lock clears access and returns open experiment tabs to the gate. Decrypted responses use `Cache-Control: no-store`. The directory is excluded from the sitemap and has `noindex, nofollow` metadata. Client-side encryption depends on password strength and is not server-side authorization or an account system.
+The former `/x-oscope/` and `/auspex/` applications and their redirect pages remain removed. Do not recreate those routes or alternate copies of the tools at the site root. Do not publish additional source checkouts, unpublished preprints, credentials, or preview files. The prior source history remains in the separate private `petervartanian.github.io` repository.
 
-To update the protected tools, use the approved vault builder with local source directories and supply the existing password on standard input. Verify source checksums, encrypt every required resource, and emit only ciphertext and public encryption parameters into `200/vault/`. The build must not alter the underlying analyses or call an LLM. Rebuilding with a different password re-encrypts the current files; old ciphertext in Git history remains tied to its original password.
+Run `node --test scripts/test-200.mjs scripts/test-correlator.mjs scripts/test-public-snapshot.mjs` to verify browser migration, tool entry pages, search exclusions, and the deployment allowlist.
 
-Previously public source files can remain accessible in repository history even after a deployment removes them. The privacy migration must keep source/build history private and publish only a clean deployment package containing the public pages, password gate, and ciphertext. This repository contains a fresh public history with public pages, the password gate, and encrypted resources. The prior source history is retained separately in the private `petervartanian.github.io` repository. Removing links or adding `noindex` does not make plaintext resources private, and migration cannot retract copies already downloaded elsewhere.
-
-Run `node --test scripts/test-200.mjs` for routing, wrong-password, tampering, session, and logout checks. The private source archive contains the migration and verification scripts, which decrypt and check every packaged resource and internal link locally. Public site builds do not need the password and do not rebuild the encrypted resources.
-
-Search-engine notifications use IndexNow only after a verified successful Pages deployment. The sitemap is the public URL allowlist and all protected tool routes are independently denied. A missing checkpoint stops automatic submission; the first manual `initialize=true` announces the reviewed public pages in the sitemap, and a saved checkpoint prevents unchanged pages from being submitted again.
+Search-engine notifications use IndexNow only after a verified successful Pages deployment. The sitemap is the public URL allowlist and all unlisted tool routes are independently excluded. A missing checkpoint stops automatic submission; the first manual `initialize=true` announces the reviewed public pages in the sitemap, and a saved checkpoint prevents unchanged pages from being submitted again.

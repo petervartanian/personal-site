@@ -1,276 +1,316 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { webcrypto, randomBytes, createHash } from 'node:crypto';
-import { gzipSync } from 'node:zlib';
 import { readFile } from 'node:fs/promises';
 import vm from 'node:vm';
-import { deriveKey, decryptBytes, unpackFile, privatePath, safeNext } from '../200/vault-core.mjs';
 
-const encoder = new TextEncoder();
 const origin = 'https://petervartanian.xyz';
-const password = 'test-only secret, not a deployment password';
-const settings = { version: 1, salt: randomBytes(32).toString('base64'), iterations: 600000, manifest: 'a'.repeat(64) + '.bin' };
-const material = await webcrypto.subtle.importKey('raw', encoder.encode(password), 'PBKDF2', false, ['deriveKey']);
-const encryptKey = await webcrypto.subtle.deriveKey({ name: 'PBKDF2', salt: Buffer.from(settings.salt, 'base64'), iterations: settings.iterations, hash: 'SHA-256' }, material, { name: 'AES-GCM', length: 256 }, false, ['encrypt']);
-const key = await deriveKey(password, settings);
-async function encrypt(value, name) {
-  const iv = randomBytes(12);
-  const ciphertext = await webcrypto.subtle.encrypt({ name: 'AES-GCM', iv, additionalData: encoder.encode(name), tagLength: 128 }, encryptKey, gzipSync(value));
-  return Buffer.concat([iv, Buffer.from(ciphertext)]);
-}
-const privateHTML = Buffer.from('<!doctype html><h1>Private fixture</h1>');
-const privateCSV = Buffer.from('id,value\n1,42\n');
-const privateScript = Buffer.from('window.privateFixture = true;');
-const projects = ['agency-costs', 'backdrive', 'correlator', 'haruspex', 'monitor'];
-const fixtures = {
-  'index.html': { file: 'b'.repeat(64) + '.bin', type: 'text/html; charset=utf-8' },
-  'arcolens/OPEN_REVIEW.html': { file: 'c'.repeat(64) + '.bin', type: 'text/html; charset=utf-8' },
-  'arcolens/downloads/data.csv': { file: 'd'.repeat(64) + '.bin', type: 'text/csv', download: 'data.csv' },
-  'correlator/plan/index.html': { file: createHash('sha256').update('correlator/plan/index.html').digest('hex') + '.bin', type: 'text/html; charset=utf-8' },
-};
-for (const project of projects) {
-  for (const [file, type] of [['index.html', 'text/html; charset=utf-8'], ['assets/app.js', 'text/javascript; charset=utf-8']]) {
-    const name = `${project}/${file}`;
-    fixtures[name] = { file: createHash('sha256').update(name).digest('hex') + '.bin', type };
-  }
-}
-const payloads = new Map();
-for (const [name, entry] of Object.entries(fixtures)) payloads.set(entry.file, await encrypt(name.endsWith('.csv') ? privateCSV : name.endsWith('.js') ? privateScript : privateHTML, name));
-payloads.set(settings.manifest, await encrypt(JSON.stringify({ version: 1, files: fixtures }), 'manifest'));
+const workerSource = await readFile(new URL('../200/sw.js', import.meta.url), 'utf8');
+const sessionSource = await readFile(new URL('../200/session.mjs', import.meta.url), 'utf8');
+const entrySource = await readFile(new URL('../200/entry.mjs', import.meta.url), 'utf8');
+const deepLinkSource = await readFile(new URL('../200/deep-link.js', import.meta.url), 'utf8');
 
-function fakeDatabase(state) {
+function database(log, outcome = 'success') {
   return {
-    open() {
+    deleteDatabase(name) {
+      log.push(name);
+      if (outcome === 'throw') throw new Error('Unavailable storage');
       const request = {};
-      request.result = {
-        createObjectStore() {}, close() {},
-        transaction() {
-          const transaction = {};
-          transaction.objectStore = () => {
-            const operation = (kind, value) => {
-              const req = {};
-              queueMicrotask(() => {
-                if (kind === 'put') state.value = value;
-                if (kind === 'delete') state.value = undefined;
-                req.result = state.value;
-                req.onsuccess?.();
-                queueMicrotask(() => transaction.oncomplete?.());
-              });
-              return req;
-            };
-            return { get: () => operation('get'), put: value => operation('put', value), delete: () => operation('delete') };
-          };
-          return transaction;
-        },
-      };
-      queueMicrotask(() => { request.onupgradeneeded?.(); request.onsuccess?.(); });
+      queueMicrotask(() => request['on' + outcome]?.());
       return request;
     },
   };
 }
-const rawWorker = await readFile(new URL('../200/sw.js', import.meta.url), 'utf8');
-function worker(state = {}) {
-  const listeners = {};
-  const requests = [];
-  const navigations = [];
+
+function retirementWorker({ storage = 'success', closeGate = false } = {}) {
+  const events = {};
+  const actions = [];
+  const deleted = [];
+  const navigated = [];
+  const messages = [];
+  const urls = [
+    origin + '/200/?next=%2F200%2Fcorrelator%2F%23%2Fpathway',
+    origin + '/200/index.html',
+    origin + '/200/correlator/#/pathway?case=example',
+    origin + '/200/arcolens/OPEN_REVIEW.html?year=2026#details',
+    origin + '/portfolio/',
+    'https://other.example/200/',
+  ];
+  const clients = urls.map(url => ({
+    url,
+    async navigate(target) {
+      if (closeGate) throw new Error('This tab has closed');
+      navigated.push(target);
+    },
+    postMessage(message) { messages.push({ url, ...message }); },
+  }));
   const self = {
     location: { origin },
-    addEventListener: (name, callback) => { listeners[name] = callback; },
-    skipWaiting: async () => {},
-    clients: { claim: async () => {}, matchAll: async () => [
-      ...['arcolens', ...projects].map(project => ({ url: origin + '/200/' + project + '/', navigate: async url => navigations.push(url) })),
-      { url: origin + '/', navigate: async url => navigations.push('OUTSIDE:' + url) },
-    ] },
-  };
-  const fetch = async (value, options) => {
-    const url = new URL(typeof value === 'string' ? value : value.url, origin);
-    requests.push(url.pathname);
-    if (url.pathname === '/200/vault/settings.json') return Response.json(state.serverSettings || settings);
-    if (url.pathname.startsWith('/200/vault/')) {
-      const bytes = payloads.get(url.pathname.split('/').at(-1));
-      return bytes ? new Response(bytes) : new Response('Missing', { status: 404 });
-    }
-    return new Response('<form>Public password gate</form>');
-  };
-  const context = vm.createContext({ self, indexedDB: fakeDatabase(state), deriveKey, unpackFile, privatePath, safeNext, fetch, Response, Headers, URL, TextDecoder, Date, Promise, Set, Error, Boolean, encodeURIComponent });
-  vm.runInContext(rawWorker.replace(/^import[^\n]+\n/, ''), context);
-  return {
-    state, requests, navigations,
-    async message(action, extra = {}, sourceURL = origin + '/200/') {
-      let job, result;
-      listeners.message({ data: { action, ...extra }, source: { url: sourceURL }, ports: [{ postMessage: value => { result = value; } }], waitUntil: value => { job = value; } });
-      await job;
-      return result;
+    addEventListener(name, callback) { events[name] = callback; },
+    async skipWaiting() { actions.push('skipWaiting'); },
+    registration: { async unregister() { actions.push('unregister'); } },
+    clients: {
+      async claim() { actions.push('claim'); },
+      async matchAll() { return clients; },
     },
-    async request(path, mode = 'navigate') {
+  };
+  vm.runInNewContext(workerSource, { self, indexedDB: database(deleted, storage), URL, Promise });
+  return {
+    events, actions, deleted, navigated, messages,
+    async lifecycle(name) {
+      let task;
+      events[name]({ waitUntil(value) { task = value; } });
+      await task;
+    },
+    message(action, sourceURL = origin + '/200/correlator/', hasPort = true) {
       let response;
-      listeners.fetch({ request: { url: new URL(path, origin).href, mode, method: 'GET' }, respondWith: value => { response = value; } });
-      return await response;
+      const data = { action };
+      Object.defineProperty(data, 'password', { get() { throw new Error('The password must never be read.'); } });
+      events.message({
+        data,
+        source: { url: sourceURL },
+        ports: hasPort ? [{ postMessage(value) { response = JSON.parse(JSON.stringify(value)); } }] : [],
+      });
+      return response;
     },
   };
 }
 
-test('correct key restores binary content; wrong password, tampering and path substitution fail', async () => {
-  const bytes = await encrypt(privateCSV, 'arcolens/downloads/data.csv');
-  assert.deepEqual(Buffer.from(await unpackFile(key, bytes, 'arcolens/downloads/data.csv')), privateCSV);
-  assert.equal(key.extractable, false);
-  const wrong = await deriveKey(password + 'wrong', settings);
-  await assert.rejects(unpackFile(wrong, bytes, 'arcolens/downloads/data.csv'));
-  const tampered = Buffer.from(bytes); tampered[20] ^= 1;
-  await assert.rejects(unpackFile(key, tampered, 'arcolens/downloads/data.csv'));
-  await assert.rejects(unpackFile(key, bytes, 'index.html'));
+function publicPage({
+  path = '/200/correlator/#/pathway', gate = false, registration = false,
+  controller = registration, replacement = 'controllerchange', update = 'success',
+  storage = 'success', unrelated = false, serviceWorkers = true, getRegistrations = 'success',
+} = {}) {
+  const location = new URL(path, origin);
+  const navigations = [];
+  location.replace = value => navigations.push(value);
+  const removed = [];
+  const deleted = [];
+  const calls = [];
+  const listeners = new Map();
+  const timers = new Set();
+  const serviceWorker = {
+    controller: controller ? { scriptURL: origin + '/200/sw.js' } : null,
+    addEventListener(name, callback) {
+      if (!listeners.has(name)) listeners.set(name, new Set());
+      listeners.get(name).add(callback);
+    },
+    removeEventListener(name, callback) { listeners.get(name)?.delete(callback); },
+    async register() { throw new Error('Public visitors must never install a worker.'); },
+    async getRegistrations() {
+      calls.push('getRegistrations');
+      if (getRegistrations === 'failure') throw new Error('Registration lookup unavailable');
+      return [...(registration ? [existing] : []), ...(unrelated ? [other] : [])];
+    },
+  };
+  const existing = {
+    scope: origin + '/200/',
+    update() {
+      calls.push('update');
+      if (update === 'throw') throw new Error('Update failed synchronously');
+      if (update === 'failure') return Promise.reject(new Error('Offline update'));
+      if (update === 'hang') return new Promise(() => {});
+      if (replacement) queueMicrotask(() => {
+        for (const callback of listeners.get(replacement) || []) {
+          callback({ data: { type: '200-public-ready' } });
+        }
+      });
+      return Promise.resolve();
+    },
+    async unregister() { calls.push('unregister'); return true; },
+  };
+  const other = {
+    scope: origin + '/some-other-app/',
+    async update() { throw new Error('Other registrations must be left alone'); },
+    async unregister() { throw new Error('Other registrations must be left alone'); },
+  };
+  const document = {
+    querySelectorAll(selector) {
+      if (selector === '[data-lock]') return [{ remove() { removed.push('lock'); } }];
+      return [];
+    },
+    getElementById(name) { return name === 'unlock' && gate ? { remove() { removed.push('gate'); } } : null; },
+    body: { classList: { remove(name) { removed.push(name); } } },
+  };
+  const histories = [];
+  const window = { history: { state: null, replaceState(state, title, value) { histories.push(value); location.href = new URL(value, origin).href; } } };
+  const context = vm.createContext({
+    document, window, location, navigator: serviceWorkers ? { serviceWorker } : {},
+    indexedDB: database(deleted, storage), URL, Set, Promise,
+    setTimeout(callback, delay) {
+      const timer = setTimeout(() => { timers.delete(timer); callback(); }, Math.min(delay, 5));
+      timers.add(timer);
+      return timer;
+    },
+    clearTimeout(timer) { timers.delete(timer); clearTimeout(timer); },
+  });
+  const execute = () => vm.runInContext(sessionSource, context);
+  execute();
+  return {
+    calls, navigations, histories, removed, deleted, listeners, timers, execute,
+    async finished() { await window.__public200Migration; },
+  };
+}
+
+test('the retirement worker never intercepts public requests and activates promptly', async () => {
+  const worker = retirementWorker();
+  assert.equal(worker.events.fetch, undefined);
+  await worker.lifecycle('install');
+  assert.deepEqual(worker.actions, ['skipWaiting']);
 });
 
-test('routing rejects foreign URLs and traversal while retaining real deep links', () => {
-  assert.equal(privatePath(origin + '/200/arcolens/', origin), 'arcolens/OPEN_REVIEW.html');
-  assert.equal(privatePath('https://other.example/200/arcolens/', origin), null);
-  assert.equal(privatePath(origin + '/200/%2e%2e%2fprivate', origin), null);
-  assert.equal(privatePath(origin + '/200/%00', origin), null);
-  assert.equal(privatePath(origin + '/200/%zz', origin), null);
-  assert.equal(safeNext('//other.example/path', origin), '/200/');
-  assert.equal(safeNext('/agency-costs/', origin), '/200/');
-  assert.equal(safeNext('/200/agency-costs-other/', origin), '/200/');
-  assert.equal(safeNext('/200/vault/settings.json', origin), '/200/');
-  assert.equal(safeNext('/200/session.mjs', origin), '/200/');
-  assert.equal(safeNext('/200/agency-costs/%2e%2e%2fsecret', origin), '/200/');
-  assert.equal(safeNext('/200/arcolens/finding-IT-C001.html?year2026=on#main', origin), '/200/arcolens/finding-IT-C001.html?year2026=on#main');
-  for (const project of projects) {
-    assert.equal(privatePath(origin + `/200/${project}`, origin), `${project}/index.html`);
-    assert.equal(privatePath(origin + `/200/${project}/`, origin), `${project}/index.html`);
-    assert.equal(safeNext(`/200/${project}/?view=all#main`, origin), `/200/${project}/?view=all#main`);
-    assert.equal(privatePath(origin + `/${project}/`, origin), null);
+test('activation clears only the old key, retires its registration, and refreshes old gates', async () => {
+  const worker = retirementWorker();
+  await worker.lifecycle('activate');
+  assert.deepEqual(worker.actions, ['claim', 'unregister']);
+  assert.deepEqual(worker.deleted, ['pv-200-session']);
+  assert.deepEqual(worker.navigated, [
+    origin + '/200/?next=%2F200%2Fcorrelator%2F%23%2Fpathway&__public200=20261022',
+    origin + '/200/index.html?__public200=20261022',
+  ]);
+  assert.deepEqual(worker.messages.map(message => message.url), [
+    origin + '/200/correlator/#/pathway?case=example',
+    origin + '/200/arcolens/OPEN_REVIEW.html?year=2026#details',
+  ]);
+  assert(worker.messages.every(message => message.type === '200-public-ready'));
+});
+
+test('old session timers and cached gate actions remain compatible without reading passwords', () => {
+  const worker = retirementWorker();
+  for (const action of ['status', 'unlock', 'lock', 'public-status']) {
+    assert.deepEqual(worker.message(action), { ok: true, unlocked: true, public: true });
+    assert.doesNotThrow(() => worker.message(action, origin + '/200/', false));
+  }
+  assert.equal(worker.message('unknown'), undefined);
+  assert.equal(worker.message('status', origin + '/portfolio/'), undefined);
+  assert.equal(worker.message('status', origin + '/200-other/'), undefined);
+  assert.equal(worker.message('status', 'https://other.example/200/'), undefined);
+});
+
+test('closed tabs and unavailable key storage do not prevent worker retirement', async () => {
+  for (const storage of ['error', 'blocked', 'throw']) {
+    const worker = retirementWorker({ storage, closeGate: true });
+    await worker.lifecycle('activate');
+    assert.deepEqual(worker.actions, ['claim', 'unregister']);
+    assert.equal(worker.messages.length, 2);
   }
 });
 
-test('locked navigation reaches the gate and direct file fetches reveal no private bytes', async () => {
-  const instance = worker();
-  assert.match(await (await instance.request('/200/')).text(), /Public password gate/);
-  const page = await instance.request('/200/arcolens/finding-IT-C001.html?year2026=on');
-  assert.equal(page.status, 302);
-  assert.match(page.headers.get('location'), /next=/);
-  const file = await instance.request('/200/arcolens/downloads/data.csv', 'cors');
-  assert.equal(file.status, 401);
-  for (const project of projects) {
-    const page = await instance.request(`/200/${project}/?view=all`);
-    assert.equal(page.status, 302);
-    assert.equal(new URL(page.headers.get('location')).searchParams.get('next'), `/200/${project}/?view=all`);
-    const asset = await instance.request(`/200/${project}/assets/app.js`, 'cors');
-    assert.equal(asset.status, 401);
-    assert.equal(asset.headers.get('cache-control'), 'no-store');
-    assert(!String(await asset.text()).includes(privateScript.toString()));
-  }
-  assert(!instance.requests.some(url => url.endsWith('.bin')));
+test('fresh public visits never register a worker, reload, or wait for an auth session', async () => {
+  const page = publicPage();
+  await page.finished();
+  assert.deepEqual(page.calls, ['getRegistrations']);
+  assert.deepEqual(page.navigations, []);
+  assert.deepEqual(page.deleted, ['pv-200-session']);
+  assert(page.removed.includes('lock'));
+  assert.equal(page.timers.size, 0);
 });
 
-test('wrong password cannot unlock; valid password opens pages and downloads without caching plaintext', async () => {
-  const instance = worker();
-  assert.equal((await instance.message('unlock', { password: password + 'wrong' })).ok, false);
-  assert.equal((await instance.message('status')).unlocked, false);
-  assert.equal((await instance.message('unlock', { password })).ok, true);
-  const page = await instance.request('/200/arcolens/');
-  assert.equal(page.status, 200);
-  assert.equal(await page.text(), privateHTML.toString());
-  assert.equal(page.headers.get('cache-control'), 'no-store');
-  assert.equal(page.headers.get('x-robots-tag'), 'noindex, nofollow');
-  const file = await instance.request('/200/arcolens/downloads/data.csv', 'cors');
-  assert.equal(await file.text(), privateCSV.toString());
-  assert.match(file.headers.get('content-disposition'), /attachment/);
-  assert.equal(instance.state.value.key.extractable, false);
-  assert(!JSON.stringify(instance.state.value).includes(password));
-  for (const project of projects) {
-    const page = await instance.request(`/200/${project}/`);
-    assert.equal(page.status, 200);
-    assert.equal(await page.text(), privateHTML.toString());
-    const asset = await instance.request(`/200/${project}/assets/app.js`, 'cors');
-    assert.equal(asset.status, 200);
-    assert.equal(await asset.text(), privateScript.toString());
-    assert.equal(asset.headers.get('cache-control'), 'no-store');
-    assert.equal(asset.headers.get('x-robots-tag'), 'noindex, nofollow');
+test('an old worker is updated and removed before one navigation preserving the full tool URL', async () => {
+  for (const replacement of ['controllerchange', 'message']) {
+    const page = publicPage({ path: '/200/correlator/?view=all#/pathway?case=example&panel=analysis', registration: true, replacement });
+    await page.finished();
+    assert.deepEqual(page.calls, ['getRegistrations', 'update', 'unregister']);
+    assert.deepEqual(page.navigations, ['/200/correlator/?view=all#/pathway?case=example&panel=analysis']);
+    assert([...page.listeners.values()].every(callbacks => callbacks.size === 0));
+    assert.equal(page.timers.size, 0);
+    page.execute();
+    await page.finished();
+    assert.equal(page.navigations.length, 1);
+    assert.equal(page.calls.filter(value => value === 'update').length, 1);
   }
 });
 
-test('worker restart preserves an unexpired session; expiry requires unlocking again', async () => {
-  const state = {};
-  const first = worker(state);
-  assert.equal((await first.message('unlock', { password })).ok, true);
-  const restarted = worker(state);
-  assert.equal((await restarted.message('status')).unlocked, true);
-  assert.equal((await restarted.request('/200/arcolens/')).status, 200);
-  state.value.expires = Date.now() - 1;
-  const expired = worker(state);
-  assert.equal((await expired.message('status')).unlocked, false);
-  assert.equal((await expired.request('/200/arcolens/downloads/data.csv', 'cors')).status, 401);
+test('old locked and cached gate pages continue into a validated tool deep link without a password', async () => {
+  for (const registration of [true, false]) {
+    const page = publicPage({
+      path: '/200/?next=' + encodeURIComponent('/200/correlator/?view=all#/pathway?case=example'),
+      gate: true, registration,
+    });
+    await page.finished();
+    assert.deepEqual(page.navigations, ['/200/correlator/?view=all#/pathway?case=example']);
+    assert(page.removed.includes('gate'));
+  }
+  const inherited = publicPage({ path: '/200/?next=%2F200%2Fcorrelator%2F#/pathway?case=example', gate: true });
+  await inherited.finished();
+  assert.deepEqual(inherited.navigations, ['/200/correlator/#/pathway?case=example']);
+  const plainGate = publicPage({ path: '/200/', gate: true });
+  await plainGate.finished();
+  assert.deepEqual(plainGate.navigations, ['/200/?__public200=20261022']);
 });
 
-test('the Correlator Plan directory opens its protected index and preserves the password gate', async () => {
-  for (const suffix of ['', '/', '/index.html']) {
-    assert.equal(privatePath(origin + '/200/correlator/plan' + suffix, origin), 'correlator/plan/index.html');
-  }
-  const instance = worker();
-  const locked = await instance.request('/200/correlator/plan/?view=all');
-  assert.equal(locked.status, 302);
-  assert.equal(new URL(locked.headers.get('location')).searchParams.get('next'), '/200/correlator/plan/?view=all');
-  assert.equal((await instance.request('/200/correlator/plan/', 'cors')).status, 401);
-  await instance.message('unlock', { password });
-  const canonical = await instance.request('/200/correlator/plan?view=all');
-  assert.equal(canonical.headers.get('location'), origin + '/200/correlator/plan/?view=all');
-  for (const suffix of ['/', '/index.html']) {
-    const response = await instance.request('/200/correlator/plan' + suffix);
-    assert.equal(response.status, 200);
-    assert.equal(response.headers.get('cache-control'), 'no-store');
-    assert.equal(await response.text(), privateHTML.toString());
-  }
-  assert.equal((await instance.request('/200/correlator/plan/missing.html')).status, 404);
+test('the gate cache-busting marker is removed without another page load', async () => {
+  const page = publicPage({ path: '/200/?__public200=20261022#catalog' });
+  await page.finished();
+  assert.deepEqual(page.histories, ['/200/#catalog']);
+  assert.deepEqual(page.navigations, []);
+  const deepLink = publicPage({ path: '/200/?next=%2F200%2Fcorrelator%2F&__public200=20261022#/pathway' });
+  await deepLink.finished();
+  assert.deepEqual(deepLink.histories, ['/200/?next=%2F200%2Fcorrelator%2F#/pathway']);
+  assert.deepEqual(deepLink.navigations, ['/200/correlator/#/pathway']);
 });
 
-test('logout clears persisted access and returns only experiment tabs to the gate', async () => {
-  const instance = worker();
-  await instance.message('unlock', { password });
-  assert.equal((await instance.message('lock')).ok, true);
-  assert.equal(instance.state.value, undefined);
-  assert.deepEqual(instance.navigations, Array(projects.length + 1).fill('/200/'));
-  assert.equal((await instance.message('status')).unlocked, false);
-  assert.equal((await instance.request('/200/arcolens/downloads/data.csv', 'cors')).status, 401);
-  for (const project of projects) {
-    assert.equal((await instance.request(`/200/${project}/`)).status, 302);
-    assert.equal((await instance.request(`/200/${project}/assets/app.js`, 'cors')).status, 401);
+test('failed, synchronous, and stalled worker updates still unregister before continuing', async () => {
+  for (const update of ['failure', 'throw', 'hang']) {
+    const page = publicPage({ registration: true, update });
+    await page.finished();
+    assert.deepEqual(page.calls, ['getRegistrations', 'update', 'unregister']);
+    assert.deepEqual(page.navigations, ['/200/correlator/#/pathway']);
+    assert.equal(page.timers.size, 0);
   }
 });
 
-test('new deployment returns an open tab to the unlock page before fetching obsolete files', async () => {
-  const instance = worker();
-  await instance.message('unlock', { password });
-  assert.equal((await instance.request('/200/arcolens/')).status, 200);
-  instance.state.serverSettings = { ...settings, manifest: 'e'.repeat(64) + '.bin' };
-  const response = await instance.request('/200/arcolens/');
-  assert.equal(response.status, 302);
-  assert.match(response.headers.get('location'), /next=/);
-  assert.equal(instance.state.value, undefined);
-  assert.equal((await instance.message('status')).unlocked, false);
-});
-
-test('the worker leaves public site routes alone and ignores messages from other pages', async () => {
-  const instance = worker();
-  assert.equal(await instance.request('/portfolio/'), undefined);
-  assert.equal(await instance.request('/200/entry.css'), undefined);
-  assert.equal(await instance.message('unlock', { password }, origin + '/'), undefined);
-  assert.equal(await instance.message('unlock', { password }, 'https://other.example/200/'), undefined);
-  assert.equal((await instance.message('status')).unlocked, false);
-});
-
-test('unlocked deep-link continuation and slash normalization preserve queries', async () => {
-  const instance = worker();
-  await instance.message('unlock', { password });
-  const slash = await instance.request('/200/arcolens?year2026=on');
-  assert.equal(slash.headers.get('location'), origin + '/200/arcolens/?year2026=on');
-  const next = await instance.request('/200/?next=%2F200%2Farcolens%2F%3Fyear2026%3Don');
-  assert.equal(next.headers.get('location'), origin + '/200/arcolens/?year2026=on');
-  const foreign = await instance.request('/200/?next=https://evil.example/');
-  assert.equal(foreign.status, 200);
-  for (const project of projects) {
-    const slash = await instance.request(`/200/${project}?view=all`);
-    assert.equal(slash.headers.get('location'), origin + `/200/${project}/?view=all`);
-    const next = await instance.request('/200/?next=' + encodeURIComponent(`/200/${project}/?view=all#main`));
-    assert.equal(next.headers.get('location'), origin + `/200/${project}/?view=all#main`);
+test('continuation rejects foreign URLs, unexpected resources, traversal, and malformed encodings', async () => {
+  const targets = [
+    'https://other.example/200/correlator/', '//other.example/200/correlator/',
+    '/200-other/correlator/', '/portfolio/', '/200/vault/settings.json',
+    '/200/session.mjs', '/200/', '/200/index.html', '/200/correlator-other/',
+    '/200/correlator/%2e%2e%2fsecret', '/200/correlator/%00', '/200/correlator/%zz',
+    'javascript:alert(1)',
+  ];
+  for (const target of targets) {
+    const page = publicPage({ path: '/200/?next=' + encodeURIComponent(target) });
+    await page.finished();
+    assert.deepEqual(page.navigations, [], target);
   }
+});
+
+test('known tool destinations retain their queries and fragments from the catalog', async () => {
+  for (const project of ['arcolens', 'agency-costs', 'backdrive', 'correlator', 'haruspex', 'monitor']) {
+    const target = `/200/${project}/?view=all#details`;
+    const page = publicPage({ path: '/200/index.html?next=' + encodeURIComponent(target) });
+    await page.finished();
+    assert.deepEqual(page.navigations, [target]);
+  }
+  const inTool = publicPage({ path: '/200/correlator/?next=%2F200%2Farcolens%2F#/pathway' });
+  await inTool.finished();
+  assert.deepEqual(inTool.navigations, []);
+});
+
+test('unrelated workers, unavailable APIs, and already-retired controllers do not create loops', async () => {
+  const unrelated = publicPage({ unrelated: true });
+  await unrelated.finished();
+  assert.deepEqual(unrelated.calls, ['getRegistrations']);
+  assert.deepEqual(unrelated.navigations, []);
+  const noAPI = publicPage({ serviceWorkers: false, storage: 'throw' });
+  await noAPI.finished();
+  assert.deepEqual(noAPI.navigations, []);
+  const retired = publicPage({ controller: true });
+  await retired.finished();
+  assert.deepEqual(retired.navigations, ['/200/correlator/#/pathway']);
+  const nextVisit = publicPage();
+  await nextVisit.finished();
+  assert.deepEqual(nextVisit.navigations, []);
+  const failedLookup = publicPage({ getRegistrations: 'failure' });
+  await failedLookup.finished();
+  assert.deepEqual(failedLookup.navigations, []);
+});
+
+test('missing tool files retain their 404 URL and legacy entry scripts contain no password flow', async () => {
+  const page = publicPage({ path: '/200/correlator/does-not-exist.html?view=all#details' });
+  await page.finished();
+  assert.deepEqual(page.navigations, []);
+  assert.match(entrySource, /import '\.\/session\.mjs\?public=20261022'/);
+  assert.doesNotMatch(entrySource, /password|unlock|\.register\(/);
+  assert.match(deepLinkSource, /import\('\/200\/session\.mjs\?public=20261022'\)/);
+  assert.doesNotMatch(deepLinkSource, /location\.replace|next=/);
 });

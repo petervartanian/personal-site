@@ -1,0 +1,20 @@
+--- a/src/components/IncidentDetailModal.tsx
++++ b/src/components/IncidentDetailModal.tsx
+@@ -671,5 +671,5 @@
+                 </ul>
+                 <p style={{ fontSize: 12, lineHeight: 1.55, color: 'var(--gc-text-muted, #6b7280)', margin: '0 0 18px' }}>
+-                  <strong>Highest Direct Severity Score</strong> is the highest Direct Severity for this incident in any single category.
++                  <strong>Highest assessed severity</strong> includes direct, indirect, and model-inferred assessments. A high value does not necessarily indicate directly reported harm.
+                 </p>
+ 
+@@ -699,8 +699,8 @@
+                       <div style={{ marginBottom: 16 }}>
+                         <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--gc-text-muted, #6b7280)' }}>
+-                          Highest Direct Severity Score
++                          Highest assessed severity
+                         </div>
+                         <div style={{ fontSize: 11, color: 'var(--gc-text-muted, #9ca3af)', marginBottom: 8 }}>
+-                          (in any single category)
++                          (across harm categories and assessment channels)
+                         </div>
+                         {/* Same size as the per-category pills in the table

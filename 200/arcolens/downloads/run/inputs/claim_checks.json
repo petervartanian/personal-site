@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.1",
+  "window_policy": "Fixed published years are immutable. Open-ended relative windows are contextual replays, not silently resolved publication windows.",
+  "archived_replay": {
+    "frozen_illustrative_endpoint_year": 2025,
+    "page_scope_by_claim_prefix": {
+      "ARCH-TIMELINE-SUB-DOMAINS-": [
+        2015,
+        2025
+      ]
+    },
+    "note": "Captured page scope is replayed when available. Otherwise the fixed endpoint is an analyst illustration, not an asserted original publication endpoint.",
+    "expectations": {
+      "ARCH-RISK-CLASSIFICATION-02": {
+        "published_percent": 57
+      },
+      "ARCH-RISK-CLASSIFICATION-03": {
+        "published_fraction": "329/426"
+      },
+      "ARCH-TIMELINE-SUB-DOMAINS-02": {
+        "maximum_annual_count": 3
+      },
+      "ARCH-HARM-SEVERITY-01": {
+        "published_count": 1
+      },
+      "ARCH-NATSEC-IMPACT-01": {
+        "published_counts": [
+          10,
+          29
+        ]
+      }
+    },
+    "rounding_rule": "half_even (Python round) at the published precision"
+  },
+  "current_checks": {
+    "HOME-01": {
+      "handler": "dataset_size",
+      "published_count": 1600,
+      "interpretation": "Static HTML fallback count versus the live count the page renders from the mirror's sync status; observed once in headless Chromium during the v2 review.",
+      "browser_observation": {
+        "engine": "Chromium (Playwright chrome-headless-shell 1208, --dump-dom, no interaction)",
+        "observed_at_utc": "2026-09-27T23:11Z",
+        "rendered_count": 1697,
+        "source": "review/fable/scratch/v2-site-maintainer/render/home_dom.html (and r2-charts-claims/live/render/home_dom.html at 22:49Z)"
+      }
+    },
+    "HOME-02": {
+      "handler": "unbounded_rise",
+      "context_years": [
+        2021,
+        2025
+      ]
+    },
+    "HOME-06": {
+      "handler": "qualitative_frame",
+      "context_years": [
+        2021,
+        2025
+      ]
+    },
+    "TIME-01": {
+      "handler": "subdomain_trend",
+      "subdomain": "4.3",
+      "years": [
+        2021,
+        2025
+      ],
+      "direction": "up",
+      "strict_annual": true
+    },
+    "TIME-02": {
+      "handler": "subdomain_trend",
+      "subdomain": "7.3",
+      "years": [
+        2021,
+        2025
+      ],
+      "direction": "down",
+      "strict_annual": false
+    },
+    "TIME-03": {
+      "handler": "generation_ambiguity",
+      "context_years": [
+        2022,
+        2025
+      ],
+      "definition_source": "config/analysis.json strict/expanded purpose lists; analyst operationalizations, not original published definitions"
+    },
+    "TIME-04": {
+      "handler": "eu_annual",
+      "years": [
+        2022,
+        2025
+      ],
+      "level": "1",
+      "published_endpoint_percent": 4,
+      "rounding_decimals": 0,
+      "context_years_before": 6
+    },
+    "TIME-05": {
+      "handler": "causal_annual",
+      "years": [
+        2021,
+        2025
+      ],
+      "targets": {
+        "causal_intent": "Intentional",
+        "causal_entity": "Human"
+      }
+    },
+    "TIME-06": {
+      "handler": "timing_any_year",
+      "context_start": 2016,
+      "vague_terms": [
+        "overwhelming majority",
+        "few percent",
+        "in any year"
+      ]
+    },
+    "OVERVIEW-01": {
+      "handler": "vague_half",
+      "field": "causal_intent",
+      "value": "Intentional",
+      "vague_terms": [
+        "About half"
+      ]
+    },
+    "OVERVIEW-02": {
+      "handler": "timing_rounded",
+      "published_percent": 2,
+      "rounding_decimals": 0
+    },
+    "OVERVIEW-03": {
+      "handler": "eu_distribution",
+      "quoted_percents": {
+        "1": 5.7,
+        "2": 33
+      },
+      "rounding_decimals": {
+        "1": 1,
+        "2": 0
+      },
+      "legal_claim_verifiable": false,
+      "snapshot_proxy": true,
+      "live_observation": {
+        "observed_at_utc": "2026-09-27T22:45Z–23:08Z",
+        "records": 1697,
+        "tier1_count": 95,
+        "tier2_count": 435,
+        "note": "the CSV has 87 tier-1 records because eight records (#480, #487, #510, #543, #701, #1455, #1549, #1591) were reclassified from tier 1 to tier 3 in one batch 98 minutes after the mirror's 00:01 UTC sync (source: review/fable/scratch/r2-charts-claims/live/mirror_vs_csv_diff.json)."
+      }
+    },
+    "OVERVIEW-04": {
+      "handler": "ranking",
+      "field": "ai_goal_primary",
+      "expected_order": [
+        "Deepfake Video Generation"
+      ]
+    },
+    "OVERVIEW-05": {
+      "handler": "ranking",
+      "field": "domain_code",
+      "expected_order": [
+        "4 Malicious actors",
+        "7 AI system safety, failures, & limitations"
+      ]
+    },
+    "OVERVIEW-06": {
+      "handler": "within_domain",
+      "domain": "4",
+      "subdomain": "4.3",
+      "vague_terms": [
+        "vast majority"
+      ]
+    },
+    "TIME-VALIDATION": {
+      "handler": "validation_unavailable",
+      "external_context": "June 30, 2026 pilot: ten incidents; no replicate model/human annotations in the CSV",
+      "pilot": {
+        "incidents": 10,
+        "reviewers": 2,
+        "models": 8,
+        "production_model": "Sonnet 4 (per the June 2026 update)",
+        "qwk_harm": 0.31,
+        "qwk_eu": 0.56,
+        "source": "research/published_claims_raw.json UPDATE26-L013, L018, L073, L075, L083"
+      }
+    },
+    "OVERVIEW-VALIDATION": {
+      "handler": "validation_unavailable",
+      "external_context": "June 30, 2026 pilot: ten incidents; no replicate model/human annotations in the CSV",
+      "pilot": {
+        "incidents": 10,
+        "reviewers": 2,
+        "models": 8,
+        "production_model": "Sonnet 4 (per the June 2026 update)",
+        "qwk_harm": 0.31,
+        "qwk_eu": 0.56,
+        "source": "research/published_claims_raw.json UPDATE26-L013, L018, L073, L075, L083"
+      }
+    },
+    "VIEW-VALIDATION": {
+      "handler": "validation_unavailable",
+      "external_context": "June 30, 2026 pilot: ten incidents; no replicate model/human annotations in the CSV",
+      "pilot": {
+        "incidents": 10,
+        "reviewers": 2,
+        "models": 8,
+        "production_model": "Sonnet 4 (per the June 2026 update)",
+        "qwk_harm": 0.31,
+        "qwk_eu": 0.56,
+        "source": "research/published_claims_raw.json UPDATE26-L013, L018, L073, L075, L083"
+      }
+    },
+    "NATSEC-VALIDATION": {
+      "handler": "validation_unavailable",
+      "external_context": "June 30, 2026 pilot: ten incidents; no replicate model/human annotations in the CSV",
+      "pilot": {
+        "incidents": 10,
+        "reviewers": 2,
+        "models": 8,
+        "production_model": "Sonnet 4 (per the June 2026 update)",
+        "qwk_harm": 0.31,
+        "qwk_eu": 0.56,
+        "source": "research/published_claims_raw.json UPDATE26-L013, L018, L073, L075, L083"
+      }
+    }
+  }
+}
