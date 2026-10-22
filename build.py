@@ -16,7 +16,10 @@ SCHOLARLY_PUBLICATIONS = load_publications(ROOT)
 OMPHALOS_PAGE = browser_page(ROOT)
 NAV = [('home', 'Home', '/'), ('writing', 'Writing', '/portfolio/'), ('cv', 'CV', '/cv/'), ('contact', 'Contact', '/contact/')]
 COLORS = {'home': '#ffffff', 'writing': '#faf8fd', 'publication': '#faf8fd', 'cv': '#fffaf5', 'contact': '#f7fbf8', 'site-index': '#ffffff'}
-INDEX_PAGES = [{'title': label, 'path': path} for _, label, path in NAV] + SCHOLARLY_PUBLICATIONS + PUBLIC_PROJECTS + ([OMPHALOS_PAGE] if OMPHALOS_PAGE else [])
+PERSONAL_PAGES = [{'title': label, 'path': path} for _, label, path in NAV]
+PROJECT_PAGES = PUBLIC_PROJECTS + ([OMPHALOS_PAGE] if OMPHALOS_PAGE else [])
+SITE_INDEX_PAGES = PERSONAL_PAGES + PROJECT_PAGES
+INDEX_PAGES = PERSONAL_PAGES + SCHOLARLY_PUBLICATIONS + PROJECT_PAGES
 CSS_VERSION = sha256((ROOT / 'assets/css/personal.css').read_bytes()).hexdigest()[:12]
 JS_VERSION = sha256((ROOT / 'assets/js/personal.js').read_bytes()).hexdigest()[:12]
 SITE_URL = 'https://petervartanian.xyz'
@@ -59,11 +62,16 @@ def structured_data(key, title, description, path):
         }
     if key == 'site-index':
         page_data['mainEntity'] = {
-            '@type': 'ItemList', 'numberOfItems': len(INDEX_PAGES),
+            '@type': 'ItemList',
+            'numberOfItems': len(SITE_INDEX_PAGES),
             'itemListElement': [
-                {'@type': 'ListItem', 'position': i, 'name': item['title'],
-                 'url': SITE_URL + item['path']}
-                for i, item in enumerate(INDEX_PAGES, 1)
+                {
+                    '@type': 'ListItem',
+                    'position': i,
+                    'name': item['title'],
+                    'url': SITE_URL + item['path'],
+                }
+                for i, item in enumerate(SITE_INDEX_PAGES, 1)
             ],
         }
     graph = {'@context': 'https://schema.org', '@graph': [website, person, page_data]}
@@ -140,7 +148,7 @@ def page(key, title, description, body, path, *, search_title=None, indexable=Tr
       <nav aria-label="Main navigation">{nav}</nav>
     </header>
     <main id="main">{body}</main>
-    <footer>© 2026 Peter H. Vartanian / <a href="/site-index/">Site index</a>{footer_links}</footer>
+    <footer>© 2026 Peter H. Vartanian{footer_links}</footer>
   </div>
 </body>
 </html>
@@ -425,15 +433,26 @@ contact = f'''<h1>Contact</h1>
 page('contact', 'Contact', 'Contact Peter H. Vartanian by email or text, and find his profiles on LinkedIn, Substack, GitHub, Google Scholar, and ORCID.', contact, '/contact/')
 
 site_index = '<h1>Site index</h1><section><h2>Personal pages</h2><ul>'
-site_index += ''.join(f'<li><a href="{e(path)}">{e(label)}</a></li>' for _, label, path in NAV)
-site_index += '</ul></section><section><h2>Publication abstracts</h2><ul>'
-site_index += ''.join(f'<li><a href="{e(item["path"])}">{e(item["title"])}</a></li>' for item in SCHOLARLY_PUBLICATIONS)
+site_index += ''.join(
+    f'<li><a href="{e(path)}">{e(label)}</a></li>' for _, label, path in NAV
+)
 site_index += '</ul></section>'
-if PUBLIC_PROJECTS:
-    site_index += '<section><h2>Projects</h2><ul>' + ''.join(f'<li><a href="{e(item["path"])}">{e(item["title"])}</a></li>' for item in PUBLIC_PROJECTS) + '</ul></section>'
-if OMPHALOS_PAGE:
-    site_index += '<p><a href="/omphalos/">omphalOS</a></p>'
-page('site-index', 'Site index', 'Browse Peter H. Vartanian’s public pages, writing, publication abstracts, CV, and contact information.', site_index, '/site-index/')
+if PROJECT_PAGES:
+    site_index += (
+        '<section><h2>Projects</h2><ul>'
+        + ''.join(
+            f'<li><a href="{e(item["path"])}">{e(item["title"])}</a></li>'
+            for item in PROJECT_PAGES
+        )
+        + '</ul></section>'
+    )
+page(
+    'site-index',
+    'Site index',
+    'Browse Peter H. Vartanian’s personal pages and projects.',
+    site_index,
+    '/site-index/',
+)
 
 # Preserve old bookmarks, without publishing an empty collection.
 for old, destination in [('artifacts', '/portfolio/'), ('writing', '/portfolio/')]:

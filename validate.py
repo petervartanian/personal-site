@@ -369,7 +369,9 @@ for path in public_paths:
             ),
             f"{path}: protected route appears in public links: {url}",
         )
-    if path != "/site-index/":
+    if path != "/site-index/" and path not in {
+        work["path"] for work in SCHOLARLY_PUBLICATIONS
+    }:
         check(path in pages["site-index/index.html"].refs, f"Site index omits {path}")
     for url in public.resources:
         parts = urlsplit(url)
