@@ -42,7 +42,7 @@ h3 { font-size: 1.15rem; }
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
 [hidden] { display: none !important; }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-::selection { background: var(--d4); color: #fff; }
+::selection { background: #dfe6f3; color: inherit; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
 .textbtn { text-decoration: underline; text-decoration-color: var(--rule-2); text-underline-offset: 3px; }
 .textbtn:hover { text-decoration-color: var(--ink); }
@@ -762,8 +762,12 @@ sup, .sn-mark { font-size: 0.75em; line-height: 0; }
 .rail-row:hover, .rail-row.on { color: var(--ink); }
 .rail-row.on { text-decoration: underline; text-decoration-color: var(--ink); text-underline-offset: 4px; }
 .rail-row .n { font-family: var(--mono); font-size: 0.88em; font-variant-numeric: tabular-nums; color: var(--ink); }
+.door { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 56px; align-items: start; padding-bottom: 28px; }
 .door .lede .so { display: block; }
-.door-find { display: flex; align-items: baseline; gap: 18px; margin: 4px 0 40px; max-width: 32rem; }
+.door .lede { max-width: none; }
+.door-side { padding-top: 10px; }
+@media (max-width: 980px) { .door { grid-template-columns: 1fr; } }
+.door-find { display: flex; align-items: baseline; gap: 18px; margin: 4px 0 0; max-width: 34rem; }
 .door-find input { flex: 1; font-size: var(--t-title); line-height: var(--l-title); }
 .door-h { font-family: var(--mono); font-size: var(--t-cap); line-height: var(--l-cap); font-weight: 400; color: var(--ink-3); margin: 0 0 6px; }
 .door-case { font-family: var(--serif); font-size: var(--t-head); line-height: var(--l-head); max-width: 32rem; margin: 0 0 8px; }

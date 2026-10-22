@@ -351,7 +351,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       if (pendingTo) setTimeout(goTo, 50);
       if (window.aibdKit) window.aibdKit.shut();
       var panel = ex.querySelector('[data-tool-panel="' + k + '"]');
-      if (panel && !panel.hidden) { panel.setAttribute('tabindex', '-1'); panel.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' }); panel.focus({ preventScroll: true }); }
+      if (panel && !panel.hidden) { panel.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' }); }
       else if (box === kit) { var hd = kit.querySelector('[data-kit-handle]'); if (hd) hd.focus(); }
     });
   });
@@ -493,6 +493,27 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   });
   (function () { var s = (params.get('sort') || '').split(':'); if (s[0] && ex.querySelector('[data-sort-key="' + s[0] + '"]')) sortBy(s[0], s[1] === 'asc' ? -1 : 1); })();
   function hasAny(obj) { for (var k in obj) if (obj.hasOwnProperty(k)) return true; return false; }
+  // Jurisdictions and organizations are downstream of each other: the map's circles, rings and routes recount from the cases that match the filters.
+  function paintAtlas() {
+    var atlas = ex.querySelector('.worldmap'); if (!atlas) return;
+    var where = {}, made = {}, routes = {};
+    rows.forEach(function (r) {
+      if (!matches(r, null)) return;
+      var c = r.dataset.country, m = r.dataset.made;
+      if (c && c !== 'Unstated') where[c] = (where[c] || 0) + 1;
+      if (m && m !== 'Unstated') made[m] = (made[m] || 0) + 1;
+      if (m && m !== 'Unstated' && c && c !== 'Unstated') routes[m + '|' + c] = (routes[m + '|' + c] || 0) + 1;
+    });
+    function size(n) { return (2.2 + 2.6 * Math.sqrt(n)).toFixed(1); }
+    function label(el, text) { var t = el.querySelector('title'); if (t) t.textContent = text; }
+    atlas.querySelectorAll('[data-layer="where"] circle').forEach(function (c) { var n = where[c.dataset.value] || 0; c.style.display = n ? '' : 'none'; if (n) { c.setAttribute('r', size(n)); label(c, c.dataset.value + ', ' + n + ' case' + (n !== 1 ? 's' : '')); } });
+    atlas.querySelectorAll('[data-layer="made"] circle').forEach(function (c) { var n = made[c.dataset.value] || 0; c.style.display = n ? '' : 'none'; if (n) { c.setAttribute('r', size(n)); label(c, c.dataset.value + ', systems from here in ' + n + ' case' + (n !== 1 ? 's' : '')); } });
+    atlas.querySelectorAll('[data-route]').forEach(function (el) {
+      var n = routes[el.dataset.route] || 0, vis = el.nextElementSibling && el.nextElementSibling.classList.contains('flow-vis') ? el.nextElementSibling : null;
+      el.style.display = n ? '' : 'none'; if (vis) { vis.style.display = n ? '' : 'none'; if (n) vis.style.strokeWidth = (0.7 + 0.7 * Math.sqrt(n)).toFixed(2); }
+      if (n && el.classList.contains('ring')) el.setAttribute('r', size(n));
+    });
+  }
   var searchText = null, searchLoading = false;
   function loadSearch() {
     if (searchText || searchLoading) return;
@@ -536,6 +557,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       b.classList.toggle('zero', n === 0 && !on);
       if (b.tagName === 'BUTTON') b.disabled = n === 0 && !on;
     });
+    paintAtlas();
     var places = Object.keys(active.country || {}).concat(Object.keys(active.made || {}));
     ex.querySelectorAll('.ent[data-country]').forEach(function (li) { li.hidden = places.length > 0 && places.indexOf(li.getAttribute('data-country')) === -1; });
     if (count) {
