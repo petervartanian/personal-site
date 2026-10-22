@@ -1,4 +1,4 @@
-// Preserve private deep links for visitors who have not yet installed the worker.
+// Recover a retired worker on a missing tool URL without redirecting real 404s.
 if (location.pathname.startsWith('/200/')) {
-  location.replace('/200/?next=' + encodeURIComponent(location.pathname + location.search + location.hash));
+  import('/200/session.mjs?public=20261022').catch(() => {});
 }

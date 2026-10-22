@@ -1,0 +1,138 @@
+/* Grayscale interface. Assessment colors carry the same meaning in both views. */
+:root {
+  --ink:#202020; --muted:#505050; --bg:#f2f2f2; --line:#d1d1d1;
+  --teal:#262626; --paper:#fff; --surface:#fff; --surface-muted:#eaeaea;
+  --blue:#636363; --coral:#636363; --plum:#636363;
+  --mint:#e8e8e8; --ice:#e8e8e8; --salmon:#e8e8e8; --lilac:#e8e8e8;
+  color-scheme:light;
+}
+body[data-analysis-mode=workbench] {
+  --ink:#ededed; --muted:#c6c6c6; --bg:#161616; --line:#4c4c4c;
+  --teal:#e1e1e1; --paper:#202020; --surface:#202020; --surface-muted:#2b2b2b;
+  --wb-stage:#202020; --wb-stage-line:#555; --wb-paper:#f2f2f2;
+  --wb-signal:#e1e1e1; --wb-muted:#bcbcbc;
+  background:var(--bg); color:var(--ink); color-scheme:dark;
+}
+body .sidebar,body[data-analysis-mode=workbench] .sidebar{background:#191919;color:#f5f5f5}
+body .sidebar .nav-counted,body[data-analysis-mode=workbench] .sidebar .nav-counted{background:#242424;border-color:#505050}
+body .sidebar nav a:hover,body[data-analysis-mode=workbench] .sidebar nav a:hover{background:#343434}
+body .sidebar nav a[aria-current=page],body[data-analysis-mode=workbench] .sidebar nav a[aria-current=page]{background:#e5e5e5;color:#1c1c1c}
+body .nav-counted .nav-count,body[data-analysis-mode=workbench] .nav-counted .nav-count{background:#3d3d3d;color:#f4f4f4}
+body .sidebar nav a[aria-current=page] .nav-count{background:#c9c9c9;color:#252525}
+body .appbar,body[data-analysis-mode=workbench] .appbar{background:var(--bg);border-color:var(--line);color:var(--ink)}
+body .reading-page,body[data-analysis-mode=workbench] .reading-page{background:var(--surface);color:var(--ink)}
+body .dash-panel,body[data-analysis-mode=workbench] .dash-panel{background:var(--surface);border-color:var(--line);color:var(--ink)}
+body .metric,body[data-analysis-mode=workbench] .metric{background:var(--surface-muted);border-color:var(--line);color:var(--ink)}
+body .metric-strip,body[data-analysis-mode=workbench] .metric-strip{background:var(--surface-muted);border-color:var(--line)}
+body .metric.mint,body .metric.blue,body .metric.coral,body .metric.lilac,
+body[data-analysis-mode=workbench] .metric.mint,body[data-analysis-mode=workbench] .metric.blue,
+body[data-analysis-mode=workbench] .metric.coral,body[data-analysis-mode=workbench] .metric.lilac{background:var(--surface-muted);color:var(--ink);border-color:var(--line)}
+body .audit-panel,body[data-analysis-mode=workbench] .audit-panel{background:var(--surface);border-color:var(--line)}
+body .audit-panel .panel-heading h2,body[data-analysis-mode=workbench] .audit-panel .panel-heading h2,
+body .audit-panel .panel-heading>a,body[data-analysis-mode=workbench] .audit-panel .panel-heading>a{color:var(--ink)}
+body .audit-panel .panel-foot,body[data-analysis-mode=workbench] .audit-panel .panel-foot{color:var(--muted)}
+body .audit-ring .ring-number,body[data-analysis-mode=workbench] .audit-ring .ring-number{fill:var(--ink)}
+body .audit-ring .ring-caption,body[data-analysis-mode=workbench] .audit-ring .ring-caption{fill:var(--muted)}
+body .audit-legend a,body[data-analysis-mode=workbench] .audit-legend a{color:var(--ink);border-color:var(--line)}
+body .audit-legend strong,body[data-analysis-mode=workbench] .audit-legend strong{color:var(--ink)}
+body .monitor-status{background:var(--surface);border-color:var(--line);color:var(--ink)}
+body .monitor-heading a,body .monitor-facts>div:first-child dd{color:var(--ink)}
+body .monitor-status small,body .monitor-facts dt{color:var(--muted)}
+body .view-switch,body[data-analysis-mode=workbench] .view-switch,
+body .year-choices,body[data-analysis-mode=workbench] .year-choices{background:var(--surface-muted);border-color:var(--line)}
+body .view-switch button,body[data-analysis-mode=workbench] .view-switch button,
+body .year-choices button[aria-pressed=false],body[data-analysis-mode=workbench] .year-choices button[aria-pressed=false]{color:var(--muted)}
+body .view-switch button[aria-pressed=true],body .year-choices button[aria-pressed=true]{background:#303030;color:#fff}
+body[data-analysis-mode=workbench] .view-switch button[aria-pressed=true],body[data-analysis-mode=workbench] .year-choices button[aria-pressed=true]{background:#e5e5e5;color:#1a1a1a}
+body .chart-switch button,body[data-analysis-mode=workbench] .chart-switch button{background:var(--surface-muted);border-color:var(--line);color:var(--muted)}
+body .chart-switch button[aria-pressed=true]{background:#333;color:#fff;border-color:#333}
+body[data-analysis-mode=workbench] .chart-switch button[aria-pressed=true]{background:#e5e5e5;color:#171717;border-color:#e5e5e5}
+body .finding-chart .axis-label,body .finding-chart .daily-window-label,body .finding-chart .daily-point-label,
+body[data-analysis-mode=workbench] .finding-chart .axis-label,body[data-analysis-mode=workbench] .finding-chart .daily-window-label,body[data-analysis-mode=workbench] .finding-chart .daily-point-label{fill:var(--muted)}
+body .daily-historical{stroke:#303030}body .daily-annual-dot{fill:#303030;stroke:var(--paper)}
+body .daily-observed-dot{fill:#777;stroke:var(--paper)}body .daily-chart .partial-year-segment{stroke:#777}
+body .daily-estimate-dot{fill:var(--paper);stroke:#444}body .daily-chart .forecast-segment{stroke:#444}
+body[data-analysis-mode=workbench] .daily-historical{stroke:#e7e7e7}body[data-analysis-mode=workbench] .daily-annual-dot{fill:#e7e7e7}
+body[data-analysis-mode=workbench] .daily-observed-dot{fill:#a8a8a8}body[data-analysis-mode=workbench] .daily-chart .partial-year-segment{stroke:#a8a8a8}
+body[data-analysis-mode=workbench] .daily-estimate-dot,body[data-analysis-mode=workbench] .daily-chart .forecast-segment{stroke:#ccc}
+body .daily-cursor{stroke:var(--muted)}body .daily-readout,body[data-analysis-mode=workbench] .daily-readout{color:var(--muted)}
+body :is(a,button,input,select,figure):focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+body .sidebar a:focus-visible{outline-color:#fff}
+
+/* Status meaning, never generic decoration. */
+[data-assessment=supported]{--assessment-ink:#175c31;--assessment-bg:#e7f4ea;--assessment-mark:#087443;--assessment-border:#087443;--status-symbol:"✓"}
+[data-assessment=updates]{--assessment-ink:#884000;--assessment-bg:#fff0e1;--assessment-mark:#bd4500;--assessment-border:#bd4500;--status-symbol:"↻"}
+[data-assessment=unsupported]{--assessment-ink:#9a2929;--assessment-bg:#fbe9e9;--assessment-mark:#ba1731;--assessment-border:#ba1731;--status-symbol:"×"}
+[data-assessment=unresolved]{--assessment-ink:#655000;--assessment-bg:#fff4c2;--assessment-mark:#927000;--assessment-border:#927000;--status-symbol:"?"}
+body[data-analysis-mode=workbench] [data-assessment=supported]{--assessment-ink:#8aebbb;--assessment-bg:#123724;--assessment-mark:#38d996;--assessment-border:#38d996}
+body[data-analysis-mode=workbench] [data-assessment=updates]{--assessment-ink:#ffb379;--assessment-bg:#44260e;--assessment-mark:#ff8123;--assessment-border:#ff8123}
+body[data-analysis-mode=workbench] [data-assessment=unsupported]{--assessment-ink:#ffa5ae;--assessment-bg:#42171f;--assessment-mark:#ff4d64;--assessment-border:#ff4d64}
+body[data-analysis-mode=workbench] [data-assessment=unresolved]{--assessment-ink:#ffe77e;--assessment-bg:#37300b;--assessment-mark:#ffde32;--assessment-border:#ffde32}
+body .badge[data-assessment],body[data-analysis-mode=workbench] .badge[data-assessment],
+body .section-links a[data-assessment],body[data-analysis-mode=workbench] .section-links a[data-assessment]{color:var(--assessment-ink);background:var(--assessment-bg);border:1px solid var(--assessment-border)}
+body .section-links ul{gap:6px 8px}
+body .section-links a[data-assessment]{padding:4px 10px;border-radius:3px;text-decoration:none}
+body .reading-page h2[data-assessment]{display:table;color:var(--assessment-ink);background:var(--assessment-bg);padding:5px 10px;border-radius:4px;font-size:17px;border:1px solid var(--assessment-border)}
+body .audit-ring circle[data-assessment]{stroke:var(--assessment-mark)}
+body .audit-ring .audit-divider{stroke:var(--surface);stroke-width:3;stroke-linecap:butt;fill:none}
+body .audit-legend [data-assessment] i{display:inline-grid;place-items:center;width:15px;height:15px;flex:none;background:var(--assessment-mark)!important;outline:none;border-radius:3px;font:600 12px/1 system-ui,sans-serif;color:white;font-style:normal}
+body .audit-legend [data-assessment] i::before{content:var(--status-symbol)}
+body[data-analysis-mode=workbench] .audit-legend [data-assessment] i{color:#151515}
+body .audit-legend [data-assessment] .legend-label,body .audit-legend [data-assessment] strong{color:var(--assessment-ink)}
+@media print{body[data-analysis-mode=workbench]{--ink:#202020;--muted:#505050;--bg:#fff;--surface:#fff;--paper:#fff;--surface-muted:#eee;--line:#ccc;color-scheme:light}}
+
+/* Foregrounds and control boundaries remain legible on every shared surface. */
+:root{--control-line:#777;--control-bg:#fff;--hover-bg:#e2e2e2}
+body[data-analysis-mode=workbench]{--control-line:#999;--control-bg:#282828;--hover-bg:#363636}
+body .analysis-tools,body[data-analysis-mode=workbench] .analysis-tools{background:var(--surface-muted);border-color:var(--line);color:var(--ink)}
+body .analysis-tools label,body[data-analysis-mode=workbench] .analysis-tools label{color:var(--muted)}
+body .analysis-tools :is(input,select,button),body[data-analysis-mode=workbench] .analysis-tools :is(input,select,button){background:var(--control-bg);color:var(--ink);border-color:var(--control-line)}
+body .analysis-tools input::placeholder,body[data-analysis-mode=workbench] .analysis-tools input::placeholder{color:var(--muted);opacity:1}
+body .analysis-tools button:hover,body[data-analysis-mode=workbench] .analysis-tools button:hover{background:var(--hover-bg);color:var(--ink)}
+body .chart-switch button,body .view-switch,body[data-analysis-mode=workbench] .chart-switch button,body[data-analysis-mode=workbench] .view-switch{border-color:var(--control-line)}
+body .group-count,body[data-analysis-mode=workbench] .group-count{background:var(--surface-muted);color:var(--ink)}
+body .btn,body .report-button,body[data-analysis-mode=workbench] .btn,body[data-analysis-mode=workbench] .report-button{background:var(--control-bg);color:var(--ink);border-color:var(--control-line)}
+body .reading-page :is(p,li,td),body[data-analysis-mode=workbench] .reading-page :is(p,li,td){color:var(--ink)}
+body .reading-page :is(.row-meta,.muted),body[data-analysis-mode=workbench] .reading-page :is(.row-meta,.muted){color:var(--muted)}
+body .reading-page table,body .reading-page td,body[data-analysis-mode=workbench] .reading-page table,body[data-analysis-mode=workbench] .reading-page td{background:var(--surface)}
+body .reading-page tbody tr:nth-child(even) td,body[data-analysis-mode=workbench] .reading-page tbody tr:nth-child(even) td{background:var(--surface-muted)}
+body .reading-page th,body[data-analysis-mode=workbench] .reading-page th{background:var(--surface-muted);color:var(--ink)}
+body .reading-page a,body[data-analysis-mode=workbench] .reading-page a{color:var(--ink)}
+body .reading-page .section-links a[data-assessment]{color:var(--assessment-ink)}
+
+body[data-analysis-mode=workbench] .reading-page .analysis-ledger{background:var(--surface);border-color:var(--line)}
+body[data-analysis-mode=workbench] .reading-page .analysis-year{border-color:var(--line)}
+body[data-analysis-mode=workbench] .reading-page .analysis-year>span,body[data-analysis-mode=workbench] .reading-page .analysis-year small{color:var(--muted)}
+body[data-analysis-mode=workbench] .reading-page .analysis-year strong,body[data-analysis-mode=workbench] .reading-page .analysis-year.is-partial strong{color:var(--ink)}
+body[data-analysis-mode=workbench] .reading-page .analysis-year.is-partial{background:var(--surface-muted)}
+body[data-analysis-mode=workbench] .reading-page thead th{background:var(--surface-muted);color:var(--ink)}
+
+/* One inset chevron across filters and chart controls; native menus remain intact. */
+:root{--select-arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath d='m2 2.5 4 4 4-4' fill='none' stroke='%23505050' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+body[data-analysis-mode=workbench]{--select-arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 9'%3E%3Cpath d='m2 2.5 4 4 4-4' fill='none' stroke='%23c6c6c6' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+body select,body .analysis-tools select,body[data-analysis-mode=workbench] .analysis-tools select{
+  -webkit-appearance:none;appearance:none;
+  background-image:var(--select-arrow);background-repeat:no-repeat;
+  background-position:right 14px center;background-size:12px 9px;
+  padding-right:40px!important;cursor:pointer;
+}
+@media(forced-colors:active){body select,body .analysis-tools select,body[data-analysis-mode=workbench] .analysis-tools select{-webkit-appearance:menulist;appearance:auto;background-image:none;padding-right:12px!important}}
+
+/* Direction of change has color in both modes. */
+body .trend-values .value-arrow.increase{color:#009fbd}
+body .trend-values .value-arrow.decrease{color:#e600a9}
+body[data-analysis-mode=workbench] .trend-values .value-arrow.increase{color:#00e5ff}
+body[data-analysis-mode=workbench] .trend-values .value-arrow.decrease{color:#ff38c7}
+
+/* Trend choices keep their identity when the selection changes. */
+body .chart-switch button[data-trend-direction=increase]{background:#edf9fb;border-color:#aacbd1;color:var(--ink)}
+body .chart-switch button[data-trend-direction=decrease]{background:#fcf0f8;border-color:#d5b7cb;color:var(--ink)}
+body .chart-switch button[data-trend-direction=increase]:is(:hover,[aria-pressed=true]){background:#d9f3f7;border-color:#4c929f;color:var(--ink)}
+body .chart-switch button[data-trend-direction=decrease]:is(:hover,[aria-pressed=true]){background:#f6dfee;border-color:#a66b92;color:var(--ink)}
+body[data-analysis-mode=workbench] .chart-switch button[data-trend-direction=increase]{background:#203034;border-color:#537078;color:var(--ink)}
+body[data-analysis-mode=workbench] .chart-switch button[data-trend-direction=decrease]{background:#33262f;border-color:#796070;color:var(--ink)}
+body[data-analysis-mode=workbench] .chart-switch button[data-trend-direction=increase]:is(:hover,[aria-pressed=true]){background:#244149;border-color:#74bbc9;color:var(--ink)}
+body[data-analysis-mode=workbench] .chart-switch button[data-trend-direction=decrease]:is(:hover,[aria-pressed=true]){background:#493040;border-color:#c990b4;color:var(--ink)}
+body .chart-switch button[data-trend="IT-C001"],body[data-analysis-mode=workbench] .chart-switch button[data-trend="IT-C001"]{background:#050505;color:#fff;border-color:#818181}
+body .chart-switch button[aria-pressed=true]{font-weight:650}
+body .chart-switch button[data-trend="IT-C001"][aria-pressed=true]{box-shadow:inset 0 0 0 1px #fff}

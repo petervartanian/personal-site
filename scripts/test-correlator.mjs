@@ -2,73 +2,64 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = name => readFileSync(path.join(root, name), 'utf8');
+const projects = ['agency-costs', 'backdrive', 'correlator', 'haruspex', 'monitor', 'arcolens'];
+function files(directory) {
+  return readdirSync(path.join(root, directory), { withFileTypes: true }).flatMap(entry => {
+    const name = `${directory}/${entry.name}`;
+    return entry.isDirectory() ? files(name) : [name];
+  });
+}
 
-const projects = ['agency-costs', 'backdrive', 'correlator', 'haruspex', 'monitor'];
+test('all six tools have static entry pages at their existing URLs', () => {
+  const catalog = read('200/index.html');
+  assert(!/type=["']password|data-lock|id=["']unlock/.test(catalog));
+  for (const project of projects) {
+    const html = read(`200/${project}/index.html`);
+    assert.match(html, /<!doctype html/i);
+    assert(!/type=["']password|id=["']unlock/.test(html));
+    assert(catalog.includes(`href="/200/${project}/"`), `Catalog omits ${project}`);
+  }
+  assert.match(read('200/arcolens/index.html'), /OPEN_REVIEW\.html/);
+  assert.match(read('200/arcolens/OPEN_REVIEW.html'), /Arcolens/);
+  assert(existsSync(path.join(root, '200/correlator/plan/index.html')));
+});
 
-test('no unencrypted experiment package is included in the public snapshot', () => {
-  for (const directory of [...projects, 'arcolens', 'x-oscope', 'auspex']) {
-    assert(!existsSync(path.join(root, directory)), `Public experiment directory must remain absent: /${directory}/`);
-    assert(!existsSync(path.join(root, '200', directory)), `Private files must be ciphertext rather than a plaintext /200/${directory}/ directory`);
+test('every tool HTML page retains search exclusion, including saved HTML reports', () => {
+  const pages = files('200').filter(name => name.endsWith('.html'));
+  assert(pages.length > 170, 'The existing tool pages must be preserved');
+  for (const name of pages) {
+    const html = read(name);
+    assert(/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html), `Missing noindex: ${name}`);
+    assert(!/type=["']password|\bdata-lock\b/.test(html), `Obsolete password control: ${name}`);
   }
 });
 
-test('the public experiment shell contains only the gate, loader, and ciphertext', () => {
-  const shell = new Set(['index.html', 'entry.css', 'entry.mjs', 'session.mjs', 'vault-core.mjs', 'sw.js', 'deep-link.js', 'vault']);
-  for (const name of readdirSync(path.join(root, '200'))) {
-    assert(shell.has(name), `Unexpected public /200 resource: ${name}`);
-  }
-  for (const name of readdirSync(path.join(root, '200/vault'))) {
-    assert(name === 'settings.json' || /^[a-f0-9]{64}\.bin$/.test(name), `Non-ciphertext vault file: ${name}`);
-  }
-  const settings = JSON.parse(read('200/vault/settings.json'));
-  assert.equal(settings.version, 1);
-  assert.equal(settings.iterations, 600000);
-  assert(/^[a-f0-9]{64}\.bin$/.test(settings.manifest));
-  assert(existsSync(path.join(root, '200/vault', settings.manifest)), 'Encrypted manifest must be present');
-  assert(read('200/index.html').includes('noindex, nofollow'));
-});
-
-test('public discovery files do not advertise the private experiment routes', () => {
+test('public discovery files do not advertise the unlisted tool routes', () => {
   for (const filename of ['sitemap.xml', 'llms.txt', 'site-index/index.html']) {
     const text = read(filename);
-    for (const directory of ['200', ...projects, 'arcolens', 'x-oscope', 'auspex']) {
-      assert(!text.includes(`/${directory}/`), `${filename} exposes /${directory}/`);
+    for (const directory of ['200', ...projects, 'x-oscope', 'auspex']) {
+      assert(!text.includes(`/${directory}/`), `${filename} advertises /${directory}/`);
     }
+  }
+  // Crawlers need access to read noindex; disallowing these HTML pages would hide it.
+  assert(!/^Disallow:\s*\/200\/?\s*$/mi.test(read('robots.txt')));
+});
+
+test('alternate root copies and obsolete application routes remain absent', () => {
+  for (const directory of [...projects, 'x-oscope', 'auspex']) {
+    assert(!existsSync(path.join(root, directory)), `Unexpected root copy: /${directory}/`);
   }
 });
 
-test('older encrypted catalogues point every experiment to protected routes and preserve session checks', () => {
-  const heading = {}, description = {}, mark = { classList: { add(value) { this.added = value; } } };
-  const style = { setProperty(key, value) { this[key] = value; } };
-  const link = { style, querySelector(selector) { return { h2: heading, p: description, '.experiment-mark': mark }[selector]; } };
-  const events = [];
-  const timers = [];
-  const oldLinks = new Map(projects.filter(name => name !== 'correlator').map(name => [name, { href: `/${name}/` }]));
-  vm.runInNewContext(read('200/session.mjs'), {
-    document: {
-      querySelectorAll(selector) {
-        if (selector === '.experiment-list a[href="/x-oscope/"], .experiment-list a[href="/correlator/"], .experiment-list a[href="/200/correlator/"]') return [link];
-        for (const [name, oldLink] of oldLinks) {
-          if (selector === `.experiment-list a[href="/${name}/"]`) return [oldLink];
-        }
-        return [];
-      },
-      addEventListener(name) { events.push(name); },
-    },
-    window: { addEventListener(name) { events.push(name); } },
-    setInterval(callback, delay) { timers.push(delay); },
-  });
-  assert.equal(link.href, '/200/correlator/');
-  for (const [name, oldLink] of oldLinks) assert.equal(oldLink.href, `/200/${name}/`);
-  assert.equal(heading.textContent, 'AI Risk Correlator');
-  assert.equal(description.textContent, 'What do AI incidents tell us about existential risk?');
-  assert.equal(style['--accent'], '#5f4b8b');
-  assert.equal(mark.textContent, 'AI');
-  assert.deepEqual(events, ['pageshow', 'visibilitychange']);
-  assert.deepEqual(timers, [60000]);
+test('the transition preserves the old encrypted resources until old workers retire', () => {
+  const settings = JSON.parse(read('200/vault/settings.json'));
+  assert(/^[a-f0-9]{64}\.bin$/.test(settings.manifest));
+  assert(existsSync(path.join(root, '200/vault', settings.manifest)));
+  for (const name of readdirSync(path.join(root, '200/vault'))) {
+    assert(name === 'settings.json' || /^[a-f0-9]{64}\.bin$/.test(name), `Unexpected vault file: ${name}`);
+  }
 });

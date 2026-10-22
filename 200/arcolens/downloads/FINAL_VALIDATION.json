@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "all_candidate_and_claim_evidence_resolves": true,
+    "all_evidence_ids_refer_to_input": true,
+    "all_measure_fractions_revalidated": true,
+    "all_source_claims_have_disposition": true,
+    "id_set_content_hashes_match": true,
+    "no_current_year_in_full_year_trends": true,
+    "numerator_ids_are_subset_of_denominator": true,
+    "unique_candidate_ids": true,
+    "unique_claim_ids": true,
+    "unique_incident_ids": true
+  },
+  "id_sets_checked": 1198,
+  "limitation": "Internal invariant validation; the independent verifier additionally recalculates important results from the raw CSV.",
+  "measures_checked": 2340,
+  "series_checked": 223,
+  "sources": {
+    "quote_hashes_checked": 162,
+    "scope": "Capture integrity, not source truth or browser rendering.",
+    "source_paths_checked": 45,
+    "status": "passed"
+  },
+  "status": "passed",
+  "unit_tests": {
+    "command": "python3 -B -m unittest discover -s tests",
+    "cross_platform_limit": "Portable pathlib/csv/stdlib code with explicit UTF-8 reads and path-with-spaces tests; no Linux/Windows runtime was available for this run.",
+    "log": "unit_tests.log",
+    "platform": "macOS-27.2-arm64-arm-64bit",
+    "returncode": 0
+  }
+}

@@ -14,7 +14,11 @@ test('public deployment contains only explicitly approved files',()=>{
   const files=new Set(execFileSync('git',['ls-files','--cached','--others','--exclude-standard','-z'],{cwd:root,encoding:'utf8'}).split('\0').filter(Boolean));
   assert(files.size>20,'The public snapshot must not be empty');
   for(const name of files){
-    assert(!name.split('/').some(part=>blocked.has(part)),`Private source path: ${name}`);
+    // The six reviewed builds are authorized only beneath /200/. Source checkouts
+    // and alternate root copies must still stay outside this deployment.
+    if(name.split('/').some(part=>blocked.has(part))){
+      assert(name.startsWith('200/') && blocked.has(name.split('/')[1]) && approved.has(name),`Unapproved tool path: ${name}`);
+    }
     const filename=path.join(root,name);
     assert(!lstatSync(filename).isSymbolicLink(),`Symlink is not allowed: ${name}`);
     if(/^200\/vault\/[a-f0-9]{64}\.bin$/.test(name)){

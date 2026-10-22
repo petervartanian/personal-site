@@ -20,9 +20,9 @@ jobs:
         run: python build.py
       - name: Verify content and navigation
         run: python validate.py
-      - name: Verify encrypted experiment access
+      - name: Verify password-free access and browser migration
         run: node --test scripts/test-200.mjs
-      - name: Verify private collection boundaries
+      - name: Verify tool routes and search exclusions
         run: node --test scripts/test-correlator.mjs
       - name: Reject unexpected public source files
         run: node --test scripts/test-public-snapshot.mjs
