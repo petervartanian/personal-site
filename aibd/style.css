@@ -728,3 +728,24 @@ sup, .sn-mark { font-size: 0.75em; line-height: 0; }
 .kit-handle:hover .plus { stroke-width: 1.6; }
 .kit-handle .kit-on { border-left: 0; padding-left: 0; margin-right: 10px; }
 @media (prefers-reduced-motion: reduce) { .kit-handle .plus { transition: none; } }
+
+/* Latest, Entities and Submit. */
+.latest { list-style: none; margin: 0; padding: 0; max-width: 46rem; }
+.latest li { display: grid; grid-template-columns: 128px 1fr; gap: 14px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+.latest .when { color: var(--ink-3); font-size: var(--t-cap); line-height: var(--l-small); padding-top: 2px; }
+.latest a { text-decoration: none; }
+.latest li > div > a { font-family: var(--serif); font-size: var(--t-title); line-height: var(--l-title); }
+.latest li > div > a:hover { text-decoration: underline; }
+.latest .src { display: block; color: var(--ink-3); font-size: var(--t-small); line-height: var(--l-small); }
+.latest .src a { color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--rule-2); }
+.ents { display: flex; flex-wrap: wrap; gap: 4px 18px; max-width: 70rem; }
+.ent { display: inline-flex; align-items: baseline; gap: 5px; }
+.ent button { font-size: var(--t-small); line-height: var(--l-small); color: var(--ink-2); }
+.ent button .n { color: var(--ink-3); margin-left: 4px; font-family: var(--mono); font-size: var(--t-cap); }
+.ent button.on .v { text-decoration: underline; text-underline-offset: 3px; color: var(--ink); }
+.ent small { color: var(--ink-3); font-size: var(--t-cap); }
+.submit { max-width: 34rem; display: grid; gap: 14px; }
+.submit label { display: grid; gap: 4px; font-size: var(--t-small); color: var(--ink-2); }
+.submit textarea, .submit input { font: inherit; font-size: var(--t-body); color: var(--ink); background: var(--paper); border: 1px solid var(--rule-2); padding: 6px 8px; border-radius: 0; }
+.submit textarea:focus, .submit input:focus { border-color: var(--ink); outline: none; }
+.submit button { justify-self: start; font-size: var(--t-body); }

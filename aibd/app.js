@@ -281,9 +281,9 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
 (function () {
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
-  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'harm'];
+  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'deployer', 'harm'];
   var compareData = null, compareLoading = false;
-  var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'shelf', 'roles', 'method', 'data'];
+  var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'shelf', 'roles', 'latest', 'entities', 'submit', 'method', 'data'];
   var kit = document.querySelector('[data-kit]');
   // One tool at a time: the open one, or none.
   var openTool = (new URLSearchParams(window.location.search).get('open') || '').split(',').filter(function (k) { return PANELS.indexOf(k) !== -1; })[0] || null;
@@ -324,6 +324,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       var b = e.target.closest('[data-kit-tool]'); if (!b) return;
       e.preventDefault();
       var k = b.getAttribute('data-kit-tool');
+      if (k === 'random') { var pick = rows[Math.floor(Math.random() * rows.length)]; if (pick) window.location.href = 'records/' + pick.dataset.id + '.html'; return; }
       openTool = openTool === k ? null : k;
       applyTools(); apply(true);
       if (window.aibdKit) window.aibdKit.shut();
@@ -391,7 +392,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     atlas.addEventListener('mouseleave', function () { if (readout) readout.textContent = ''; });
   }
   bindAtlas();
-  var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', made: 'made in' };
+  var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', deployer: 'deployer', made: 'made in' };
   var PAGE = 40, showAll = false;
   var more = ex.querySelector('[data-more-rows]');
   var rows = Array.prototype.slice.call(ex.querySelectorAll('[data-row]'));
@@ -445,6 +446,14 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   });
   readFilters(params);
   if (role) setRole(role);
+  if ((params.get('open') || '') === 'random') { var pick0 = rows[Math.floor(Math.random() * rows.length)]; if (pick0) window.location.replace('records/' + pick0.dataset.id + '.html'); }
+  var submitForm = ex.querySelector('[data-submit]');
+  if (submitForm) submitForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = submitForm.elements;
+    var body = 'What happened:\n' + f.body.value.trim() + '\n\nSource: ' + f.source.value.trim() + (f.who.value.trim() ? '\n\nFrom: ' + f.who.value.trim() : '');
+    window.location.href = submitForm.getAttribute('action') + '?subject=' + encodeURIComponent('A case for the AI Benefits Database') + '&body=' + encodeURIComponent(body);
+  });
   (function () { var s = (params.get('sort') || '').split(':'); if (s[0] && ex.querySelector('[data-sort-key="' + s[0] + '"]')) sortBy(s[0], s[1] === 'asc' ? -1 : 1); })();
   function hasAny(obj) { for (var k in obj) if (obj.hasOwnProperty(k)) return true; return false; }
   var searchText = null, searchLoading = false;
