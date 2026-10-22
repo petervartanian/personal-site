@@ -381,24 +381,39 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
         ex.querySelectorAll('[data-plate]').forEach(function (x) { x.classList.toggle('on', x === b); });
       });
     });
-    atlas.addEventListener('mousemove', function (e) {
-      var land = e.target.closest('.land'); if (!readout) return;
+    function show(land) {
+      if (!readout) return;
       if (!land) { readout.textContent = ''; return; }
+      var key = land.getAttribute('data-route');
+      var card = key ? ex.querySelector('[data-route-card="' + key.replace(/"/g, '\\"') + '"]') : null;
+      if (card) { readout.innerHTML = card.innerHTML; return; }
       var t = land.querySelector('title'); readout.textContent = t ? t.textContent : '';
-    });
+    }
+    atlas.addEventListener('mousemove', function (e) { show(e.target.closest('.land, [data-route]')); });
     ex.querySelectorAll('[data-layer-btn]').forEach(function (b) {
       b.addEventListener('click', function () {
         var layer = b.getAttribute('data-layer-btn');
         ex.querySelectorAll('[data-layer-btn]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
         atlas.querySelectorAll('[data-layer]').forEach(function (g) { g.classList.toggle('layer-off', g.getAttribute('data-layer') !== layer); });
         var note = ex.querySelector('[data-made-note]'); if (note) note.hidden = layer !== 'made';
+        var flows = ex.querySelector('[data-flows-note]'); if (flows) flows.hidden = layer !== 'flows';
       });
     });
+    atlas.addEventListener('mousedown', function (e) { if (e.target.closest('[data-route]')) e.preventDefault(); });
+    atlas.addEventListener('click', function (e) {
+      var route = e.target.closest('[data-route]'); if (!route) return;
+      e.preventDefault(); e.stopPropagation();
+      var parts = route.getAttribute('data-route').split('|');
+      var same = active.made && active.made[parts[0]] && active.country && active.country[parts[1]];
+      KEYS.forEach(function (k) { active[k] = {}; });
+      if (!same) { active.made = {}; active.made[parts[0]] = true; active.country = {}; active.country[parts[1]] = true; }
+      apply(true);
+    }, true);
     atlas.addEventListener('keydown', function (e) {
-      var land = e.target.closest('.land'); if (!land) return;
+      var land = e.target.closest('.land, [data-route]'); if (!land) return;
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); land.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })); }
     });
-    atlas.addEventListener('focusin', function (e) { var land = e.target.closest('.land'); if (land && readout) { var t = land.querySelector('title'); readout.textContent = t ? t.textContent : ''; } });
+    atlas.addEventListener('focusin', function (e) { var land = e.target.closest('.land, [data-route]'); if (land) show(land); });
     atlas.addEventListener('mouseleave', function () { if (readout) readout.textContent = ''; });
   }
   bindAtlas();

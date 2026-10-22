@@ -784,3 +784,22 @@ body.door .masthead .find { display: none; }
 
 /* A ditto mark when the deployer is the developer. */
 .ditto { font-family: var(--serif); font-size: 1.5em; line-height: 0.6; color: var(--ink-2); display: inline-block; padding-left: 0.5em; }
+
+
+/* Atlas: routes from the maker's country to the country of the case. */
+.worldmap .flow { fill: none; stroke: transparent; stroke-width: 3; pointer-events: stroke; cursor: pointer; }
+.worldmap .flow-vis { fill: none; stroke: #7a5c2e; stroke-opacity: 0.6; stroke-linecap: round; pointer-events: none; }
+.worldmap .flow:hover + .flow-vis, .worldmap .flow:focus-visible + .flow-vis { stroke: var(--ink); stroke-opacity: 1; }
+.worldmap .flow:focus-visible { outline: none; }
+.worldmap .arrowhead { fill: #7a5c2e; }
+.worldmap .ring { fill: none; stroke: #7a5c2e; stroke-width: 1.1; stroke-opacity: 0.8; cursor: pointer; }
+.worldmap .ring:hover, .worldmap .ring:focus-visible { stroke: var(--ink); outline: none; }
+
+/* Flags beside country names, and marks in the atlas readout. */
+.flag { height: 0.85em; width: auto; vertical-align: -0.05em; border: 1px solid var(--rule); }
+.ent small .flag { height: 0.95em; margin-right: 2px; }
+[data-atlas-readout] .flag { height: 0.9em; margin: 0 2px; }
+[data-atlas-readout] .logo { width: 1.2em; height: 1.2em; vertical-align: -0.3em; margin: 0 3px 0 2px; }
+
+/* The atlas readout keeps two lines of height so the map does not move when it fills. */
+[data-atlas-readout] { display: block; min-height: calc(2 * var(--l-small)); }
