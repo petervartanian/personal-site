@@ -20,7 +20,7 @@ The homepage has an interactive SVG mobile with varied colored shapes and a susp
 
 `/portfolio/` retains all published writing. `/writing/` is an alias. The old placeholder collection at `/artifacts/` redirects to `/portfolio/`.
 
-The build produces the personal and scholarly pages and `/omphalos/` when its verified browser artifact is installed. These canonical public pages are listed in the XML sitemap. `content/public-pages.json` lists reviewed public project pages and is currently empty. The six research tools at `/200/` open without a password and remain outside public navigation, the sitemap, and `llms.txt`.
+The build produces the personal and scholarly pages and `/omphalos/` when its verified browser artifact is installed. These canonical public pages are listed in the XML sitemap. `content/public-pages.json` lists reviewed public project pages and is currently empty. The seven research tools at `/200/` open without a password and remain outside public navigation, the sitemap, and `llms.txt`.
 
 ## omphalOS browser edition
 
@@ -34,7 +34,7 @@ python3 -m unittest discover -s scripts -p 'test_browser_app.py'
 node --test scripts/test-public-snapshot.mjs
 ```
 
-Installation verifies every file against `build-manifest.json`, rejects unlisted files and symbolic links, and copies only the application and its reviewed runtime assets. It updates the public-file allowlist, quiet homepage-footer and Site index links, sitemap, and `llms.txt`. No tool link is generated before the actual artifact is present. Installation builds and validates locally; it does not commit, push, or publish. Preserve the original omphalOS citation, date, credit, and repository URL; identify the 2024 version as historical and link separately to the current application. Keep the six other tools out of public discovery files.
+Installation verifies every file against `build-manifest.json`, rejects unlisted files and symbolic links, and copies only the application and its reviewed runtime assets. It updates the public-file allowlist, quiet homepage-footer and Site index links, sitemap, and `llms.txt`. No tool link is generated before the actual artifact is present. Installation builds and validates locally; it does not commit, push, or publish. Preserve the original omphalOS citation, date, credit, and repository URL; identify the 2024 version as historical and link separately to the current application. Keep the seven other tools out of public discovery files.
 
 ## Scholarly publication pages
 
@@ -46,7 +46,7 @@ Shared links use four 1200 × 630 preview images with backgrounds matching their
 
 ## Unlisted research tools
 
-Agency Costs, BackDrive, AI Risk Correlator, Haruspex, AI Control Monitor, and Arcolens open directly beneath `/200/`. The catalog is `/200/`; Arcolens also has a directory alias for its `OPEN_REVIEW.html` entry. Preserve these paths, queries, and fragments when publishing updates. Deploy the complete reviewed static build, including its data and assets, and add its exact file paths to `content/public-files.json`. The personal-page build does not regenerate these tools.
+Agency Costs, BackDrive, AI Risk Correlator, AI Incident Explorer, Haruspex, AI Control Monitor, and Arcolens open directly beneath `/200/`. The catalog is `/200/`; Arcolens also has a directory alias for its `OPEN_REVIEW.html` entry. Preserve these paths, queries, and fragments when publishing updates. Deploy the complete reviewed static build, including its data and assets, and add its exact file paths to `content/public-files.json`. The personal-page build does not regenerate these tools.
 
 The tools are accessible to anyone with their URLs. Every HTML page has `noindex, nofollow` metadata, and the tool routes remain excluded from public navigation, the sitemap, `llms.txt`, and IndexNow submissions. Search exclusion is not access control. Do not add tool routes to discovery files when updating the tools.
 

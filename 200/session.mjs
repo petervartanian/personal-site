@@ -23,7 +23,7 @@ for (const directory of ['agency-costs', 'backdrive', 'haruspex', 'monitor']) {
     currentURL.searchParams.delete('__public200');
     try { window.history.replaceState(window.history.state, '', currentURL.pathname + currentURL.search + currentURL.hash); } catch { /* History can be unavailable in embedded pages. */ }
   }
-  const projectDirectories = new Set(['arcolens', 'agency-costs', 'backdrive', 'correlator', 'haruspex', 'monitor']);
+  const projectDirectories = new Set(['arcolens', 'agency-costs', 'backdrive', 'correlator', 'explorer', 'haruspex', 'monitor']);
   const gate = document.getElementById('unlock');
   for (const control of document.querySelectorAll('[data-lock]')) control.remove();
   gate?.remove();

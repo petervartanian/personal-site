@@ -275,7 +275,7 @@ test('continuation rejects foreign URLs, unexpected resources, traversal, and ma
 });
 
 test('known tool destinations retain their queries and fragments from the catalog', async () => {
-  for (const project of ['arcolens', 'agency-costs', 'backdrive', 'correlator', 'haruspex', 'monitor']) {
+  for (const project of ['arcolens', 'agency-costs', 'backdrive', 'correlator', 'explorer', 'haruspex', 'monitor']) {
     const target = `/200/${project}/?view=all#details`;
     const page = publicPage({ path: '/200/index.html?next=' + encodeURIComponent(target) });
     await page.finished();
