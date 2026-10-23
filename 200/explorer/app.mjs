@@ -1,7 +1,7 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-investigation';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-investigation';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-investigation';
-import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-investigation';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-audience-cards';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-audience-cards';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-audience-cards';
+import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-audience-cards';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
@@ -64,7 +64,7 @@ const routeFor = (view, itemId, sourceId, storyId) => {
   return caseRouteFor(data.case.id, view, itemId, sourceId, storyId || (view === 'framework' && itemId !== 'account-overview' && data.framework.find(i => i.id === itemId)?.type !== 'story' ? current?.storyId || storyMemory.get(data.case.id) : undefined));
 };
 const link = (view, item, text, attrs = '') => `<a href="${routeFor(view, item.id)}" ${attrs}>${text}</a>`;
-const stateLabel = item => `<span class="state state-${escape(item.state)}">${icon(item.state)}${escape(stateNames[item.state])}</span>`;
+const stateLabel = item => `<span class="state state-${escape(item.state)}" title="${escape('Reported performance during the incident: ' + item.summary)}">${icon(item.state)}${escape(stateNames[item.state])}<span class="visually-hidden"> during the incident</span></span>`;
 const sourceDate = iso => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 
 function itemSelection(view, item) {
@@ -146,7 +146,7 @@ function renderAnalysis(item) {
   } else if (current.view === 'controlRelationships') {
     body = systemAnalysis(item, citationLinks, related, routeFor);
   } else if (current.view === 'questions') {
-    body += `<p class="detail-summary">${escape(item.context)}</p><dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision', item.whyItMatters)}${item.requestFields?.length ? `<div class="inquiry-field field-request"><dt>${icon('request')}Information to request</dt><dd><ul class="requested-records">${item.requestFields.map(field => `<li>${escape(field)}</li>`).join('')}</ul>${item.handling ? `<p class="handling-note">${escape(item.handling)}</p>` : ''}</dd></div>` : inquiryField('Information to request', 'request', item.informationNeeded, 'field-request')}${inquiryField('Who to ask', 'people', item.informationHolder, 'field-holder')}</dl>`;
+    body += `<p class="detail-summary">${escape(item.context)} <span class="inline-citations">${citationLinks(item, 'context')}</span></p><dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision', item.whyItMatters)}${item.requestFields?.length ? `<div class="inquiry-field field-request"><dt>${icon('request')}Information to request</dt><dd><ul class="requested-records">${item.requestFields.map(field => `<li>${escape(field)}</li>`).join('')}</ul>${item.handling ? `<p class="handling-note">${escape(item.handling)}</p>` : ''}</dd></div>` : inquiryField('Information to request', 'request', item.informationNeeded, 'field-request')}${inquiryField('Who to ask', 'people', item.informationHolder, 'field-holder')}</dl>`;
   } else {
     body += `<p class="detail-summary">${escape([item.summary, item.detail || item.explanation].filter(Boolean).join(' '))} <span class="inline-citations">${citationLinks(item)}</span></p>`;
   }
@@ -192,7 +192,9 @@ function renderSources(item) {
     const s = data.sources.find(s => s.id === id);
     return `<a href="${routeFor(current.view, item.id, id)}" class="source-option" aria-current="${id === current.sourceId}">${i + 1}. ${escape(s.publisher)}${item.sourceIds.filter(other => data.sources.find(entry => entry.id === other).publisher === s.publisher).length > 1 ? `, ${escape(sourceDate(s.date).replace(', 2026',''))}` : ''}</a>`;
   }).join('')}</div>` : '';
-  $('sources').innerHTML = `<div class="sources-heading"><h2 id="sources-title" tabindex="-1">${current.view === 'questions' ? 'Relevant sources' : 'Sources'}</h2>${item.sourceIds.length > 1 ? `<span class="source-count">${item.sourceIds.indexOf(source.id) + 1} of ${item.sourceIds.length}</span>` : ''}</div>${options}<div class="source-publisher"><span>${escape(source.publisher)}</span><time datetime="${escape(source.date)}">${sourceDate(source.date)}</time></div><h3 class="source-title">${escape(source.title)}</h3><p class="source-kind">${escape(source.kind)}</p>${ref.account ? `<div class="source-account"><h3>${item.kind === 'Interpretation' ? 'Assessment in this source' : 'Account in this source'}</h3><p>${escape(ref.account)}</p></div>` : ''}${ref.excerpt ? `<blockquote>“${escape(ref.excerpt)}”</blockquote>` : ''}<div class="source-locator"><strong>Where to look</strong>${escape(ref.locator || source.locator)}</div><a href="${escape(source.url)}" class="source-link" target="_blank" rel="noopener noreferrer">Read the source<span class="visually-hidden"> (opens in a new tab)</span></a>`;
+  const passages = ref.passages?.length ? ref.passages : [{ label: 'Read the source', url: source.url }];
+  const passageLinks = passages.map(passage => `<a href="${escape(passage.url)}" class="source-link" target="_blank" rel="noopener noreferrer">${escape(passage.label)}<span class="visually-hidden"> (opens in a new tab)</span></a>`).join('');
+  $('sources').innerHTML = `<div class="sources-heading"><h2 id="sources-title" tabindex="-1">${current.view === 'questions' ? 'Relevant sources' : 'Sources'}</h2>${item.sourceIds.length > 1 ? `<span class="source-count">${item.sourceIds.indexOf(source.id) + 1} of ${item.sourceIds.length}</span>` : ''}</div>${options}<div class="source-publisher"><span>${escape(source.publisher)}</span><time datetime="${escape(source.date)}">${sourceDate(source.date)}</time></div><h3 class="source-title">${escape(source.title)}</h3><p class="source-kind">${escape(source.kind)}</p>${source.scope ? `<p class="source-scope">${escape(source.scope)}</p>` : ''}${ref.account ? `<div class="source-account"><h3>${item.kind === 'Interpretation' ? 'Assessment in this source' : 'Account in this source'}</h3><p>${escape(ref.account)}</p></div>` : ''}${ref.excerpt ? `<blockquote>“${escape(ref.excerpt)}”</blockquote>` : ''}<div class="source-locator"><strong>Where to look</strong>${escape(ref.locator || source.locator)}</div><div class="source-passages">${passageLinks}</div>`;
 }
 
 function render({ focus = false, destination = null } = {}) {
