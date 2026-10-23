@@ -32,7 +32,11 @@ export function readRoute(hash, data, remembered = {}) {
   const requestedId = view === 'questions' && parts[1] === 'cross-border-response' ? 'cross-organization-response' : parts[1];
   const item = items.find(i => i.id === requestedId) || items.find(i => i.id === remembered[view]) || items[0];
   const sourceId = item.sourceIds.includes(parts[2]) ? parts[2] : item.sourceIds[0];
-  const storyId = view === 'framework' && item.type !== 'story' && data.framework.some(s => s.id === parts[3] && s.type === 'story' && s.conceptIds.includes(item.id)) ? parts[3] : null;
+  const story = data.framework?.find(s => s.id === parts[3] && s.type === 'story');
+  const storyId = story && (
+    (view === 'framework' && item.type !== 'story' && story.conceptIds?.includes(item.id))
+    || (view === 'controlRelationships' && story.relationshipIds?.includes(item.id))
+  ) ? story.id : null;
   return { view, itemId: item.id, sourceId, ...(storyId ? { storyId } : {}) };
 }
 

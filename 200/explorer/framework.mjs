@@ -12,23 +12,38 @@ function storyCards(data, routeFor) {
 }
 
 export function selectedStory(data, current, rememberedStory) {
-  const item = data.framework.find(i => i.id === current.itemId);
+  const item = data[current.view]?.find(i => i.id === current.itemId) || data.framework.find(i => i.id === current.itemId);
   const stories = data.framework.filter(i => i.type === 'story');
   if (item?.type === 'story') return item;
-  return stories.find(s => s.id === current.storyId && s.conceptIds.includes(item?.id))
-    || stories.find(s => s.id === rememberedStory && s.conceptIds.includes(item?.id))
+  const belongs = story => current.view === 'controlRelationships'
+    ? story.relationshipIds?.includes(item?.id)
+    : story.conceptIds.includes(item?.id);
+  return stories.find(s => s.id === current.storyId && belongs(s))
+    || stories.find(s => s.id === rememberedStory && belongs(s))
     || stories[0];
 }
 
-export function frameworkSelection(data, current, routeFor, rememberedStory) {
+export function frameworkSelection(data, current, routeFor, rememberedStory, systemMarkup = '') {
   const story = selectedStory(data, current, rememberedStory);
   const stories = data.framework.filter(i => i.type === 'story');
+  const relationship = current.view === 'controlRelationships' ? data.controlRelationships.find(i => i.id === current.itemId) : null;
+  const conceptIds = relationship ? story.conceptIds.filter(id => data.framework.find(i => i.id === id)?.relationshipIds?.includes(relationship.id)) : story.conceptIds;
+  const controlIds = relationship ? story.controlIds.filter(id => relationship.controlIds.includes(id)) : story.controlIds;
+  const contextTitle = relationship?.title || story.title;
   const groups = [['cause','Causes'], ['capability','Capabilities'], ['harm','Harms']];
-  return `<section class="framework-panel" aria-label="Connections across the incident"><nav class="story-choices" aria-label="Read the account from a different perspective">${stories.map(s => `<a href="${routeFor('framework',s.id)}" ${s.id === story.id ? 'aria-current="true"' : ''}>${escape(s.id === 'all-connections' ? 'All connections' : s.title)}</a>`).join('')}</nav><div class="framework-axes">${groups.map(([type,label]) => `<section class="framework-axis axis-${type}"><h2>${label}</h2><div class="concept-choices">${data.framework.filter(i => i.type === type).map(i => `<a aria-label="${escape(i.title)}. ${story.conceptIds.includes(i.id) ? `Connected to ${escape(story.title)}` : `Outside ${escape(story.title)}`}" title="${story.conceptIds.includes(i.id) ? `Connected to ${escape(story.title)}` : `Select to read ${escape(i.title)}`}" class="concept-choice ${story.conceptIds.includes(i.id) ? 'in-story' : 'outside-story'}" href="${routeFor('framework',i.id,undefined,story.id)}" ${i.id === current.itemId ? 'aria-current="true"' : ''}><span class="concept-mark" aria-hidden="true"></span>${escape(i.title)}</a>`).join('')}</div></section>`).join('')}<section class="framework-axis axis-mitigation"><h2>Mitigations</h2><div class="concept-choices">${Object.entries(data.mitigationTaxonomy.categories).map(([code,category]) => {
-    const controls = data.controls.filter(c => c.classification.code === code);
-    const linked = controls.filter(c => story.controlIds.includes(c.id));
-    return `<a aria-label="${escape(category.name)}. ${linked.length ? `Connected to ${escape(story.title)}` : `Outside ${escape(story.title)}`}" class="concept-choice ${linked.length ? 'in-story' : 'outside-story'}" href="${routeFor('controls',(linked[0] || controls[0]).id)}"><span class="concept-mark" aria-hidden="true"></span>${escape(category.name)}</a>`;
-  }).join('')}</div></section></div></section>`;
+  return `<section class="framework-panel" aria-label="Incident connections">
+    <nav class="story-choices" aria-label="Choose an aspect of the incident">${stories.map(s => `<a href="${routeFor('framework',s.id)}" ${s.id === story.id ? 'aria-current="true"' : ''}>${escape(s.id === 'all-connections' ? 'All connections' : s.title)}</a>`).join('')}</nav>
+    ${systemMarkup}
+    <div class="framework-axes">${groups.map(([type,label]) => `<section class="framework-axis axis-${type}"><h2>${label}</h2><div class="concept-choices">${data.framework.filter(i => i.type === type).map(i => {
+      const linked = conceptIds.includes(i.id);
+      return `<a aria-label="${escape(i.title)}. ${linked ? `Related to ${escape(contextTitle)}` : 'Select to examine this topic'}" class="concept-choice ${linked ? 'in-story' : 'outside-story'}" href="${routeFor('framework',i.id,undefined,story.id)}" ${i.id === current.itemId ? 'aria-current="true"' : ''}><span class="concept-mark" aria-hidden="true"></span>${escape(i.title)}</a>`;
+    }).join('')}</div></section>`).join('')}
+    <section class="framework-axis axis-mitigation"><h2>Mitigations</h2><div class="concept-choices">${Object.entries(data.mitigationTaxonomy.categories).map(([code,category]) => {
+      const controls = data.controls.filter(c => c.classification.code === code);
+      const linked = controls.filter(c => controlIds.includes(c.id));
+      return `<a aria-label="${escape(category.name)}. ${linked.length ? `Related to ${escape(contextTitle)}` : 'Select to examine these safeguards'}" class="concept-choice ${linked.length ? 'in-story' : 'outside-story'}" href="${routeFor('controls',(linked[0] || controls[0]).id)}"><span class="concept-mark" aria-hidden="true"></span>${escape(category.name)}</a>`;
+    }).join('')}</div></section></div>
+  </section>`;
 }
 
 export function frameworkAnalysis(item, data, citationLinks, routeFor, mechanism = () => '') {
@@ -42,7 +57,7 @@ export function frameworkAnalysis(item, data, citationLinks, routeFor, mechanism
     const target = data[view].find(entry => entry.id === id);
     return `<a href="${routeFor(view,id)}">${escape(target.title || target.label)}</a>`;
   }).join('')}</dd></div>` : '';
-  return detail + alternative + mechanism(item) + classification + `<dl class="account-links">${connections('Systems and response','controlRelationships',item.relationshipIds)}${connections('Safeguards','controls',item.controlIds)}${connections('Questions to investigate','questions',item.questionIds)}</dl>`;
+  return detail + alternative + mechanism(item) + classification + `<dl class="account-links">${connections('Safeguards','controls',item.controlIds)}${connections('Questions to investigate','questions',item.questionIds)}</dl>`;
 
 }
 
