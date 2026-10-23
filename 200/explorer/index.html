@@ -11,14 +11,14 @@
     <title>AI Incident Explorer</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preload" href="assets/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css?v=20261023-status-labels">
-    <script type="module" src="app.mjs?v=20261023-status-labels"></script>
+    <link rel="stylesheet" href="styles.css?v=20261023-cast">
+    <script type="module" src="app.mjs?v=20261023-cast"></script>
     <script type="module" src="/200/session.mjs?public=20261022"></script>
   </head>
   <body>
-    <a class="skip-link" href="#investigation">Skip to investigation</a>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="site-title" href="#/events">AI Incident Explorer</a>
+      <a class="site-title" href="#/">AI Incident Explorer</a>
       <div class="partner-logos">
         <a class="initiative" href="https://airisk.mit.edu/" aria-label="MIT AI Risk Initiative">
           <img src="assets/airi.svg" width="170" height="46" alt="MIT AI Risk Initiative">
@@ -30,7 +30,10 @@
       <button class="credit-trigger" id="credit-trigger" type="button" aria-label="About this site" aria-expanded="false" aria-controls="site-credit"><span class="credit-triangle" aria-hidden="true"></span></button>
       <p class="site-credit" id="site-credit" hidden>Made with <span role="img" aria-label="love">🩶</span> by Peter Vartanian</p>
     </header>
-    <main class="page" id="main">
+    <main class="page" id="main" tabindex="-1">
+      <section id="case-library" aria-label="Choose incidents"></section>
+      <div id="case-workspace" hidden>
+      <div class="case-switcher"><a href="#/">All incidents</a><label for="case-picker">Incident</label><select id="case-picker"></select></div>
       <section class="case-introduction" aria-labelledby="case-title">
         <div class="case-heading">
           <h1 id="case-title">OpenAI agents compromise Hugging Face</h1>
@@ -38,6 +41,7 @@
         </div>
         <p class="case-context">July 2026</p>
         <p class="case-summary">During cybersecurity evaluations, OpenAI agents crossed network boundaries and compromised Hugging Face infrastructure.</p>
+      <p class="case-outcome" id="case-outcome"></p>
       </section>
       <nav class="question-navigation" aria-label="Investigation questions" id="question-navigation"></nav>
       <section id="investigation" class="investigation" tabindex="-1" aria-label="Incident investigation">
@@ -47,6 +51,7 @@
           <aside id="sources" class="sources" aria-labelledby="sources-title"></aside>
         </div>
       </section>
+      </div>
       <div id="status" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
       <noscript><p>Enable JavaScript to select events and examine their sources.</p></noscript>
     </main>
