@@ -9,6 +9,8 @@
   const tools = browser.querySelector('[data-dv-tools]');
   const sections = [...browser.querySelectorAll('[data-dv-section]')];
   const links = [...browser.querySelectorAll('[data-dv-view]')];
+  const viewSelect = browser.querySelector('[data-dv-view-select]');
+  const moreFilters = browser.querySelector('[data-dv-more-filters]');
   const status = browser.querySelector('[data-dv-count]');
   const resetButtons = [...browser.querySelectorAll('[data-dv-reset]')];
   const sort = browser.querySelector('[data-dv-sort]');
@@ -51,6 +53,7 @@
     sort.value = optionExists(sort, params.get('sort')) ? params.get('sort') : 'collection';
     view = groups.some(group => group.key === params.get('view')) ? params.get('view') : 'published';
     if (!groups.some(group => group.key === view)) view = groups[0].key;
+    if (moreFilters) moreFilters.open = fields.slice(1).some(key => form.elements[key].value);
   }
 
   function writeUrl() {
@@ -111,6 +114,7 @@
     });
 
     const noun = activeTotal === 1 ? 'claim' : 'claims';
+    if (viewSelect) viewSelect.value = view;
     if (status) status.textContent = filtered
       ? `${activeCount} of ${activeTotal} ${noun}`
       : `${activeTotal} ${noun}`;
@@ -152,7 +156,15 @@
     window.clearTimeout(queryTimer);
     queryTimer = window.setTimeout(() => apply(), 100);
   });
-  form.addEventListener('change', () => apply());
+  form.addEventListener('change', event => {
+    if (event.target === viewSelect) {
+      view = viewSelect.value;
+      const url = new URL(window.location.href);
+      url.hash = '';
+      window.history.replaceState(null, '', url);
+    }
+    apply();
+  });
   form.addEventListener('submit', event => {
     event.preventDefault();
     window.clearTimeout(queryTimer);
