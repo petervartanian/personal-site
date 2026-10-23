@@ -603,6 +603,70 @@
       "title": "Date Observed",
       "type": "string"
     },
+    "date_basis": {
+      "default": "event",
+      "enum": [
+        "event",
+        "source publication",
+        "source information",
+        "source access"
+      ],
+      "title": "Date Basis",
+      "type": "string"
+    },
+    "date_precision": {
+      "default": "day",
+      "enum": [
+        "day",
+        "month",
+        "year"
+      ],
+      "title": "Date Precision",
+      "type": "string"
+    },
+    "benefit_status": {
+      "anyOf": [
+        {
+          "enum": [
+            "reported",
+            "intended",
+            "mixed",
+            "unclear"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Benefit Status"
+    },
+    "source_collection": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Collection"
+    },
+    "source_entry": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "AIBD's stable key for the entry within an imported collection, not an identifier assigned by its publisher.",
+      "title": "Source Entry"
+    },
     "account": {
       "description": "What happened, in one paragraph.",
       "minLength": 1,
@@ -610,7 +674,7 @@
       "type": "string"
     },
     "category": {
-      "description": "The kind of event: a benefit created or restored, a specific harm prevented, a protective response with prevention unproven, or a general benefit without an event (kept off the scale).",
+      "description": "The kind of event: a benefit created or restored, a specific harm prevented, a protective response with prevention unproven, or a general benefit case. Depth and confidence are assessed separately.",
       "enum": [
         "benefit created",
         "harm prevented",
