@@ -16,6 +16,9 @@
   const currencyControls = [...browser.querySelectorAll('input[name="currency"]')];
   const currencyCounts = [...browser.querySelectorAll('[data-dv-currency-count]')];
   const currencyReset = browser.querySelector('[data-dv-currency-reset]');
+  const usdSwitch = browser.querySelector('[data-dv-usd]');
+  const usdBasis = browser.querySelector('[data-dv-usd-basis]');
+  const amounts = [...browser.querySelectorAll('[data-dv-amount]')];
   const sort = browser.querySelector('[data-dv-sort]');
   if (!form || !tools || !sort || !sections.length) return;
 
@@ -34,11 +37,12 @@
       type: element.dataset.type || '',
       status: element.dataset.status || '',
       currencies: (element.dataset.currencies || 'Unstated').split(',').filter(Boolean),
+      jurisdictions: (element.dataset.jurisdictions || '').split('|').filter(Boolean),
       title: element.dataset.title || '',
       checked: element.dataset.checked || '',
     })),
   }));
-  const fields = ['q', 'type', 'status'];
+  const fields = ['q', 'type', 'status', 'jurisdiction'];
   let view = groups.some(group => group.key === 'published') ? 'published' : groups[0].key;
   let queryTimer;
 
@@ -59,6 +63,7 @@
     });
     const currencies = new Set(params.getAll('currency'));
     currencyControls.forEach(control => { control.checked = currencies.has(control.value); });
+    if (usdSwitch) usdSwitch.checked = !usdSwitch.disabled && params.get('usd') === '1';
     sort.value = optionExists(sort, params.get('sort')) ? params.get('sort') : 'collection';
     view = groups.some(group => group.key === params.get('view')) ? params.get('view') : 'published';
     if (!groups.some(group => group.key === view)) view = groups[0].key;
@@ -68,7 +73,7 @@
 
   function writeUrl() {
     const url = new URL(window.location.href);
-    [...fields, 'currency', 'view', 'sort'].forEach(key => url.searchParams.delete(key));
+    [...fields, 'currency', 'view', 'sort', 'usd'].forEach(key => url.searchParams.delete(key));
     fields.forEach(key => {
       const value = form.elements[key].value.trim();
       if (value) url.searchParams.set(key, value);
@@ -77,6 +82,7 @@
     currencies.forEach(currency => url.searchParams.append('currency', currency));
     if (view !== 'published') url.searchParams.set('view', view);
     if (sort.value !== 'collection') url.searchParams.set('sort', sort.value);
+    if (usdSwitch && usdSwitch.checked) url.searchParams.set('usd', '1');
     if (fields.some(key => form.elements[key].value.trim()) || currencies.length) url.hash = '';
     if (url.href !== window.location.href) window.history.replaceState(null, '', url);
   }
@@ -92,21 +98,44 @@
     });
   }
 
+  function applyDenomination() {
+    const usd = Boolean(usdSwitch && usdSwitch.checked);
+    amounts.forEach(amount => {
+      amount.hidden = amount.dataset[usd ? 'usdPrimary' : 'localPrimary'] === 'false';
+      const available = amount.dataset.usdAvailable === 'true';
+      const localValue = amount.querySelector('[data-dv-local-value]');
+      const usdValue = amount.querySelector('[data-dv-usd-value]');
+      const denomination = amount.querySelector('[data-dv-denomination]');
+      if (localValue) localValue.hidden = usd && available;
+      if (usdValue) usdValue.hidden = !usd;
+      if (denomination) denomination.textContent = usd && available
+        ? 'USD' : amount.dataset.localCurrency === 'Unstated'
+          ? 'Currency unstated' : amount.dataset.localCurrency;
+      amount.querySelectorAll('[data-dv-local-note]').forEach(note => { note.hidden = usd && available; });
+      amount.querySelectorAll('[data-dv-usd-note]').forEach(note => { note.hidden = !usd; });
+    });
+    if (usdBasis) usdBasis.hidden = !usd;
+  }
+
   function apply(updateUrl = true) {
     const terms = normalize(form.elements.q.value).trim().split(/\s+/).filter(Boolean);
     const values = Object.fromEntries(fields.slice(1).map(key => [key, form.elements[key].value]));
     const currencies = selectedCurrencies();
     const filtered = terms.length > 0 || Object.values(values).some(Boolean) || currencies.length > 0;
     const facets = new Map(currencyControls.map(control => [control.value, 0]));
+    const jurisdictionFacets = new Set();
     let activeCount = 0;
     let activeTotal = 0;
 
     groups.forEach(group => {
       let shown = 0;
       ordered(group.rows).forEach(row => {
-        const baseMatches = terms.every(term => row.text.includes(term))
+        const otherMatches = terms.every(term => row.text.includes(term))
           && (!values.type || row.type === values.type)
           && (!values.status || row.status === values.status);
+        if (otherMatches && group.key === view) row.jurisdictions.forEach(item => jurisdictionFacets.add(item));
+        const baseMatches = otherMatches
+          && (!values.jurisdiction || row.jurisdictions.includes(values.jurisdiction));
         if (baseMatches && group.key === view) {
           new Set(row.currencies).forEach(currency => {
             facets.set(currency, (facets.get(currency) || 0) + 1);
@@ -142,7 +171,15 @@
     currencyCounts.forEach(count => {
       count.textContent = `(${facets.get(count.dataset.dvCurrencyCount) || 0})`;
     });
+    currencyControls.forEach(control => {
+      const label = control.closest('label');
+      if (label) label.hidden = !control.checked && !facets.get(control.value);
+    });
+    [...form.elements.jurisdiction.options].forEach(option => {
+      option.hidden = Boolean(option.value) && !option.selected && !jurisdictionFacets.has(option.value);
+    });
     if (currencyReset) currencyReset.hidden = currencies.length === 0;
+    applyDenomination();
     if (updateUrl) writeUrl();
   }
 
@@ -197,11 +234,13 @@
     apply();
   });
   sort.addEventListener('change', () => apply());
+  if (usdSwitch) usdSwitch.addEventListener('change', () => apply());
   resetButtons.forEach(button => button.addEventListener('click', () => clearFilters(true)));
   if (currencyReset) currencyReset.addEventListener('click', () => {
     currencyControls.forEach(control => { control.checked = false; });
     apply();
-    if (currencyControls.length) currencyControls[0].focus();
+    const firstVisible = currencyControls.find(control => !control.closest('label').hidden);
+    if (firstVisible) firstVisible.focus();
   });
 
   links.forEach(link => link.addEventListener('click', event => {

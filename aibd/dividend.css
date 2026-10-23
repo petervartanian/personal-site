@@ -31,7 +31,14 @@ body.money-page::before {
 .money-currencies p { margin: 7px 0 0; font-size: var(--t-cap); line-height: var(--l-cap); color: var(--ink-3); }
 .money-currencies .textbtn { margin-left: 8px; }
 .money-list-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin: 12px 0 18px; font-size: var(--t-cap); line-height: var(--l-cap); }
-.money-list-head > label { margin-left: auto; display: inline-flex; gap: 7px; color: var(--ink-3); align-items: baseline; }
+.money-list-head > label { display: inline-flex; gap: 7px; color: var(--ink-3); align-items: baseline; }
+.money-list-head .money-order { margin-left: auto; }
+.money-list-head .money-usd { align-items: center; cursor: pointer; }
+.money-usd input { appearance: none; flex: 0 0 auto; width: 27px; height: 15px; padding: 0; margin: 0; border: 1px solid var(--ink-3); border-radius: 9px; background: var(--paper); position: relative; cursor: pointer; }
+.money-usd input::before { content: ''; display: block; position: absolute; width: 9px; height: 9px; top: 2px; left: 2px; border-radius: 50%; background: var(--ink-3); }
+.money-usd input:checked { background: #e0eee6; border-color: #3f6754; }
+.money-usd input:checked::before { left: 14px; background: #3f6754; }
+.money-usd-basis { margin: -9px 0 18px; font-size: var(--t-cap); line-height: var(--l-cap); color: var(--ink-3); }
 .money-list-head select { font-size: inherit; }
 .money-section { scroll-margin-top: 20px; }
 .money-section + .money-section { margin-top: 28px; }
@@ -41,6 +48,7 @@ body.money-page::before {
 .money-results > li:target { outline: 1px solid var(--rule-2); outline-offset: 5px; }
 .money-results .money-row-body { min-width: 0; }
 .money-results .metric { margin-top: 4px; }
+.money-jurisdiction, .money-conversion { margin: 3px 0 0; font-family: var(--sans); font-size: var(--t-cap); line-height: var(--l-cap); color: var(--ink-3); }
 .money-amount + .money-amount { margin-top: 8px; }
 .money-type { font-family: var(--sans); color: var(--ink-3); font-size: var(--t-cap); margin-left: 6px; }
 .money-detail { margin-top: 5px; font-size: var(--t-small); line-height: var(--l-small); color: var(--ink-2); }
