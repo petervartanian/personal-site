@@ -1,5 +1,11 @@
-/* Monetary claims use AIBD's existing paper, marble, type scale, and marks. */
-body.money-page::before { background-image: url("marble-fructus.jpg?v=whorled"); background-image: image-set(url("marble-fructus.webp?v=whorled") type("image/webp"), url("marble-fructus.jpg?v=whorled") type("image/jpeg")); }
+/* Monetary claims use AIBD's existing paper, type scale, and marks. */
+body.money-page::before {
+  background-image: url("marble-fructus.jpg?v=van-gogh-fruit");
+  background-image: image-set(url("marble-fructus.webp?v=van-gogh-fruit") type("image/webp"), url("marble-fructus.jpg?v=van-gogh-fruit") type("image/jpeg"));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .money-collection { min-width: 0; }
 .money-head { margin: 0 0 20px; }
 .money-head h1 { display: flex; align-items: center; gap: 11px; font-size: var(--t-lede); line-height: var(--l-lede); font-weight: 400; }
@@ -62,6 +68,7 @@ body.money-page::before { background-image: url("marble-fructus.jpg?v=whorled");
   .money-results > li { grid-template-columns: 96px minmax(0, 1fr); }
 }
 @media (max-width: 700px) {
+  body.money-page::before { background-position: 26% center; }
   .money-filters { gap: 9px 18px; }
   .money-filters .money-search { flex-basis: 100%; }
   .money-filters label { max-width: 100%; }
