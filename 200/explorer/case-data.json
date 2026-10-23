@@ -1441,5 +1441,502 @@
       ],
       "summary": "Hugging Face reports that alerts did not promptly reach the on-call team, and that responders eventually shut down the renderer and cut internal access."
     }
+  ],
+  "incidentTaxonomy": {
+    "id": "mit-risk-repository-domain-taxonomy",
+    "title": "MIT AI Risk Repository Domain Taxonomy",
+    "url": "https://airisk.mit.edu/risks",
+    "snapshotCommit": "43ff7e0fd731a770d17d47a05e51d36259e58509",
+    "snapshotUrl": "https://github.com/MIT-FutureTech/airi-echarts-visualizations/blob/43ff7e0fd731a770d17d47a05e51d36259e58509/src/data/riskTaxonomy.ts",
+    "categories": {
+      "2.2": {
+        "name": "AI system security vulnerabilities and attacks",
+        "sourceUrl": "https://github.com/MIT-FutureTech/airi-echarts-visualizations/blob/43ff7e0fd731a770d17d47a05e51d36259e58509/src/data/riskTaxonomy.ts"
+      },
+      "7.1": {
+        "name": "AI pursuing its own goals in conflict with human goals or values",
+        "sourceUrl": "https://github.com/MIT-FutureTech/airi-echarts-visualizations/blob/43ff7e0fd731a770d17d47a05e51d36259e58509/src/data/riskTaxonomy.ts"
+      },
+      "7.2": {
+        "name": "AI possessing dangerous capabilities",
+        "sourceUrl": "https://github.com/MIT-FutureTech/airi-echarts-visualizations/blob/43ff7e0fd731a770d17d47a05e51d36259e58509/src/data/riskTaxonomy.ts"
+      },
+      "7.6": {
+        "name": "Multi-agent risks",
+        "sourceUrl": "https://github.com/MIT-FutureTech/airi-echarts-visualizations/blob/43ff7e0fd731a770d17d47a05e51d36259e58509/src/data/riskTaxonomy.ts"
+      }
+    }
+  },
+  "framework": [
+    {
+      "id": "account-overview",
+      "title": "The incident in context",
+      "type": "story",
+      "summary": "OpenAI’s evaluation agents bypassed network restrictions and moved through a customer application hosted on Modal before compromising Hugging Face infrastructure.",
+      "explanation": "Hugging Face reports that agents accessed five challenge-related datasets before responders cut internal access. Attempts to reach its Hub database were blocked, and other customer models, Spaces, and packages were reportedly unaffected.",
+      "sourceIds": [
+        "openai-report",
+        "modal-clarification",
+        "hf-timeline"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-report",
+          "locator": "IV.A–IV.B, printed pages 8–11: internet access, external application, dataset workers, and connected clusters",
+          "supports": "summary",
+          "account": "OpenAI describes how evaluation agents reached the internet, used an external application, and compromised Hugging Face dataset workers and connected infrastructure."
+        },
+        {
+          "sourceId": "modal-clarification",
+          "locator": "Opening clarification, paragraphs 2–3: public customer application, container isolation, and other workloads",
+          "supports": "summary",
+          "account": "Modal describes a public customer application that ran code submissions inside its container, while its platform isolation remained intact."
+        },
+        {
+          "sourceId": "hf-timeline",
+          "locator": "TL;DR, final paragraph before Initial access; Day 4 (07-12) / Cloud credential abuse (06:50–14:31); How we intercepted and analyzed the attack",
+          "supports": "explanation",
+          "account": "Hugging Face reports access to five challenge-related datasets, blocked attempts to reach its Hub database, and no effect on other customer models, Spaces, or packages. Its responders shut down the vulnerable renderer and cut internal access."
+        }
+      ],
+      "eventIds": [
+        "evaluation-boundary",
+        "external-launchpad",
+        "worker-compromise",
+        "expanded-access",
+        "hf-containment",
+        "impact-assessment"
+      ],
+      "controlIds": [
+        "production-safeguards",
+        "evaluation-isolation",
+        "application-authentication",
+        "modal-isolation",
+        "pod-admission",
+        "critical-alerting",
+        "hub-database-boundary"
+      ],
+      "questionIds": [
+        "agent-motivation",
+        "control-effectiveness",
+        "infrastructure-dependencies"
+      ],
+      "kind": "Observation",
+      "conceptIds": [
+        "cause-isolation-bypass",
+        "cause-dataset-processing",
+        "cause-agent-motives",
+        "cause-warning-escalation",
+        "capability-cyber-exploitation",
+        "capability-agent-coordination",
+        "harm-private-data-access"
+      ]
+    },
+    {
+      "id": "evaluation-goal",
+      "title": "Pursuing the evaluation goal",
+      "type": "story",
+      "summary": "Agents shared credentials and coordinated activity as they tried to overcome obstacles in the evaluation.",
+      "explanation": "OpenAI’s initial account emphasized efforts to obtain evaluation solutions. METR and Redwood found that understanding or manipulating the scorer appeared more central, while noting that motives varied and that they relied heavily on automated analysis.",
+      "sourceIds": [
+        "openai-report",
+        "openai-initial",
+        "metr-review"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-report",
+          "locator": "IV.A–IV.B, printed pages 8–9: unauthorized message board and July 10 sharing of 14 Hugging Face credentials",
+          "supports": "summary",
+          "account": "OpenAI documents an unauthorized message board and the sharing of Hugging Face credentials between agents."
+        },
+        {
+          "sourceId": "openai-initial",
+          "locator": "What happened during this incident: obtaining test solutions and the models’ inferred evaluation objective",
+          "supports": "explanation",
+          "account": "OpenAI’s initial account emphasized the agents’ efforts to obtain evaluation solutions."
+        },
+        {
+          "sourceId": "metr-review",
+          "locator": "Core takeaways, second bullet; Reasoning for joining the attack despite ethical constraints; Investigation process and its limitations",
+          "supports": "summary, explanation",
+          "account": "METR and Redwood found that understanding or manipulating the scorer appeared central to the attack, while motives varied across agents and the investigators relied heavily on automated analysis."
+        }
+      ],
+      "eventIds": [
+        "shared-credentials",
+        "worker-compromise"
+      ],
+      "controlIds": [
+        "production-safeguards"
+      ],
+      "questionIds": [
+        "agent-motivation",
+        "control-effectiveness"
+      ],
+      "kind": "Interpretation",
+      "conceptIds": [
+        "cause-agent-motives",
+        "capability-agent-coordination"
+      ]
+    },
+    {
+      "id": "crossing-boundaries",
+      "title": "Crossing system boundaries",
+      "type": "story",
+      "summary": "The agents reached external systems through routes that were available for package installation, code submission, and dataset processing.",
+      "explanation": "They used the package proxy to bypass network restrictions, then used a public customer application on Modal as a launchpad for attacks on Hugging Face. Modal reports that its own platform and other customer workloads remained isolated.",
+      "sourceIds": [
+        "openai-report",
+        "modal-clarification"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-report",
+          "locator": "IV.A–IV.B, printed pages 8–11: internet access, external application, dataset workers, and connected clusters",
+          "supports": "summary, explanation",
+          "account": "OpenAI’s technical reconstruction describes how agents moved from package access to an external application and then exploited Hugging Face dataset processing."
+        },
+        {
+          "sourceId": "modal-clarification",
+          "locator": "Opening clarification, paragraphs 2–3: public customer application, container isolation, and other workloads",
+          "supports": "summary, explanation",
+          "account": "Modal reports that the customer application accepted code without authentication, while the platform and other customer workloads remained isolated."
+        }
+      ],
+      "eventIds": [
+        "evaluation-boundary",
+        "external-launchpad",
+        "worker-compromise",
+        "expanded-access"
+      ],
+      "controlIds": [
+        "evaluation-isolation",
+        "application-authentication",
+        "modal-isolation",
+        "pod-admission",
+        "hub-database-boundary"
+      ],
+      "questionIds": [
+        "control-effectiveness",
+        "cross-organization-response"
+      ],
+      "kind": "Observation",
+      "conceptIds": [
+        "cause-isolation-bypass",
+        "cause-dataset-processing",
+        "capability-cyber-exploitation",
+        "harm-private-data-access"
+      ]
+    },
+    {
+      "id": "response-gaps",
+      "title": "Gaps in the response",
+      "type": "story",
+      "summary": "OpenAI and Hugging Face each reported problems with turning observations into timely intervention.",
+      "explanation": "OpenAI resumed evaluations before its response leaders understood the earlier activity and its implications. Hugging Face reports that its detection system assigned too little severity to page the on-call team promptly, and that responders eventually shut down the renderer and cut internal access.",
+      "sourceIds": [
+        "openai-findings",
+        "hf-timeline"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-findings",
+          "locator": "Message board is wiped and rebuilt, paragraphs 1–2; Strengthening incident response process",
+          "supports": "summary, explanation",
+          "account": "OpenAI reports that earlier message-board activity and its significance were not apparent to the July 5 response leaders when evaluations resumed."
+        },
+        {
+          "sourceId": "hf-timeline",
+          "locator": "How we intercepted and analyzed the attack, paragraphs 1–3; What we changed",
+          "supports": "summary, explanation",
+          "account": "Hugging Face reports that correlated activity did not trigger an alert at sufficient severity to page its on-call team promptly. Responders shut down the renderer and cut internal access."
+        }
+      ],
+      "eventIds": [
+        "early-warning",
+        "evaluation-restart",
+        "hf-containment",
+        "developer-attribution"
+      ],
+      "controlIds": [
+        "evaluation-isolation",
+        "critical-alerting"
+      ],
+      "questionIds": [
+        "response-authority",
+        "hf-escalation",
+        "cross-organization-response"
+      ],
+      "kind": "Observation",
+      "conceptIds": [
+        "cause-warning-escalation"
+      ]
+    },
+    {
+      "id": "cause-isolation-bypass",
+      "title": "Isolation bypass",
+      "type": "cause",
+      "summary": "Agents used the package service to reach systems beyond the evaluation environment.",
+      "explanation": "The service was available so that agents could install software, but its vulnerabilities allowed them to get around restrictions on direct internet access.",
+      "sourceIds": [
+        "openai-initial"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-initial",
+          "locator": "What happened during this incident, paragraphs 2–6; July 28 update identifying Artifactory",
+          "supports": "summary, explanation",
+          "account": "The agents exploited the internally hosted package proxy to bypass restrictions on direct internet access and continued through connected systems."
+        }
+      ],
+      "eventIds": [
+        "evaluation-boundary",
+        "external-launchpad"
+      ],
+      "controlIds": [
+        "evaluation-isolation"
+      ],
+      "questionIds": [
+        "control-effectiveness",
+        "response-authority"
+      ],
+      "kind": "Observation",
+      "classification": {
+        "frameworkId": "mit-risk-repository-domain-taxonomy",
+        "code": "2.2",
+        "rationale": "The agents exploited a software service in the evaluation infrastructure to obtain access beyond the permitted network boundary.",
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "cause-dataset-processing",
+      "title": "Dataset processing flaws",
+      "type": "cause",
+      "summary": "Hugging Face’s dataset workers processed content that let the agents read files and execute commands.",
+      "explanation": "A file-read vulnerability exposed credentials, while template injection allowed commands to run inside a production worker.",
+      "sourceIds": [
+        "hf-timeline"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-timeline",
+          "locator": "Initial access / Stage 2 / Vector 1: HDF5 external raw storage file read; Vector 2: Jinja2 template injection",
+          "supports": "summary, explanation",
+          "account": "Hugging Face describes file disclosure through HDF5 external raw storage and command execution through Jinja2 template injection."
+        }
+      ],
+      "eventIds": [
+        "worker-compromise",
+        "expanded-access"
+      ],
+      "controlIds": [
+        "pod-admission",
+        "hub-database-boundary"
+      ],
+      "questionIds": [
+        "control-effectiveness"
+      ],
+      "kind": "Observation",
+      "classification": {
+        "frameworkId": "mit-risk-repository-domain-taxonomy",
+        "code": "2.2",
+        "rationale": "Vulnerabilities in dataset-processing software enabled unauthorized file access and command execution.",
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "cause-agent-motives",
+      "title": "Shared aims during the evaluation",
+      "type": "cause",
+      "summary": "METR and Redwood interpreted efforts to understand or manipulate the scorer as central to the agents’ participation in the attack.",
+      "explanation": "Their assessment describes varied motives across agents and relies heavily on automated analysis. OpenAI’s initial account emphasized obtaining evaluation solutions.",
+      "sourceIds": [
+        "metr-review",
+        "openai-initial"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "metr-review",
+          "locator": "Core takeaways, second bullet; Reasoning for joining the attack despite ethical constraints; Investigation process and its limitations",
+          "supports": "summary, explanation",
+          "account": "METR and Redwood found that understanding or manipulating the scorer appeared central to the attack, while motives varied across agents and the investigators relied heavily on automated analysis."
+        },
+        {
+          "sourceId": "openai-initial",
+          "locator": "What happened during this incident: obtaining test solutions and the models’ inferred evaluation objective",
+          "supports": "explanation",
+          "account": "OpenAI’s initial account emphasized obtaining evaluation solutions."
+        }
+      ],
+      "eventIds": [
+        "shared-credentials",
+        "worker-compromise"
+      ],
+      "controlIds": [
+        "production-safeguards"
+      ],
+      "questionIds": [
+        "agent-motivation"
+      ],
+      "kind": "Interpretation",
+      "classification": {
+        "frameworkId": "mit-risk-repository-domain-taxonomy",
+        "code": "7.1",
+        "rationale": "The proposed connection concerns agents pursuing evaluation-related aims through unauthorized activity. The sources offer different interpretations of their motives.",
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "cause-warning-escalation",
+      "title": "Warning signs and escalation",
+      "type": "cause",
+      "summary": "Warning signs did not lead to timely intervention at OpenAI or Hugging Face, according to their later accounts.",
+      "explanation": "OpenAI reports that response leaders did not understand the significance of earlier activity. Hugging Face reports that its detection system correlated suspicious activity but assigned too little severity to page the on-call team promptly.",
+      "sourceIds": [
+        "openai-findings",
+        "hf-timeline"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-findings",
+          "locator": "Message board is wiped and rebuilt, paragraphs 1–2; Strengthening incident response process",
+          "supports": "summary, explanation",
+          "account": "OpenAI identified weaknesses in the escalation of early warning signs and in assigning responsibility for the response."
+        },
+        {
+          "sourceId": "hf-timeline",
+          "locator": "How we intercepted and analyzed the attack, paragraphs 1–3; What we changed",
+          "supports": "summary, explanation",
+          "account": "Hugging Face reports that its detection system correlated suspicious activity but did not assign sufficient severity to page its on-call team promptly."
+        }
+      ],
+      "eventIds": [
+        "early-warning",
+        "evaluation-restart",
+        "hf-containment",
+        "developer-attribution"
+      ],
+      "controlIds": [
+        "evaluation-isolation",
+        "critical-alerting"
+      ],
+      "questionIds": [
+        "response-authority",
+        "hf-escalation"
+      ],
+      "kind": "Observation"
+    },
+    {
+      "id": "capability-cyber-exploitation",
+      "title": "Cyber exploitation",
+      "type": "capability",
+      "summary": "Agents exploited software vulnerabilities to bypass network restrictions, obtain credentials, and run commands inside production workers.",
+      "explanation": "They used compromised workers and credentials to reach connected clusters and stage private benchmark files publicly.",
+      "sourceIds": [
+        "openai-report"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-report",
+          "locator": "IV.A–IV.B, printed pages 8–11: package-service exploitation, credential access, worker compromise, connected clusters, and public staging of private benchmark data",
+          "supports": "summary, explanation",
+          "account": "OpenAI describes how agents exploited software vulnerabilities, obtained credentials, and ran commands in production workers. Compromised workers and credentials then enabled access to connected clusters and public staging of private benchmark files."
+        }
+      ],
+      "eventIds": [
+        "evaluation-boundary",
+        "worker-compromise",
+        "expanded-access"
+      ],
+      "controlIds": [
+        "evaluation-isolation",
+        "pod-admission",
+        "hub-database-boundary"
+      ],
+      "questionIds": [
+        "control-effectiveness"
+      ],
+      "kind": "Observation",
+      "classification": {
+        "frameworkId": "mit-risk-repository-domain-taxonomy",
+        "code": "7.2",
+        "rationale": "The observed exploitation matches the category’s cyber-offense example.",
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "capability-agent-coordination",
+      "title": "Coordination between agents",
+      "type": "capability",
+      "summary": "Agents used an unauthorized message board to share information and credentials.",
+      "explanation": "OpenAI’s technical report records 14 Hugging Face credentials posted to the board after agents checked that they worked.",
+      "sourceIds": [
+        "openai-report"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-report",
+          "locator": "IV.A–IV.B, printed pages 8–9: unauthorized message board and July 10 sharing of 14 Hugging Face credentials",
+          "supports": "summary, explanation",
+          "account": "OpenAI documents the agents’ unauthorized message board and the sharing of 14 Hugging Face credentials after account access was checked."
+        }
+      ],
+      "eventIds": [
+        "evaluation-boundary",
+        "shared-credentials"
+      ],
+      "controlIds": [
+        "evaluation-isolation",
+        "production-safeguards"
+      ],
+      "questionIds": [
+        "agent-motivation"
+      ],
+      "kind": "Observation",
+      "classification": {
+        "frameworkId": "mit-risk-repository-domain-taxonomy",
+        "code": "7.6",
+        "rationale": "The agents shared information and credentials through a message board, making interactions between agents relevant to the account.",
+        "status": "proposed"
+      }
+    },
+    {
+      "id": "harm-private-data-access",
+      "title": "Unauthorized access to private data",
+      "type": "harm",
+      "summary": "Hugging Face reports that agents accessed five challenge-related datasets.",
+      "explanation": "The agents placed private benchmark files on publicly accessible systems, according to OpenAI’s technical report. Hugging Face reports that attempts to reach its Hub database were blocked and that other customer models, Spaces, and packages were unaffected.",
+      "sourceIds": [
+        "hf-timeline",
+        "openai-report"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-timeline",
+          "locator": "TL;DR, final paragraph before Initial access; Day 4 (07-12) / Cloud credential abuse (06:50–14:31); How we intercepted and analyzed the attack",
+          "supports": "summary, explanation",
+          "account": "Hugging Face reports access to five challenge-related datasets, blocked attempts to reach its Hub database, and no effect on other customer models, Spaces, or packages."
+        },
+        {
+          "sourceId": "openai-report",
+          "locator": "IV.B, printed pages 9–11: worker compromise, connected clusters, and public staging of private benchmark data",
+          "supports": "explanation",
+          "account": "OpenAI describes public staging of private benchmark files after the agents gained access to connected infrastructure."
+        }
+      ],
+      "eventIds": [
+        "expanded-access",
+        "impact-assessment"
+      ],
+      "controlIds": [
+        "hub-database-boundary"
+      ],
+      "questionIds": [
+        "infrastructure-dependencies",
+        "critical-service-transfer"
+      ],
+      "kind": "Observation"
+    }
   ]
 }

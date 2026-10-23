@@ -1,6 +1,7 @@
-import { views, navigationViews, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-compact';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-compact';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-compact';
+import { views, navigationViews, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-framework';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-framework';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-framework';
+import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-framework';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
@@ -52,8 +53,9 @@ let loadNotice = '';
 let data;
 let current;
 let previous;
+const storyMemory = new Map();
 
-const routeFor = (view, itemId, sourceId) => caseRouteFor(data.case.id, view, itemId, sourceId);
+const routeFor = (view, itemId, sourceId, storyId) => caseRouteFor(data.case.id, view, itemId, sourceId, storyId || (view === 'framework' && data.framework.find(i => i.id === itemId)?.type !== 'story' ? current?.storyId || storyMemory.get(data.case.id) : undefined));
 const link = (view, item, text, attrs = '') => `<a href="${routeFor(view, item.id)}" ${attrs}>${text}</a>`;
 const stateLabel = item => `<span class="state state-${escape(item.state)}">${icon(item.state)}${escape(stateNames[item.state])}</span>`;
 const sourceDate = iso => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
@@ -79,12 +81,14 @@ function mitigationType(item) {
 
 function renderSelection() {
   const definition = views.find(v => v.id === current.view);
-  if (current.view === 'controlRelationships' || current.view === 'causes') {
+  if (current.view === 'framework') {
+    $('selection').innerHTML = frameworkSelection(data, current, routeFor, storyMemory.get(data.case.id));
+  } else if (current.view === 'controlRelationships' || current.view === 'causes') {
     $('selection').innerHTML = systemSelection(data, current, routeFor);
   } else if (current.view === 'events') {
     $('selection').innerHTML = `<div class="chronology"><h2 class="selection-heading">Chronology <span class="date-span">${escape(data.case.chronologyRange || data.case.dateRange)}</span></h2><ol class="event-list" style="--event-count:${data.events.length}" aria-label="Select an event">${data.events.map(i => itemSelection('events', i)).join('')}</ol></div>`;
   } else if (current.view === 'controls') {
-    $('selection').innerHTML = `<div class="safeguard-comparison"><table><caption>Safeguards during the incident</caption><thead><tr><th scope="col">Safeguard</th><th scope="col">Owner</th><th scope="col">State</th></tr></thead><tbody>${data.controls.map(item => `<tr ${item.id === current.itemId ? 'class="selected-safeguard"' : ''}><th scope="row">${link('controls', item, escape(item.title), `aria-current="${item.id === current.itemId}"`)}</th><td>${organizationName(item.owner)}</td><td>${stateLabel(item)}</td></tr>`).join('')}</tbody></table></div>`;
+    $('selection').innerHTML = safeguardsMatrix(data, current, routeFor, organizationName, stateLabel);
   } else {
     const groups = [['case','In this incident'], ['application','For another setting']];
     $('selection').innerHTML = `<div class="question-index">${groups.map(([scope,label]) => {
@@ -116,14 +120,16 @@ function mechanism(item) {
 function renderAnalysis(item) {
   const context = current.view === 'events' ? `<span>${escape(item.date)}</span><span class="phase-label">${icon(phaseIcons[item.phase])}${escape(item.phase)}</span>` : current.view === 'controls' ? `${stateLabel(item)}<span class="control-owner">Owner: ${organizationName(item.owner)}</span>` : current.view === 'causes' && item.kind === 'Interpretation' ? 'Interpretation' : '';
   let body = `<div class="detail-context">${context}</div><h2 id="analysis-title" tabindex="-1">${escape(item.label || item.title)}</h2>`;
-  if (current.view === 'controlRelationships') {
+  if (current.view === 'framework') {
+    body = frameworkAnalysis(item, data, citationLinks, routeFor);
+  } else if (current.view === 'controlRelationships') {
     body = systemAnalysis(item, citationLinks, related, routeFor);
   } else if (current.view === 'questions') {
     body += `<p class="detail-summary">${escape(item.context)}</p><dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision', item.whyItMatters)}${item.requestFields?.length ? `<div class="inquiry-field field-request"><dt>${icon('request')}Information to request</dt><dd><ul class="requested-records">${item.requestFields.map(field => `<li>${escape(field)}</li>`).join('')}</ul>${item.handling ? `<p class="handling-note">${escape(item.handling)}</p>` : ''}</dd></div>` : inquiryField('Information to request', 'request', item.informationNeeded, 'field-request')}${inquiryField('Who to ask', 'people', item.informationHolder, 'field-holder')}</dl>`;
   } else {
     body += `<p class="detail-summary">${escape([item.summary, item.detail || item.explanation].filter(Boolean).join(' '))} <span class="inline-citations">${citationLinks(item)}</span></p>`;
   }
-  if (current.view === 'controlRelationships') {
+  if (current.view === 'framework' || current.view === 'controlRelationships') {
     // The control loop already includes its linked factors, safeguards, and events.
   } else if (current.view === 'events') {
     body += `<section class="analysis-section"><h3>Organizations and systems</h3><ul class="actor-list">${item.actors.map(a => `<li>${escape(a)}</li>`).join('')}</ul></section>`;
@@ -212,9 +218,10 @@ function render({ focus = false, destination = null } = {}) {
   current = readRoute(locationState.hash, data, remembered);
   document.body.dataset.view = current.view === 'controlRelationships' ? 'causes' : current.view;
   remembered[current.view] = current.itemId;
+  if (current.view === 'framework') storyMemory.set(data.case.id, selectedStory(data,current,storyMemory.get(data.case.id)).id);
   rememberedSources[`${current.view}/${current.itemId}`] = current.sourceId;
   const item = data[current.view].find(i => i.id === current.itemId);
-  const onlySourceChanged = previous && previous.view === current.view && previous.itemId === current.itemId && previous.sourceId !== current.sourceId;
+  const onlySourceChanged = previous && previous.view === current.view && previous.itemId === current.itemId && previous.storyId === current.storyId && previous.sourceId !== current.sourceId;
   const stableHash = routeFor(current.view, current.itemId, current.sourceId);
   if (location.hash !== stableHash) history.replaceState(null, '', stableHash);
   const navigationId = views.find(v => v.id === current.view).navigationId || current.view;
@@ -223,8 +230,17 @@ function render({ focus = false, destination = null } = {}) {
   if (!onlySourceChanged) {
     const oldScroll = document.querySelector('.event-list')?.scrollLeft || 0;
     const oldMapScroll = document.querySelector('.control-map')?.scrollLeft || 0;
+    const frameworkScroll = [...document.querySelectorAll('.story-choices,.concept-choices')].map(el=>el.scrollLeft);
     renderSelection();
     renderAnalysis(item);
+    document.querySelectorAll('.story-choices,.concept-choices').forEach((el,index)=>{
+      el.scrollLeft = frameworkScroll[index] || 0;
+      const active = el.querySelector('[aria-current=true]');
+      if (active) {
+        const itemRect = active.getBoundingClientRect(), containerRect = el.getBoundingClientRect();
+        if (itemRect.left < containerRect.left || itemRect.right > containerRect.right) el.scrollLeft += itemRect.left - containerRect.left - 4;
+      }
+    });
     const list = document.querySelector('.event-list');
     if (list) {
       list.scrollLeft = oldScroll;
@@ -248,7 +264,7 @@ function render({ focus = false, destination = null } = {}) {
   if (current.view === 'questions') $('question-navigation').querySelector('[data-view=questions]').insertAdjacentElement('afterend', $('selection'));
   renderSources(item);
   document.title = `${item.label || item.title} | AI Incident Explorer`;
-  $('status').textContent = `${views.find(v => v.id === current.view).label} ${item.label || item.title}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
+  $('status').textContent = `${views.find(v => v.id === current.view).label} ${item.label || item.title}${current.view === 'framework' ? `. Selected account: ${selectedStory(data,current,storyMemory.get(data.case.id)).title}` : ''}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
   if (focus) (onlySourceChanged ? $('sources-title') : $('analysis-title')).focus({ preventScroll: true });
   if (destination) $(destination).scrollIntoView({ block: 'start', behavior: 'instant' });
   previous = { ...current };
@@ -261,7 +277,7 @@ document.addEventListener('pointerdown', () => { keyboardNavigation = false; });
 document.addEventListener('click', event => {
   const anchor = event.target.closest('a[href^="#/"]');
   if (!anchor) return;
-  destination = anchor.matches('.citation') ? 'sources-title' : anchor.closest('.related-list, .safeguard-comparison') ? 'analysis-title' : null;
+  destination = anchor.matches('.citation') ? 'sources-title' : anchor.closest('.related-list, .safeguard-comparison, .safeguard-matrix') || (matchMedia('(max-width:760px)').matches && anchor.closest('.concept-choices')) ? 'analysis-title' : null;
   if (destination && anchor.hash === location.hash) {
     event.preventDefault();
     const target = $(destination);
