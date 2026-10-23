@@ -47,7 +47,7 @@
 <div><dt>Developer</dt><dd><img class="logo" src="../logos/anthropic.png" alt="" width="34" height="24">Anthropic (Claude Code); the maker of IDA MCP is not named in the sources <span class="ink3">(United States)</span></dd></div><div><dt>Deployer</dt><dd>Wiz Research (Sagi Tzadik, Nir Ohfeld, Ronen Shustin, Hillai Ben-Sasson, Yuval Avrahami, Noam Malron) <span class="ink3">(United States)</span></dd></div>      <div><dt>Type</dt><dd><a href="../cases.html?open=matrix"><span class="rn">XIV</span>Reduced Risk</a></dd></div>
       <div><dt>Sector</dt><dd>Safety and rescue, Cybersecurity</dd></div>
       <div><dt>Sources</dt><dd class="mono">9</dd></div>
-      <div><dt>Confidence</dt><dd><a href="#sources" title="Four independent news reports, the makers&#39; press release, the deployer&#39;s press release, the beneficiary&#39;s report and two other sources from the beneficiary are on file. There is no independent study or report and no finding by a regulator or court.">independently reported</a></dd></div>
+      <div><dt>Confidence</dt><dd><a href="#sources" title="Sources: four independent news reports, the makers&#39; press release, the deployer&#39;s press release, the beneficiary&#39;s report and two other sources from the beneficiary. The cited evidence includes no independent study or report and no finding by a regulator or court.">independently reported</a></dd></div>
       <div><dt>Claim</dt><dd>Independently reported</dd></div>
       <div><dt>Replications</dt><dd class="mono">0</dd></div>
 <div><dt>Registry</dt><dd><a href="https://oecd.ai/en/incidents/2026-04-28-f5d8">OECD AI Incidents Monitor <span class="mono">2026-04-28-f5d8</span></a></dd></div>    </dl>
@@ -88,7 +88,7 @@
 
     <section class="sec" data-panel="evidence">
       <h2 id="sources">Sources</h2>
-      <p class="prose basis">Independently reported. Four independent news reports, the makers&#39; press release, the deployer&#39;s press release, the beneficiary&#39;s report and two other sources from the beneficiary are on file. There is no independent study or report and no finding by a regulator or court.</p>
+      <p class="prose basis">Independently reported. Sources: four independent news reports, the makers&#39; press release, the deployer&#39;s press release, the beneficiary&#39;s report and two other sources from the beneficiary. The cited evidence includes no independent study or report and no finding by a regulator or court.</p>
       <ol class="sources">
         <li><div>
           <div class="kind"><span>report</span><span>written by the beneficiary</span><span>28 April 2026</span></div>
@@ -136,7 +136,7 @@
 
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
-<p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="conds">
+<p class="ink3 small">No replication cited.</p>      <div class="conds">
         <p class="prose"><b>What produced it.</b> A closed-source target that researchers could obtain and disassemble. GitHub&#39;s backend git services also ship as GitHub Enterprise Server binaries. Those binaries gave automated reverse engineering something to work on, and GHES 3.19.1 gave a place to confirm the exploit. AI-augmented tooling for reverse engineering: IDA MCP (per Wiz) driven by Claude Code (per The Register). It reconstructed internal protocols and traced where user input could influence server behavior across the pipeline. Experienced vulnerability researchers: six named Wiz authors formed the hypothesis and built and confirmed a working exploit. They wrote what GitHub called a thorough report that clearly demonstrated the impact. A beneficiary with a Bug Bounty intake and an on-call security team. GitHub reproduced the bug within 40 minutes of the report. It deployed a fix to github.com at 7:00 pm UTC the same day.</p>
         <p class="prose"><b>What must hold again.</b> AI output has to be confirmed by exploit, not trusted. Wiz confirmed RCE on a GHES 3.19.1 instance before reporting. That is why GitHub could validate the report in 40 minutes. The receiving organization must be able to patch its own service and ship fixes to self-hosted customers. GHES customers stayed exposed until they upgraded to the patched versions released from 10 March 2026. Disclosure must wait for the patches, here from 4 March to 28 April 2026. No exploitation had occurred, so the benefit is an exposure closed, not a loss recovered.</p>
       </div>
@@ -146,7 +146,7 @@
 
     <section class="sec" data-panel="provenance">
       <h2>Revisions</h2>
-      <p class="prose revs-line">Drafted 20 October 2026; last revised 21 October 2026, 5 changes; the last: Prose pass: a rating reason, account, purpose, the replication conditions, the system&#39;s part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged. The full list is in the <a href="AIBD-0206.json">JSON</a>.</p>
+      <p class="prose revs-line">Added 20 October 2026. Updated 21 October 2026. <a href="AIBD-0206.json">Revision history</a>.</p>
 
     </section>
   </article>

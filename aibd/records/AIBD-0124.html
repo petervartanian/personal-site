@@ -47,7 +47,7 @@
 <div><dt>Developer</dt><dd><img class="logo" src="../logos/code-intelligence-gmbh.png" alt="" width="24" height="24">Code Intelligence GmbH <span class="ink3">(Germany)</span></dd></div><div><dt>Deployer</dt><dd><span class="ditto" role="img" aria-label="the same">”</span> (beta test run by the vendor)</dd></div>      <div><dt>Type</dt><dd><a href="../cases.html?open=matrix"><span class="rn">XIV</span>Reduced Risk</a></dd></div>
       <div><dt>Sector</dt><dd>Safety and rescue, Software security</dd></div>
       <div><dt>Sources</dt><dd class="mono">6</dd></div>
-      <div><dt>Confidence</dt><dd><a href="#sources" title="Two independent news reports, two press releases from the makers and two other sources from the beneficiary are on file. There is no independent study or report and no finding by a regulator or court.">independently reported</a></dd></div>
+      <div><dt>Confidence</dt><dd><a href="#sources" title="Sources: two independent news reports, two press releases from the makers and two other sources from the beneficiary. The cited evidence includes no independent study or report and no finding by a regulator or court.">independently reported</a></dd></div>
       <div><dt>Claim</dt><dd>Independently reported</dd></div>
       <div><dt>Replications</dt><dd class="mono">0</dd></div>
 <div><dt>Registry</dt><dd><a href="https://oecd.ai/en/incidents/2025-01-09-764d">OECD AI Incidents Monitor <span class="mono">2025-01-09-764d</span></a></dd></div>    </dl>
@@ -79,7 +79,7 @@
     <section class="sec" data-panel="measured">
       <h2>Measured against</h2>
       <dl class="props facts">
-        <div><dt>Compared with</dt><dd class="ink3">No source states a comparison.</dd></div>
+        <div><dt>Compared with</dt><dd class="ink3">No comparison cited.</dd></div>
         <div><dt>Since then</dt><dd>Persisted on 31 December 2024: wolfSSL shipped the fix in release 5.7.6 on 31 December 2024, crediting the reporter in its release notes, and Code Intelligence launched Spark publicly in January 2025.<q class="fq">Fix for potential heap use after free with wolfSSL_PEM_read_bio_PrivateKey. Thanks to Peter for the issue reported. (PR 8139)</q> <a class="fsrc" href="https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable">source</a></dd></div>
       </dl>
     </section>
@@ -87,7 +87,7 @@
 
     <section class="sec" data-panel="evidence">
       <h2 id="sources">Sources</h2>
-      <p class="prose basis">Independently reported. Two independent news reports, two press releases from the makers and two other sources from the beneficiary are on file. There is no independent study or report and no finding by a regulator or court.</p>
+      <p class="prose basis">Independently reported. Sources: two independent news reports, two press releases from the makers and two other sources from the beneficiary. The cited evidence includes no independent study or report and no finding by a regulator or court.</p>
       <ol class="sources">
         <li><div>
           <div class="kind"><span>news report</span><span>independent</span><span>13 January 2025</span></div>
@@ -123,7 +123,7 @@
 
     <section class="sec" data-panel="replication">
       <h2>Replication</h2>
-<p class="ink3 small">No attempt to repeat it has been recorded.</p>      <div class="conds">
+<p class="ink3 small">No replication cited.</p>      <div class="conds">
         <p class="prose"><b>What produced it.</b> wolfSSL&#39;s source tree (before 5.7.6) set up as a CI Fuzz project by the vendor. A single “cifuzz spark” command, after which the agent chose pem_read_bio_key() as a target and generated and ran a fuzz test. A sanitizer-detectable heap use-after-free in the BIO write-back path of pem_read_bio_key() that a generated input could trigger. A maintainer team that tracked the report as ZD#18875 and merged a fix within three days of the discovery.</p>
         <p class="prose"><b>What must hold again.</b> A human must confirm the finding. The vendor says the one manual step was assessing that the bug exists and is exploitable under specific conditions. The beneficiary must be an identifiable project with a public fix record. Without wolfSSL&#39;s PR and release notes the event would rest on vendor claims alone. The AI&#39;s share of the work is described only by the vendor. wolfSSL&#39;s records name the reporter, not the tool, so the autonomy claim cannot be replicated without the vendor&#39;s product.</p>
       </div>
@@ -133,7 +133,7 @@
 
     <section class="sec" data-panel="provenance">
       <h2>Revisions</h2>
-      <p class="prose revs-line">Drafted 20 October 2026; last revised 21 October 2026, 4 changes; the last: Prose pass: a rating reason, account, purpose, the replication conditions, the system&#39;s part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged. The full list is in the <a href="AIBD-0124.json">JSON</a>.</p>
+      <p class="prose revs-line">Added 20 October 2026. Updated 21 October 2026. <a href="AIBD-0124.json">Revision history</a>.</p>
 
     </section>
   </article>

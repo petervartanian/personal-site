@@ -8,7 +8,7 @@
   "benefit_status": null,
   "source_collection": null,
   "source_entry": null,
-  "account": "The date is the CVE record's publication. Heelan's write-up followed on 22 May 2025. Heelan is an independent vulnerability researcher auditing ksmbd (the Linux kernel's in-kernel SMB3 server). He used a known bug (CVE-2025–37778) to benchmark OpenAI's o3 via the plain application programming interface (API), with no scaffolding, agents or tools. Given about 12,000 lines covering all SMB command handlers, o3 reported a previously unknown use-after-free in the handler for the SMB “logoff” command. sess->user can be freed while another connection bound to the same session still uses it. The Linux kernel CNA's record describes the fix (“ksmbd: fix use-after-free in session logoff”) with commits in five stable branches. Linuxiac reports the upstream response was fast and patches were merged for every maintained branch. Heelan calls it, to his knowledge, the first public case of a large language model (LLM) finding a vulnerability of that nature.",
+  "account": "Heelan's write-up followed on 22 May 2025. Heelan is an independent vulnerability researcher auditing ksmbd (the Linux kernel's in-kernel SMB3 server). He used a known bug (CVE-2025–37778) to benchmark OpenAI's o3 via the plain application programming interface (API), with no scaffolding, agents or tools. Given about 12,000 lines covering all SMB command handlers, o3 reported a previously unknown use-after-free in the handler for the SMB “logoff” command. sess->user can be freed while another connection bound to the same session still uses it. The Linux kernel CNA's record describes the fix (“ksmbd: fix use-after-free in session logoff”) with commits in five stable branches. Linuxiac reports the upstream response was fast and patches were merged for every maintained branch. Heelan calls it, to his knowledge, the first public case of a large language model (LLM) finding a vulnerability of that nature.",
   "category": "benefit created",
   "unexpected": false,
   "purpose": "General-purpose reasoning model used by the researcher to audit kernel source code for vulnerabilities.",
@@ -138,5 +138,5 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "One independent news report, a registry entry and the deployer's report are on file. There is no independent study or report and no finding by a regulator or court."
+  "claim_basis": "Sources: one independent news report, a registry entry and the deployer's report. The cited evidence includes no independent study or report and no finding by a regulator or court."
 }
