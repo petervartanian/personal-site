@@ -1,8 +1,8 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-stable-navigation';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-stable-navigation';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-stable-navigation';
-import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-stable-navigation';
-import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-stable-navigation';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-investigation-flow';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-investigation-flow';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-investigation-flow';
+import { frameworkSelection, frameworkAnalysis, frameworkTopics, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-investigation-flow';
+import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-investigation-flow';
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const stateNames = { held: 'Worked', failed: 'Failed', absent: 'Absent', disabled: 'Off', unknown: 'Unknown' };
@@ -79,8 +79,8 @@ function itemSelection(view, item) {
   const active = item.id === current.itemId;
   if (view === 'events') return `<li>${link(view, item, `<time>${escape(item.date)}</time><span class="event-dot" aria-hidden="true"></span><span class="event-label">${escape(item.label)}</span>`, `class="event-button" aria-current="${active}"`)}</li>`;
   const symbol = view === 'questions' ? questionIcons[item.id] : view === 'causes' ? causeIcons[item.id] : 'shield';
-  const label = view === 'questions' ? item.topic : item.title;
-  return `<li>${link(view, item, `${view === 'controls' ? '' : `<span class="choice-symbol">${icon(symbol)}</span>`}<span class="choice-label"><span class="choice-title">${escape(label)}</span></span>${view === 'controls' ? stateLabel(item) : ''}`, `aria-current="${active}" ${view === 'questions' ? `aria-label="${escape(item.topic)}: ${escape(item.title)}"` : ''}`)}</li>`;
+  const label = item.title;
+  return `<li>${link(view, item, `${view === 'controls' ? '' : `<span class="choice-symbol">${icon(symbol)}</span>`}<span class="choice-label"><span class="choice-title">${escape(label)}</span></span>${view === 'controls' ? stateLabel(item) : ''}`, `aria-current="${active}" ${view === 'questions' ? `aria-label="${escape(item.title)}"` : ''}`)}</li>`;
 }
 
 function inquiryField(name, symbol, text, className = '', supportingText = '') {
@@ -94,9 +94,18 @@ function mitigationType(item) {
   return `<div class="taxonomy-field"><span class="taxonomy-field-label">Suggested MIT category</span><a class="taxonomy-link" href="${escape(category.sourceUrl)}" target="_blank" rel="noopener noreferrer" title="${escape(taxonomy.title)}, ${escape(taxonomy.version)}"><span class="taxonomy-code">${escape(item.classification.code)}</span>${escape(category.name)}<span class="visually-hidden"> in ${escape(taxonomy.title)} (opens in a new tab)</span></a><span class="taxonomy-version">${escape(taxonomy.version)} draft</span></div>`;
 }
 
+function questionChoices(items, label) {
+  return `<ul class="choice-list questions" aria-label="${escape(label)}">${items.map(i => itemSelection('questions', i)).join('')}</ul>`;
+}
+
 function renderSelection() {
+  const applications = $('application-questions');
+  applications.hidden = true;
+  applications.innerHTML = '';
   if (current.view === 'events' || isOverview()) {
-    $('selection').innerHTML = `<div class="chronology"><div class="chronology-heading"><h2 class="selection-heading">Chronology <span class="date-span">${escape(data.case.chronologyRange || data.case.dateRange)}</span></h2><a class="account-return" href="${routeFor('framework','account-overview')}" ${isOverview() ? 'aria-current="true"' : ''}>Brief account</a></div><ol class="event-list" style="--event-count:${data.events.length}" aria-label="Select an event">${data.events.map(i => itemSelection('events', i)).join('')}</ol><div class="chronology-scroll-controls" hidden><button type="button" data-chronology-scroll="-1" aria-label="Show earlier events">Earlier</button><button type="button" data-chronology-scroll="1" aria-label="Show later events">Later</button></div></div>`;
+    const account = data.framework?.find(item => item.id === 'account-overview');
+    const introduction = account ? `<div class="incident-account"><p>${escape(account.summary)} <span class="inline-citations">${citationLinks(account, 'summary', 'framework')}</span></p></div>` : '';
+    $('selection').innerHTML = `${introduction}<div class="chronology"><div class="chronology-heading"><h2 class="selection-heading">Chronology <span class="date-span">${escape(data.case.chronologyRange || data.case.dateRange)}</span></h2></div><ol class="event-list" style="--event-count:${data.events.length}" aria-label="Select an event">${data.events.map(i => itemSelection('events', i)).join('')}</ol><div class="chronology-scroll-controls" hidden><button type="button" data-chronology-scroll="-1" aria-label="Show earlier events">Earlier</button><button type="button" data-chronology-scroll="1" aria-label="Show later events">Later</button></div></div>`;
   } else if (navigationIdFor(current) === 'framework') {
     const story = selectedStory(data, current, storyMemory.get(data.case.id));
     const selectedItem = data[current.view].find(item => item.id === current.itemId);
@@ -105,11 +114,17 @@ function renderSelection() {
   } else if (current.view === 'controls') {
     $('selection').innerHTML = safeguardsMatrix(data, current, routeFor, organizationName, stateLabel);
   } else {
-    const groups = [['case','In this incident'], ['application','For another setting']];
-    $('selection').innerHTML = `<div class="question-index">${groups.map(([scope,label]) => {
-      const items = data.questions.filter(q => q.scope === scope);
-      return items.length ? `<section><h2>${label}</h2><ul class="choice-list questions" aria-label="${label}">${items.map(i => itemSelection('questions', i)).join('')}</ul></section>` : '';
-    }).join('')}</div>`;
+    const item = data.questions.find(q => q.id === current.itemId);
+    const isApplication = item.scope === 'application';
+    const caseQuestions = data.questions.filter(q => q.scope === 'case');
+    const applicationQuestions = data.questions.filter(q => q.scope === 'application');
+    const items = isApplication ? applicationQuestions : caseQuestions;
+    const picker = `<div class="inquiry-picker"><label for="inquiry-picker">Question</label><select id="inquiry-picker">${items.map(q => `<option value="${escape(q.id)}" ${q.id === current.itemId ? 'selected' : ''}>${escape(q.title)}</option>`).join('')}</select></div>`;
+    $('selection').innerHTML = `<div class="question-index">${isApplication ? `<a class="context-return" href="${routeFor('questions',caseQuestions[0].id)}">Return to questions about this incident</a><h2 class="application-heading">Apply the findings to another setting</h2>` : ''}${picker}${questionChoices(items, isApplication ? 'Questions for another setting' : 'Questions about this incident')}</div>`;
+    if (!isApplication && applicationQuestions.length) {
+      applications.hidden = false;
+      applications.innerHTML = `<h2>Apply the findings to another setting</h2>${questionChoices(applicationQuestions, 'Questions for another setting')}`;
+    }
   }
   document.querySelector('.event-list')?.addEventListener('scroll', updateChronologyControls, { passive: true });
 }
@@ -131,9 +146,9 @@ function related(view, ids, title) {
   }).join('')}</ul></section>`;
 }
 
-function citationLinks(item, field = null) {
+function citationLinks(item, field = null, view = current.view) {
   const ids = field ? item.sourceIds.filter(id => item.sourceRefs.some(ref => ref.sourceId === id && ref.supports.split(',').map(value => value.trim()).includes(field))) : item.sourceIds;
-  return ids.map(id => { const index = item.sourceIds.indexOf(id); return `<a href="${routeFor(current.view, item.id, id)}" class="citation" aria-label="Show source ${index + 1}: ${escape(data.sources.find(s => s.id === id).publisher)}">[${index + 1}]</a>`; }).join(' ');
+  return ids.map(id => { const index = item.sourceIds.indexOf(id); return `<a href="${routeFor(view, item.id, id)}" class="citation" aria-label="Show source ${index + 1}: ${escape(data.sources.find(s => s.id === id).publisher)}">[${index + 1}]</a>`; }).join(' ');
 }
 
 function mechanism(item) {
@@ -154,10 +169,12 @@ function renderAnalysis(item) {
   $('sources').hidden = isReporting;
   if (isReporting) {
     body = `<a class="context-return" href="${routeFor('questions', item.id, current.sourceId, false)}">Return to ${escape(item.topic)}</a>` + reportingInventoryMarkup(data.reporting, data, routeFor, { questionId: item.id, fieldId: current.reportingFieldId });
+  } else if (isOverview()) {
+    body = `<h2 id="analysis-title" tabindex="-1">Reported impact</h2><div class="account-prose"><p>${escape(item.explanation)} <span class="inline-citations">${citationLinks(item, 'explanation')}</span></p></div>`;
   } else if (current.view === 'framework') {
-    body = frameworkAnalysis(item, data, citationLinks, routeFor, mechanism);
+    body = frameworkAnalysis(item, data, citationLinks, routeFor, mechanism, { current, rememberedStory: storyMemory.get(data.case.id) });
   } else if (current.view === 'controlRelationships') {
-    body = systemAnalysis(item, citationLinks, related, routeFor);
+    body = systemAnalysis(item, citationLinks, related, routeFor, frameworkTopics(data, current, routeFor, storyMemory.get(data.case.id)), data.questions);
   } else if (current.view === 'questions') {
     body += `<p class="detail-summary">${escape(item.context)} <span class="inline-citations">${citationLinks(item, 'context')}</span></p><dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision', item.whyItMatters)}${item.requestFields?.length ? `<div class="inquiry-field field-request"><dt>${icon('request')}Information to request</dt><dd><ul class="requested-records">${item.requestFields.map(field => `<li>${escape(field)}</li>`).join('')}</ul>${item.handling ? `<p class="handling-note">${escape(item.handling)}</p>` : ''}</dd></div>` : inquiryField('Information to request', 'request', item.informationNeeded, 'field-request')}${inquiryField('Who to ask', 'people', item.informationHolder, 'field-holder')}</dl>`;
   } else {
@@ -193,7 +210,7 @@ function renderAnalysis(item) {
   document.querySelector('.reading-layout').append(sourcePanel);
   $('analysis').innerHTML = body;
   if (!isReporting && matchMedia('(max-width:760px)').matches) {
-    const related = $('analysis').querySelector('.analysis-section, .related-columns');
+    const related = $('analysis').querySelector('.framework-topics, .analysis-section, .related-columns');
     if (related) related.before(sourcePanel);
     else $('analysis').append(sourcePanel);
   }
@@ -217,6 +234,7 @@ function render({ focus = false, destination = null } = {}) {
   const focusHref = activeLink?.getAttribute('href');
   const focusView = activeLink?.dataset.view;
   const restoreReportingFocus = document.activeElement?.id === 'reporting-field-select';
+  const restoreInquiryFocus = document.activeElement?.id === 'inquiry-picker';
   const locationState = readLocation(location.hash, catalog);
   const lastScreen = screen;
   screen = locationState.screen;
@@ -273,7 +291,7 @@ function render({ focus = false, destination = null } = {}) {
   const navigationId = navigationIdFor(current);
   $('investigation').prepend($('selection'));
   $('question-navigation').innerHTML = navigationViews.filter(v => data[v.id]?.length).map(v => {
-    const view = v.id === 'events' ? (remembered.whatHappened === 'events' ? 'events' : 'framework') : v.id === 'framework' ? remembered.howView || 'framework' : v.id;
+    const view = v.id === 'events' ? (data.framework?.length ? 'framework' : 'events') : v.id === 'framework' ? remembered.howView || 'framework' : v.id;
     const itemId = v.id === 'events' ? (view === 'events' ? remembered.events : 'account-overview') : view === 'framework' ? remembered.framework || 'crossing-boundaries' : remembered[view];
     const target = routeFor(view,itemId,rememberedSources[`${view}/${itemId}`]);
     return `<a data-view="${v.id}" href="${target}" ${v.id === navigationId ? 'aria-current="page"' : ''}>${v.label}</a>`;
@@ -318,10 +336,11 @@ function render({ focus = false, destination = null } = {}) {
   document.title = `${selectedReportingField?.label || item.label || item.title} | AI Incident Explorer`;
   $('status').textContent = selectedReportingField ? `Reporting field ${selectedReportingField.number}: ${selectedReportingField.label}` : `${views.find(v => v.id === navigationId).label} ${item.label || item.title}${current.view === 'framework' && !isOverview() ? `. Selected account: ${selectedStory(data,current,storyMemory.get(data.case.id)).title}` : ''}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
   if (restoreReportingFocus) $('reporting-field-select')?.focus({ preventScroll: true });
-  if (focus) {
+  if (restoreInquiryFocus) $('inquiry-picker')?.focus({ preventScroll: true });
+  if (focus && !restoreInquiryFocus && !restoreReportingFocus) {
     const matchingControl = focusView
       ? $('question-navigation').querySelector(`[data-view="${focusView}"]`)
-      : [...document.querySelectorAll('a[href]')].find(link => link.getAttribute('href') === focusHref);
+      : [...document.querySelectorAll('a[href]')].find(link => link.getAttribute('href') === focusHref && link.getClientRects().length);
     const target = destination ? $(destination) : matchingControl || (onlySourceChanged && !current.reportingFieldId ? $('sources-title') : $('analysis-title'));
     target?.focus({ preventScroll: true });
   }
@@ -345,6 +364,7 @@ document.addEventListener('click', event => {
   }
   const anchor = event.target.closest('a[href^="#/"]');
   if (!anchor) return;
+  if (anchor.dataset.view === 'events') eventOrigins.delete(data.case.id);
   if (anchor.closest('.system-events,.reporting-events') || anchor.matches('.system-response-event,.system-response-connection')) {
     const item = data[current.view].find(entry => entry.id === current.itemId);
     const field = data.reporting?.fields.find(entry => entry.id === current.reportingFieldId);
@@ -367,6 +387,7 @@ window.addEventListener('hashchange', () => {
 });
 matchMedia('(max-width:760px)').addEventListener('change', () => { if (catalog.length) render(); });
 document.addEventListener('change', event => {
+  if (event.target.id === 'inquiry-picker') location.hash = routeFor('questions', event.target.value);
   if (event.target.matches('[data-reporting-field-select]')) location.hash = routeFor('questions', current.itemId, current.sourceId, event.target.value);
   if (event.target.id === 'case-picker') location.hash = caseRouteFor(event.target.value, current?.view || 'events');
   if (event.target.name === 'compare-case') {

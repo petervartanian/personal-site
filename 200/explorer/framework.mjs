@@ -1,65 +1,66 @@
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
-const storySymbols = {
-  'evaluation-goal': '<circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="m11 8-4 7m6-7 4 7M8 18h8"/>',
-  'crossing-boundaries': '<rect x="2" y="5" width="6" height="14" rx="2"/><rect x="16" y="5" width="6" height="14" rx="2"/><path d="M8 12h8m-4-3 3 3-3 3"/>',
-  'response-gaps': '<circle cx="6" cy="12" r="3"/><path d="M9 12h5m3 0h5M13 5c3 2 3 12 0 14M17 3c4 4 4 14 0 18"/>',
-};
+const storyChoices = [
+  ['crossing-boundaries', 'Access route'],
+  ['response-gaps', 'Response decisions'],
+  ['evaluation-goal', 'Agent behavior'],
+];
 
-function storyCards(data, routeFor) {
-  const stories = data.framework.filter(item => item.type === 'story' && item.id !== 'all-connections');
-  return `<section class="story-cards analysis-section" aria-label="Explore explanations of the incident">${stories.map(story => `<a class="story-card" data-story="${escape(story.id)}" href="${routeFor('framework', story.id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${storySymbols[story.id] || ''}</svg><h3>${escape(story.title)}</h3><p>${escape(story.summary)}</p></a>`).join('')}</section>`;
-}
+const visibleStories = data => storyChoices.map(([id, label]) => {
+  const story = data.framework.find(item => item.id === id && item.type === 'story');
+  return story ? { ...story, choiceLabel: label } : null;
+}).filter(Boolean);
 
 export function selectedStory(data, current, rememberedStory) {
   const item = data[current.view]?.find(i => i.id === current.itemId) || data.framework.find(i => i.id === current.itemId);
-  const stories = data.framework.filter(i => i.type === 'story');
-  if (item?.type === 'story') return item;
+  const stories = visibleStories(data);
+  if (item?.type === 'story' && item.id !== 'all-connections') return stories.find(story => story.id === item.id) || item;
   const belongs = story => current.view === 'controlRelationships'
     ? story.relationshipIds?.includes(item?.id)
-    : story.conceptIds.includes(item?.id);
-  return stories.find(s => s.id === current.storyId && belongs(s))
-    || stories.find(s => s.id === rememberedStory && belongs(s))
+    : story.conceptIds?.includes(item?.id);
+  return stories.find(story => story.id === current.storyId && belongs(story))
+    || stories.find(story => story.id === rememberedStory && belongs(story))
+    || stories.find(belongs)
     || stories[0];
 }
 
 export function frameworkSelection(data, current, routeFor, rememberedStory, systemMarkup = '') {
   const story = selectedStory(data, current, rememberedStory);
-  const stories = data.framework.filter(i => i.type === 'story');
-  const relationship = current.view === 'controlRelationships' ? data.controlRelationships.find(i => i.id === current.itemId) : null;
-  const conceptIds = relationship ? story.conceptIds.filter(id => data.framework.find(i => i.id === id)?.relationshipIds?.includes(relationship.id)) : story.conceptIds;
-  const controlIds = relationship ? story.controlIds.filter(id => relationship.controlIds.includes(id)) : story.controlIds;
-  const contextTitle = relationship?.title || story.title;
-  const groups = [['cause','Causes'], ['capability','Capabilities'], ['harm','Harms']];
-  const scopedConcepts = data.framework.filter(item => conceptIds.includes(item.id));
-  const scopedMitigations = Object.entries(data.mitigationTaxonomy.categories).filter(([code]) => data.controls.some(control => control.classification.code === code && controlIds.includes(control.id)));
   return `<section class="framework-panel" aria-label="Incident connections">
-    <nav class="story-choices" aria-label="Choose an aspect of the incident">${stories.map(s => `<a href="${routeFor('framework',s.id)}" ${s.id === story.id ? 'aria-current="true"' : ''}>${escape(s.id === 'all-connections' ? 'All connections' : s.title)}</a>`).join('')}</nav>
+    <nav class="story-choices" aria-label="Choose an aspect of the incident">${visibleStories(data).map(s => `<a href="${routeFor('framework',s.id)}" ${s.id === story.id ? 'aria-current="true"' : ''}>${escape(s.choiceLabel)}</a>`).join('')}</nav>
     ${systemMarkup}
-    <div class="framework-axes">${groups.filter(([type]) => scopedConcepts.some(item => item.type === type)).map(([type,label]) => `<section class="framework-axis axis-${type}"><h2>${label}</h2><div class="concept-choices">${scopedConcepts.filter(i => i.type === type).map(i => {
-      const linked = conceptIds.includes(i.id);
-      return `<a aria-label="${escape(i.title)}. ${linked ? `Related to ${escape(contextTitle)}` : 'Select to examine this topic'}" class="concept-choice ${linked ? 'in-story' : 'outside-story'}" href="${routeFor('framework',i.id,undefined,story.id)}" ${i.id === current.itemId ? 'aria-current="true"' : ''}><span class="concept-mark" aria-hidden="true"></span>${escape(i.title)}</a>`;
-    }).join('')}</div></section>`).join('')}
-    ${scopedMitigations.length ? `<section class="framework-axis axis-mitigation"><h2>Mitigations</h2><div class="concept-choices">${scopedMitigations.map(([code,category]) => {
-      const controls = data.controls.filter(c => c.classification.code === code);
-      const linked = controls.filter(c => controlIds.includes(c.id));
-      return `<a aria-label="${escape(category.name)}. ${linked.length ? `Related to ${escape(contextTitle)}` : 'Select to examine these safeguards'}" class="concept-choice ${linked.length ? 'in-story' : 'outside-story'}" href="${routeFor('controls',(linked[0] || controls[0]).id)}"><span class="concept-mark" aria-hidden="true"></span>${escape(category.name)}</a>`;
-    }).join('')}</div></section>` : ''}</div>
   </section>`;
 }
 
-export function frameworkAnalysis(item, data, citationLinks, routeFor, mechanism = () => '') {
+export function frameworkTopics(data, current, routeFor, rememberedStory) {
+  if (current.itemId === 'account-overview') return '';
+  const story = selectedStory(data, current, rememberedStory);
+  if (!story) return '';
+  const relationship = current.view === 'controlRelationships' ? data.controlRelationships.find(i => i.id === current.itemId) : null;
+  const conceptIds = relationship ? story.conceptIds.filter(id => data.framework.find(i => i.id === id)?.relationshipIds?.includes(relationship.id)) : story.conceptIds;
+  const selectedItem = data[current.view]?.find(item => item.id === current.itemId);
+  const scope = relationship || (selectedItem?.type !== 'story' ? selectedItem : null);
+  const controlIds = scope ? story.controlIds.filter(id => scope.controlIds?.includes(id)) : story.controlIds;
+  const types = { cause: 'Cause', capability: 'Capability', harm: 'Harm' };
+  const concepts = conceptIds.map(id => data.framework.find(item => item.id === id)).filter(item => item && types[item.type]);
+  const controls = controlIds.map(id => data.controls.find(item => item.id === id)).filter(Boolean);
+  const chip = (type, label, title, url, active = false) => `<li class="axis-${type}"><a class="concept-choice in-story" href="${url}"${active ? ' aria-current="true"' : ''}><span class="concept-mark" aria-hidden="true"></span><span class="concept-copy"><span class="concept-kind">${escape(label)}</span><span>${escape(title)}</span></span></a></li>`;
+  return `<nav class="framework-topics" aria-label="Factors and safeguards related to ${escape(relationship?.title || story.choiceLabel || story.title)}"><ul>${concepts.map(item => chip(item.type, types[item.type], item.title, routeFor('framework', item.id, undefined, story.id), item.id === current.itemId)).join('')}${controls.map(control => chip('mitigation', 'Mitigation', control.title, routeFor('controls', control.id))).join('')}</ul></nav>`;
+}
+
+export function frameworkAnalysis(item, data, citationLinks, routeFor, mechanism = () => '', { current, rememberedStory } = {}) {
   const mapping = item.classification;
   const taxonomy = mapping && data.incidentTaxonomy?.categories?.[mapping.code];
   const detail = `<h2 id="analysis-title" tabindex="-1">${escape(item.title)}</h2><div class="account-prose"><p>${escape(item.summary)} <span class="inline-citations">${citationLinks(item, 'summary')}</span></p>${item.explanation ? `<p>${escape(item.explanation)} <span class="inline-citations">${citationLinks(item, 'explanation')}</span></p>` : ''}</div>`;
   const alternative = item.alternative ? `<section class="alternative"><h3>Another account</h3><p>${escape(item.alternative)}</p></section>` : '';
   const classification = taxonomy ? `<div class="classification-note"><h3>Proposed risk category</h3><p><a href="${escape(taxonomy.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escape(mapping.code)} ${escape(taxonomy.name)}<span class="visually-hidden"> (opens in a new tab)</span></a>${mapping.rationale ? `: ${escape(mapping.rationale)}` : ''}</p></div>` : '';
-  if (item.type === 'overview') return detail + storyCards(data, routeFor);
+  if (item.type === 'overview') return detail;
+  const topics = frameworkTopics(data, current || {view: 'framework', itemId: item.id}, routeFor, rememberedStory);
   const connections = (label, view, ids) => ids?.length ? `<div><dt>${label}</dt><dd>${ids.map(id => {
     const target = data[view].find(entry => entry.id === id);
     return `<a href="${routeFor(view,id)}">${escape(target.title || target.label)}</a>`;
   }).join('')}</dd></div>` : '';
-  return detail + alternative + mechanism(item) + classification + `<dl class="account-links">${connections('Safeguards','controls',item.controlIds)}${connections('Questions to investigate','questions',item.questionIds)}</dl>`;
+  return detail + alternative + mechanism(item) + classification + topics + `<dl class="account-links">${connections('Questions to investigate','questions',item.questionIds)}</dl>`;
 
 }
 
