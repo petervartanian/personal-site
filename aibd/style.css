@@ -762,8 +762,10 @@ sup, .sn-mark { font-size: 0.75em; line-height: 0; }
   .case-controls select { max-width: 150px; }
 }
 section.door { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 56px; align-items: start; padding-bottom: 28px; }
+.door-intro { grid-column: 1 / -1; margin-bottom: 28px; max-width: 46rem; }
+.door-purpose { margin-bottom: 14px; font-size: 17px; line-height: 26px; }
+.door-count { margin: 0 0 12px; color: var(--ink-3); font-size: var(--t-small); line-height: var(--l-small); }
 .door-item { margin: 0 0 14px; }
-.door-main .door-h { margin-top: 34px; }
 .door-deep { list-style: none; margin: 0; padding: 0; max-width: 34rem; }
 .door-deep li { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 10px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--rule); }
 .door-deep .d { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: var(--t-cap); color: var(--ink-3); }
@@ -773,12 +775,13 @@ body.door { min-height: 0; }
 .door-deep li a:hover { text-decoration: underline; }
 .door-deep .metric { display: block; font-family: var(--mono); font-size: var(--t-cap); line-height: var(--l-cap); color: var(--ink-3); margin-top: 2px; }
 .door-item .door-case { margin-bottom: 4px; }
-section.door .lede .so { display: block; }
-section.door .lede { max-width: none; font-size: 1.5rem; line-height: 32px; margin-bottom: 18px; }
+section.door .lede { max-width: none; font-size: 1.75rem; line-height: 36px; margin-bottom: 12px; }
 section.door { padding-top: 22px; padding-bottom: 18px; }
-.door-main .door-h { margin-top: 24px; }
-.door-side { padding-top: 10px; }
-@media (max-width: 980px) { section.door { grid-template-columns: 1fr; } }
+@media (max-width: 980px) {
+  section.door { grid-template-columns: 1fr; }
+  .door-side { margin-top: 24px; }
+  .door-count { margin-bottom: 0; }
+}
 .door-find { display: flex; align-items: baseline; gap: 18px; margin: 4px 0 0; max-width: 34rem; }
 .door-find input { flex: 1; font-size: var(--t-title); line-height: var(--l-title); }
 .door-h { font-family: var(--mono); font-size: var(--t-cap); line-height: var(--l-cap); font-weight: 400; color: var(--ink-3); margin: 0 0 6px; }
