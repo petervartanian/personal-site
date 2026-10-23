@@ -691,3 +691,128 @@ a:hover{text-decoration:underline;text-underline-offset:4px}
  .hosted-system .platform-link{max-width:190px;margin:4px auto 0}
  .system-route-edge{margin-top:0}
 }
+
+/* Compact reading scale, with larger touch targets on small screens. */
+.site-header{height:64px}
+.page{padding:24px 32px 36px}
+.case-switcher{margin-bottom:10px}
+.case-switcher>a{min-height:30px}
+h1{font-size:28px}
+.case-introduction{margin-bottom:18px;max-width:1100px}
+.case-context{margin-top:5px}
+.case-summary{font-size:15px;line-height:1.5;margin-top:7px;max-width:1000px}
+.case-outcome{margin-top:6px;font-size:13px;max-width:1000px}
+.case-outcome a{min-height:26px}
+h2{font-size:23px}
+.reading-layout{padding-top:20px;gap:24px}
+.detail-summary{font-size:16px;line-height:1.55;margin-top:12px}
+.analysis-section{margin-top:18px}
+.related-columns{display:flex;flex-wrap:wrap;gap:18px 30px;margin-top:18px;padding-top:16px}
+.related-columns>.analysis-section{flex:1 1 220px;min-width:0}
+.related-list a{padding:6px 0;min-height:32px}
+.sources{padding:18px}
+.sources-heading{margin-bottom:12px}
+.sources-heading h2{font-size:16px}
+.source-options{margin-bottom:14px;gap:3px 14px;padding-bottom:5px}
+.source-title{font-size:15px;margin-top:8px}
+.source-kind{margin-top:8px}
+.source-account{margin-top:15px}
+.source-account p{font-size:15px;line-height:1.55}
+.source-locator{margin-top:15px;padding-top:12px;line-height:1.5}
+.source-link{margin-top:9px;min-height:32px}
+blockquote{font-size:15px;line-height:1.55;margin-top:13px}
+.safeguard-comparison{padding:6px 0 16px}
+.safeguard-comparison caption{padding-bottom:10px;font-size:15px}
+.safeguard-comparison thead th{padding:6px 10px}
+.safeguard-comparison td,.safeguard-comparison tbody th{padding:3px 10px}
+.safeguard-comparison tbody a{min-height:32px;padding:4px 0}
+.system-selection,.chronology{padding:10px 0 16px}
+.system-heading{margin-bottom:8px}
+.system-overview{margin:10px 0 12px}
+.system-place-link,.hosted-system .application-link{min-height:56px;padding:7px 8px;gap:3px}
+.system-place-link strong{font-size:14px}
+.hosted-system .platform-link{min-height:32px;margin-top:3px;padding:3px 8px;gap:1px}
+.system-route-edge{margin-top:25px}
+.control-loop-diagram{margin:12px 0 0;padding-top:14px;grid-template-columns:minmax(0,1fr) 124px minmax(0,1.15fr)}
+.control-loop-diagram .controller-node,.control-loop-diagram .process-node{min-height:60px;padding:11px 14px;font-size:14px}
+.control-loop-diagram .loop-connections{height:66px;gap:14px;font-size:11px}
+.system-facts{margin-top:18px}
+.system-fact{padding:10px 0;gap:13px}
+.system-fact dd{line-height:1.55}
+.system-objective{margin-top:18px;padding-top:14px}
+.system-request,.reported-change{margin-top:18px;padding:14px 16px;line-height:1.5}
+.inquiry-fields{margin-top:18px;gap:17px}
+.inquiry-field dt{font-size:14px;margin-bottom:7px}
+.inquiry-field dd,.field-decision dd{font-size:15px;line-height:1.55}
+.field-decision{padding:14px 16px}
+.field-reason{margin-top:8px}
+.requested-records{gap:6px}
+.question-index section+section{margin-top:16px;padding-top:12px}
+@media(min-width:1100px){
+ #case-workspace{grid-template-columns:180px minmax(0,1fr);column-gap:28px}
+ .reading-layout{grid-template-columns:minmax(0,1fr) minmax(260px,30%)}
+ .question-navigation{padding-top:0;gap:3px}
+ .question-navigation>a,.question-navigation>a[data-view]{min-height:38px;padding:8px 0;font-size:13px}
+ .question-index .choice-list a{min-height:32px;padding:6px 8px}
+}
+/* Keep the entry page's events as a compact, navigable strip. */
+.library-case:only-child{display:block;max-width:820px;width:100%;margin-inline:auto}
+.library-case-story{gap:20px}
+.library-case-heading h2{font-size:25px;max-width:none}
+.library-case:only-child .library-case-heading h2{max-width:none}
+.library-summary{font-size:16px;line-height:1.6;max-width:none}
+.library-chronology{margin-top:22px;padding-top:12px;border-top:1px solid #cbd4cf}
+.library-chronology h3{font-size:13px;margin-bottom:3px}
+.case-events{display:grid;grid-template-columns:repeat(var(--event-count),minmax(28px,1fr));margin:0;min-height:44px}
+.case-events li::before{left:0;right:0;top:50%;bottom:auto;width:auto;height:1px}
+.case-events li:first-child::before{left:50%;top:50%}
+.case-events li:last-child::before{right:50%;bottom:auto}
+.library-event{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0;width:100%;height:44px;position:relative}
+.library-event time,.library-event-label{display:none}
+.library-dot{width:10px;height:10px}
+.library-intro h1{font-size:32px}
+.library-intro p{font-size:16px;line-height:1.55}
+@media(min-width:761px){
+ body[data-view=library]{--library-space:clamp(22px,4vh,36px)}
+ body[data-view=library] .page{min-height:calc(100svh - 64px)}
+ .incident-library{display:flex;align-items:center;justify-content:center}
+ .library-case-story{gap:24px}
+ .library-chronology{padding-bottom:0}
+}
+@media(max-width:760px){
+ .site-header{height:auto;min-height:64px}
+ .page{padding:18px 18px 28px}
+ h1{font-size:25px}
+ h2{font-size:22px}
+ .case-switcher{margin-bottom:8px}
+ .case-summary{font-size:15px}
+ .case-outcome a,.case-switcher>a{min-height:36px}
+ .question-navigation>a,.question-navigation>a[data-view]{min-height:44px;padding:10px 0}
+ .related-list a,.source-link{min-height:44px}
+ .safeguard-comparison td,.safeguard-comparison tbody th{padding:3px 5px}
+ .safeguard-comparison tbody a{min-height:44px;padding:6px 0}
+ .sources{padding:17px}
+ .system-fact{gap:6px;padding:11px 0}
+ .control-loop-diagram{grid-template-columns:minmax(0,1fr) 76px minmax(0,1.1fr)}
+ .control-loop-diagram .controller-node,.control-loop-diagram .process-node{font-size:12px;padding:10px 7px;min-height:72px}
+ .control-loop-diagram .loop-connections{height:80px;font-size:10px}
+ .library-intro h1{font-size:27px}
+ .library-case-heading h2{font-size:23px}
+ .case-events{display:flex;flex-wrap:wrap;justify-content:center;gap:0}
+ .case-events li{flex:0 0 44px}
+ .case-events li::before{display:none}
+ .library-event{width:44px}
+}
+@media(max-width:600px){
+ .system-overview{margin:7px 0 12px}
+ .system-route-edge{margin-top:0;height:23px}
+ .hosted-system .platform-link{min-height:38px}
+}
+.chronology .event-button{min-height:100px}
+.chronology .event-label{font-size:13px}
+.chronology .selection-heading{margin-bottom:12px}
+@media(max-width:760px){
+ body[data-view=causes] .case-summary,body[data-view=causes] .case-outcome,
+ body[data-view=controls] .case-summary,body[data-view=controls] .case-outcome,
+ body[data-view=questions] .case-summary,body[data-view=questions] .case-outcome{display:none}
+}
