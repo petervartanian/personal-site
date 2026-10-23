@@ -554,7 +554,7 @@ details.fold.small > summary { font-size: 0.8rem; margin: 10px 0 6px; border-bot
 .kit-handle .ic { width: 17px; height: 17px; margin: 0; color: var(--ink); }
 .kit-handle .kit-on { color: var(--ink-3); border-left: 1px solid var(--rule-2); padding-left: 9px; }
 .kit-handle .kit-on:empty { display: none; }
-.kit-tools { position: absolute; right: 0; top: calc(100% + 14px); z-index: 20; width: min(300px, calc(100vw - 48px)); display: grid; margin: 0; padding: 6px 16px 8px; background: var(--paper); border: 1px solid var(--ink); }
+.kit-tools { position: absolute; right: 0; top: calc(100% + 14px); z-index: 20; width: min(300px, calc(100vw - 48px)); max-height: calc(100dvh - 112px); overflow-y: auto; overscroll-behavior: contain; display: grid; margin: 0; padding: 6px 16px 8px; background: var(--paper); border: 1px solid var(--ink); }
 .kit[data-retracted] .kit-tools { display: none; }
 .kit .tool { display: flex; align-items: flex-start; gap: 11px; padding: 8px 0; border-bottom: 1px solid var(--rule); text-decoration: none; color: var(--ink-2); text-align: left; }
 .kit .tool:last-child { border-bottom: 0; }
@@ -765,6 +765,12 @@ sup, .sn-mark { font-size: 0.75em; line-height: 0; }
 .rail-row:hover, .rail-row.on { color: var(--ink); }
 .rail-row.on { text-decoration: underline; text-decoration-color: var(--ink); text-underline-offset: 4px; }
 .rail-row .n { font-family: var(--mono); font-size: 0.88em; font-variant-numeric: tabular-nums; color: var(--ink); }
+.rail-collection { padding: 9px 0; }
+.rail-name, .rail-subtitle, .rail-total { display: block; }
+.rail-subtitle, .rail-total { font-family: var(--sans); font-size: var(--t-cap); line-height: var(--l-cap); color: var(--ink-3); }
+.rail-total { margin-top: 2px; }
+.rail-collection.on { text-decoration: none; }
+.rail-collection.on .rail-name { text-decoration: underline; text-underline-offset: 4px; }
 body.door .withrail { align-items: stretch; }
 section.door { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 56px; align-items: start; padding-bottom: 28px; }
 .door-item { margin: 0 0 14px; }
@@ -821,6 +827,10 @@ body.door .masthead .find { display: none; }
     overflow-wrap: anywhere;
   }
   .rail-row .n { font-size: 0.95em; }
+  .rail-collection { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 5px; }
+  .rail-collection .rail-subtitle { display: none; }
+  .rail-collection .rail-total { margin: 0; font-size: inherit; }
+  .rail-collection .rail-name { font-size: inherit; }
   body.door .masthead .find { display: block; }
   .door-find { display: none; }
 }
