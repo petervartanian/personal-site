@@ -1,4 +1,4 @@
-import { views, readRoute, routeFor, selectSourceRef } from './state.mjs';
+import { views, readRoute, routeFor, selectSourceRef } from './state.mjs?v=20261023-case-grounding';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
@@ -198,7 +198,9 @@ window.addEventListener('hashchange', () => {
 matchMedia('(max-width:760px)').addEventListener('change', () => { if (data) render(); });
 
 try {
-  const response = await fetch(new URL('./case-data.json', import.meta.url));
+  const dataUrl = new URL('./case-data.json', import.meta.url);
+  dataUrl.search = new URL(import.meta.url).search;
+  const response = await fetch(dataUrl, { cache: 'no-cache' });
   if (!response.ok) throw new Error('Case data could not be loaded');
   data = await response.json();
   render();
