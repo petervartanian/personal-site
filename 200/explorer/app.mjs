@@ -1,7 +1,8 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-unified-map';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-unified-map';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-unified-map';
-import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-unified-map';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-response-reporting';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-response-reporting';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-response-reporting';
+import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-response-reporting';
+import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-response-reporting';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
@@ -62,6 +63,10 @@ const routeFor = (view, itemId, sourceId, storyId) => {
   if (view === 'causes' && data.framework?.some(i => i.id === causeConceptIds[itemId])) {
     itemId = causeConceptIds[itemId];
     view = 'framework';
+  }
+  if (view === 'questions') {
+    const fieldId = storyId === false ? undefined : storyId || (current?.view === view && current?.itemId === itemId ? current.reportingFieldId : undefined);
+    return caseRouteFor(data.case.id, view, itemId, sourceId, fieldId);
   }
   const canHaveContext = view === 'controlRelationships' || (view === 'framework' && itemId !== 'account-overview' && data.framework.find(i => i.id === itemId)?.type !== 'story');
   const contextId = canHaveContext ? storyId || current?.storyId || storyMemory.get(data.case.id) : undefined;
@@ -147,7 +152,12 @@ function renderAnalysis(item) {
     const origin = eventOrigins.get(data.case.id);
     body = `<a class="context-return" href="${origin.url}">Return to ${escape(origin.title)}</a>` + body;
   }
-  if (current.view === 'framework') {
+  const isReporting = current.view === 'questions' && Boolean(current.reportingFieldId);
+  document.querySelector('.reading-layout').classList.toggle('is-reporting', isReporting);
+  $('sources').hidden = isReporting;
+  if (isReporting) {
+    body = `<a class="context-return" href="${routeFor('questions', item.id, current.sourceId, false)}">Return to ${escape(item.topic)}</a>` + reportingInventoryMarkup(data.reporting, data, routeFor, { questionId: item.id, fieldId: current.reportingFieldId });
+  } else if (current.view === 'framework') {
     body = frameworkAnalysis(item, data, citationLinks, routeFor, mechanism);
   } else if (current.view === 'controlRelationships') {
     body = systemAnalysis(item, citationLinks, related, routeFor);
@@ -156,7 +166,7 @@ function renderAnalysis(item) {
   } else {
     body += `<p class="detail-summary">${escape([item.summary, item.detail || item.explanation].filter(Boolean).join(' '))} <span class="inline-citations">${citationLinks(item)}</span></p>`;
   }
-  if (current.view === 'framework' || current.view === 'controlRelationships') {
+  if (isReporting || current.view === 'framework' || current.view === 'controlRelationships') {
     // The control loop already includes its linked factors, safeguards, and events.
   } else if (current.view === 'events') {
     body += `<section class="analysis-section"><h3>Organizations and systems</h3><ul class="actor-list">${item.actors.map(a => `<li>${escape(a)}</li>`).join('')}</ul></section>`;
@@ -178,13 +188,14 @@ function renderAnalysis(item) {
     body += `<dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision')}${inquiryField('Option to evaluate', 'shield', item.option, 'field-request', item.implication)}${inquiryField('What to verify', 'test', item.verification, 'field-holder')}</dl>`;
     body += `<div class="related-columns">${related('events', item.eventIds, 'In the chronology')}${related('questions', item.questionIds, 'Questions to investigate')}</div>`;
   } else {
-    if (item.reportingFrameworkId) body += `<p class="reporting-reference">Reporting reference: <a href="${escape(data.reportingFramework.url)}" target="_blank" rel="noopener noreferrer">OECD framework, February 2025<span class="visually-hidden"> (opens in a new tab)</span></a></p>`;
+    const fields = reportingFieldsForQuestion(data.reporting, item.id);
+    if (fields.length) body += reportingReferenceMarkup(data.reporting, item.id, routeFor('questions', item.id, current.sourceId, fields[0].id));
     body += `<div class="related-columns">${related('events', item.eventIds, 'Relevant events')}${related('controls', item.controlIds, 'Related safeguards')}</div>`;
   }
   const sourcePanel = $('sources');
   document.querySelector('.reading-layout').append(sourcePanel);
   $('analysis').innerHTML = body;
-  if (matchMedia('(max-width:760px)').matches) {
+  if (!isReporting && matchMedia('(max-width:760px)').matches) {
     const related = $('analysis').querySelector('.analysis-section, .related-columns');
     if (related) related.before(sourcePanel);
     else $('analysis').append(sourcePanel);
@@ -204,6 +215,7 @@ function renderSources(item) {
 }
 
 function render({ focus = false, destination = null } = {}) {
+  const restoreReportingFocus = document.activeElement?.id === 'reporting-field-select';
   const locationState = readLocation(location.hash, catalog);
   const lastScreen = screen;
   screen = locationState.screen;
@@ -253,7 +265,7 @@ function render({ focus = false, destination = null } = {}) {
   if (navigationIdFor(current) === 'framework') storyMemory.set(data.case.id, selectedStory(data,current,storyMemory.get(data.case.id)).id);
   rememberedSources[`${current.view}/${current.itemId}`] = current.sourceId;
   const item = data[current.view].find(i => i.id === current.itemId);
-  const onlySourceChanged = previous && previous.view === current.view && previous.itemId === current.itemId && previous.storyId === current.storyId && previous.sourceId !== current.sourceId;
+  const onlySourceChanged = previous && previous.view === current.view && previous.itemId === current.itemId && previous.storyId === current.storyId && previous.reportingFieldId === current.reportingFieldId && previous.sourceId !== current.sourceId;
   const stableHash = routeFor(current.view, current.itemId, current.sourceId);
   if (location.hash !== stableHash) history.replaceState(null, '', stableHash);
   const navigationId = navigationIdFor(current);
@@ -300,10 +312,12 @@ function render({ focus = false, destination = null } = {}) {
   }
   if (current.view === 'questions' && matchMedia('(min-width:1100px)').matches) $('question-navigation').querySelector('[data-view=questions]').insertAdjacentElement('afterend', $('selection'));
   updateChronologyControls();
-  renderSources(item);
-  document.title = `${item.label || item.title} | AI Incident Explorer`;
-  $('status').textContent = `${views.find(v => v.id === navigationId).label} ${item.label || item.title}${current.view === 'framework' && !isOverview() ? `. Selected account: ${selectedStory(data,current,storyMemory.get(data.case.id)).title}` : ''}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
-  if (focus) (onlySourceChanged ? $('sources-title') : $('analysis-title')).focus({ preventScroll: true });
+  if (!current.reportingFieldId) renderSources(item);
+  const selectedReportingField = current.reportingFieldId ? data.reporting.fields.find(field => field.id === current.reportingFieldId) : null;
+  document.title = `${selectedReportingField?.label || item.label || item.title} | AI Incident Explorer`;
+  $('status').textContent = selectedReportingField ? `Reporting field ${selectedReportingField.number}: ${selectedReportingField.label}` : `${views.find(v => v.id === navigationId).label} ${item.label || item.title}${current.view === 'framework' && !isOverview() ? `. Selected account: ${selectedStory(data,current,storyMemory.get(data.case.id)).title}` : ''}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
+  if (restoreReportingFocus) $('reporting-field-select')?.focus({ preventScroll: true });
+  if (focus) (onlySourceChanged && !current.reportingFieldId ? $('sources-title') : $('analysis-title'))?.focus({ preventScroll: true });
   if (destination) $(destination).scrollIntoView({ block: 'start', behavior: 'instant' });
   previous = { ...current };
 }
@@ -323,7 +337,7 @@ document.addEventListener('click', event => {
   }
   const anchor = event.target.closest('a[href^="#/"]');
   if (!anchor) return;
-  if (anchor.closest('.system-events')) {
+  if (anchor.closest('.system-events') || anchor.matches('.system-response-event,.system-response-connection')) {
     const item = data[current.view].find(entry => entry.id === current.itemId);
     eventOrigins.set(data.case.id, {url:routeFor(current.view,current.itemId,current.sourceId,current.storyId), title:item.title});
   }
@@ -345,6 +359,7 @@ window.addEventListener('hashchange', () => {
 });
 for (const query of ['(max-width:760px)','(min-width:1100px)']) matchMedia(query).addEventListener('change', () => { if (catalog.length) render(); });
 document.addEventListener('change', event => {
+  if (event.target.matches('[data-reporting-field-select]')) location.hash = routeFor('questions', current.itemId, current.sourceId, event.target.value);
   if (event.target.id === 'case-picker') location.hash = caseRouteFor(event.target.value, current?.view || 'events');
   if (event.target.name === 'compare-case') {
     if (event.target.checked) selectedCases.add(event.target.value);
@@ -374,13 +389,14 @@ try {
     return response.json();
   };
   const entries = await readData('./case-index.json');
+  const reporting = await readData('./reporting-data.json');
   const results = await Promise.allSettled(entries.map(async entry => {
     const caseData = await readData(entry.path);
     if (caseData.case.id !== entry.id) throw new Error('Incident identity does not match the library');
     return caseData;
   }));
   const first = results[0].status === 'fulfilled' ? results[0].value : null;
-  catalog = results.filter(r => r.status === 'fulfilled').map(r => ({mitigationTaxonomy:first?.mitigationTaxonomy, reportingFramework:first?.reportingFramework, ...r.value}));
+  catalog = results.filter(r => r.status === 'fulfilled').map(r => ({mitigationTaxonomy:first?.mitigationTaxonomy, reportingFramework:first?.reportingFramework, ...r.value, ...(r.value.case.id === 'hugging-face-1604' ? { reporting } : {})}));
   if (!catalog.length) throw new Error('No incident accounts could be loaded');
   if (catalog.length < results.length) loadNotice = '<p class="load-notice" role="alert">One investigation could not be loaded. <button type="button" data-reload-cases>Retry</button></p>';
   render();

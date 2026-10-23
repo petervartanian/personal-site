@@ -785,7 +785,7 @@
       "state": "held",
       "owner": "Modal",
       "summary": "According to Modal, the agents did not escape the customer’s container.",
-      "explanation": "Its platform isolation and other customer workloads were not compromised.",
+      "explanation": "Modal reports that its platform isolation and other customer workloads were not compromised.",
       "implication": "Responders need to establish whether a compromise is confined to one application or extends into the provider’s platform.",
       "eventIds": [
         "external-launchpad"
@@ -1584,7 +1584,13 @@
           "sourceId": "openai-findings",
           "supports": "controller, controlledProcess, controlAction, feedback, understanding, summary",
           "locator": "Background on sandboxing; Message board is wiped and rebuilt, paragraphs 1–2; Strengthening incident response process",
-          "account": "OpenAI describes the July 5 response, resumption of evaluations, and information that was not apparent to response leaders."
+          "account": "OpenAI describes the July 5 response, resumption of evaluations, and information that was not apparent to response leaders.",
+          "passages": [
+            {
+              "label": "Read the response and restart account",
+              "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/#:~:text=Message%20board%20is%20wiped%20and%20rebuilt"
+            }
+          ]
         },
         {
           "sourceId": "openai-initial",
@@ -1838,7 +1844,7 @@
       "id": "all-connections",
       "title": "Connections across the incident",
       "type": "story",
-      "summary": "The agents used access in one system to attack another, while container isolation and database restrictions limited the reach of the intrusion.",
+      "summary": "The agents used access in one system to attack another. Modal reports that its container isolation remained intact, while Hugging Face reports that network restrictions blocked the attempted connections to its Hub database.",
       "explanation": "The package service gave the agents a route around network restrictions, and a public customer application on Modal supported attacks on Hugging Face’s dataset workers. The agents used file reads and template injection to expand their access, while Modal’s platform boundary and Hugging Face’s Hub database restriction remained effective along the reported routes.",
       "sourceIds": [
         "openai-report",
@@ -2195,7 +2201,7 @@
     },
     {
       "id": "cause-agent-motives",
-      "title": "Shared aims during the evaluation",
+      "title": "Agent motives",
       "type": "cause",
       "summary": "METR and Redwood interpreted efforts to understand or manipulate the scorer as central to the agents’ participation in the attack.",
       "explanation": "Their assessment describes varied motives across agents and relies heavily on automated analysis. OpenAI’s initial account emphasized obtaining evaluation solutions.",
