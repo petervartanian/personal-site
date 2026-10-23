@@ -1,8 +1,19 @@
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
 export function systemSelection(data, current, routeFor) {
-  const selected = data.controlRelationships.find(r => r.id === current.itemId) || data.controlRelationships.find(r => r.causeIds.includes(current.itemId));
-  return `<section class="system-selection" aria-label="Control relationships"><div class="system-heading"><h2>Who controlled what?</h2><a href="https://psas.scripts.mit.edu/home/books-and-handbooks/" target="_blank" rel="noopener noreferrer" class="method-link">CAST method<span class="visually-hidden"> (opens in a new tab)</span></a></div><ul class="control-map">${data.controlRelationships.map(r => `<li><a class="control-loop" href="${routeFor('controlRelationships', r.id)}" aria-current="${r.id === selected?.id}" aria-label="${escape(r.controller)}: ${escape(r.controlledProcess)}${r.feedback.endsWith('?') ? '. Feedback to establish' : ''}"><span class="controller-node">${escape(r.controller)}</span><span class="loop-connections" aria-hidden="true"><span class="action-direction">Actions</span><span class="feedback-direction ${r.feedback.endsWith('?') ? 'feedback-unknown' : ''}">${r.feedback.endsWith('?') ? 'Feedback to establish' : 'Feedback'}</span></span><span class="process-node">${escape(r.controlledProcess)}</span></a></li>`).join('')}</ul><div class="system-coordination"><span>OpenAI and Hugging Face</span><a href="${routeFor('questions','cross-organization-response')}">Matching credentials connected the investigations. What information was exchanged?</a></div></section>`;
+  const selected = data.controlRelationships.find(r => r.id === current.itemId) || data.controlRelationships.find(r => r.causeIds.includes(current.itemId)) || data.controlRelationships[0];
+  const unknown = selected.feedback.endsWith('?');
+  const systemLink = (id,label,classes='') => `<a class="system-place-link ${classes}" data-relationship="${id}" href="${routeFor('controlRelationships',id)}" ${id === selected.id ? 'aria-current="true"' : ''}>${label}</a>`;
+  return `<section class="system-selection" aria-label="Control relationships"><div class="system-heading"><h2>Intrusion route</h2><a href="https://psas.scripts.mit.edu/home/books-and-handbooks/" target="_blank" rel="noopener noreferrer" class="method-link">CAST method<span class="visually-hidden"> (opens in a new tab)</span></a></div>
+  <nav class="system-overview" aria-label="Systems along the intrusion route; select a system to examine its control and feedback">
+    <div class="system-place">${systemLink('evaluation-control','<strong>OpenAI</strong><span>Evaluation environment</span>')}</div>
+    <span class="system-route-edge" aria-label="Outbound access through Artifactory"><span>Via Artifactory</span></span>
+    <div class="hosted-system">${systemLink('application-control','<strong>Public customer application</strong><span>Code execution</span>','application-link')}${systemLink('platform-control','Hosted on Modal<span>Platform isolation</span>','platform-link')}</div>
+    <span class="system-route-edge" aria-label="Requests from the customer application to Hugging Face services"><span>Launchpad</span></span>
+    <div class="system-place">${systemLink('hugging-face-control','<strong>Hugging Face</strong><span>Dataset processing</span>')}</div>
+  </nav>
+  <figure class="control-loop-diagram" aria-label="Controller: ${escape(selected.controller)}. Controlled process: ${escape(selected.controlledProcess)}. ${unknown ? 'Feedback needs to be established.' : 'Feedback from the process.'}"><div class="controller-node">${escape(selected.controller)}</div><div class="loop-connections" aria-hidden="true"><span class="action-direction">Control action</span><span class="feedback-direction ${unknown ? 'feedback-unknown' : ''}">${unknown ? 'Feedback to establish' : 'Feedback'}</span></div><div class="process-node">${escape(selected.controlledProcess)}</div></figure>
+  <div class="system-coordination"><p>OpenAI and Hugging Face connected their investigations after finding matching credentials.</p><a href="${routeFor('questions','cross-organization-response')}">Examine their cooperation</a></div></section>`;
 }
 
 export function systemAnalysis(item, citationLinks, related, routeFor) {

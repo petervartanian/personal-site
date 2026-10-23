@@ -1,16 +1,14 @@
-import { caseRouteFor, comparisonRoute } from './state.mjs?v=20261023-spacing';
+import { caseRouteFor, comparisonRoute } from './state.mjs?v=20261023-reading';
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const phaseColor = phase => ({Access:'access',Intrusion:'intrusion',Response:'response',Assessment:'assessment'}[phase] || 'assessment');
 export function libraryMarkup(catalog, selected) {
-  return `<header class="library-intro"><h1 tabindex="-1">What happened, and what can we learn?</h1><p>Explore complex or widely reported AI incidents, with sources for each part of the account.</p></header>
-  <p class="library-guide">Select an incident. Each dot opens an event.</p><div class="incident-library">${catalog.map(data => {
+  return `<header class="library-intro"><h1 tabindex="-1">What happened, and what can we learn?</h1><p>Follow an AI incident through the affected systems to understand the response and examine the sources.</p></header>
+  <div class="incident-library">${catalog.map(data => {
     const c = data.case;
-    return `<article class="library-case"><div class="case-events" aria-label="Events in ${escape(c.title)}">${data.events.map(event => `<a href="${caseRouteFor(c.id,'events',event.id)}" class="library-event phase-${phaseColor(event.phase)}" aria-label="${escape(event.date)}, ${escape(event.phase)}: ${escape(event.label)}"><span class="library-dot" aria-hidden="true"></span><span class="event-hint" aria-hidden="true">${escape(event.phase)}: ${escape(event.label)}</span></a>`).join('')}</div>
-    <header class="library-case-heading"><div class="library-case-meta"><time>${escape(c.dateLabel || c.dateRange)}</time>${c.incidentId ? `<span>#${escape(c.incidentId)}</span>` : ''}</div>
-    <h2><a href="${caseRouteFor(c.id,'events')}">${escape(c.title)}</a></h2></header>
-    <div class="library-case-description"><p class="library-summary">${escape(c.catalogSummary || c.summary)}</p>
-    <p class="selection-reason">${escape(c.selectionReason)}</p></div>
-    <div class="library-case-actions"><a class="investigate-link" href="${caseRouteFor(c.id,'events')}">Open investigation</a>${catalog.length > 1 ? `<label class="compare-choice"><input type="checkbox" name="compare-case" value="${escape(c.id)}" ${selected.has(c.id) ? 'checked' : ''}><span>Compare<span class="visually-hidden"> ${escape(c.title)}</span></span></label>` : ''}</div></article>`;
+    return `<article class="library-case"><div class="library-case-story"><header class="library-case-heading"><div class="library-case-meta"><time>${escape(c.dateLabel || c.dateRange)}</time>${c.incidentId ? `<span>#${escape(c.incidentId)}</span>` : ''}</div><h2>${escape(c.title)}</h2></header>
+    <p class="library-summary">${escape(c.catalogSummary || c.summary)} ${escape(c.selectionReason)}</p>
+    <div class="library-case-actions"><a class="investigate-link" href="${caseRouteFor(c.id,'events')}">Explore this incident</a>${catalog.length > 1 ? `<label class="compare-choice"><input type="checkbox" name="compare-case" value="${escape(c.id)}" ${selected.has(c.id) ? 'checked' : ''}><span>Compare<span class="visually-hidden"> ${escape(c.title)}</span></span></label>` : ''}</div></div>
+    <div class="library-chronology"><h3>Chronology</h3><ol class="case-events" aria-label="Events in ${escape(c.title)}">${data.events.map(event => `<li><a href="${caseRouteFor(c.id,'events',event.id)}" class="library-event phase-${phaseColor(event.phase)}" aria-label="${escape(event.date)}, ${escape(event.phase)}: ${escape(event.label)}"><time>${escape(event.date)}</time><span class="library-dot" aria-hidden="true"></span><span class="library-event-label">${escape(event.label)}</span></a></li>`).join('')}</ol></div></article>`;
   }).join('')}</div>
   <div class="comparison-tray" id="comparison-tray" ${selected.size ? '' : 'hidden'}>${selectionMarkup(selected)}</div>`;
 }

@@ -1,6 +1,6 @@
-import { views, navigationViews, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-spacing';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-spacing';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-spacing';
+import { views, navigationViews, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-reading';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-reading';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-reading';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
@@ -35,7 +35,7 @@ const questionIcons = {
   'response-authority': 'oversight', 'hf-escalation': 'oversight', 'cross-organization-response': 'cooperation',
   'control-effectiveness': 'test', 'agent-motivation': 'agents',
   'infrastructure-dependencies': 'infrastructure', 'incident-reporting': 'report',
-  'forensic-tools': 'test',
+  'forensic-tools': 'test', 'foreign-provider-response': 'globe', 'critical-service-transfer': 'infrastructure',
 };
 const causeIcons = { 'boundary-crossing': 'network', 'data-to-execution': 'boundary', 'collective-goals': 'agents', 'response-escalation': 'oversight' };
 const phaseIcons = { Access: 'access', Intrusion: 'network', Response: 'shield', Assessment: 'report' };
@@ -63,7 +63,7 @@ function itemSelection(view, item) {
   if (view === 'events') return `<li>${link(view, item, `<time>${escape(item.date)}</time><span class="event-dot" aria-hidden="true"></span><span class="event-label">${escape(item.label)}</span>`, `class="event-button" aria-current="${active}"`)}</li>`;
   const symbol = view === 'questions' ? questionIcons[item.id] : view === 'causes' ? causeIcons[item.id] : 'shield';
   const label = view === 'questions' ? item.topic : item.title;
-  return `<li>${link(view, item, `<span class="choice-symbol">${icon(symbol)}</span><span class="choice-label"><span class="choice-title">${escape(label)}</span>${view === 'controls' ? stateLabel(item) : ''}</span>`, `aria-current="${active}" ${view === 'questions' ? `aria-label="${escape(item.topic)}: ${escape(item.title)}"` : ''}`)}</li>`;
+  return `<li>${link(view, item, `${view === 'controls' ? '' : `<span class="choice-symbol">${icon(symbol)}</span>`}<span class="choice-label"><span class="choice-title">${escape(label)}</span></span>${view === 'controls' ? stateLabel(item) : ''}`, `aria-current="${active}" ${view === 'questions' ? `aria-label="${escape(item.topic)}: ${escape(item.title)}"` : ''}`)}</li>`;
 }
 
 function inquiryField(name, symbol, text, className = '', supportingText = '') {
@@ -83,8 +83,14 @@ function renderSelection() {
     $('selection').innerHTML = systemSelection(data, current, routeFor);
   } else if (current.view === 'events') {
     $('selection').innerHTML = `<div class="chronology"><h2 class="selection-heading">Chronology <span class="date-span">${escape(data.case.chronologyRange || data.case.dateRange)}</span></h2><ol class="event-list" style="--event-count:${data.events.length}" aria-label="Select an event">${data.events.map(i => itemSelection('events', i)).join('')}</ol></div>`;
+  } else if (current.view === 'controls') {
+    $('selection').innerHTML = `<div class="safeguard-comparison"><table><caption>Safeguards during the incident</caption><thead><tr><th scope="col">Safeguard</th><th scope="col">Owner</th><th scope="col">State</th></tr></thead><tbody>${data.controls.map(item => `<tr ${item.id === current.itemId ? 'class="selected-safeguard"' : ''}><th scope="row">${link('controls', item, escape(item.title), `aria-current="${item.id === current.itemId}"`)}</th><td>${organizationName(item.owner)}</td><td>${stateLabel(item)}</td></tr>`).join('')}</tbody></table></div>`;
   } else {
-    $('selection').innerHTML = `<div class="choice-section"><h2 class="visually-hidden">${definition.selectionLabel}</h2><ul class="choice-list ${current.view}" aria-label="${definition.selectionLabel}">${data[current.view].map(i => itemSelection(current.view, i)).join('')}</ul></div>`;
+    const groups = [['case','In this incident'], ['application','For another setting']];
+    $('selection').innerHTML = `<div class="question-index">${groups.map(([scope,label]) => {
+      const items = data.questions.filter(q => q.scope === scope);
+      return items.length ? `<section><h2>${label}</h2><ul class="choice-list questions" aria-label="${label}">${items.map(i => itemSelection('questions', i)).join('')}</ul></section>` : '';
+    }).join('')}</div>`;
   }
 }
 
@@ -115,7 +121,7 @@ function renderAnalysis(item) {
   } else if (current.view === 'questions') {
     body += `<p class="detail-summary">${escape(item.context)}</p><dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision', item.whyItMatters)}${item.requestFields?.length ? `<div class="inquiry-field field-request"><dt>${icon('request')}Information to request</dt><dd><ul class="requested-records">${item.requestFields.map(field => `<li>${escape(field)}</li>`).join('')}</ul>${item.handling ? `<p class="handling-note">${escape(item.handling)}</p>` : ''}</dd></div>` : inquiryField('Information to request', 'request', item.informationNeeded, 'field-request')}${inquiryField('Who to ask', 'people', item.informationHolder, 'field-holder')}</dl>`;
   } else {
-    body += `<p class="detail-summary">${escape(item.summary)} <span class="inline-citations">${citationLinks(item)}</span></p>`;
+    body += `<p class="detail-summary">${escape([item.summary, item.detail || item.explanation].filter(Boolean).join(' '))} <span class="inline-citations">${citationLinks(item)}</span></p>`;
   }
   if (current.view === 'controlRelationships') {
     // The control loop already includes its linked factors, safeguards, and events.
@@ -134,7 +140,7 @@ function renderAnalysis(item) {
     body += related('events', item.eventIds, 'In the chronology');
     body += `<div class="related-columns">${related('controls', item.controlIds, 'Related safeguards')}${related('questions', item.questionIds, 'Questions to investigate')}</div>`;
   } else if (current.view === 'controls') {
-    if (item.reportedChange) body += `<section class="reported-change"><h3>Reported change</h3><p>${escape(item.reportedChange.text)} <a class="citation" href="${routeFor('controls',item.id,item.reportedChange.sourceId)}" aria-label="Show source for reported change">Source</a></p></section>`;
+    if (item.reportedChange) body += `<section class="reported-change"><h3>Reported change</h3><p>${escape(item.reportedChange.text)} <a class="citation" href="${routeFor('controls',item.id,item.reportedChange.sourceId)}" aria-label="Show source for reported change">[${item.sourceIds.indexOf(item.reportedChange.sourceId) + 1}]</a></p></section>`;
     body += mitigationType(item);
     body += `<dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision')}${inquiryField('Option to evaluate', 'shield', item.option, 'field-request')}${inquiryField('What to verify', 'test', item.verification, 'field-holder')}</dl>`;
     body += `<div class="related-columns">${related('events', item.eventIds, 'In the chronology')}${related('questions', item.questionIds, 'Questions to investigate')}</div>`;
@@ -159,7 +165,7 @@ function renderSources(item) {
     const s = data.sources.find(s => s.id === id);
     return `<a href="${routeFor(current.view, item.id, id)}" class="source-option" aria-current="${id === current.sourceId}">${i + 1}. ${escape(s.publisher)}${item.sourceIds.filter(other => data.sources.find(entry => entry.id === other).publisher === s.publisher).length > 1 ? `, ${escape(sourceDate(s.date).replace(', 2026',''))}` : ''}</a>`;
   }).join('')}</div>` : '';
-  $('sources').innerHTML = `<div class="sources-heading"><h2 id="sources-title" tabindex="-1">${current.view === 'questions' ? 'Relevant sources' : 'Sources'}</h2><span class="source-count">${item.sourceIds.indexOf(source.id) + 1} of ${item.sourceIds.length}</span></div>${options}<div class="source-publisher"><span>${escape(source.publisher)}</span><time datetime="${escape(source.date)}">${sourceDate(source.date)}</time></div><h3 class="source-title">${escape(source.title)}</h3><p class="source-kind">${escape(source.kind)}</p>${ref.account ? `<div class="source-account"><h3>${item.kind === 'Interpretation' ? 'Assessment in this source' : 'Account in this source'}</h3><p>${escape(ref.account)}</p></div>` : ''}${ref.excerpt ? `<blockquote>“${escape(ref.excerpt)}”</blockquote>` : ''}<div class="source-locator"><strong>Where to look</strong>${escape(ref.locator || source.locator)}</div><a href="${escape(source.url)}" class="source-link" target="_blank" rel="noopener noreferrer">Read the source<span class="visually-hidden"> (opens in a new tab)</span></a>`;
+  $('sources').innerHTML = `<div class="sources-heading"><h2 id="sources-title" tabindex="-1">${current.view === 'questions' ? 'Relevant sources' : 'Sources'}</h2>${item.sourceIds.length > 1 ? `<span class="source-count">${item.sourceIds.indexOf(source.id) + 1} of ${item.sourceIds.length}</span>` : ''}</div>${options}<div class="source-publisher"><span>${escape(source.publisher)}</span><time datetime="${escape(source.date)}">${sourceDate(source.date)}</time></div><h3 class="source-title">${escape(source.title)}</h3><p class="source-kind">${escape(source.kind)}</p>${ref.account ? `<div class="source-account"><h3>${item.kind === 'Interpretation' ? 'Assessment in this source' : 'Account in this source'}</h3><p>${escape(ref.account)}</p></div>` : ''}${ref.excerpt ? `<blockquote>“${escape(ref.excerpt)}”</blockquote>` : ''}<div class="source-locator"><strong>Where to look</strong>${escape(ref.locator || source.locator)}</div><a href="${escape(source.url)}" class="source-link" target="_blank" rel="noopener noreferrer">Read the source<span class="visually-hidden"> (opens in a new tab)</span></a>`;
 }
 
 function render({ focus = false, destination = null } = {}) {
@@ -188,7 +194,7 @@ function render({ focus = false, destination = null } = {}) {
     $('case-title').textContent = data.case.title;
     document.querySelector('.case-context').textContent = data.case.dateLabel || data.case.dateRange;
     document.querySelector('.case-summary').textContent = data.case.catalogSummary || data.case.summary;
-    $('case-outcome').innerHTML = `${escape(data.case.reportedOutcome)} <a href="${caseRouteFor(data.case.id,'events','impact-assessment')}">Examine the impact</a>`;
+    $('case-outcome').innerHTML = `<p>${escape(data.case.reportedOutcome)}</p><a href="${caseRouteFor(data.case.id,'events','impact-assessment')}">Examine the impact</a>`;
     const number = document.querySelector('.incident-number');
     number.hidden = !data.case.incidentId;
     number.textContent = '#' + data.case.incidentId;
@@ -212,6 +218,7 @@ function render({ focus = false, destination = null } = {}) {
   const stableHash = routeFor(current.view, current.itemId, current.sourceId);
   if (location.hash !== stableHash) history.replaceState(null, '', stableHash);
   const navigationId = views.find(v => v.id === current.view).navigationId || current.view;
+  $('investigation').prepend($('selection'));
   $('question-navigation').innerHTML = navigationViews.filter(v => data[v.id]?.length).map(v => `<a data-view="${v.id}" href="${routeFor(v.id, remembered[v.id], rememberedSources[`${v.id}/${remembered[v.id]}`])}" ${v.id === navigationId ? 'aria-current="page"' : ''}>${v.label}</a>`).join('');
   if (!onlySourceChanged) {
     const oldScroll = document.querySelector('.event-list')?.scrollLeft || 0;
@@ -238,6 +245,7 @@ function render({ focus = false, destination = null } = {}) {
       }
     }
   }
+  if (current.view === 'questions') $('question-navigation').querySelector('[data-view=questions]').insertAdjacentElement('afterend', $('selection'));
   renderSources(item);
   document.title = `${item.label || item.title} | AI Incident Explorer`;
   $('status').textContent = `${views.find(v => v.id === current.view).label} ${item.label || item.title}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
@@ -253,7 +261,7 @@ document.addEventListener('pointerdown', () => { keyboardNavigation = false; });
 document.addEventListener('click', event => {
   const anchor = event.target.closest('a[href^="#/"]');
   if (!anchor) return;
-  destination = anchor.matches('.citation') ? 'sources-title' : anchor.closest('.related-list') ? 'analysis-title' : null;
+  destination = anchor.matches('.citation') ? 'sources-title' : anchor.closest('.related-list, .safeguard-comparison') ? 'analysis-title' : null;
   if (destination && anchor.hash === location.hash) {
     event.preventDefault();
     const target = $(destination);
