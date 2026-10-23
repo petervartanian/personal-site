@@ -908,3 +908,51 @@ body[data-view=questions] .case-summary,body[data-view=questions] .case-outcome{
  .concept-choices{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;padding:3px 2px 7px}
  .concept-choice{flex:none;white-space:nowrap;min-height:44px}
 }
+
+/* The four questions organize one investigation. */
+body[data-view=overview]{--accent:#345d70;--accent-dark:#234454;--accent-wash:#d8e6eb;--source-surface:#e1e9ed;--line:#cdd5d7}
+body[data-view=overview] .case-summary,body[data-view=overview] .case-outcome{display:none}
+.chronology-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:10px}
+.chronology-heading .selection-heading{margin:0}
+.account-return{display:inline-flex;align-items:center;min-height:34px;flex:none;padding:5px 11px;font-size:13px;border-radius:20px;border:1px solid #a9bdc6;color:#345d70}
+.account-return[aria-current=true]{background:#d8e6eb;font-weight:600}
+.explanation-mode{display:flex;flex-wrap:wrap;gap:8px 22px;padding:3px 0 12px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.explanation-mode a{min-height:34px;display:inline-flex;align-items:center;font-size:13px;color:#5f5960;text-decoration:none}
+.explanation-mode a[aria-current=page]{font-weight:650;color:var(--accent-dark);text-decoration:underline;text-underline-offset:7px}
+@media(min-width:1100px){
+ .question-navigation>a,.question-navigation>a[data-view]{padding-block:10px;line-height:1.5}
+}
+@media(max-width:760px){
+ .question-navigation{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:20px;scrollbar-width:thin;padding-bottom:4px}
+ .question-navigation>a,.question-navigation>a[data-view]{flex:none;white-space:nowrap;min-height:44px}
+ .question-navigation>#selection{min-width:100%;white-space:normal}
+ .chronology-heading{align-items:center;gap:8px}
+ .chronology-heading .selection-heading{font-size:14px;line-height:1.4}
+ .chronology-heading .date-span{display:block;margin-top:3px;font-size:12px}
+ .account-return,.explanation-mode a{min-height:44px}
+}
+
+.account-links{margin:20px 0 0;font-size:13px;line-height:1.5}
+.account-links>div{display:grid;grid-template-columns:130px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.account-links dt{font-weight:600;color:var(--accent-dark)}
+.account-links dd{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0}
+.account-links a{display:inline-flex;align-items:center;min-height:28px}
+@media(max-width:760px){
+ .account-links>div{grid-template-columns:1fr;gap:5px}
+ .account-links a{min-height:44px}
+}
+.account-links a{color:var(--accent-dark);text-decoration:none}
+.account-links a:hover{text-decoration:underline;text-underline-offset:3px}
+body[data-view=events] .case-summary,body[data-view=events] .case-outcome{display:none}
+
+.chronology-scroll-controls{display:flex;justify-content:flex-end;gap:10px;margin-top:8px}
+.chronology-scroll-controls[hidden]{display:none}
+.chronology-scroll-controls button{background:transparent;border:1px solid #a9bdc6;border-radius:4px;color:#345d70;font:inherit;font-size:12px;padding:5px 12px;min-height:34px;cursor:pointer}
+.chronology-scroll-controls button:disabled{opacity:.45;cursor:default}
+@media(min-width:1320px){
+ .event-list{grid-template-columns:repeat(var(--event-count),minmax(0,1fr))}
+ .event-button{padding-inline:8px;width:100%}
+ .event-list li:first-child::before{left:14px}
+ .event-list li:last-child::before{right:calc(100% - 14px)}
+}
+@media(max-width:760px){.chronology-scroll-controls button{min-height:44px}}

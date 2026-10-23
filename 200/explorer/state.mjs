@@ -1,18 +1,32 @@
 export const views = Object.freeze([
-  { id: 'framework', label: 'Account and framework', selectionLabel: 'Connections across the incident' },
-  { id: 'events', label: 'Chronology', selectionLabel: 'Chronology' },
-  { id: 'controlRelationships', label: 'Systems and response', selectionLabel: 'Control relationships' },
-  { id: 'causes', label: 'Systems and response', selectionLabel: 'Contributing factors', navigationId: 'controlRelationships' },
-  { id: 'controls', label: 'Safeguards', selectionLabel: 'Safeguards' },
-  { id: 'questions', label: 'Open questions', selectionLabel: 'Investigative questions' },
+  { id: 'events', label: 'What happened?', selectionLabel: 'Chronology' },
+  { id: 'framework', label: 'How did it happen?', selectionLabel: 'Connections across the incident' },
+  { id: 'controlRelationships', label: 'How did it happen?', selectionLabel: 'Control relationships', navigationId: 'framework' },
+  { id: 'causes', label: 'How did it happen?', selectionLabel: 'Contributing factors', navigationId: 'framework' },
+  { id: 'controls', label: 'What affected the outcome?', selectionLabel: 'Safeguards' },
+  { id: 'questions', label: 'What do we still need to know?', selectionLabel: 'Investigative questions' },
 ]);
 
 export const navigationViews = Object.freeze(views.filter(v => !v.navigationId));
+
+export function navigationIdFor(route) {
+  if (route.view === 'framework' && route.itemId === 'account-overview') return 'events';
+  const definition = views.find(v => v.id === route.view);
+  return definition?.navigationId || route.view;
+}
+
+export const causeConceptIds = Object.freeze({
+  'boundary-crossing': 'cause-isolation-bypass',
+  'data-to-execution': 'cause-dataset-processing',
+  'collective-goals': 'cause-agent-motives',
+  'response-escalation': 'cause-warning-escalation',
+});
 
 export function readRoute(hash, data, remembered = {}) {
   let parts;
   try { parts = hash.replace(/^#\/?/, '').split('/').map(decodeURIComponent); }
   catch { parts = []; }
+  if (parts[0] === 'causes' && data.framework?.some(i => i.id === causeConceptIds[parts[1]])) parts.splice(0, 2, 'framework', causeConceptIds[parts[1]]);
   const view = views.some(v => v.id === parts[0]) && data[parts[0]]?.length ? parts[0] : data.framework?.length ? 'framework' : 'events';
   const items = data[view];
   const requestedId = view === 'questions' && parts[1] === 'cross-border-response' ? 'cross-organization-response' : parts[1];
