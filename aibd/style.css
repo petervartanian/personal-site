@@ -258,8 +258,10 @@ details.compare summary { cursor: pointer; font-weight: 500; }
 .case h3 { font-size: 1.1rem; } .case h3 a { text-decoration: none; } .case h3 a:hover { text-decoration: underline; }
 .case p { margin: 4px 0; color: var(--ink-2); font-size: 0.88rem; max-width: none; }
 .case .meta { font-family: var(--mono); font-size: 0.76rem; color: var(--ink-3); }
-.footer { padding: 0; }
-.footer-inner { display: flex; gap: 22px; padding: 14px 36px; font-size: 0.84rem; color: var(--ink-2); flex-wrap: wrap; }
+.footer { justify-self: end; max-width: 100%; padding: 0; background: var(--paper); }
+.footer .footer-inner { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 18px; padding: 0 16px; font: 12px/20px var(--sans); color: var(--ink-3); }
+.footer-inner > a, .footer-downloads a { display: inline-flex; align-items: center; min-height: 44px; }
+.footer-downloads { display: inline-flex; flex-wrap: wrap; gap: 16px; }
 .footer a { text-decoration: none; } .footer a:hover { text-decoration: underline; }
 
 @media (max-width: 980px) {
@@ -757,21 +759,20 @@ sup, .sn-mark { font-size: 0.75em; line-height: 0; }
 .submit textarea:focus, .submit input:focus { border-color: var(--ink); outline: none; }
 .submit button { justify-self: start; font-size: var(--t-body); }
 
-/* The rail: the database's inventory, one line per way in, beside the door and the explorer. The plus holds every tool. */
-.withrail { display: grid; grid-template-columns: 176px minmax(0, 1fr); gap: 16px; align-items: start; }
-.rail { position: sticky; top: 16px; padding: 20px 22px 16px; display: grid; align-content: start; }
-.rail-row { display: block; font-family: var(--serif); font-size: var(--t-title); line-height: var(--l-title); text-decoration: none; color: var(--ink-2); padding: 6px 0; border-bottom: 1px solid var(--rule); }
-.rail-row:last-child { border-bottom: 0; }
-.rail-row:hover, .rail-row.on { color: var(--ink); }
-.rail-row.on { text-decoration: underline; text-decoration-color: var(--ink); text-underline-offset: 4px; }
-.rail-row .n { font-family: var(--mono); font-size: 0.88em; font-variant-numeric: tabular-nums; color: var(--ink); }
-.rail-collection { padding: 9px 0; }
-.rail-name, .rail-subtitle, .rail-total { display: block; }
-.rail-subtitle, .rail-total { font-family: var(--sans); font-size: var(--t-cap); line-height: var(--l-cap); color: var(--ink-3); }
-.rail-total { margin-top: 2px; }
-.rail-collection.on { text-decoration: none; }
-.rail-collection.on .rail-name { text-decoration: underline; text-underline-offset: 4px; }
-body.door .withrail { align-items: stretch; }
+/* The six principal datasets share one quiet navigation strip. */
+.withrail { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
+.collection-family { display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px; padding: 5px 26px; font: 17px/24px var(--serif); }
+.collection-family > div { display: flex; flex-wrap: wrap; gap: 0 28px; }
+.collection-family a { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 0; color: var(--ink-2); text-decoration: none; }
+.collection-family a:hover, .collection-family [aria-current="page"] { color: var(--collection-ink, var(--ink)); text-decoration: underline; text-underline-offset: 5px; }
+.collection-register { white-space: nowrap; }
+@media (max-width: 650px) {
+  .collection-family { padding: 5px 20px; gap: 0 22px; font-size: 16px; }
+  .collection-family > div { display: contents; }
+}
+@media (max-width: 480px) {
+  .collection-family { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 12px; font-size: clamp(15px, 4vw, 16px); }
+}
 section.door { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 56px; align-items: start; padding-bottom: 28px; }
 .door-item { margin: 0 0 14px; }
 .door-main .door-h { margin-top: 34px; }
@@ -806,36 +807,8 @@ body.door .masthead .find { display: none; }
 .explorer.tabular [data-as-table], .explorer:not(.tabular) [data-as-list] { display: none; }
 .briefs .brief-opening { margin: 4px 0 0; color: var(--ink-2); font-size: var(--t-body); line-height: var(--l-body); max-width: 34rem; }
 @media (max-width: 980px) {
-  .withrail { grid-template-columns: minmax(0, 1fr); }
-  .rail {
-    position: static;
-    min-width: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0 20px;
-    padding: 10px 22px;
-    overflow: visible;
-  }
-  .rail-row {
-    max-width: 100%;
-    min-height: 28px;
-    padding: 4px 0;
-    border-bottom: 0;
-    font-size: var(--t-small);
-    line-height: var(--l-small);
-    overflow-wrap: anywhere;
-  }
-  .rail-row .n { font-size: 0.95em; }
-  .rail-collection { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 5px; }
-  .rail-collection .rail-subtitle { display: none; }
-  .rail-collection .rail-total { margin: 0; font-size: inherit; }
-  .rail-collection .rail-name { font-size: inherit; }
   body.door .masthead .find { display: block; }
   .door-find { display: none; }
-}
-@media (max-width: 700px) {
-  .rail { gap: 0 18px; padding: 8px 18px; }
 }
 
 /* Organization logos: small square marks beside names. */
