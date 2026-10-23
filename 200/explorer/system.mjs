@@ -1,58 +1,64 @@
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
-export function systemSelection(data, current, routeFor, { selectedStory, selectedItem } = {}) {
-  const selectedRelationship = current.view === 'controlRelationships'
-    ? data.controlRelationships.find(item => item.id === current.itemId)
-    : null;
-  const item = selectedRelationship || selectedItem || data[current.view]?.find(entry => entry.id === current.itemId) || selectedStory;
-  const relatedIds = new Set(selectedRelationship ? [selectedRelationship.id] : item?.relationshipIds || []);
-  const marks = {
+export function systemSelection(data, current, routeFor) {
+  const item = data[current.view]?.find(entry => entry.id === current.itemId);
+  const selectedRelationship = current.view === 'controlRelationships' ? item : null;
+  const relatedIds = new Set(selectedRelationship ? [item.id] : item?.relationshipIds || (current.view === 'controls' ? data.controlRelationships.filter(entry => entry.controlIds.includes(item.id)).map(entry => entry.id) : current.view === 'questions' ? data.controlRelationships.filter(entry => entry.questionIds.includes(item.id)).map(entry => entry.id) : []));
+  const active = (view, id) => current.view === view && current.itemId === id;
+  const currentAttr = (view, id) => active(view, id) ? ' aria-current="true"' : '';
+  const relationship = id => data.controlRelationships.find(entry => entry.id === id);
+    const marks = {
     'evaluation-control': '<img src="assets/openai.png" width="20" height="20" alt="">',
-    'application-control': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01m-1 6-2 2 2 2m6-4 2 2-2 2"/></svg>',
+    'application-control': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18m-9 3-3 3 3 3m3-6 3 3-3 3"/></svg>',
     'platform-control': '<img src="assets/modal.svg" width="20" height="20" alt="">',
     'hugging-face-control': '<img src="assets/hugging-face.svg" width="20" height="20" alt="">',
   };
-  const systemLink = (id, name, description, className = '') => {
-    const relationship = data.controlRelationships.find(entry => entry.id === id);
-    return `<a class="system-map-link${className ? ` ${className}` : ''}${relatedIds.has(id) ? ' related-system' : ''}" data-relationship="${id}" href="${routeFor('controlRelationships', id)}" aria-label="${escape(`${name}: ${description}. ${relationship.title}`)}"${selectedRelationship?.id === id ? ' aria-current="true"' : ''}><strong class="system-map-name"><span class="system-map-mark" aria-hidden="true">${marks[id]}</span><span>${escape(name)}</span></strong><span class="system-map-description">${escape(description)}</span></a>`;
+  const actor = (id, name, role) => `<a class="model-actor${relatedIds.has(id) ? ' related-system' : ''}" data-relationship="${id}" href="${routeFor('controlRelationships', id)}" aria-label="${escape(`${name}: ${role}. ${relationship(id).title}`)}"${currentAttr('controlRelationships', id)}><span class="model-mark" aria-hidden="true">${marks[id]}</span><span><strong>${escape(name)}</strong><span>${escape(role)}</span></span></a>`;
+  const edge = (id, field, text, kind, targetView, targetId) => {
+    const target = data[targetView].find(entry => entry.id === targetId);
+    return `<a class="model-loop-edge ${kind}${active(targetView, targetId) ? ' is-highlighted' : ''}" data-connection="${id}-${field}" href="${routeFor(targetView, targetId, undefined, 'all-connections')}" aria-label="${escape(`${text}: ${target.title}`)}"${currentAttr(targetView, targetId)}><span>${escape(text)}</span></a>`;
   };
-  const topicId = selectedStory?.id || (item?.type === 'story' ? item.id : current.storyId);
-  const responseTopic = topicId === 'response-gaps';
-  const behaviorTopic = topicId === 'evaluation-goal';
-  const shownEventIds = responseTopic ? new Set(['evaluation-restart', 'hf-containment', 'developer-attribution']) : new Set();
-  const events = (item?.eventIds || []).filter(id => !shownEventIds.has(id)).map(id => data.events.find(event => event.id === id)).filter(Boolean);
-  const responseEvent = id => {
-    const event = data.events.find(entry => entry.id === id);
-    return `<a class="system-response-event" data-event="${escape(event.id)}" href="${routeFor('events', event.id)}" aria-label="${escape(`${event.date}: ${event.label}`)}"><span class="system-response-date">${escape(event.date)}</span><span>${escape(event.label)}</span></a>`;
-  };
-  const boardId = 'capability-agent-coordination';
-  const board = `<a class="system-map-link system-board-link${item?.id === boardId ? ' related-system' : ''}" href="${routeFor('framework', boardId, undefined, 'evaluation-goal')}"${item?.id === boardId ? ' aria-current="true"' : ''}><strong class="system-map-name"><svg class="system-map-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H9l-5 4zM8 8h8m-8 4h5"/></svg><span>Unauthorized message board</span></strong><span class="system-map-description">Information and credentials</span></a>`;
-  const map = behaviorTopic ? `<nav class="system-map system-behavior-map" aria-label="Agent communication during evaluation">
-    <div class="system-map-station">${systemLink('evaluation-control', 'OpenAI', 'Evaluation agents')}</div>
-    <span class="system-map-edge"><span>Shared information</span></span>
-    <div class="system-map-station">${board}</div>
-  </nav>` : responseTopic ? `<nav class="system-map system-response-map" aria-label="Response teams and documented events">
-    <div class="system-map-station">${systemLink('evaluation-control', 'OpenAI', 'Research and security teams')}${responseEvent('evaluation-restart')}</div>
-    <a class="system-map-edge system-response-connection" data-event="developer-attribution" href="${routeFor('events', 'developer-attribution')}" aria-label="July 20: attribution and notification. OpenAI links its agents to the intrusion."><span>July 20: attribution and notification</span></a>
-    <div class="system-map-station">${systemLink('hugging-face-control', 'Hugging Face', 'Security and platform teams')}${responseEvent('hf-containment')}</div>
-  </nav>` : `<nav class="system-map" aria-label="Systems involved in the incident">
-    <div class="system-map-station">${systemLink('evaluation-control', 'OpenAI', 'Evaluation environment')}</div>
-    <span class="system-map-edge"><span>Package access</span></span>
-    <div class="system-map-station">${systemLink('application-control', 'Customer application', 'Public code endpoint')}${systemLink('platform-control', 'Modal', 'Platform isolation', 'system-map-host')}</div>
-    <span class="system-map-edge"><span>Requests</span></span>
-    <div class="system-map-station">${systemLink('hugging-face-control', 'Hugging Face', 'Dataset workers')}</div>
-  </nav>`;
-  return `${map}${events.length ? `<nav class="system-events" aria-label="Related events">${events.map(event => {
-    const label = `${event.date}: ${event.label}`;
-    return `<a class="system-event" data-event="${escape(event.id)}" href="${routeFor('events', event.id)}" aria-label="${escape(label)}" title="${escape(label)}"><span class="system-event-dot" aria-hidden="true"></span><span class="system-event-label"><span class="system-event-date">${escape(event.date)}</span><span>${escape(event.label)}</span></span></a>`;
-  }).join('')}</nav>` : ''}`;
+  const process = (relationshipId, view, id, text) => `<a class="model-process${relatedIds.has(relationshipId) ? ' related-system' : ''}" data-process="${relationshipId}" href="${routeFor(view, id, undefined, 'all-connections')}"${currentAttr(view, id)}>${escape(text)}</a>`;
+  const access = (id, text, eventIds, className) => `<a class="model-access ${className}${active('framework', id) || (current.view === 'events' && eventIds.includes(current.itemId)) ? ' is-highlighted' : ''}" data-connection="${id}" href="${routeFor('framework', id)}"${currentAttr('framework', id)}><span>${escape(text)}</span></a>`;
+  const supplementary = (view, id, text, className, mark = '') => `<a class="model-supplement ${className}" href="${routeFor(view, id)}"${currentAttr(view, id)}>${mark}<span>${escape(text)}</span></a>`;
+  return `<section class="unified-model" aria-labelledby="model-heading">
+    <div class="model-heading"><h2 id="model-heading">Systems and response</h2><button type="button" class="model-read-analysis" data-read-analysis>Read analysis</button><span class="model-key"><span class="key-access">Access</span><span class="key-control">Control</span><span class="key-information">Information</span></span></div>
+    <div class="unified-model-scroll" role="region" aria-label="Systems and their control relationships" tabindex="0">
+      <div class="model-grid">
+        <a class="model-notification${active('events', 'developer-attribution') ? ' is-highlighted' : ''}" data-connection="notification" href="${routeFor('events', 'developer-attribution', undefined, 'all-connections')}"${currentAttr('events', 'developer-attribution')}><span>July 20: OpenAI notifies Hugging Face</span></a>
+        <div class="model-station model-evaluation${relatedIds.has('evaluation-control') ? ' is-highlighted' : ''}">
+          ${actor('evaluation-control', 'OpenAI', 'Research and security teams')}
+          <div class="model-loop">${edge('evaluation-control', 'controlAction', 'Restart criteria', 'control', 'questions', 'response-authority')}${edge('evaluation-control', 'feedback', 'Missed warning signs', 'information', 'framework', 'cause-warning-escalation')}</div>
+          ${process('evaluation-control', 'framework', 'cause-agent-motives', 'Evaluation agents')}
+          ${supplementary('framework', 'capability-agent-coordination', 'Shared message board', 'model-board')}
+        </div>
+        ${access('cause-isolation-bypass', 'Via package service', ['evaluation-boundary', 'external-launchpad'], 'access-first')}
+        <div class="model-station model-application${relatedIds.has('application-control') ? ' is-highlighted' : ''}">
+          ${actor('application-control', 'Application operator', 'Customer of Modal')}
+          <div class="model-loop">${edge('application-control', 'controlAction', 'Access rules', 'control', 'controls', 'application-authentication')}<a class="model-open-question" href="${routeFor('controlRelationships', 'application-control')}">Monitoring records?</a></div>
+          ${process('application-control', 'controlRelationships', 'application-control', 'Public code endpoint')}
+          <div class="model-host">${actor('platform-control', 'Modal', 'Hosting and isolation')}</div>
+        </div>
+        ${access('cause-dataset-processing', 'Requests to workers', ['worker-compromise', 'expanded-access'], 'access-second')}
+        <div class="model-station model-hugging-face${relatedIds.has('hugging-face-control') ? ' is-highlighted' : ''}">
+          ${actor('hugging-face-control', 'Hugging Face', 'Security and platform teams')}
+          <div class="model-loop">${edge('hugging-face-control', 'controlAction', 'Containment', 'control', 'controls', 'dataset-processing-isolation')}${edge('hugging-face-control', 'feedback', 'Alert escalation', 'information', 'questions', 'hf-escalation')}</div>
+          ${process('hugging-face-control', 'framework', 'cause-dataset-processing', 'Dataset workers')}
+        </div>
+      </div>
+    </div>
+  </section>`;
 }
 
 export function systemAnalysis(item, citationLinks, related, routeFor, topics = '', questions = []) {
-  const field = (label,key) => {
+  const questionFields = item.questionFields || [];
+  const field = (label, key) => {
+    if (questionFields.includes(key)) return '';
     const refs = item.sourceRefs.filter(ref => ref.supports.split(',').map(x => x.trim()).includes(key));
     const citations = refs.map(ref => `<a class="citation" href="${routeFor('controlRelationships',item.id,ref.sourceId)}" aria-label="Show source for ${label.toLowerCase()}">[${item.sourceIds.indexOf(ref.sourceId)+1}]</a>`).join(' ');
     return `<div class="system-fact" data-system-field="${key}"><dt>${label}</dt><dd>${escape(item[key])} ${citations}</dd></div>`;
   };
-  return `<h2 id="analysis-title" tabindex="-1">${escape(item.title)}</h2><section class="system-response" aria-label="Roles and response"><dl class="system-response-roles">${field('Team or operator','controller')}${field('Activity under their control','controlledProcess')}</dl><dl class="system-response-actions">${field('Action or setting','controlAction')}${field('Information and feedback','feedback')}</dl><dl class="system-response-context">${field('Understanding at the time','understanding')}${field('Operating context','context')}</dl></section>${topics}<section class="system-objective"><h3>Proposed requirement</h3><p>${escape(item.requiredConstraint)}</p></section><section class="system-request"><h3>Question for ${escape(item.informationHolder)}</h3><p>${escape(item.informationNeeded)}</p><div class="system-request-links">${item.questionIds.map(id => questions.find(question => question.id === id)).filter(Boolean).map(question => `<a href="${routeFor('questions',question.id)}">${escape(question.title)}</a>`).join('')}</div></section>${topics ? '' : related('controls',item.controlIds,'Safeguards and possible changes')}`;
+  const decisionLinks = item.questionIds.map(id => questions.find(question => question.id === id)).filter(Boolean).map(question => `<a href="${routeFor('questions',question.id,undefined,'all-connections')}">${escape(question.title)}</a>`).join('');
+  const openQuestions = questionFields.map(key => `<li data-question-field="${key}">${escape(item[key])}</li>`).join('');
+  return `<h2 id="analysis-title" tabindex="-1">${escape(item.title)}</h2>${decisionLinks ? `<nav class="system-decision-links" aria-label="Investigate this responsibility">${decisionLinks}</nav>` : ''}<section class="system-response" aria-label="Roles and response"><dl class="system-response-roles">${field('Team or operator','controller')}${field('Activity under their control','controlledProcess')}</dl><dl class="system-response-actions">${field('Action or setting','controlAction')}${field('Information and feedback','feedback')}</dl><dl class="system-response-context">${field('Understanding at the time','understanding')}${field('Operating context','context')}</dl></section>${topics}<section class="system-objective"><h3>Proposed requirement</h3><p>${escape(item.requiredConstraint)}</p></section><section class="system-request"><h3>Questions for ${escape(item.informationHolder)}</h3>${openQuestions ? `<ul class="system-open-questions">${openQuestions}</ul>` : ''}<p>${escape(item.informationNeeded)}</p><div class="system-request-links">${item.questionIds.map(id => questions.find(question => question.id === id)).filter(Boolean).map(question => `<a href="${routeFor('questions',question.id)}">${escape(question.title)}</a>`).join('')}</div></section>${topics ? '' : related('controls',item.controlIds,'Safeguards and possible changes')}`;
 }

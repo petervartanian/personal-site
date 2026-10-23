@@ -1,8 +1,8 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-investigation-flow';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-investigation-flow';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-investigation-flow';
-import { frameworkSelection, frameworkAnalysis, frameworkTopics, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-investigation-flow';
-import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-investigation-flow';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-unified-investigation';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-unified-investigation';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-unified-investigation';
+import { frameworkAnalysis, frameworkTopics, safeguardsMatrix } from './framework.mjs?v=20261023-unified-investigation';
+import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-unified-investigation';
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const stateNames = { held: 'Worked', failed: 'Failed', absent: 'Absent', disabled: 'Off', unknown: 'Unknown' };
@@ -52,11 +52,11 @@ let loadNotice = '';
 let data;
 let current;
 let previous;
-const storyMemory = new Map();
 const eventOrigins = new Map();
 
 const isOverview = () => current?.view === 'framework' && current.itemId === 'account-overview';
 const routeFor = (view, itemId, sourceId, storyId) => {
+  if (['events', 'controls', 'questions'].includes(view) && (storyId === 'all-connections' || (storyId === undefined && current && navigationIdFor(current) === 'framework'))) return caseRouteFor(data.case.id, view, itemId, sourceId, 'all-connections');
   if (view === 'causes' && data.framework?.some(i => i.id === causeConceptIds[itemId])) {
     itemId = causeConceptIds[itemId];
     view = 'framework';
@@ -66,12 +66,12 @@ const routeFor = (view, itemId, sourceId, storyId) => {
     return caseRouteFor(data.case.id, view, itemId, sourceId, fieldId);
   }
   const canHaveContext = view === 'controlRelationships' || (view === 'framework' && itemId !== 'account-overview' && data.framework.find(i => i.id === itemId)?.type !== 'story');
-  const contextId = canHaveContext ? storyId || current?.storyId || storyMemory.get(data.case.id) : undefined;
+  const contextId = canHaveContext ? storyId : undefined;
   const context = data.framework?.find(story => story.id === contextId && story.type === 'story');
   const belongs = view === 'controlRelationships' ? context?.relationshipIds?.includes(itemId) : context?.conceptIds?.includes(itemId);
   return caseRouteFor(data.case.id, view, itemId, sourceId, belongs ? contextId : undefined);
 };
-const link = (view, item, text, attrs = '') => `<a href="${routeFor(view, item.id)}" ${attrs}>${text}</a>`;
+const link = (view, item, text, attrs = '') => `<a href="${routeFor(view, item.id, undefined, current?.storyId === 'all-connections' && ['events','controls','questions'].includes(view) ? 'all-connections' : undefined)}" ${attrs}>${text}</a>`;
 const stateLabel = item => `<span class="state state-${escape(item.state)}" title="${escape('Reported performance during the incident: ' + item.summary)}">${icon(item.state)}${escape(stateNames[item.state])}<span class="visually-hidden"> during the incident</span></span>`;
 const sourceDate = iso => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 
@@ -102,15 +102,13 @@ function renderSelection() {
   const applications = $('application-questions');
   applications.hidden = true;
   applications.innerHTML = '';
-  if (current.view === 'events' || isOverview()) {
-    const account = data.framework?.find(item => item.id === 'account-overview');
-    const introduction = account ? `<div class="incident-account"><p>${escape(account.summary)} <span class="inline-citations">${citationLinks(account, 'summary', 'framework')}</span></p></div>` : '';
-    $('selection').innerHTML = `${introduction}<div class="chronology"><div class="chronology-heading"><h2 class="selection-heading">Chronology <span class="date-span">${escape(data.case.chronologyRange || data.case.dateRange)}</span></h2></div><ol class="event-list" style="--event-count:${data.events.length}" aria-label="Select an event">${data.events.map(i => itemSelection('events', i)).join('')}</ol><div class="chronology-scroll-controls" hidden><button type="button" data-chronology-scroll="-1" aria-label="Show earlier events">Earlier</button><button type="button" data-chronology-scroll="1" aria-label="Show later events">Later</button></div></div>`;
-  } else if (navigationIdFor(current) === 'framework') {
-    const story = selectedStory(data, current, storyMemory.get(data.case.id));
-    const selectedItem = data[current.view].find(item => item.id === current.itemId);
-    const map = systemSelection(data, current, routeFor, {selectedStory: story, selectedItem});
-    $('selection').innerHTML = frameworkSelection(data, current, routeFor, story.id, map);
+  if (current.view === 'events' || isOverview() || navigationIdFor(current) === 'framework') {
+    const account = data.framework?.find(entry => entry.id === 'account-overview');
+    const introduction = isOverview() && account ? `<div class="incident-account"><p>${escape(account.summary)} <span class="inline-citations">${citationLinks(account, 'summary', 'framework')}</span></p></div>` : '';
+    const map = systemSelection(data, current, routeFor);
+    const fromModel = navigationIdFor(current) === 'framework';
+    const chronology = `<div class="chronology unified-chronology"><div class="chronology-heading"><h2 class="selection-heading">Chronology <span class="date-span">${escape(data.case.chronologyRange || data.case.dateRange)}</span></h2></div><ol class="event-list" style="--event-count:${data.events.length}" aria-label="Select an event">${data.events.map(item => `<li><a class="event-button" data-event="${escape(item.id)}" href="${routeFor('events',item.id,undefined,fromModel ? 'all-connections' : undefined)}" aria-current="${current.view === 'events' && item.id === current.itemId}"><time>${escape(item.date)}</time><span class="event-dot" aria-hidden="true"></span><span class="event-label">${escape(item.label)}</span></a></li>`).join('')}</ol><div class="chronology-scroll-controls" hidden><button type="button" data-chronology-scroll="-1" aria-label="Show earlier events">Earlier</button><button type="button" data-chronology-scroll="1" aria-label="Show later events">Later</button></div></div>`;
+    $('selection').innerHTML = introduction + map + chronology;
   } else if (current.view === 'controls') {
     $('selection').innerHTML = safeguardsMatrix(data, current, routeFor, organizationName, stateLabel);
   } else {
@@ -160,7 +158,7 @@ function mechanism(item) {
 function renderAnalysis(item) {
   const context = current.view === 'events' ? `<span>${escape(item.date)}</span><span class="phase-label">${icon(phaseIcons[item.phase])}${escape(item.phase)}</span>` : current.view === 'controls' ? `${stateLabel(item)}<span class="control-owner">Owner: ${organizationName(item.owner)}</span>` : current.view === 'causes' && item.kind === 'Interpretation' ? 'Interpretation' : '';
   let body = `<div class="detail-context">${context}</div><h2 id="analysis-title" tabindex="-1">${escape(item.label || item.title)}</h2>`;
-  if (current.view === 'events' && eventOrigins.has(data.case.id)) {
+  if (current.view === 'events' && !current.storyId && eventOrigins.has(data.case.id)) {
     const origin = eventOrigins.get(data.case.id);
     body = `<a class="context-return" href="${origin.url}">Return to ${escape(origin.title)}</a>` + body;
   }
@@ -172,9 +170,9 @@ function renderAnalysis(item) {
   } else if (isOverview()) {
     body = `<h2 id="analysis-title" tabindex="-1">Reported impact</h2><div class="account-prose"><p>${escape(item.explanation)} <span class="inline-citations">${citationLinks(item, 'explanation')}</span></p></div>`;
   } else if (current.view === 'framework') {
-    body = frameworkAnalysis(item, data, citationLinks, routeFor, mechanism, { current, rememberedStory: storyMemory.get(data.case.id) });
+    body = frameworkAnalysis(item, data, citationLinks, routeFor, mechanism, { current });
   } else if (current.view === 'controlRelationships') {
-    body = systemAnalysis(item, citationLinks, related, routeFor, frameworkTopics(data, current, routeFor, storyMemory.get(data.case.id)), data.questions);
+    body = systemAnalysis(item, citationLinks, related, routeFor, frameworkTopics(data, current, routeFor), data.questions);
   } else if (current.view === 'questions') {
     body += `<p class="detail-summary">${escape(item.context)} <span class="inline-citations">${citationLinks(item, 'context')}</span></p><dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision', item.whyItMatters)}${item.requestFields?.length ? `<div class="inquiry-field field-request"><dt>${icon('request')}Information to request</dt><dd><ul class="requested-records">${item.requestFields.map(field => `<li>${escape(field)}</li>`).join('')}</ul>${item.handling ? `<p class="handling-note">${escape(item.handling)}</p>` : ''}</dd></div>` : inquiryField('Information to request', 'request', item.informationNeeded, 'field-request')}${inquiryField('Who to ask', 'people', item.informationHolder, 'field-holder')}</dl>`;
   } else {
@@ -185,7 +183,7 @@ function renderAnalysis(item) {
   } else if (current.view === 'events') {
     body += `<section class="analysis-section"><h3>Organizations and systems</h3><ul class="actor-list">${item.actors.map(a => `<li>${escape(a)}</li>`).join('')}</ul></section>`;
     const causes = data.causes.filter(c => c.eventIds.includes(item.id));
-    const systems = data.controlRelationships?.filter(r => r.eventIds.includes(item.id)) || [];
+    const systems = (item.relationshipIds || []).map(id => data.controlRelationships.find(entry => entry.id === id)).filter(Boolean);
     body += related('controlRelationships', systems.map(r => r.id), 'Control and feedback');
     body += related('causes', causes.map(c => c.id), 'Contributing factors');
     body += `<div class="related-columns">${related('controls', item.controlIds, 'Safeguards')}${related('questions', item.questionIds, 'Questions to investigate')}</div>`;
@@ -198,8 +196,8 @@ function renderAnalysis(item) {
     body += `<div class="related-columns">${related('controls', item.controlIds, 'Related safeguards')}${related('questions', item.questionIds, 'Questions to investigate')}</div>`;
   } else if (current.view === 'controls') {
     if (item.reportedChange) body += `<section class="reported-change"><h3>Reported change</h3><p>${escape(item.reportedChange.text)} <a class="citation" href="${routeFor('controls',item.id,item.reportedChange.sourceId)}" aria-label="Show source for reported change">[${item.sourceIds.indexOf(item.reportedChange.sourceId) + 1}]</a></p></section>`;
-    body += mitigationType(item);
     body += `<dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision')}${inquiryField('Option to evaluate', 'shield', item.option, 'field-request', item.implication)}${inquiryField('What to verify', 'test', item.verification, 'field-holder')}</dl>`;
+    body += mitigationType(item);
     body += `<div class="related-columns">${related('events', item.eventIds, 'In the chronology')}${related('questions', item.questionIds, 'Questions to investigate')}</div>`;
   } else {
     const fields = reportingFieldsForQuestion(data.reporting, item.id);
@@ -282,23 +280,23 @@ function render({ focus = false, destination = null } = {}) {
   if (!isOverview()) remembered[current.view] = current.itemId;
   if (navigationIdFor(current) === 'events') remembered.whatHappened = isOverview() ? 'overview' : 'events';
   if (navigationIdFor(current) === 'framework') remembered.howView = current.view;
-  if (navigationIdFor(current) === 'framework') storyMemory.set(data.case.id, selectedStory(data,current,storyMemory.get(data.case.id)).id);
   rememberedSources[`${current.view}/${current.itemId}`] = current.sourceId;
   const item = data[current.view].find(i => i.id === current.itemId);
   const onlySourceChanged = previous && previous.view === current.view && previous.itemId === current.itemId && previous.storyId === current.storyId && previous.reportingFieldId === current.reportingFieldId && previous.sourceId !== current.sourceId;
   const stableHash = routeFor(current.view, current.itemId, current.sourceId);
   if (location.hash !== stableHash) history.replaceState(null, '', stableHash);
   const navigationId = navigationIdFor(current);
+  document.body.dataset.navigation = navigationId;
   $('investigation').prepend($('selection'));
   $('question-navigation').innerHTML = navigationViews.filter(v => data[v.id]?.length).map(v => {
-    const view = v.id === 'events' ? (data.framework?.length ? 'framework' : 'events') : v.id === 'framework' ? remembered.howView || 'framework' : v.id;
-    const itemId = v.id === 'events' ? (view === 'events' ? remembered.events : 'account-overview') : view === 'framework' ? remembered.framework || 'crossing-boundaries' : remembered[view];
-    const target = routeFor(view,itemId,rememberedSources[`${view}/${itemId}`]);
+    const view = v.id === 'events' ? (data.framework?.length ? 'framework' : 'events') : v.id === 'framework' ? remembered.howView || 'questions' : v.id;
+    const itemId = v.id === 'events' ? (view === 'events' ? remembered.events : 'account-overview') : v.id === 'framework' && !remembered.howView ? 'response-authority' : view === 'framework' ? remembered.framework || 'all-connections' : remembered[view];
+    const target = routeFor(view,itemId,rememberedSources[`${view}/${itemId}`],v.id === 'framework' && ['events','controls','questions'].includes(view) ? 'all-connections' : false);
     return `<a data-view="${v.id}" href="${target}" ${v.id === navigationId ? 'aria-current="page"' : ''}>${v.label}</a>`;
   }).join('');
   if (!onlySourceChanged) {
     const oldScroll = document.querySelector('.event-list')?.scrollLeft || 0;
-    const oldMapScroll = document.querySelector('.system-map')?.scrollLeft || 0;
+    const oldMapScroll = document.querySelector('.unified-model-scroll')?.scrollLeft || 0;
     const frameworkScroll = [...document.querySelectorAll('.story-choices,.concept-choices')].map(el=>el.scrollLeft);
     renderSelection();
     renderAnalysis(item);
@@ -319,7 +317,7 @@ function render({ focus = false, destination = null } = {}) {
         if (left < list.scrollLeft || left + selected.offsetWidth > list.scrollLeft + list.clientWidth) list.scrollLeft = Math.max(0, left - 12);
       }
     }
-    const map = document.querySelector('.system-map');
+    const map = document.querySelector('.unified-model-scroll');
     if (map) {
       map.scrollLeft = oldMapScroll;
       const active = map.querySelector('[aria-current=true]');
@@ -334,7 +332,7 @@ function render({ focus = false, destination = null } = {}) {
   if (!current.reportingFieldId) renderSources(item);
   const selectedReportingField = current.reportingFieldId ? data.reporting.fields.find(field => field.id === current.reportingFieldId) : null;
   document.title = `${selectedReportingField?.label || item.label || item.title} | AI Incident Explorer`;
-  $('status').textContent = selectedReportingField ? `Reporting field ${selectedReportingField.number}: ${selectedReportingField.label}` : `${views.find(v => v.id === navigationId).label} ${item.label || item.title}${current.view === 'framework' && !isOverview() ? `. Selected account: ${selectedStory(data,current,storyMemory.get(data.case.id)).title}` : ''}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
+  $('status').textContent = selectedReportingField ? `Reporting field ${selectedReportingField.number}: ${selectedReportingField.label}` : `${views.find(v => v.id === navigationId).label} ${item.label || item.title}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
   if (restoreReportingFocus) $('reporting-field-select')?.focus({ preventScroll: true });
   if (restoreInquiryFocus) $('inquiry-picker')?.focus({ preventScroll: true });
   if (focus && !restoreInquiryFocus && !restoreReportingFocus) {
@@ -356,6 +354,11 @@ let destination = null;
 document.addEventListener('keydown', event => { keyboardNavigation = event.key === 'Enter'; });
 document.addEventListener('pointerdown', () => { keyboardNavigation = false; });
 document.addEventListener('click', event => {
+  if (event.target.closest('[data-read-analysis]')) {
+    $('analysis-title')?.focus({preventScroll:true});
+    $('analysis-title')?.scrollIntoView({block:'start',behavior:'instant'});
+    return;
+  }
   const scrollButton = event.target.closest('[data-chronology-scroll]');
   if (scrollButton) {
     const list = document.querySelector('.event-list');
