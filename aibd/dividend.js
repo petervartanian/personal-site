@@ -28,12 +28,14 @@
   const groups = sections.map(section => ({
     section,
     key: section.dataset.dvSection,
-    list: section.querySelector('[data-dv-list]'),
+    lists: [...section.querySelectorAll('[data-dv-list]')],
+    categories: [...section.querySelectorAll('[data-dv-category]')],
     empty: section.querySelector('[data-dv-empty]'),
     rows: [...section.querySelectorAll('[data-dv-row]')].map((element, index) => ({
       element,
+      list: element.closest('[data-dv-list]'),
       index,
-      text: normalize(element.textContent),
+      text: normalize([element.textContent, element.dataset.caseTitle].join(' ')),
       type: element.dataset.type || '',
       status: element.dataset.status || '',
       currencies: (element.dataset.currencies || 'Unstated').split(',').filter(Boolean),
@@ -145,11 +147,12 @@
           && (!currencies.length || currencies.some(currency => row.currencies.includes(currency)));
         row.element.hidden = !matches;
         if (matches) shown += 1;
-        if (group.list) group.list.appendChild(row.element);
+        if (row.list) row.list.appendChild(row.element);
       });
       group.section.hidden = group.key !== view;
       if (group.empty) group.empty.hidden = shown !== 0;
-      if (group.list) group.list.hidden = shown === 0;
+      group.lists.forEach(list => { list.hidden = !list.querySelector('[data-dv-row]:not([hidden])'); });
+      group.categories.forEach(category => { category.hidden = !category.querySelector('[data-dv-row]:not([hidden])'); });
       const link = links.find(item => item.dataset.dvView === group.key);
       if (link) {
         link.setAttribute('aria-current', group.key === view ? 'true' : 'false');
