@@ -11,6 +11,7 @@ export const navigationViews = Object.freeze(views.filter(v => !v.navigationId))
 
 export function navigationIdFor(route) {
   if (route.view === 'framework' && route.itemId === 'account-overview') return 'events';
+  if (route.storyId === 'all-connections') return 'framework';
   const definition = views.find(v => v.id === route.view);
   return definition?.navigationId || route.view;
 }
@@ -29,17 +30,16 @@ export function readRoute(hash, data, remembered = {}) {
   if (parts[0] === 'causes' && data.framework?.some(i => i.id === causeConceptIds[parts[1]])) parts.splice(0, 2, 'framework', causeConceptIds[parts[1]]);
   const view = views.some(v => v.id === parts[0]) && data[parts[0]]?.length ? parts[0] : data.framework?.length ? 'framework' : 'events';
   const items = data[view];
-  if (view === 'framework' && parts[1] === 'all-connections') parts[1] = 'crossing-boundaries';
-  if (parts[3] === 'all-connections') parts[3] = 'crossing-boundaries';
-  if (view === 'framework' && parts[0] === 'framework' && !parts[1]) parts[1] = 'crossing-boundaries';
+  if (view === 'framework' && parts[0] === 'framework' && !parts[1]) parts[1] = 'all-connections';
   const requestedId = view === 'questions' && parts[1] === 'cross-border-response' ? 'cross-organization-response' : parts[1];
-  const rememberedId = remembered[view] === 'all-connections' ? 'crossing-boundaries' : remembered[view];
+  const rememberedId = remembered[view];
   const item = items.find(i => i.id === requestedId) || items.find(i => i.id === rememberedId) || items[0];
   const defaultSource = item.id === 'account-overview' ? item.sourceRefs.find(ref => ref.supports.split(',').map(value => value.trim()).includes('explanation'))?.sourceId : undefined;
   const sourceId = item.sourceIds.includes(parts[2]) ? parts[2] : defaultSource || item.sourceIds[0];
   const story = data.framework?.find(s => s.id === parts[3] && s.type === 'story');
   const storyId = story && (
-    (view === 'framework' && item.type !== 'story' && story.conceptIds?.includes(item.id))
+    (['events', 'controls', 'questions'].includes(view) && story.id === 'all-connections')
+    || (view === 'framework' && item.type !== 'story' && story.conceptIds?.includes(item.id))
     || (view === 'controlRelationships' && story.relationshipIds?.includes(item.id))
   ) ? story.id : null;
   const reportingFieldId = view === 'questions' && data.reporting?.fields?.some(field => field.id === parts[3]) ? parts[3] : null;

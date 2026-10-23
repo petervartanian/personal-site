@@ -1,51 +1,21 @@
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
-const storyChoices = [
-  ['crossing-boundaries', 'Access route'],
-  ['response-gaps', 'Response decisions'],
-  ['evaluation-goal', 'Agent behavior'],
-];
-
-const visibleStories = data => storyChoices.map(([id, label]) => {
-  const story = data.framework.find(item => item.id === id && item.type === 'story');
-  return story ? { ...story, choiceLabel: label } : null;
-}).filter(Boolean);
-
-export function selectedStory(data, current, rememberedStory) {
-  const item = data[current.view]?.find(i => i.id === current.itemId) || data.framework.find(i => i.id === current.itemId);
-  const stories = visibleStories(data);
-  if (item?.type === 'story' && item.id !== 'all-connections') return stories.find(story => story.id === item.id) || item;
-  const belongs = story => current.view === 'controlRelationships'
-    ? story.relationshipIds?.includes(item?.id)
-    : story.conceptIds?.includes(item?.id);
-  return stories.find(story => story.id === current.storyId && belongs(story))
-    || stories.find(story => story.id === rememberedStory && belongs(story))
-    || stories.find(belongs)
-    || stories[0];
-}
-
 export function frameworkSelection(data, current, routeFor, rememberedStory, systemMarkup = '') {
-  const story = selectedStory(data, current, rememberedStory);
-  return `<section class="framework-panel" aria-label="Incident connections">
-    <nav class="story-choices" aria-label="Choose an aspect of the incident">${visibleStories(data).map(s => `<a href="${routeFor('framework',s.id)}" ${s.id === story.id ? 'aria-current="true"' : ''}>${escape(s.choiceLabel)}</a>`).join('')}</nav>
-    ${systemMarkup}
-  </section>`;
+  return systemMarkup;
 }
 
-export function frameworkTopics(data, current, routeFor, rememberedStory) {
-  if (current.itemId === 'account-overview') return '';
-  const story = selectedStory(data, current, rememberedStory);
-  if (!story) return '';
-  const relationship = current.view === 'controlRelationships' ? data.controlRelationships.find(i => i.id === current.itemId) : null;
-  const conceptIds = relationship ? story.conceptIds.filter(id => data.framework.find(i => i.id === id)?.relationshipIds?.includes(relationship.id)) : story.conceptIds;
-  const selectedItem = data[current.view]?.find(item => item.id === current.itemId);
-  const scope = relationship || (selectedItem?.type !== 'story' ? selectedItem : null);
-  const controlIds = scope ? story.controlIds.filter(id => scope.controlIds?.includes(id)) : story.controlIds;
+export function frameworkTopics(data, current, routeFor) {
+  if (['account-overview', 'all-connections'].includes(current.itemId)) return '';
+  const item = data[current.view]?.find(entry => entry.id === current.itemId);
+  if (!item) return '';
   const types = { cause: 'Cause', capability: 'Capability', harm: 'Harm' };
-  const concepts = conceptIds.map(id => data.framework.find(item => item.id === id)).filter(item => item && types[item.type]);
-  const controls = controlIds.map(id => data.controls.find(item => item.id === id)).filter(Boolean);
+  const concepts = current.view === 'controlRelationships'
+    ? data.framework.filter(entry => types[entry.type] && entry.relationshipIds?.includes(item.id))
+    : item.type === 'story' ? data.framework.filter(entry => item.conceptIds?.includes(entry.id))
+    : types[item.type] ? [item] : data.framework.filter(entry => types[entry.type] && entry.eventIds?.includes(item.id));
+  const controls = (item.controlIds || []).map(id => data.controls.find(entry => entry.id === id)).filter(Boolean);
   const chip = (type, label, title, url, active = false) => `<li class="axis-${type}"><a class="concept-choice in-story" href="${url}"${active ? ' aria-current="true"' : ''}><span class="concept-mark" aria-hidden="true"></span><span class="concept-copy"><span class="concept-kind">${escape(label)}</span><span>${escape(title)}</span></span></a></li>`;
-  return `<nav class="framework-topics" aria-label="Factors and safeguards related to ${escape(relationship?.title || story.choiceLabel || story.title)}"><ul>${concepts.map(item => chip(item.type, types[item.type], item.title, routeFor('framework', item.id, undefined, story.id), item.id === current.itemId)).join('')}${controls.map(control => chip('mitigation', 'Mitigation', control.title, routeFor('controls', control.id))).join('')}</ul></nav>`;
+  return `<nav class="framework-topics" aria-label="Factors and safeguards related to ${escape(item.title || item.label)}"><ul>${concepts.map(entry => chip(entry.type, types[entry.type], entry.title, routeFor('framework', entry.id), entry.id === current.itemId)).join('')}${controls.map(control => chip('mitigation', 'Mitigation', control.title, routeFor('controls', control.id))).join('')}</ul></nav>`;
 }
 
 export function frameworkAnalysis(item, data, citationLinks, routeFor, mechanism = () => '', { current, rememberedStory } = {}) {
