@@ -11,7 +11,8 @@ export function readRoute(hash, data, remembered = {}) {
   catch { parts = []; }
   const view = views.some(v => v.id === parts[0]) ? parts[0] : 'events';
   const items = data[view];
-  const item = items.find(i => i.id === parts[1]) || items.find(i => i.id === remembered[view]) || items[0];
+  const requestedId = view === 'questions' && parts[1] === 'cross-border-response' ? 'cross-organization-response' : parts[1];
+  const item = items.find(i => i.id === requestedId) || items.find(i => i.id === remembered[view]) || items[0];
   const sourceId = item.sourceIds.includes(parts[2]) ? parts[2] : item.sourceIds[0];
   return { view, itemId: item.id, sourceId };
 }
