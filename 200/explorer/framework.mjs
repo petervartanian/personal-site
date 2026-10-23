@@ -1,5 +1,16 @@
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
+const storySymbols = {
+  'evaluation-goal': '<circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="m11 8-4 7m6-7 4 7M8 18h8"/>',
+  'crossing-boundaries': '<rect x="2" y="5" width="6" height="14" rx="2"/><rect x="16" y="5" width="6" height="14" rx="2"/><path d="M8 12h8m-4-3 3 3-3 3"/>',
+  'response-gaps': '<circle cx="6" cy="12" r="3"/><path d="M9 12h5m3 0h5M13 5c3 2 3 12 0 14M17 3c4 4 4 14 0 18"/>',
+};
+
+function storyCards(data, routeFor) {
+  const stories = data.framework.filter(item => item.type === 'story' && item.id !== 'all-connections');
+  return `<section class="story-cards analysis-section" aria-label="Explore explanations of the incident">${stories.map(story => `<a class="story-card" data-story="${escape(story.id)}" href="${routeFor('framework', story.id)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${storySymbols[story.id] || ''}</svg><h3>${escape(story.title)}</h3><p>${escape(story.summary)}</p></a>`).join('')}</section>`;
+}
+
 export function selectedStory(data, current, rememberedStory) {
   const item = data.framework.find(i => i.id === current.itemId);
   const stories = data.framework.filter(i => i.type === 'story');
@@ -23,10 +34,10 @@ export function frameworkSelection(data, current, routeFor, rememberedStory) {
 export function frameworkAnalysis(item, data, citationLinks, routeFor, mechanism = () => '') {
   const mapping = item.classification;
   const taxonomy = mapping && data.incidentTaxonomy?.categories?.[mapping.code];
-  const detail = `<h2 id="analysis-title" tabindex="-1">${escape(item.title)}</h2><div class="account-prose"><p>${escape(item.summary)}</p>${item.explanation ? `<p>${escape(item.explanation)} <span class="inline-citations">${citationLinks(item)}</span></p>` : ''}</div>`;
+  const detail = `<h2 id="analysis-title" tabindex="-1">${escape(item.title)}</h2><div class="account-prose"><p>${escape(item.summary)} <span class="inline-citations">${citationLinks(item, 'summary')}</span></p>${item.explanation ? `<p>${escape(item.explanation)} <span class="inline-citations">${citationLinks(item, 'explanation')}</span></p>` : ''}</div>`;
   const alternative = item.alternative ? `<section class="alternative"><h3>Another account</h3><p>${escape(item.alternative)}</p></section>` : '';
   const classification = taxonomy ? `<div class="classification-note"><h3>Proposed risk category</h3><p><a href="${escape(taxonomy.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escape(mapping.code)} ${escape(taxonomy.name)}<span class="visually-hidden"> (opens in a new tab)</span></a>${mapping.rationale ? `: ${escape(mapping.rationale)}` : ''}</p></div>` : '';
-  if (item.type === 'overview') return detail;
+  if (item.type === 'overview') return detail + storyCards(data, routeFor);
   const connections = (label, view, ids) => ids?.length ? `<div><dt>${label}</dt><dd>${ids.map(id => {
     const target = data[view].find(entry => entry.id === id);
     return `<a href="${routeFor(view,id)}">${escape(target.title || target.label)}</a>`;
@@ -41,5 +52,5 @@ export function safeguardsMatrix(data, current, routeFor, organizationName, stat
   return `<section class="safeguard-matrix"><div class="matrix-heading"><h2>Safeguards across organizations</h2><p>Grouped by proposed MIT mitigation category.</p></div><div class="matrix-scroll" role="region" aria-label="Safeguards by category and owner" tabindex="0"><table><thead><tr><th scope="col">Mitigation category</th>${owners.map(owner => `<th scope="col">${organizationName(owner)}</th>`).join('')}</tr></thead><tbody>${groups.map(([code,category]) => `<tr><th scope="row"><span class="matrix-code">${escape(code)}</span>${escape(category.name)}</th>${owners.map(owner => {
     const controls = data.controls.filter(c => c.owner === owner && c.classification.code === code);
     return `<td>${controls.length ? controls.map(c => `<a class="matrix-control state-${escape(c.state)}" href="${routeFor('controls',c.id)}" ${c.id === current.itemId ? 'aria-current="true"' : ''}>${stateLabel(c)}<span class="matrix-control-name">${escape(c.title)}</span></a>`).join('') : '<span class="matrix-empty" aria-label="No safeguard mapped in this category for this organization">–</span>'}</td>`;
-  }).join('')}</tr>`).join('')}</tbody></table></div><p class="matrix-key">A dash means that no safeguard is mapped here.</p></section>`;
+  }).join('')}</tr>`).join('')}</tbody></table></div><p class="matrix-key">Statuses describe reported performance during the incident. A dash means that no safeguard is mapped here.</p></section>`;
 }

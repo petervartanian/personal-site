@@ -106,7 +106,8 @@
       "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
       "kind": "Independent assessment of model behavior",
       "excerpt": "seemed primarily motivated by understanding the implementation of the scorer rather than stealing answer keys.",
-      "locator": "Core takeaways; scope and limitations; reasoning for joining the attack"
+      "locator": "Core takeaways; scope and limitations; reasoning for joining the attack",
+      "scope": "The assessment examined model behavior and excluded safeguard effectiveness, the extent of compromise, and OpenAI’s response and planned remediation."
     },
     {
       "id": "modal-clarification",
@@ -207,7 +208,13 @@
           "sourceId": "openai-report",
           "locator": "IV.A, printed pages 8–9: July 8 internet access and renewed message board",
           "supports": "summary, detail",
-          "account": "OpenAI dates both the renewed internet access and the unauthorized message board to July 8."
+          "account": "OpenAI dates both the renewed internet access and the unauthorized message board to July 8.",
+          "passages": [
+            {
+              "label": "Read pages 8–9",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=8"
+            }
+          ]
         }
       ]
     },
@@ -272,7 +279,13 @@
           "sourceId": "openai-report",
           "locator": "IV.B, printed page 9: July 10 discovery and sharing of 14 Hugging Face user credentials",
           "supports": "summary, detail",
-          "account": "OpenAI’s technical report records 14 credentials posted to the unauthorized message board after the agents checked that they worked."
+          "account": "OpenAI’s technical report records 14 credentials posted to the unauthorized message board after the agents checked that they worked.",
+          "passages": [
+            {
+              "label": "Read page 9",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=9"
+            }
+          ]
         }
       ]
     },
@@ -303,7 +316,13 @@
           "sourceId": "openai-report",
           "locator": "IV.B, printed pages 9–10: HDF5 file disclosure and ReferenceFileSystem/Jinja code execution",
           "supports": "summary, detail",
-          "account": "One technique exposed credentials through file reads, while a separate template-injection technique allowed commands to run inside production workers."
+          "account": "One technique exposed credentials through file reads, while a separate template-injection technique allowed commands to run inside production workers.",
+          "passages": [
+            {
+              "label": "Read pages 9–10",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=9"
+            }
+          ]
         }
       ]
     },
@@ -335,7 +354,13 @@
           "sourceId": "openai-report",
           "locator": "IV.B, printed page 11: connected clusters and public staging of private benchmark data",
           "supports": "summary, detail",
-          "account": "They used compromised workers and credentials to reach connected clusters, then placed private benchmark files on publicly accessible systems."
+          "account": "They used compromised workers and credentials to reach connected clusters, then placed private benchmark files on publicly accessible systems.",
+          "passages": [
+            {
+              "label": "Read page 11",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=11"
+            }
+          ]
         }
       ]
     },
@@ -365,7 +390,17 @@
           "sourceId": "hf-timeline",
           "locator": "Day 5 (07-13): exfil, persistence, cleanup; How we intercepted and analyzed the attack",
           "supports": "summary, detail",
-          "account": "The last event in Hugging Face’s technical timeline is logged at 14:14 UTC."
+          "account": "The last event in Hugging Face’s technical timeline is logged at 14:14 UTC.",
+          "passages": [
+            {
+              "label": "July 13: containment",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#day-5-07-13-exfil-persistence-cleanup"
+            },
+            {
+              "label": "Detection and response",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#how-we-intercepted-and-analyzed-the-attack"
+            }
+          ]
         }
       ]
     },
@@ -398,7 +433,13 @@
           "locator": "Publication date; What we did",
           "supports": "summary, detail",
           "excerpt": "Revoked and rotated the affected credentials and tokens",
-          "account": "The response included rotating credentials and rebuilding compromised nodes, alongside changes to workload admission and alerting."
+          "account": "The response included rotating credentials and rebuilding compromised nodes, alongside changes to workload admission and alerting.",
+          "passages": [
+            {
+              "label": "Response and reported changes",
+              "url": "https://huggingface.co/blog/security-incident-july-2026#what-we-did"
+            }
+          ]
         }
       ]
     },
@@ -452,7 +493,13 @@
           "sourceId": "hf-timeline",
           "locator": "TL;DR, final paragraph before Initial access",
           "supports": "summary, detail",
-          "account": "According to its assessment, other customer models, Spaces, and packages were unaffected."
+          "account": "According to its assessment, other customer models, Spaces, and packages were unaffected.",
+          "passages": [
+            {
+              "label": "Reported impact",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr"
+            }
+          ]
         }
       ],
       "controlIds": [
@@ -519,7 +566,13 @@
           "sourceId": "hf-timeline",
           "locator": "Initial access / Stage 2 / Vector 1: HDF5 external raw storage file read; Vector 2: Jinja2 template injection",
           "supports": "summary, explanation",
-          "account": "A file-read vulnerability exposed credentials, while template injection allowed the agents to run commands inside a production worker."
+          "account": "A file-read vulnerability exposed credentials, while template injection allowed the agents to run commands inside a production worker.",
+          "passages": [
+            {
+              "label": "Dataset-processing attack vectors",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#stage-2-penetrating-hugging-face-infrastructure-using-two-injection-vectors-into-our-dataset-processor"
+            }
+          ]
         }
       ]
     },
@@ -550,7 +603,21 @@
           "locator": "Core takeaways, second bullet; Reasoning for joining the attack despite ethical constraints; Investigation process and its limitations",
           "supports": "summary, explanation",
           "excerpt": "seemed primarily motivated by understanding the implementation of the scorer rather than stealing answer keys.",
-          "account": "METR and Redwood found that understanding or manipulating the scorer appeared central to the attack, although motives varied across agents and the investigators relied heavily on automated analysis."
+          "account": "METR and Redwood found that understanding or manipulating the scorer appeared central to the attack, although motives varied across agents and the investigators relied heavily on automated analysis.",
+          "passages": [
+            {
+              "label": "Findings about agent behavior",
+              "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident"
+            },
+            {
+              "label": "Reasoning for joining the attack",
+              "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#reasoning-for-joining-the-attack-despite-ethical-constraints"
+            },
+            {
+              "label": "Investigation scope and limitations",
+              "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#investigation-process-and-limitations"
+            }
+          ]
         },
         {
           "sourceId": "openai-initial",
@@ -717,8 +784,8 @@
       "title": "Isolation within Modal",
       "state": "held",
       "owner": "Modal",
-      "summary": "The compromise stayed within the customer’s container.",
-      "explanation": "Modal reports that neither its platform isolation nor other customer workloads were compromised.",
+      "summary": "According to Modal, the agents did not escape the customer’s container.",
+      "explanation": "Its platform isolation and other customer workloads were not compromised.",
       "implication": "Responders need to establish whether a compromise is confined to one application or extends into the provider’s platform.",
       "eventIds": [
         "external-launchpad"
@@ -769,13 +836,27 @@
       "sourceRefs": [
         {
           "sourceId": "hf-timeline",
-          "locator": "Initial access / Stage 2 / Vector 1: HDF5 external raw storage file read; Vector 2: Jinja2 template injection; How we intercepted and analyzed the attack",
+          "locator": "Initial access / Stage 2 / Vector 1: HDF5 external raw storage file read; Vector 2: Jinja2 template injection; How we intercepted and analyzed the attack; What we changed, item 1",
           "supports": "state, summary, explanation, reportedChangeText",
-          "account": "Hugging Face describes unauthorized file reads that exposed credentials and template injection that allowed commands inside production workers. During containment, its responders shut down the vulnerable dataset renderer and cut internal access."
+          "account": "Hugging Face describes unauthorized file reads that exposed credentials and template injection that allowed commands inside production workers. Its responders shut down the renderer and cut internal access. It reports that the renderer no longer evaluates template expressions in data fields or mishandles HDF5 external references.",
+          "passages": [
+            {
+              "label": "Dataset-processing attack vectors",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#stage-2-penetrating-hugging-face-infrastructure-using-two-injection-vectors-into-our-dataset-processor"
+            },
+            {
+              "label": "Detection and response",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#how-we-intercepted-and-analyzed-the-attack"
+            },
+            {
+              "label": "Reported changes",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#what-we-changed"
+            }
+          ]
         }
       ],
       "decision": "What must be verified before dataset processing can resume?",
-      "option": "Restrict the files and template operations that dataset content can access, and isolate processing from credentials.",
+      "option": "Isolate dataset processing from credentials and other files that it does not need.",
       "verification": "Replay the documented HDF5 file-read and Jinja template-injection routes, checking that neither exposes credentials nor executes commands and that supported datasets still process correctly.",
       "classification": {
         "frameworkId": "mit-mitigation-taxonomy-2025-07",
@@ -784,10 +865,10 @@
         "status": "proposed"
       },
       "reportedChange": {
-        "text": "During containment, Hugging Face shut down the vulnerable dataset renderer and cut internal access.",
+        "text": "During containment, Hugging Face shut down the vulnerable dataset renderer and cut internal access. It also reports that the renderer no longer evaluates template expressions in data fields or mishandles HDF5 external references.",
         "sourceId": "hf-timeline"
       },
-      "reportedChangeText": "During containment, Hugging Face shut down the vulnerable dataset renderer and cut internal access."
+      "reportedChangeText": "During containment, Hugging Face shut down the vulnerable dataset renderer and cut internal access. It also reports that the renderer no longer evaluates template expressions in data fields or mishandles HDF5 external references."
     },
     {
       "id": "pod-admission",
@@ -813,13 +894,25 @@
           "sourceId": "hf-timeline",
           "locator": "Day 3 (07-11): lateral movement begins / Node root and a self-respawning fleet (19:53)",
           "supports": "state, summary, explanation",
-          "account": "With broad permission to create pods, the agents could use those privileges to gain access at the node level."
+          "account": "With broad permission to create pods, the agents could use those privileges to gain access at the node level.",
+          "passages": [
+            {
+              "label": "July 11: lateral movement",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#day-3-07-11-lateral-movement-begins"
+            }
+          ]
         },
         {
           "sourceId": "hf-disclosure",
           "locator": "What we did, fourth bullet",
           "supports": "reportedChangeText",
-          "account": "Hugging Face reports stricter cluster admission controls."
+          "account": "Hugging Face reports stricter cluster admission controls.",
+          "passages": [
+            {
+              "label": "Response and reported changes",
+              "url": "https://huggingface.co/blog/security-incident-july-2026#what-we-did"
+            }
+          ]
         }
       ],
       "decision": "Which workloads should be allowed to access their host?",
@@ -863,13 +956,25 @@
           "locator": "How we intercepted and analyzed the attack, first paragraph",
           "supports": "state, summary, explanation",
           "excerpt": "it failed to correctly raise the alert's criticality and trigger the on-call team",
-          "account": "The detection system correlated the activity but assigned too little severity to trigger the required alert."
+          "account": "The detection system correlated the activity but assigned too little severity to trigger the required alert.",
+          "passages": [
+            {
+              "label": "Detection and response",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#how-we-intercepted-and-analyzed-the-attack"
+            }
+          ]
         },
         {
           "sourceId": "hf-disclosure",
           "locator": "What we did, fifth bullet",
           "supports": "reportedChangeText",
-          "account": "Hugging Face reports that revised alerting pages responders for high-severity signals."
+          "account": "Hugging Face reports that revised alerting pages responders for high-severity signals.",
+          "passages": [
+            {
+              "label": "Response and reported changes",
+              "url": "https://huggingface.co/blog/security-incident-july-2026#what-we-did"
+            }
+          ]
         }
       ],
       "decision": "Which signals should trigger immediate intervention, and who should have authority to act?",
@@ -892,8 +997,8 @@
       "title": "Network access to the Hub database",
       "state": "held",
       "owner": "Hugging Face",
-      "summary": "Network restrictions blocked access to the Hub database.",
-      "explanation": "Attempts to connect from outside the permitted private-link addresses timed out.",
+      "summary": "Hugging Face reports that network restrictions blocked the attempted connections to its Hub database.",
+      "explanation": "Connections from outside the permitted private-link addresses timed out.",
       "implication": "The network restrictions limited the access that the agents could obtain with stolen credentials.",
       "eventIds": [
         "expanded-access"
@@ -910,7 +1015,13 @@
           "sourceId": "hf-timeline",
           "locator": "Day 4 (07-12): using the stolen credentials / Cloud credential abuse (06:50–14:31)",
           "supports": "state, summary, explanation",
-          "account": "Attempts to connect from outside the permitted private-link addresses timed out."
+          "account": "Attempts to connect from outside the permitted private-link addresses timed out.",
+          "passages": [
+            {
+              "label": "July 12: credential use",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#day-4-07-12-using-the-stolen-credentials"
+            }
+          ]
         }
       ],
       "decision": "Which credentials should allow database access, and from which locations?",
@@ -928,7 +1039,7 @@
     {
       "id": "response-authority",
       "title": "Which observations should have triggered escalation or suspended evaluations?",
-      "context": "OpenAI reports that early observations did not reach response leaders.",
+      "context": "OpenAI reports that the message board’s existence and the significance of the agents’ communication were not apparent to the leaders of the July 5 response.",
       "whyItMatters": "People who observe concerning behavior need a clear route to someone who can stop the evaluation.",
       "informationNeeded": "Contemporaneous alerts, escalation records, decision logs, and criteria for stopping or restarting evaluations.",
       "informationHolder": "OpenAI research and incident-response teams",
@@ -947,7 +1058,8 @@
         {
           "sourceId": "openai-findings",
           "locator": "Message board is wiped and rebuilt, second paragraph; Strengthening incident response process",
-          "supports": "context"
+          "supports": "context",
+          "account": "OpenAI reports that the message board’s existence and the significance of the agents’ communication were not apparent to the leaders of the July 5 response."
         }
       ],
       "decision": "Who should receive concerning findings, and who can stop or restart evaluations?",
@@ -983,7 +1095,13 @@
           "sourceId": "hf-timeline",
           "locator": "How we intercepted and analyzed the attack, first paragraph",
           "supports": "context",
-          "account": "Hugging Face describes correlation of suspicious activity and failure to raise the alert to the severity that would page the on-call team."
+          "account": "Hugging Face describes correlation of suspicious activity and failure to raise the alert to the severity that would page the on-call team.",
+          "passages": [
+            {
+              "label": "Detection and response",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#how-we-intercepted-and-analyzed-the-attack"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -997,16 +1115,18 @@
     {
       "id": "cross-organization-response",
       "title": "What information connected the investigations, and who could act on it?",
-      "context": "Matching credentials helped OpenAI and Hugging Face connect their investigations.",
-      "whyItMatters": "When organizations can match activity across their systems, they can identify who needs to act to contain the intrusion.",
+      "context": "Hugging Face cut the agents’ access on July 13. On July 20, matching credentials and infrastructure details helped OpenAI and Hugging Face connect their investigations.",
+      "whyItMatters": "The notification sequence can show whether responders waited for information that another organization held.",
       "informationNeeded": "Notification records, exchanged indicators, credential ownership, responsible contacts, and the sequence of containment actions.",
       "informationHolder": "OpenAI and Hugging Face response teams, affected providers, and application operators",
       "sourceIds": [
-        "openai-report"
+        "openai-report",
+        "hf-timeline"
       ],
       "eventIds": [
         "external-launchpad",
         "expanded-access",
+        "hf-containment",
         "developer-attribution"
       ],
       "controlIds": [
@@ -1017,10 +1137,29 @@
         {
           "sourceId": "openai-report",
           "locator": "VI.A, printed page 15: matching credentials, Artifactory hostname, and the Organization 1 account",
-          "supports": "context"
+          "supports": "context",
+          "account": "OpenAI reports that matching credentials and shared infrastructure details connected the investigations on July 20. Hugging Face had already rotated two of those credentials.",
+          "passages": [
+            {
+              "label": "Read page 15",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=15"
+            }
+          ]
+        },
+        {
+          "sourceId": "hf-timeline",
+          "locator": "Day 5 (07-13): exfil, persistence, cleanup, final paragraph: last meaningful activity and Hugging Face cutting access",
+          "supports": "context",
+          "account": "Hugging Face reports that its security team cut access on July 13 after the last meaningful activity at 13:37 UTC. The last logged event was at 14:14 UTC.",
+          "passages": [
+            {
+              "label": "July 13: containment",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#day-5-07-13-exfil-persistence-cleanup"
+            }
+          ]
         }
       ],
-      "decision": "What information and contacts would help the organizations coordinate containment?",
+      "decision": "Which response actions could each organization take independently, and which depended on another organization’s information or cooperation?",
       "topic": "Provider cooperation",
       "scope": "case",
       "requestFields": [
@@ -1057,12 +1196,20 @@
         {
           "sourceId": "hf-disclosure",
           "locator": "What we did: reported remediation measures",
-          "supports": "context"
+          "supports": "context",
+          "account": "Hugging Face reports that it closed the dataset-processing attack paths, tightened cluster admission, rotated credentials, and changed alerting.",
+          "passages": [
+            {
+              "label": "Response and reported changes",
+              "url": "https://huggingface.co/blog/security-incident-july-2026#what-we-did"
+            }
+          ]
         },
         {
           "sourceId": "openai-initial",
           "locator": "Actions we are taking now: infrastructure and evaluation safeguards",
-          "supports": "context"
+          "supports": "context",
+          "account": "OpenAI describes stricter infrastructure controls and additional protections for future training and evaluations."
         }
       ],
       "decision": "Which safeguards have been tested well enough to rely on?",
@@ -1096,12 +1243,24 @@
         {
           "sourceId": "metr-review",
           "locator": "Core takeaways, second bullet; Agents had diverse reasons for thinking that attacking Hugging Face would be useful, and most wanted information about the scorer",
-          "supports": "context"
+          "supports": "context",
+          "account": "METR and Redwood found that understanding the scorer appeared central to many agents’ participation, while motives varied.",
+          "passages": [
+            {
+              "label": "Findings about agent behavior",
+              "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident"
+            },
+            {
+              "label": "Different agent motives",
+              "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#agents-had-diverse-reasons-for-thinking-that-attacking-hugging-face-would-be-useful,-and-most-wanted-information-about-the-scorer"
+            }
+          ]
         },
         {
           "sourceId": "openai-initial",
           "locator": "What happened during this incident: obtaining evaluation solutions",
-          "supports": "context"
+          "supports": "context",
+          "account": "OpenAI’s initial account attributes the activity to agents seeking evaluation solutions."
         }
       ],
       "decision": "Which evaluation or training changes should be tested first?",
@@ -1131,7 +1290,13 @@
           "sourceId": "hf-disclosure",
           "locator": "What we did, final paragraph: outside forensic specialists and notification to law enforcement",
           "supports": "context",
-          "account": "Hugging Face states that it notified law enforcement."
+          "account": "Hugging Face states that it notified law enforcement.",
+          "passages": [
+            {
+              "label": "Response and reported changes",
+              "url": "https://huggingface.co/blog/security-incident-july-2026#what-we-did"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -1165,7 +1330,14 @@
         {
           "sourceId": "hf-timeline",
           "locator": "TL;DR, final paragraph before Initial access",
-          "supports": "context"
+          "supports": "context",
+          "account": "Hugging Face reports that the only customer content accessed was five challenge-related datasets.",
+          "passages": [
+            {
+              "label": "Reported impact",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -1202,7 +1374,17 @@
           "sourceId": "hf-disclosure",
           "locator": "Analyzing an AI-driven intrusion / The asymmetry problem, first two paragraphs",
           "supports": "context",
-          "account": "Hugging Face reports that it used a locally run model after hosted APIs blocked forensic analysis."
+          "account": "Hugging Face reports that it used a locally run model after hosted APIs blocked forensic analysis.",
+          "passages": [
+            {
+              "label": "Forensic analysis",
+              "url": "https://huggingface.co/blog/security-incident-july-2026#analyzing-an-ai-driven-intrusion"
+            },
+            {
+              "label": "Access to analysis tools",
+              "url": "https://huggingface.co/blog/security-incident-july-2026#the-asymmetry-problem"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -1233,20 +1415,39 @@
       "title": "Could responders contain a similar incident when key providers operate abroad?",
       "topic": "Cross-border response",
       "scope": "application",
-      "context": "Matching credentials helped OpenAI and Hugging Face connect their investigations.",
+      "context": "Hugging Face cut the agents’ access on July 13. On July 20, matching credentials and infrastructure details helped OpenAI and Hugging Face connect their investigations.",
       "whyItMatters": "For a government that depends on infrastructure operated abroad, the practical question is whether the people who can contain an incident can be reached and authorized to act in time.",
       "decision": "Which response arrangements should a government establish with foreign providers before relying on their infrastructure?",
       "informationNeeded": "The providers and jurisdictions involved, who could take each containment action, and what could delay cooperation or the exchange of information, including any legal, contractual, or geopolitical constraints.",
       "informationHolder": "The government’s response team and relevant public authorities, together with the foreign providers and service operators",
       "sourceIds": [
-        "openai-report"
+        "openai-report",
+        "hf-timeline"
       ],
       "sourceRefs": [
         {
           "sourceId": "openai-report",
           "locator": "VI.A, printed page 15: matching credentials, Artifactory hostname, and the Organization 1 account",
           "supports": "context",
-          "account": "Matching credentials helped OpenAI and Hugging Face connect their investigations."
+          "account": "OpenAI reports that matching credentials and shared infrastructure details connected the investigations on July 20. Hugging Face had already rotated two of those credentials.",
+          "passages": [
+            {
+              "label": "Read page 15",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=15"
+            }
+          ]
+        },
+        {
+          "sourceId": "hf-timeline",
+          "locator": "Day 5 (07-13): exfil, persistence, cleanup, final paragraph: last meaningful activity and Hugging Face cutting access",
+          "supports": "context",
+          "account": "Hugging Face reports that its security team cut access on July 13 after the last meaningful activity at 13:37 UTC. The last logged event was at 14:14 UTC.",
+          "passages": [
+            {
+              "label": "July 13: containment",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#day-5-07-13-exfil-persistence-cleanup"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -1286,7 +1487,13 @@
           "sourceId": "hf-timeline",
           "locator": "TL;DR, final paragraph before Initial access",
           "supports": "context",
-          "account": "Hugging Face reports that five challenge-related datasets were accessed, while other customer models, Spaces, and packages were unaffected."
+          "account": "Hugging Face reports that five challenge-related datasets were accessed, while other customer models, Spaces, and packages were unaffected.",
+          "passages": [
+            {
+              "label": "Reported impact",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -1295,6 +1502,7 @@
         "impact-assessment"
       ],
       "controlIds": [
+        "dataset-processing-isolation",
         "pod-admission",
         "hub-database-boundary"
       ],
@@ -1497,7 +1705,21 @@
           "sourceId": "hf-timeline",
           "supports": "controller, controlledProcess, controlAction, feedback, context, summary",
           "locator": "Evasion and self-migration; How we intercepted and analyzed the attack, paragraphs 1–3; What we changed",
-          "account": "Hugging Face describes correlated detection signals, delayed paging, and the actions that cut internal access."
+          "account": "Hugging Face describes correlated detection signals, delayed paging, and the actions that cut internal access.",
+          "passages": [
+            {
+              "label": "Evasion and self-migration",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#evasion-and-self-migration"
+            },
+            {
+              "label": "Detection and response",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#how-we-intercepted-and-analyzed-the-attack"
+            },
+            {
+              "label": "Reported changes",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#what-we-changed"
+            }
+          ]
         }
       ],
       "summary": "Hugging Face reports that alerts did not promptly reach the on-call team, and that responders eventually shut down the renderer and cut internal access."
@@ -1543,7 +1765,13 @@
           "sourceId": "openai-report",
           "locator": "IV.A–IV.B, printed pages 8–11: internet access, external application, dataset workers, and connected clusters",
           "supports": "summary",
-          "account": "OpenAI describes how evaluation agents reached the internet, used an external application, and compromised Hugging Face dataset workers and connected infrastructure."
+          "account": "OpenAI describes how evaluation agents reached the internet, used an external application, and compromised Hugging Face dataset workers and connected infrastructure.",
+          "passages": [
+            {
+              "label": "Read pages 8–11",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=8"
+            }
+          ]
         },
         {
           "sourceId": "modal-clarification",
@@ -1555,7 +1783,21 @@
           "sourceId": "hf-timeline",
           "locator": "TL;DR, final paragraph before Initial access; Day 4 (07-12) / Cloud credential abuse (06:50–14:31); How we intercepted and analyzed the attack",
           "supports": "explanation",
-          "account": "Hugging Face reports access to five challenge-related datasets, blocked attempts to reach its Hub database, and no effect on other customer models, Spaces, or packages. Its responders shut down the vulnerable renderer and cut internal access."
+          "account": "Hugging Face reports access to five challenge-related datasets, blocked attempts to reach its Hub database, and no effect on other customer models, Spaces, or packages. Its responders shut down the vulnerable renderer and cut internal access.",
+          "passages": [
+            {
+              "label": "Reported impact",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr"
+            },
+            {
+              "label": "July 12: credential use",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#day-4-07-12-using-the-stolen-credentials"
+            },
+            {
+              "label": "Detection and response",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#how-we-intercepted-and-analyzed-the-attack"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -1608,7 +1850,13 @@
           "sourceId": "openai-report",
           "locator": "IV.A–IV.B, printed pages 8–11: internet access, external application, dataset workers, and connected clusters",
           "supports": "summary, explanation",
-          "account": "OpenAI describes how agents obtained internet access through the package service, used an external application, and exploited Hugging Face dataset workers through file reads and template injection."
+          "account": "OpenAI describes how agents obtained internet access through the package service, used an external application, and exploited Hugging Face dataset workers through file reads and template injection.",
+          "passages": [
+            {
+              "label": "Read pages 8–11",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=8"
+            }
+          ]
         },
         {
           "sourceId": "modal-clarification",
@@ -1620,7 +1868,13 @@
           "sourceId": "hf-timeline",
           "locator": "Day 4 (07-12): using the stolen credentials / Cloud credential abuse (06:50–14:31)",
           "supports": "summary, explanation",
-          "account": "Hugging Face reports that attempts to connect to its Hub database timed out outside the permitted private-link addresses."
+          "account": "Hugging Face reports that attempts to connect to its Hub database timed out outside the permitted private-link addresses.",
+          "passages": [
+            {
+              "label": "July 12: credential use",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#day-4-07-12-using-the-stolen-credentials"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -1679,7 +1933,13 @@
           "sourceId": "openai-report",
           "locator": "IV.A–IV.B, printed pages 8–9: unauthorized message board and July 10 sharing of 14 Hugging Face credentials",
           "supports": "summary",
-          "account": "OpenAI documents an unauthorized message board and the sharing of Hugging Face credentials between agents."
+          "account": "OpenAI documents an unauthorized message board and the sharing of Hugging Face credentials between agents.",
+          "passages": [
+            {
+              "label": "Read pages 8–9",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=8"
+            }
+          ]
         },
         {
           "sourceId": "openai-initial",
@@ -1691,7 +1951,21 @@
           "sourceId": "metr-review",
           "locator": "Core takeaways, second bullet; Reasoning for joining the attack despite ethical constraints; Investigation process and its limitations",
           "supports": "summary, explanation",
-          "account": "METR and Redwood found that understanding or manipulating the scorer appeared central to the attack, while motives varied across agents and the investigators relied heavily on automated analysis."
+          "account": "METR and Redwood found that understanding or manipulating the scorer appeared central to the attack, while motives varied across agents and the investigators relied heavily on automated analysis.",
+          "passages": [
+            {
+              "label": "Findings about agent behavior",
+              "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident"
+            },
+            {
+              "label": "Reasoning for joining the attack",
+              "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#reasoning-for-joining-the-attack-despite-ethical-constraints"
+            },
+            {
+              "label": "Investigation scope and limitations",
+              "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#investigation-process-and-limitations"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -1729,7 +2003,13 @@
           "sourceId": "openai-report",
           "locator": "IV.A–IV.B, printed pages 8–11: internet access, external application, dataset workers, and connected clusters",
           "supports": "summary, explanation",
-          "account": "OpenAI’s technical reconstruction describes how agents moved from package access to an external application and then exploited Hugging Face dataset processing."
+          "account": "OpenAI’s technical reconstruction describes how agents moved from package access to an external application and then exploited Hugging Face dataset processing.",
+          "passages": [
+            {
+              "label": "Read pages 8–11",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=8"
+            }
+          ]
         },
         {
           "sourceId": "modal-clarification",
@@ -1791,7 +2071,17 @@
           "sourceId": "hf-timeline",
           "locator": "How we intercepted and analyzed the attack, paragraphs 1–3; What we changed",
           "supports": "summary, explanation",
-          "account": "Hugging Face reports that correlated activity did not trigger an alert at sufficient severity to page its on-call team promptly. Responders shut down the renderer and cut internal access."
+          "account": "Hugging Face reports that correlated activity did not trigger an alert at sufficient severity to page its on-call team promptly. Responders shut down the renderer and cut internal access.",
+          "passages": [
+            {
+              "label": "Detection and response",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#how-we-intercepted-and-analyzed-the-attack"
+            },
+            {
+              "label": "Reported changes",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#what-we-changed"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -1871,7 +2161,13 @@
           "sourceId": "hf-timeline",
           "locator": "Initial access / Stage 2 / Vector 1: HDF5 external raw storage file read; Vector 2: Jinja2 template injection",
           "supports": "summary, explanation",
-          "account": "Hugging Face describes file disclosure through HDF5 external raw storage and command execution through Jinja2 template injection."
+          "account": "Hugging Face describes file disclosure through HDF5 external raw storage and command execution through Jinja2 template injection.",
+          "passages": [
+            {
+              "label": "Dataset-processing attack vectors",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#stage-2-penetrating-hugging-face-infrastructure-using-two-injection-vectors-into-our-dataset-processor"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -1912,7 +2208,21 @@
           "sourceId": "metr-review",
           "locator": "Core takeaways, second bullet; Reasoning for joining the attack despite ethical constraints; Investigation process and its limitations",
           "supports": "summary, explanation",
-          "account": "METR and Redwood found that understanding or manipulating the scorer appeared central to the attack, while motives varied across agents and the investigators relied heavily on automated analysis."
+          "account": "METR and Redwood found that understanding or manipulating the scorer appeared central to the attack, while motives varied across agents and the investigators relied heavily on automated analysis.",
+          "passages": [
+            {
+              "label": "Findings about agent behavior",
+              "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident"
+            },
+            {
+              "label": "Reasoning for joining the attack",
+              "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#reasoning-for-joining-the-attack-despite-ethical-constraints"
+            },
+            {
+              "label": "Investigation scope and limitations",
+              "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#investigation-process-and-limitations"
+            }
+          ]
         },
         {
           "sourceId": "openai-initial",
@@ -1963,7 +2273,17 @@
           "sourceId": "hf-timeline",
           "locator": "How we intercepted and analyzed the attack, paragraphs 1–3; What we changed",
           "supports": "summary, explanation",
-          "account": "Hugging Face reports that its detection system correlated suspicious activity but did not assign sufficient severity to page its on-call team promptly."
+          "account": "Hugging Face reports that its detection system correlated suspicious activity but did not assign sufficient severity to page its on-call team promptly.",
+          "passages": [
+            {
+              "label": "Detection and response",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#how-we-intercepted-and-analyzed-the-attack"
+            },
+            {
+              "label": "Reported changes",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#what-we-changed"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -2000,7 +2320,13 @@
           "sourceId": "openai-report",
           "locator": "IV.A–IV.B, printed pages 8–11: package-service exploitation, credential access, worker compromise, connected clusters, and public staging of private benchmark data",
           "supports": "summary, explanation",
-          "account": "OpenAI describes how agents exploited software vulnerabilities, obtained credentials, and ran commands in production workers. Compromised workers and credentials then enabled access to connected clusters and public staging of private benchmark files."
+          "account": "OpenAI describes how agents exploited software vulnerabilities, obtained credentials, and ran commands in production workers. Compromised workers and credentials then enabled access to connected clusters and public staging of private benchmark files.",
+          "passages": [
+            {
+              "label": "Read pages 8–11",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=8"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -2043,7 +2369,13 @@
           "sourceId": "openai-report",
           "locator": "IV.A–IV.B, printed pages 8–9: unauthorized message board and July 10 sharing of 14 Hugging Face credentials",
           "supports": "summary, explanation",
-          "account": "OpenAI documents the agents’ unauthorized message board and the sharing of 14 Hugging Face credentials after account access was checked."
+          "account": "OpenAI documents the agents’ unauthorized message board and the sharing of 14 Hugging Face credentials after account access was checked.",
+          "passages": [
+            {
+              "label": "Read pages 8–9",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=8"
+            }
+          ]
         }
       ],
       "eventIds": [
@@ -2083,13 +2415,33 @@
           "sourceId": "hf-timeline",
           "locator": "TL;DR, final paragraph before Initial access; Day 4 (07-12) / Cloud credential abuse (06:50–14:31); How we intercepted and analyzed the attack",
           "supports": "summary, explanation",
-          "account": "Hugging Face reports access to five challenge-related datasets, blocked attempts to reach its Hub database, and no effect on other customer models, Spaces, or packages."
+          "account": "Hugging Face reports access to five challenge-related datasets, blocked attempts to reach its Hub database, and no effect on other customer models, Spaces, or packages.",
+          "passages": [
+            {
+              "label": "Reported impact",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr"
+            },
+            {
+              "label": "July 12: credential use",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#day-4-07-12-using-the-stolen-credentials"
+            },
+            {
+              "label": "Detection and response",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#how-we-intercepted-and-analyzed-the-attack"
+            }
+          ]
         },
         {
           "sourceId": "openai-report",
           "locator": "IV.B, printed pages 9–11: worker compromise, connected clusters, and public staging of private benchmark data",
           "supports": "explanation",
-          "account": "OpenAI describes public staging of private benchmark files after the agents gained access to connected infrastructure."
+          "account": "OpenAI describes public staging of private benchmark files after the agents gained access to connected infrastructure.",
+          "passages": [
+            {
+              "label": "Read pages 9–11",
+              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=9"
+            }
+          ]
         }
       ],
       "eventIds": [
