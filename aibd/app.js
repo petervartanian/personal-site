@@ -360,9 +360,8 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var CONF = { found: 0, studied: 1, reported: 2, claimed: 3 };
   function sortBy(key, dir) {
     sortState.key = key; sortState.dir = dir;
-    var list = ex.querySelector('ol.results');
     var val = function (r) {
-      var d = r.dataset;
+      var d = rowData.get(r).data;
       if (key === 'depth') return d.depth === 'n/a' ? -1 : parseInt(d.depth, 10);
       if (key === 'year') return parseInt(d.year, 10);
       if (key === 'sources') return parseInt(d.sources, 10);
@@ -371,7 +370,6 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     };
     var sorted = rows.slice().sort(function (p, q) { var x = val(p), y = val(q); return (x < y ? -1 : x > y ? 1 : 0) * -dir; });
     if (key === 'headline' || key === 'sector') sorted.reverse();
-    sorted.forEach(function (r) { list.appendChild(r); });
     rows = sorted;
     ex.querySelectorAll('[data-sort-key]').forEach(function (x) { var on = x.getAttribute('data-sort-key') === key; x.classList.toggle('on', on); if (on) x.setAttribute('aria-sort', dir === 1 ? 'descending' : 'ascending'); else x.removeAttribute('aria-sort'); });
   }
@@ -397,8 +395,11 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
         paintAtlas();
       });
     });
+    var lastReadout = null;
     function show(land) {
       if (!readout) return;
+      if (land === lastReadout) return;
+      lastReadout = land;
       if (!land) { readout.textContent = ''; return; }
       var key = land.getAttribute('data-route-key') || land.getAttribute('data-route');
       var card = key ? ex.querySelector('[data-route-card="' + key.replace(/"/g, '\\"') + '"]') : null;
@@ -430,7 +431,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); land.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })); }
     });
     atlas.addEventListener('focusin', function (e) { var land = e.target.closest('.land, [data-route]'); if (land) show(land); });
-    atlas.addEventListener('mouseleave', function () { if (readout) readout.textContent = ''; });
+    atlas.addEventListener('mouseleave', function () { lastReadout = null; if (readout) readout.textContent = ''; });
   }
   bindAtlas();
   ex.addEventListener('click', function (e) {
@@ -455,9 +456,45 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', deployer: 'deployer', made: 'made in' };
   var PAGE = 40, showAll = false;
   var more = ex.querySelector('[data-more-rows]');
+  var resultList = ex.querySelector('ol.results');
   var rows = Array.prototype.slice.call(ex.querySelectorAll('[data-row]'));
+  var remaining = ex.querySelector('template[data-remaining-rows]');
+  if (remaining) {
+    rows = rows.concat(Array.prototype.slice.call(remaining.content.querySelectorAll('[data-row]')));
+    remaining.remove();
+  }
+  var rowData = new WeakMap();
+  var baseCounts = Object.create(null);
+  KEYS.forEach(function (key) { baseCounts[key] = Object.create(null); });
+  rows.forEach(function (row) {
+    var data = Object.assign({}, row.dataset), facets = Object.create(null);
+    KEYS.forEach(function (key) {
+      facets[key] = Array.from(new Set((data[key] || '').split('|')));
+      facets[key].forEach(function (value) { baseCounts[key][value] = (baseCounts[key][value] || 0) + 1; });
+    });
+    rowData.set(row, { data: data, facets: facets, places: data.place ? data.place.split(';') : [] });
+  });
+  var matchedRows = rows.slice();
+  var mountedRows = Array.prototype.slice.call(resultList.querySelectorAll('[data-row]'));
+  function renderRows(visible) {
+    if (visible.length === mountedRows.length && visible.every(function (row, index) { return row === mountedRows[index]; })) return;
+    var fragment = document.createDocumentFragment();
+    visible.forEach(function (row) { row.hidden = false; fragment.appendChild(row); });
+    resultList.replaceChildren(fragment);
+    mountedRows = visible.slice();
+    if (window.aibdBindTips) window.aibdBindTips(resultList);
+  }
   var buttons = [];
-  function collectButtons() { buttons = Array.prototype.slice.call(ex.querySelectorAll('[data-facet]')); }
+  var buttonData = new WeakMap();
+  function collectButtons() {
+    buttons = Array.prototype.slice.call(ex.querySelectorAll('[data-facet]'));
+    buttons.forEach(function (button) {
+      if (!buttonData.has(button)) buttonData.set(button, {
+        key: button.dataset.facet, value: button.dataset.value, badge: button.querySelector('[data-n]'),
+        count: null, on: null
+      });
+    });
+  }
   collectButtons();
   var q = ex.querySelector('[data-q]') || document.querySelector('[data-search-input]');
   var count = ex.querySelector('[data-count]');
@@ -486,7 +523,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       var box = r.querySelector('.extra');
       if (!role) { if (box) box.remove(); return; }
       if (!compareData) return;
-      var c = compareData[r.dataset.id]; if (!c) return;
+      var c = compareData[rowData.get(r).data.id]; if (!c) return;
       if (!box) { box = document.createElement('div'); box.className = 'extra'; r.querySelector('div:nth-child(2)').appendChild(box); }
       box.textContent = roleLine(c);
     });
@@ -520,9 +557,8 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   function paintAtlas() {
     var atlas = ex.querySelector('.worldmap'); if (!atlas) return;
     var where = {}, made = {}, routes = {};
-    rows.forEach(function (r) {
-      if (!matches(r, null)) return;
-      var pks = r.dataset.place ? r.dataset.place.split(';') : [], ok = r.dataset.origin;
+    matchedRows.forEach(function (r) {
+      var cached = rowData.get(r), pks = cached.places, ok = cached.data.origin;
       if (ok) made[ok] = (made[ok] || 0) + 1;
       pks.forEach(function (pk) { where[pk] = (where[pk] || 0) + 1; if (ok) routes[ok + '|' + pk] = (routes[ok + '|' + pk] || 0) + 1; });
     });
@@ -544,46 +580,53 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       searchLoading = false; apply();
     }).catch(function () { searchLoading = false; });
   }
-  function matches(row, ignore) {
-    var d = row.dataset;
-    if (openTool === 'shelf' && !(window.aibdShelf && window.aibdShelf.has(d.id))) return false;
-    var text = q ? q.value.trim().toLowerCase() : '';
-    if (text) {
-      if (!searchText) { loadSearch(); if ((d.headline || '').indexOf(text) === -1) return false; }
-      else if ((searchText[d.id] || '').indexOf(text) === -1) return false;
-    }
-    for (var i = 0; i < KEYS.length; i++) {
-      var k = KEYS[i];
-      if (k === ignore || !hasAny(active[k])) continue;
-      var vals = (d[k] || '').split('|'), ok = false;
-      for (var j = 0; j < vals.length; j++) if (active[k][vals[j]]) { ok = true; break; }
-      if (!ok) return false;
-    }
-    return true;
-  }
   window.aibdApply = function () { apply(); };
   function apply(push) {
-    var shown = 0;
-    rows.forEach(function (r) { var ok = matches(r, null); if (ok) { r.hidden = !showAll && shown >= PAGE; shown++; } else { r.hidden = true; } });
+    var text = q ? q.value.trim().toLowerCase() : '';
+    var activeKeys = KEYS.filter(function (key) { return hasAny(active[key]); });
+    var shelfIds = openTool === 'shelf' ? new Set(window.aibdShelf ? window.aibdShelf.ids() : []) : null;
+    var filtered = Boolean(text || shelfIds || activeKeys.length);
+    var facetCounts = baseCounts;
+    if (text && !searchText) loadSearch();
+    if (filtered) {
+      facetCounts = Object.create(null);
+      KEYS.forEach(function (key) { facetCounts[key] = Object.create(null); });
+    }
+    matchedRows = [];
+    rows.forEach(function (row) {
+      var cached = rowData.get(row), data = cached.data;
+      if (shelfIds && !shelfIds.has(data.id)) return;
+      if (text && (searchText ? searchText[data.id] || '' : data.headline || '').indexOf(text) === -1) return;
+      var failed = activeKeys.filter(function (key) {
+        return !cached.facets[key].some(function (value) { return active[key][value]; });
+      });
+      if (!failed.length) matchedRows.push(row);
+      if (filtered && failed.length <= 1) KEYS.forEach(function (key) {
+        if (failed.length && failed[0] !== key) return;
+        cached.facets[key].forEach(function (value) { facetCounts[key][value] = (facetCounts[key][value] || 0) + 1; });
+      });
+    });
+    var shown = matchedRows.length;
+    renderRows(showAll ? matchedRows : matchedRows.slice(0, PAGE));
     if (more) { more.hidden = showAll || shown <= PAGE; more.textContent = 'Show all ' + shown; }
     var empty = ex.querySelector('[data-empty]'); if (empty) empty.hidden = shown > 0 || openTool === 'shelf';
     if (openTool === 'shelf' && window.aibdRenderCompare) window.aibdRenderCompare();
     buttons.forEach(function (b) {
-      var k = b.dataset.facet, v = b.dataset.value, n = 0;
-      rows.forEach(function (r) { if ((r.dataset[k] || '').split('|').indexOf(v) !== -1 && matches(r, k)) n++; });
-      var badge = b.querySelector('[data-n]'); if (badge) badge.textContent = n;
+      var info = buttonData.get(b), k = info.key, v = info.value, n = facetCounts[k][v] || 0;
       var on = !!active[k][v];
+      if (info.count === n && info.on === on) return;
+      if (info.badge) info.badge.textContent = n;
       b.classList.toggle('on', on);
       b.setAttribute('aria-pressed', String(on));
       b.classList.toggle('zero', n === 0 && !on);
       if (b.tagName === 'BUTTON') b.disabled = n === 0 && !on;
+      info.count = n; info.on = on;
     });
     paintAtlas();
     var places = Object.keys(active.country || {}).concat(Object.keys(active.made || {}));
     ex.querySelectorAll('.juris[data-country]').forEach(function (sec) { sec.hidden = places.length > 0 && places.indexOf(sec.getAttribute('data-country')) === -1; });
     ex.querySelectorAll('.gaz [data-route]').forEach(function (b) { var parts = b.getAttribute('data-route').split('|'); b.classList.toggle('on', !!(active.made && active.made[parts[0]] && active.country && active.country[parts[1]])); });
     if (count) {
-      var filtered = (q && q.value.trim()) || openTool === 'shelf' || KEYS.some(function (k) { return hasAny(active[k]); });
       count.textContent = filtered ? shown + ' of ' + rows.length + ' cases' : rows.length + ' cases';
       var mirror = ex.querySelector('[data-count-mirror]'); if (mirror) mirror.textContent = shown + ' of ' + rows.length + ' cases';
     }
@@ -639,19 +682,16 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       if (target) target.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
     }
   });
-  if (q) q.addEventListener('input', apply);
+  var queryTimer;
+  if (q) q.addEventListener('input', function () { clearTimeout(queryTimer); queryTimer = setTimeout(function () { apply(); }, 100); });
   if (more) more.addEventListener('click', function () { showAll = true; apply(); });
   function jump() { window.scrollTo(0, ex.getBoundingClientRect().top + window.scrollY - 8); }
-  if (window.location.search.length > 1) {
-    jump();
-    window.addEventListener('load', function () { setTimeout(jump, 60); });
-  }
   var mast = document.querySelector('[data-search-input]');
   if (mast) {
     var mastForm = mast.closest('form');
     mastForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (q) { if (q !== mast) q.value = mast.value; apply(); ex.scrollIntoView({ block: 'start' }); }
+      if (q) { clearTimeout(queryTimer); if (q !== mast) q.value = mast.value; apply(); ex.scrollIntoView({ block: 'start' }); }
     }, true);
   }
   ex.addEventListener('click', function (e) {
@@ -706,6 +746,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     box.innerHTML = html + '</tbody></table>';
   };
   apply();
+  if (window.location.search.length > 1) window.requestAnimationFrame(jump);
 })();
 
 // Table: click a column head to sort; click again to reverse.

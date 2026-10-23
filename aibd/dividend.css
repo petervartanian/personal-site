@@ -1,11 +1,45 @@
 /* Monetary claims use AIBD's existing paper, type scale, and marks. */
+/* BEGIN GENERATED IMAGE VARIANTS - scripts/optimize_images.py */
+/* The source crop and mobile position remain unchanged. */
 body.money-page::before {
-  background-image: url("marble-fructus.jpg?v=van-gogh-fruit");
-  background-image: image-set(url("marble-fructus.webp?v=van-gogh-fruit") type("image/webp"), url("marble-fructus.jpg?v=van-gogh-fruit") type("image/jpeg"));
+  background-image: url("optimized/fructus-1600.jpg?v=95b425423b04");
+  background-image: image-set(
+    url("optimized/fructus-1600.avif?v=2dd94b2e3ef1") 1x type("image/avif"),
+    url("optimized/fructus-1600.webp?v=775bce95c1aa") 1x type("image/webp"),
+    url("optimized/fructus-1600.jpg?v=95b425423b04") 1x type("image/jpeg"),
+    url("optimized/fructus-2500.avif?v=725ca49de1d8") 2x type("image/avif"),
+    url("optimized/fructus-2500.webp?v=453cb84820d5") 2x type("image/webp"),
+    url("optimized/fructus-2500.jpg?v=eb9e0747d726") 2x type("image/jpeg")
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+@media (min-width: 1601px) {
+  body.money-page::before {
+  background-image: url("optimized/fructus-2500.jpg?v=eb9e0747d726");
+  background-image: image-set(
+    url("optimized/fructus-2500.avif?v=725ca49de1d8") 1x type("image/avif"),
+    url("optimized/fructus-2500.webp?v=453cb84820d5") 1x type("image/webp"),
+    url("optimized/fructus-2500.jpg?v=eb9e0747d726") 1x type("image/jpeg")
+  );
+  }
+}
+/* Cap narrow-screen downloads at 1600px even on 3x displays. */
+@media (max-width: 700px) {
+  body.money-page::before {
+  background-image: url("optimized/fructus-960.jpg?v=13200738fdc7");
+  background-image: image-set(
+    url("optimized/fructus-960.avif?v=15e085a51ecf") 1x type("image/avif"),
+    url("optimized/fructus-960.webp?v=23e2710e9e8e") 1x type("image/webp"),
+    url("optimized/fructus-960.jpg?v=13200738fdc7") 1x type("image/jpeg"),
+    url("optimized/fructus-1600.avif?v=2dd94b2e3ef1") 2x type("image/avif"),
+    url("optimized/fructus-1600.webp?v=775bce95c1aa") 2x type("image/webp"),
+    url("optimized/fructus-1600.jpg?v=95b425423b04") 2x type("image/jpeg")
+  );
+  }
+}
+/* END GENERATED IMAGE VARIANTS */
 .money-collection { min-width: 0; }
 .money-head { margin: 0 0 20px; }
 .money-head h1 { display: flex; align-items: center; gap: 11px; font-size: var(--t-lede); line-height: var(--l-lede); font-weight: 400; }
