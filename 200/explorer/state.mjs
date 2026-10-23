@@ -1,9 +1,10 @@
 export const views = Object.freeze([
-  { id: 'events', label: 'What happened?', selectionLabel: 'Chronology' },
-  { id: 'controlRelationships', label: 'How did it happen?', selectionLabel: 'Control relationships' },
-  { id: 'causes', label: 'How did it happen?', selectionLabel: 'Contributing factors', navigationId: 'controlRelationships' },
-  { id: 'controls', label: 'What could change?', selectionLabel: 'Safeguards' },
-  { id: 'questions', label: 'What do we need to know?', selectionLabel: 'Investigative questions' },
+  { id: 'framework', label: 'Account and framework', selectionLabel: 'Connections across the incident' },
+  { id: 'events', label: 'Chronology', selectionLabel: 'Chronology' },
+  { id: 'controlRelationships', label: 'Systems and response', selectionLabel: 'Control relationships' },
+  { id: 'causes', label: 'Systems and response', selectionLabel: 'Contributing factors', navigationId: 'controlRelationships' },
+  { id: 'controls', label: 'Safeguards', selectionLabel: 'Safeguards' },
+  { id: 'questions', label: 'Open questions', selectionLabel: 'Investigative questions' },
 ]);
 
 export const navigationViews = Object.freeze(views.filter(v => !v.navigationId));
@@ -12,24 +13,25 @@ export function readRoute(hash, data, remembered = {}) {
   let parts;
   try { parts = hash.replace(/^#\/?/, '').split('/').map(decodeURIComponent); }
   catch { parts = []; }
-  const view = views.some(v => v.id === parts[0]) && data[parts[0]]?.length ? parts[0] : 'events';
+  const view = views.some(v => v.id === parts[0]) && data[parts[0]]?.length ? parts[0] : data.framework?.length ? 'framework' : 'events';
   const items = data[view];
   const requestedId = view === 'questions' && parts[1] === 'cross-border-response' ? 'cross-organization-response' : parts[1];
   const item = items.find(i => i.id === requestedId) || items.find(i => i.id === remembered[view]) || items[0];
   const sourceId = item.sourceIds.includes(parts[2]) ? parts[2] : item.sourceIds[0];
-  return { view, itemId: item.id, sourceId };
+  const storyId = view === 'framework' && item.type !== 'story' && data.framework.some(s => s.id === parts[3] && s.type === 'story' && s.conceptIds.includes(item.id)) ? parts[3] : null;
+  return { view, itemId: item.id, sourceId, ...(storyId ? { storyId } : {}) };
 }
 
-export function routeFor(view, itemId, sourceId) {
-  return '#/' + [view, itemId, sourceId].filter(Boolean).map(encodeURIComponent).join('/');
+export function routeFor(view, itemId, sourceId, storyId) {
+  return '#/' + [view, itemId, sourceId || (storyId ? '_' : null), storyId].filter(Boolean).map(encodeURIComponent).join('/');
 }
 
 export function selectSourceRef(item, sourceId) {
   return item.sourceRefs?.find(ref => ref.sourceId === sourceId) || { sourceId };
 }
 
-export function caseRouteFor(caseId, view, itemId, sourceId) {
-  return '#/cases/' + encodeURIComponent(caseId) + '/' + routeFor(view, itemId, sourceId).slice(2);
+export function caseRouteFor(caseId, view, itemId, sourceId, storyId) {
+  return '#/cases/' + encodeURIComponent(caseId) + '/' + routeFor(view, itemId, sourceId, storyId).slice(2);
 }
 
 export function readLocation(hash, catalog) {
