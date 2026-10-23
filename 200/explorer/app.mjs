@@ -1,8 +1,8 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-connectors';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-connectors';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-connectors';
-import { frameworkAnalysis, frameworkTopics, safeguardsMatrix } from './framework.mjs?v=20261023-connectors';
-import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-connectors';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-distinct-views';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-distinct-views';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-distinct-views';
+import { frameworkAnalysis, frameworkTopics, safeguardsMatrix } from './framework.mjs?v=20261023-distinct-views';
+import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-distinct-views';
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const stateNames = { held: 'Worked', failed: 'Failed', absent: 'Absent', disabled: 'Off', unknown: 'Unknown' };
@@ -42,9 +42,7 @@ const phaseIcons = { Access: 'access', Intrusion: 'network', Response: 'shield',
 const icon = name => `<svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name] || icons.report}</svg>`;
 const $ = id => document.getElementById(id);
 let remembered = {};
-let rememberedSources = {};
 const caseMemory = new Map();
-const caseSourceMemory = new Map();
 const selectedCases = new Set();
 let catalog = [];
 let screen;
@@ -102,15 +100,16 @@ function renderSelection() {
   const applications = $('application-questions');
   applications.hidden = true;
   applications.innerHTML = '';
-  if (current.view === 'events' || isOverview() || navigationIdFor(current) === 'framework') {
+  const navigationId = navigationIdFor(current);
+  if (navigationId === 'framework') {
+    $('selection').innerHTML = systemSelection(data, current, routeFor);
+  } else if (navigationId === 'events') {
     const account = data.framework?.find(entry => entry.id === 'account-overview');
     const introduction = isOverview() && account ? `<div class="incident-account"><p>${escape(account.summary)} <span class="inline-citations">${citationLinks(account, 'summary', 'framework')}</span></p></div>` : '';
-    const map = systemSelection(data, current, routeFor);
-    const fromModel = navigationIdFor(current) === 'framework';
     const selectedItem = data[current.view]?.find(entry => entry.id === current.itemId);
     const relevantEvents = new Set(selectedItem?.eventIds || (current.view === 'events' ? [current.itemId] : []));
-    const chronology = `<div class="chronology unified-chronology"><div class="chronology-heading"><h2 class="selection-heading">Chronology <span class="date-span">${escape(data.case.chronologyRange || data.case.dateRange)}</span></h2></div><ol class="event-list" style="--event-count:${data.events.length}" aria-label="Select an event">${data.events.map(item => `<li><a class="event-button${relevantEvents.has(item.id) ? ' is-related' : ''}" data-event="${escape(item.id)}" href="${routeFor('events',item.id,undefined,fromModel ? 'all-connections' : undefined)}" aria-current="${current.view === 'events' && item.id === current.itemId}"><time>${escape(item.date)}</time><span class="event-dot" aria-hidden="true"></span><span class="event-label">${escape(item.label)}</span></a></li>`).join('')}</ol><div class="chronology-scroll-controls" hidden><button type="button" data-chronology-scroll="-1" aria-label="Show earlier events">Earlier</button><button type="button" data-chronology-scroll="1" aria-label="Show later events">Later</button></div></div>`;
-    $('selection').innerHTML = introduction + map + chronology;
+    const chronology = `<div class="chronology unified-chronology"><div class="chronology-heading"><h2 class="selection-heading">Chronology <span class="date-span">${escape(data.case.chronologyRange || data.case.dateRange)}</span></h2></div><ol class="event-list" style="--event-count:${data.events.length}" aria-label="Select an event">${data.events.map(item => `<li><a class="event-button${relevantEvents.has(item.id) ? ' is-related' : ''}" data-event="${escape(item.id)}" href="${caseRouteFor(data.case.id, 'events', item.id)}" aria-current="${current.view === 'events' && item.id === current.itemId}"><time>${escape(item.date)}</time><span class="event-dot" aria-hidden="true"></span><span class="event-label">${escape(item.label)}</span></a></li>`).join('')}</ol><div class="chronology-scroll-controls" hidden><button type="button" data-chronology-scroll="-1" aria-label="Show earlier events">Earlier</button><button type="button" data-chronology-scroll="1" aria-label="Show later events">Later</button></div></div>`;
+    $('selection').innerHTML = introduction + chronology;
   } else if (current.view === 'controls') {
     $('selection').innerHTML = safeguardsMatrix(data, current, routeFor, organizationName, stateLabel);
   } else {
@@ -214,11 +213,6 @@ function renderAnalysis(item) {
   const sourcePanel = $('sources');
   document.querySelector('.reading-layout').append(sourcePanel);
   $('analysis').innerHTML = body;
-  if (navigationIdFor(current) === 'framework' && !isReporting) {
-    for (const section of $('analysis').querySelectorAll('.analysis-section')) {
-      if (['Relevant events', 'In the chronology'].includes(section.querySelector('h3')?.textContent)) section.remove();
-    }
-  }
   if (!isReporting && matchMedia('(max-width:760px)').matches) {
     const related = $('analysis').querySelector('.framework-topics, .analysis-section, .related-columns');
     if (related) related.before(sourcePanel);
@@ -284,15 +278,12 @@ function render({ focus = false, destination = null } = {}) {
     window.scrollTo({top:0,behavior:'instant'});
   }
   if (!caseMemory.has(data.case.id)) caseMemory.set(data.case.id, {});
-  if (!caseSourceMemory.has(data.case.id)) caseSourceMemory.set(data.case.id, {});
   remembered = caseMemory.get(data.case.id);
-  rememberedSources = caseSourceMemory.get(data.case.id);
   current = readRoute(locationState.hash, data, remembered);
   document.body.dataset.view = isOverview() ? 'overview' : current.view === 'controlRelationships' ? 'causes' : current.view;
   if (!isOverview()) remembered[current.view] = current.itemId;
-  if (navigationIdFor(current) === 'events') remembered.whatHappened = isOverview() ? 'overview' : 'events';
-  if (navigationIdFor(current) === 'framework') remembered.howView = current.view;
-  rememberedSources[`${current.view}/${current.itemId}`] = current.sourceId;
+  remembered.navigation ||= {};
+  remembered.navigation[navigationIdFor(current)] = { ...current };
   const item = data[current.view].find(i => i.id === current.itemId);
   const onlySourceChanged = previous && previous.view === current.view && previous.itemId === current.itemId && previous.storyId === current.storyId && previous.reportingFieldId === current.reportingFieldId && previous.sourceId !== current.sourceId;
   const stableHash = routeFor(current.view, current.itemId, current.sourceId);
@@ -301,9 +292,12 @@ function render({ focus = false, destination = null } = {}) {
   document.body.dataset.navigation = navigationId;
   $('investigation').prepend($('selection'));
   $('question-navigation').innerHTML = navigationViews.filter(v => data[v.id]?.length).map(v => {
-    const view = v.id === 'events' ? (data.framework?.length ? 'framework' : 'events') : v.id === 'framework' ? remembered.howView || 'framework' : v.id;
-    const itemId = v.id === 'events' ? (view === 'events' ? remembered.events : 'account-overview') : v.id === 'framework' && !remembered.howView ? 'all-connections' : view === 'framework' ? remembered.framework || 'all-connections' : remembered[view];
-    const target = routeFor(view,itemId,rememberedSources[`${view}/${itemId}`],v.id === 'framework' && ['events','controls','questions'].includes(view) ? 'all-connections' : false);
+    const overview = v.id === 'events' && data.framework?.some(entry => entry.id === 'account-overview');
+    const selected = remembered.navigation[v.id] || {
+      view: overview ? 'framework' : v.id,
+      itemId: overview ? 'account-overview' : v.id === 'framework' ? 'all-connections' : data[v.id][0].id,
+    };
+    const target = caseRouteFor(data.case.id, selected.view, selected.itemId, selected.sourceId, selected.storyId || selected.reportingFieldId);
     return `<a data-view="${v.id}" href="${target}" ${v.id === navigationId ? 'aria-current="page"' : ''}>${v.label}</a>`;
   }).join('');
   if (!onlySourceChanged) {
