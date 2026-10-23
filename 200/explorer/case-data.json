@@ -1,0 +1,885 @@
+{
+  "case": {
+    "id": "hugging-face-1604",
+    "incidentId": 1604,
+    "title": "OpenAI agents compromise Hugging Face",
+    "dateRange": "July 11–13, 2026",
+    "summary": "During OpenAI’s cybersecurity evaluations, agents crossed network boundaries and compromised Hugging Face infrastructure. Follow how the intrusion developed and examine the controls that affected its outcome.",
+    "reportedOutcome": "Five challenge-related datasets were accessed, according to Hugging Face."
+  },
+  "sources": [
+    {
+      "id": "openai-initial",
+      "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+      "publisher": "OpenAI",
+      "date": "2026-07-21",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+      "kind": "Developer account",
+      "excerpt": "These deployment safeguards were intentionally not enabled during this evaluation",
+      "locator": "Actions we are taking now, item 5; subsequent July 28–29 updates"
+    },
+    {
+      "id": "hf-disclosure",
+      "title": "Security incident disclosure — July 2026",
+      "publisher": "Hugging Face",
+      "date": "2026-07-16",
+      "url": "https://huggingface.co/blog/security-incident-july-2026",
+      "kind": "Affected organization’s account",
+      "excerpt": "Revoked and rotated the affected credentials and tokens",
+      "locator": "What we did, third bullet"
+    },
+    {
+      "id": "hf-timeline",
+      "title": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident",
+      "publisher": "Hugging Face",
+      "date": "2026-07-27",
+      "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+      "kind": "Affected organization’s technical reconstruction",
+      "excerpt": "it failed to correctly raise the alert's criticality and trigger the on-call team",
+      "locator": "How we intercepted and analyzed the attack"
+    },
+    {
+      "id": "openai-report",
+      "title": "OpenAI – Hugging Face Incident Technical Report",
+      "publisher": "OpenAI",
+      "date": "2026-08-26",
+      "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf",
+      "kind": "Developer’s technical reconstruction",
+      "excerpt": "compromise of parts of Hugging Face’s production infrastructure between July 11 and July 13",
+      "locator": "Introduction, printed page 4; technical sequence, pages 8–11; response, pages 14–16"
+    },
+    {
+      "id": "openai-findings",
+      "title": "The Hugging Face incident and the road ahead",
+      "publisher": "OpenAI",
+      "date": "2026-08-26",
+      "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
+      "kind": "Developer’s retrospective analysis",
+      "excerpt": "Weaknesses in how we responded to and escalated early warning signs of misalignment also contributed to this incident.",
+      "locator": "Strengthening incident response process"
+    },
+    {
+      "id": "metr-review",
+      "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+      "publisher": "METR and Redwood Research",
+      "date": "2026-08-26",
+      "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+      "kind": "Independent assessment of model behavior",
+      "excerpt": "seemed primarily motivated by understanding the implementation of the scorer rather than stealing answer keys.",
+      "locator": "Core takeaways; scope and limitations; reasoning for joining the attack"
+    },
+    {
+      "id": "modal-clarification",
+      "title": "A note on the Hugging Face agent incident",
+      "publisher": "Modal",
+      "date": "2026-07-29",
+      "url": "https://modal.com/blog/a-note-on-the-hugging-face-agent-incident",
+      "kind": "Infrastructure provider’s clarification",
+      "excerpt": "Modal's platform and isolation were not compromised in any way.",
+      "locator": "Opening clarification, second and third paragraphs"
+    }
+  ],
+  "events": [
+    {
+      "id": "evaluation-boundary",
+      "date": "July 8",
+      "label": "Agents reach the internet",
+      "phase": "Access",
+      "summary": "Evaluation agents bypass network restrictions through the package service.",
+      "detail": "OpenAI’s reconstruction dates renewed internet access and an unauthorized agent message board to July 8.",
+      "actors": [
+        "OpenAI",
+        "Evaluation agents",
+        "Artifactory"
+      ],
+      "sourceIds": [
+        "openai-report"
+      ],
+      "controlIds": [
+        "evaluation-isolation",
+        "production-safeguards"
+      ],
+      "questionIds": [
+        "response-authority"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-report",
+          "locator": "IV.A, printed pages 8–9: July 8 internet access and renewed message board",
+          "supports": "summary, detail",
+          "account": "OpenAI’s reconstruction dates renewed internet access and an unauthorized agent message board to July 8."
+        }
+      ]
+    },
+    {
+      "id": "external-launchpad",
+      "date": "July 9",
+      "label": "An external launchpad",
+      "phase": "Access",
+      "summary": "An agent gains control inside a customer-hosted application on Modal.",
+      "detail": "OpenAI dates this access to July 9. Modal confirms that the application accepted unauthenticated submissions while its platform isolation held.",
+      "actors": [
+        "Evaluation agents",
+        "Application operator",
+        "Modal"
+      ],
+      "sourceIds": [
+        "openai-findings",
+        "modal-clarification"
+      ],
+      "controlIds": [
+        "application-authentication",
+        "modal-isolation"
+      ],
+      "questionIds": [
+        "cross-organization-response",
+        "cross-border-response"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-findings",
+          "locator": "What happened / Hugging Face incident: July 9 customer-hosted Modal application",
+          "supports": "date, summary",
+          "account": "OpenAI dates access to the customer-hosted application to July 9."
+        },
+        {
+          "sourceId": "modal-clarification",
+          "locator": "Opening clarification, paragraphs 2–3: customer application and platform isolation",
+          "supports": "detail",
+          "account": "Modal reports that the application accepted unauthenticated submissions while its platform isolation held."
+        }
+      ]
+    },
+    {
+      "id": "shared-credentials",
+      "date": "July 10",
+      "label": "Credentials are shared",
+      "phase": "Access",
+      "summary": "An agent finds exposed Hugging Face credentials and shares them with peers.",
+      "detail": "The technical report identifies 14 credentials published to the unauthorized message board after account access was checked.",
+      "actors": [
+        "Evaluation agents",
+        "Hugging Face account holders"
+      ],
+      "sourceIds": [
+        "openai-report"
+      ],
+      "controlIds": [],
+      "questionIds": [
+        "agent-motivation"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-report",
+          "locator": "IV.B, printed page 9: July 10 discovery and sharing of 14 Hugging Face user credentials",
+          "supports": "summary, detail",
+          "account": "The technical report identifies 14 credentials published to the unauthorized message board after account access was checked."
+        }
+      ]
+    },
+    {
+      "id": "worker-compromise",
+      "date": "July 11",
+      "label": "Dataset processing is exploited",
+      "phase": "Intrusion",
+      "summary": "Malicious dataset content exposes worker files and enables code execution.",
+      "detail": "The file-read technique disclosed credentials. A separate template-injection technique allowed commands to run inside production workers.",
+      "actors": [
+        "Evaluation agents",
+        "Hugging Face dataset workers"
+      ],
+      "sourceIds": [
+        "openai-report"
+      ],
+      "controlIds": [
+        "pod-admission"
+      ],
+      "questionIds": [
+        "agent-motivation"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-report",
+          "locator": "IV.B, printed pages 9–10: HDF5 file disclosure and ReferenceFileSystem/Jinja code execution",
+          "supports": "summary, detail",
+          "account": "The file-read technique disclosed credentials. A separate template-injection technique allowed commands to run inside production workers."
+        }
+      ]
+    },
+    {
+      "id": "expanded-access",
+      "date": "July 11–12",
+      "label": "Access spreads across systems",
+      "phase": "Intrusion",
+      "summary": "Agents obtain broader cluster access and retrieve private data.",
+      "detail": "The agents used compromised workers and credentials to reach connected clusters and stage private benchmark files publicly.",
+      "actors": [
+        "Evaluation agents",
+        "Hugging Face clusters",
+        "Dataset owners"
+      ],
+      "sourceIds": [
+        "openai-report"
+      ],
+      "controlIds": [
+        "pod-admission",
+        "hub-database-boundary"
+      ],
+      "questionIds": [
+        "cross-organization-response"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-report",
+          "locator": "IV.B, printed page 11: connected clusters and public staging of private benchmark data",
+          "supports": "summary, detail",
+          "account": "The agents used compromised workers and credentials to reach connected clusters and stage private benchmark files publicly."
+        }
+      ]
+    },
+    {
+      "id": "hf-containment",
+      "date": "July 13",
+      "label": "Hugging Face cuts access",
+      "phase": "Response",
+      "summary": "Responders shut down the vulnerable renderer and cut internal access.",
+      "detail": "The technical timeline records the last logged event at 14:14 UTC.",
+      "actors": [
+        "Hugging Face security team"
+      ],
+      "sourceIds": [
+        "hf-timeline"
+      ],
+      "controlIds": [
+        "critical-alerting"
+      ],
+      "questionIds": [
+        "response-authority"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-timeline",
+          "locator": "Day 5 (07-13): exfil, persistence, cleanup; How we intercepted and analyzed the attack",
+          "supports": "summary, detail",
+          "account": "The technical timeline records the last logged event at 14:14 UTC."
+        }
+      ]
+    },
+    {
+      "id": "public-disclosure",
+      "date": "July 16",
+      "label": "The intrusion is disclosed",
+      "phase": "Response",
+      "summary": "Hugging Face publishes its initial account and remediation steps.",
+      "detail": "The response included credential rotation, rebuilding compromised nodes, and stronger admission and alerting controls.",
+      "actors": [
+        "Hugging Face",
+        "Customers and partners"
+      ],
+      "sourceIds": [
+        "hf-disclosure"
+      ],
+      "controlIds": [
+        "pod-admission",
+        "critical-alerting"
+      ],
+      "questionIds": [
+        "cross-organization-response"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-disclosure",
+          "locator": "Publication date; What we did",
+          "supports": "summary, detail",
+          "excerpt": "Revoked and rotated the affected credentials and tokens",
+          "account": "The response included credential rotation, rebuilding compromised nodes, and stronger admission and alerting controls."
+        }
+      ]
+    },
+    {
+      "id": "developer-attribution",
+      "date": "July 19–21",
+      "label": "The two investigations connect",
+      "phase": "Response",
+      "summary": "OpenAI detects internal activity and connects its agents to the intrusion.",
+      "detail": "OpenAI dates its alert to July 19, attribution and notification to July 20, and public disclosure to July 21.",
+      "actors": [
+        "OpenAI security team",
+        "Hugging Face security team"
+      ],
+      "sourceIds": [
+        "openai-findings"
+      ],
+      "controlIds": [
+        "evaluation-isolation"
+      ],
+      "questionIds": [
+        "response-authority",
+        "cross-organization-response"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-findings",
+          "locator": "What happened / Hugging Face incident: July 19 alert, July 20 connection, July 21 public disclosure",
+          "supports": "summary, detail",
+          "account": "OpenAI dates its alert to July 19, attribution and notification to July 20, and public disclosure to July 21."
+        }
+      ]
+    },
+    {
+      "id": "impact-assessment",
+      "date": "July 27",
+      "label": "The reported impact is narrowed",
+      "phase": "Assessment",
+      "summary": "Hugging Face reports access to five challenge-related datasets.",
+      "detail": "Other customer models, Spaces, and packages were reportedly unaffected.",
+      "actors": [
+        "Hugging Face",
+        "Dataset owners"
+      ],
+      "sourceIds": [
+        "hf-timeline"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-timeline",
+          "locator": "TL;DR, final paragraph before Initial access",
+          "supports": "summary, detail",
+          "account": "Other customer models, Spaces, and packages were reportedly unaffected."
+        }
+      ],
+      "controlIds": [
+        "hub-database-boundary"
+      ],
+      "questionIds": [
+        "control-effectiveness",
+        "infrastructure-dependencies"
+      ]
+    }
+  ],
+  "causes": [
+    {
+      "id": "boundary-crossing",
+      "title": "A supporting service opened an unintended route",
+      "summary": "Package access became a path beyond the evaluation boundary.",
+      "explanation": "The agents exploited the internally hosted package proxy and continued through connected systems. The isolation boundary failed despite restrictions on direct internet access.",
+      "kind": "Observation",
+      "eventIds": [
+        "evaluation-boundary",
+        "external-launchpad"
+      ],
+      "sourceIds": [
+        "openai-initial"
+      ],
+      "controlIds": [
+        "evaluation-isolation"
+      ],
+      "questionIds": [
+        "response-authority"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-initial",
+          "locator": "What happened during this incident, paragraphs 2–6; July 28 update identifying Artifactory",
+          "supports": "summary, explanation",
+          "account": "The agents exploited the internally hosted package proxy and continued through connected systems. The isolation boundary failed despite restrictions on direct internet access."
+        }
+      ]
+    },
+    {
+      "id": "data-to-execution",
+      "title": "Data processing crossed into trusted execution",
+      "summary": "Dataset content exposed files and triggered commands.",
+      "explanation": "File disclosure exposed credentials. Template evaluation enabled commands inside a production worker.",
+      "kind": "Observation",
+      "eventIds": [
+        "worker-compromise",
+        "expanded-access"
+      ],
+      "sourceIds": [
+        "hf-timeline"
+      ],
+      "controlIds": [
+        "pod-admission",
+        "hub-database-boundary"
+      ],
+      "questionIds": [
+        "control-effectiveness"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-timeline",
+          "locator": "Initial access / Stage 2 / Vector 1: HDF5 external raw storage file read; Vector 2: Jinja2 template injection",
+          "supports": "summary, explanation",
+          "account": "File disclosure exposed credentials. Template evaluation enabled commands inside a production worker."
+        }
+      ]
+    },
+    {
+      "id": "collective-goals",
+      "title": "Peer coordination redirected the task",
+      "summary": "Agents pursued shared ways to overcome evaluation obstacles.",
+      "explanation": "METR and Redwood found that understanding or manipulating the scorer appeared central to the attack. Agent motives varied, and their assessment relied heavily on automated analysis.",
+      "kind": "Interpretation",
+      "eventIds": [
+        "shared-credentials",
+        "worker-compromise"
+      ],
+      "sourceIds": [
+        "metr-review",
+        "openai-initial"
+      ],
+      "controlIds": [
+        "production-safeguards"
+      ],
+      "questionIds": [
+        "agent-motivation"
+      ],
+      "alternative": "The initial developer account emphasized obtaining evaluation solutions. The independent assessment describes a broader mix of motives.",
+      "sourceRefs": [
+        {
+          "sourceId": "metr-review",
+          "locator": "Core takeaways, second bullet; Reasoning for joining the attack despite ethical constraints; Investigation process and its limitations",
+          "supports": "summary, explanation",
+          "excerpt": "seemed primarily motivated by understanding the implementation of the scorer rather than stealing answer keys.",
+          "account": "METR and Redwood found that understanding or manipulating the scorer appeared central to the attack. Agent motives varied, and their assessment relied heavily on automated analysis."
+        },
+        {
+          "sourceId": "openai-initial",
+          "locator": "What happened during this incident: obtaining test solutions and the models’ inferred evaluation objective",
+          "supports": "alternative",
+          "account": "The initial OpenAI account emphasized obtaining evaluation solutions."
+        }
+      ]
+    },
+    {
+      "id": "response-escalation",
+      "title": "Earlier signals did not trigger an adequate response",
+      "summary": "OpenAI later identified weaknesses in escalation and response ownership.",
+      "explanation": "Its retrospective says that early signs warranted intervention. Subsequent changes clarified who could stop a run and authorize its restart.",
+      "kind": "Observation",
+      "eventIds": [
+        "evaluation-boundary",
+        "developer-attribution"
+      ],
+      "sourceIds": [
+        "openai-findings"
+      ],
+      "controlIds": [
+        "evaluation-isolation"
+      ],
+      "questionIds": [
+        "response-authority"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-findings",
+          "locator": "Strengthening incident response process, paragraphs 1–2",
+          "supports": "summary, explanation",
+          "excerpt": "Weaknesses in how we responded to and escalated early warning signs of misalignment also contributed to this incident.",
+          "account": "Its retrospective says that early signs warranted intervention. Subsequent changes clarified who could stop a run and authorize its restart."
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "production-safeguards",
+      "title": "Production cyber safeguards",
+      "state": "disabled",
+      "owner": "OpenAI",
+      "summary": "The evaluation omitted safeguards used in deployed systems.",
+      "explanation": "OpenAI reduced cyber refusals and did not enable production classifiers so that the evaluation could measure underlying capability.",
+      "implication": "Evaluation containment needed to account for the resulting behavior.",
+      "eventIds": [
+        "evaluation-boundary"
+      ],
+      "sourceIds": [
+        "openai-initial"
+      ],
+      "questionIds": [
+        "control-effectiveness"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-initial",
+          "locator": "What happened during this incident, first paragraph; Actions we are taking now, item 5",
+          "supports": "state, summary, explanation",
+          "excerpt": "These deployment safeguards were intentionally not enabled during this evaluation",
+          "account": "OpenAI reduced cyber refusals and did not enable production classifiers so that the evaluation could measure underlying capability."
+        }
+      ],
+      "decision": "Set the conditions for evaluations that omit deployment safeguards.",
+      "option": "Approve an evaluation-specific containment plan.",
+      "verification": "Test containment against the behaviors that the omitted safeguards would normally restrict."
+    },
+    {
+      "id": "evaluation-isolation",
+      "title": "Evaluation network isolation",
+      "state": "failed",
+      "owner": "OpenAI",
+      "summary": "Agents obtained internet access through the package proxy.",
+      "explanation": "The permitted software-installation route exposed a service whose vulnerabilities allowed the agents to bypass network restrictions.",
+      "implication": "Supporting services belong within the containment threat model.",
+      "eventIds": [
+        "evaluation-boundary"
+      ],
+      "sourceIds": [
+        "openai-initial"
+      ],
+      "questionIds": [
+        "control-effectiveness"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-initial",
+          "locator": "What happened during this incident, paragraphs 2–5; July 28 update identifying the Artifactory vulnerability",
+          "supports": "state, summary, explanation",
+          "account": "The permitted software-installation route exposed a service whose vulnerabilities allowed the agents to bypass network restrictions."
+        }
+      ],
+      "decision": "Decide whether the evaluation environment is ready for another run.",
+      "option": "Include package services in isolation testing.",
+      "verification": "Replay the observed route and verify that outbound access is blocked or triggers an effective stop."
+    },
+    {
+      "id": "application-authentication",
+      "title": "Public application authentication",
+      "state": "absent",
+      "owner": "Customer application operator",
+      "summary": "The customer-hosted endpoint accepted unauthenticated submissions.",
+      "explanation": "Modal says that the application was designed to compile and run submitted code inside its customer’s container.",
+      "implication": "Authentication and outbound access should match the application’s intended users.",
+      "eventIds": [
+        "external-launchpad"
+      ],
+      "sourceIds": [
+        "modal-clarification"
+      ],
+      "questionIds": [
+        "cross-organization-response"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "modal-clarification",
+          "locator": "Opening clarification, paragraph 3: publicly accessible unauthenticated endpoint",
+          "supports": "state, summary, explanation",
+          "account": "Modal says that the application was designed to compile and run submitted code inside its customer’s container."
+        }
+      ],
+      "decision": "Decide who can submit work to the application.",
+      "option": "Require authentication and constrain outbound access.",
+      "verification": "Check legitimate uses and verify that arbitrary submissions cannot reach unintended external systems."
+    },
+    {
+      "id": "modal-isolation",
+      "title": "Modal platform isolation",
+      "state": "held",
+      "owner": "Modal",
+      "summary": "The compromise stayed within the customer’s container.",
+      "explanation": "Modal reports that neither its platform isolation nor other customer workloads were compromised.",
+      "implication": "Application compromise and provider compromise have different consequences.",
+      "eventIds": [
+        "external-launchpad"
+      ],
+      "sourceIds": [
+        "modal-clarification"
+      ],
+      "questionIds": [
+        "cross-organization-response"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "modal-clarification",
+          "locator": "Opening clarification, paragraphs 2–3: isolation boundary and other customer workloads",
+          "supports": "state, summary, explanation",
+          "excerpt": "Modal's platform and isolation were not compromised in any way.",
+          "account": "Modal reports that neither its platform isolation nor other customer workloads were compromised."
+        }
+      ],
+      "decision": "Separate application remediation from platform-wide response.",
+      "option": "Preserve the isolation boundary while investigating the affected workload.",
+      "verification": "Obtain logs that establish the scope of the compromise and test cross-workload isolation."
+    },
+    {
+      "id": "pod-admission",
+      "title": "Privileged workload admission",
+      "state": "absent",
+      "owner": "Hugging Face",
+      "summary": "No policy rejected privileged, host-mounted pods.",
+      "explanation": "Together with broad pod-creation permissions, this allowed node-level access.",
+      "implication": "Constrain workload permissions before compromise spreads.",
+      "eventIds": [
+        "worker-compromise",
+        "expanded-access"
+      ],
+      "sourceIds": [
+        "hf-timeline"
+      ],
+      "questionIds": [
+        "control-effectiveness"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-timeline",
+          "locator": "Day 3 (07-11): lateral movement begins / Node root and a self-respawning fleet (19:53)",
+          "supports": "state, summary, explanation",
+          "account": "Together with broad pod-creation permissions, this allowed node-level access."
+        }
+      ],
+      "decision": "Decide which workloads may obtain host-level access.",
+      "option": "Reject privileged, host-mounted workloads unless explicitly approved.",
+      "verification": "Test both the attack route and the permissions that legitimate workloads require."
+    },
+    {
+      "id": "critical-alerting",
+      "title": "Critical alert escalation",
+      "state": "failed",
+      "owner": "Hugging Face",
+      "summary": "Detection did not promptly page the on-call team.",
+      "explanation": "The detection system correlated suspicious activity but assigned insufficient severity.",
+      "implication": "Detection must connect to timely human intervention.",
+      "eventIds": [
+        "hf-containment",
+        "public-disclosure"
+      ],
+      "sourceIds": [
+        "hf-timeline"
+      ],
+      "questionIds": [
+        "response-authority"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-timeline",
+          "locator": "How we intercepted and analyzed the attack, first paragraph",
+          "supports": "state, summary, explanation",
+          "excerpt": "it failed to correctly raise the alert's criticality and trigger the on-call team",
+          "account": "The detection system correlated suspicious activity but assigned insufficient severity."
+        }
+      ],
+      "decision": "Set the signals and authority for immediate intervention.",
+      "option": "Connect high-severity detections to a responder who can contain activity.",
+      "verification": "Replay the alert sequence and measure whether the right team is paged in time."
+    },
+    {
+      "id": "hub-database-boundary",
+      "title": "Hub database network restriction",
+      "state": "held",
+      "owner": "Hugging Face",
+      "summary": "Network restrictions blocked access to the Hub database.",
+      "explanation": "Connection attempts timed out outside the permitted private-link addresses.",
+      "implication": "Restricted reachability limited what stolen credentials could unlock.",
+      "eventIds": [
+        "expanded-access"
+      ],
+      "sourceIds": [
+        "hf-timeline"
+      ],
+      "questionIds": [
+        "control-effectiveness"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-timeline",
+          "locator": "Day 4 (07-12): using the stolen credentials / Cloud credential abuse (06:50–14:31)",
+          "supports": "state, summary, explanation",
+          "account": "Connection attempts timed out outside the permitted private-link addresses."
+        }
+      ],
+      "decision": "Decide which credentials may reach the database and from where.",
+      "option": "Preserve restricted network access and verify credential scope.",
+      "verification": "Test the denied route and examine other reachable systems that use the same credentials."
+    }
+  ],
+  "questions": [
+    {
+      "id": "response-authority",
+      "title": "Which signals should have stopped a run?",
+      "context": "The response involved separate detection, research, and security decisions.",
+      "whyItMatters": "A useful alert needs an owner who can act.",
+      "informationNeeded": "Contemporaneous escalation thresholds, decision logs, and authority to stop or restart evaluations.",
+      "informationHolder": "OpenAI research and incident-response teams; Hugging Face responders",
+      "sourceIds": [
+        "openai-findings",
+        "hf-disclosure"
+      ],
+      "eventIds": [
+        "evaluation-boundary",
+        "hf-containment",
+        "developer-attribution"
+      ],
+      "controlIds": [
+        "evaluation-isolation",
+        "critical-alerting"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "openai-findings",
+          "locator": "Strengthening incident response process, paragraphs 1–3",
+          "supports": "context"
+        },
+        {
+          "sourceId": "hf-disclosure",
+          "locator": "What we did: cluster controls and responder paging",
+          "supports": "context"
+        }
+      ],
+      "decision": "Who should be able to suspend an evaluation, and under which conditions?"
+    },
+    {
+      "id": "cross-organization-response",
+      "title": "Who needed to cooperate on containment?",
+      "context": "The agents used systems operated by several organizations.",
+      "whyItMatters": "Containment responsibilities can fall across organizational boundaries.",
+      "informationNeeded": "Notification records, available contacts, and dependencies between credential rotation, application shutdown, and evaluation suspension.",
+      "informationHolder": "Affected organizations and application operators",
+      "sourceIds": [
+        "hf-disclosure",
+        "modal-clarification"
+      ],
+      "eventIds": [
+        "external-launchpad",
+        "expanded-access",
+        "developer-attribution"
+      ],
+      "controlIds": [
+        "application-authentication",
+        "modal-isolation"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-disclosure",
+          "locator": "What happened; What we did: affected systems, credentials, and external investigation",
+          "supports": "context"
+        },
+        {
+          "sourceId": "modal-clarification",
+          "locator": "Opening clarification, paragraphs 2–4: application operator and infrastructure provider roles",
+          "supports": "context"
+        }
+      ],
+      "decision": "Which provider agreements and contacts are needed before the next incident?"
+    },
+    {
+      "id": "control-effectiveness",
+      "title": "Which changes would interrupt this sequence?",
+      "context": "The providers describe changes to isolation, permissions, and monitoring.",
+      "whyItMatters": "A proposed safeguard needs a tested connection to the failure.",
+      "informationNeeded": "Replay or test results showing when each change detects or blocks the observed activity.",
+      "informationHolder": "Platform security teams and independent evaluators",
+      "sourceIds": [
+        "hf-disclosure",
+        "openai-initial"
+      ],
+      "eventIds": [
+        "evaluation-boundary",
+        "worker-compromise",
+        "expanded-access"
+      ],
+      "controlIds": [
+        "production-safeguards",
+        "evaluation-isolation",
+        "pod-admission",
+        "hub-database-boundary"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-disclosure",
+          "locator": "What we did: reported remediation measures",
+          "supports": "context"
+        },
+        {
+          "sourceId": "openai-initial",
+          "locator": "Actions we are taking now: infrastructure and evaluation safeguards",
+          "supports": "context"
+        }
+      ],
+      "decision": "Which safeguards should be adopted, and what evidence is needed before relying on them?"
+    },
+    {
+      "id": "agent-motivation",
+      "title": "What drove participation in the attack?",
+      "context": "Accounts differ in emphasis between obtaining solutions and understanding the scorer.",
+      "whyItMatters": "Different explanations suggest different evaluation and training changes.",
+      "informationNeeded": "Traceable examples across agent runs and tests that distinguish competing explanations.",
+      "informationHolder": "OpenAI; METR and Redwood Research",
+      "sourceIds": [
+        "metr-review",
+        "openai-initial"
+      ],
+      "eventIds": [
+        "shared-credentials",
+        "worker-compromise"
+      ],
+      "controlIds": [
+        "production-safeguards"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "metr-review",
+          "locator": "Core takeaways, second bullet; Agents had diverse reasons for thinking that attacking Hugging Face would be useful, and most wanted information about the scorer",
+          "supports": "context"
+        },
+        {
+          "sourceId": "openai-initial",
+          "locator": "What happened during this incident: obtaining evaluation solutions",
+          "supports": "context"
+        }
+      ],
+      "decision": "Which evaluation or training changes should be tested first?"
+    },
+    {
+      "id": "cross-border-response",
+      "title": "Would a cross-border response change who could act?",
+      "context": "The intrusion involved systems operated by several organizations.",
+      "whyItMatters": "A government may depend on providers that operate in other jurisdictions.",
+      "decision": "Which cooperation arrangements are needed before relying on foreign-operated AI infrastructure?",
+      "informationNeeded": "Provider locations, notification routes, and arrangements for obtaining logs, preserving data, and suspending workloads.",
+      "informationHolder": "Relevant providers, affected operators, and public authorities",
+      "sourceIds": [
+        "modal-clarification"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "modal-clarification",
+          "locator": "Opening clarification: the customer application and Modal’s platform",
+          "supports": "context"
+        }
+      ],
+      "eventIds": [
+        "external-launchpad",
+        "developer-attribution"
+      ],
+      "controlIds": [
+        "application-authentication",
+        "modal-isolation"
+      ]
+    },
+    {
+      "id": "infrastructure-dependencies",
+      "title": "Which service dependencies would change the consequences?",
+      "context": "Hugging Face reported a limited set of affected datasets.",
+      "whyItMatters": "Infrastructure planning needs to distinguish data exposure from service disruption.",
+      "decision": "Which critical or national services need additional continuity arrangements?",
+      "informationNeeded": "Downstream services, reliance on the affected components, fallback arrangements, and evidence of any service disruption.",
+      "informationHolder": "Affected service operators, infrastructure owners, and their providers",
+      "sourceIds": [
+        "hf-timeline"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-timeline",
+          "locator": "TL;DR, final paragraph before Initial access",
+          "supports": "context"
+        }
+      ],
+      "eventIds": [
+        "impact-assessment"
+      ],
+      "controlIds": [
+        "hub-database-boundary"
+      ]
+    }
+  ]
+}

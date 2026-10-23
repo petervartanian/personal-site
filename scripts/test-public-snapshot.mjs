@@ -8,13 +8,13 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const approved=new Set(JSON.parse(readFileSync(path.join(root,'content/public-files.json'),'utf8')));
-const blocked=new Set(['arcolens','agency-costs','backdrive','correlator','haruspex','monitor']);
+const blocked=new Set(['arcolens','agency-costs','backdrive','correlator','explorer','haruspex','monitor']);
 test('public deployment contains only explicitly approved files',()=>{
   // Includes staged/tracked files even if ignored, plus new unignored files.
   const files=new Set(execFileSync('git',['ls-files','--cached','--others','--exclude-standard','-z'],{cwd:root,encoding:'utf8'}).split('\0').filter(Boolean));
   assert(files.size>20,'The public snapshot must not be empty');
   for(const name of files){
-    // The six reviewed builds are authorized only beneath /200/. Source checkouts
+    // The reviewed builds are authorized only beneath /200/. Source checkouts
     // and alternate root copies must still stay outside this deployment.
     if(name.split('/').some(part=>blocked.has(part))){
       assert(name.startsWith('200/') && blocked.has(name.split('/')[1]) && approved.has(name),`Unapproved tool path: ${name}`);

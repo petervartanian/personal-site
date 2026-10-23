@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = name => readFileSync(path.join(root, name), 'utf8');
-const projects = ['agency-costs', 'backdrive', 'correlator', 'haruspex', 'monitor', 'arcolens'];
+const projects = ['agency-costs', 'backdrive', 'correlator', 'explorer', 'haruspex', 'monitor', 'arcolens'];
 function files(directory) {
   return readdirSync(path.join(root, directory), { withFileTypes: true }).flatMap(entry => {
     const name = `${directory}/${entry.name}`;
@@ -14,7 +14,7 @@ function files(directory) {
   });
 }
 
-test('all six tools have static entry pages at their existing URLs', () => {
+test('all tools have static entry pages at their existing URLs', () => {
   const catalog = read('200/index.html');
   assert(!/type=["']password|data-lock|id=["']unlock/.test(catalog));
   for (const project of projects) {
