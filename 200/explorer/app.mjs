@@ -1,8 +1,8 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-horizontal-cards';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-horizontal-cards';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-horizontal-cards';
-import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-horizontal-cards';
-import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-horizontal-cards';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-horizontal-cards2';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-horizontal-cards2';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-horizontal-cards2';
+import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-horizontal-cards2';
+import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-horizontal-cards2';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
@@ -342,7 +342,7 @@ document.addEventListener('click', event => {
     eventOrigins.set(data.case.id, {url:routeFor(current.view,current.itemId,current.sourceId,current.reportingFieldId || current.storyId), title:field?.label || item.title});
   }
   destination = anchor.matches('.citation') ? 'sources-title' : anchor.closest('.related-list, .account-links, .safeguard-comparison, .safeguard-matrix') || (matchMedia('(max-width:760px)').matches && anchor.closest('.concept-choices')) ? 'analysis-title' : null;
-  if (anchor.matches('#question-navigation>a')) destination = 'investigation';
+  if (anchor.matches('#question-navigation>a')) destination = 'question-navigation';
   if (destination && anchor.hash === location.hash) {
     event.preventDefault();
     const target = $(destination);
