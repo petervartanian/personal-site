@@ -1,8 +1,8 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-response-reporting2';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-response-reporting2';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-response-reporting2';
-import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-response-reporting2';
-import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-response-reporting2';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-horizontal-cards';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-horizontal-cards';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-horizontal-cards';
+import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-horizontal-cards';
+import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-horizontal-cards';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
@@ -310,7 +310,6 @@ function render({ focus = false, destination = null } = {}) {
       }
     }
   }
-  if (current.view === 'questions' && matchMedia('(min-width:1100px)').matches) $('question-navigation').querySelector('[data-view=questions]').insertAdjacentElement('afterend', $('selection'));
   updateChronologyControls();
   if (!current.reportingFieldId) renderSources(item);
   const selectedReportingField = current.reportingFieldId ? data.reporting.fields.find(field => field.id === current.reportingFieldId) : null;
@@ -358,7 +357,7 @@ window.addEventListener('hashchange', () => {
   keyboardNavigation = false;
   destination = null;
 });
-for (const query of ['(max-width:760px)','(min-width:1100px)']) matchMedia(query).addEventListener('change', () => { if (catalog.length) render(); });
+matchMedia('(max-width:760px)').addEventListener('change', () => { if (catalog.length) render(); });
 document.addEventListener('change', event => {
   if (event.target.matches('[data-reporting-field-select]')) location.hash = routeFor('questions', current.itemId, current.sourceId, event.target.value);
   if (event.target.id === 'case-picker') location.hash = caseRouteFor(event.target.value, current?.view || 'events');
