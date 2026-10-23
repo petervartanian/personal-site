@@ -1,4 +1,4 @@
-import { caseRouteFor, comparisonRoute } from './state.mjs?v=20261023-case-library';
+import { caseRouteFor, comparisonRoute } from './state.mjs?v=20261023-cast';
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const phaseColor = phase => ({Access:'access',Intrusion:'intrusion',Response:'response',Assessment:'assessment'}[phase] || 'assessment');
 export function libraryMarkup(catalog, selected) {
@@ -10,7 +10,7 @@ export function libraryMarkup(catalog, selected) {
     <h2><a href="${caseRouteFor(c.id,'events')}">${escape(c.title)}</a></h2>
     <p class="library-summary">${escape(c.catalogSummary || c.summary)}</p>
     <p class="selection-reason">${escape(c.selectionReason)}</p>
-    <div class="library-case-actions"><a class="investigate-link" href="${caseRouteFor(c.id,'events')}">Open investigation</a><label class="compare-choice"><input type="checkbox" name="compare-case" value="${escape(c.id)}" ${selected.has(c.id) ? 'checked' : ''}><span>Compare<span class="visually-hidden"> ${escape(c.title)}</span></span></label></div></article>`;
+    <div class="library-case-actions"><a class="investigate-link" href="${caseRouteFor(c.id,'events')}">Open investigation</a>${catalog.length > 1 ? `<label class="compare-choice"><input type="checkbox" name="compare-case" value="${escape(c.id)}" ${selected.has(c.id) ? 'checked' : ''}><span>Compare<span class="visually-hidden"> ${escape(c.title)}</span></span></label>` : ''}</div></article>`;
   }).join('')}</div>
   <div class="comparison-tray" id="comparison-tray" ${selected.size ? '' : 'hidden'}>${selectionMarkup(selected)}</div>`;
 }

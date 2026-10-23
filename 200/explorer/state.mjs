@@ -1,15 +1,18 @@
 export const views = Object.freeze([
   { id: 'events', label: 'What happened?', selectionLabel: 'Chronology' },
-  { id: 'causes', label: 'How did it happen?', selectionLabel: 'Explanations' },
-  { id: 'controls', label: 'What affected the outcome?', selectionLabel: 'Safeguards' },
-  { id: 'questions', label: 'What is still unknown?', selectionLabel: 'Investigative questions' },
+  { id: 'controlRelationships', label: 'How did it happen?', selectionLabel: 'Control relationships' },
+  { id: 'causes', label: 'How did it happen?', selectionLabel: 'Contributing factors', navigationId: 'controlRelationships' },
+  { id: 'controls', label: 'What could change?', selectionLabel: 'Safeguards' },
+  { id: 'questions', label: 'What do we need to know?', selectionLabel: 'Investigative questions' },
 ]);
+
+export const navigationViews = Object.freeze(views.filter(v => !v.navigationId));
 
 export function readRoute(hash, data, remembered = {}) {
   let parts;
   try { parts = hash.replace(/^#\/?/, '').split('/').map(decodeURIComponent); }
   catch { parts = []; }
-  const view = views.some(v => v.id === parts[0]) ? parts[0] : 'events';
+  const view = views.some(v => v.id === parts[0]) && data[parts[0]]?.length ? parts[0] : 'events';
   const items = data[view];
   const requestedId = view === 'questions' && parts[1] === 'cross-border-response' ? 'cross-organization-response' : parts[1];
   const item = items.find(i => i.id === requestedId) || items.find(i => i.id === remembered[view]) || items[0];

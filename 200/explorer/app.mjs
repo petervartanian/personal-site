@@ -1,12 +1,13 @@
-import { views, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-case-library';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-case-library';
+import { views, navigationViews, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-cast';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-cast';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-cast';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const stateNames = { held: 'Worked', failed: 'Failed', absent: 'Absent', disabled: 'Off', unknown: 'Unknown' };
-const organizationMarks = { Anthropic: 'anthropic.png', OpenAI: 'openai.png', 'Hugging Face': 'hugging-face.svg', Modal: 'modal.svg' };
+const organizationMarks = { OpenAI: 'openai.png', 'Hugging Face': 'hugging-face.svg', Modal: 'modal.svg' };
 const organizationName = name => `<span class="organization-name">${organizationMarks[name] ? `<img src="assets/${organizationMarks[name]}" class="organization-logo" width="22" height="22" alt="">` : ''}${escape(name)}</span>`;
 const icons = {
   access: '<path d="M13 3h6v18h-6M3 12h11m-4-4 4 4-4 4"/>',
@@ -31,7 +32,7 @@ const icons = {
   unknown: '<path d="M8 8a4 4 0 0 1 8 0c0 3-4 3-4 6m0 4v1"/>',
 };
 const questionIcons = {
-  'response-authority': 'oversight', 'cross-organization-response': 'cooperation',
+  'response-authority': 'oversight', 'hf-escalation': 'oversight', 'cross-organization-response': 'cooperation',
   'control-effectiveness': 'test', 'agent-motivation': 'agents',
   'infrastructure-dependencies': 'infrastructure', 'incident-reporting': 'report',
   'forensic-tools': 'test',
@@ -78,7 +79,9 @@ function mitigationType(item) {
 
 function renderSelection() {
   const definition = views.find(v => v.id === current.view);
-  if (current.view === 'events') {
+  if (current.view === 'controlRelationships' || current.view === 'causes') {
+    $('selection').innerHTML = systemSelection(data, current, routeFor);
+  } else if (current.view === 'events') {
     $('selection').innerHTML = `<div class="chronology"><h2 class="selection-heading">Chronology <span class="date-span">${escape(data.case.chronologyRange || data.case.dateRange)}</span></h2><ol class="event-list" style="--event-count:${data.events.length}" aria-label="Select an event">${data.events.map(i => itemSelection('events', i)).join('')}</ol></div>`;
   } else {
     $('selection').innerHTML = `<div class="choice-section"><h2 class="visually-hidden">${definition.selectionLabel}</h2><ul class="choice-list ${current.view}" aria-label="${definition.selectionLabel}">${data[current.view].map(i => itemSelection(current.view, i)).join('')}</ul></div>`;
@@ -93,8 +96,9 @@ function related(view, ids, title) {
   }).join('')}</ul></section>`;
 }
 
-function citationLinks(item) {
-  return item.sourceIds.map((id, index) => `<a href="${routeFor(current.view, item.id, id)}" class="citation" aria-label="Show source ${index + 1}: ${escape(data.sources.find(s => s.id === id).publisher)}">[${index + 1}]</a>`).join(' ');
+function citationLinks(item, field = null) {
+  const ids = field ? item.sourceIds.filter(id => item.sourceRefs.some(ref => ref.sourceId === id && ref.supports.split(',').map(value => value.trim()).includes(field))) : item.sourceIds;
+  return ids.map(id => { const index = item.sourceIds.indexOf(id); return `<a href="${routeFor(current.view, item.id, id)}" class="citation" aria-label="Show source ${index + 1}: ${escape(data.sources.find(s => s.id === id).publisher)}">[${index + 1}]</a>`; }).join(' ');
 }
 
 function mechanism(item) {
@@ -106,22 +110,31 @@ function mechanism(item) {
 function renderAnalysis(item) {
   const context = current.view === 'events' ? `<span>${escape(item.date)}</span><span class="phase-label">${icon(phaseIcons[item.phase])}${escape(item.phase)}</span>` : current.view === 'controls' ? `${stateLabel(item)}<span class="control-owner">Owner: ${organizationName(item.owner)}</span>` : current.view === 'causes' && item.kind === 'Interpretation' ? 'Interpretation' : '';
   let body = `<div class="detail-context">${context}</div><h2 id="analysis-title" tabindex="-1">${escape(item.label || item.title)}</h2>`;
-  if (current.view === 'questions') {
-    body += `<p class="detail-summary">${escape(item.context)}</p><dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision', item.whyItMatters)}${inquiryField('Information to request', 'request', item.informationNeeded, 'field-request')}${inquiryField('Who to ask', 'people', item.informationHolder, 'field-holder')}</dl>`;
+  if (current.view === 'controlRelationships') {
+    body = systemAnalysis(item, citationLinks, related, routeFor);
+  } else if (current.view === 'questions') {
+    body += `<p class="detail-summary">${escape(item.context)}</p><dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision', item.whyItMatters)}${item.requestFields?.length ? `<div class="inquiry-field field-request"><dt>${icon('request')}Information to request</dt><dd><ul class="requested-records">${item.requestFields.map(field => `<li>${escape(field)}</li>`).join('')}</ul>${item.handling ? `<p class="handling-note">${escape(item.handling)}</p>` : ''}</dd></div>` : inquiryField('Information to request', 'request', item.informationNeeded, 'field-request')}${inquiryField('Who to ask', 'people', item.informationHolder, 'field-holder')}</dl>`;
   } else {
     body += `<p class="detail-summary">${escape(item.summary)} <span class="inline-citations">${citationLinks(item)}</span></p>`;
   }
-  if (current.view === 'events') {
+  if (current.view === 'controlRelationships') {
+    // The control loop already includes its linked factors, safeguards, and events.
+  } else if (current.view === 'events') {
     body += `<section class="analysis-section"><h3>Organizations and systems</h3><ul class="actor-list">${item.actors.map(a => `<li>${escape(a)}</li>`).join('')}</ul></section>`;
     const causes = data.causes.filter(c => c.eventIds.includes(item.id));
-    body += related('causes', causes.map(c => c.id), 'How this happened');
+    const systems = data.controlRelationships?.filter(r => r.eventIds.includes(item.id)) || [];
+    body += related('controlRelationships', systems.map(r => r.id), 'Control and feedback');
+    body += related('causes', causes.map(c => c.id), 'Contributing factors');
     body += `<div class="related-columns">${related('controls', item.controlIds, 'Safeguards')}${related('questions', item.questionIds, 'Questions to investigate')}</div>`;
   } else if (current.view === 'causes') {
     body += mechanism(item);
+    const relationships = data.controlRelationships.filter(r => r.causeIds.includes(item.id));
+    body += related('controlRelationships', relationships.map(r => r.id), 'Control and feedback');
     if (item.alternative) body += `<section class="alternative"><h3>Another account</h3><p>${escape(item.alternative)}</p></section>`;
     body += related('events', item.eventIds, 'In the chronology');
     body += `<div class="related-columns">${related('controls', item.controlIds, 'Related safeguards')}${related('questions', item.questionIds, 'Questions to investigate')}</div>`;
   } else if (current.view === 'controls') {
+    if (item.reportedChange) body += `<section class="reported-change"><h3>Reported change</h3><p>${escape(item.reportedChange.text)} <a class="citation" href="${routeFor('controls',item.id,item.reportedChange.sourceId)}" aria-label="Show source for reported change">Source</a></p></section>`;
     body += mitigationType(item);
     body += `<dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision')}${inquiryField('Option to evaluate', 'shield', item.option, 'field-request')}${inquiryField('What to verify', 'test', item.verification, 'field-holder')}</dl>`;
     body += `<div class="related-columns">${related('events', item.eventIds, 'In the chronology')}${related('questions', item.questionIds, 'Questions to investigate')}</div>`;
@@ -144,7 +157,7 @@ function renderSources(item) {
   const ref = selectSourceRef(item, source.id);
   const options = item.sourceIds.length > 1 ? `<div class="source-options" aria-label="Choose a source">${item.sourceIds.map((id, i) => {
     const s = data.sources.find(s => s.id === id);
-    return `<a href="${routeFor(current.view, item.id, id)}" class="source-option" aria-current="${id === current.sourceId}">${i + 1}. ${escape(s.publisher)}</a>`;
+    return `<a href="${routeFor(current.view, item.id, id)}" class="source-option" aria-current="${id === current.sourceId}">${i + 1}. ${escape(s.publisher)}${item.sourceIds.filter(other => data.sources.find(entry => entry.id === other).publisher === s.publisher).length > 1 ? `, ${escape(sourceDate(s.date).replace(', 2026',''))}` : ''}</a>`;
   }).join('')}</div>` : '';
   $('sources').innerHTML = `<div class="sources-heading"><h2 id="sources-title" tabindex="-1">${current.view === 'questions' ? 'Relevant sources' : 'Sources'}</h2><span class="source-count">${item.sourceIds.indexOf(source.id) + 1} of ${item.sourceIds.length}</span></div>${options}<div class="source-publisher"><span>${escape(source.publisher)}</span><time datetime="${escape(source.date)}">${sourceDate(source.date)}</time></div><h3 class="source-title">${escape(source.title)}</h3><p class="source-kind">${escape(source.kind)}</p>${ref.account ? `<div class="source-account"><h3>${item.kind === 'Interpretation' ? 'Assessment in this source' : 'Account in this source'}</h3><p>${escape(ref.account)}</p></div>` : ''}${ref.excerpt ? `<blockquote>“${escape(ref.excerpt)}”</blockquote>` : ''}<div class="source-locator"><strong>Where to look</strong>${escape(ref.locator || source.locator)}</div><a href="${escape(source.url)}" class="source-link" target="_blank" rel="noopener noreferrer">Read the source<span class="visually-hidden"> (opens in a new tab)</span></a>`;
 }
@@ -175,11 +188,14 @@ function render({ focus = false, destination = null } = {}) {
     $('case-title').textContent = data.case.title;
     document.querySelector('.case-context').textContent = data.case.dateLabel || data.case.dateRange;
     document.querySelector('.case-summary').textContent = data.case.catalogSummary || data.case.summary;
+    $('case-outcome').innerHTML = `${escape(data.case.reportedOutcome)} <a href="${caseRouteFor(data.case.id,'events','impact-assessment')}">Examine the impact</a>`;
     const number = document.querySelector('.incident-number');
     number.hidden = !data.case.incidentId;
     number.textContent = '#' + data.case.incidentId;
     number.href = 'https://incidentdatabase.ai/cite/' + data.case.incidentId;
     number.setAttribute('aria-label', 'Incident ' + data.case.incidentId + ' in the AI Incident Database');
+    $('case-picker').hidden = catalog.length < 2;
+    document.querySelector('label[for="case-picker"]').hidden = catalog.length < 2;
     $('case-picker').innerHTML = catalog.map(d => `<option value="${escape(d.case.id)}" ${d.case.id === data.case.id ? 'selected' : ''}>${escape(d.case.title)}</option>`).join('');
     window.scrollTo({top:0,behavior:'instant'});
   }
@@ -188,16 +204,18 @@ function render({ focus = false, destination = null } = {}) {
   remembered = caseMemory.get(data.case.id);
   rememberedSources = caseSourceMemory.get(data.case.id);
   current = readRoute(locationState.hash, data, remembered);
-  document.body.dataset.view = current.view;
+  document.body.dataset.view = current.view === 'controlRelationships' ? 'causes' : current.view;
   remembered[current.view] = current.itemId;
   rememberedSources[`${current.view}/${current.itemId}`] = current.sourceId;
   const item = data[current.view].find(i => i.id === current.itemId);
   const onlySourceChanged = previous && previous.view === current.view && previous.itemId === current.itemId && previous.sourceId !== current.sourceId;
   const stableHash = routeFor(current.view, current.itemId, current.sourceId);
   if (location.hash !== stableHash) history.replaceState(null, '', stableHash);
-  $('question-navigation').innerHTML = views.map(v => `<a data-view="${v.id}" href="${routeFor(v.id, remembered[v.id], rememberedSources[`${v.id}/${remembered[v.id]}`])}" ${v.id === current.view ? 'aria-current="page"' : ''}>${v.label}</a>`).join('');
+  const navigationId = views.find(v => v.id === current.view).navigationId || current.view;
+  $('question-navigation').innerHTML = navigationViews.filter(v => data[v.id]?.length).map(v => `<a data-view="${v.id}" href="${routeFor(v.id, remembered[v.id], rememberedSources[`${v.id}/${remembered[v.id]}`])}" ${v.id === navigationId ? 'aria-current="page"' : ''}>${v.label}</a>`).join('');
   if (!onlySourceChanged) {
     const oldScroll = document.querySelector('.event-list')?.scrollLeft || 0;
+    const oldMapScroll = document.querySelector('.control-map')?.scrollLeft || 0;
     renderSelection();
     renderAnalysis(item);
     const list = document.querySelector('.event-list');
@@ -209,12 +227,22 @@ function render({ focus = false, destination = null } = {}) {
         if (left < list.scrollLeft || left + selected.offsetWidth > list.scrollLeft + list.clientWidth) list.scrollLeft = Math.max(0, left - 12);
       }
     }
+    const map = document.querySelector('.control-map');
+    if (map) {
+      map.scrollLeft = oldMapScroll;
+      const active = map.querySelector('[aria-current=true]');
+      if (active) {
+        const rect = active.getBoundingClientRect();
+        const bounds = map.getBoundingClientRect();
+        if (rect.left < bounds.left || rect.right > bounds.right) map.scrollLeft += rect.left - bounds.left - 5;
+      }
+    }
   }
   renderSources(item);
   document.title = `${item.label || item.title} | AI Incident Explorer`;
   $('status').textContent = `${views.find(v => v.id === current.view).label} ${item.label || item.title}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
   if (focus) (onlySourceChanged ? $('sources-title') : $('analysis-title')).focus({ preventScroll: true });
-  if (destination) $(destination).scrollIntoView({ block: 'nearest', behavior: 'instant' });
+  if (destination) $(destination).scrollIntoView({ block: 'start', behavior: 'instant' });
   previous = { ...current };
 }
 
@@ -226,6 +254,14 @@ document.addEventListener('click', event => {
   const anchor = event.target.closest('a[href^="#/"]');
   if (!anchor) return;
   destination = anchor.matches('.citation') ? 'sources-title' : anchor.closest('.related-list') ? 'analysis-title' : null;
+  if (destination && anchor.hash === location.hash) {
+    event.preventDefault();
+    const target = $(destination);
+    if (keyboardNavigation) target.focus({preventScroll:true});
+    target.scrollIntoView({block:'start',behavior:'instant'});
+    destination = null;
+    keyboardNavigation = false;
+  }
 });
 window.addEventListener('hashchange', () => {
   if (catalog.length && !['#main','#investigation'].includes(location.hash)) render({ focus: keyboardNavigation, destination });
@@ -262,7 +298,12 @@ try {
     if (!response.ok) throw new Error('Incident data could not be loaded');
     return response.json();
   };
-  const results = await Promise.allSettled([readData('./case-data.json'), readData('./cases/anthropic-espionage.json')]);
+  const entries = await readData('./case-index.json');
+  const results = await Promise.allSettled(entries.map(async entry => {
+    const caseData = await readData(entry.path);
+    if (caseData.case.id !== entry.id) throw new Error('Incident identity does not match the library');
+    return caseData;
+  }));
   const first = results[0].status === 'fulfilled' ? results[0].value : null;
   catalog = results.filter(r => r.status === 'fulfilled').map(r => ({mitigationTaxonomy:first?.mitigationTaxonomy, reportingFramework:first?.reportingFramework, ...r.value}));
   if (!catalog.length) throw new Error('No incident accounts could be loaded');
