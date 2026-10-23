@@ -1337,7 +1337,7 @@ body[data-view=overview] .sources .source-account{display:none}
  .model-key>span::before,.model-loop-edge::before,.model-access::before,.model-notification::before,.model-host::before,.model-supplement::before{border-color:CanvasText}
 }
 .model-loop-edge,.model-open-question,.model-access{font-size:11px}
-@container investigation-map (max-width:650px){
+@container investigation-map (max-width:759px){
  .model-grid{min-width:0;grid-template-columns:minmax(0,1fr);grid-template-rows:auto;row-gap:0}
  .model-notification{grid-column:1;grid-row:1;margin:0 0 10px;min-height:44px;align-items:center;justify-content:flex-start;font-size:11px}
  .model-notification::before,.model-notification::after{content:none}
@@ -1371,8 +1371,8 @@ body[data-view=overview] .sources .source-account{display:none}
  .unified-model-scroll{padding:3px 2px;overflow:visible}
  .unified-model{padding:12px 10px}
 }
-@container investigation-map (max-width:650px){.model-host{grid-column:3}.model-host .model-actor{justify-content:center}}
-@container investigation-map (max-width:650px){
+@container investigation-map (max-width:759px){.model-host{grid-column:3}.model-host .model-actor{justify-content:center}}
+@container investigation-map (max-width:759px){
  .model-station{position:relative;container-type:inline-size}
  .model-evaluation::after,.model-application::after{content:'';position:absolute;left:calc(100% - (100% - 90px)/4);top:77px;bottom:0;border-left:1px solid #999;pointer-events:none}
  .model-supplement,.model-host{grid-column:1/3;justify-self:end;width:auto;max-width:calc(100% - 10px);margin-right:10px;position:relative;z-index:1}
@@ -1393,33 +1393,10 @@ body[data-view=overview] .sources .source-account{display:none}
 .system-decision-links{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px}
 .system-decision-links a{display:flex;align-items:center;padding:8px 12px;min-height:40px;border:1px solid #aaa;border-radius:5px;color:#333;font-size:13px;line-height:1.4;text-decoration:none;background:#f7f7f7}
 .system-decision-links a:hover{background:#e8e8e8;border-color:#555}
-@container investigation-map (max-width:650px){
+@container investigation-map (max-width:759px){
  .model-loop-edge>span{font-size:10px;padding:4px 5px;transform:none;max-width:84px;box-sizing:border-box}
  .model-loop-edge,.model-open-question{font-size:10px;min-height:46px}
  .model-actor strong{font-size:12px}
-}
-@media(min-width:1200px){
- body[data-navigation=framework] .investigation{display:grid;grid-template-columns:minmax(390px,.9fr) minmax(0,1.4fr);align-items:start;gap:26px}
- body[data-navigation=framework] #selection{min-width:0}
- body[data-navigation=framework] .unified-model{margin-top:0;padding:14px 12px 10px}
- body[data-navigation=framework] .model-heading{flex-direction:column;gap:8px;align-items:flex-start;margin-bottom:8px}
- body[data-navigation=framework] .reading-layout{min-width:0;padding-top:0!important;grid-template-columns:minmax(0,1.15fr) minmax(245px,.85fr);gap:20px}
- body[data-navigation=framework] .analysis{padding:0;border:0;background:transparent}
- body[data-navigation=framework] .analysis>h2{font-size:21px;line-height:1.25}
- body[data-navigation=framework] .analysis p,body[data-navigation=framework] .system-fact dd{font-size:14px;line-height:1.6}
- body[data-navigation=framework] .sources{padding:17px 15px}
- body[data-navigation=framework] .source-title{font-size:15px}
- body[data-navigation=framework] .source-account p{font-size:13px;line-height:1.55}
- body[data-navigation=framework] .system-response-roles{grid-template-columns:1fr;gap:14px;padding:13px}
- body[data-navigation=framework] .system-response-actions .system-fact{display:block}
- body[data-navigation=framework] .system-fact dt{margin-bottom:6px}
- body[data-navigation=framework] .system-response-context{grid-template-columns:1fr;gap:16px}
- body[data-navigation=framework] .unified-chronology .event-list{grid-template-columns:repeat(var(--event-count),115px)}
- body[data-navigation=framework] .unified-chronology .event-label{font-size:11px}
- body[data-navigation=framework] .system-decision-links{gap:7px;margin-bottom:16px}
- body[data-navigation=framework] .system-decision-links a{font-size:12px;min-height:40px}
- body[data-navigation=framework] .inquiry-fields{grid-template-columns:1fr}
- body[data-navigation=framework] .related-columns{grid-template-columns:1fr}
 }
 .model-read-analysis{display:none}
 @media(max-width:1199px){
@@ -1429,3 +1406,98 @@ body[data-view=overview] .sources .source-account{display:none}
  .model-read-analysis:hover{border-color:#444;background:#eee}
  #analysis-title{scroll-margin-top:20px}
 }
+
+/* Two broad reading areas, with sources visible beneath the selected analysis. */
+.question-navigation{margin-bottom:28px;gap:14px}
+.question-navigation>a{border-radius:7px;min-height:56px;padding:13px 20px}
+body[data-navigation=framework] .reading-layout{display:block;min-width:0;padding-top:0!important}
+body[data-navigation=framework] .analysis{padding:0;background:transparent;border:0;max-width:72ch}
+body[data-navigation=framework] .analysis>h2{font-size:24px;line-height:1.3;margin-bottom:20px}
+body[data-navigation=framework] .analysis p,body[data-navigation=framework] .system-fact dd{font-size:16px;line-height:1.65}
+body[data-navigation=framework] .analysis h3{margin-bottom:12px}
+body[data-navigation=framework] .inquiry-fields{grid-template-columns:1fr;gap:24px;margin-top:26px}
+body[data-navigation=framework] .inquiry-field{padding:20px 22px}
+body[data-navigation=framework] .field-holder{padding:0;margin-top:2px}
+body[data-navigation=framework] .related-columns{grid-template-columns:1fr;gap:24px;margin-top:30px}
+body[data-navigation=framework] .system-response-roles{grid-template-columns:1fr;gap:18px;padding:20px}
+body[data-navigation=framework] .system-response-actions .system-fact{display:block;padding-block:18px}
+body[data-navigation=framework] .system-fact dt{margin-bottom:8px}
+body[data-navigation=framework] .system-response-context{grid-template-columns:1fr;gap:22px}
+body[data-navigation=framework] .system-decision-links{gap:10px;margin:20px 0 26px}
+body[data-navigation=framework] .system-decision-links a{font-size:14px;min-height:44px;padding:10px 14px}
+body[data-navigation=framework] .analysis .related-list a{font-size:15px;line-height:1.5;min-height:36px}
+body[data-navigation=framework] .analysis .reporting-reference{margin-top:26px}
+body[data-navigation=framework] .unified-model{margin-top:0;padding:22px 20px 18px}
+body[data-navigation=framework] .model-heading{gap:16px;align-items:center;margin-bottom:16px}
+body[data-navigation=framework] .model-heading h2{font-size:16px}
+.model-key{font-size:12px;gap:16px}
+.model-grid{min-width:760px}
+.model-loop-edge,.model-open-question,.model-access{font-size:12px}
+.model-loop-edge>span{padding:6px 8px;max-width:100%;line-height:1.4}
+.model-actor>span>span{font-size:12px;line-height:1.4}
+.model-process{font-size:14px}
+.unified-chronology{padding-top:24px!important}
+.unified-chronology .selection-heading{font-size:14px}
+.unified-chronology .date-span{font-size:12px}
+.unified-chronology .event-list{grid-template-columns:repeat(var(--event-count),148px)}
+.unified-chronology .event-button{min-height:104px;padding:10px 12px}
+.unified-chronology .event-button time{font-size:12px}
+.unified-chronology .event-label{font-size:13px;line-height:1.4}
+.unified-chronology .event-button.is-related .event-dot{border-color:#444;background:#bbb}
+.unified-chronology .event-button.is-related .event-label{color:#222;font-weight:600}
+@media(min-width:1200px){
+ body[data-navigation=framework] .investigation{display:grid;grid-template-columns:minmax(570px,1.14fr) minmax(440px,1fr);align-items:start;column-gap:44px;row-gap:28px}
+ body[data-navigation=framework] .reading-layout{grid-column:2;grid-row:1}
+}
+@container investigation-map (max-width:759px){
+ .model-grid{min-width:0;--action-lane:132px}
+ .model-station{grid-template-columns:minmax(0,1fr) var(--action-lane) minmax(0,1fr);grid-template-rows:minmax(114px,auto) auto}
+ .model-actor{min-height:84px;padding:12px 10px;gap:7px}
+ .model-actor strong{font-size:15px}.model-actor>span>span{font-size:12px;line-height:1.4}
+ .model-mark,.model-mark img,.model-mark svg{width:23px;height:23px}
+ .model-loop{padding:0 10px;gap:6px}
+ .model-loop-edge,.model-open-question{font-size:12px;min-height:50px}
+ .model-loop-edge>span{font-size:12px;max-width:112px;padding:6px 8px}
+ .model-process{font-size:14px;min-height:70px;padding:12px 10px}
+ .model-access{height:52px;width:calc((100% - var(--action-lane))/2);font-size:12px}
+ .model-access>span{padding:5px 7px;line-height:1.4}
+ .model-evaluation::after,.model-application::after{left:calc(100% - (100% - var(--action-lane))/4);top:92px}
+ .model-supplement,.model-host{margin-top:10px;margin-right:14px;min-height:48px;font-size:12px}
+ .model-supplement::before,.model-host::before{width:calc((100cqw - var(--action-lane))/4 + 14px)}
+ .model-host .model-actor{gap:8px;padding:7px 10px;min-height:48px}
+ .model-host .model-actor strong{font-size:13px}.model-host .model-actor>span>span{font-size:12px}
+ .model-notification{font-size:12px;margin-bottom:14px;min-height:44px}
+}
+@media(max-width:1199px){
+ body[data-navigation=framework] .reading-layout{margin-top:30px}
+}
+@media(max-width:760px){
+ .question-navigation{gap:10px;margin-bottom:22px}
+ .question-navigation>a{padding:12px 10px;font-size:13px}
+ body[data-navigation=framework] .unified-model{padding:18px 12px 14px}
+ body[data-navigation=framework] .model-heading{gap:10px;margin-bottom:15px}
+ body[data-navigation=framework] .analysis>h2{font-size:23px}
+}
+@container investigation-map (max-width:420px){
+ .model-grid{--action-lane:102px}
+ .model-actor{padding:9px 3px}.model-actor strong{font-size:13px}.model-actor>span>span{font-size:11px}
+ .model-loop{padding:0 5px}.model-loop-edge>span{font-size:11px;padding:6px 5px}
+ .model-process{font-size:12px;padding:10px 4px}
+ .model-supplement,.model-host,.model-notification,.model-access{font-size:11px}
+ .model-host .model-actor{padding:6px 4px}.model-host .model-actor strong{font-size:12px}.model-host .model-actor>span>span{font-size:11px}
+}
+.context-reporting-link{display:inline-flex;margin-top:24px;font-size:14px;line-height:1.5;min-height:40px;align-items:center;text-decoration:none}
+.context-reporting-link:hover{text-decoration:underline}
+@container investigation-map (min-width:421px) and (max-width:759px){
+ .model-station{grid-template-rows:minmax(102px,auto) auto}
+ .model-loop-edge,.model-open-question{min-height:46px}
+ .model-supplement,.model-host{min-height:42px;margin-top:5px}
+ .model-host .model-actor{min-height:42px}
+ .model-access{height:40px}
+ .model-evaluation::after,.model-application::after{top:86px}
+}
+body[data-navigation=framework] .reading-layout>.sources{margin-top:30px;padding:24px;background:#fff;max-width:none}
+body[data-navigation=framework] .reading-layout>.sources .source-title{font-size:18px;line-height:1.4}
+body[data-navigation=framework] .reading-layout>.sources .source-account p{font-size:15px;line-height:1.65}
+body[data-navigation=framework] .sources .source-locator{font-size:13px;line-height:1.6}
+@media(min-width:1200px){body[data-navigation=framework] #selection{grid-column:1;grid-row:1;min-width:0}}
