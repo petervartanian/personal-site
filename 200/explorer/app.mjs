@@ -1,8 +1,8 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-response-reporting';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-response-reporting';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-response-reporting';
-import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-response-reporting';
-import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-response-reporting';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-response-reporting2';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-response-reporting2';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-response-reporting2';
+import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-response-reporting2';
+import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-response-reporting2';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
@@ -337,9 +337,10 @@ document.addEventListener('click', event => {
   }
   const anchor = event.target.closest('a[href^="#/"]');
   if (!anchor) return;
-  if (anchor.closest('.system-events') || anchor.matches('.system-response-event,.system-response-connection')) {
+  if (anchor.closest('.system-events,.reporting-events') || anchor.matches('.system-response-event,.system-response-connection')) {
     const item = data[current.view].find(entry => entry.id === current.itemId);
-    eventOrigins.set(data.case.id, {url:routeFor(current.view,current.itemId,current.sourceId,current.storyId), title:item.title});
+    const field = data.reporting?.fields.find(entry => entry.id === current.reportingFieldId);
+    eventOrigins.set(data.case.id, {url:routeFor(current.view,current.itemId,current.sourceId,current.reportingFieldId || current.storyId), title:field?.label || item.title});
   }
   destination = anchor.matches('.citation') ? 'sources-title' : anchor.closest('.related-list, .account-links, .safeguard-comparison, .safeguard-matrix') || (matchMedia('(max-width:760px)').matches && anchor.closest('.concept-choices')) ? 'analysis-title' : null;
   if (anchor.matches('#question-navigation>a')) destination = 'investigation';
