@@ -1,5 +1,5 @@
 /* Monetary claims use AIBD's existing paper, marble, type scale, and marks. */
-body.money-page::before { background-image: url("marble-fructus.jpg"); background-image: image-set(url("marble-fructus.webp") type("image/webp"), url("marble-fructus.jpg") type("image/jpeg")); }
+body.money-page::before { background-image: url("marble-fructus.jpg?v=whorled"); background-image: image-set(url("marble-fructus.webp?v=whorled") type("image/webp"), url("marble-fructus.jpg?v=whorled") type("image/jpeg")); }
 .money-collection { min-width: 0; }
 .money-head { margin: 0 0 20px; }
 .money-head h1 { display: flex; align-items: center; gap: 11px; font-size: var(--t-lede); line-height: var(--l-lede); font-weight: 400; }
@@ -16,6 +16,14 @@ body.money-page::before { background-image: url("marble-fructus.jpg"); backgroun
 .money-filter-more > summary { cursor: pointer; width: fit-content; }
 .money-filter-more[open] { flex-basis: 100%; }
 .money-filter-more > div { display: flex; flex-wrap: wrap; gap: 10px 22px; padding-top: 12px; }
+.money-currencies { flex-basis: 100%; min-width: 0; margin: 2px 0 0; padding: 0; border: 0; }
+.money-currencies legend { margin-bottom: 7px; padding: 0; }
+.money-currency-options { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.money-currency-options label { align-items: center; cursor: pointer; }
+.money-currency-options input { margin: 0; accent-color: var(--ink-2); }
+.money-currency-count { color: var(--ink-3); }
+.money-currencies p { margin: 7px 0 0; font-size: var(--t-cap); line-height: var(--l-cap); color: var(--ink-3); }
+.money-currencies .textbtn { margin-left: 8px; }
 .money-list-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin: 12px 0 18px; font-size: var(--t-cap); line-height: var(--l-cap); }
 .money-list-head > label { margin-left: auto; display: inline-flex; gap: 7px; color: var(--ink-3); align-items: baseline; }
 .money-list-head select { font-size: inherit; }
@@ -27,6 +35,7 @@ body.money-page::before { background-image: url("marble-fructus.jpg"); backgroun
 .money-results > li:target { outline: 1px solid var(--rule-2); outline-offset: 5px; }
 .money-results .money-row-body { min-width: 0; }
 .money-results .metric { margin-top: 4px; }
+.money-amount + .money-amount { margin-top: 8px; }
 .money-type { font-family: var(--sans); color: var(--ink-3); font-size: var(--t-cap); margin-left: 6px; }
 .money-detail { margin-top: 5px; font-size: var(--t-small); line-height: var(--l-small); color: var(--ink-2); }
 .money-detail > summary, .money-data > summary { cursor: pointer; width: fit-content; }
@@ -36,6 +45,8 @@ body.money-page::before { background-image: url("marble-fructus.jpg"); backgroun
 .money-facts { margin: 14px 0; }
 .money-facts > div { grid-template-columns: 100px minmax(0, 1fr); }
 .money-facts dd { overflow-wrap: anywhere; }
+.money-additional-amount { border-top: 1px solid var(--rule); margin-top: 18px; padding-top: 14px; }
+.money-additional-amount h4 { margin: 0 0 10px; font-family: var(--sans); font-size: var(--t-small); line-height: var(--l-small); font-weight: 500; }
 .money-results .money-limit { color: var(--ink-2); }
 .money-source { border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 14px; }
 .money-source blockquote { margin: 8px 0 12px; padding: 0 0 0 12px; border-left: 1px solid var(--rule-2); font-size: var(--t-small); line-height: var(--l-small); color: var(--ink-2); }

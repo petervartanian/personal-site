@@ -13,6 +13,9 @@
   const moreFilters = browser.querySelector('[data-dv-more-filters]');
   const status = browser.querySelector('[data-dv-count]');
   const resetButtons = [...browser.querySelectorAll('[data-dv-reset]')];
+  const currencyControls = [...browser.querySelectorAll('input[name="currency"]')];
+  const currencyCounts = [...browser.querySelectorAll('[data-dv-currency-count]')];
+  const currencyReset = browser.querySelector('[data-dv-currency-reset]');
   const sort = browser.querySelector('[data-dv-sort]');
   if (!form || !tools || !sort || !sections.length) return;
 
@@ -30,17 +33,21 @@
       text: normalize(element.textContent),
       type: element.dataset.type || '',
       status: element.dataset.status || '',
-      currency: element.dataset.currency || 'Unstated',
+      currencies: (element.dataset.currencies || 'Unstated').split(',').filter(Boolean),
       title: element.dataset.title || '',
       checked: element.dataset.checked || '',
     })),
   }));
-  const fields = ['q', 'type', 'status', 'currency'];
+  const fields = ['q', 'type', 'status'];
   let view = groups.some(group => group.key === 'published') ? 'published' : groups[0].key;
   let queryTimer;
 
   function optionExists(select, value) {
     return [...select.options].some(option => option.value === value);
+  }
+
+  function selectedCurrencies() {
+    return currencyControls.filter(control => control.checked).map(control => control.value);
   }
 
   function restore() {
@@ -50,22 +57,27 @@
       const value = params.get(key) || '';
       control.value = control.tagName === 'SELECT' && !optionExists(control, value) ? '' : value;
     });
+    const currencies = new Set(params.getAll('currency'));
+    currencyControls.forEach(control => { control.checked = currencies.has(control.value); });
     sort.value = optionExists(sort, params.get('sort')) ? params.get('sort') : 'collection';
     view = groups.some(group => group.key === params.get('view')) ? params.get('view') : 'published';
     if (!groups.some(group => group.key === view)) view = groups[0].key;
-    if (moreFilters) moreFilters.open = fields.slice(1).some(key => form.elements[key].value);
+    if (moreFilters) moreFilters.open = fields.slice(1).some(key => form.elements[key].value)
+      || selectedCurrencies().length > 0;
   }
 
   function writeUrl() {
     const url = new URL(window.location.href);
-    [...fields, 'view', 'sort'].forEach(key => url.searchParams.delete(key));
+    [...fields, 'currency', 'view', 'sort'].forEach(key => url.searchParams.delete(key));
     fields.forEach(key => {
       const value = form.elements[key].value.trim();
       if (value) url.searchParams.set(key, value);
     });
+    const currencies = selectedCurrencies();
+    currencies.forEach(currency => url.searchParams.append('currency', currency));
     if (view !== 'published') url.searchParams.set('view', view);
     if (sort.value !== 'collection') url.searchParams.set('sort', sort.value);
-    if (fields.some(key => form.elements[key].value.trim())) url.hash = '';
+    if (fields.some(key => form.elements[key].value.trim()) || currencies.length) url.hash = '';
     if (url.href !== window.location.href) window.history.replaceState(null, '', url);
   }
 
@@ -74,7 +86,7 @@
       let comparison = 0;
       if (sort.value === 'case') comparison = collator.compare(a.title, b.title);
       if (sort.value === 'type') comparison = collator.compare(a.type, b.type) || collator.compare(a.title, b.title);
-      if (sort.value === 'currency') comparison = collator.compare(a.currency, b.currency) || collator.compare(a.title, b.title);
+      if (sort.value === 'currency') comparison = collator.compare(a.currencies.join(','), b.currencies.join(',')) || collator.compare(a.title, b.title);
       if (sort.value === 'checked') comparison = b.checked.localeCompare(a.checked) || collator.compare(a.title, b.title);
       return comparison || a.index - b.index;
     });
@@ -83,17 +95,25 @@
   function apply(updateUrl = true) {
     const terms = normalize(form.elements.q.value).trim().split(/\s+/).filter(Boolean);
     const values = Object.fromEntries(fields.slice(1).map(key => [key, form.elements[key].value]));
-    const filtered = terms.length > 0 || Object.values(values).some(Boolean);
+    const currencies = selectedCurrencies();
+    const filtered = terms.length > 0 || Object.values(values).some(Boolean) || currencies.length > 0;
+    const facets = new Map(currencyControls.map(control => [control.value, 0]));
     let activeCount = 0;
     let activeTotal = 0;
 
     groups.forEach(group => {
       let shown = 0;
       ordered(group.rows).forEach(row => {
-        const matches = terms.every(term => row.text.includes(term))
+        const baseMatches = terms.every(term => row.text.includes(term))
           && (!values.type || row.type === values.type)
-          && (!values.status || row.status === values.status)
-          && (!values.currency || row.currency === values.currency);
+          && (!values.status || row.status === values.status);
+        if (baseMatches && group.key === view) {
+          new Set(row.currencies).forEach(currency => {
+            facets.set(currency, (facets.get(currency) || 0) + 1);
+          });
+        }
+        const matches = baseMatches
+          && (!currencies.length || currencies.some(currency => row.currencies.includes(currency)));
         row.element.hidden = !matches;
         if (matches) shown += 1;
         if (group.list) group.list.appendChild(row.element);
@@ -119,11 +139,16 @@
       ? `${activeCount} of ${activeTotal} ${noun}`
       : `${activeTotal} ${noun}`;
     resetButtons.forEach(button => { button.hidden = !filtered; });
+    currencyCounts.forEach(count => {
+      count.textContent = `(${facets.get(count.dataset.dvCurrencyCount) || 0})`;
+    });
+    if (currencyReset) currencyReset.hidden = currencies.length === 0;
     if (updateUrl) writeUrl();
   }
 
   function clearFilters(focusSearch = false) {
     fields.forEach(key => { form.elements[key].value = ''; });
+    currencyControls.forEach(control => { control.checked = false; });
     apply();
     if (focusSearch) form.elements.q.focus();
   }
@@ -139,6 +164,7 @@
     const row = target.closest('[data-dv-row]');
     if (row) {
       fields.forEach(key => { form.elements[key].value = ''; });
+      currencyControls.forEach(control => { control.checked = false; });
       const evidence = target.closest('details');
       if (evidence) evidence.open = true;
     }
@@ -172,6 +198,11 @@
   });
   sort.addEventListener('change', () => apply());
   resetButtons.forEach(button => button.addEventListener('click', () => clearFilters(true)));
+  if (currencyReset) currencyReset.addEventListener('click', () => {
+    currencyControls.forEach(control => { control.checked = false; });
+    apply();
+    if (currencyControls.length) currencyControls[0].focus();
+  });
 
   links.forEach(link => link.addEventListener('click', event => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;

@@ -39,6 +39,13 @@
       "amount": {
         "$ref": "#/$defs/MonetaryAmount"
       },
+      "additional_amounts": {
+        "items": {
+          "$ref": "#/$defs/MonetaryObservation"
+        },
+        "title": "Additional Amounts",
+        "type": "array"
+      },
       "financial_type": {
         "enum": [
           "cash_saving",
@@ -350,6 +357,123 @@
         "source_text"
       ],
       "title": "MonetaryAmount",
+      "type": "object"
+    },
+    "MonetaryObservation": {
+      "additionalProperties": false,
+      "description": "Another reported amount, with its own scope and source assessment.\n\nA source-stated equivalent names the same economic observation in another\ncurrency. It is never a second gain. Separate amounts must still concern\nthis claim's beneficiary, financial type, and AI-attribution statement;\notherwise they belong in a separate claim.",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z][a-z0-9_-]*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "amount": {
+          "$ref": "#/$defs/MonetaryAmount"
+        },
+        "relationship": {
+          "enum": [
+            "separate",
+            "source_equivalent"
+          ],
+          "title": "Relationship",
+          "type": "string"
+        },
+        "equivalent_to": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z][a-z0-9_-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Equivalent To"
+        },
+        "equivalence_note": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Equivalence Note"
+        },
+        "period": {
+          "minLength": 1,
+          "title": "Period",
+          "type": "string"
+        },
+        "unit": {
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "realization": {
+          "enum": [
+            "reported_recovery",
+            "retrospective_estimate",
+            "annualized_estimate",
+            "projected",
+            "awarded",
+            "paid",
+            "withheld_in_escrow",
+            "modeled_valuation",
+            "mixed",
+            "unverified",
+            "context"
+          ],
+          "title": "Realization",
+          "type": "string"
+        },
+        "accounting_boundary": {
+          "minLength": 1,
+          "title": "Accounting Boundary",
+          "type": "string"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/MonetarySource"
+          },
+          "minItems": 1,
+          "title": "Sources",
+          "type": "array"
+        },
+        "source_review_status": {
+          "enum": [
+            "primary_source_checked",
+            "primary_excerpt_checked",
+            "source_checked",
+            "awaiting_review"
+          ],
+          "title": "Source Review Status",
+          "type": "string"
+        },
+        "review_note": {
+          "minLength": 1,
+          "title": "Review Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "amount",
+        "relationship",
+        "period",
+        "unit",
+        "realization",
+        "accounting_boundary",
+        "sources",
+        "source_review_status",
+        "review_note"
+      ],
+      "title": "MonetaryObservation",
       "type": "object"
     },
     "MonetarySource": {

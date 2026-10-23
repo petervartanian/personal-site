@@ -15,6 +15,7 @@
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "cash_saving",
     "amount_basis": "unresolved",
     "period": "Cumulative to 2015; the account places forecasting work from 2009, but the amount-specific start is unstated.",
@@ -133,6 +134,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "avoided_loss",
     "amount_basis": "unresolved",
     "period": "Calendar year 2015",
@@ -249,6 +251,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "recipient_transfer",
     "amount_basis": "unresolved",
     "period": "Single case reported by 2016; exact payment date absent.",
@@ -367,6 +370,7 @@
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "reference_amount",
     "amount_basis": "reference",
     "period": "Tenders reported in September 2017; precise occurrence dates absent.",
@@ -481,6 +485,7 @@
       "currency_basis": "explicit",
       "price_basis": "Social-cost-of-carbon valuation; valuation and price year are not specified in the checked abstract."
     },
+    "additional_amounts": [],
     "financial_type": "monetized_social_benefit",
     "amount_basis": "valuation",
     "period": "Comparison with pre-2016 deforestation; the checked abstract does not specify the valuation horizon.",
@@ -594,6 +599,7 @@
       "currency_basis": "explicit",
       "price_basis": "Nominal source amount; price year not separately stated."
     },
+    "additional_amounts": [],
     "financial_type": "avoided_loss",
     "amount_basis": "avoided_expenditure",
     "period": "East African response reported May 6, 2021; the amount-specific start date is unstated.",
@@ -706,6 +712,7 @@
       "currency_basis": "context",
       "price_basis": "Nominal source amount; price year not separately stated."
     },
+    "additional_amounts": [],
     "financial_type": "revenue",
     "amount_basis": "incremental_change",
     "period": "Australian tax time 2020.",
@@ -819,6 +826,7 @@
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "cash_saving",
     "amount_basis": "unresolved",
     "period": "Reported October 2023; at least one component is dated 2021; full interval is unclear.",
@@ -928,15 +936,52 @@
     "summary": "fraudulent ATM withdrawal detected and stopped, with arrests",
     "monetary_role": "outcome_amount_claim",
     "amount": {
-      "source_text": "USD 500,000 (KSh 58 million)",
-      "value": null,
+      "source_text": "USD 500,000",
+      "value": "500000",
       "lower": null,
       "upper": null,
-      "qualifier": "unparsed",
+      "qualifier": "exact",
       "currency": "USD",
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [
+      {
+        "id": "kes-equivalent",
+        "amount": {
+          "source_text": "KSh 58 million",
+          "value": "58000000",
+          "lower": null,
+          "upper": null,
+          "qualifier": "exact",
+          "currency": "KES",
+          "currency_basis": "explicit",
+          "price_basis": "Price year and inflation basis await review."
+        },
+        "relationship": "source_equivalent",
+        "equivalent_to": "primary",
+        "equivalence_note": "The source gives both currencies for the same amount. It does not specify an exchange-rate date or method.",
+        "period": "No event date established",
+        "unit": "one attempted withdrawal at an unnamed bank",
+        "realization": "unverified",
+        "accounting_boundary": "Nominal attempted amount, before intervention costs; expected loss without intervention is unknown.",
+        "sources": [
+          {
+            "url": "https://vyntra.com/fraud-cases/",
+            "title": "Fraud Cases - Vyntra",
+            "quote": "USD 500,000 (KSh 58 million)",
+            "date": null,
+            "primary": true,
+            "written_by": "makers",
+            "reviewed_at": "2026-10-23",
+            "review_method": "full_text",
+            "locator": "Kenya - Internal and channels fraud"
+          }
+        ],
+        "source_review_status": "primary_source_checked",
+        "review_note": "The currency expression is explicit in the source. Its equivalence does not establish a separate gain or resolve the claim’s remaining evidence gaps."
+      }
+    ],
     "financial_type": "avoided_loss",
     "amount_basis": "unresolved",
     "period": "No event date established",
@@ -951,15 +996,15 @@
     "net_benefit_established": false,
     "sources": [
       {
-        "url": "https://www.vyntra.com/fraud-cases/",
-        "title": "Vyntra's (formerly NetGuardians) AI risk models may have blocked fraudulent payments at unnamed banks, including a USD 500,000 ATM scheme",
+        "url": "https://vyntra.com/fraud-cases/",
+        "title": "Fraud Cases - Vyntra",
         "quote": "The fraud was detected in real time and the fraudsters were arrested while attempting to withdraw USD 500,000 (KSh 58 million) from the second bank’s ATMs. Vyntra's AI risk models prevented the fraud due to the unusual timing and frequency of ATM withdrawals.",
         "date": null,
-        "primary": false,
-        "written_by": "unknown",
-        "reviewed_at": null,
-        "review_method": "unreviewed",
-        "locator": null
+        "primary": true,
+        "written_by": "makers",
+        "reviewed_at": "2026-10-23",
+        "review_method": "full_text",
+        "locator": "Kenya - Internal and channels fraud"
       }
     ],
     "limitations": [
@@ -975,10 +1020,10 @@
       "attempted_amount_not_expected_loss"
     ],
     "curation_status": "awaiting_review",
-    "source_review_status": "awaiting_review",
+    "source_review_status": "source_checked_link_unresolved",
     "case_link_status": "unresolved",
-    "review_note": "USD 500,000 and KSh 58 million describe the same amount and must not be added.",
-    "reviewed_on": null,
+    "review_note": "USD 500,000 and KSh 58 million describe the same attempted withdrawal. The bank and event date remain unnamed, and the amount does not establish the loss that would otherwise have occurred.",
+    "reviewed_on": "2026-10-23",
     "legacy_audit": {
       "monetary_role": "outcome_amount_claim",
       "money_type": "avoided_loss",
@@ -1055,6 +1100,7 @@
       "currency_basis": "explicit",
       "price_basis": "Nominal source amount; price year not separately stated."
     },
+    "additional_amounts": [],
     "financial_type": "cash_saving",
     "amount_basis": "incremental_change",
     "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
@@ -1169,6 +1215,7 @@
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "reference_amount",
     "amount_basis": "reference",
     "period": "August 2022 tender cohort; audit described in December 2022 and reported June 2023.",
@@ -1283,6 +1330,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "cash_saving",
     "amount_basis": "unresolved",
     "period": "Case reported March 2023; exact withdrawal date absent.",
@@ -1397,6 +1445,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "revenue",
     "amount_basis": "unresolved",
     "period": "Annual projection; start and forecast horizon unstated.",
@@ -1515,6 +1564,7 @@
       "currency_basis": "context",
       "price_basis": "Nominal source amount; price year not separately stated."
     },
+    "additional_amounts": [],
     "financial_type": "recipient_transfer",
     "amount_basis": "transfer",
     "period": "Grand-prize announcement on February 5, 2024.",
@@ -1625,6 +1675,7 @@
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "revenue",
     "amount_basis": "unresolved",
     "period": "Reported March 2024; accounts disagree on the annual detection split; some describe 2023 tax.",
@@ -1743,6 +1794,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "reference_amount",
     "amount_basis": "reference",
     "period": "May 17, 2024",
@@ -1857,6 +1909,7 @@
       "currency_basis": "context",
       "price_basis": "Nominal source amount; price year not separately stated."
     },
+    "additional_amounts": [],
     "financial_type": "recipient_transfer",
     "amount_basis": "transfer",
     "period": "August 29 to October 24, 2024, for the first transfer.",
@@ -1972,6 +2025,7 @@
       "currency_basis": "context",
       "price_basis": "Nominal source amount; price year not separately stated."
     },
+    "additional_amounts": [],
     "financial_type": "cash_saving",
     "amount_basis": "incremental_change",
     "period": "Since summer 2019 to the council account; the endpoint is not specified in the text.",
@@ -2084,6 +2138,7 @@
       "currency_basis": "context",
       "price_basis": "Nominal source amount; price year not separately stated."
     },
+    "additional_amounts": [],
     "financial_type": "recovered_funds",
     "amount_basis": "incremental_change",
     "period": "U.S. fiscal year 2024.",
@@ -2187,15 +2242,52 @@
     "summary": "erroneous payments unveiled by UDK and municipal controls in 2017 and 2018; the source says it is unclear how much was recovered and that the figure includes averted future payments, and it does not isolate the models",
     "monetary_role": "outcome_amount_claim",
     "amount": {
-      "source_text": "half a billion Danish crowns (approximately 70 million euros)",
-      "value": null,
+      "source_text": "half a billion Danish crowns",
+      "value": "500000000",
       "lower": null,
       "upper": null,
-      "qualifier": "unparsed",
+      "qualifier": "exact",
       "currency": "DKK",
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [
+      {
+        "id": "eur-equivalent",
+        "amount": {
+          "source_text": "approximately 70 million euros",
+          "value": "70000000",
+          "lower": null,
+          "upper": null,
+          "qualifier": "approximately",
+          "currency": "EUR",
+          "currency_basis": "explicit",
+          "price_basis": "Price year and inflation basis await review."
+        },
+        "relationship": "source_equivalent",
+        "equivalent_to": "primary",
+        "equivalence_note": "The source gives both currencies for the same amount. It does not specify an exchange-rate date or method.",
+        "period": "2017 and 2018; the main case describes model outcomes in 2023.",
+        "unit": "UDK and municipal control aggregate",
+        "realization": "unverified",
+        "accounting_boundary": "Mixture of recovery, unrecoverable amounts and future avoidance; net meaning unknown.",
+        "sources": [
+          {
+            "url": "https://algorithmwatch.org/en/udbetaling-danmark/",
+            "title": "In a quest to optimize welfare management, Denmark built a surveillance behemoth",
+            "quote": "half a billion Danish crowns in erroneous payment (approximately 70 million euros)",
+            "date": "2020-08-06",
+            "primary": false,
+            "written_by": "independent",
+            "reviewed_at": "2026-10-23",
+            "review_method": "full_text",
+            "locator": "91 referrals to the police"
+          }
+        ],
+        "source_review_status": "source_checked",
+        "review_note": "The currency expression is explicit in the source. Its equivalence does not establish a separate gain or resolve the claim’s remaining evidence gaps."
+      }
+    ],
     "financial_type": "avoided_loss",
     "amount_basis": "unresolved",
     "period": "2017 and 2018; the main case describes model outcomes in 2023.",
@@ -2211,14 +2303,14 @@
     "sources": [
       {
         "url": "https://algorithmwatch.org/en/udbetaling-danmark/",
-        "title": "Udbetaling Danmark's fraud-control models may have produced 135, 36 and 72 cases with benefits stopped or reduced in 2023",
+        "title": "In a quest to optimize welfare management, Denmark built a surveillance behemoth",
         "quote": "In 2017 and 2018, controls by UDK and municipalities unveiled half a billion Danish crowns in erroneous payment (approximately 70 million euros). It is unclear what amount was recovered, what was not recovered due to the beneficiary’s incapacity to repay, and what was an accounting trick (the figure includes future payments that were averted because of the control).",
-        "date": null,
+        "date": "2020-08-06",
         "primary": false,
-        "written_by": "unknown",
-        "reviewed_at": null,
-        "review_method": "unreviewed",
-        "locator": null
+        "written_by": "independent",
+        "reviewed_at": "2026-10-23",
+        "review_method": "full_text",
+        "locator": "91 referrals to the police"
       }
     ],
     "limitations": [
@@ -2235,10 +2327,10 @@
       "estimate_flag_too_coarse"
     ],
     "curation_status": "awaiting_review",
-    "source_review_status": "awaiting_review",
+    "source_review_status": "source_checked_link_unresolved",
     "case_link_status": "mismatch",
-    "review_note": "Hold: the half-billion-crown total refers to 2017–2018, while the linked models concern 2023. The source chronology and intervention link must be reconciled.",
-    "reviewed_on": null,
+    "review_note": "The half-billion-crown amount concerns 2017–2018, while the linked model outcomes concern 2023. Recovered funds, future avoided payments, and the models' contribution remain unresolved.",
+    "reviewed_on": "2026-10-23",
     "legacy_audit": {
       "monetary_role": "outcome_amount_claim",
       "money_type": "avoided_loss",
@@ -2316,6 +2408,7 @@
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "cash_saving",
     "amount_basis": "unresolved",
     "period": "Reported December 2024; actual case date is not established.",
@@ -2434,6 +2527,7 @@
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "cash_saving",
     "amount_basis": "unresolved",
     "period": "2024 tender; result reported January 14, 2025; precise revision date absent.",
@@ -2550,6 +2644,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "avoided_loss",
     "amount_basis": "unresolved",
     "period": "Robbery March 17, 2025; recovery by March 19, 2025",
@@ -2664,6 +2759,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "revenue",
     "amount_basis": "unresolved",
     "period": "2024-25 tax year",
@@ -2782,6 +2878,7 @@
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "reference_amount",
     "amount_basis": "reference",
     "period": "Violation detected April 23, 2025; future fine mentioned.",
@@ -2896,6 +2993,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "avoided_loss",
     "amount_basis": "avoided_expenditure",
     "period": "Reported June 30, 2025; transaction interval not fully specified.",
@@ -3017,6 +3115,7 @@
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "reference_amount",
     "amount_basis": "reference",
     "period": "Detections July-August 2025; announcement September 13, 2025.",
@@ -3131,6 +3230,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "reference_amount",
     "amount_basis": "reference",
     "period": "AIxCC final competition in 2025",
@@ -3249,6 +3349,7 @@
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "avoided_loss",
     "amount_basis": "unresolved",
     "period": "Thefts September 2-11, 2025; restitution reported by May 12, 2026.",
@@ -3363,6 +3464,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "cash_saving",
     "amount_basis": "unresolved",
     "period": "Reported October 8, 2025 after several months; ruling date unknown.",
@@ -3481,6 +3583,7 @@
       "currency_basis": "context",
       "price_basis": "Nominal source amount; price year not separately stated."
     },
+    "additional_amounts": [],
     "financial_type": "avoided_loss",
     "amount_basis": "avoided_expenditure",
     "period": "U.K. fiscal years 2022–23 through 2024–25.",
@@ -3593,6 +3696,7 @@
       "currency_basis": "explicit",
       "price_basis": "Nominal source amount; price year not separately stated."
     },
+    "additional_amounts": [],
     "financial_type": "cash_saving",
     "amount_basis": "avoided_expenditure",
     "period": "Annualized estimate published November 6, 2025; no completed measurement year is specified.",
@@ -3705,6 +3809,7 @@
       "currency_basis": "explicit",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "revenue",
     "amount_basis": "unresolved",
     "period": "Reported January 2026; recovery interval unspecified.",
@@ -3821,6 +3926,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "other",
     "amount_basis": "outcome_level",
     "period": "2025 pilot, reported March 2026; within-year observation length unspecified.",
@@ -3939,6 +4045,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "avoided_loss",
     "amount_basis": "unresolved",
     "period": "Recently before June 17, 2026; exact date unstated.",
@@ -4057,6 +4164,7 @@
       "currency_basis": "explicit",
       "price_basis": "Nominal source amount; price year not separately stated."
     },
+    "additional_amounts": [],
     "financial_type": "commercial_receipt",
     "amount_basis": "transaction",
     "period": "Acquisition closed February 8, 2023; payment is reported in the fiscal-2023 annual securities report filed June 26, 2024.",
@@ -4170,6 +4278,7 @@
       "currency_basis": "context",
       "price_basis": "Price year and inflation basis await review."
     },
+    "additional_amounts": [],
     "financial_type": "reference_amount",
     "amount_basis": "reference",
     "period": "Feasibility-study cost; valuation period and price year absent.",
