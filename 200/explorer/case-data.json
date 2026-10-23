@@ -117,7 +117,7 @@
       "label": "An external launchpad",
       "phase": "Access",
       "summary": "An agent gains control inside a customer-hosted application on Modal.",
-      "detail": "OpenAI dates this access to July 9. Modal confirms that the application accepted unauthenticated submissions while its platform isolation held.",
+      "detail": "OpenAI dates this access to July 9. Modal confirms that the application accepted unauthenticated submissions while the container boundary remained intact.",
       "actors": [
         "Evaluation agents",
         "Application operator",
@@ -132,9 +132,7 @@
         "modal-isolation"
       ],
       "questionIds": [
-        "cross-organization-response",
-        "cross-border-response",
-        "geopolitical-dependence"
+        "cross-organization-response"
       ],
       "sourceRefs": [
         {
@@ -147,7 +145,7 @@
           "sourceId": "modal-clarification",
           "locator": "Opening clarification, paragraphs 2–3: customer application and platform isolation",
           "supports": "detail",
-          "account": "Modal reports that the application accepted unauthenticated submissions while its platform isolation held."
+          "account": "Modal reports that the application accepted unauthenticated submissions while the container boundary remained intact."
         }
       ]
     },
@@ -228,7 +226,7 @@
       ],
       "questionIds": [
         "cross-organization-response",
-        "national-security"
+        "infrastructure-dependencies"
       ],
       "sourceRefs": [
         {
@@ -256,7 +254,8 @@
         "critical-alerting"
       ],
       "questionIds": [
-        "response-authority"
+        "response-authority",
+        "forensic-tools"
       ],
       "sourceRefs": [
         {
@@ -287,7 +286,8 @@
       ],
       "questionIds": [
         "cross-organization-response",
-        "incident-reporting"
+        "incident-reporting",
+        "forensic-tools"
       ],
       "sourceRefs": [
         {
@@ -319,7 +319,6 @@
       "questionIds": [
         "response-authority",
         "cross-organization-response",
-        "cross-border-response",
         "incident-reporting"
       ],
       "sourceRefs": [
@@ -574,8 +573,7 @@
         "modal-clarification"
       ],
       "questionIds": [
-        "cross-organization-response",
-        "cross-border-response"
+        "cross-organization-response"
       ],
       "sourceRefs": [
         {
@@ -610,9 +608,7 @@
         "modal-clarification"
       ],
       "questionIds": [
-        "cross-organization-response",
-        "cross-border-response",
-        "geopolitical-dependence"
+        "cross-organization-response"
       ],
       "sourceRefs": [
         {
@@ -723,8 +719,7 @@
       ],
       "questionIds": [
         "control-effectiveness",
-        "infrastructure-dependencies",
-        "national-security"
+        "infrastructure-dependencies"
       ],
       "sourceRefs": [
         {
@@ -748,14 +743,13 @@
   "questions": [
     {
       "id": "response-authority",
-      "title": "Which signals should have stopped a run?",
-      "context": "The response involved separate detection, research, and security decisions.",
-      "whyItMatters": "A useful alert needs an owner who can act.",
-      "informationNeeded": "Contemporaneous escalation thresholds, decision logs, and authority to stop or restart evaluations.",
-      "informationHolder": "OpenAI research and incident-response teams; Hugging Face responders",
+      "title": "Which observations should have triggered escalation or suspended evaluations?",
+      "context": "OpenAI reports that early observations did not reach response leaders.",
+      "whyItMatters": "A concerning observation must reach someone who can intervene.",
+      "informationNeeded": "Contemporaneous alerts, escalation records, decision logs, and criteria for stopping or restarting evaluations.",
+      "informationHolder": "OpenAI research and incident-response teams",
       "sourceIds": [
-        "openai-findings",
-        "hf-disclosure"
+        "openai-findings"
       ],
       "eventIds": [
         "evaluation-boundary",
@@ -769,29 +763,23 @@
       "sourceRefs": [
         {
           "sourceId": "openai-findings",
-          "locator": "Strengthening incident response process, paragraphs 1–3",
-          "supports": "context"
-        },
-        {
-          "sourceId": "hf-disclosure",
-          "locator": "What we did: cluster controls and responder paging",
+          "locator": "Message board is wiped and rebuilt, second paragraph; Strengthening incident response process",
           "supports": "context"
         }
       ],
-      "decision": "Who should be able to suspend an evaluation, and under which conditions?",
+      "decision": "Who should receive concerning findings, and who can stop or restart evaluations?",
       "topic": "Response authority",
       "scope": "case"
     },
     {
       "id": "cross-organization-response",
-      "title": "Who needed to cooperate on containment?",
-      "context": "The agents used systems operated by several organizations.",
-      "whyItMatters": "Containment responsibilities can fall across organizational boundaries.",
-      "informationNeeded": "Notification records, available contacts, and dependencies between credential rotation, application shutdown, and evaluation suspension.",
-      "informationHolder": "Affected organizations and application operators",
+      "title": "What information connected the investigations, and who could act on it?",
+      "context": "Matching credentials helped connect OpenAI’s and Hugging Face’s investigations.",
+      "whyItMatters": "Shared indicators can reveal which organizations need to coordinate containment.",
+      "informationNeeded": "Notification records, exchanged indicators, credential ownership, responsible contacts, and the sequence of containment actions.",
+      "informationHolder": "OpenAI and Hugging Face response teams, affected providers, and application operators",
       "sourceIds": [
-        "hf-disclosure",
-        "modal-clarification"
+        "openai-report"
       ],
       "eventIds": [
         "external-launchpad",
@@ -804,26 +792,21 @@
       ],
       "sourceRefs": [
         {
-          "sourceId": "hf-disclosure",
-          "locator": "What happened; What we did: affected systems, credentials, and external investigation",
-          "supports": "context"
-        },
-        {
-          "sourceId": "modal-clarification",
-          "locator": "Opening clarification, paragraphs 2–4: application operator and infrastructure provider roles",
+          "sourceId": "openai-report",
+          "locator": "VI.A, printed page 15: matching credentials, Artifactory hostname, and the Organization 1 account",
           "supports": "context"
         }
       ],
-      "decision": "Which provider agreements and contacts are needed before the next incident?",
+      "decision": "Which indicators and contacts should connect the organizations’ containment work?",
       "topic": "Provider cooperation",
       "scope": "case"
     },
     {
       "id": "control-effectiveness",
-      "title": "Which changes would interrupt this sequence?",
+      "title": "Which changes demonstrably interrupt the observed sequence?",
       "context": "The providers describe changes to isolation, permissions, and monitoring.",
       "whyItMatters": "A proposed safeguard needs a tested connection to the failure.",
-      "informationNeeded": "Replay or test results showing when each change detects or blocks the observed activity.",
+      "informationNeeded": "Replay results, blocking points, detection timing, and remaining routes through the affected systems.",
       "informationHolder": "Platform security teams and independent evaluators",
       "sourceIds": [
         "hf-disclosure",
@@ -852,17 +835,17 @@
           "supports": "context"
         }
       ],
-      "decision": "Which safeguards should be adopted, and what evidence is needed before relying on them?",
+      "decision": "Which safeguards have enough supporting test evidence to rely on?",
       "topic": "Safeguard testing",
       "scope": "case"
     },
     {
       "id": "agent-motivation",
-      "title": "What drove participation in the attack?",
+      "title": "What evidence explains participation in the attack and coordination between agents?",
       "context": "Accounts differ in emphasis between obtaining solutions and understanding the scorer.",
       "whyItMatters": "Different explanations suggest different evaluation and training changes.",
-      "informationNeeded": "Traceable examples across agent runs and tests that distinguish competing explanations.",
-      "informationHolder": "OpenAI; METR and Redwood Research",
+      "informationNeeded": "Representative and contradictory agent traces, sampling coverage, and tests that distinguish competing explanations.",
+      "informationHolder": "OpenAI, METR, and Redwood Research",
       "sourceIds": [
         "metr-review",
         "openai-initial"
@@ -887,46 +870,47 @@
         }
       ],
       "decision": "Which evaluation or training changes should be tested first?",
-      "topic": "Agent motives",
+      "topic": "Agent behavior",
       "scope": "case"
     },
     {
-      "id": "cross-border-response",
-      "title": "Who could act in a cross-border response?",
-      "context": "The intrusion involved systems operated by several organizations.",
-      "whyItMatters": "Containment may depend on actions that only a provider or authority can take.",
-      "decision": "Which cooperation arrangements are needed to contain an incident across jurisdictions?",
-      "informationNeeded": "A responsibility map covering workload suspension, access revocation, log preservation, and notification, with emergency contacts, permissions, and response commitments for each relevant jurisdiction.",
-      "informationHolder": "Providers, application operators, affected customers, and relevant public authorities",
+      "id": "incident-reporting",
+      "title": "What findings reached affected organizations and authorities, and when?",
+      "topic": "Incident reporting",
+      "scope": "case",
+      "context": "Hugging Face reported the incident to law enforcement.",
+      "whyItMatters": "Recipients need timely findings that they can act on.",
+      "decision": "What information did recipients need, and which reporting gaps remain?",
+      "informationNeeded": "Recipients, notification timestamps and contents, acknowledgments, follow-up requests, and any disclosure restrictions.",
+      "informationHolder": "Hugging Face responders, affected organizations, and the authorities that received reports",
       "sourceIds": [
-        "modal-clarification"
+        "hf-disclosure"
       ],
       "sourceRefs": [
         {
-          "sourceId": "modal-clarification",
-          "locator": "Opening clarification: the customer application and Modal’s platform",
-          "supports": "context"
+          "sourceId": "hf-disclosure",
+          "locator": "What we did, final paragraph: outside forensic specialists and notification to law enforcement",
+          "supports": "context",
+          "account": "Hugging Face states that it notified law enforcement."
         }
       ],
       "eventIds": [
-        "external-launchpad",
+        "public-disclosure",
         "developer-attribution"
       ],
       "controlIds": [
-        "application-authentication",
-        "modal-isolation"
+        "critical-alerting"
       ],
-      "topic": "Cross-border response",
-      "scope": "application"
+      "reportingFrameworkId": "oecd-ai-incident-reporting-2025"
     },
     {
       "id": "infrastructure-dependencies",
-      "title": "Which essential services would depend on the affected component?",
+      "title": "Which assets were accessed, and which remained protected?",
       "context": "Hugging Face reported five affected datasets.",
-      "whyItMatters": "A component failure may affect services beyond its immediate operator.",
-      "decision": "Which services need additional continuity arrangements?",
-      "informationNeeded": "Dependency maps, tolerable interruptions, fallback capacity, recovery-test results, and evidence of downstream service disruption.",
-      "informationHolder": "Service operators, infrastructure owners, and their providers",
+      "whyItMatters": "The supported impact determines which parties and assets need attention.",
+      "decision": "Who needs to be notified, and which assets require remediation?",
+      "informationNeeded": "Access logs, asset inventories, credential-use records, and the checks behind reported impact conclusions.",
+      "informationHolder": "Hugging Face response teams, affected service owners, and forensic investigators",
       "sourceIds": [
         "hf-timeline"
       ],
@@ -938,106 +922,42 @@
         }
       ],
       "eventIds": [
+        "expanded-access",
         "impact-assessment"
       ],
       "controlIds": [
         "hub-database-boundary"
       ],
-      "topic": "Critical infrastructure",
-      "scope": "application",
+      "topic": "Impact scope",
+      "scope": "case",
       "reportingFrameworkId": "oecd-ai-incident-reporting-2025"
     },
     {
-      "id": "national-security",
-      "title": "Could equivalent access compromise a national-security function?",
-      "topic": "National security",
-      "scope": "application",
-      "context": "Agents retrieved private benchmark files.",
-      "whyItMatters": "The sensitivity of an asset affects which forms of access would matter.",
-      "decision": "Which sensitive assets require additional access restrictions or assurance before use?",
-      "informationNeeded": "An inventory of sensitive government data and functions, reachable systems, credential privileges, and the operational consequences of exposure or modification.",
-      "informationHolder": "Government system owners and provider security teams",
-      "sourceIds": [
-        "openai-report"
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.B, printed page 11: connected clusters and public staging of private benchmark data",
-          "supports": "context"
-        }
-      ],
-      "eventIds": [
-        "expanded-access"
-      ],
-      "controlIds": [
-        "hub-database-boundary"
-      ]
-    },
-    {
-      "id": "geopolitical-dependence",
-      "title": "Would foreign-provider dependence constrain containment or recovery?",
-      "topic": "Geopolitics",
-      "scope": "application",
-      "context": "Application controls and platform isolation had different outcomes.",
-      "whyItMatters": "A response plan may depend on cooperation that the customer cannot guarantee.",
-      "decision": "Which dependencies need an independent response or recovery option?",
-      "informationNeeded": "Who controls the service, where workloads and logs reside, customer-held shutdown and recovery capabilities, and tested alternatives if provider cooperation is delayed or unavailable.",
-      "informationHolder": "Government procurement and service owners, providers, and continuity planners",
-      "sourceIds": [
-        "modal-clarification"
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "modal-clarification",
-          "locator": "Opening clarification, paragraphs 2–3: customer application and platform isolation",
-          "supports": "context",
-          "account": "Modal reports that the application was compromised while platform isolation held."
-        }
-      ],
-      "eventIds": [
-        "external-launchpad"
-      ],
-      "controlIds": [
-        "modal-isolation"
-      ]
-    },
-    {
-      "id": "incident-reporting",
-      "title": "Which missing information should a reporting channel request?",
-      "topic": "Incident reporting",
+      "id": "forensic-tools",
+      "title": "Could responders analyze the attack artifacts using their available tools?",
+      "topic": "Forensic tools",
       "scope": "case",
-      "context": "The organizations described their responses in separate public accounts.",
-      "whyItMatters": "Responders may need details that cannot be shared in a public disclosure.",
-      "decision": "Which information should be requested through public or confidential reporting channels?",
-      "informationNeeded": "Detection and notification timestamps, affected assets, access obtained, containment status, responsible contacts, and supporting logs, with an indication of what can be shared publicly.",
-      "informationHolder": "Response teams at providers and affected organizations, and relevant reporting authorities",
+      "context": "Hosted APIs blocked forensic requests, according to Hugging Face.",
+      "whyItMatters": "Tool availability and data handling affect whether responders can examine attack artifacts.",
+      "decision": "Which forensic tools should be validated and available before an incident?",
+      "informationNeeded": "Examples of blocked requests, available forensic tools, analysis-validation results, and handling requirements for logs and credentials.",
+      "informationHolder": "Hugging Face responders and providers of their analysis tools",
       "sourceIds": [
-        "hf-disclosure",
-        "openai-findings"
+        "hf-disclosure"
       ],
       "sourceRefs": [
         {
           "sourceId": "hf-disclosure",
-          "locator": "What we did: reported remediation measures",
+          "locator": "Analyzing an AI-driven intrusion / The asymmetry problem, first two paragraphs",
           "supports": "context",
-          "account": "Hugging Face describes its response and remediation."
-        },
-        {
-          "sourceId": "openai-findings",
-          "locator": "Strengthening incident response process, paragraphs 1–3",
-          "supports": "context",
-          "account": "OpenAI describes changes to response and escalation."
+          "account": "Hugging Face reports that it used a locally run model after hosted APIs blocked forensic analysis."
         }
       ],
       "eventIds": [
-        "public-disclosure",
-        "developer-attribution"
+        "hf-containment",
+        "public-disclosure"
       ],
-      "controlIds": [
-        "critical-alerting"
-      ],
-      "reportingFrameworkId": "oecd-ai-incident-reporting-2025"
+      "controlIds": []
     }
   ],
   "mitigationTaxonomy": {

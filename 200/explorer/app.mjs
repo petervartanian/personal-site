@@ -4,7 +4,18 @@ import { setupCredit } from './credit.mjs';
 setupCredit();
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-const stateNames = { held: 'Held', failed: 'Failed', absent: 'Absent', disabled: 'Disabled', unknown: 'Unknown' };
+const stateNames = { held: 'Access blocked', failed: 'Failed', absent: 'Missing', disabled: 'Switched off', unknown: 'Unknown' };
+const controlOutcomes = {
+  'production-safeguards': 'Omitted or weakened',
+  'evaluation-isolation': 'Boundary bypassed',
+  'application-authentication': 'Authentication missing',
+  'modal-isolation': 'Container boundary intact',
+  'pod-admission': 'Restrictions missing',
+  'critical-alerting': 'No responder alert',
+  'hub-database-boundary': 'Database access blocked',
+};
+const organizationMarks = { OpenAI: 'openai.png', 'Hugging Face': 'hugging-face.svg', Modal: 'modal.svg' };
+const organizationName = name => `<span class="organization-name">${organizationMarks[name] ? `<img src="assets/${organizationMarks[name]}" class="organization-logo" width="22" height="22" alt="">` : ''}${escape(name)}</span>`;
 const icons = {
   access: '<path d="M13 3h6v18h-6M3 12h11m-4-4 4 4-4 4"/>',
   network: '<rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M6 9v9h9M9 6h9v9"/>',
@@ -30,8 +41,8 @@ const icons = {
 const questionIcons = {
   'response-authority': 'oversight', 'cross-organization-response': 'cooperation',
   'control-effectiveness': 'test', 'agent-motivation': 'agents',
-  'cross-border-response': 'border', 'infrastructure-dependencies': 'infrastructure',
-  'national-security': 'shield', 'geopolitical-dependence': 'globe', 'incident-reporting': 'report',
+  'infrastructure-dependencies': 'infrastructure', 'incident-reporting': 'report',
+  'forensic-tools': 'test',
 };
 const causeIcons = { 'boundary-crossing': 'network', 'data-to-execution': 'boundary', 'collective-goals': 'agents', 'response-escalation': 'oversight' };
 const phaseIcons = { Access: 'access', Intrusion: 'network', Response: 'shield', Assessment: 'report' };
@@ -44,7 +55,7 @@ let current;
 let previous;
 
 const link = (view, item, text, attrs = '') => `<a href="${routeFor(view, item.id)}" ${attrs}>${text}</a>`;
-const stateLabel = state => `<span class="state state-${escape(state)}">${icon(state)}${escape(stateNames[state])}</span>`;
+const stateLabel = item => `<span class="state state-${escape(item.state)}">${icon(item.state)}${escape(controlOutcomes[item.id] || stateNames[item.state])}</span>`;
 const sourceDate = iso => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 
 function itemSelection(view, item) {
@@ -52,7 +63,7 @@ function itemSelection(view, item) {
   if (view === 'events') return `<li>${link(view, item, `<time>${escape(item.date)}</time><span class="event-dot" aria-hidden="true"></span><span class="event-label">${escape(item.label)}</span>`, `class="event-button" aria-current="${active}"`)}</li>`;
   const symbol = view === 'questions' ? questionIcons[item.id] : view === 'causes' ? causeIcons[item.id] : 'shield';
   const label = view === 'questions' ? item.topic : item.title;
-  return `<li>${link(view, item, `<span class="choice-symbol">${icon(symbol)}</span><span class="choice-label"><span class="choice-title">${escape(label)}</span>${view === 'controls' ? stateLabel(item.state) : ''}</span>`, `aria-current="${active}" ${view === 'questions' ? `aria-label="${escape(item.topic)}: ${escape(item.title)}"` : ''}`)}</li>`;
+  return `<li>${link(view, item, `<span class="choice-symbol">${icon(symbol)}</span><span class="choice-label"><span class="choice-title">${escape(label)}</span>${view === 'controls' ? stateLabel(item) : ''}</span>`, `aria-current="${active}" ${view === 'questions' ? `aria-label="${escape(item.topic)}: ${escape(item.title)}"` : ''}`)}</li>`;
 }
 
 function inquiryField(name, symbol, text, className = '', supportingText = '') {
@@ -78,7 +89,7 @@ function related(view, ids, title) {
   if (!ids?.length) return '';
   return `<section class="analysis-section"><h3>${title}</h3><ul class="related-list">${ids.map(id => {
     const item = data[view].find(x => x.id === id);
-    return `<li>${link(view, item, `${view === 'events' ? `<span class="relation-date">${escape(item.date)}</span>` : ''}<span class="relation-title">${escape(item.title || item.label)}</span>${view === 'controls' ? stateLabel(item.state) : ''}`)}</li>`;
+    return `<li>${link(view, item, `${view === 'events' ? `<span class="relation-date">${escape(item.date)}</span>` : ''}<span class="relation-title">${escape(item.title || item.label)}</span>${view === 'controls' ? stateLabel(item) : ''}`)}</li>`;
   }).join('')}</ul></section>`;
 }
 
@@ -93,7 +104,7 @@ function mechanism(item) {
 }
 
 function renderAnalysis(item) {
-  const context = current.view === 'events' ? `<span>${escape(item.date)}, 2026</span><span class="phase-label">${icon(phaseIcons[item.phase])}${escape(item.phase)}</span>` : current.view === 'controls' ? `${stateLabel(item.state)}<span>Owner: ${escape(item.owner)}</span>` : current.view === 'causes' && item.kind === 'Interpretation' ? 'Interpretation' : '';
+  const context = current.view === 'events' ? `<span>${escape(item.date)}, 2026</span><span class="phase-label">${icon(phaseIcons[item.phase])}${escape(item.phase)}</span>` : current.view === 'controls' ? `${stateLabel(item)}<span class="control-owner">Owner: ${organizationName(item.owner)}</span>` : current.view === 'causes' && item.kind === 'Interpretation' ? 'Interpretation' : '';
   let body = `<div class="detail-context">${context}</div><h2 id="analysis-title" tabindex="-1">${escape(item.label || item.title)}</h2>`;
   if (current.view === 'questions') {
     body += `<p class="detail-summary">${escape(item.context)}</p><dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision', item.whyItMatters)}${inquiryField('Information to request', 'request', item.informationNeeded, 'field-request')}${inquiryField('Who to ask', 'people', item.informationHolder, 'field-holder')}</dl>`;
@@ -101,7 +112,7 @@ function renderAnalysis(item) {
     body += `<p class="detail-summary">${escape(item.summary)} <span class="inline-citations">${citationLinks(item)}</span></p>`;
   }
   if (current.view === 'events') {
-    body += `<section class="analysis-section"><h3>Organizations and systems</h3><ul class="actor-list">${item.actors.map(a => `<li>${escape(a)}</li>`).join('')}</ul></section>`;
+    body += `<section class="analysis-section"><h3>Organizations and systems</h3><ul class="actor-list">${item.actors.map(a => `<li>${organizationName(a)}</li>`).join('')}</ul></section>`;
     const causes = data.causes.filter(c => c.eventIds.includes(item.id));
     body += related('causes', causes.map(c => c.id), 'How this happened');
     body += `<div class="related-columns">${related('controls', item.controlIds, 'Safeguards')}${related('questions', item.questionIds, 'Questions to investigate')}</div>`;
@@ -133,9 +144,9 @@ function renderSources(item) {
   const ref = selectSourceRef(item, source.id);
   const options = item.sourceIds.length > 1 ? `<div class="source-options" aria-label="Choose a source">${item.sourceIds.map((id, i) => {
     const s = data.sources.find(s => s.id === id);
-    return `<a href="${routeFor(current.view, item.id, id)}" class="source-option" aria-current="${id === current.sourceId}">${i + 1}. ${escape(s.publisher)}</a>`;
+    return `<a href="${routeFor(current.view, item.id, id)}" class="source-option" aria-current="${id === current.sourceId}">${i + 1}. ${organizationName(s.publisher)}</a>`;
   }).join('')}</div>` : '';
-  $('sources').innerHTML = `<div class="sources-heading"><h2 id="sources-title" tabindex="-1">${current.view === 'questions' ? 'Relevant sources' : 'Sources'}</h2><span class="source-count">${item.sourceIds.indexOf(source.id) + 1} of ${item.sourceIds.length}</span></div>${options}<div class="source-publisher"><span>${escape(source.publisher)}</span><time datetime="${escape(source.date)}">${sourceDate(source.date)}</time></div><h3 class="source-title">${escape(source.title)}</h3><p class="source-kind">${escape(source.kind)}</p>${ref.account ? `<div class="source-account"><h3>${item.kind === 'Interpretation' ? 'Assessment in this source' : 'Account in this source'}</h3><p>${escape(ref.account)}</p></div>` : ''}${ref.excerpt ? `<blockquote>“${escape(ref.excerpt)}”</blockquote>` : ''}<div class="source-locator"><strong>Where to look</strong>${escape(ref.locator || source.locator)}</div><a href="${escape(source.url)}" class="source-link" target="_blank" rel="noopener noreferrer">Read the source<span class="visually-hidden"> (opens in a new tab)</span></a>`;
+  $('sources').innerHTML = `<div class="sources-heading"><h2 id="sources-title" tabindex="-1">${current.view === 'questions' ? 'Relevant sources' : 'Sources'}</h2><span class="source-count">${item.sourceIds.indexOf(source.id) + 1} of ${item.sourceIds.length}</span></div>${options}<div class="source-publisher">${organizationName(source.publisher)}<time datetime="${escape(source.date)}">${sourceDate(source.date)}</time></div><h3 class="source-title">${escape(source.title)}</h3><p class="source-kind">${escape(source.kind)}</p>${ref.account ? `<div class="source-account"><h3>${item.kind === 'Interpretation' ? 'Assessment in this source' : 'Account in this source'}</h3><p>${escape(ref.account)}</p></div>` : ''}${ref.excerpt ? `<blockquote>“${escape(ref.excerpt)}”</blockquote>` : ''}<div class="source-locator"><strong>Where to look</strong>${escape(ref.locator || source.locator)}</div><a href="${escape(source.url)}" class="source-link" target="_blank" rel="noopener noreferrer">Read the source<span class="visually-hidden"> (opens in a new tab)</span></a>`;
 }
 
 function render({ focus = false, destination = null } = {}) {
