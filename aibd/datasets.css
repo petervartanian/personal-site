@@ -1,0 +1,40 @@
+/* Shared navigation and case facts across the five specialized datasets. */
+.collection-family { display: flex; align-items: baseline; justify-content: space-between; gap: 12px 24px; padding: 13px 26px; font-size: 15px; line-height: 22px; }
+.collection-family a { display: inline-flex; align-items: baseline; min-height: 30px; padding: 4px 0; text-decoration: none; }
+.collection-family a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.collection-register { white-space: nowrap; }
+.collection-register > span { margin-left: 12px; color: var(--ink-3); font-size: 12px; }
+.collection-family > div { display: flex; flex-wrap: wrap; gap: 2px 24px; }
+.collection-family > div > a { white-space: nowrap; font-family: var(--serif); font-size: 17px; }
+.collection-family > div > a > span { margin-left: 7px; color: var(--ink-3); font: 11px var(--mono); }
+.collection-family [aria-current="page"] { text-decoration: underline; text-underline-offset: 5px; color: var(--collection-ink, var(--ink)); }
+.case-identity { --case-icon-width: 60px; margin: 16px 0 0; font: 13px/21px var(--sans); color: var(--ink-2); }
+.case-identity > div { display: grid; grid-template-columns: 65px minmax(0, 1fr); align-items: start; gap: 4px 10px; margin-top: 11px; }
+.case-identity dt { color: var(--ink-3); font-size: 11px; }
+.case-identity dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.case-party, .case-jurisdictions { display: grid; gap: 3px; }
+.case-party-line, .case-country { display: grid; grid-template-columns: var(--case-icon-width, 20px) minmax(0, 1fr); align-items: start; gap: 8px; }
+.case-icon { display: flex; align-items: start; justify-content: flex-start; min-height: 21px; }
+.case-company-logo { display: block; width: auto; height: auto; max-width: var(--case-icon-width, 60px); max-height: 24px; object-fit: contain; object-position: left top; margin: 0; }
+.case-country { display: inline-grid; max-width: 100%; vertical-align: top; }
+.case-country .flag { display: block; width: 20px; height: 14px; margin: 3px 0 0; object-fit: contain; object-position: left center; border: 0; }
+.case-party > .case-country { color: var(--ink-3); font-size: 12px; }
+.case-party-name, .case-country-name { min-width: 0; overflow-wrap: anywhere; }
+.case-text-only { display: block; padding-left: calc(var(--case-icon-width) + 8px); }
+.collection-date { display: inline-flex; flex-wrap: wrap; gap: 4px 7px; }
+.collection-review-dates { display: flex; flex-wrap: wrap; gap: 4px 16px; color: var(--ink-3); font: 12px/19px var(--sans); }
+.collection-review-dates > span { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+@media (max-width: 1000px) {
+  .collection-family { flex-wrap: wrap; }
+  .collection-family > div { justify-content: space-between; width: 100%; }
+}
+@media (max-width: 650px) {
+  .collection-family { padding: 8px 20px; gap: 0; }
+  .collection-register { font-size: 13px; }
+  .collection-family > div { justify-content: flex-start; gap: 0 19px; }
+  .collection-family > div > a { min-height: 44px; align-items: center; font-size: 16px; line-height: 24px; }
+  .collection-family > div > a > span { font-size: 10px; }
+  .case-identity { --case-icon-width: 48px; }
+  .case-identity > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .case-identity dt { padding-left: calc(var(--case-icon-width) + 8px); }
+}
