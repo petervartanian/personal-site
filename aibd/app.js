@@ -294,6 +294,33 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var pendingTo = (new URLSearchParams(window.location.search).get('to') || '') || ((new URLSearchParams(window.location.search).get('open') === 'entities') ? 'orgs' : '');
   var kit = document.querySelector('[data-kit]');
   var rail = document.querySelector('[data-rail]');
+  var entityLogoObserver = null;
+  var observedEntityLogos = new WeakSet();
+  function loadEntityLogo(image) {
+    var source = image.getAttribute('data-src');
+    if (!source) return;
+    function done() {
+      if (entityLogoObserver) entityLogoObserver.unobserve(image);
+      image.removeEventListener('load', done);
+      image.removeEventListener('error', done);
+    }
+    image.addEventListener('load', done);
+    image.addEventListener('error', done);
+    image.src = source;
+    image.removeAttribute('data-src');
+  }
+  function observeEntityLogos(root) {
+    if (!entityLogoObserver && typeof window.IntersectionObserver === 'function') {
+      entityLogoObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) { if (entry.isIntersecting) loadEntityLogo(entry.target); });
+      }, { rootMargin: '160px 0px' });
+    }
+    root.querySelectorAll('.gaz img.logo[data-src]').forEach(function (image) {
+      if (observedEntityLogos.has(image)) return;
+      observedEntityLogos.add(image);
+      if (entityLogoObserver) entityLogoObserver.observe(image); else loadEntityLogo(image);
+    });
+  }
   // One tool at a time: the open one, or none.
   var openTool = (new URLSearchParams(window.location.search).get('open') || '').split(',').map(function (k) { return ALIAS[k] || k; }).filter(function (k) { return PANELS.indexOf(k) !== -1; })[0] || null;
   function goTo() {
@@ -307,7 +334,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       slot.dataset.loading = '1'; slot.setAttribute('aria-busy', 'true'); slot.textContent = 'Loading…';
       fetch(slot.getAttribute('data-fragment')).then(function (r) { return r.text(); }).then(function (html) {
         slot.innerHTML = html; slot.dataset.loaded = '1'; slot.removeAttribute('aria-busy'); delete slot.dataset.loading;
-        collectButtons(); bindAtlas(); if (window.aibdBindTips) window.aibdBindTips(slot); apply();
+        collectButtons(); bindAtlas(); if (window.aibdBindTips) window.aibdBindTips(slot); apply(); observeEntityLogos(slot);
         if (!panel.querySelector('[data-fragment]:not([data-loaded])')) setTimeout(goTo, 50);
       }).catch(function () { slot.textContent = 'This chart could not be loaded.'; slot.removeAttribute('aria-busy'); delete slot.dataset.loading; });
     });
