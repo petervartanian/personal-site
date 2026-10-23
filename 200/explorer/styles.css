@@ -2,6 +2,7 @@
 :root{font-family:Figtree,Arial,sans-serif;color:#1a1a1a;background:#fff;font-synthesis:none;--accent:#a32035;--accent-dark:#79182a;--accent-wash:#f8eef0;--muted:#60636a;--line:#dedfe2;--soft:#f7f7f8;--focus:#234f87;--held:#226453;--failed:#9b2b40;--absent:#77582a;--disabled:#515b76}
 *{box-sizing:border-box}
 body{margin:0;font-size:16px;line-height:1.5}
+#case-workspace{overflow-anchor:none}
 button,input,select{font:inherit}
 button,a{-webkit-tap-highlight-color:transparent}
 a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
@@ -179,23 +180,19 @@ a{color:#a32035}a:hover{color:#79182a}
   position:relative;
   background-color:#293e56;
   background-image:
-    radial-gradient(ellipse 31% 185% at 7% 135%,#345d70 0%,#345d7000 100%),
-    radial-gradient(ellipse 29% 190% at 36% -65%,#87603e 0%,#87603e00 100%),
-    radial-gradient(ellipse 31% 185% at 62% 155%,#3f6850 0%,#3f685000 100%),
-    radial-gradient(ellipse 37% 210% at 94% -55%,#71537d 0%,#71537d00 100%);
+    radial-gradient(ellipse 28% 165% at 18% 132%,#326b68 0%,#326b6800 100%),
+    radial-gradient(ellipse 30% 190% at 43% -82%,#80556a 0%,#80556a00 100%),
+    radial-gradient(ellipse 26% 180% at 66% 170%,#865e42 0%,#865e4200 100%),
+    radial-gradient(ellipse 28% 185% at 89% -65%,#346676 0%,#34667600 100%),
+    radial-gradient(ellipse 40% 220% at 105% 160%,#62516f 0%,#62516f00 100%);
   border:0
 }
 .site-header a:focus-visible{outline-color:#fff}
 .partner-logos{display:flex;align-items:center;gap:27px}
 .partner-logos a{display:flex;align-items:center}
 .cltc img{width:240px;height:44px;object-fit:contain;display:block}
-.credit-trigger{position:absolute;top:0;left:50%;transform:translateX(-50%);width:28px;height:28px;padding:0;border:0;background:transparent;color:#e4e6eb;z-index:3}
-.credit-trigger:focus-visible{outline:2px solid #fff;outline-offset:-3px}
-.credit-triangle{position:absolute;top:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;pointer-events:none}
-.site-credit{position:absolute;left:50%;top:24px;transform:translateX(-50%);font-size:13px;line-height:1.5;white-space:nowrap;padding:6px 12px;background:#263d4af2;border-radius:4px;color:white;z-index:2}
-.site-credit[hidden]{display:none}
-@media(max-width:1000px){.partner-logos{gap:20px}.initiative img{width:142px}.cltc img{width:210px}.site-credit{top:31px}}
-@media(max-width:760px){.site-header{height:112px;flex-wrap:wrap;justify-content:space-between;align-content:center;gap:10px 16px;padding:17px 20px 12px}.site-title{flex-basis:100%;font-size:18px}.partner-logos{gap:34px}.initiative img{width:126px;height:34px}.cltc img{width:118px;height:44px}.credit-trigger{width:44px;height:30px}.site-credit{top:calc(100% + 6px);max-width:calc(100% - 24px);font-size:13px;padding:6px 10px}.credit-trigger:focus-visible{outline-offset:-4px}}
+@media(max-width:1000px){.partner-logos{gap:20px}.initiative img{width:142px}.cltc img{width:210px}}
+@media(max-width:760px){.site-header{height:112px;flex-wrap:wrap;justify-content:space-between;align-content:center;gap:10px 16px;padding:17px 20px 12px}.site-title{flex-basis:100%;font-size:18px}.partner-logos{gap:34px}.initiative img{width:126px;height:34px}.cltc img{width:118px;height:44px}}
 @media(max-width:390px){.partner-logos{gap:30px}.initiative img{width:118px}.cltc img{width:118px}}
 
 /* Symbols and words distinguish information types independently of color. */
@@ -260,7 +257,7 @@ a{color:#a32035}a:hover{color:#79182a}
 body[data-view=library]{--accent:#345d70;--accent-dark:#234454;background:#f5f3ed}
 .library-intro{text-align:center;padding:18px 0 38px}
 .library-intro h1{font-size:clamp(26px,3vw,36px);font-weight:650;letter-spacing:-.6px}
-.library-intro p{font-size:17px;line-height:1.6;max-width:720px;margin:18px auto 0;color:#505960}
+.library-intro p{font-size:17px;line-height:1.6;max-width:880px;margin:18px auto 0;color:#505960;text-wrap:balance}
 .incident-library{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;max-width:1120px;margin:auto}
 .library-case{display:flex;flex-direction:column;min-width:0;padding:24px 30px 26px;background:#e6eeec;border-radius:9px;position:relative}
 .library-case:nth-child(2n){background:#eee5dd}
