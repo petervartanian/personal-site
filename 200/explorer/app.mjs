@@ -1,19 +1,10 @@
-import { views, readRoute, routeFor, selectSourceRef } from './state.mjs?v=20261023-case-grounding';
+import { views, readRoute, routeFor, selectSourceRef } from './state.mjs?v=20261023-status-labels';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-const stateNames = { held: 'Access blocked', failed: 'Failed', absent: 'Missing', disabled: 'Switched off', unknown: 'Unknown' };
-const controlOutcomes = {
-  'production-safeguards': 'Omitted or weakened',
-  'evaluation-isolation': 'Boundary bypassed',
-  'application-authentication': 'Authentication missing',
-  'modal-isolation': 'Container boundary intact',
-  'pod-admission': 'Restrictions missing',
-  'critical-alerting': 'No responder alert',
-  'hub-database-boundary': 'Database access blocked',
-};
+const stateNames = { held: 'Worked', failed: 'Failed', absent: 'Absent', disabled: 'Off', unknown: 'Unknown' };
 const organizationMarks = { OpenAI: 'openai.png', 'Hugging Face': 'hugging-face.svg', Modal: 'modal.svg' };
 const organizationName = name => `<span class="organization-name">${organizationMarks[name] ? `<img src="assets/${organizationMarks[name]}" class="organization-logo" width="22" height="22" alt="">` : ''}${escape(name)}</span>`;
 const icons = {
@@ -35,7 +26,7 @@ const icons = {
   held: '<path d="m5 12 4 4L19 6"/>',
   failed: '<path d="m6 6 12 12M18 6 6 18"/>',
   disabled: '<path d="M12 3v9m-6-6a8 8 0 1 0 12 0"/>',
-  absent: '<circle cx="12" cy="12" r="8"/>',
+  absent: '<circle cx="12" cy="12" r="8"/><path d="M8 12h8"/>',
   unknown: '<path d="M8 8a4 4 0 0 1 8 0c0 3-4 3-4 6m0 4v1"/>',
 };
 const questionIcons = {
@@ -55,7 +46,7 @@ let current;
 let previous;
 
 const link = (view, item, text, attrs = '') => `<a href="${routeFor(view, item.id)}" ${attrs}>${text}</a>`;
-const stateLabel = item => `<span class="state state-${escape(item.state)}">${icon(item.state)}${escape(controlOutcomes[item.id] || stateNames[item.state])}</span>`;
+const stateLabel = item => `<span class="state state-${escape(item.state)}">${icon(item.state)}${escape(stateNames[item.state])}</span>`;
 const sourceDate = iso => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 
 function itemSelection(view, item) {
@@ -112,7 +103,7 @@ function renderAnalysis(item) {
     body += `<p class="detail-summary">${escape(item.summary)} <span class="inline-citations">${citationLinks(item)}</span></p>`;
   }
   if (current.view === 'events') {
-    body += `<section class="analysis-section"><h3>Organizations and systems</h3><ul class="actor-list">${item.actors.map(a => `<li>${organizationName(a)}</li>`).join('')}</ul></section>`;
+    body += `<section class="analysis-section"><h3>Organizations and systems</h3><ul class="actor-list">${item.actors.map(a => `<li>${escape(a)}</li>`).join('')}</ul></section>`;
     const causes = data.causes.filter(c => c.eventIds.includes(item.id));
     body += related('causes', causes.map(c => c.id), 'How this happened');
     body += `<div class="related-columns">${related('controls', item.controlIds, 'Safeguards')}${related('questions', item.questionIds, 'Questions to investigate')}</div>`;
@@ -144,9 +135,9 @@ function renderSources(item) {
   const ref = selectSourceRef(item, source.id);
   const options = item.sourceIds.length > 1 ? `<div class="source-options" aria-label="Choose a source">${item.sourceIds.map((id, i) => {
     const s = data.sources.find(s => s.id === id);
-    return `<a href="${routeFor(current.view, item.id, id)}" class="source-option" aria-current="${id === current.sourceId}">${i + 1}. ${organizationName(s.publisher)}</a>`;
+    return `<a href="${routeFor(current.view, item.id, id)}" class="source-option" aria-current="${id === current.sourceId}">${i + 1}. ${escape(s.publisher)}</a>`;
   }).join('')}</div>` : '';
-  $('sources').innerHTML = `<div class="sources-heading"><h2 id="sources-title" tabindex="-1">${current.view === 'questions' ? 'Relevant sources' : 'Sources'}</h2><span class="source-count">${item.sourceIds.indexOf(source.id) + 1} of ${item.sourceIds.length}</span></div>${options}<div class="source-publisher">${organizationName(source.publisher)}<time datetime="${escape(source.date)}">${sourceDate(source.date)}</time></div><h3 class="source-title">${escape(source.title)}</h3><p class="source-kind">${escape(source.kind)}</p>${ref.account ? `<div class="source-account"><h3>${item.kind === 'Interpretation' ? 'Assessment in this source' : 'Account in this source'}</h3><p>${escape(ref.account)}</p></div>` : ''}${ref.excerpt ? `<blockquote>“${escape(ref.excerpt)}”</blockquote>` : ''}<div class="source-locator"><strong>Where to look</strong>${escape(ref.locator || source.locator)}</div><a href="${escape(source.url)}" class="source-link" target="_blank" rel="noopener noreferrer">Read the source<span class="visually-hidden"> (opens in a new tab)</span></a>`;
+  $('sources').innerHTML = `<div class="sources-heading"><h2 id="sources-title" tabindex="-1">${current.view === 'questions' ? 'Relevant sources' : 'Sources'}</h2><span class="source-count">${item.sourceIds.indexOf(source.id) + 1} of ${item.sourceIds.length}</span></div>${options}<div class="source-publisher"><span>${escape(source.publisher)}</span><time datetime="${escape(source.date)}">${sourceDate(source.date)}</time></div><h3 class="source-title">${escape(source.title)}</h3><p class="source-kind">${escape(source.kind)}</p>${ref.account ? `<div class="source-account"><h3>${item.kind === 'Interpretation' ? 'Assessment in this source' : 'Account in this source'}</h3><p>${escape(ref.account)}</p></div>` : ''}${ref.excerpt ? `<blockquote>“${escape(ref.excerpt)}”</blockquote>` : ''}<div class="source-locator"><strong>Where to look</strong>${escape(ref.locator || source.locator)}</div><a href="${escape(source.url)}" class="source-link" target="_blank" rel="noopener noreferrer">Read the source<span class="visually-hidden"> (opens in a new tab)</span></a>`;
 }
 
 function render({ focus = false, destination = null } = {}) {
