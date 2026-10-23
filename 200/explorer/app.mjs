@@ -1,11 +1,8 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-horizontal-cards2';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-horizontal-cards2';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-horizontal-cards2';
-import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-horizontal-cards2';
-import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-horizontal-cards2';
-import { setupCredit } from './credit.mjs';
-
-setupCredit();
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-stable-navigation';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-stable-navigation';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-stable-navigation';
+import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-stable-navigation';
+import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-stable-navigation';
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const stateNames = { held: 'Worked', failed: 'Failed', absent: 'Absent', disabled: 'Off', unknown: 'Unknown' };
@@ -215,6 +212,10 @@ function renderSources(item) {
 }
 
 function render({ focus = false, destination = null } = {}) {
+  const viewport = { left: window.scrollX, top: window.scrollY };
+  const activeLink = document.activeElement?.closest('a[href]');
+  const focusHref = activeLink?.getAttribute('href');
+  const focusView = activeLink?.dataset.view;
   const restoreReportingFocus = document.activeElement?.id === 'reporting-field-select';
   const locationState = readLocation(location.hash, catalog);
   const lastScreen = screen;
@@ -235,6 +236,7 @@ function render({ focus = false, destination = null } = {}) {
     return;
   }
   const switchedCase = data?.case.id !== locationState.caseId;
+  const preserveViewport = !switchedCase && lastScreen === 'case' && !destination;
   data = catalog.find(d => d.case.id === locationState.caseId);
   if (switchedCase || lastScreen !== screen) {
     previous = null;
@@ -316,8 +318,15 @@ function render({ focus = false, destination = null } = {}) {
   document.title = `${selectedReportingField?.label || item.label || item.title} | AI Incident Explorer`;
   $('status').textContent = selectedReportingField ? `Reporting field ${selectedReportingField.number}: ${selectedReportingField.label}` : `${views.find(v => v.id === navigationId).label} ${item.label || item.title}${current.view === 'framework' && !isOverview() ? `. Selected account: ${selectedStory(data,current,storyMemory.get(data.case.id)).title}` : ''}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
   if (restoreReportingFocus) $('reporting-field-select')?.focus({ preventScroll: true });
-  if (focus) (onlySourceChanged && !current.reportingFieldId ? $('sources-title') : $('analysis-title'))?.focus({ preventScroll: true });
+  if (focus) {
+    const matchingControl = focusView
+      ? $('question-navigation').querySelector(`[data-view="${focusView}"]`)
+      : [...document.querySelectorAll('a[href]')].find(link => link.getAttribute('href') === focusHref);
+    const target = destination ? $(destination) : matchingControl || (onlySourceChanged && !current.reportingFieldId ? $('sources-title') : $('analysis-title'));
+    target?.focus({ preventScroll: true });
+  }
   if (destination) $(destination).scrollIntoView({ block: 'start', behavior: 'instant' });
+  else if (preserveViewport) window.scrollTo({ ...viewport, behavior: 'instant' });
   previous = { ...current };
 }
 
@@ -341,8 +350,7 @@ document.addEventListener('click', event => {
     const field = data.reporting?.fields.find(entry => entry.id === current.reportingFieldId);
     eventOrigins.set(data.case.id, {url:routeFor(current.view,current.itemId,current.sourceId,current.reportingFieldId || current.storyId), title:field?.label || item.title});
   }
-  destination = anchor.matches('.citation') ? 'sources-title' : anchor.closest('.related-list, .account-links, .safeguard-comparison, .safeguard-matrix') || (matchMedia('(max-width:760px)').matches && anchor.closest('.concept-choices')) ? 'analysis-title' : null;
-  if (anchor.matches('#question-navigation>a')) destination = 'question-navigation';
+  destination = anchor.matches('.citation') ? 'sources-title' : null;
   if (destination && anchor.hash === location.hash) {
     event.preventDefault();
     const target = $(destination);
