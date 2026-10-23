@@ -22,9 +22,9 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/atom+xml" title="Feed of new and revised cases" href="feed.xml">
-<link rel="stylesheet" href="style.css?v=ccf316c3c8">
-<link rel="stylesheet" href="requirements.css?v=ccf316c3c8">
-<link rel="stylesheet" href="dividend.css?v=ccf316c3c8"></head>
+<link rel="stylesheet" href="style.css?v=97eebe499b">
+<link rel="stylesheet" href="requirements.css?v=97eebe499b">
+<link rel="stylesheet" href="dividend.css?v=97eebe499b"></head>
 <body class="money-page">
 <div class="page">
 <header class="masthead sheet">
@@ -75,36 +75,38 @@
         <label class="money-search"><span class="visually-hidden">Search monetary claims</span><input type="search" name="q" placeholder="Search the claims" autocomplete="off"></label>
         <label>Show <select name="view" data-dv-view-select><option value="published">Outcomes (11)</option><option value="pending">Awaiting review (19)</option><option value="context">Context (7)</option></select></label>
         <details class="money-filter-more" data-dv-more-filters><summary>Filters</summary><div>
+        <label>Jurisdiction <select name="jurisdiction"><option value="">All</option><option value="Australia">Australia</option><option value="Brazil">Brazil</option><option value="Denmark">Denmark</option><option value="Ethiopia">Ethiopia</option><option value="France">France</option><option value="Ghana">Ghana</option><option value="Global climate benefits">Global climate benefits</option><option value="India">India</option><option value="International">International</option><option value="Kenya">Kenya</option><option value="Kiribati">Kiribati</option><option value="Multiple African countries">Multiple African countries</option><option value="Nigeria">Nigeria</option><option value="Singapore">Singapore</option><option value="Somalia">Somalia</option><option value="South Korea">South Korea</option><option value="Taiwan">Taiwan</option><option value="United Kingdom">United Kingdom</option><option value="United States">United States</option></select></label>
         <label>Type <select name="type"><option value="">All</option><option value="avoided_loss">Avoided losses</option><option value="commercial_receipt">Commercial payments</option><option value="reference_amount">Contextual amount</option><option value="cash_saving">Cost savings</option><option value="monetized_social_benefit">Monetized social value</option><option value="other">Other monetary claim</option><option value="recovered_funds">Recovered funds</option><option value="revenue">Revenue</option><option value="recipient_transfer">Transfers and awards</option></select></label>
         <label>Status <select name="status"><option value="">All</option><option value="annualized_estimate">Annualized estimate</option><option value="unverified">Awaiting source review</option><option value="awarded">Awarded</option><option value="context">Context only</option><option value="mixed">Mixed accounting states</option><option value="modeled_valuation">Modeled valuation</option><option value="paid">Paid</option><option value="reported_recovery">Reported recovery</option><option value="retrospective_estimate">Retrospective estimate</option><option value="withheld_in_escrow">Withheld in escrow</option></select></label>
         <fieldset class="money-currencies" aria-describedby="money-currency-hint">
           <legend>Currencies</legend>
-          <div class="money-currency-options"><label><input type="checkbox" name="currency" value="AUD"><span>AUD <span class="money-currency-count" data-dv-currency-count="AUD"></span></span></label><label><input type="checkbox" name="currency" value="BRL"><span>BRL <span class="money-currency-count" data-dv-currency-count="BRL"></span></span></label><label><input type="checkbox" name="currency" value="DKK"><span>DKK <span class="money-currency-count" data-dv-currency-count="DKK"></span></span></label><label><input type="checkbox" name="currency" value="EUR"><span>EUR <span class="money-currency-count" data-dv-currency-count="EUR"></span></span></label><label><input type="checkbox" name="currency" value="GBP"><span>GBP <span class="money-currency-count" data-dv-currency-count="GBP"></span></span></label><label><input type="checkbox" name="currency" value="GHS"><span>GHS <span class="money-currency-count" data-dv-currency-count="GHS"></span></span></label><label><input type="checkbox" name="currency" value="INR"><span>INR <span class="money-currency-count" data-dv-currency-count="INR"></span></span></label><label><input type="checkbox" name="currency" value="KES"><span>KES <span class="money-currency-count" data-dv-currency-count="KES"></span></span></label><label><input type="checkbox" name="currency" value="KRW"><span>KRW <span class="money-currency-count" data-dv-currency-count="KRW"></span></span></label><label><input type="checkbox" name="currency" value="SGD"><span>SGD <span class="money-currency-count" data-dv-currency-count="SGD"></span></span></label><label><input type="checkbox" name="currency" value="TWD"><span>TWD <span class="money-currency-count" data-dv-currency-count="TWD"></span></span></label><label><input type="checkbox" name="currency" value="USD"><span>USD <span class="money-currency-count" data-dv-currency-count="USD"></span></span></label></div>
-          <p id="money-currency-hint">Match any selected currency. <button type="button" class="textbtn" data-dv-currency-reset hidden>Clear currencies</button></p>
+          <div class="money-currency-options"><label><input type="checkbox" name="currency" value="AUD"><span>AUD <span class="money-currency-count" data-dv-currency-count="AUD"></span></span></label><label><input type="checkbox" name="currency" value="BRL"><span>BRL <span class="money-currency-count" data-dv-currency-count="BRL"></span></span></label><label><input type="checkbox" name="currency" value="DKK"><span>DKK <span class="money-currency-count" data-dv-currency-count="DKK"></span></span></label><label><input type="checkbox" name="currency" value="EUR"><span>EUR <span class="money-currency-count" data-dv-currency-count="EUR"></span></span></label><label><input type="checkbox" name="currency" value="GBP"><span>GBP <span class="money-currency-count" data-dv-currency-count="GBP"></span></span></label><label><input type="checkbox" name="currency" value="GHS"><span>GHS <span class="money-currency-count" data-dv-currency-count="GHS"></span></span></label><label><input type="checkbox" name="currency" value="INR"><span>INR <span class="money-currency-count" data-dv-currency-count="INR"></span></span></label><label><input type="checkbox" name="currency" value="KES"><span>KES <span class="money-currency-count" data-dv-currency-count="KES"></span></span></label><label><input type="checkbox" name="currency" value="KRW"><span>KRW <span class="money-currency-count" data-dv-currency-count="KRW"></span></span></label><label><input type="checkbox" name="currency" value="NGN"><span>NGN <span class="money-currency-count" data-dv-currency-count="NGN"></span></span></label><label><input type="checkbox" name="currency" value="SGD"><span>SGD <span class="money-currency-count" data-dv-currency-count="SGD"></span></span></label><label><input type="checkbox" name="currency" value="TWD"><span>TWD <span class="money-currency-count" data-dv-currency-count="TWD"></span></span></label><label><input type="checkbox" name="currency" value="USD"><span>USD <span class="money-currency-count" data-dv-currency-count="USD"></span></span></label></div>
+          <p id="money-currency-hint">By case jurisdiction. <button type="button" class="textbtn" data-dv-currency-reset hidden>Clear currencies</button></p>
         </fieldset>
         </div></details>
         <button type="submit" class="visually-hidden" tabindex="-1">Search</button>
       </form>
-      <div class="money-list-head"><span class="mono ink3" data-dv-count role="status" aria-live="polite" aria-atomic="true"></span><button type="button" class="textbtn" data-dv-reset hidden>Clear filters</button><label>Order <select name="sort" data-dv-sort><option value="collection">Collection order</option><option value="case">Case name</option><option value="type">Financial type</option><option value="currency">Currency</option><option value="checked">Recently checked</option></select></label></div>
-    </div>
+      <div class="money-list-head"><span class="mono ink3" data-dv-count role="status" aria-live="polite" aria-atomic="true"></span><button type="button" class="textbtn" data-dv-reset hidden>Clear filters</button><label class="money-usd"><input type="checkbox" role="switch" data-dv-usd aria-describedby="money-usd-basis"> Harmonize to USD</label><label class="money-order">Order <select name="sort" data-dv-sort><option value="collection">Collection order</option><option value="case">Case name</option><option value="type">Financial type</option><option value="currency">Currency</option><option value="checked">Recently checked</option></select></label></div>
+<p id="money-usd-basis" class="money-usd-basis" data-dv-usd-basis hidden>USD at October 2026 rates. No inflation adjustment.</p>    </div>
 
     <section class="money-section" id="outcomes" data-dv-section="published" aria-labelledby="outcomes-title">
       <h2 id="outcomes-title">Monetary outcomes</h2>
       <p class="money-section-note">11 source-checked claims. Estimates and projections are labeled.</p>
-      <ol class="results money-results" data-dv-list><li id="DIV-0005" data-dv-row data-type="monetized_social_benefit" data-status="modeled_valuation" data-currencies="USD" data-title="GLAD deforestation alert subscriptions reduce deforestation probability in Africa by 18%" data-checked="2026-10-23">
+      <ol class="results money-results" data-dv-list><li id="DIV-0005" data-dv-row data-type="monetized_social_benefit" data-status="modeled_valuation" data-currencies="USD" data-jurisdictions="Multiple African countries|Global climate benefits" data-title="GLAD deforestation alert subscriptions reduce deforestation probability in Africa by 18%" data-checked="2026-10-23">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for a person"><g class="unassessed conf-high" transform="translate(2,2)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0105.html">GLAD alerts cut deforestation probability in Africa by 18%</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">US$149–696 million <span class="money-type">monetized social value</span></p>
-      <div class="meta"><span>Modeled valuation</span><span>USD</span></div>
+<p class="money-jurisdiction">Multiple African countries / global climate benefits</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>US$149–696 million</span><span data-dv-usd-value hidden>US$149–696 million</span> <span class="money-type">monetized social value</span></p>
+      <div class="meta"><span>Modeled valuation</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0005-evidence">
       <summary>Source and detail<span class="visually-hidden"> for GLAD deforestation alert subscriptions reduce deforestation probability in Africa by 18%</span></summary>
       <div class="money-detail-body">
         <p>Researchers value avoided deforestation associated with African GLAD alert subscriptions at US$149–696 million using the social cost of carbon.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>People benefiting from avoided climate damage; no direct cash recipient.</dd></div>
+          <div><dt>Reported amount</dt><dd>US$149–696 million</dd></div>
+<div><dt>Currency</dt><dd>The valuation concerns avoided deforestation across African countries and climate benefits worldwide. The source expresses the unallocated aggregate in U.S. dollars.</dd></div>          <div><dt>Beneficiary</dt><dd>People benefiting from avoided climate damage; no direct cash recipient.</dd></div>
           <div><dt>Paid by</dt><dd>Not applicable to a social-cost valuation.</dd></div>
           <div><dt>Unit</dt><dd>Modeled value of avoided deforestation in the African study sample.</dd></div>
           <div><dt>Period</dt><dd>Comparison with pre-2016 deforestation; the checked abstract does not specify the valuation horizon.</dd></div>
@@ -122,20 +124,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0006" data-dv-row data-type="avoided_loss" data-status="retrospective_estimate" data-currencies="USD" data-title="eLocust3m and AI data cleaning feed FAO&#39;s East Africa locust control, which may have averted USD 1.56 billion in losses" data-checked="2026-10-23">
+<li id="DIV-0006" data-dv-row data-type="avoided_loss" data-status="retrospective_estimate" data-currencies="USD" data-jurisdictions="Kenya|Ethiopia|Somalia" data-title="eLocust3m and AI data cleaning feed FAO&#39;s East Africa locust control, which may have averted USD 1.56 billion in losses" data-checked="2026-10-23">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 3 for society; depth 2 for an organization"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="16"/><g class="d3 conf-medium" transform="translate(6,16)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="25" y="28">3</text><line class="string" x1="48" y1="2" x2="48" y2="23"/><g class="d2 conf-medium" transform="translate(40,23)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="59" y="35">2</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0193.html">Locust control fed by eLocust3m may have averted USD 1.56 billion</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">US$1.56 billion <span class="money-type">avoided losses</span></p>
-      <div class="meta"><span>Retrospective estimate</span><span>USD</span></div>
+<p class="money-jurisdiction">Kenya, Ethiopia and Somalia</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>US$1.56 billion</span><span data-dv-usd-value hidden>US$1.56 billion</span> <span class="money-type">avoided losses</span></p>
+      <div class="meta"><span>Retrospective estimate</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0006-evidence">
       <summary>Source and detail<span class="visually-hidden"> for eLocust3m and AI data cleaning feed FAO&#39;s East Africa locust control, which may have averted USD 1.56 billion in losses</span></summary>
       <div class="money-detail-body">
         <p>FAO estimates that the locust response avoided $1.56 billion in cereal and milk losses.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Farmers, livestock keepers, and food consumers in affected East African countries.</dd></div>
+          <div><dt>Reported amount</dt><dd>US$1.56 billion</dd></div>
+<div><dt>Currency</dt><dd>The avoided-loss estimate covers Kenya, Ethiopia and Somalia together. It is reported as one U.S.-dollar amount without a country breakdown.</dd></div>          <div><dt>Beneficiary</dt><dd>Farmers, livestock keepers, and food consumers in affected East African countries.</dd></div>
           <div><dt>Paid by</dt><dd>Not applicable to avoided production losses.</dd></div>
           <div><dt>Unit</dt><dd>Cereal and milk losses avoided across the regional response.</dd></div>
           <div><dt>Period</dt><dd>East African response reported May 6, 2021; the amount-specific start date is unstated.</dd></div>
@@ -153,20 +156,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0007" data-dv-row data-type="revenue" data-status="retrospective_estimate" data-currencies="AUD" data-title="ATO&#39;s nearest-neighbor myTax prompts reached nearly 340,000 taxpayers at tax time 2020; resulting adjustments had an estimated $37 million revenue impact" data-checked="2026-10-23">
+<li id="DIV-0007" data-dv-row data-type="revenue" data-status="retrospective_estimate" data-currencies="AUD" data-jurisdictions="Australia" data-title="ATO&#39;s nearest-neighbor myTax prompts reached nearly 340,000 taxpayers at tax time 2020; resulting adjustments had an estimated $37 million revenue impact" data-checked="2026-10-23">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 1 for an organization; depth 1 for society"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="30"/><g class="d1 conf-medium" transform="translate(6,30)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="25" y="42">1</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-medium" transform="translate(40,30)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0337.html">myTax prompts had an estimated $37 million revenue impact</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="AUD" data-relationship="primary">
-      <p class="metric">About A$37 million <span class="money-type">revenue</span></p>
-      <div class="meta"><span>Retrospective estimate</span><span>AUD</span></div>
+<p class="money-jurisdiction">Australia</p>    <div class="money-amount" data-dv-amount data-currency="AUD" data-local-currency="AUD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>~A$37 million</span><span data-dv-usd-value hidden>~USD 25.9 million</span> <span class="money-type">revenue</span></p>
+      <div class="meta"><span>Retrospective estimate</span><span data-dv-denomination>AUD</span></div>
     </div>
     <details class="money-detail" id="DIV-0007-evidence">
       <summary>Source and detail<span class="visually-hidden"> for ATO&#39;s nearest-neighbor myTax prompts reached nearly 340,000 taxpayers at tax time 2020; resulting adjustments had an estimated $37 million revenue impact</span></summary>
       <div class="money-detail-body">
         <p>ATO estimates that adjustments following myTax prompts affected 2020 tax revenue by about A$37 million.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Australian public revenue.</dd></div>
+          <div><dt>Reported amount</dt><dd>About A$37 million</dd></div>
+<div><dt>Currency</dt><dd>The revenue estimate concerns the Australian Taxation Office and is reported in Australian dollars.</dd></div><div><dt>USD equivalent</dt><dd>~USD 25.9 million. Converted from AUD at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Australian public revenue.</dd></div>
           <div><dt>Paid by</dt><dd>Taxpayers adjusting their returns.</dd></div>
           <div><dt>Unit</dt><dd>Aggregate adjustments following myTax prompts.</dd></div>
           <div><dt>Period</dt><dd>Australian tax time 2020.</dd></div>
@@ -184,20 +188,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0010" data-dv-row data-type="cash_saving" data-status="retrospective_estimate" data-currencies="INR" data-title="Randomized evaluation of Google AI flood alerts with community dissemination in Bihar, India (2022–2023 monsoons)" data-checked="2026-10-23">
+<li id="DIV-0010" data-dv-row data-type="cash_saving" data-status="retrospective_estimate" data-currencies="INR" data-jurisdictions="India" data-title="Randomized evaluation of Google AI flood alerts with community dissemination in Bihar, India (2022–2023 monsoons)" data-checked="2026-10-23">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for a person"><g class="unassessed conf-high" transform="translate(2,2)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0031.html">Google flood alerts in Bihar cut reported illness by 16.6%</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="INR" data-relationship="primary">
-      <p class="metric">About INR6,500 per household <span class="money-type">cost savings</span></p>
-      <div class="meta"><span>Retrospective estimate</span><span>INR</span></div>
+<p class="money-jurisdiction">Bihar, India</p>    <div class="money-amount" data-dv-amount data-currency="INR" data-local-currency="INR" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>~INR6,500 per household</span><span data-dv-usd-value hidden>~USD 67.7 per household</span> <span class="money-type">cost savings</span></p>
+      <div class="meta"><span>Retrospective estimate</span><span data-dv-denomination>INR</span></div>
     </div>
     <details class="money-detail" id="DIV-0010-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Randomized evaluation of Google AI flood alerts with community dissemination in Bihar, India (2022–2023 monsoons)</span></summary>
       <div class="money-detail-body">
         <p>A randomized study estimates that community dissemination of AI flood alerts reduced household illness-treatment spending by roughly INR6,500.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Households in treatment communities in Bihar, India.</dd></div>
+          <div><dt>Reported amount</dt><dd>About INR6,500 per household</dd></div>
+<div><dt>Currency</dt><dd>The household-spending estimate concerns Bihar, India, and is reported in Indian rupees.</dd></div><div><dt>USD equivalent</dt><dd>~USD 67.7 per household. Converted from INR at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Households in treatment communities in Bihar, India.</dd></div>
           <div><dt>Paid by</dt><dd>Households paying for illness treatment.</dd></div>
           <div><dt>Unit</dt><dd>Estimated difference per household in illness-treatment spending.</dd></div>
           <div><dt>Period</dt><dd>2022–2023 flood-season study; the prose does not isolate the monetary recall window.</dd></div>
@@ -215,20 +220,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0014" data-dv-row data-type="recipient_transfer" data-status="awarded" data-currencies="USD" data-title="Vesuvius Challenge 2023: machine-learning ink detection reads over 2,000 characters from unopened Herculaneum scroll PHerc.Paris.4" data-checked="2026-10-23">
+<li id="DIV-0014" data-dv-row data-type="recipient_transfer" data-status="awarded" data-currencies="USD" data-jurisdictions="International" data-title="Vesuvius Challenge 2023: machine-learning ink detection reads over 2,000 characters from unopened Herculaneum scroll PHerc.Paris.4" data-checked="2026-10-23">
   <div class="d"><svg class="mobile" viewBox="0 0 118 48" width="118" height="48" role="img" aria-label="depth 2 for a person; depth 2 for an organization; depth 3 for society"><line class="rung" x1="8" y1="10" x2="88" y2="10"/><line class="rung" x1="8" y1="17" x2="88" y2="17"/><line class="rung" x1="8" y1="24" x2="88" y2="24"/><line class="rung" x1="8" y1="31" x2="88" y2="31"/><line class="rung" x1="8" y1="38" x2="88" y2="38"/><line class="bar" x1="14" y1="2" x2="82" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="23"/><g class="d2 conf-medium" transform="translate(6,23)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g><text class="num" x="25" y="35">2</text><line class="string" x1="48" y1="2" x2="48" y2="23"/><g class="d2 conf-medium" transform="translate(40,23)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="59" y="35">2</text><line class="string" x1="82" y1="2" x2="82" y2="16"/><g class="d3 conf-medium" transform="translate(74,16)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="93" y="28">3</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0013.html">ML ink detection reads 2,000+ characters of a Herculaneum scroll</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">US$700,000 <span class="money-type">transfers and awards</span></p>
-      <div class="meta"><span>Awarded</span><span>USD</span></div>
+<p class="money-jurisdiction">International prize recipients</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>US$700,000</span><span data-dv-usd-value hidden>US$700,000</span> <span class="money-type">transfers and awards</span></p>
+      <div class="meta"><span>Awarded</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0014-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Vesuvius Challenge 2023: machine-learning ink detection reads over 2,000 characters from unopened Herculaneum scroll PHerc.Paris.4</span></summary>
       <div class="money-detail-body">
         <p>The competition awarded $700,000 to the three-person team that used machine learning to read a carbonized scroll.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Youssef Nader, Luke Farritor, and Julian Schilliger.</dd></div>
+          <div><dt>Reported amount</dt><dd>US$700,000</dd></div>
+<div><dt>Currency</dt><dd>The international team received one U.S.-dollar prize. The source does not report a division by recipient or payment jurisdiction.</dd></div>          <div><dt>Beneficiary</dt><dd>Youssef Nader, Luke Farritor, and Julian Schilliger.</dd></div>
           <div><dt>Paid by</dt><dd>Vesuvius Challenge prize fund.</dd></div>
           <div><dt>Unit</dt><dd>One prize shared by a three-person team.</dd></div>
           <div><dt>Period</dt><dd>Grand-prize announcement on February 5, 2024.</dd></div>
@@ -246,20 +252,25 @@
     </details>
   </div>
 </li>
-<li id="DIV-0017" data-dv-row data-type="recipient_transfer" data-status="paid" data-currencies="USD" data-title="GiveDirectly paid anticipatory cash in Kogi State, Nigeria, on Google Flood Hub forecast triggers (August to October 2024)" data-checked="2026-10-23">
+<li id="DIV-0017" data-dv-row data-type="recipient_transfer" data-status="paid" data-currencies="NGN" data-jurisdictions="Nigeria" data-title="GiveDirectly paid anticipatory cash in Kogi State, Nigeria, on Google Flood Hub forecast triggers (August to October 2024)" data-checked="2026-10-23">
   <div class="d"><svg class="mobile" viewBox="0 0 118 48" width="118" height="48" role="img" aria-label="depth 2 for a person; depth 1 for an organization; depth 2 for society"><line class="rung" x1="8" y1="10" x2="88" y2="10"/><line class="rung" x1="8" y1="17" x2="88" y2="17"/><line class="rung" x1="8" y1="24" x2="88" y2="24"/><line class="rung" x1="8" y1="31" x2="88" y2="31"/><line class="rung" x1="8" y1="38" x2="88" y2="38"/><line class="bar" x1="14" y1="2" x2="82" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="23"/><g class="d2 conf-medium" transform="translate(6,23)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g><text class="num" x="25" y="35">2</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-medium" transform="translate(40,30)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="59" y="42">1</text><line class="string" x1="82" y1="2" x2="82" y2="23"/><g class="d2 conf-medium" transform="translate(74,23)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="93" y="35">2</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0095.html">Google Flood Hub triggers pay $105 to 4,600 people in Kogi</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">US$105 per recipient <span class="money-type">transfers and awards</span></p>
-      <div class="meta"><span>Paid</span><span>USD</span></div>
+<p class="money-jurisdiction">Kogi, Nigeria</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="NGN" data-relationship="primary" data-local-primary="false" data-usd-primary="false" data-usd-available="true" hidden>
+      <p class="metric"><span data-dv-local-value>~NGN 141,000 per recipient</span><span data-dv-usd-value hidden>US$105 per recipient</span> <span class="money-type">transfers and awards</span></p>
+      <div class="meta"><span>Paid</span><span data-dv-denomination>NGN</span></div>
+<p class="money-conversion" data-dv-local-note>Equivalent at October 2026 rates.</p>    </div>
+    <div class="money-amount" data-dv-amount data-currency="NGN" data-local-currency="NGN" data-relationship="source_equivalent" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>NGN177,866 per recipient</span><span data-dv-usd-value hidden>~USD 132 per recipient</span> <span class="money-type">transfers and awards</span></p>
+      <div class="meta"><span>Paid</span><span data-dv-denomination>NGN</span></div>
     </div>
     <details class="money-detail" id="DIV-0017-evidence">
       <summary>Source and detail<span class="visually-hidden"> for GiveDirectly paid anticipatory cash in Kogi State, Nigeria, on Google Flood Hub forecast triggers (August to October 2024)</span></summary>
       <div class="money-detail-body">
         <p>GiveDirectly reports that it paid $105 per person in an AI-informed flood-response pilot in Kogi, Nigeria.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Registered recipients in six wards of Kogi, Nigeria.</dd></div>
+          <div><dt>Reported amount</dt><dd>US$105 per recipient</dd></div>
+<div><dt>Currency</dt><dd>The transfer concerns recipients in Kogi, Nigeria. Contemporary reporting gives the first payment as NGN 177,866, equivalent to US$105.</dd></div><div><dt>USD equivalent</dt><dd>~USD 132 per recipient. Converted from NGN at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Registered recipients in six wards of Kogi, Nigeria.</dd></div>
           <div><dt>Paid by</dt><dd>GiveDirectly and its funders.</dd></div>
           <div><dt>Unit</dt><dd>Per recipient, first transfer.</dd></div>
           <div><dt>Period</dt><dd>August 29 to October 24, 2024, for the first transfer.</dd></div>
@@ -272,25 +283,39 @@
           <p><a href="https://www.givedirectly.org/flood-forecast-ai" rel="noopener">How AI helped send cash just before floods hit in Nigeria</a>, <time datetime="2025-06-27">2025-06-27</time></p>
 <blockquote>we sent $105 to over 4,600 individuals</blockquote>          <div class="meta"><span>Reported by the deployer</span><span>Source checked 2026-10-23</span></div>
         </div>
+        <section class="money-additional-amount" aria-labelledby="DIV-0017-ngn-equivalent-title">
+          <h4 id="DIV-0017-ngn-equivalent-title">Source-stated equivalent: NGN177,866 per recipient (NGN)</h4>
+<p>Reported equivalent; later naira payments may differ.</p>          <dl class="props facts money-facts">
+            <div><dt>Reported amount</dt><dd>NGN177,866 per recipient</dd></div>
+<div><dt>USD basis</dt><dd>Converted from NGN at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>            <div><dt>Unit</dt><dd>Per recipient, first transfer.</dd></div>
+            <div><dt>Period</dt><dd>August 29 to October 24, 2024, for the first transfer.</dd></div>
+            <div><dt>Status</dt><dd>Paid</dd></div>
+            <div><dt>Accounting</dt><dd>Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.</dd></div>
+<div><dt>Price basis</dt><dd>Nominal source amount; price year not separately stated.</dd></div>          </dl>
+          <div class="money-source">
+            <p><a href="https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods" rel="noopener">Could AI save Nigerians from devastating floods?</a>, <time datetime="2024-09-21">2024-09-21</time></p>
+<blockquote>177,866 naira ($105)</blockquote><p class="meta">First anticipatory payment in Kogi</p><p class="meta">Source checked 2026-10-23</p>          </div>
+        </section>
         <p class="money-identifier">DIV-0017, AIBD-0095</p>
       </div>
     </details>
   </div>
 </li>
-<li id="DIV-0018" data-dv-row data-type="cash_saving" data-status="retrospective_estimate" data-currencies="GBP" data-title="Blackpool Council&#39;s Project Amber imagery and AI road surveys: 5,145 potholes filled for about £450,000 and pothole claim payouts down to £719" data-checked="2026-10-23">
+<li id="DIV-0018" data-dv-row data-type="cash_saving" data-status="retrospective_estimate" data-currencies="GBP" data-jurisdictions="United Kingdom" data-title="Blackpool Council&#39;s Project Amber imagery and AI road surveys: 5,145 potholes filled for about £450,000 and pothole claim payouts down to £719" data-checked="2026-10-23">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for a person"><g class="unassessed conf-low" transform="translate(2,2)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0144.html">Project Amber fills 5,145 Blackpool potholes for about £450,000</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="GBP" data-relationship="primary">
-      <p class="metric">Over £1 million <span class="money-type">cost savings</span></p>
-      <div class="meta"><span>Retrospective estimate</span><span>GBP</span></div>
+<p class="money-jurisdiction">Blackpool, United Kingdom</p>    <div class="money-amount" data-dv-amount data-currency="GBP" data-local-currency="GBP" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>Over £1 million</span><span data-dv-usd-value hidden>&gt; ~USD 1.32 million</span> <span class="money-type">cost savings</span></p>
+      <div class="meta"><span>Retrospective estimate</span><span data-dv-denomination>GBP</span></div>
     </div>
     <details class="money-detail" id="DIV-0018-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Blackpool Council&#39;s Project Amber imagery and AI road surveys: 5,145 potholes filled for about £450,000 and pothole claim payouts down to £719</span></summary>
       <div class="money-detail-body">
         <p>Blackpool Council reports that technology-assisted repairs cost over £1 million less than its estimate for traditional methods.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Blackpool Council.</dd></div>
+          <div><dt>Reported amount</dt><dd>Over £1 million</dd></div>
+<div><dt>Currency</dt><dd>The maintenance savings concern Blackpool Council, United Kingdom, and are reported in pounds sterling.</dd></div><div><dt>USD equivalent</dt><dd>&gt; ~USD 1.32 million. Converted from GBP at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Blackpool Council.</dd></div>
           <div><dt>Paid by</dt><dd>Council road-maintenance budget; savings are avoided expenditure.</dd></div>
           <div><dt>Unit</dt><dd>5,145 potholes in Blackpool’s North Shore.</dd></div>
           <div><dt>Period</dt><dd>Since summer 2019 to the council account; the endpoint is not specified in the text.</dd></div>
@@ -308,20 +333,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0019" data-dv-row data-type="recovered_funds" data-status="reported_recovery" data-currencies="USD" data-title="Treasury&#39;s machine-learning check-fraud detection recovers $1 billion in FY2024" data-checked="2026-10-23">
+<li id="DIV-0019" data-dv-row data-type="recovered_funds" data-status="reported_recovery" data-currencies="USD" data-jurisdictions="United States" data-title="Treasury&#39;s machine-learning check-fraud detection recovers $1 billion in FY2024" data-checked="2026-10-23">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for society"><g class="unassessed conf-medium" transform="translate(2,2)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0173.html">Treasury&#39;s machine learning recovers $1 billion in FY2024</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">US$1 billion <span class="money-type">recovered funds</span></p>
-      <div class="meta"><span>Reported recovery</span><span>USD</span></div>
+<p class="money-jurisdiction">United States - Treasury</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>US$1 billion</span><span data-dv-usd-value hidden>US$1 billion</span> <span class="money-type">recovered funds</span></p>
+      <div class="meta"><span>Reported recovery</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0019-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Treasury&#39;s machine-learning check-fraud detection recovers $1 billion in FY2024</span></summary>
       <div class="money-detail-body">
         <p>Treasury reports that machine learning helped identify check fraud associated with $1 billion recovered in fiscal 2024.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>U.S. Treasury and affected federal programs.</dd></div>
+          <div><dt>Reported amount</dt><dd>US$1 billion</dd></div>
+<div><dt>Currency</dt><dd>The recoveries concern the U.S. Treasury and federal programs and are reported in U.S. dollars.</dd></div>          <div><dt>Beneficiary</dt><dd>U.S. Treasury and affected federal programs.</dd></div>
           <div><dt>Paid by</dt><dd>Recovered fraud proceeds; individual payers are not identified.</dd></div>
           <div><dt>Unit</dt><dd>Treasury check-fraud recoveries across the program.</dd></div>
           <div><dt>Period</dt><dd>U.S. fiscal year 2024.</dd></div>
@@ -339,20 +365,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0031" data-dv-row data-type="avoided_loss" data-status="retrospective_estimate" data-currencies="GBP" data-title="DWP&#39;s Universal Credit advances machine-learning model saved an estimated £4.4 million from 2022–23 to 2024–25" data-checked="2026-10-23">
+<li id="DIV-0031" data-dv-row data-type="avoided_loss" data-status="retrospective_estimate" data-currencies="GBP" data-jurisdictions="United Kingdom" data-title="DWP&#39;s Universal Credit advances machine-learning model saved an estimated £4.4 million from 2022–23 to 2024–25" data-checked="2026-10-23">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for an organization"><g class="unassessed conf-high" transform="translate(2,2)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0184.html">Universal Credit advances model saves an estimated £4.4 million</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="GBP" data-relationship="primary">
-      <p class="metric">Estimated £4.4 million <span class="money-type">avoided losses</span></p>
-      <div class="meta"><span>Retrospective estimate</span><span>GBP</span></div>
+<p class="money-jurisdiction">United Kingdom - DWP benefits program</p>    <div class="money-amount" data-dv-amount data-currency="GBP" data-local-currency="GBP" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>Estimated £4.4 million</span><span data-dv-usd-value hidden>~USD 5.83 million</span> <span class="money-type">avoided losses</span></p>
+      <div class="meta"><span>Retrospective estimate</span><span data-dv-denomination>GBP</span></div>
     </div>
     <details class="money-detail" id="DIV-0031-evidence">
       <summary>Source and detail<span class="visually-hidden"> for DWP&#39;s Universal Credit advances machine-learning model saved an estimated £4.4 million from 2022–23 to 2024–25</span></summary>
       <div class="money-detail-body">
         <p>The NAO reports DWP’s estimate that its advances model avoided £4.4 million of overpayments over three fiscal years.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>U.K. Department for Work and Pensions and public funds.</dd></div>
+          <div><dt>Reported amount</dt><dd>Estimated £4.4 million</dd></div>
+<div><dt>Currency</dt><dd>The avoided-payment estimate concerns the U.K. Department for Work and Pensions and is reported in pounds sterling.</dd></div><div><dt>USD equivalent</dt><dd>~USD 5.83 million. Converted from GBP at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>U.K. Department for Work and Pensions and public funds.</dd></div>
           <div><dt>Paid by</dt><dd>DWP benefit expenditure that would otherwise have been overpaid.</dd></div>
           <div><dt>Unit</dt><dd>Aggregate Universal Credit advances model estimate.</dd></div>
           <div><dt>Period</dt><dd>U.K. fiscal years 2022–23 through 2024–25.</dd></div>
@@ -370,20 +397,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0032" data-dv-row data-type="cash_saving" data-status="annualized_estimate" data-currencies="GBP" data-title="Open Climate Fix&#39;s Quartz Solar goes live in NESO&#39;s control room and may avoid £30m a year in imbalance costs" data-checked="2026-10-23">
+<li id="DIV-0032" data-dv-row data-type="cash_saving" data-status="annualized_estimate" data-currencies="GBP" data-jurisdictions="United Kingdom" data-title="Open Climate Fix&#39;s Quartz Solar goes live in NESO&#39;s control room and may avoid £30m a year in imbalance costs" data-checked="2026-10-23">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for an organization"><g class="unassessed conf-medium" transform="translate(2,2)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0163.html">Quartz Solar goes live at NESO and may avoid £30m a year in costs</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="GBP" data-relationship="primary">
-      <p class="metric">At least £30 million per year <span class="money-type">cost savings</span></p>
-      <div class="meta"><span>Annualized estimate</span><span>GBP</span></div>
+<p class="money-jurisdiction">Great Britain electricity system</p>    <div class="money-amount" data-dv-amount data-currency="GBP" data-local-currency="GBP" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>At least £30 million per year</span><span data-dv-usd-value hidden>≥ ~USD 39.7 million per year</span> <span class="money-type">cost savings</span></p>
+      <div class="meta"><span>Annualized estimate</span><span data-dv-denomination>GBP</span></div>
     </div>
     <details class="money-detail" id="DIV-0032-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Open Climate Fix&#39;s Quartz Solar goes live in NESO&#39;s control room and may avoid £30m a year in imbalance costs</span></summary>
       <div class="money-detail-body">
         <p>Open Climate Fix estimates that Quartz Solar avoids at least £30 million in electricity imbalance costs per year.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Great Britain’s electricity system and its cost bearers.</dd></div>
+          <div><dt>Reported amount</dt><dd>At least £30 million per year</dd></div>
+<div><dt>Currency</dt><dd>The estimate concerns the Great Britain electricity system and is reported in pounds sterling.</dd></div><div><dt>USD equivalent</dt><dd>≥ ~USD 39.7 million per year. Converted from GBP at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Great Britain’s electricity system and its cost bearers.</dd></div>
           <div><dt>Paid by</dt><dd>Electricity balancing and imbalance settlement participants.</dd></div>
           <div><dt>Unit</dt><dd>Annual electricity imbalance costs.</dd></div>
           <div><dt>Period</dt><dd>Annualized estimate published November 6, 2025; no completed measurement year is specified.</dd></div>
@@ -401,20 +429,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0036" data-dv-row data-type="commercial_receipt" data-status="paid" data-currencies="USD" data-title="Zasocitinib, computationally designed by Nimbus with Schrodinger&#39;s platform, beats deucravacitinib in phase 3; FDA priority review" data-checked="2026-10-23">
+<li id="DIV-0036" data-dv-row data-type="commercial_receipt" data-status="paid" data-currencies="USD" data-jurisdictions="United States" data-title="Zasocitinib, computationally designed by Nimbus with Schrodinger&#39;s platform, beats deucravacitinib in phase 3; FDA priority review" data-checked="2026-10-23">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 3 for a person; depth 2 for an organization"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="16"/><g class="d3 conf-high" transform="translate(6,16)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g><text class="num" x="25" y="28">3</text><line class="string" x1="48" y1="2" x2="48" y2="23"/><g class="d2 conf-high" transform="translate(40,23)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="59" y="35">2</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0262.html">Nimbus&#39;s zasocitinib beats deucravacitinib in phase 3 trial</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">US$4 billion <span class="money-type">commercial payments</span></p>
-      <div class="meta"><span>Paid</span><span>USD</span></div>
+<p class="money-jurisdiction">United States - acquisition recipient</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>US$4 billion</span><span data-dv-usd-value hidden>US$4 billion</span> <span class="money-type">commercial payments</span></p>
+      <div class="meta"><span>Paid</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0036-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Zasocitinib, computationally designed by Nimbus with Schrodinger&#39;s platform, beats deucravacitinib in phase 3; FDA priority review</span></summary>
       <div class="money-detail-body">
         <p>Takeda’s annual securities report states that it paid Nimbus $4 billion upfront for the subsidiary owning the TYK2 program.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Nimbus Therapeutics and the relevant sellers.</dd></div>
+          <div><dt>Reported amount</dt><dd>US$4 billion</dd></div>
+<div><dt>Currency</dt><dd>The acquisition payment is to Nimbus on the U.S. recipient side and is reported in U.S. dollars. The transaction involves a Japanese buyer.</dd></div>          <div><dt>Beneficiary</dt><dd>Nimbus Therapeutics and the relevant sellers.</dd></div>
           <div><dt>Paid by</dt><dd>Takeda Pharmaceutical Company.</dd></div>
           <div><dt>Unit</dt><dd>One acquisition’s upfront consideration.</dd></div>
           <div><dt>Period</dt><dd>Acquisition closed February 8, 2023; payment is reported in the fiscal-2023 annual securities report filed June 26, 2024.</dd></div>
@@ -439,20 +468,21 @@
 <section class="money-section" id="pending" data-dv-section="pending" aria-labelledby="pending-title">
       <h2 id="pending-title">Awaiting review</h2>
       <p class="money-section-note">19 claims whose source or financial interpretation still needs checking.</p>
-      <ol class="results money-results" data-dv-list><li id="DIV-0001" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="USD" data-title="NCAR&#39;s DICast wind forecasts cut Xcel Energy&#39;s forecast error to 10.8%; Xcel estimates US$49 million saved" data-checked="">
+      <ol class="results money-results" data-dv-list><li id="DIV-0001" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="USD" data-jurisdictions="United States" data-title="NCAR&#39;s DICast wind forecasts cut Xcel Energy&#39;s forecast error to 10.8%; Xcel estimates US$49 million saved" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for an organization"><g class="unassessed conf-medium" transform="translate(2,2)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0168.html">NCAR&#39;s DICast cuts Xcel&#39;s wind forecast error to 10.8%</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">US $49 million <span class="money-type">cost savings</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>USD</span></div>
+<p class="money-jurisdiction">United States</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>US $49 million</span><span data-dv-usd-value hidden>US $49 million</span> <span class="money-type">cost savings</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0001-evidence">
       <summary>Source and detail<span class="visually-hidden"> for NCAR&#39;s DICast wind forecasts cut Xcel Energy&#39;s forecast error to 10.8%; Xcel estimates US$49 million saved</span></summary>
       <div class="money-detail-body">
         <p>saved through forecasting improvements, cumulative to 2015</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Xcel Energy customers</dd></div>
+          <div><dt>Reported amount</dt><dd>US $49 million</dd></div>
+<div><dt>Currency</dt><dd>The savings concern Xcel Energy customers in the United States and are reported in U.S. dollars.</dd></div>          <div><dt>Beneficiary</dt><dd>Xcel Energy customers</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>cumulative savings across Xcel customers</dd></div>
           <div><dt>Period</dt><dd>Cumulative to 2015; the account places forecasting work from 2009, but the amount-specific start is unstated.</dd></div>
@@ -470,20 +500,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0002" data-dv-row data-type="avoided_loss" data-status="mixed" data-currencies="USD" data-title="CMS&#39;s Fraud Prevention System identifies or prevents $654.8 million in 2015, an $11.5-to-$1 return on investment" data-checked="">
+<li id="DIV-0002" data-dv-row data-type="avoided_loss" data-status="mixed" data-currencies="USD" data-jurisdictions="United States" data-title="CMS&#39;s Fraud Prevention System identifies or prevents $654.8 million in 2015, an $11.5-to-$1 return on investment" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for an organization"><g class="unassessed conf-low" transform="translate(2,2)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0186.html">CMS&#39;s FPS identifies or prevents $654.8 million in 2015</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">$654.8 million <span class="money-type">avoided losses</span></p>
-      <div class="meta"><span>Mixed accounting states</span><span>USD</span></div>
+<p class="money-jurisdiction">United States - Medicare</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>$654.8 million</span><span data-dv-usd-value hidden>$654.8 million</span> <span class="money-type">avoided losses</span></p>
+      <div class="meta"><span>Mixed accounting states</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0002-evidence">
       <summary>Source and detail<span class="visually-hidden"> for CMS&#39;s Fraud Prevention System identifies or prevents $654.8 million in 2015, an $11.5-to-$1 return on investment</span></summary>
       <div class="money-detail-body">
         <p>inappropriate Medicare payments identified or prevented in calendar year 2015</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Medicare program (CMS)</dd></div>
+          <div><dt>Reported amount</dt><dd>$654.8 million</dd></div>
+<div><dt>Currency</dt><dd>The amount concerns the U.S. Medicare program and is reported in U.S. dollars.</dd></div>          <div><dt>Beneficiary</dt><dd>Medicare program (CMS)</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>program aggregate</dd></div>
           <div><dt>Period</dt><dd>Calendar year 2015</dd></div>
@@ -501,20 +532,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0003" data-dv-row data-type="recipient_transfer" data-status="unverified" data-currencies="USD" data-title="Global Fishing Watch data lets Kiribati fine a vessel US$1 million for fishing in the Phoenix Islands Protected Area" data-checked="">
+<li id="DIV-0003" data-dv-row data-type="recipient_transfer" data-status="unverified" data-currencies="AUD" data-jurisdictions="Kiribati" data-title="Global Fishing Watch data lets Kiribati fine a vessel US$1 million for fishing in the Phoenix Islands Protected Area" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="depth 3 for an organization"><g class="d3 conf-medium" transform="translate(2,2)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="24" y="14">3</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0196.html">Global Fishing Watch helps Kiribati fine a vessel US$1 million</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">$1 million <span class="money-type">transfers and awards</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>USD</span></div>
-    </div>
+<p class="money-jurisdiction">Kiribati</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="AUD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>~AUD 1.43 million</span><span data-dv-usd-value hidden>$1 million</span> <span class="money-type">transfers and awards</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>AUD</span></div>
+<p class="money-conversion" data-dv-local-note>Equivalent at October 2026 rates.</p>    </div>
     <details class="money-detail" id="DIV-0003-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Global Fishing Watch data lets Kiribati fine a vessel US$1 million for fishing in the Phoenix Islands Protected Area</span></summary>
       <div class="money-detail-body">
         <p>fine secured by Kiribati against the owner of Marshalls 203 for fishing illegally in the Phoenix Islands Protected Area, plus an additional $1 million paid as a grant under a goodwill arrangement</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Government of Kiribati</dd></div>
+          <div><dt>Reported amount</dt><dd>$1 million</dd></div>
+<div><dt>Currency</dt><dd>Kiribati uses Australian dollars. The fine paid to its government is reported in U.S. dollars.</dd></div><div><dt>Local equivalent</dt><dd>~AUD 1.43 million. Converted from USD at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Government of Kiribati</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>one enforcement settlement with two differently described payments</dd></div>
           <div><dt>Period</dt><dd>Single case reported by 2016; exact payment date absent.</dd></div>
@@ -532,20 +564,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0008" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="BRL" data-title="CGU, supported by ALICE, cuts R$2.38 million from a 2021 Hospital Federal de Ipanema glove tender and R$5.95 million from an undated INCA glove tender" data-checked="">
+<li id="DIV-0008" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="BRL" data-jurisdictions="Brazil" data-title="CGU, supported by ALICE, cuts R$2.38 million from a 2021 Hospital Federal de Ipanema glove tender and R$5.95 million from an undated INCA glove tender" data-checked="">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 2 for an organization; depth 1 for society"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="23"/><g class="d2 conf-low" transform="translate(6,23)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="25" y="35">2</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-low" transform="translate(40,30)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0082.html">CGU, with ALICE support, avoids R$8.33m in overpriced purchases</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="BRL" data-relationship="primary">
-      <p class="metric">R$ 8,33 milhões <span class="money-type">cost savings</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>BRL</span></div>
+<p class="money-jurisdiction">Rio de Janeiro, Brazil</p>    <div class="money-amount" data-dv-amount data-currency="BRL" data-local-currency="BRL" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>≥ R$ 8,33 milhões</span><span data-dv-usd-value hidden>≥ ~USD 1.6 million</span> <span class="money-type">cost savings</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>BRL</span></div>
     </div>
     <details class="money-detail" id="DIV-0008-evidence">
       <summary>Source and detail<span class="visually-hidden"> for CGU, supported by ALICE, cuts R$2.38 million from a 2021 Hospital Federal de Ipanema glove tender and R$5.95 million from an undated INCA glove tender</span></summary>
       <div class="money-detail-body">
         <p>overpriced hospital purchases avoided across five preventive audits</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>the federal government (hospitals and institutes in Rio de Janeiro)</dd></div>
+          <div><dt>Reported amount</dt><dd>R$ 8,33 milhões</dd></div>
+<div><dt>Currency</dt><dd>The procurement amount concerns federal hospitals in Rio de Janeiro, Brazil, and is reported in Brazilian reais.</dd></div><div><dt>USD equivalent</dt><dd>≥ ~USD 1.6 million. Converted from BRL at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>the federal government (hospitals and institutes in Rio de Janeiro)</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>five preventive audits of Rio federal hospitals and institutes</dd></div>
           <div><dt>Period</dt><dd>Reported October 2023; at least one component is dated 2021; full interval is unclear.</dd></div>
@@ -563,24 +596,25 @@
     </details>
   </div>
 </li>
-<li id="DIV-0009" data-dv-row data-type="avoided_loss" data-status="unverified" data-currencies="KES,USD" data-title="Vyntra&#39;s (formerly NetGuardians) AI risk models may have blocked fraudulent payments at unnamed banks, including a USD 500,000 ATM scheme" data-checked="2026-10-23">
+<li id="DIV-0009" data-dv-row data-type="avoided_loss" data-status="unverified" data-currencies="KES" data-jurisdictions="Kenya" data-title="Vyntra&#39;s (formerly NetGuardians) AI risk models may have blocked fraudulent payments at unnamed banks, including a USD 500,000 ATM scheme" data-checked="2026-10-23">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 3 for a person; depth 4 for an organization"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="16"/><g class="d3 conf-medium" transform="translate(6,16)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g><text class="num" x="25" y="28">3</text><line class="string" x1="48" y1="2" x2="48" y2="9"/><g class="d4 conf-medium" transform="translate(40,9)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="59" y="21">4</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0317.html">Vyntra&#39;s AI risk models may have stopped a USD 500,000 ATM fraud</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">USD 500,000 <span class="money-type">avoided losses</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>USD</span></div>
-    </div>
-    <div class="money-amount" data-dv-amount data-currency="KES" data-relationship="source_equivalent">
-      <p class="metric">KSh 58 million <span class="money-type">source-stated equivalent</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>KES</span></div>
+<p class="money-jurisdiction">Kenya</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="KES" data-relationship="primary" data-local-primary="false" data-usd-primary="false" data-usd-available="true" hidden>
+      <p class="metric"><span data-dv-local-value>~KES 65 million</span><span data-dv-usd-value hidden>USD 500,000</span> <span class="money-type">avoided losses</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>KES</span></div>
+<p class="money-conversion" data-dv-local-note>Equivalent at October 2026 rates.</p>    </div>
+    <div class="money-amount" data-dv-amount data-currency="KES" data-local-currency="KES" data-relationship="source_equivalent" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>KSh 58 million</span><span data-dv-usd-value hidden>~USD 446,000</span> <span class="money-type">avoided losses</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>KES</span></div>
     </div>
     <details class="money-detail" id="DIV-0009-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Vyntra&#39;s (formerly NetGuardians) AI risk models may have blocked fraudulent payments at unnamed banks, including a USD 500,000 ATM scheme</span></summary>
       <div class="money-detail-body">
         <p>fraudulent ATM withdrawal detected and stopped, with arrests</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>the second bank, an unnamed client bank (the page labels the case &#39;Kenya&#39;)</dd></div>
+          <div><dt>Reported amount</dt><dd>USD 500,000</dd></div>
+<div><dt>Currency</dt><dd>The bank-fraud example is identified as Kenyan. The source reports the same amount as KSh 58 million and US$500,000.</dd></div><div><dt>USD equivalent</dt><dd>~USD 446,000. Converted from KES at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>the second bank, an unnamed client bank (the page labels the case &#39;Kenya&#39;)</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>one attempted withdrawal at an unnamed bank</dd></div>
           <div><dt>Period</dt><dd>No event date established</dd></div>
@@ -596,7 +630,8 @@
         <section class="money-additional-amount" aria-labelledby="DIV-0009-kes-equivalent-title">
           <h4 id="DIV-0009-kes-equivalent-title">Source-stated equivalent: KSh 58 million (KES)</h4>
 <p>The source gives both currencies for the same amount. It does not specify an exchange-rate date or method.</p>          <dl class="props facts money-facts">
-            <div><dt>Unit</dt><dd>one attempted withdrawal at an unnamed bank</dd></div>
+            <div><dt>Reported amount</dt><dd>KSh 58 million</dd></div>
+<div><dt>USD basis</dt><dd>Converted from KES at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>            <div><dt>Unit</dt><dd>one attempted withdrawal at an unnamed bank</dd></div>
             <div><dt>Period</dt><dd>No event date established</dd></div>
             <div><dt>Status</dt><dd>Awaiting source review</dd></div>
             <div><dt>Accounting</dt><dd>Nominal attempted amount, before intervention costs; expected loss without intervention is unknown.</dd></div>
@@ -610,20 +645,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0012" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="GBP" data-title="York student has a £60 parking fine withdrawn after sending an appeal letter drafted by ChatGPT" data-checked="">
+<li id="DIV-0012" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="GBP" data-jurisdictions="United Kingdom" data-title="York student has a £60 parking fine withdrawn after sending an appeal letter drafted by ChatGPT" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="depth 1 for a person"><g class="d1 conf-medium" transform="translate(2,2)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g><text class="num" x="24" y="14">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0116.html">ChatGPT appeal letter gets a York student&#39;s £60 fine withdrawn</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="GBP" data-relationship="primary">
-      <p class="metric">£60 <span class="money-type">cost savings</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>GBP</span></div>
+<p class="money-jurisdiction">York, United Kingdom</p>    <div class="money-amount" data-dv-amount data-currency="GBP" data-local-currency="GBP" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>£60</span><span data-dv-usd-value hidden>~USD 79.5</span> <span class="money-type">cost savings</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>GBP</span></div>
     </div>
     <details class="money-detail" id="DIV-0012-evidence">
       <summary>Source and detail<span class="visually-hidden"> for York student has a £60 parking fine withdrawn after sending an appeal letter drafted by ChatGPT</span></summary>
       <div class="money-detail-body">
         <p>parking fine withdrawn by York City Council after the ChatGPT-drafted appeal</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Millie Houlton</dd></div>
+          <div><dt>Reported amount</dt><dd>£60</dd></div>
+<div><dt>Currency</dt><dd>The withdrawn parking fine concerns York, United Kingdom, and is reported in pounds sterling.</dd></div><div><dt>USD equivalent</dt><dd>~USD 79.5. Converted from GBP at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Millie Houlton</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>one parking fine</dd></div>
           <div><dt>Period</dt><dd>Case reported March 2023; exact withdrawal date absent.</dd></div>
@@ -641,20 +677,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0013" data-dv-row data-type="revenue" data-status="unverified" data-currencies="USD" data-title="IRS applies AI and machine learning to select large partnerships for examination (IR-2023–166, 8 September 2023); two AI models prioritize partnership audits" data-checked="">
+<li id="DIV-0013" data-dv-row data-type="revenue" data-status="unverified" data-currencies="USD" data-jurisdictions="United States" data-title="IRS applies AI and machine learning to select large partnerships for examination (IR-2023–166, 8 September 2023); two AI models prioritize partnership audits" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for a person"><g class="unassessed conf-high" transform="translate(2,2)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0338.html">IRS applies AI to select large partnerships for examination</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">approximately $26.1 million <span class="money-type">revenue</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>USD</span></div>
+<p class="money-jurisdiction">United States - IRS</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>~$26.1 million</span><span data-dv-usd-value hidden>~$26.1 million</span> <span class="money-type">revenue</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0013-evidence">
       <summary>Source and detail<span class="visually-hidden"> for IRS applies AI and machine learning to select large partnerships for examination (IR-2023–166, 8 September 2023); two AI models prioritize partnership audits</span></summary>
       <div class="money-detail-body">
         <p>additional tax assessments yearly that IRS management estimates from reassigning 14 classifiers to examinations after the Form 1040 return classification AI model automated classification (an SB/SE individual-return model, not the partnership models)</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>the Internal Revenue Service (U.S. Treasury)</dd></div>
+          <div><dt>Reported amount</dt><dd>approximately $26.1 million</dd></div>
+<div><dt>Currency</dt><dd>The projected tax assessments concern the U.S. Internal Revenue Service and are reported in U.S. dollars.</dd></div>          <div><dt>Beneficiary</dt><dd>the Internal Revenue Service (U.S. Treasury)</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>per year after reassigning 14 classifiers</dd></div>
           <div><dt>Period</dt><dd>Annual projection; start and forecast horizon unstated.</dd></div>
@@ -672,20 +709,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0015" data-dv-row data-type="revenue" data-status="unverified" data-currencies="EUR" data-title="France&#39;s Foncier innovant aerial-image AI detects 140,000 undeclared pools and about €40 million in extra property tax by 20 March 2024; Dordogne alone 1,500 in 2023" data-checked="">
+<li id="DIV-0015" data-dv-row data-type="revenue" data-status="unverified" data-currencies="EUR" data-jurisdictions="France" data-title="France&#39;s Foncier innovant aerial-image AI detects 140,000 undeclared pools and about €40 million in extra property tax by 20 March 2024; Dordogne alone 1,500 in 2023" data-checked="">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 2 for an organization; depth 1 for society"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="23"/><g class="d2 conf-medium" transform="translate(6,23)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="25" y="35">2</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-medium" transform="translate(40,30)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0335.html">Foncier innovant finds 140,000 undeclared pools</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="EUR" data-relationship="primary">
-      <p class="metric">40 millions d’euros <span class="money-type">revenue</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>EUR</span></div>
+<p class="money-jurisdiction">France</p>    <div class="money-amount" data-dv-amount data-currency="EUR" data-local-currency="EUR" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>40 millions d’euros</span><span data-dv-usd-value hidden>~USD 45.4 million</span> <span class="money-type">revenue</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>EUR</span></div>
     </div>
     <details class="money-detail" id="DIV-0015-evidence">
       <summary>Source and detail<span class="visually-hidden"> for France&#39;s Foncier innovant aerial-image AI detects 140,000 undeclared pools and about €40 million in extra property tax by 20 March 2024; Dordogne alone 1,500 in 2023</span></summary>
       <div class="money-detail-body">
         <p>additional property tax (taxe foncière) to be collected on the 140,000 detected pools</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>local authorities (collectivités), which receive the taxe foncière</dd></div>
+          <div><dt>Reported amount</dt><dd>40 millions d’euros</dd></div>
+<div><dt>Currency</dt><dd>The property-tax amount concerns French local authorities and is reported in euros.</dd></div><div><dt>USD equivalent</dt><dd>~USD 45.4 million. Converted from EUR at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>local authorities (collectivités), which receive the taxe foncière</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>tax from 140,000 detected pools</dd></div>
           <div><dt>Period</dt><dd>Reported March 2024; accounts disagree on the annual detection split; some describe 2023 tax.</dd></div>
@@ -703,24 +741,25 @@
     </details>
   </div>
 </li>
-<li id="DIV-0020" data-dv-row data-type="avoided_loss" data-status="unverified" data-currencies="DKK,EUR" data-title="Udbetaling Danmark&#39;s fraud-control models may have produced 135, 36 and 72 cases with benefits stopped or reduced in 2023" data-checked="2026-10-23">
+<li id="DIV-0020" data-dv-row data-type="avoided_loss" data-status="unverified" data-currencies="DKK" data-jurisdictions="Denmark" data-title="Udbetaling Danmark&#39;s fraud-control models may have produced 135, 36 and 72 cases with benefits stopped or reduced in 2023" data-checked="2026-10-23">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 1 for an organization; depth 1 for society"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="30"/><g class="d1 conf-high" transform="translate(6,30)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="25" y="42">1</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-high" transform="translate(40,30)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0336.html">UDK fraud models may have yielded 135, 36 and 72 cases</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="DKK" data-relationship="primary">
-      <p class="metric">half a billion Danish crowns <span class="money-type">avoided losses</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>DKK</span></div>
+<p class="money-jurisdiction">Denmark</p>    <div class="money-amount" data-dv-amount data-currency="DKK" data-local-currency="DKK" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>half a billion Danish crowns</span><span data-dv-usd-value hidden>~USD 75.9 million</span> <span class="money-type">avoided losses</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>DKK</span></div>
     </div>
-    <div class="money-amount" data-dv-amount data-currency="EUR" data-relationship="source_equivalent">
-      <p class="metric">approximately 70 million euros <span class="money-type">source-stated equivalent</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>EUR</span></div>
-    </div>
+    <div class="money-amount" data-dv-amount data-currency="EUR" data-local-currency="DKK" data-relationship="source_equivalent" data-local-primary="false" data-usd-primary="false" data-usd-available="true" hidden>
+      <p class="metric"><span data-dv-local-value>~DKK 523 million</span><span data-dv-usd-value hidden>~USD 79.5 million</span> <span class="money-type">avoided losses</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>DKK</span></div>
+<p class="money-conversion" data-dv-local-note>Equivalent at October 2026 rates.</p>    </div>
     <details class="money-detail" id="DIV-0020-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Udbetaling Danmark&#39;s fraud-control models may have produced 135, 36 and 72 cases with benefits stopped or reduced in 2023</span></summary>
       <div class="money-detail-body">
         <p>erroneous payments unveiled by UDK and municipal controls in 2017 and 2018; the source says it is unclear how much was recovered and that the figure includes averted future payments, and it does not isolate the models</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Udbetaling Danmark and the municipalities (the Danish public purse)</dd></div>
+          <div><dt>Reported amount</dt><dd>half a billion Danish crowns</dd></div>
+<div><dt>Currency</dt><dd>The control aggregate concerns Danish public funds. The source reports DKK 500 million and an approximate EUR 70 million equivalent.</dd></div><div><dt>USD equivalent</dt><dd>~USD 75.9 million. Converted from DKK at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Udbetaling Danmark and the municipalities (the Danish public purse)</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>UDK and municipal control aggregate</dd></div>
           <div><dt>Period</dt><dd>2017 and 2018; the main case describes model outcomes in 2023.</dd></div>
@@ -734,9 +773,10 @@
 <blockquote>In 2017 and 2018, controls by UDK and municipalities unveiled half a billion Danish crowns in erroneous payment (approximately 70 million euros). It is unclear what amount was recovered, what was not recovered due to the beneficiary’s incapacity to repay, and what was an accounting trick (the figure includes future payments that were averted because of the control).</blockquote><p class="meta">91 referrals to the police</p>          <div class="meta"><span>Independent source</span><span>Source checked 2026-10-23</span></div>
         </div>
         <section class="money-additional-amount" aria-labelledby="DIV-0020-eur-equivalent-title">
-          <h4 id="DIV-0020-eur-equivalent-title">Source-stated equivalent: approximately 70 million euros (EUR)</h4>
+          <h4 id="DIV-0020-eur-equivalent-title">Source-stated equivalent: ~70 million euros (EUR)</h4>
 <p>The source gives both currencies for the same amount. It does not specify an exchange-rate date or method.</p>          <dl class="props facts money-facts">
-            <div><dt>Unit</dt><dd>UDK and municipal control aggregate</dd></div>
+            <div><dt>Reported amount</dt><dd>approximately 70 million euros</dd></div>
+<div><dt>USD basis</dt><dd>Converted from EUR at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>            <div><dt>Unit</dt><dd>UDK and municipal control aggregate</dd></div>
             <div><dt>Period</dt><dd>2017 and 2018; the main case describes model outcomes in 2023.</dd></div>
             <div><dt>Status</dt><dd>Awaiting source review</dd></div>
             <div><dt>Accounting</dt><dd>Mixture of recovery, unrecoverable amounts and future avoidance; net meaning unknown.</dd></div>
@@ -750,20 +790,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0021" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="BRL" data-title="CGU ALICE alert leads to a cut of about R$100 million in the reference value of a federal road-works tender (30 December 2024)" data-checked="">
+<li id="DIV-0021" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="BRL" data-jurisdictions="Brazil" data-title="CGU ALICE alert leads to a cut of about R$100 million in the reference value of a federal road-works tender (30 December 2024)" data-checked="">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 2 for an organization; depth 1 for society"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="23"/><g class="d2 conf-medium" transform="translate(6,23)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="25" y="35">2</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-medium" transform="translate(40,30)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0087.html">CGU&#39;s ALICE alert leads to a R$100 million cut in a road-works tender</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="BRL" data-relationship="primary">
-      <p class="metric">cerca de R$ 100 milhões <span class="money-type">cost savings</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>BRL</span></div>
+<p class="money-jurisdiction">Brazil - federal procurement</p>    <div class="money-amount" data-dv-amount data-currency="BRL" data-local-currency="BRL" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>cerca de R$ 100 milhões</span><span data-dv-usd-value hidden>~USD 19.2 million</span> <span class="money-type">cost savings</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>BRL</span></div>
     </div>
     <details class="money-detail" id="DIV-0021-evidence">
       <summary>Source and detail<span class="visually-hidden"> for CGU ALICE alert leads to a cut of about R$100 million in the reference value of a federal road-works tender (30 December 2024)</span></summary>
       <div class="money-detail-body">
         <p>reduction in the reference value of a federal road-works engineering tender after the ALICE alert</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>the federal government (contracting agency not named)</dd></div>
+          <div><dt>Reported amount</dt><dd>cerca de R$ 100 milhões</dd></div>
+<div><dt>Currency</dt><dd>The engineering-procurement amount concerns Brazilian federal public funds and is reported in Brazilian reais.</dd></div><div><dt>USD equivalent</dt><dd>~USD 19.2 million. Converted from BRL at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>the federal government (contracting agency not named)</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>one road-works engineering tender</dd></div>
           <div><dt>Period</dt><dd>Reported December 2024; actual case date is not established.</dd></div>
@@ -781,20 +822,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0022" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="BRL" data-title="CGU&#39;s ALICE robot flags overpricing in three 2024 Rio de Janeiro federal hospital tenders; one suspended, one revoked, one re-estimated" data-checked="">
+<li id="DIV-0022" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="BRL" data-jurisdictions="Brazil" data-title="CGU&#39;s ALICE robot flags overpricing in three 2024 Rio de Janeiro federal hospital tenders; one suspended, one revoked, one re-estimated" data-checked="">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 2 for an organization; depth 1 for society"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="23"/><g class="d2 conf-medium" transform="translate(6,23)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="25" y="35">2</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-medium" transform="translate(40,30)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0081.html">CGU&#39;s ALICE flags R$19.4m overpricing risk in three Rio tenders</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="BRL" data-relationship="primary">
-      <p class="metric">R$ 3.063.774,84 <span class="money-type">cost savings</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>BRL</span></div>
+<p class="money-jurisdiction">Rio de Janeiro, Brazil</p>    <div class="money-amount" data-dv-amount data-currency="BRL" data-local-currency="BRL" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>R$ 3.063.774,84</span><span data-dv-usd-value hidden>~USD 588,000</span> <span class="money-type">cost savings</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>BRL</span></div>
     </div>
     <details class="money-detail" id="DIV-0022-evidence">
       <summary>Source and detail<span class="visually-hidden"> for CGU&#39;s ALICE robot flags overpricing in three 2024 Rio de Janeiro federal hospital tenders; one suspended, one revoked, one re-estimated</span></summary>
       <div class="money-detail-body">
         <p>reduction of the estimated value of tender 90017/2024 after the re-estimate (the release gives no total for the three tenders)</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Hospital Federal de Ipanema, federal budget</dd></div>
+          <div><dt>Reported amount</dt><dd>R$ 3.063.774,84</dd></div>
+<div><dt>Currency</dt><dd>The tender correction concerns Hospital Federal de Ipanema in Rio de Janeiro, Brazil, and is reported in Brazilian reais.</dd></div><div><dt>USD equivalent</dt><dd>~USD 588,000. Converted from BRL at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Hospital Federal de Ipanema, federal budget</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>tender 90017/2024 at Hospital Federal de Ipanema</dd></div>
           <div><dt>Period</dt><dd>2024 tender; result reported January 14, 2025; precise revision date absent.</dd></div>
@@ -812,20 +854,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0023" data-dv-row data-type="avoided_loss" data-status="unverified" data-currencies="INR" data-title="Delhi Police matched a CCTV frame to a prior arrest record with Israeli facial recognition software, arrested two men within about a day of a Rs 80 lakh armed robbery in Chandni Chowk and recovered Rs 79.5 lakh" data-checked="">
+<li id="DIV-0023" data-dv-row data-type="avoided_loss" data-status="unverified" data-currencies="INR" data-jurisdictions="India" data-title="Delhi Police matched a CCTV frame to a prior arrest record with Israeli facial recognition software, arrested two men within about a day of a Rs 80 lakh armed robbery in Chandni Chowk and recovered Rs 79.5 lakh" data-checked="">
   <div class="d"><svg class="mobile" viewBox="0 0 118 48" width="118" height="48" role="img" aria-label="depth 2 for a person; depth 2 for an organization; depth 1 for society"><line class="rung" x1="8" y1="10" x2="88" y2="10"/><line class="rung" x1="8" y1="17" x2="88" y2="17"/><line class="rung" x1="8" y1="24" x2="88" y2="24"/><line class="rung" x1="8" y1="31" x2="88" y2="31"/><line class="rung" x1="8" y1="38" x2="88" y2="38"/><line class="bar" x1="14" y1="2" x2="82" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="23"/><g class="d2 conf-medium" transform="translate(6,23)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g><text class="num" x="25" y="35">2</text><line class="string" x1="48" y1="2" x2="48" y2="23"/><g class="d2 conf-medium" transform="translate(40,23)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="59" y="35">2</text><line class="string" x1="82" y1="2" x2="82" y2="30"/><g class="d1 conf-medium" transform="translate(74,30)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="93" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0126.html">Delhi Police facial recognition leads to Rs 79.5 lakh recovery</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="INR" data-relationship="primary">
-      <p class="metric">Rs 79.5 lakh <span class="money-type">avoided losses</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>INR</span></div>
+<p class="money-jurisdiction">Delhi, India</p>    <div class="money-amount" data-dv-amount data-currency="INR" data-local-currency="INR" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>Rs 79.5 lakh</span><span data-dv-usd-value hidden>~USD 82,800</span> <span class="money-type">avoided losses</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>INR</span></div>
     </div>
     <details class="money-detail" id="DIV-0023-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Delhi Police matched a CCTV frame to a prior arrest record with Israeli facial recognition software, arrested two men within about a day of a Rs 80 lakh armed robbery in Chandni Chowk and recovered Rs 79.5 lakh</span></summary>
       <div class="money-detail-body">
         <p>stolen cash recovered</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>the robbed cash courier&#39;s firm, R K Enterprises (recovered by Delhi Police from the accused&#39;s residence)</dd></div>
+          <div><dt>Reported amount</dt><dd>Rs 79.5 lakh</dd></div>
+<div><dt>Currency</dt><dd>The recovered cash concerns a Delhi robbery and is reported in Indian rupees.</dd></div><div><dt>USD equivalent</dt><dd>~USD 82,800. Converted from INR at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>the robbed cash courier&#39;s firm, R K Enterprises (recovered by Delhi Police from the accused&#39;s residence)</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>one robbery and cash seizure</dd></div>
           <div><dt>Period</dt><dd>Robbery March 17, 2025; recovery by March 19, 2025</dd></div>
@@ -843,20 +886,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0024" data-dv-row data-type="revenue" data-status="unverified" data-currencies="GBP" data-title="HMRC&#39;s Connect data-matching system: about £4.6 billion of additional yield in 2024–25" data-checked="">
+<li id="DIV-0024" data-dv-row data-type="revenue" data-status="unverified" data-currencies="GBP" data-jurisdictions="United Kingdom" data-title="HMRC&#39;s Connect data-matching system: about £4.6 billion of additional yield in 2024–25" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for a person"><g class="unassessed conf-high" transform="translate(2,2)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0145.html">HMRC&#39;s Connect yields about £4.6 billion of extra tax in 2024–25</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="GBP" data-relationship="primary">
-      <p class="metric">£4.6bn <span class="money-type">revenue</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>GBP</span></div>
+<p class="money-jurisdiction">United Kingdom - HMRC</p>    <div class="money-amount" data-dv-amount data-currency="GBP" data-local-currency="GBP" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>~£4.6bn</span><span data-dv-usd-value hidden>~USD 6.09 billion per year</span> <span class="money-type">revenue</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>GBP</span></div>
     </div>
     <details class="money-detail" id="DIV-0024-evidence">
       <summary>Source and detail<span class="visually-hidden"> for HMRC&#39;s Connect data-matching system: about £4.6 billion of additional yield in 2024–25</span></summary>
       <div class="money-detail-body">
         <p>additional tax yield from Connect cases in the 2024-25 tax year (average £3.4bn a year)</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>HMRC, for the Exchequer, gains</dd></div>
+          <div><dt>Reported amount</dt><dd>£4.6bn</dd></div>
+<div><dt>Currency</dt><dd>The revenue claim concerns HMRC and the U.K. Exchequer and is reported in pounds sterling.</dd></div><div><dt>USD equivalent</dt><dd>~USD 6.09 billion per year. Converted from GBP at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>HMRC, for the Exchequer, gains</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>annual yield from Connect cases</dd></div>
           <div><dt>Period</dt><dd>2024-25 tax year</dd></div>
@@ -874,20 +918,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0026" data-dv-row data-type="avoided_loss" data-status="withheld_in_escrow" data-currencies="USD" data-title="DOJ data analytics flag a $10.6 billion catheter billing scheme; CMS withholds $4.41 billion (Operation Gold Rush)" data-checked="2026-10-23">
+<li id="DIV-0026" data-dv-row data-type="avoided_loss" data-status="withheld_in_escrow" data-currencies="USD" data-jurisdictions="United States" data-title="DOJ data analytics flag a $10.6 billion catheter billing scheme; CMS withholds $4.41 billion (Operation Gold Rush)" data-checked="2026-10-23">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 4 for society; depth 3 for an organization"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="9"/><g class="d4 conf-low" transform="translate(6,9)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="25" y="21">4</text><line class="string" x1="48" y1="2" x2="48" y2="16"/><g class="d3 conf-low" transform="translate(40,16)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="59" y="28">3</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0187.html">DOJ data analytics flag a $10.6 billion catheter billing scheme</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">US$4.41 billion in escrow <span class="money-type">avoided losses</span></p>
-      <div class="meta"><span>Withheld in escrow</span><span>USD</span></div>
+<p class="money-jurisdiction">United States - Medicare</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>US$4.41 billion in escrow</span><span data-dv-usd-value hidden>US$4.41 billion in escrow</span> <span class="money-type">avoided losses</span></p>
+      <div class="meta"><span>Withheld in escrow</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0026-evidence">
       <summary>Source and detail<span class="visually-hidden"> for DOJ data analytics flag a $10.6 billion catheter billing scheme; CMS withholds $4.41 billion (Operation Gold Rush)</span></summary>
       <div class="money-detail-body">
         <p>DOJ reports that $4.41 billion was held in escrow; the source describes data analytics without establishing that AI was used.</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Medicare trust fund (HHS and CMS)</dd></div>
+          <div><dt>Reported amount</dt><dd>US$4.41 billion in escrow</dd></div>
+<div><dt>Currency</dt><dd>The amount concerns the U.S. Medicare trust fund and is reported in U.S. dollars.</dd></div>          <div><dt>Beneficiary</dt><dd>Medicare trust fund (HHS and CMS)</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>Operation Gold Rush payment block</dd></div>
           <div><dt>Period</dt><dd>Reported June 30, 2025; transaction interval not fully specified.</dd></div>
@@ -905,20 +950,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0029" data-dv-row data-type="avoided_loss" data-status="unverified" data-currencies="SGD" data-title="Sheng Siong&#39;s facial-recognition CCTV, given a shoplifter&#39;s face after a 10 September 2025 stock check at its Punggol Central outlet, matches her to six earlier wine thefts and alerts the manager&#39;s phone when she returns at noon the next day; staff stop her with three unscanned bottles, police arrest her, she repays the chain and is jailed eight days on 12 May 2026" data-checked="">
+<li id="DIV-0029" data-dv-row data-type="avoided_loss" data-status="unverified" data-currencies="SGD" data-jurisdictions="Singapore" data-title="Sheng Siong&#39;s facial-recognition CCTV, given a shoplifter&#39;s face after a 10 September 2025 stock check at its Punggol Central outlet, matches her to six earlier wine thefts and alerts the manager&#39;s phone when she returns at noon the next day; staff stop her with three unscanned bottles, police arrest her, she repays the chain and is jailed eight days on 12 May 2026" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="depth 1 for an organization"><g class="d1 conf-medium" transform="translate(2,2)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="24" y="14">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0207.html">Sheng Siong&#39;s facial recognition catches a repeat wine thief</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="SGD" data-relationship="primary">
-      <p class="metric">about S$470 <span class="money-type">avoided losses</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>SGD</span></div>
+<p class="money-jurisdiction">Punggol, Singapore</p>    <div class="money-amount" data-dv-amount data-currency="SGD" data-local-currency="SGD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>~S$470</span><span data-dv-usd-value hidden>~USD 368</span> <span class="money-type">avoided losses</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>SGD</span></div>
     </div>
     <details class="money-detail" id="DIV-0029-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Sheng Siong&#39;s facial-recognition CCTV, given a shoplifter&#39;s face after a 10 September 2025 stock check at its Punggol Central outlet, matches her to six earlier wine thefts and alerts the manager&#39;s phone when she returns at noon the next day; staff stop her with three unscanned bottles, police arrest her, she repays the chain and is jailed eight days on 12 May 2026</span></summary>
       <div class="money-detail-body">
         <p>restitution paid by the shoplifter for the stolen bottles that were not recovered (three bottles were recovered at the interception)</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Sheng Siong</dd></div>
+          <div><dt>Reported amount</dt><dd>about S$470</dd></div>
+<div><dt>Currency</dt><dd>The restitution concerns a Sheng Siong store in Punggol, Singapore, and is reported in Singapore dollars.</dd></div><div><dt>USD equivalent</dt><dd>~USD 368. Converted from SGD at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Sheng Siong</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>one defendant and series of thefts</dd></div>
           <div><dt>Period</dt><dd>Thefts September 2-11, 2025; restitution reported by May 12, 2026.</dd></div>
@@ -936,20 +982,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0030" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="USD" data-title="Lynn White of Long Beach, California, who lost an eviction jury trial with a lawyer, may have overturned the eviction on appeal with ChatGPT and Perplexity, which she used to find procedural errors and draft it, avoiding roughly $55,000 in penalties and over $18,000 in back rent" data-checked="">
+<li id="DIV-0030" data-dv-row data-type="cash_saving" data-status="unverified" data-currencies="USD" data-jurisdictions="United States" data-title="Lynn White of Long Beach, California, who lost an eviction jury trial with a lawyer, may have overturned the eviction on appeal with ChatGPT and Perplexity, which she used to find procedural errors and draft it, avoiding roughly $55,000 in penalties and over $18,000 in back rent" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="depth 3 for a person"><g class="d3 conf-medium" transform="translate(2,2)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g><text class="num" x="24" y="14">3</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0150.html">ChatGPT and Perplexity may have won Lynn White her eviction appeal</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">roughly $55,000 <span class="money-type">cost savings</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>USD</span></div>
+<p class="money-jurisdiction">Long Beach, United States</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>roughly $55,000</span><span data-dv-usd-value hidden>roughly $55,000</span> <span class="money-type">cost savings</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0030-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Lynn White of Long Beach, California, who lost an eviction jury trial with a lawyer, may have overturned the eviction on appeal with ChatGPT and Perplexity, which she used to find procedural errors and draft it, avoiding roughly $55,000 in penalties and over $18,000 in back rent</span></summary>
       <div class="money-detail-body">
         <p>penalties avoided, plus more than $18,000 in overdue rent, by overturning the eviction on appeal</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Lynn White</dd></div>
+          <div><dt>Reported amount</dt><dd>roughly $55,000</dd></div>
+<div><dt>Currency</dt><dd>The avoided penalties concern a tenant in Long Beach, California, and are reported in U.S. dollars.</dd></div>          <div><dt>Beneficiary</dt><dd>Lynn White</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>one eviction appeal</dd></div>
           <div><dt>Period</dt><dd>Reported October 8, 2025 after several months; ruling date unknown.</dd></div>
@@ -967,20 +1014,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0033" data-dv-row data-type="revenue" data-status="unverified" data-currencies="GHS" data-title="Ghana Revenue Authority launches Publican AI trade analytics, which may have recovered GH¢15 million" data-checked="">
+<li id="DIV-0033" data-dv-row data-type="revenue" data-status="unverified" data-currencies="GHS" data-jurisdictions="Ghana" data-title="Ghana Revenue Authority launches Publican AI trade analytics, which may have recovered GH¢15 million" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for an organization"><g class="unassessed conf-medium" transform="translate(2,2)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0181.html">GRA&#39;s Publican AI may have recovered GH¢15 million</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="GHS" data-relationship="primary">
-      <p class="metric">GH¢15 million <span class="money-type">revenue</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>GHS</span></div>
+<p class="money-jurisdiction">Tema, Ghana</p>    <div class="money-amount" data-dv-amount data-currency="GHS" data-local-currency="GHS" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>GH¢15 million</span><span data-dv-usd-value hidden>~USD 1.29 million</span> <span class="money-type">revenue</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>GHS</span></div>
     </div>
     <details class="money-detail" id="DIV-0033-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Ghana Revenue Authority launches Publican AI trade analytics, which may have recovered GH¢15 million</span></summary>
       <div class="money-detail-body">
         <p>recovered from fraudulent importers</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Government of Ghana (Ghana Revenue Authority)</dd></div>
+          <div><dt>Reported amount</dt><dd>GH¢15 million</dd></div>
+<div><dt>Currency</dt><dd>The recovered import revenue concerns Ghana Revenue Authority in Tema and is reported in Ghanaian cedis.</dd></div><div><dt>USD equivalent</dt><dd>~USD 1.29 million. Converted from GHS at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Government of Ghana (Ghana Revenue Authority)</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>program recovery to date</dd></div>
           <div><dt>Period</dt><dd>Reported January 2026; recovery interval unspecified.</dd></div>
@@ -998,20 +1046,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0034" data-dv-row data-type="other" data-status="unverified" data-currencies="KRW" data-title="Gyeonggi ARES AI pig-weighing pilot cuts shipping age 5.6 days and lifts income per head 18% on six farms" data-checked="">
+<li id="DIV-0034" data-dv-row data-type="other" data-status="unverified" data-currencies="KRW" data-jurisdictions="South Korea" data-title="Gyeonggi ARES AI pig-weighing pilot cuts shipping age 5.6 days and lifts income per head 18% on six farms" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="depth 2 for an organization"><g class="d2 conf-medium" transform="translate(2,2)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="24" y="14">2</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0202.html">Gyeonggi AI pig-weighing pilot lifts income per head 18%</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="KRW" data-relationship="primary">
-      <p class="metric">KRW118,000 per pig (reported level) <span class="money-type">other monetary claim</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>KRW</span></div>
+<p class="money-jurisdiction">Anseong, Pocheon and Yeoju, South Korea</p>    <div class="money-amount" data-dv-amount data-currency="KRW" data-local-currency="KRW" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>KRW118,000 per pig (reported level)</span><span data-dv-usd-value hidden>~USD 87.2 per pig</span> <span class="money-type">other monetary claim</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>KRW</span></div>
     </div>
     <details class="money-detail" id="DIV-0034-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Gyeonggi ARES AI pig-weighing pilot cuts shipping age 5.6 days and lifts income per head 18% on six farms</span></summary>
       <div class="money-detail-body">
         <p>income per pig shipped with the AI shipping selection system, up from 10만 원 (100,000 won) per head, an 18% increase</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>the six pilot pig farms in Anseong, Pocheon and Yeoju</dd></div>
+          <div><dt>Reported amount</dt><dd>KRW118,000 per pig (reported level)</dd></div>
+<div><dt>Currency</dt><dd>The income figure concerns pilot pig farms in Anseong, Pocheon and Yeoju, South Korea, and is reported in South Korean won.</dd></div><div><dt>USD equivalent</dt><dd>~USD 87.2 per pig. Converted from KRW at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>the six pilot pig farms in Anseong, Pocheon and Yeoju</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>per pig shipped across six pilot farms</dd></div>
           <div><dt>Period</dt><dd>2025 pilot, reported March 2026; within-year observation length unspecified.</dd></div>
@@ -1029,20 +1078,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0035" data-dv-row data-type="avoided_loss" data-status="unverified" data-currencies="USD" data-title="TIAA&#39;s AI may have flagged a 76-year-old participant&#39;s out-of-pattern request to withdraw his entire $3 million retirement portfolio; the fraud team and his daughter persuaded him it was a scam and the transfer was stopped" data-checked="">
+<li id="DIV-0035" data-dv-row data-type="avoided_loss" data-status="unverified" data-currencies="USD" data-jurisdictions="United States" data-title="TIAA&#39;s AI may have flagged a 76-year-old participant&#39;s out-of-pattern request to withdraw his entire $3 million retirement portfolio; the fraud team and his daughter persuaded him it was a scam and the transfer was stopped" data-checked="">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 3 for a person; depth 1 for an organization"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="16"/><g class="d3 conf-medium" transform="translate(6,16)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g><text class="num" x="25" y="28">3</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-medium" transform="translate(40,30)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0210.html">TIAA&#39;s AI may have helped stop a $3 million scam withdrawal</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">$3 million <span class="money-type">avoided losses</span></p>
-      <div class="meta"><span>Awaiting source review</span><span>USD</span></div>
+<p class="money-jurisdiction">U.S. retirement-account context - residence unreported</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>$3 million</span><span data-dv-usd-value hidden>$3 million</span> <span class="money-type">avoided losses</span></p>
+      <div class="meta"><span>Awaiting source review</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0035-evidence">
       <summary>Source and detail<span class="visually-hidden"> for TIAA&#39;s AI may have flagged a 76-year-old participant&#39;s out-of-pattern request to withdraw his entire $3 million retirement portfolio; the fraud team and his daughter persuaded him it was a scam and the transfer was stopped</span></summary>
       <div class="money-detail-body">
         <p>retirement portfolio whose withdrawal to a scam was stopped</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>the 76-year-old TIAA participant</dd></div>
+          <div><dt>Reported amount</dt><dd>$3 million</dd></div>
+<div><dt>Currency</dt><dd>The reported retirement-account amount is in U.S. dollars. The TIAA participant&#39;s place of residence is not reported.</dd></div>          <div><dt>Beneficiary</dt><dd>the 76-year-old TIAA participant</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>one participant withdrawal request</dd></div>
           <div><dt>Period</dt><dd>Recently before June 17, 2026; exact date unstated.</dd></div>
@@ -1066,20 +1116,21 @@
 <section class="money-section" id="context" data-dv-section="context" aria-labelledby="context-title">
       <h2 id="context-title">Context</h2>
       <p class="money-section-note">7 amounts that describe costs, scale, or setting.</p>
-      <ol class="results money-results" data-dv-list><li id="DIV-0004" data-dv-row data-type="reference_amount" data-status="context" data-currencies="BRL" data-title="TCU&#39;s Alice robot flags DNIT notices for BR-153 maintenance on stretches already under concession; TCU Acórdão 1116/2017 cancels the tender" data-checked="">
+      <ol class="results money-results" data-dv-list><li id="DIV-0004" data-dv-row data-type="reference_amount" data-status="context" data-currencies="BRL" data-jurisdictions="Brazil" data-title="TCU&#39;s Alice robot flags DNIT notices for BR-153 maintenance on stretches already under concession; TCU Acórdão 1116/2017 cancels the tender" data-checked="">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 2 for an organization; depth 1 for society"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="23"/><g class="d2 conf-medium" transform="translate(6,23)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="25" y="35">2</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-medium" transform="translate(40,30)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0331.html">TCU&#39;s Alice flags DNIT&#39;s BR-153 notices; TCU cancels the tender</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="BRL" data-relationship="primary">
-      <p class="metric">R$ 39 milhões <span class="money-type">contextual amount</span></p>
-      <div class="meta"><span>Context only</span><span>BRL</span></div>
+<p class="money-jurisdiction">Goiás, Brazil</p>    <div class="money-amount" data-dv-amount data-currency="BRL" data-local-currency="BRL" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>R$ 39 milhões</span><span data-dv-usd-value hidden>~USD 7.48 million</span> <span class="money-type">contextual amount</span></p>
+      <div class="meta"><span>Context only</span><span data-dv-denomination>BRL</span></div>
     </div>
     <details class="money-detail" id="DIV-0004-evidence">
       <summary>Source and detail<span class="visually-hidden"> for TCU&#39;s Alice robot flags DNIT notices for BR-153 maintenance on stretches already under concession; TCU Acórdão 1116/2017 cancels the tender</span></summary>
       <div class="money-detail-body">
         <p>value of the two DNIT tender notices for BR-153 maintenance that a TCU acórdão blocked</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>DNIT&#39;s Goiás unit, which had published the tenders for stretches whose maintenance falls to the concessionaire</dd></div>
+          <div><dt>Reported amount</dt><dd>R$ 39 milhões</dd></div>
+<div><dt>Currency</dt><dd>The tenders concern federal highway maintenance in Goiás, Brazil, with amounts reported in Brazilian reais.</dd></div><div><dt>USD equivalent</dt><dd>~USD 7.48 million. Converted from BRL at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>DNIT&#39;s Goiás unit, which had published the tenders for stretches whose maintenance falls to the concessionaire</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>two tender notices</dd></div>
           <div><dt>Period</dt><dd>Tenders reported in September 2017; precise occurrence dates absent.</dd></div>
@@ -1097,20 +1148,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0011" data-dv-row data-type="reference_amount" data-status="context" data-currencies="BRL" data-title="TCE-MG&#39;s Alice audit of 2,297 August 2022 tenders detects 60 irregularities worth R$113.7 million; 53 alerts answered and notices worth R$91.7 million corrected" data-checked="">
+<li id="DIV-0011" data-dv-row data-type="reference_amount" data-status="context" data-currencies="BRL" data-jurisdictions="Brazil" data-title="TCE-MG&#39;s Alice audit of 2,297 August 2022 tenders detects 60 irregularities worth R$113.7 million; 53 alerts answered and notices worth R$91.7 million corrected" data-checked="">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 2 for an organization; depth 1 for society"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="23"/><g class="d2 conf-low" transform="translate(6,23)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="25" y="35">2</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-low" transform="translate(40,30)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0332.html">Alice audit at TCE-MG corrects notices worth R$91.7 million</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="BRL" data-relationship="primary">
-      <p class="metric">R$ 91.723.011,31 <span class="money-type">contextual amount</span></p>
-      <div class="meta"><span>Context only</span><span>BRL</span></div>
+<p class="money-jurisdiction">Minas Gerais, Brazil</p>    <div class="money-amount" data-dv-amount data-currency="BRL" data-local-currency="BRL" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>R$ 91.723.011,31</span><span data-dv-usd-value hidden>~USD 17.6 million</span> <span class="money-type">contextual amount</span></p>
+      <div class="meta"><span>Context only</span><span data-dv-denomination>BRL</span></div>
     </div>
     <details class="money-detail" id="DIV-0011-evidence">
       <summary>Source and detail<span class="visually-hidden"> for TCE-MG&#39;s Alice audit of 2,297 August 2022 tenders detects 60 irregularities worth R$113.7 million; 53 alerts answered and notices worth R$91.7 million corrected</span></summary>
       <div class="money-detail-body">
         <p>value of the tender notices corrected after Alice&#39;s alerts in the audit of August 2022 tenders</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>the audited state and municipal bodies in Minas Gerais, which republished corrected notices; the page&#39;s title calls the result a saving without saying who saved</dd></div>
+          <div><dt>Reported amount</dt><dd>R$ 91.723.011,31</dd></div>
+<div><dt>Currency</dt><dd>The tender corrections concern state and municipal bodies in Minas Gerais, Brazil, and are reported in Brazilian reais.</dd></div><div><dt>USD equivalent</dt><dd>~USD 17.6 million. Converted from BRL at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>the audited state and municipal bodies in Minas Gerais, which republished corrected notices; the page&#39;s title calls the result a saving without saying who saved</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>corrected notices in one audit cohort</dd></div>
           <div><dt>Period</dt><dd>August 2022 tender cohort; audit described in December 2022 and reported June 2023.</dd></div>
@@ -1128,20 +1180,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0016" data-dv-row data-type="reference_amount" data-status="context" data-currencies="GBP" data-title="Cheshire Police facial recognition matches CCTV to Keenan Hughes; county lines dealers jailed for over five years" data-checked="">
+<li id="DIV-0016" data-dv-row data-type="reference_amount" data-status="context" data-currencies="GBP" data-jurisdictions="United Kingdom" data-title="Cheshire Police facial recognition matches CCTV to Keenan Hughes; county lines dealers jailed for over five years" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="depth 2 for society"><g class="d2 conf-medium" transform="translate(2,2)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="24" y="14">2</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0232.html">Cheshire facial recognition match jails county lines dealers</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="GBP" data-relationship="primary">
-      <p class="metric">£990 <span class="money-type">contextual amount</span></p>
-      <div class="meta"><span>Context only</span><span>GBP</span></div>
+<p class="money-jurisdiction">Northwich, United Kingdom</p>    <div class="money-amount" data-dv-amount data-currency="GBP" data-local-currency="GBP" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>~£990</span><span data-dv-usd-value hidden>~USD 1,310</span> <span class="money-type">contextual amount</span></p>
+      <div class="meta"><span>Context only</span><span data-dv-denomination>GBP</span></div>
     </div>
     <details class="money-detail" id="DIV-0016-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Cheshire Police facial recognition matches CCTV to Keenan Hughes; county lines dealers jailed for over five years</span></summary>
       <div class="money-detail-body">
         <p>crack cocaine seized from Hughes (99 wraps, approximate street value)</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>Cheshire Constabulary&#39;s Northwich Proactive Policing Team (seized from Keenan Hughes)</dd></div>
+          <div><dt>Reported amount</dt><dd>£990</dd></div>
+<div><dt>Currency</dt><dd>The seized-drug valuation concerns Northwich, United Kingdom, and is reported in pounds sterling.</dd></div><div><dt>USD equivalent</dt><dd>~USD 1,310. Converted from GBP at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>Cheshire Constabulary&#39;s Northwich Proactive Policing Team (seized from Keenan Hughes)</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>99 wraps seized in one arrest</dd></div>
           <div><dt>Period</dt><dd>May 17, 2024</dd></div>
@@ -1159,20 +1212,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0025" data-dv-row data-type="reference_amount" data-status="context" data-currencies="TWD" data-title="Taoyuan&#39;s AI sound cameras locate a white BMW that had been roaring down Jieshou Road at night, within a day of residents&#39; complaint" data-checked="">
+<li id="DIV-0025" data-dv-row data-type="reference_amount" data-status="context" data-currencies="TWD" data-jurisdictions="Taiwan" data-title="Taoyuan&#39;s AI sound cameras locate a white BMW that had been roaring down Jieshou Road at night, within a day of residents&#39; complaint" data-checked="">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 2 for a person; depth 1 for an organization"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="23"/><g class="d2 conf-medium" transform="translate(6,23)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g><text class="num" x="25" y="35">2</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-medium" transform="translate(40,30)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0129.html">Taoyuan&#39;s AI sound cameras pinpoint a noisy BMW within a day</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="TWD" data-relationship="primary">
-      <p class="metric">3,600元 (New Taiwan dollars) <span class="money-type">contextual amount</span></p>
-      <div class="meta"><span>Context only</span><span>TWD</span></div>
+<p class="money-jurisdiction">Taoyuan, Taiwan</p>    <div class="money-amount" data-dv-amount data-currency="TWD" data-local-currency="TWD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>≤ 3,600元 (New Taiwan dollars)</span><span data-dv-usd-value hidden>≤ ~USD 113</span> <span class="money-type">contextual amount</span></p>
+      <div class="meta"><span>Context only</span><span data-dv-denomination>TWD</span></div>
     </div>
     <details class="money-detail" id="DIV-0025-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Taoyuan&#39;s AI sound cameras locate a white BMW that had been roaring down Jieshou Road at night, within a day of residents&#39; complaint</span></summary>
       <div class="money-detail-body">
         <p>maximum fine under the Noise Control Act to be imposed for the noise violation</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>the BMW&#39;s owner pays</dd></div>
+          <div><dt>Reported amount</dt><dd>3,600元 (New Taiwan dollars)</dd></div>
+<div><dt>Currency</dt><dd>The fine ceiling concerns Taoyuan, Taiwan, and is reported in New Taiwan dollars.</dd></div><div><dt>USD equivalent</dt><dd>≤ ~USD 113. Converted from TWD at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>the BMW&#39;s owner pays</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>one noise violation; repeat penalties possible</dd></div>
           <div><dt>Period</dt><dd>Violation detected April 23, 2025; future fine mentioned.</dd></div>
@@ -1190,20 +1244,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0027" data-dv-row data-type="reference_amount" data-status="context" data-currencies="TWD" data-title="Taichung EPB&#39;s AI smoke-recognition system catches a serial roadside waste burner in Dadu District" data-checked="">
+<li id="DIV-0027" data-dv-row data-type="reference_amount" data-status="context" data-currencies="TWD" data-jurisdictions="Taiwan" data-title="Taichung EPB&#39;s AI smoke-recognition system catches a serial roadside waste burner in Dadu District" data-checked="">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 2 for society; depth 1 for an organization"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="23"/><g class="d2 conf-medium" transform="translate(6,23)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="25" y="35">2</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-medium" transform="translate(40,30)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0147.html">Taichung EPB&#39;s AI smoke detection catches a serial waste burner</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="TWD" data-relationship="primary">
-      <p class="metric">新臺幣10萬元以下 (up to NT$100,000) <span class="money-type">contextual amount</span></p>
-      <div class="meta"><span>Context only</span><span>TWD</span></div>
+<p class="money-jurisdiction">Taichung, Taiwan</p>    <div class="money-amount" data-dv-amount data-currency="TWD" data-local-currency="TWD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>新臺幣10萬元以下 (up to NT$100,000)</span><span data-dv-usd-value hidden>≤ ~USD 3,140</span> <span class="money-type">contextual amount</span></p>
+      <div class="meta"><span>Context only</span><span data-dv-denomination>TWD</span></div>
     </div>
     <details class="money-detail" id="DIV-0027-evidence">
       <summary>Source and detail<span class="visually-hidden"> for Taichung EPB&#39;s AI smoke-recognition system catches a serial roadside waste burner in Dadu District</span></summary>
       <div class="money-detail-body">
         <p>fine under Article 32 of the Air Pollution Control Act for the open burning; CTS reports the fine as NT$100,000</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>the 74-year-old burner pays</dd></div>
+          <div><dt>Reported amount</dt><dd>新臺幣10萬元以下 (up to NT$100,000)</dd></div>
+<div><dt>Currency</dt><dd>The fine ceiling concerns Taichung, Taiwan, and is reported in New Taiwan dollars.</dd></div><div><dt>USD equivalent</dt><dd>≤ ~USD 3,140. Converted from TWD at October 2026 rates (InforEuro monthly accounting rates). Original unit, period, and qualifier retained.</dd></div>          <div><dt>Beneficiary</dt><dd>the 74-year-old burner pays</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>one enforcement case</dd></div>
           <div><dt>Period</dt><dd>Detections July-August 2025; announcement September 13, 2025.</dd></div>
@@ -1221,20 +1276,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0028" data-dv-row data-type="reference_amount" data-status="context" data-currencies="USD" data-title="DARPA&#39;s AIxCC final: autonomous systems find 54 of 63 synthetic vulnerabilities, patch 43, and surface 18 real bugs in open-source code" data-checked="">
+<li id="DIV-0028" data-dv-row data-type="reference_amount" data-status="context" data-currencies="USD" data-jurisdictions="United States" data-title="DARPA&#39;s AIxCC final: autonomous systems find 54 of 63 synthetic vulnerabilities, patch 43, and surface 18 real bugs in open-source code" data-checked="">
   <div class="d"><svg class="mobile one" viewBox="0 0 44 20" width="44" height="20" role="img" aria-label="not rated for society"><g class="unassessed conf-medium" transform="translate(2,2)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0238.html">AIxCC systems find 54 of 63 synthetic vulnerabilities, patch 43</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">$152 <span class="money-type">contextual amount</span></p>
-      <div class="meta"><span>Context only</span><span>USD</span></div>
+<p class="money-jurisdiction">United States - DARPA AIxCC</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>$152</span><span data-dv-usd-value hidden>$152</span> <span class="money-type">contextual amount</span></p>
+      <div class="meta"><span>Context only</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0028-evidence">
       <summary>Source and detail<span class="visually-hidden"> for DARPA&#39;s AIxCC final: autonomous systems find 54 of 63 synthetic vulnerabilities, patch 43, and surface 18 real bugs in open-source code</span></summary>
       <div class="money-detail-body">
         <p>average cost per competition task for the systems&#39; bug reports and patches, which DARPA calls a fraction of the cost of traditional methods</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>DARPA (cost of running the competitors&#39; cyber reasoning systems per task)</dd></div>
+          <div><dt>Reported amount</dt><dd>$152</dd></div>
+<div><dt>Currency</dt><dd>The task-cost figure concerns the U.S. DARPA AIxCC competition and is reported in U.S. dollars.</dd></div>          <div><dt>Beneficiary</dt><dd>DARPA (cost of running the competitors&#39; cyber reasoning systems per task)</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>per competition task</dd></div>
           <div><dt>Period</dt><dd>AIxCC final competition in 2025</dd></div>
@@ -1252,20 +1308,21 @@
     </details>
   </div>
 </li>
-<li id="DIV-0037" data-dv-row data-type="reference_amount" data-status="context" data-currencies="USD" data-title="VTTI/VDOT thermal-camera AI wildlife detection pilot on Route 460 near Grundy, Virginia: 97% detection accuracy and a 3 mph average speed drop at activated signs" data-checked="">
+<li id="DIV-0037" data-dv-row data-type="reference_amount" data-status="context" data-currencies="USD" data-jurisdictions="United States" data-title="VTTI/VDOT thermal-camera AI wildlife detection pilot on Route 460 near Grundy, Virginia: 97% detection accuracy and a 3 mph average speed drop at activated signs" data-checked="">
   <div class="d"><svg class="mobile" viewBox="0 0 84 48" width="84" height="48" role="img" aria-label="depth 1 for an organization; depth 1 for society"><line class="rung" x1="8" y1="10" x2="54" y2="10"/><line class="rung" x1="8" y1="17" x2="54" y2="17"/><line class="rung" x1="8" y1="24" x2="54" y2="24"/><line class="rung" x1="8" y1="31" x2="54" y2="31"/><line class="rung" x1="8" y1="38" x2="54" y2="38"/><line class="bar" x1="14" y1="2" x2="48" y2="2"/><line class="string" x1="14" y1="2" x2="14" y2="30"/><g class="d1 conf-medium" transform="translate(6,30)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="25" y="42">1</text><line class="string" x1="48" y1="2" x2="48" y2="30"/><g class="d1 conf-medium" transform="translate(40,30)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g><text class="num" x="59" y="42">1</text></svg></div>
   <div class="money-row-body">
     <h3><a href="records/AIBD-0359.html">VTTI&#39;s Route 460 wildlife AI pilot slows drivers 3 mph at signs</a></h3>
-    <div class="money-amount" data-dv-amount data-currency="USD" data-relationship="primary">
-      <p class="metric">more than $80,000 per crash <span class="money-type">contextual amount</span></p>
-      <div class="meta"><span>Context only</span><span>USD</span></div>
+<p class="money-jurisdiction">Virginia, United States</p>    <div class="money-amount" data-dv-amount data-currency="USD" data-local-currency="USD" data-relationship="primary" data-local-primary="true" data-usd-primary="true" data-usd-available="true">
+      <p class="metric"><span data-dv-local-value>more than $80,000 per crash</span><span data-dv-usd-value hidden>more than $80,000 per crash</span> <span class="money-type">contextual amount</span></p>
+      <div class="meta"><span>Context only</span><span data-dv-denomination>USD</span></div>
     </div>
     <details class="money-detail" id="DIV-0037-evidence">
       <summary>Source and detail<span class="visually-hidden"> for VTTI/VDOT thermal-camera AI wildlife detection pilot on Route 460 near Grundy, Virginia: 97% detection accuracy and a 3 mph average speed drop at activated signs</span></summary>
       <div class="money-detail-body">
         <p>average cost of one elk collision, the harm the system aims to avert; the study did not establish that any collision was prevented</p>
         <dl class="props facts money-facts">
-          <div><dt>Beneficiary</dt><dd>motorists and the state bear the cost per crash</dd></div>
+          <div><dt>Reported amount</dt><dd>more than $80,000 per crash</dd></div>
+<div><dt>Currency</dt><dd>The collision-cost reference concerns the Virginia wildlife-warning pilot and is reported in U.S. dollars.</dd></div>          <div><dt>Beneficiary</dt><dd>motorists and the state bear the cost per crash</dd></div>
           <div><dt>Paid by</dt><dd>Not established in the current source review.</dd></div>
           <div><dt>Unit</dt><dd>per elk collision</dd></div>
           <div><dt>Period</dt><dd>Feasibility-study cost; valuation period and price year absent.</dd></div>
@@ -1287,8 +1344,8 @@
       <p class="empty ink3" data-dv-empty hidden>No matching amounts. <button type="button" class="textbtn" data-dv-reset hidden>Clear filters</button></p>
     </section>
     <details class="money-data"><summary>Data</summary><div>
-      <p>Amounts retain their original currencies, units, periods, and accounting boundaries. A source check establishes what that source reports. Each case gives the evidence for AI's contribution.</p>
-      <p>The beneficiary marks retain the case's benefit depth and evidence rating.</p>
+      <p>Amounts use the currency of the case's jurisdiction. Calculated local equivalents are marked. International amounts retain their reported denomination when no single local currency applies. Source figures, units, periods, and accounting boundaries remain in the details and downloads.</p>
+<p>USD harmonization uses <a href="https://ec.europa.eu/budg/inforeuro/api/public/monthly-rates?year=2026&amp;month=10&amp;lang=en" rel="noopener">October 2026 InforEuro rates</a>. InforEuro monthly accounting rates, quoted as currency units per EUR. Indicative nominal equivalents, rounded to three significant figures; not historical exchange rates, inflation-adjusted values, or purchasing-power estimates. Source-stated equivalents remain one amount.</p>      <p>The beneficiary marks retain the case's benefit depth and evidence rating.</p>
       <dl><div><dt>Curated claims</dt><dd><a href="data/fructus.csv" download>CSV</a>, <a href="data/fructus.json" download>JSON</a></dd></div><div><dt>All candidates</dt><dd><a href="data/fructus-candidates.csv" download>CSV</a>, <a href="data/fructus-candidates.json" download>JSON</a></dd></div><div><dt>Field definitions</dt><dd><a href="data/fructus-schema.json">Schema</a></dd></div></dl>
     </div></details>
   </section>
@@ -1305,6 +1362,6 @@
 </footer>
 </div>
 <div class="tip" data-tip aria-hidden="true"></div>
-<script src="app.js?v=ccf316c3c8"></script>
-<script src="dividend.js?v=ccf316c3c8" defer></script></body>
+<script src="app.js?v=97eebe499b"></script>
+<script src="dividend.js?v=97eebe499b" defer></script></body>
 </html>
