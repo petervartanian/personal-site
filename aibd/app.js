@@ -312,13 +312,20 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   function observeEntityLogos(root) {
     if (!entityLogoObserver && typeof window.IntersectionObserver === 'function') {
       entityLogoObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) { if (entry.isIntersecting) loadEntityLogo(entry.target); });
+        entries.forEach(function (entry) { if (entry.isIntersecting && observedEntityLogos.has(entry.target)) loadEntityLogo(entry.target); });
       }, { rootMargin: '160px 0px' });
     }
     root.querySelectorAll('.gaz img.logo[data-src]').forEach(function (image) {
       if (observedEntityLogos.has(image)) return;
       observedEntityLogos.add(image);
       if (entityLogoObserver) entityLogoObserver.observe(image); else loadEntityLogo(image);
+    });
+  }
+  function pauseEntityLogos(root) {
+    if (!entityLogoObserver) return;
+    root.querySelectorAll('.gaz img.logo[data-src]').forEach(function (image) {
+      entityLogoObserver.unobserve(image);
+      observedEntityLogos.delete(image);
     });
   }
   // One tool at a time: the open one, or none.
@@ -329,14 +336,22 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     pendingTo = ''; target.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
   }
   function loadFragment(panel) {
-    panel.querySelectorAll('[data-fragment]').forEach(function (slot) {
-      if (slot.dataset.loaded || slot.dataset.loading) return;
+    var slots = Array.from(panel.querySelectorAll('[data-fragment]')).filter(function (slot) { return !slot.dataset.loaded && !slot.dataset.loading; });
+    if (!slots.length) return;
+    // Keep logos inert until every fragment has settled, so that an early
+    // Gazetteer response cannot start downloads before the atlas takes its space.
+    pauseEntityLogos(panel);
+    slots.forEach(function (slot) {
       slot.dataset.loading = '1'; slot.setAttribute('aria-busy', 'true'); slot.textContent = 'Loading…';
-      fetch(slot.getAttribute('data-fragment')).then(function (r) { return r.text(); }).then(function (html) {
-        slot.innerHTML = html; slot.dataset.loaded = '1'; slot.removeAttribute('aria-busy'); delete slot.dataset.loading;
-        collectButtons(); bindAtlas(); if (window.aibdBindTips) window.aibdBindTips(slot); apply(); observeEntityLogos(slot);
-        if (!panel.querySelector('[data-fragment]:not([data-loaded])')) setTimeout(goTo, 50);
-      }).catch(function () { slot.textContent = 'This chart could not be loaded.'; slot.removeAttribute('aria-busy'); delete slot.dataset.loading; });
+      fetch(slot.getAttribute('data-fragment')).then(function (r) { if (!r.ok) throw new Error('Chart request failed'); return r.text(); }).then(function (html) {
+        slot.innerHTML = html; slot.dataset.loaded = '1';
+        collectButtons(); bindAtlas(); if (window.aibdBindTips) window.aibdBindTips(slot); apply();
+      }).catch(function () { slot.textContent = 'This chart could not be loaded.'; }).then(function () {
+        slot.removeAttribute('aria-busy'); delete slot.dataset.loading;
+        if (panel.querySelector('[data-fragment][data-loading]')) return;
+        observeEntityLogos(panel);
+        setTimeout(goTo, 50);
+      });
     });
   }
   function applyTools() {
