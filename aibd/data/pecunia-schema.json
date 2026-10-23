@@ -1,0 +1,450 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pecunia monetary claim export",
+  "description": "An array of claims. The candidates export also includes awaiting-review and context-only rows.",
+  "type": "array",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "pattern": "^DIV-\\d{4}$",
+        "title": "Id",
+        "type": "string"
+      },
+      "case_id": {
+        "pattern": "^AIBD-\\d{4}$",
+        "title": "Case Id",
+        "type": "string"
+      },
+      "title": {
+        "minLength": 1,
+        "title": "Title",
+        "type": "string"
+      },
+      "summary": {
+        "minLength": 1,
+        "title": "Summary",
+        "type": "string"
+      },
+      "monetary_role": {
+        "enum": [
+          "outcome_amount_claim",
+          "recipient_transfer",
+          "commercial_transaction",
+          "reference_or_input_amount"
+        ],
+        "title": "Monetary Role",
+        "type": "string"
+      },
+      "amount": {
+        "$ref": "#/$defs/MonetaryAmount"
+      },
+      "financial_type": {
+        "enum": [
+          "cash_saving",
+          "avoided_loss",
+          "recovered_funds",
+          "revenue",
+          "recipient_transfer",
+          "commercial_receipt",
+          "monetized_social_benefit",
+          "reference_amount",
+          "other"
+        ],
+        "title": "Financial Type",
+        "type": "string"
+      },
+      "amount_basis": {
+        "enum": [
+          "incremental_change",
+          "outcome_level",
+          "transfer",
+          "transaction",
+          "avoided_expenditure",
+          "valuation",
+          "reference",
+          "unresolved"
+        ],
+        "title": "Amount Basis",
+        "type": "string"
+      },
+      "period": {
+        "minLength": 1,
+        "title": "Period",
+        "type": "string"
+      },
+      "unit": {
+        "minLength": 1,
+        "title": "Unit",
+        "type": "string"
+      },
+      "beneficiary": {
+        "minLength": 1,
+        "title": "Beneficiary",
+        "type": "string"
+      },
+      "payer": {
+        "minLength": 1,
+        "title": "Payer",
+        "type": "string"
+      },
+      "realization": {
+        "enum": [
+          "reported_recovery",
+          "retrospective_estimate",
+          "annualized_estimate",
+          "projected",
+          "awarded",
+          "paid",
+          "withheld_in_escrow",
+          "modeled_valuation",
+          "mixed",
+          "unverified",
+          "context"
+        ],
+        "title": "Realization",
+        "type": "string"
+      },
+      "accounting_boundary": {
+        "minLength": 1,
+        "title": "Accounting Boundary",
+        "type": "string"
+      },
+      "comparator": {
+        "minLength": 1,
+        "title": "Comparator",
+        "type": "string"
+      },
+      "ai_attribution": {
+        "minLength": 1,
+        "title": "Ai Attribution",
+        "type": "string"
+      },
+      "ai_attribution_status": {
+        "enum": [
+          "ai_component_supported",
+          "ai_component_unresolved",
+          "claim_link_mismatch"
+        ],
+        "title": "Ai Attribution Status",
+        "type": "string"
+      },
+      "net_benefit_established": {
+        "default": false,
+        "title": "Net Benefit Established",
+        "type": "boolean"
+      },
+      "sources": {
+        "items": {
+          "$ref": "#/$defs/MonetarySource"
+        },
+        "minItems": 1,
+        "title": "Sources",
+        "type": "array"
+      },
+      "limitations": {
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1,
+        "title": "Limitations",
+        "type": "array"
+      },
+      "overlap_flags": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Overlap Flags",
+        "type": "array"
+      },
+      "curation_status": {
+        "enum": [
+          "curated",
+          "awaiting_review",
+          "context_only"
+        ],
+        "title": "Curation Status",
+        "type": "string"
+      },
+      "source_review_status": {
+        "enum": [
+          "primary_source_checked",
+          "primary_excerpt_checked",
+          "awaiting_review",
+          "source_checked_link_unresolved",
+          "context_only"
+        ],
+        "title": "Source Review Status",
+        "type": "string"
+      },
+      "case_link_status": {
+        "enum": [
+          "matched",
+          "unresolved",
+          "mismatch"
+        ],
+        "title": "Case Link Status",
+        "type": "string"
+      },
+      "review_note": {
+        "minLength": 1,
+        "title": "Review Note",
+        "type": "string"
+      },
+      "reviewed_on": {
+        "anyOf": [
+          {
+            "format": "date",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Reviewed On"
+      },
+      "legacy_audit": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Legacy Audit",
+        "type": "object"
+      },
+      "eligible": {
+        "type": "boolean",
+        "readOnly": true,
+        "description": "Derived publication eligibility, not a causal-benefit certification."
+      }
+    },
+    "required": [
+      "id",
+      "case_id",
+      "title",
+      "summary",
+      "monetary_role",
+      "amount",
+      "financial_type",
+      "amount_basis",
+      "period",
+      "unit",
+      "beneficiary",
+      "payer",
+      "realization",
+      "accounting_boundary",
+      "comparator",
+      "ai_attribution",
+      "ai_attribution_status",
+      "sources",
+      "limitations",
+      "overlap_flags",
+      "curation_status",
+      "source_review_status",
+      "case_link_status",
+      "review_note",
+      "eligible"
+    ],
+    "title": "MonetaryClaim",
+    "type": "object"
+  },
+  "$defs": {
+    "JsonValue": {},
+    "MonetaryAmount": {
+      "additionalProperties": false,
+      "description": "An original-currency amount or interval; null never means zero.",
+      "properties": {
+        "source_text": {
+          "minLength": 1,
+          "title": "Source Text",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "lower": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower"
+        },
+        "upper": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper"
+        },
+        "qualifier": {
+          "default": "unparsed",
+          "enum": [
+            "exact",
+            "approximately",
+            "at_least",
+            "more_than",
+            "up_to",
+            "range",
+            "unparsed"
+          ],
+          "title": "Qualifier",
+          "type": "string"
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Z]{3}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Currency"
+        },
+        "currency_basis": {
+          "default": "unresolved",
+          "enum": [
+            "explicit",
+            "context",
+            "unresolved"
+          ],
+          "title": "Currency Basis",
+          "type": "string"
+        },
+        "price_basis": {
+          "default": "Nominal source amount; price year not stated.",
+          "title": "Price Basis",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_text"
+      ],
+      "title": "MonetaryAmount",
+      "type": "object"
+    },
+    "MonetarySource": {
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "quote": {
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Date"
+        },
+        "primary": {
+          "default": false,
+          "title": "Primary",
+          "type": "boolean"
+        },
+        "written_by": {
+          "default": "unknown",
+          "enum": [
+            "makers",
+            "deployer",
+            "beneficiary",
+            "independent",
+            "unknown"
+          ],
+          "title": "Written By",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed At"
+        },
+        "review_method": {
+          "default": "unreviewed",
+          "enum": [
+            "full_text",
+            "indexed_excerpt",
+            "unreviewed"
+          ],
+          "title": "Review Method",
+          "type": "string"
+        },
+        "locator": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Locator"
+        }
+      },
+      "required": [
+        "url",
+        "title",
+        "quote"
+      ],
+      "title": "MonetarySource",
+      "type": "object"
+    }
+  }
+}

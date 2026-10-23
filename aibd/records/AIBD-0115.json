@@ -3,8 +3,8 @@
   "title": "China Medical University Hospital's exercise-ECG AI catching a 99% coronary stenosis that manual reading had rated moderate, Taichung, 2022",
   "summary": "CMUH's exercise-ECG AI put severe-blockage odds at 72% where manual reading said follow-up; angiography found a 99% LAD stenosis, stented.",
   "date_observed": "2022-12-28",
-  "date_basis": "event",
-  "date_precision": "day",
+  "date_basis": "unassessed",
+  "date_precision": "unassessed",
   "benefit_status": null,
   "source_collection": null,
   "source_entry": null,
@@ -153,5 +153,1207 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: three independent news reports, the makers' peer-reviewed study and the makers' press release. The cited evidence includes no independent study or report and no finding by a regulator or court."
+  "claim_basis": "Sources: three independent news reports, the makers' peer-reviewed study and the makers' press release. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "profile": {
+    "case_id": "AIBD-0115",
+    "catalog_version": "1.0.0",
+    "source_fingerprint": "ada0f6e4bf20d8d0f0d30c3ff523e1b613ca3f8d97c3269834cf564e62df77c8",
+    "collection_refs": [
+      {
+        "collection_id": "aibd",
+        "version": "snapshot-8bf7cfec9cb185aa"
+      }
+    ],
+    "source_ids": [
+      "AIBD-0115-source-0001",
+      "AIBD-0115-source-0002",
+      "AIBD-0115-source-0003",
+      "AIBD-0115-source-0004",
+      "AIBD-0115-source-0005"
+    ],
+    "families": {
+      "strategic assessments": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "evaluations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "monetary observations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "institutional decisions": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      }
+    },
+    "fields": {
+      "actors[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "developer": "China Medical University Hospital (中國醫藥大學附設醫院人工智慧中心), director 許凱程",
+            "deployer": "China Medical University Hospital, Division of Cardiology (心臟血管系), Taichung"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "developer",
+            "deployer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "actors[].ownership_control": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "ai_contribution": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ai_role": {
+              "status": "assessed",
+              "statement": "The model read the exercise-ECG signals and report features. It returned a 72% probability of severe coronary narrowing, above the moderate-risk verdict of the manual reading and risk score. On that basis the cardiologist ordered angiography, which showed the 99% stenosis, and he stented it. The counterfactual rests on the treating cardiologist's statement, carried by three outlets and the hospital's release. He said the manual reading would have led to drug treatment and follow-up only. The hospital that says so also built the model. The dates of the reading and procedure are not reported. The published model's specificity of 0.60 means such flags are often false positives."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "ai_relationship": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "category": "harm prevented",
+            "ai_role": {
+              "status": "assessed",
+              "statement": "The model read the exercise-ECG signals and report features. It returned a 72% probability of severe coronary narrowing, above the moderate-risk verdict of the manual reading and risk score. On that basis the cardiologist ordered angiography, which showed the 99% stenosis, and he stented it. The counterfactual rests on the treating cardiologist's statement, carried by three outlets and the hospital's release. He said the manual reading would have led to drug treatment and follow-up only. The hospital that says so also built the model. The dates of the reading and procedure are not reported. The published model's specificity of 0.60 means such flags are often false positives."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ai_role",
+            "category"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].alternatives": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].assessor_date": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].depth": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "personal",
+                "depth": 3,
+                "reason": "A man with a 99% stenosis of the left anterior descending artery had it stented after the AI flagged a 72% probability of severe narrowing. The manual exercise-ECG reading had rated it moderate and left it for drug treatment and follow-up. The cardiologist put his chance of an acute infarction at 8 in 10. He said the stent removed the sudden-death risk. He left hospital, symptoms resolved. The hospital's headlines call it life-saving, but the harm was prospective and the account is the developer-hospital's own, so life-saving is not established."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].display_confidence": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "confidence": "medium",
+            "evidence_word": "reported",
+            "claim_status": "Independently reported",
+            "basis": "Sources: three independent news reports, the makers' peer-reviewed study and the makers' press release. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].rationale": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "personal",
+                "depth": 3,
+                "reason": "A man with a 99% stenosis of the left anterior descending artery had it stented after the AI flagged a 72% probability of severe narrowing. The manual exercise-ECG reading had rated it moderate and left it for drug treatment and follow-up. The cardiologist put his chance of an acute infarction at 8 in 10. He said the stent removed the sudden-death risk. He left hospital, symptoms resolved. The hospital's headlines call it life-saving, but the harm was prospective and the account is the developer-hospital's own, so life-saving is not established."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].rubric_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].status_basis": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].target": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "personal",
+                "depth": 3,
+                "reason": "A man with a 99% stenosis of the left anterior descending artery had it stented after the AI flagged a 72% probability of severe narrowing. The manual exercise-ECG reading had rated it moderate and left it for drug treatment and follow-up. The cardiologist put his chance of an acute infarction at 8 in 10. He said the stent removed the sudden-death risk. He left hospital, symptoms resolved. The hospital's headlines call it life-saving, but the harm was prospective and the account is the developer-hospital's own, so life-saving is not established."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "availability": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "brief": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "case_kind": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "case_links[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].evidence_links": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].evidence_strength": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].missingness": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].proposition": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "cross_border_flows[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "decisions[].action_outcome": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].grounds": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].institution_task": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].success_criterion": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "deployment_stage": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "economics[].amount": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].costs[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].counterfactual": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].currency_price_basis": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].gross_net": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].measure_type": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].period_unit": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].realization": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].recipient_payer": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].return_payback": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].valuation_method": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "evaluations[].ai_uplift": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].comparator": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].design": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].effect": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].exposure": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].id": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].measurement_method": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].metric": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].reproduction_materials": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].setting_sample": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].uncertainty_limitations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "external_references[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "registry_ids": {
+              "oecd_aim": "2022-12-28-624f"
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "registry_ids"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "follow_up[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "later": {
+              "status": "persisted",
+              "date": "2025-03-17",
+              "note": "The hospital's cardiology group published the algorithm in Frontiers in Artificial Intelligence in March 2025 with external validation on its own patients after February 2022 and at Asia University Hospital.",
+              "quote": "Our study provides an efficient and accurate tool to identify patients with significant CAD by the AI-enhanced ExECG algorithm, which achieved an AUC of 0.83, a sensitivity of 0.89, and a specificity of 0.60, within 1 min.",
+              "url": "https://doi.org/10.3389/frai.2025.1496109"
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "later"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "human_oversight": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "id": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "id": "AIBD-0115"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "id"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "infrastructure_dependencies[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].beneficiaries": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].beneficiary_count": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].benefit_type": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "benefit_type": "Improved Physical Health"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "benefit_type"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].claim": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "account": "A 75-year-old man surnamed Chen, with controlled hypertension, woke one day with chest tightness and palpitations first taken for reflux. Liberty Times puts the onset in 2021. At China Medical University Hospital (CMUH), Taichung, his exercise electrocardiogram (ECG) was read manually with a risk score. That gave about 50% blockage, moderate risk, follow-up only. The hospital's own Exercise ECG AI-Assisted Interpretation System, in use since May 2022, put the probability of severe (over 70%) narrowing at 72%. So cardiologist 吳宏彬 ordered angiography, found a 99% stenosis of the left anterior descending artery and stented it at once. He went home, chest tightness resolved. The hospital presented it on 28 December 2022. Test and procedure dates are not reported.",
+            "benefit_type": "Improved Physical Health"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "account",
+            "benefit_type"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].distribution": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].duration": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].id": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].stakeholder_group": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "personal",
+                "depth": 3,
+                "reason": "A man with a 99% stenosis of the left anterior descending artery had it stented after the AI flagged a 72% probability of severe narrowing. The manual exercise-ECG reading had rated it moderate and left it for drug treatment and follow-up. The cardiologist put his chance of an acute infarction at 8 in 10. He said the stent removed the sudden-death risk. He left hospital, symptoms resolved. The hospital's headlines call it life-saving, but the harm was prospective and the account is the developer-hospital's own, so life-saving is not established."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].status": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].tradeoffs": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].unexpected": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "unexpected": false,
+            "purpose": "The hospital's AI Center built the system to judge from an exercise ECG whether a patient's coronary arteries are severely narrowed (over 70%). Manual reading of a dozen tracings is slow and, the hospital says, only 40–50% accurate. Flagging this patient's severe stenosis was exactly that purpose."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "unexpected",
+            "purpose"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "places[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "location": "Taichung, Taiwan",
+            "developer_country": "Taiwan",
+            "deployer_country": "Taiwan"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "location",
+            "developer_country",
+            "deployer_country"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "purpose": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "purpose": "The hospital's AI Center built the system to judge from an exercise ECG whether a patient's coronary arteries are severely narrowed (over 70%). Manual reading of a dozen tracings is slow and, the hospital says, only 40–50% accurate. Flagging this patient's severe stenosis was exactly that purpose."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "purpose"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "record_dates": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "date_observed": "2022-12-28",
+            "revisions": [
+              {
+                "date": "2026-10-20",
+                "change": "Record drafted from the OECD Monitor entry and the cited sources.",
+                "source": "https://oecd.ai/en/incidents/2022-12-28-624f",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Benefit type set to Improved Physical Health under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
+                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Added what happened since from the cited sources.",
+                "source": "https://doi.org/10.3389/frai.2025.1496109",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
+                "source": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9C%8B%E9%86%AB%E8%97%A5%E5%A4%A7%E5%AD%B8%E9%99%84%E8%A8%AD%E9%86%AB%E9%99%A2; https://en.wikipedia.org/wiki/China_Medical_University_(Taiwan)",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-22",
+                "change": "Organization name standardized to China Medical University Hospital.",
+                "editor": "AIBD"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "date_observed",
+            "revisions"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "replication.attempts[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "replication.conditions": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "replication": {
+              "produced_by": [
+                "A patient with atypical symptoms has an exercise ECG at a hospital that runs the AI model alongside the manual reading",
+                "The model's probability of severe (over 70%) stenosis exceeds what the manual reading and risk score suggest. The cardiologist acts on it by ordering angiography",
+                "Angiography confirms a severe stenosis that can be treated at once by stenting"
+              ],
+              "must_hold": [
+                "The model is run in addition to, not instead of, the clinician's reading. The hospital calls it assisted interpretation and a clinician made every decision",
+                "The clinician is willing to send a patient to invasive angiography on an AI probability score. With the published model's specificity of 0.60, some such patients will have no severe lesion",
+                "The patient is seen at a hospital that has the system. The sources describe it only at CMUH, in use from May 2022"
+              ],
+              "echoes": []
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "revision_history[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "revisions": [
+              {
+                "date": "2026-10-20",
+                "change": "Record drafted from the OECD Monitor entry and the cited sources.",
+                "source": "https://oecd.ai/en/incidents/2022-12-28-624f",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Benefit type set to Improved Physical Health under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
+                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Added what happened since from the cited sources.",
+                "source": "https://doi.org/10.3389/frai.2025.1496109",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
+                "source": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9C%8B%E9%86%AB%E8%97%A5%E5%A4%A7%E5%AD%B8%E9%99%84%E8%A8%AD%E9%86%AB%E9%99%A2; https://en.wikipedia.org/wiki/China_Medical_University_(Taiwan)",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-22",
+                "change": "Organization name standardized to China Medical University Hospital.",
+                "editor": "AIBD"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "revisions"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sector": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "domain": "Healthcare: cardiology diagnostics (exercise stress ECG)",
+            "segment": "Hospital cardiology; in-house clinical AI"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "domain",
+            "segment"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].access_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "sources[].citation_locator": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "evidence": [
+              {
+                "kind": "news report",
+                "citation": "蔡淑媛 (2022). 胸悶、心悸以為胃食道逆流 竟慢性心肌梗塞99％ [Chest tightness and palpitations taken for reflux turn out to be chronic myocardial infarction, 99% blocked]. 自由健康網 (Liberty Times Health), Taichung, 28 December 2022; print edition 29 December 2022 as 以為胃食道逆流 AI判讀竟是慢性心肌梗塞, https://health.ltn.com.tw/article/paper/1559692.",
+                "title": "胸悶、心悸以為胃食道逆流 竟慢性心肌梗塞99％",
+                "url": "https://health.ltn.com.tw/article/breakingnews/4168516",
+                "date": "2022-12-28",
+                "written_by": "independent",
+                "quote": "同步AI輔助判讀卻發現有嚴重心肌梗塞風險"
+              },
+              {
+                "kind": "news report",
+                "citation": "寇世菁, 中廣新聞網 (BCC News) (2022). 75歲男起床胸悶心悸 中國附醫運動心電圖AI輔助判讀系統及時救命 [75-year-old man wakes with chest tightness and palpitations; CMUH exercise-ECG AI-assisted interpretation system saves his life in time]. Syndicated on Yahoo奇摩新聞, 28 December 2022.",
+                "title": "75歲男起床胸悶心悸 中國附醫運動心電圖AI輔助判讀系統及時救命",
+                "url": "https://tw.news.yahoo.com/75%E6%AD%B2%E7%94%B7%E8%B5%B7%E5%BA%8A%E8%83%B8%E6%82%B6%E5%BF%83%E6%82%B8-%E4%B8%AD%E5%9C%8B%E9%99%84%E9%86%AB%E9%81%8B%E5%8B%95%E5%BF%83%E9%9B%BB%E5%9C%96ai%E8%BC%94%E5%8A%A9%E5%88%A4%E8%AE%80%E7%B3%BB%E7%B5%B1%E5%8F%8A%E6%99%82%E6%95%91%E5%91%BD-083734634.html",
+                "date": "2022-12-28",
+                "written_by": "independent",
+                "quote": "運動心電圖檢查後，傳統人工判讀，認為追蹤即可"
+              },
+              {
+                "kind": "news report",
+                "citation": "張雅淳, 周刊王CTWANT (2022). 男子以為胃食道逆流 AI及時判斷「血管堵塞72%」逃過猝死 [Man thought it was reflux; AI judged '72% vessel blockage' in time and he escaped sudden death]. Syndicated on Yahoo奇摩新聞, 28 December 2022.",
+                "title": "男子以為胃食道逆流 AI及時判斷「血管堵塞72%」逃過猝死",
+                "url": "https://tw.news.yahoo.com/%E7%94%B7%E5%AD%90%E4%BB%A5%E7%82%BA%E8%83%83%E9%A3%9F%E9%81%93%E9%80%86%E6%B5%81-ai%E5%8F%8A%E6%99%82%E5%88%A4%E6%96%B7-%E8%A1%80%E7%AE%A1%E5%A0%B5%E5%A1%9E72-%E9%80%83%E9%81%8E%E7%8C%9D%E6%AD%BB-083151068.html",
+                "date": "2022-12-28",
+                "written_by": "independent",
+                "quote": "AI報告顯示：陳伯伯的冠狀動脈血管嚴重阻塞機率已高達72%"
+              },
+              {
+                "kind": "press release",
+                "citation": "China Medical University Hospital, Public Relations Office 公關室 (2022). 75歲阿伯起床胸悶心悸，冠動脈阻塞高達99％！「運動心電圖AI輔助判讀系統」及時介入治療倖免於難 [75-year-old wakes with chest tightness and palpitations, coronary artery 99% blocked; exercise-ECG AI-assisted interpretation system intervenes in time]. CMUH news no. 8228, 29 December 2022.",
+                "title": "75歲阿伯起床胸悶心悸，冠動脈阻塞高達99％！「運動心電圖AI輔助判讀系統」 及時介入治療倖免於難",
+                "url": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8228",
+                "date": "2022-12-29",
+                "written_by": "makers",
+                "quote": "結果顯示，陳伯伯左前降支狹窄竟已高達99%"
+              },
+              {
+                "kind": "peer-reviewed study",
+                "citation": "Liang, H.-Y., Hsu, K.-C., Chien, S.-Y., Yeh, C.-Y., Sun, T.-H., Liu, M.-H., & Ng, K. K. (2025). Deep learning analysis of exercise stress electrocardiography for identification of significant coronary artery disease. Frontiers in Artificial Intelligence, 8, 1496109. PMID 40166362; PMC11955648.",
+                "title": "Deep learning analysis of exercise stress electrocardiography for identification of significant coronary artery disease",
+                "url": "https://doi.org/10.3389/frai.2025.1496109",
+                "date": "2025-03-17",
+                "written_by": "makers",
+                "quote": "We retrospectively collected 818 patients who underwent both ExECG and coronary angiography (CAG) within 6 months."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].id": {
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "AIBD-0115-source-0001",
+            "AIBD-0115-source-0002",
+            "AIBD-0115-source-0003",
+            "AIBD-0115-source-0004",
+            "AIBD-0115-source-0005"
+          ],
+          "role": "Existing evidence items, in their original order"
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "complete"
+      },
+      "sources[].language": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "sources[].relationship": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "evidence": [
+              {
+                "kind": "news report",
+                "citation": "蔡淑媛 (2022). 胸悶、心悸以為胃食道逆流 竟慢性心肌梗塞99％ [Chest tightness and palpitations taken for reflux turn out to be chronic myocardial infarction, 99% blocked]. 自由健康網 (Liberty Times Health), Taichung, 28 December 2022; print edition 29 December 2022 as 以為胃食道逆流 AI判讀竟是慢性心肌梗塞, https://health.ltn.com.tw/article/paper/1559692.",
+                "title": "胸悶、心悸以為胃食道逆流 竟慢性心肌梗塞99％",
+                "url": "https://health.ltn.com.tw/article/breakingnews/4168516",
+                "date": "2022-12-28",
+                "written_by": "independent",
+                "quote": "同步AI輔助判讀卻發現有嚴重心肌梗塞風險"
+              },
+              {
+                "kind": "news report",
+                "citation": "寇世菁, 中廣新聞網 (BCC News) (2022). 75歲男起床胸悶心悸 中國附醫運動心電圖AI輔助判讀系統及時救命 [75-year-old man wakes with chest tightness and palpitations; CMUH exercise-ECG AI-assisted interpretation system saves his life in time]. Syndicated on Yahoo奇摩新聞, 28 December 2022.",
+                "title": "75歲男起床胸悶心悸 中國附醫運動心電圖AI輔助判讀系統及時救命",
+                "url": "https://tw.news.yahoo.com/75%E6%AD%B2%E7%94%B7%E8%B5%B7%E5%BA%8A%E8%83%B8%E6%82%B6%E5%BF%83%E6%82%B8-%E4%B8%AD%E5%9C%8B%E9%99%84%E9%86%AB%E9%81%8B%E5%8B%95%E5%BF%83%E9%9B%BB%E5%9C%96ai%E8%BC%94%E5%8A%A9%E5%88%A4%E8%AE%80%E7%B3%BB%E7%B5%B1%E5%8F%8A%E6%99%82%E6%95%91%E5%91%BD-083734634.html",
+                "date": "2022-12-28",
+                "written_by": "independent",
+                "quote": "運動心電圖檢查後，傳統人工判讀，認為追蹤即可"
+              },
+              {
+                "kind": "news report",
+                "citation": "張雅淳, 周刊王CTWANT (2022). 男子以為胃食道逆流 AI及時判斷「血管堵塞72%」逃過猝死 [Man thought it was reflux; AI judged '72% vessel blockage' in time and he escaped sudden death]. Syndicated on Yahoo奇摩新聞, 28 December 2022.",
+                "title": "男子以為胃食道逆流 AI及時判斷「血管堵塞72%」逃過猝死",
+                "url": "https://tw.news.yahoo.com/%E7%94%B7%E5%AD%90%E4%BB%A5%E7%82%BA%E8%83%83%E9%A3%9F%E9%81%93%E9%80%86%E6%B5%81-ai%E5%8F%8A%E6%99%82%E5%88%A4%E6%96%B7-%E8%A1%80%E7%AE%A1%E5%A0%B5%E5%A1%9E72-%E9%80%83%E9%81%8E%E7%8C%9D%E6%AD%BB-083151068.html",
+                "date": "2022-12-28",
+                "written_by": "independent",
+                "quote": "AI報告顯示：陳伯伯的冠狀動脈血管嚴重阻塞機率已高達72%"
+              },
+              {
+                "kind": "press release",
+                "citation": "China Medical University Hospital, Public Relations Office 公關室 (2022). 75歲阿伯起床胸悶心悸，冠動脈阻塞高達99％！「運動心電圖AI輔助判讀系統」及時介入治療倖免於難 [75-year-old wakes with chest tightness and palpitations, coronary artery 99% blocked; exercise-ECG AI-assisted interpretation system intervenes in time]. CMUH news no. 8228, 29 December 2022.",
+                "title": "75歲阿伯起床胸悶心悸，冠動脈阻塞高達99％！「運動心電圖AI輔助判讀系統」 及時介入治療倖免於難",
+                "url": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8228",
+                "date": "2022-12-29",
+                "written_by": "makers",
+                "quote": "結果顯示，陳伯伯左前降支狹窄竟已高達99%"
+              },
+              {
+                "kind": "peer-reviewed study",
+                "citation": "Liang, H.-Y., Hsu, K.-C., Chien, S.-Y., Yeh, C.-Y., Sun, T.-H., Liu, M.-H., & Ng, K. K. (2025). Deep learning analysis of exercise stress electrocardiography for identification of significant coronary artery disease. Frontiers in Artificial Intelligence, 8, 1496109. PMID 40166362; PMC11955648.",
+                "title": "Deep learning analysis of exercise stress electrocardiography for identification of significant coronary artery disease",
+                "url": "https://doi.org/10.3389/frai.2025.1496109",
+                "date": "2025-03-17",
+                "written_by": "makers",
+                "quote": "We retrospectively collected 818 patients who underwent both ExECG and coronary angiography (CAG) within 6 months."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].upstream_sources": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "strategic_assessments[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "strategic assessments"
+      },
+      "summary": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "summary": "CMUH's exercise-ECG AI put severe-blockage odds at 72% where manual reading said follow-up; angiography found a 99% LAD stenosis, stented.",
+            "account": "A 75-year-old man surnamed Chen, with controlled hypertension, woke one day with chest tightness and palpitations first taken for reflux. Liberty Times puts the onset in 2021. At China Medical University Hospital (CMUH), Taichung, his exercise electrocardiogram (ECG) was read manually with a risk score. That gave about 50% blockage, moderate risk, follow-up only. The hospital's own Exercise ECG AI-Assisted Interpretation System, in use since May 2022, put the probability of severe (over 70%) narrowing at 72%. So cardiologist 吳宏彬 ordered angiography, found a 99% stenosis of the left anterior descending artery and stented it at once. He went home, chest tightness resolved. The hospital presented it on 28 December 2022. Test and procedure dates are not reported."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "summary",
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].autonomy_permissions": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].component_role": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].deployment_configuration": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].inputs_outputs": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].model_name": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].model_version": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "model_version": "Not reported. The hospital describes a deep-learning model that takes exercise-ECG signals at three time points plus 10 measured and 2 derived features (such as history and maximum workload), trained on nearly 1,000 exercise ECGs matched to catheterization data, accuracy about 80%, sensitivity 88%, in clinical use since May 2022; the authors' 2025 paper describes a convolutional recurrent network with three ECG slices and 12 features, AUC 0.83, sensitivity 0.89, specificity 0.60."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "model_version"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].product_name": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "system": "運動心電圖AI輔助判讀系統 (Exercise ECG AI-Assisted Interpretation System), China Medical University Hospital"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "system"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].provider": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "taxonomy_crosswalks[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "title": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "title": "China Medical University Hospital's exercise-ECG AI catching a 99% coronary stenosis that manual reading had rated moderate, Taichung, 2022",
+            "headline": "CMUH's exercise-ECG AI catches a 99% LAD stenosis rated moderate"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "title",
+            "headline"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "version": {
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "ada0f6e4bf20d8d0f0d30c3ff523e1b613ca3f8d97c3269834cf564e62df77c8"
+          ],
+          "role": "SHA-256 of normalized original case data"
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Deterministic content version assigned by the local migration.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "complete"
+      },
+      "workflow": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "account": "A 75-year-old man surnamed Chen, with controlled hypertension, woke one day with chest tightness and palpitations first taken for reflux. Liberty Times puts the onset in 2021. At China Medical University Hospital (CMUH), Taichung, his exercise electrocardiogram (ECG) was read manually with a risk score. That gave about 50% blockage, moderate risk, follow-up only. The hospital's own Exercise ECG AI-Assisted Interpretation System, in use since May 2022, put the probability of severe (over 70%) narrowing at 72%. So cardiologist 吳宏彬 ordered angiography, found a 99% stenosis of the left anterior descending artery and stented it at once. He went home, chest tightness resolved. The hospital presented it on 28 December 2022. Test and procedure dates are not reported.",
+            "replication": {
+              "produced_by": [
+                "A patient with atypical symptoms has an exercise ECG at a hospital that runs the AI model alongside the manual reading",
+                "The model's probability of severe (over 70%) stenosis exceeds what the manual reading and risk score suggest. The cardiologist acts on it by ordering angiography",
+                "Angiography confirms a severe stenosis that can be treated at once by stenting"
+              ],
+              "must_hold": [
+                "The model is run in addition to, not instead of, the clinician's reading. The hospital calls it assisted interpretation and a clinician made every decision",
+                "The clinician is willing to send a patient to invasive angiography on an AI probability score. With the published model's specificity of 0.60, some such patients will have no severe lesion",
+                "The patient is seen at a hospital that has the system. The sources describe it only at CMUH, in use from May 2022"
+              ],
+              "echoes": []
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "account",
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      }
+    },
+    "summary": {
+      "total": 91,
+      "addressed": 91,
+      "known": 29,
+      "reviewed": 0,
+      "record_mapped": 29,
+      "not_assessed": 62,
+      "complete": false,
+      "by_state": {
+        "value_present": 29,
+        "not_reported": 0,
+        "unresolved": 0,
+        "not_assessed": 62,
+        "not_applicable": 0,
+        "withheld": 0,
+        "source_unavailable": 0
+      }
+    }
+  }
 }

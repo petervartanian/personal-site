@@ -3,8 +3,8 @@
   "title": "Code Intelligence's Spark agent found a heap use-after-free in wolfSSL's pem_read_bio_key() during its beta test; wolfSSL merged a fix within days and shipped it in 5.7.6",
   "summary": "Spark, an AI fuzz-test agent, found a heap use-after-free in wolfSSL in late Oct 2024; fixed in PR 8139 and shipped in 5.7.6 on 31 December 2024.",
   "date_observed": "2024-11-01",
-  "date_basis": "event",
-  "date_precision": "day",
+  "date_basis": "unassessed",
+  "date_precision": "unassessed",
   "benefit_status": null,
   "source_collection": null,
   "source_entry": null,
@@ -157,5 +157,1205 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: two independent news reports, two press releases from the makers and two other sources from the beneficiary. The cited evidence includes no independent study or report and no finding by a regulator or court."
+  "claim_basis": "Sources: two independent news reports, two press releases from the makers and two other sources from the beneficiary. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "profile": {
+    "case_id": "AIBD-0124",
+    "catalog_version": "1.0.0",
+    "source_fingerprint": "7ce94ae129baf748ac97ed8b650550a439de68537780b073ab8c984a81c60a8a",
+    "collection_refs": [
+      {
+        "collection_id": "aibd",
+        "version": "snapshot-8bf7cfec9cb185aa"
+      }
+    ],
+    "source_ids": [
+      "AIBD-0124-source-0001",
+      "AIBD-0124-source-0002",
+      "AIBD-0124-source-0003",
+      "AIBD-0124-source-0004",
+      "AIBD-0124-source-0005",
+      "AIBD-0124-source-0006"
+    ],
+    "families": {
+      "strategic assessments": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "evaluations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "monetary observations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "institutional decisions": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      }
+    },
+    "fields": {
+      "actors[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "developer": "Code Intelligence GmbH",
+            "deployer": "Code Intelligence GmbH (beta test run by the vendor)"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "developer",
+            "deployer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "actors[].ownership_control": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "ai_contribution": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ai_role": {
+              "status": "assessed",
+              "statement": "On the vendor's account, Spark selected the target, generated the fuzz test and ran it after a single “cifuzz spark” command. One manual step confirmed that the finding was real and exploitable under narrow conditions. wolfSSL's pull request and release notes confirm the bug, its location in pem_read_bio_key(), the timing and the reporter's first name. They mention neither AI nor Code Intelligence. The autonomous discovery therefore rests on the vendor's statements, repeated by QA Financial and SC Media, not on an independent test."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "ai_relationship": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "category": "benefit created",
+            "ai_role": {
+              "status": "assessed",
+              "statement": "On the vendor's account, Spark selected the target, generated the fuzz test and ran it after a single “cifuzz spark” command. One manual step confirmed that the finding was real and exploitable under narrow conditions. wolfSSL's pull request and release notes confirm the bug, its location in pem_read_bio_key(), the timing and the reporter's first name. They mention neither AI nor Code Intelligence. The autonomous discovery therefore rests on the vendor's statements, repeated by QA Financial and SC Media, not on an independent test."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ai_role",
+            "category"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].alternatives": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].assessor_date": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].depth": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path. It merged the fix within days (PR 8139, 1 November 2024) and shipped it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release's Vulnerabilities section. No CVE for it appears on wolfSSL's vulnerabilities page. The vendor itself says the exploit conditions “don't seem easy to meet”, so the benefit is material but bounded."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].display_confidence": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "confidence": "medium",
+            "evidence_word": "reported",
+            "claim_status": "Independently reported",
+            "basis": "Sources: two independent news reports, two press releases from the makers and two other sources from the beneficiary. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].rationale": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path. It merged the fix within days (PR 8139, 1 November 2024) and shipped it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release's Vulnerabilities section. No CVE for it appears on wolfSSL's vulnerabilities page. The vendor itself says the exploit conditions “don't seem easy to meet”, so the benefit is material but bounded."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].rubric_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].status_basis": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].target": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path. It merged the fix within days (PR 8139, 1 November 2024) and shipped it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release's Vulnerabilities section. No CVE for it appears on wolfSSL's vulnerabilities page. The vendor itself says the exploit conditions “don't seem easy to meet”, so the benefit is material but bounded."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "availability": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "brief": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "case_kind": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "case_links[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].evidence_links": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].evidence_strength": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].missingness": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].proposition": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "cross_border_flows[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "decisions[].action_outcome": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].grounds": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].institution_task": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].success_criterion": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "deployment_stage": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "economics[].amount": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].costs[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].counterfactual": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].currency_price_basis": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].gross_net": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].measure_type": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].period_unit": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].realization": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].recipient_payer": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].return_payback": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].valuation_method": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "evaluations[].ai_uplift": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].comparator": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].design": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].effect": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].exposure": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].id": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].measurement_method": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].metric": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].reproduction_materials": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].setting_sample": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].uncertainty_limitations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "external_references[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "registry_ids": {
+              "oecd_aim": "2025-01-09-764d"
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "registry_ids"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "follow_up[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "later": {
+              "status": "persisted",
+              "date": "2024-12-31",
+              "note": "wolfSSL shipped the fix in release 5.7.6 on 31 December 2024, crediting the reporter in its release notes, and Code Intelligence launched Spark publicly in January 2025.",
+              "quote": "Fix for potential heap use after free with wolfSSL_PEM_read_bio_PrivateKey. Thanks to Peter for the issue reported. (PR 8139)",
+              "url": "https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable"
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "later"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "human_oversight": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "id": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "id": "AIBD-0124"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "id"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "infrastructure_dependencies[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].beneficiaries": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].beneficiary_count": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].benefit_type": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "benefit_type": "Reduced Risk"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "benefit_type"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].claim": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "account": "Spark is the AI test agent in Code Intelligence GmbH's CI Fuzz product. Its final beta test in late October 2024 ran it on wolfSSL, an open-source cryptography library for embedded and IoT devices. By the vendor's account, after one command the agent chose the target, generated and ran a fuzz test and exposed a heap use-after-free in pem_read_bio_key(). There a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024. It shipped in release 5.7.6 on 31 December 2024, crediting “Peter” in the release notes. The vendor's blog post on the find is by engineer Peter Samarin.",
+            "benefit_type": "Reduced Risk"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "account",
+            "benefit_type"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].distribution": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].duration": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].id": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].stakeholder_group": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path. It merged the fix within days (PR 8139, 1 November 2024) and shipped it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release's Vulnerabilities section. No CVE for it appears on wolfSSL's vulnerabilities page. The vendor itself says the exploit conditions “don't seem easy to meet”, so the benefit is material but bounded."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].status": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].tradeoffs": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].unexpected": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "unexpected": false,
+            "purpose": "Spark was built to find bugs and vulnerabilities autonomously by selecting functions to fuzz and generating and running fuzz tests. Finding this flaw was exactly that function, exercised in the vendor's own beta test."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "unexpected",
+            "purpose"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "places[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "location": "Bonn, Germany",
+            "developer_country": "Germany",
+            "deployer_country": "Germany"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "location",
+            "developer_country",
+            "deployer_country"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "purpose": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "purpose": "Spark was built to find bugs and vulnerabilities autonomously by selecting functions to fuzz and generating and running fuzz tests. Finding this flaw was exactly that function, exercised in the vendor's own beta test."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "purpose"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "record_dates": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "date_observed": "2024-11-01",
+            "revisions": [
+              {
+                "date": "2026-10-20",
+                "change": "Record drafted from the OECD Monitor entry and the cited sources.",
+                "source": "https://oecd.ai/en/incidents/2025-01-09-764d",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Benefit type set to Reduced Risk under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
+                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Added what happened since from the cited sources.",
+                "source": "https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
+                "source": "https://www.northdata.de/Code+Intelligence+GmbH,+Bonn; https://www.northdata.de/Code+Intelligence+GmbH,+Bonn",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "date_observed",
+            "revisions"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "replication.attempts[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "replication.conditions": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "replication": {
+              "produced_by": [
+                "wolfSSL's source tree (before 5.7.6) set up as a CI Fuzz project by the vendor",
+                "A single “cifuzz spark” command, after which the agent chose pem_read_bio_key() as a target and generated and ran a fuzz test",
+                "A sanitizer-detectable heap use-after-free in the BIO write-back path of pem_read_bio_key() that a generated input could trigger",
+                "A maintainer team that tracked the report as ZD#18875 and merged a fix within three days of the discovery"
+              ],
+              "must_hold": [
+                "A human must confirm the finding. The vendor says the one manual step was assessing that the bug exists and is exploitable under specific conditions",
+                "The beneficiary must be an identifiable project with a public fix record. Without wolfSSL's PR and release notes the event would rest on vendor claims alone",
+                "The AI's share of the work is described only by the vendor. wolfSSL's records name the reporter, not the tool, so the autonomy claim cannot be replicated without the vendor's product"
+              ],
+              "echoes": []
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "revision_history[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "revisions": [
+              {
+                "date": "2026-10-20",
+                "change": "Record drafted from the OECD Monitor entry and the cited sources.",
+                "source": "https://oecd.ai/en/incidents/2025-01-09-764d",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Benefit type set to Reduced Risk under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
+                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Added what happened since from the cited sources.",
+                "source": "https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
+                "source": "https://www.northdata.de/Code+Intelligence+GmbH,+Bonn; https://www.northdata.de/Code+Intelligence+GmbH,+Bonn",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "revisions"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sector": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "domain": "Software security / open-source cryptography library testing",
+            "segment": "Open-source TLS and cryptography library for embedded and IoT systems"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "domain",
+            "segment"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].access_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "sources[].citation_locator": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "evidence": [
+              {
+                "kind": "other",
+                "citation": "wolfSSL (2024). wolfSSL Release 5.7.6 (Dec 31, 2024), release notes, Bug Fixes. GitHub, wolfSSL/wolfssl, tag v5.7.6-stable, published 31 December 2024.",
+                "title": "wolfSSL Release 5.7.6 (Dec 31, 2024)",
+                "url": "https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable",
+                "date": "2024-12-31",
+                "written_by": "beneficiary",
+                "quote": "Fix for potential heap use after free with wolfSSL_PEM_read_bio_PrivateKey. Thanks to Peter for the issue reported. (PR 8139)"
+              },
+              {
+                "kind": "other",
+                "citation": "douzzer (2024). 20241031-fixes. wolfSSL/wolfssl pull request 8139, GitHub, opened and merged 1 November 2024; commit b41ce042 changes src/pk.c.",
+                "title": "20241031-fixes (wolfSSL pull request 8139)",
+                "url": "https://github.com/wolfSSL/wolfssl/pull/8139",
+                "date": "2024-11-01",
+                "written_by": "beneficiary",
+                "quote": "src/pk.c: in pem_read_bio_key(), fix invalid read (ZD#18875)."
+              },
+              {
+                "kind": "press release",
+                "citation": "Samarin, P. (2025). How AI-generated fuzz test uncovered a vulnerability in wolfSSL. Code Intelligence blog, 3 January 2025; Wayback Machine capture of 9 January 2025 (the live domain did not resolve on 20 October 2026).",
+                "title": "How AI-generated fuzz test uncovered a vulnerability in wolfSSL",
+                "url": "https://web.archive.org/web/20250109141038/https://www.code-intelligence.com/blog/ai-generated-fuzz-test-wolfssl-vulnerability",
+                "date": "2025-01-03",
+                "written_by": "makers",
+                "quote": "The vulnerability was identified in wolfSSL, an open-source cryptography library widely used in developing embedded devices and IoT systems, during the final week of October 2024."
+              },
+              {
+                "kind": "press release",
+                "citation": "Code Intelligence (2025). Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction. PR Newswire, Bonn, 9 January 2025.",
+                "title": "Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction",
+                "url": "https://www.prnewswire.com/news-releases/code-intelligence-launches-spark-its-ai-test-agent-that-autonomously-uncovers-vulnerabilities-without-human-interaction-302345548.html",
+                "date": "2025-01-09",
+                "written_by": "makers",
+                "quote": "The only human involvement was launching a single command to run the AI Test Agent; analyzing the code, generating a relevant test case, and running it was done autonomously."
+              },
+              {
+                "kind": "news report",
+                "citation": "Willems, M. (2025). German startup to launch world's first AI test agent. QA Financial, 13 January 2025.",
+                "title": "German startup to launch world's first AI test agent",
+                "url": "https://qa-financial.com/german-startup-to-launch-worlds-first-ai-test-agent/",
+                "date": "2025-01-13",
+                "written_by": "independent",
+                "quote": "Brueggemann claimed his firm shared the bug with WolfSSL’s team, which went on to issue a warning and update in December of last year."
+              },
+              {
+                "kind": "news report",
+                "citation": "French, L. (2025). How AI can revolutionize vulnerability research. SC Media, 3 February 2025.",
+                "title": "How AI can revolutionize vulnerability research",
+                "url": "https://www.scworld.com/feature/how-ai-can-revolutionize-vulnerability-research",
+                "date": "2025-02-03",
+                "written_by": "independent",
+                "quote": "Code Intelligence’s Spark autonomously discovering a heap-based user-after-free vulnerability in popular open-source wolfSSL library during its beta testing in October 2024."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].id": {
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "AIBD-0124-source-0001",
+            "AIBD-0124-source-0002",
+            "AIBD-0124-source-0003",
+            "AIBD-0124-source-0004",
+            "AIBD-0124-source-0005",
+            "AIBD-0124-source-0006"
+          ],
+          "role": "Existing evidence items, in their original order"
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "complete"
+      },
+      "sources[].language": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "sources[].relationship": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "evidence": [
+              {
+                "kind": "other",
+                "citation": "wolfSSL (2024). wolfSSL Release 5.7.6 (Dec 31, 2024), release notes, Bug Fixes. GitHub, wolfSSL/wolfssl, tag v5.7.6-stable, published 31 December 2024.",
+                "title": "wolfSSL Release 5.7.6 (Dec 31, 2024)",
+                "url": "https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable",
+                "date": "2024-12-31",
+                "written_by": "beneficiary",
+                "quote": "Fix for potential heap use after free with wolfSSL_PEM_read_bio_PrivateKey. Thanks to Peter for the issue reported. (PR 8139)"
+              },
+              {
+                "kind": "other",
+                "citation": "douzzer (2024). 20241031-fixes. wolfSSL/wolfssl pull request 8139, GitHub, opened and merged 1 November 2024; commit b41ce042 changes src/pk.c.",
+                "title": "20241031-fixes (wolfSSL pull request 8139)",
+                "url": "https://github.com/wolfSSL/wolfssl/pull/8139",
+                "date": "2024-11-01",
+                "written_by": "beneficiary",
+                "quote": "src/pk.c: in pem_read_bio_key(), fix invalid read (ZD#18875)."
+              },
+              {
+                "kind": "press release",
+                "citation": "Samarin, P. (2025). How AI-generated fuzz test uncovered a vulnerability in wolfSSL. Code Intelligence blog, 3 January 2025; Wayback Machine capture of 9 January 2025 (the live domain did not resolve on 20 October 2026).",
+                "title": "How AI-generated fuzz test uncovered a vulnerability in wolfSSL",
+                "url": "https://web.archive.org/web/20250109141038/https://www.code-intelligence.com/blog/ai-generated-fuzz-test-wolfssl-vulnerability",
+                "date": "2025-01-03",
+                "written_by": "makers",
+                "quote": "The vulnerability was identified in wolfSSL, an open-source cryptography library widely used in developing embedded devices and IoT systems, during the final week of October 2024."
+              },
+              {
+                "kind": "press release",
+                "citation": "Code Intelligence (2025). Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction. PR Newswire, Bonn, 9 January 2025.",
+                "title": "Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction",
+                "url": "https://www.prnewswire.com/news-releases/code-intelligence-launches-spark-its-ai-test-agent-that-autonomously-uncovers-vulnerabilities-without-human-interaction-302345548.html",
+                "date": "2025-01-09",
+                "written_by": "makers",
+                "quote": "The only human involvement was launching a single command to run the AI Test Agent; analyzing the code, generating a relevant test case, and running it was done autonomously."
+              },
+              {
+                "kind": "news report",
+                "citation": "Willems, M. (2025). German startup to launch world's first AI test agent. QA Financial, 13 January 2025.",
+                "title": "German startup to launch world's first AI test agent",
+                "url": "https://qa-financial.com/german-startup-to-launch-worlds-first-ai-test-agent/",
+                "date": "2025-01-13",
+                "written_by": "independent",
+                "quote": "Brueggemann claimed his firm shared the bug with WolfSSL’s team, which went on to issue a warning and update in December of last year."
+              },
+              {
+                "kind": "news report",
+                "citation": "French, L. (2025). How AI can revolutionize vulnerability research. SC Media, 3 February 2025.",
+                "title": "How AI can revolutionize vulnerability research",
+                "url": "https://www.scworld.com/feature/how-ai-can-revolutionize-vulnerability-research",
+                "date": "2025-02-03",
+                "written_by": "independent",
+                "quote": "Code Intelligence’s Spark autonomously discovering a heap-based user-after-free vulnerability in popular open-source wolfSSL library during its beta testing in October 2024."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].upstream_sources": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "strategic_assessments[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "strategic assessments"
+      },
+      "summary": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "summary": "Spark, an AI fuzz-test agent, found a heap use-after-free in wolfSSL in late Oct 2024; fixed in PR 8139 and shipped in 5.7.6 on 31 December 2024.",
+            "account": "Spark is the AI test agent in Code Intelligence GmbH's CI Fuzz product. Its final beta test in late October 2024 ran it on wolfSSL, an open-source cryptography library for embedded and IoT devices. By the vendor's account, after one command the agent chose the target, generated and ran a fuzz test and exposed a heap use-after-free in pem_read_bio_key(). There a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024. It shipped in release 5.7.6 on 31 December 2024, crediting “Peter” in the release notes. The vendor's blog post on the find is by engineer Peter Samarin."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "summary",
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].autonomy_permissions": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].component_role": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].deployment_configuration": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].inputs_outputs": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].model_name": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].model_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].product_name": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "system": "Spark, AI test agent in Code Intelligence's CI Fuzz (invoked as 'cifuzz spark')"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "system"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].provider": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "taxonomy_crosswalks[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "title": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "title": "Code Intelligence's Spark agent found a heap use-after-free in wolfSSL's pem_read_bio_key() during its beta test; wolfSSL merged a fix within days and shipped it in 5.7.6",
+            "headline": "Code Intelligence's Spark finds a heap use-after-free in wolfSSL"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "title",
+            "headline"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "version": {
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "7ce94ae129baf748ac97ed8b650550a439de68537780b073ab8c984a81c60a8a"
+          ],
+          "role": "SHA-256 of normalized original case data"
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Deterministic content version assigned by the local migration.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "complete"
+      },
+      "workflow": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "account": "Spark is the AI test agent in Code Intelligence GmbH's CI Fuzz product. Its final beta test in late October 2024 ran it on wolfSSL, an open-source cryptography library for embedded and IoT devices. By the vendor's account, after one command the agent chose the target, generated and ran a fuzz test and exposed a heap use-after-free in pem_read_bio_key(). There a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024. It shipped in release 5.7.6 on 31 December 2024, crediting “Peter” in the release notes. The vendor's blog post on the find is by engineer Peter Samarin.",
+            "replication": {
+              "produced_by": [
+                "wolfSSL's source tree (before 5.7.6) set up as a CI Fuzz project by the vendor",
+                "A single “cifuzz spark” command, after which the agent chose pem_read_bio_key() as a target and generated and ran a fuzz test",
+                "A sanitizer-detectable heap use-after-free in the BIO write-back path of pem_read_bio_key() that a generated input could trigger",
+                "A maintainer team that tracked the report as ZD#18875 and merged a fix within three days of the discovery"
+              ],
+              "must_hold": [
+                "A human must confirm the finding. The vendor says the one manual step was assessing that the bug exists and is exploitable under specific conditions",
+                "The beneficiary must be an identifiable project with a public fix record. Without wolfSSL's PR and release notes the event would rest on vendor claims alone",
+                "The AI's share of the work is described only by the vendor. wolfSSL's records name the reporter, not the tool, so the autonomy claim cannot be replicated without the vendor's product"
+              ],
+              "echoes": []
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "account",
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      }
+    },
+    "summary": {
+      "total": 91,
+      "addressed": 91,
+      "known": 28,
+      "reviewed": 0,
+      "record_mapped": 28,
+      "not_assessed": 63,
+      "complete": false,
+      "by_state": {
+        "value_present": 28,
+        "not_reported": 0,
+        "unresolved": 0,
+        "not_assessed": 63,
+        "not_applicable": 0,
+        "withheld": 0,
+        "source_unavailable": 0
+      }
+    }
+  }
 }

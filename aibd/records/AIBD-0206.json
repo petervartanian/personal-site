@@ -3,8 +3,8 @@
   "title": "Wiz Research's AI-augmented reverse engineering of GitHub's closed-source git binaries, with Claude Code and IDA MCP, finds a critical push-option injection giving remote code execution on GitHub.com and GitHub Enterprise Server; GitHub reproduces it in 40 minutes, patches github.com by 7:00 pm UTC on 4 March 2026 and finds no exploitation",
   "summary": "Wiz's AI-aided reverse engineering found a critical GitHub RCE (CVE-2026–3854); github.com was patched the same day, no exploitation found.",
   "date_observed": "2026-03-04",
-  "date_basis": "event",
-  "date_precision": "day",
+  "date_basis": "unassessed",
+  "date_precision": "unassessed",
   "benefit_status": null,
   "source_collection": null,
   "source_entry": null,
@@ -197,5 +197,1285 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: four independent news reports, the makers' press release, the deployer's press release, the beneficiary's report and two other sources from the beneficiary. The cited evidence includes no independent study or report and no finding by a regulator or court."
+  "claim_basis": "Sources: four independent news reports, the makers' press release, the deployer's press release, the beneficiary's report and two other sources from the beneficiary. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "profile": {
+    "case_id": "AIBD-0206",
+    "catalog_version": "1.0.0",
+    "source_fingerprint": "ff0aea37a83383bd3c595a9dca088dafbf8eda9367a2aafc4e5e9a763f076a43",
+    "collection_refs": [
+      {
+        "collection_id": "aibd",
+        "version": "snapshot-8bf7cfec9cb185aa"
+      }
+    ],
+    "source_ids": [
+      "AIBD-0206-source-0001",
+      "AIBD-0206-source-0002",
+      "AIBD-0206-source-0003",
+      "AIBD-0206-source-0004",
+      "AIBD-0206-source-0005",
+      "AIBD-0206-source-0006",
+      "AIBD-0206-source-0007",
+      "AIBD-0206-source-0008",
+      "AIBD-0206-source-0009"
+    ],
+    "families": {
+      "strategic assessments": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "evaluations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "monetary observations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "institutional decisions": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      }
+    },
+    "fields": {
+      "actors[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "developer": "Anthropic (Claude Code); the maker of IDA MCP is not named in the sources",
+            "deployer": "Wiz Research (Sagi Tzadik, Nir Ohfeld, Ronen Shustin, Hillai Ben-Sasson, Yuval Avrahami, Noam Malron)"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "developer",
+            "deployer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "actors[].ownership_control": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "ai_contribution": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ai_role": {
+              "status": "assessed",
+              "statement": "The AI's documented contribution is speed of analysis, on the researchers' own account. Wiz writes that AI-augmented reverse-engineering tooling, particularly IDA MCP, let it rapidly analyze GitHub's compiled binaries and reconstruct internal protocols. Wiz says that speed would not have been feasible manually. Sagi Tzadik told Dark Reading that with AI tools it took under 48 hours from idea to working exploit. The Register adds that the team used Claude Code “to take a lot of the legwork out of the process”. The hypothesis, the exploit, the report and the fix were human work. Six named Wiz researchers confirmed RCE on GHES 3.19.1 and wrote what GitHub called a thorough report. GitHub's security and engineering teams reproduced the bug within 40 minutes and deployed the fix. GitHub's own post, the CVE record and the GHES release notes describe a Bug Bounty report without mentioning AI. The AI-assistance claim therefore rests on Wiz and on outlets quoting Wiz. Wiz's write-up, in the text as read, names IDA MCP and not Claude."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "ai_relationship": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "category": "benefit created",
+            "ai_role": {
+              "status": "assessed",
+              "statement": "The AI's documented contribution is speed of analysis, on the researchers' own account. Wiz writes that AI-augmented reverse-engineering tooling, particularly IDA MCP, let it rapidly analyze GitHub's compiled binaries and reconstruct internal protocols. Wiz says that speed would not have been feasible manually. Sagi Tzadik told Dark Reading that with AI tools it took under 48 hours from idea to working exploit. The Register adds that the team used Claude Code “to take a lot of the legwork out of the process”. The hypothesis, the exploit, the report and the fix were human work. Six named Wiz researchers confirmed RCE on GHES 3.19.1 and wrote what GitHub called a thorough report. GitHub's security and engineering teams reproduced the bug within 40 minutes and deployed the fix. GitHub's own post, the CVE record and the GHES release notes describe a Bug Bounty report without mentioning AI. The AI-assistance claim therefore rests on Wiz and on outlets quoting Wiz. Wiz's write-up, in the text as read, names IDA MCP and not Claude."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ai_role",
+            "category"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].alternatives": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].assessor_date": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].depth": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "GitHub closed a critical remote code execution hole in its git push pipeline within hours of the report. The fix reached github.com at 7:00 pm UTC on 4 March 2026. GitHub also shipped patches for six GitHub Enterprise Server release lines. Wiz earned what GitHub calls one of the highest rewards in the history of its Bug Bounty program. The loss avoided is hypothetical. GitHub's forensic investigation found that no other account had triggered the code path. No customer data was accessed, modified or exfiltrated. The benefit is an exposure closed rather than a demonstrated loss prevented."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].display_confidence": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "confidence": "medium",
+            "evidence_word": "reported",
+            "claim_status": "Independently reported",
+            "basis": "Sources: four independent news reports, the makers' press release, the deployer's press release, the beneficiary's report and two other sources from the beneficiary. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].rationale": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "GitHub closed a critical remote code execution hole in its git push pipeline within hours of the report. The fix reached github.com at 7:00 pm UTC on 4 March 2026. GitHub also shipped patches for six GitHub Enterprise Server release lines. Wiz earned what GitHub calls one of the highest rewards in the history of its Bug Bounty program. The loss avoided is hypothetical. GitHub's forensic investigation found that no other account had triggered the code path. No customer data was accessed, modified or exfiltrated. The benefit is an exposure closed rather than a demonstrated loss prevented."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].rubric_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].status_basis": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].target": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "GitHub closed a critical remote code execution hole in its git push pipeline within hours of the report. The fix reached github.com at 7:00 pm UTC on 4 March 2026. GitHub also shipped patches for six GitHub Enterprise Server release lines. Wiz earned what GitHub calls one of the highest rewards in the history of its Bug Bounty program. The loss avoided is hypothetical. GitHub's forensic investigation found that no other account had triggered the code path. No customer data was accessed, modified or exfiltrated. The benefit is an exposure closed rather than a demonstrated loss prevented."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "availability": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "brief": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "case_kind": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "case_links[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].evidence_links": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].evidence_strength": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].missingness": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].proposition": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "cross_border_flows[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "decisions[].action_outcome": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].grounds": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].institution_task": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].success_criterion": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "deployment_stage": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "economics[].amount": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].costs[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].counterfactual": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].currency_price_basis": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].gross_net": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].measure_type": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].period_unit": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].realization": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].recipient_payer": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].return_payback": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].valuation_method": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "evaluations[].ai_uplift": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].comparator": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].design": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].effect": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].exposure": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].id": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].measurement_method": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].metric": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].reproduction_materials": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].setting_sample": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].uncertainty_limitations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "external_references[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "registry_ids": {
+              "oecd_aim": "2026-04-28-f5d8"
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "registry_ids"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "follow_up[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "later": {
+              "status": "persisted",
+              "date": "2026-04-28",
+              "note": "GitHub's 28 April 2026 disclosure confirmed the same-day fix, patches for all supported GitHub Enterprise Server releases, and a forensic investigation that found no exploitation beyond the researchers' own testing.",
+              "quote": "In less than two hours we had validated the finding, deployed a fix to github.com, and begun a forensic investigation that concluded there was no exploitation.",
+              "url": "https://github.blog/security/securing-the-git-push-pipeline-responding-to-a-critical-remote-code-execution-vulnerability/"
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "later"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "human_oversight": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "id": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "id": "AIBD-0206"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "id"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "infrastructure_dependencies[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].beneficiaries": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].beneficiary_count": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].benefit_type": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "benefit_type": "Reduced Risk"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "benefit_type"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].claim": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "account": "On 4 March 2026 Wiz Research reported a critical remote code execution (RCE) flaw to GitHub, later CVE-2026–3854. It sat in GitHub's internal git infrastructure. Git push options were not sanitized before being written into internal headers. Any authenticated user could therefore run arbitrary commands on GitHub's servers with a single git push. Wiz says AI-augmented tooling made the research feasible, particularly automated reverse engineering of GitHub's compiled binaries with IDA MCP. The Register reports that the team used Claude Code and went from idea to working exploit in under 48 hours. GitHub reproduced the bug within 40 minutes and deployed a fix to github.com at 7:00 pm UTC that day. It released GitHub Enterprise Server (GHES) patches from 10 March, and found no exploitation.",
+            "benefit_type": "Reduced Risk"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "account",
+            "benefit_type"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].distribution": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].duration": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].id": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].stakeholder_group": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "GitHub closed a critical remote code execution hole in its git push pipeline within hours of the report. The fix reached github.com at 7:00 pm UTC on 4 March 2026. GitHub also shipped patches for six GitHub Enterprise Server release lines. Wiz earned what GitHub calls one of the highest rewards in the history of its Bug Bounty program. The loss avoided is hypothetical. GitHub's forensic investigation found that no other account had triggered the code path. No customer data was accessed, modified or exfiltrated. The benefit is an exposure closed rather than a demonstrated loss prevented."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].status": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].tradeoffs": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].unexpected": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "unexpected": false,
+            "purpose": "Claude Code is Anthropic's agentic coding tool, built to read a codebase, edit files, run commands and connect to external tools over MCP. Wiz used it, with IDA MCP, to automate reverse engineering of GitHub's compiled binaries. Analyzing code for flaws is within that general purpose. The benefit was an application of what the tool was built to do rather than a departure from it."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "unexpected",
+            "purpose"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "places[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "developer_country": "United States",
+            "deployer_country": "United States"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "developer_country",
+            "deployer_country"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "purpose": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "purpose": "Claude Code is Anthropic's agentic coding tool, built to read a codebase, edit files, run commands and connect to external tools over MCP. Wiz used it, with IDA MCP, to automate reverse engineering of GitHub's compiled binaries. Analyzing code for flaws is within that general purpose. The benefit was an application of what the tool was built to do rather than a departure from it."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "purpose"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "record_dates": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "date_observed": "2026-03-04",
+            "revisions": [
+              {
+                "date": "2026-10-20",
+                "change": "Record drafted from the OECD Monitor entry and the cited sources. the date observed is 4 March 2026, the day Wiz reported the flaw and GitHub fixed github.com (GitHub's post: root cause identified at 5:45 pm UTC, fix deployed at 7:00 pm UTC; Wiz and The Verge say within six hours of the report; GitHub's standfirst says under two hours); the Monitor's 28 April 2026 is the public-disclosure date. Filed as benefit created or restored: the AI-assisted discovery produced a concrete fix for an identifiable organization, and the harm avoided is hypothetical because GitHub's forensic investigation found no exploitation. The AI tool is named differently by the sources: The Register (byline Connor Jones on the page as first read) and WebProNews say Claude Code, and WebProNews names Anthropic; Wiz's own write-up credits “AI-augmented tooling, particularly automated reverse engineering using IDA MCP”, and a search of its text as read found no occurrence of “Claude” or “Anthropic”, so the record names Claude Code on The Register's authority and IDA MCP on Wiz's. No Claude model is named anywhere. Severity: the CVE record (CNA GitHub) gives CVSS 4.0 8.7; The Register reports an 8.8 rating from NIST. GHES patch dates: Wiz's timeline says 10 March 2026, the 3.14.25 release notes are dated 12 March 2026. The Wiz post is marked as written by the makers because it is the discoverer's own account of its tooling, although Wiz is not the AI vendor; GitHub's post is the beneficiary's statement and is not flagged. Anthropic's Claude Code overview is cited only for what the product is. The Monitor lists The Register's headline as “Wiz hands GitHub AI-aided bug report that isn't total slop”; the page as read carries the longer headline used in the citation. The Verge and Dark Reading refused direct fetches and were read through the r.jina.ai text proxy; NVD's page did not render; WebSearch was exhausted and Brave and DuckDuckGo rate-limited or challenged, so the CVE record's reference list was used to locate the Wiz and GitHub posts.",
+                "source": "https://oecd.ai/en/incidents/2026-04-28-f5d8",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Title reworded to state the event without naming who claims it.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Benefit type set to Reduced Risk under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
+                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Added what the benefit is measured against, what happened since from the cited sources.",
+                "source": "https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854; https://github.blog/security/securing-the-git-push-pipeline-responding-to-a-critical-remote-code-execution-vulnerability/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
+                "source": "https://en.wikipedia.org/wiki/Anthropic; https://en.wikipedia.org/wiki/Wiz_(company)",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "date_observed",
+            "revisions"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "replication.attempts[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "replication.conditions": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "replication": {
+              "produced_by": [
+                "A closed-source target that researchers could obtain and disassemble. GitHub's backend git services also ship as GitHub Enterprise Server binaries. Those binaries gave automated reverse engineering something to work on, and GHES 3.19.1 gave a place to confirm the exploit.",
+                "AI-augmented tooling for reverse engineering: IDA MCP (per Wiz) driven by Claude Code (per The Register). It reconstructed internal protocols and traced where user input could influence server behavior across the pipeline.",
+                "Experienced vulnerability researchers: six named Wiz authors formed the hypothesis and built and confirmed a working exploit. They wrote what GitHub called a thorough report that clearly demonstrated the impact.",
+                "A beneficiary with a Bug Bounty intake and an on-call security team. GitHub reproduced the bug within 40 minutes of the report. It deployed a fix to github.com at 7:00 pm UTC the same day."
+              ],
+              "must_hold": [
+                "AI output has to be confirmed by exploit, not trusted. Wiz confirmed RCE on a GHES 3.19.1 instance before reporting. That is why GitHub could validate the report in 40 minutes.",
+                "The receiving organization must be able to patch its own service and ship fixes to self-hosted customers. GHES customers stayed exposed until they upgraded to the patched versions released from 10 March 2026.",
+                "Disclosure must wait for the patches, here from 4 March to 28 April 2026. No exploitation had occurred, so the benefit is an exposure closed, not a loss recovered."
+              ],
+              "echoes": []
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "revision_history[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "revisions": [
+              {
+                "date": "2026-10-20",
+                "change": "Record drafted from the OECD Monitor entry and the cited sources. the date observed is 4 March 2026, the day Wiz reported the flaw and GitHub fixed github.com (GitHub's post: root cause identified at 5:45 pm UTC, fix deployed at 7:00 pm UTC; Wiz and The Verge say within six hours of the report; GitHub's standfirst says under two hours); the Monitor's 28 April 2026 is the public-disclosure date. Filed as benefit created or restored: the AI-assisted discovery produced a concrete fix for an identifiable organization, and the harm avoided is hypothetical because GitHub's forensic investigation found no exploitation. The AI tool is named differently by the sources: The Register (byline Connor Jones on the page as first read) and WebProNews say Claude Code, and WebProNews names Anthropic; Wiz's own write-up credits “AI-augmented tooling, particularly automated reverse engineering using IDA MCP”, and a search of its text as read found no occurrence of “Claude” or “Anthropic”, so the record names Claude Code on The Register's authority and IDA MCP on Wiz's. No Claude model is named anywhere. Severity: the CVE record (CNA GitHub) gives CVSS 4.0 8.7; The Register reports an 8.8 rating from NIST. GHES patch dates: Wiz's timeline says 10 March 2026, the 3.14.25 release notes are dated 12 March 2026. The Wiz post is marked as written by the makers because it is the discoverer's own account of its tooling, although Wiz is not the AI vendor; GitHub's post is the beneficiary's statement and is not flagged. Anthropic's Claude Code overview is cited only for what the product is. The Monitor lists The Register's headline as “Wiz hands GitHub AI-aided bug report that isn't total slop”; the page as read carries the longer headline used in the citation. The Verge and Dark Reading refused direct fetches and were read through the r.jina.ai text proxy; NVD's page did not render; WebSearch was exhausted and Brave and DuckDuckGo rate-limited or challenged, so the CVE record's reference list was used to locate the Wiz and GitHub posts.",
+                "source": "https://oecd.ai/en/incidents/2026-04-28-f5d8",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Title reworded to state the event without naming who claims it.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Benefit type set to Reduced Risk under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
+                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Added what the benefit is measured against, what happened since from the cited sources.",
+                "source": "https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854; https://github.blog/security/securing-the-git-push-pipeline-responding-to-a-critical-remote-code-execution-vulnerability/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
+                "source": "https://en.wikipedia.org/wiki/Anthropic; https://en.wikipedia.org/wiki/Wiz_(company)",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "revisions"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sector": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "domain": "Cybersecurity: vulnerability research and software supply chain",
+            "segment": "Bug bounty research: AI-assisted reverse engineering of closed-source server binaries"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "domain",
+            "segment"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].access_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "sources[].citation_locator": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "evidence": [
+              {
+                "kind": "report",
+                "citation": "Wales A / GitHub (2026). Securing the git push pipeline: Responding to a critical remote code execution vulnerability. The GitHub Blog, 28 April 2026 (updated 29 April 2026).",
+                "title": "Securing the git push pipeline: Responding to a critical remote code execution vulnerability",
+                "url": "https://github.blog/security/securing-the-git-push-pipeline-responding-to-a-critical-remote-code-execution-vulnerability/",
+                "date": "2026-04-28",
+                "written_by": "beneficiary",
+                "quote": "our engineering team developed and deployed a fix to github.com at 7:00 p.m. UTC that same day"
+              },
+              {
+                "kind": "other",
+                "citation": "GitHub (CNA) (2026). CVE-2026-3854. CVE Program record, published 10 March 2026.",
+                "title": "CVE-2026-3854",
+                "url": "https://cveawg.mitre.org/api/cve/CVE-2026-3854",
+                "date": "2026-03-10",
+                "written_by": "beneficiary",
+                "quote": "allowed an attacker with push access to a repository to achieve remote code execution on the instance"
+              },
+              {
+                "kind": "other",
+                "citation": "GitHub (2026). GitHub Enterprise Server 3.14 release notes, 3.14.25, 12 March 2026. GitHub Docs.",
+                "title": "GitHub Enterprise Server 3.14 release notes (3.14.25)",
+                "url": "https://docs.github.com/en/enterprise-server@3.14/admin/release-notes",
+                "date": "2026-03-12",
+                "written_by": "beneficiary",
+                "quote": "GitHub has requested CVE ID CVE-2026-3854 for this vulnerability, which was reported via the GitHub Bug Bounty program."
+              },
+              {
+                "kind": "press release",
+                "citation": "Tzadik S, Ohfeld N, Shustin R, Ben-Sasson H, Avrahami Y, Malron N / Wiz Research (2026). Securing GitHub: Wiz Research uncovers Remote Code Execution in GitHub.com and GitHub Enterprise Server (CVE-2026-3854). Wiz Blog, 28 April 2026.",
+                "title": "Securing GitHub: Wiz Research uncovers Remote Code Execution in GitHub.com and GitHub Enterprise Server (CVE-2026-3854)",
+                "url": "https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854",
+                "date": "2026-04-28",
+                "written_by": "deployer",
+                "quote": "This research was made possible by AI-augmented reverse engineering tooling, particularly IDA MCP, which allowed us to rapidly analyze GitHub's compiled binaries"
+              },
+              {
+                "kind": "news report",
+                "citation": "Jones C / The Register (2026). GitHub: Zounds, a genuinely helpful AI-assisted bug report that isn't total slop! Here, Wiz, take this wad of cash. The Register, 29 April 2026.",
+                "title": "GitHub: Zounds, a genuinely helpful AI-assisted bug report that isn't total slop! Here, Wiz, take this wad of cash",
+                "url": "https://www.theregister.com/2026/04/29/github_woah_a_genuinely_helpful/",
+                "date": "2026-04-29",
+                "written_by": "independent",
+                "quote": "They used Claude Code to take a lot of the legwork out of the process"
+              },
+              {
+                "kind": "news report",
+                "citation": "Warren T / The Verge (2026). GitHub rushed to fix a critical vulnerability in less than six hours. The Verge, 29 April 2026.",
+                "title": "GitHub rushed to fix a critical vulnerability in less than six hours",
+                "url": "https://www.theverge.com/news/920295/github-remote-code-execution-vulnerability-fix",
+                "date": "2026-04-29",
+                "written_by": "independent",
+                "quote": "A critical remote code execution vulnerability was discovered using an AI model and patched within hours."
+              },
+              {
+                "kind": "news report",
+                "citation": "Culafi A / Dark Reading (2026). Reverse Engineering With AI Unearths High-Severity GitHub Bug. Dark Reading, 29 April 2026.",
+                "title": "Reverse Engineering With AI Unearths High-Severity GitHub Bug",
+                "url": "https://www.darkreading.com/application-security/reverse-engineering-ai-unearths-high-severity-github-bug",
+                "date": "2026-04-29",
+                "written_by": "independent",
+                "quote": "With the help of AI tools, it took less than 48 hours to go from idea to a working exploit"
+              },
+              {
+                "kind": "news report",
+                "citation": "Ritchie D / WebProNews (2026). Wiz's AI-Powered Strike: How Claude Cracked GitHub's Git Fortress for a Fat Bounty. WebProNews, 30 April 2026.",
+                "title": "Wiz's AI-Powered Strike: How Claude Cracked GitHub's Git Fortress for a Fat Bounty",
+                "url": "https://www.webpronews.com/wizs-ai-powered-strike-how-claude-cracked-githubs-git-fortress-for-a-fat-bounty/",
+                "date": "2026-04-30",
+                "written_by": "independent",
+                "quote": "They leaned on Claude Code, Anthropic's agentic coding tool, for the heavy lifting."
+              },
+              {
+                "kind": "press release",
+                "citation": "Anthropic (2026). Claude Code overview. Claude Code documentation.",
+                "title": "Overview",
+                "url": "https://code.claude.com/docs/en/overview",
+                "written_by": "makers",
+                "quote": "Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].id": {
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "AIBD-0206-source-0001",
+            "AIBD-0206-source-0002",
+            "AIBD-0206-source-0003",
+            "AIBD-0206-source-0004",
+            "AIBD-0206-source-0005",
+            "AIBD-0206-source-0006",
+            "AIBD-0206-source-0007",
+            "AIBD-0206-source-0008",
+            "AIBD-0206-source-0009"
+          ],
+          "role": "Existing evidence items, in their original order"
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "complete"
+      },
+      "sources[].language": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "sources[].relationship": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "evidence": [
+              {
+                "kind": "report",
+                "citation": "Wales A / GitHub (2026). Securing the git push pipeline: Responding to a critical remote code execution vulnerability. The GitHub Blog, 28 April 2026 (updated 29 April 2026).",
+                "title": "Securing the git push pipeline: Responding to a critical remote code execution vulnerability",
+                "url": "https://github.blog/security/securing-the-git-push-pipeline-responding-to-a-critical-remote-code-execution-vulnerability/",
+                "date": "2026-04-28",
+                "written_by": "beneficiary",
+                "quote": "our engineering team developed and deployed a fix to github.com at 7:00 p.m. UTC that same day"
+              },
+              {
+                "kind": "other",
+                "citation": "GitHub (CNA) (2026). CVE-2026-3854. CVE Program record, published 10 March 2026.",
+                "title": "CVE-2026-3854",
+                "url": "https://cveawg.mitre.org/api/cve/CVE-2026-3854",
+                "date": "2026-03-10",
+                "written_by": "beneficiary",
+                "quote": "allowed an attacker with push access to a repository to achieve remote code execution on the instance"
+              },
+              {
+                "kind": "other",
+                "citation": "GitHub (2026). GitHub Enterprise Server 3.14 release notes, 3.14.25, 12 March 2026. GitHub Docs.",
+                "title": "GitHub Enterprise Server 3.14 release notes (3.14.25)",
+                "url": "https://docs.github.com/en/enterprise-server@3.14/admin/release-notes",
+                "date": "2026-03-12",
+                "written_by": "beneficiary",
+                "quote": "GitHub has requested CVE ID CVE-2026-3854 for this vulnerability, which was reported via the GitHub Bug Bounty program."
+              },
+              {
+                "kind": "press release",
+                "citation": "Tzadik S, Ohfeld N, Shustin R, Ben-Sasson H, Avrahami Y, Malron N / Wiz Research (2026). Securing GitHub: Wiz Research uncovers Remote Code Execution in GitHub.com and GitHub Enterprise Server (CVE-2026-3854). Wiz Blog, 28 April 2026.",
+                "title": "Securing GitHub: Wiz Research uncovers Remote Code Execution in GitHub.com and GitHub Enterprise Server (CVE-2026-3854)",
+                "url": "https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854",
+                "date": "2026-04-28",
+                "written_by": "deployer",
+                "quote": "This research was made possible by AI-augmented reverse engineering tooling, particularly IDA MCP, which allowed us to rapidly analyze GitHub's compiled binaries"
+              },
+              {
+                "kind": "news report",
+                "citation": "Jones C / The Register (2026). GitHub: Zounds, a genuinely helpful AI-assisted bug report that isn't total slop! Here, Wiz, take this wad of cash. The Register, 29 April 2026.",
+                "title": "GitHub: Zounds, a genuinely helpful AI-assisted bug report that isn't total slop! Here, Wiz, take this wad of cash",
+                "url": "https://www.theregister.com/2026/04/29/github_woah_a_genuinely_helpful/",
+                "date": "2026-04-29",
+                "written_by": "independent",
+                "quote": "They used Claude Code to take a lot of the legwork out of the process"
+              },
+              {
+                "kind": "news report",
+                "citation": "Warren T / The Verge (2026). GitHub rushed to fix a critical vulnerability in less than six hours. The Verge, 29 April 2026.",
+                "title": "GitHub rushed to fix a critical vulnerability in less than six hours",
+                "url": "https://www.theverge.com/news/920295/github-remote-code-execution-vulnerability-fix",
+                "date": "2026-04-29",
+                "written_by": "independent",
+                "quote": "A critical remote code execution vulnerability was discovered using an AI model and patched within hours."
+              },
+              {
+                "kind": "news report",
+                "citation": "Culafi A / Dark Reading (2026). Reverse Engineering With AI Unearths High-Severity GitHub Bug. Dark Reading, 29 April 2026.",
+                "title": "Reverse Engineering With AI Unearths High-Severity GitHub Bug",
+                "url": "https://www.darkreading.com/application-security/reverse-engineering-ai-unearths-high-severity-github-bug",
+                "date": "2026-04-29",
+                "written_by": "independent",
+                "quote": "With the help of AI tools, it took less than 48 hours to go from idea to a working exploit"
+              },
+              {
+                "kind": "news report",
+                "citation": "Ritchie D / WebProNews (2026). Wiz's AI-Powered Strike: How Claude Cracked GitHub's Git Fortress for a Fat Bounty. WebProNews, 30 April 2026.",
+                "title": "Wiz's AI-Powered Strike: How Claude Cracked GitHub's Git Fortress for a Fat Bounty",
+                "url": "https://www.webpronews.com/wizs-ai-powered-strike-how-claude-cracked-githubs-git-fortress-for-a-fat-bounty/",
+                "date": "2026-04-30",
+                "written_by": "independent",
+                "quote": "They leaned on Claude Code, Anthropic's agentic coding tool, for the heavy lifting."
+              },
+              {
+                "kind": "press release",
+                "citation": "Anthropic (2026). Claude Code overview. Claude Code documentation.",
+                "title": "Overview",
+                "url": "https://code.claude.com/docs/en/overview",
+                "written_by": "makers",
+                "quote": "Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].upstream_sources": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "strategic_assessments[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "strategic assessments"
+      },
+      "summary": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "summary": "Wiz's AI-aided reverse engineering found a critical GitHub RCE (CVE-2026–3854); github.com was patched the same day, no exploitation found.",
+            "account": "On 4 March 2026 Wiz Research reported a critical remote code execution (RCE) flaw to GitHub, later CVE-2026–3854. It sat in GitHub's internal git infrastructure. Git push options were not sanitized before being written into internal headers. Any authenticated user could therefore run arbitrary commands on GitHub's servers with a single git push. Wiz says AI-augmented tooling made the research feasible, particularly automated reverse engineering of GitHub's compiled binaries with IDA MCP. The Register reports that the team used Claude Code and went from idea to working exploit in under 48 hours. GitHub reproduced the bug within 40 minutes and deployed a fix to github.com at 7:00 pm UTC that day. It released GitHub Enterprise Server (GHES) patches from 10 March, and found no exploitation."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "summary",
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].autonomy_permissions": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].component_role": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].deployment_configuration": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].inputs_outputs": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].model_name": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].model_version": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "model_version": "Not named in the cited sources. Wiz's write-up credits 'AI-augmented tooling, particularly automated reverse engineering using IDA MCP' and does not name Claude. The Register and WebProNews name Claude Code."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "model_version"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].product_name": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "system": "AI-augmented reverse-engineering tooling used by Wiz Research: Claude Code (named by The Register and WebProNews) with IDA MCP for automated reverse engineering of GitHub's compiled binaries (named by Wiz), applied to GitHub.com's backend and GitHub Enterprise Server 3.19.1"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "system"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].provider": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "taxonomy_crosswalks[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "title": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "title": "Wiz Research's AI-augmented reverse engineering of GitHub's closed-source git binaries, with Claude Code and IDA MCP, finds a critical push-option injection giving remote code execution on GitHub.com and GitHub Enterprise Server; GitHub reproduces it in 40 minutes, patches github.com by 7:00 pm UTC on 4 March 2026 and finds no exploitation",
+            "headline": "Wiz finds a critical GitHub RCE with Claude Code and IDA MCP"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "title",
+            "headline"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "version": {
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "ff0aea37a83383bd3c595a9dca088dafbf8eda9367a2aafc4e5e9a763f076a43"
+          ],
+          "role": "SHA-256 of normalized original case data"
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Deterministic content version assigned by the local migration.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "complete"
+      },
+      "workflow": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "account": "On 4 March 2026 Wiz Research reported a critical remote code execution (RCE) flaw to GitHub, later CVE-2026–3854. It sat in GitHub's internal git infrastructure. Git push options were not sanitized before being written into internal headers. Any authenticated user could therefore run arbitrary commands on GitHub's servers with a single git push. Wiz says AI-augmented tooling made the research feasible, particularly automated reverse engineering of GitHub's compiled binaries with IDA MCP. The Register reports that the team used Claude Code and went from idea to working exploit in under 48 hours. GitHub reproduced the bug within 40 minutes and deployed a fix to github.com at 7:00 pm UTC that day. It released GitHub Enterprise Server (GHES) patches from 10 March, and found no exploitation.",
+            "replication": {
+              "produced_by": [
+                "A closed-source target that researchers could obtain and disassemble. GitHub's backend git services also ship as GitHub Enterprise Server binaries. Those binaries gave automated reverse engineering something to work on, and GHES 3.19.1 gave a place to confirm the exploit.",
+                "AI-augmented tooling for reverse engineering: IDA MCP (per Wiz) driven by Claude Code (per The Register). It reconstructed internal protocols and traced where user input could influence server behavior across the pipeline.",
+                "Experienced vulnerability researchers: six named Wiz authors formed the hypothesis and built and confirmed a working exploit. They wrote what GitHub called a thorough report that clearly demonstrated the impact.",
+                "A beneficiary with a Bug Bounty intake and an on-call security team. GitHub reproduced the bug within 40 minutes of the report. It deployed a fix to github.com at 7:00 pm UTC the same day."
+              ],
+              "must_hold": [
+                "AI output has to be confirmed by exploit, not trusted. Wiz confirmed RCE on a GHES 3.19.1 instance before reporting. That is why GitHub could validate the report in 40 minutes.",
+                "The receiving organization must be able to patch its own service and ship fixes to self-hosted customers. GHES customers stayed exposed until they upgraded to the patched versions released from 10 March 2026.",
+                "Disclosure must wait for the patches, here from 4 March to 28 April 2026. No exploitation had occurred, so the benefit is an exposure closed, not a loss recovered."
+              ],
+              "echoes": []
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "account",
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      }
+    },
+    "summary": {
+      "total": 91,
+      "addressed": 91,
+      "known": 29,
+      "reviewed": 0,
+      "record_mapped": 29,
+      "not_assessed": 62,
+      "complete": false,
+      "by_state": {
+        "value_present": 29,
+        "not_reported": 0,
+        "unresolved": 0,
+        "not_assessed": 62,
+        "not_applicable": 0,
+        "withheld": 0,
+        "source_unavailable": 0
+      }
+    }
+  }
 }

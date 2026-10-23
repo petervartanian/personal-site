@@ -3,8 +3,8 @@
   "title": "Google's Big Sleep agent may have isolated SQLite CVE-2025–6965 from threat-intel artifacts; fixed in 3.50.2 before exploitation",
   "summary": "Google says Big Sleep, fed indicators that attackers were staging a zero-day, isolated SQLite CVE-2025–6965; SQLite shipped the fix in 3.50.2 on 28 June 2025, announced 15 July 2025.",
   "date_observed": "2025-07-15",
-  "date_basis": "event",
-  "date_precision": "day",
+  "date_basis": "unassessed",
+  "date_precision": "unassessed",
   "benefit_status": null,
   "source_collection": null,
   "source_entry": null,
@@ -180,5 +180,1266 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: one independent news report, one other independent source, the makers' press release and a registry entry. The cited evidence includes no independent study or report and no finding by a regulator or court."
+  "claim_basis": "Sources: one independent news report, one other independent source, the makers' press release and a registry entry. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "profile": {
+    "case_id": "AIBD-0225",
+    "catalog_version": "1.0.0",
+    "source_fingerprint": "47231bc70e9d37ed9a559b05a9b21f33873fdd7ae329ca0d2869200f920f1727",
+    "collection_refs": [
+      {
+        "collection_id": "aibd",
+        "version": "snapshot-8bf7cfec9cb185aa"
+      }
+    ],
+    "source_ids": [
+      "AIBD-0225-source-0001",
+      "AIBD-0225-source-0002",
+      "AIBD-0225-source-0003",
+      "AIBD-0225-source-0004"
+    ],
+    "families": {
+      "strategic assessments": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "evaluations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "monetary observations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "institutional decisions": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      }
+    },
+    "fields": {
+      "actors[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "developer": "DeepMind and Google Project Zero",
+            "deployer": "Google (Threat Analysis Group / Big Sleep team)"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "developer",
+            "deployer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "actors[].ownership_control": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "ai_contribution": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ai_role": {
+              "status": "assessed",
+              "statement": "Per Google's spokesperson, human threat analysts supplied limited indicators and Big Sleep isolated the specific vulnerability. The CVE credit names a human finder “with assistance from Google Big Sleep”. Developer and the organization reporting the benefit are the same company. The Record and the SQLite release log are the independent sources. Neither confirms the threat-actor staging."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "ai_relationship": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "category": "protective response",
+            "ai_role": {
+              "status": "assessed",
+              "statement": "Per Google's spokesperson, human threat analysts supplied limited indicators and Big Sleep isolated the specific vulnerability. The CVE credit names a human finder “with assistance from Google Big Sleep”. Developer and the organization reporting the benefit are the same company. The Record and the SQLite release log are the independent sources. Neither confirms the threat-actor staging."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ai_role",
+            "category"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].alternatives": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].assessor_date": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].depth": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "SQLite fixed the flaw in 3.50.2 (release log entry on aggregate terms exceeding column count) before public exploitation was reported."
+              },
+              {
+                "group": "societal",
+                "reason": "No source documents an outcome for users beyond the patch. The foiled-exploitation claim is Google's."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].display_confidence": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "confidence": "medium",
+            "evidence_word": "reported",
+            "claim_status": "Independently reported",
+            "basis": "Sources: one independent news report, one other independent source, the makers' press release and a registry entry. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].rationale": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "SQLite fixed the flaw in 3.50.2 (release log entry on aggregate terms exceeding column count) before public exploitation was reported."
+              },
+              {
+                "group": "societal",
+                "reason": "No source documents an outcome for users beyond the patch. The foiled-exploitation claim is Google's."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].rubric_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].status_basis": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].target": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "SQLite fixed the flaw in 3.50.2 (release log entry on aggregate terms exceeding column count) before public exploitation was reported."
+              },
+              {
+                "group": "societal",
+                "reason": "No source documents an outcome for users beyond the patch. The foiled-exploitation claim is Google's."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "availability": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "brief": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "case_kind": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "case_links[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].evidence_links": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].evidence_strength": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].missingness": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].proposition": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "cross_border_flows[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "decisions[].action_outcome": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].grounds": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].institution_task": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].success_criterion": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "deployment_stage": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "economics[].amount": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].costs[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].counterfactual": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].currency_price_basis": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].gross_net": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].measure_type": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].period_unit": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].realization": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].recipient_payer": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].return_payback": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].valuation_method": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "evaluations[].ai_uplift": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].comparator": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].design": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].effect": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].exposure": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].id": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].measurement_method": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].metric": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].reproduction_materials": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].setting_sample": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].uncertainty_limitations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "external_references[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "follow_up[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "later": {
+              "status": "persisted",
+              "date": "2025-08-11",
+              "note": "Big Sleep went on to report a legitimate curl vulnerability on 11 August 2025, later published as CVE-2025-9086, which curl's maintainer confirmed.",
+              "quote": "On August 11, 2025 there was a curl vulnerability reported against curl that would turn out legitimate and it would later be published as CVE-2025-9086. The reporter of this was the Google Big Sleep team.",
+              "url": "https://daniel.haxx.se/blog/2025/10/10/a-new-breed-of-analyzers/"
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "later"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "human_oversight": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "id": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "id": "AIBD-0225"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "id"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "infrastructure_dependencies[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].beneficiaries": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].beneficiary_count": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].benefit_type": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "benefit_type": "Reduced Risk"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "benefit_type"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].claim": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "account": "The SQLite 3.50.2 release carrying the fix is dated 28 June 2025. The CVE record was published 15 July 2025. Google's post says that, based on intel from Google Threat Intelligence, the Big Sleep agent discovered an SQLite vulnerability known only to threat actors. It was at risk of being exploited, the post says. A Google spokesperson told The Record that its threat intelligence group found artifacts indicating a zero-day was being staged but could not identify the vulnerability. Big Sleep was used to isolate it, the spokesperson said. Google declined to name the actors or describe the indicators. The CVE record, assigned by Google, credits Vlad Stolyarov of Google's Threat Analysis Group with assistance from Google Big Sleep. SQLite's release log lists the corresponding fix. Independent confirmation that exploitation was imminent is absent. The claim rests on Google.",
+            "benefit_type": "Reduced Risk"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "account",
+            "benefit_type"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].distribution": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].duration": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].id": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].stakeholder_group": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "SQLite fixed the flaw in 3.50.2 (release log entry on aggregate terms exceeding column count) before public exploitation was reported."
+              },
+              {
+                "group": "societal",
+                "reason": "No source documents an outcome for users beyond the patch. The foiled-exploitation claim is Google's."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].status": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].tradeoffs": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].unexpected": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "unexpected": false,
+            "purpose": "Actively search for and find unknown security vulnerabilities in software using a large language model (LLM) agent (Google DeepMind and Project Zero)."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "unexpected",
+            "purpose"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "places[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "developer_country": "United Kingdom",
+            "deployer_country": "United States"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "developer_country",
+            "deployer_country"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "purpose": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "purpose": "Actively search for and find unknown security vulnerabilities in software using a large language model (LLM) agent (Google DeepMind and Project Zero)."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "purpose"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "record_dates": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "date_observed": "2025-07-15",
+            "revisions": [
+              {
+                "date": "2026-10-20",
+                "change": "Record drafted from the cited sources.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Headline reworded to state the event without naming who claims it.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Title reworded to state the event without naming who claims it.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Added what happened since from the cited sources.",
+                "source": "https://daniel.haxx.se/blog/2025/10/10/a-new-breed-of-analyzers/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Benefit type set to Reduced Risk under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
+                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the developer added from the organization's own site or a registry.",
+                "source": "https://en.wikipedia.org/wiki/Google_DeepMind",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the deployer added from the organization's own site or a registry.",
+                "source": "https://en.wikipedia.org/wiki/Google",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-22",
+                "change": "Organization name standardized to DeepMind.",
+                "editor": "AIBD"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "date_observed",
+            "revisions"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "replication.attempts[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "replication": {
+              "produced_by": [
+                "Threat-intelligence artifacts narrowing the target without identifying the bug",
+                "An LLM agent with code navigation, sandboxed execution and debugging tools pointed at a specific codebase",
+                "A responsive upstream maintainer shipping a fix before disclosure"
+              ],
+              "must_hold": [
+                "Partial indicators of a staged exploit must exist and be shared with the agent's operators",
+                "Target code must be small enough for the agent to reason over",
+                "Coordinated disclosure before the actor's exploitation window"
+              ],
+              "echoes": [
+                {
+                  "date": "2024-11-04",
+                  "setting": "Big Sleep's first real-world find: a stack buffer underflow in a SQLite development branch, fixed in October 2024",
+                  "outcome": "recurred",
+                  "source": "https://thehackernews.com/2024/11/googles-ai-tool-big-sleep-finds-zero.html"
+                },
+                {
+                  "date": "2025-08-11",
+                  "setting": "Big Sleep team reports a curl vulnerability later published as CVE-2025–9086, confirmed by the curl maintainer",
+                  "outcome": "recurred",
+                  "source": "https://daniel.haxx.se/blog/2025/10/10/a-new-breed-of-analyzers/"
+                }
+              ]
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "replication.conditions": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "replication": {
+              "produced_by": [
+                "Threat-intelligence artifacts narrowing the target without identifying the bug",
+                "An LLM agent with code navigation, sandboxed execution and debugging tools pointed at a specific codebase",
+                "A responsive upstream maintainer shipping a fix before disclosure"
+              ],
+              "must_hold": [
+                "Partial indicators of a staged exploit must exist and be shared with the agent's operators",
+                "Target code must be small enough for the agent to reason over",
+                "Coordinated disclosure before the actor's exploitation window"
+              ],
+              "echoes": [
+                {
+                  "date": "2024-11-04",
+                  "setting": "Big Sleep's first real-world find: a stack buffer underflow in a SQLite development branch, fixed in October 2024",
+                  "outcome": "recurred",
+                  "source": "https://thehackernews.com/2024/11/googles-ai-tool-big-sleep-finds-zero.html"
+                },
+                {
+                  "date": "2025-08-11",
+                  "setting": "Big Sleep team reports a curl vulnerability later published as CVE-2025–9086, confirmed by the curl maintainer",
+                  "outcome": "recurred",
+                  "source": "https://daniel.haxx.se/blog/2025/10/10/a-new-breed-of-analyzers/"
+                }
+              ]
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "revision_history[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "revisions": [
+              {
+                "date": "2026-10-20",
+                "change": "Record drafted from the cited sources.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Headline reworded to state the event without naming who claims it.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Title reworded to state the event without naming who claims it.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Added what happened since from the cited sources.",
+                "source": "https://daniel.haxx.se/blog/2025/10/10/a-new-breed-of-analyzers/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Benefit type set to Reduced Risk under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
+                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the developer added from the organization's own site or a registry.",
+                "source": "https://en.wikipedia.org/wiki/Google_DeepMind",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the deployer added from the organization's own site or a registry.",
+                "source": "https://en.wikipedia.org/wiki/Google",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-22",
+                "change": "Organization name standardized to DeepMind.",
+                "editor": "AIBD"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "revisions"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sector": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "domain": "Cybersecurity / vulnerability research",
+            "segment": "Technology"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "domain",
+            "segment"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].access_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "sources[].citation_locator": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "evidence": [
+              {
+                "kind": "news report",
+                "citation": "Jonathan Greig, The Record from Recorded Future News, 15 Jul 2025",
+                "title": "Google says ‘Big Sleep’ AI tool found bug hackers planned to use",
+                "url": "https://therecord.media/google-big-sleep-ai-tool-found-bug",
+                "date": "2025-07-15",
+                "written_by": "independent",
+                "quote": "who leveraged Big Sleep to isolate the vulnerability the adversary was preparing to exploit in their operations"
+              },
+              {
+                "kind": "registry label",
+                "citation": "CVE Program record CVE-2025-6965 (CNA: Google), published 15 Jul 2025",
+                "title": "CVE-2025-6965",
+                "url": "https://www.cve.org/CVERecord?id=CVE-2025-6965",
+                "date": "2025-07-15",
+                "written_by": "makers",
+                "quote": "Vlad Stolyarov of Google's Threat Analysis Group, with assistance from Google Big Sleep"
+              },
+              {
+                "kind": "other",
+                "citation": "SQLite release log, version 3.50.2, 28 Jun 2025",
+                "title": "SQLite Release 3.50.2 On 2025-06-28",
+                "url": "https://sqlite.org/releaselog/3_50_2.html",
+                "date": "2025-06-28",
+                "written_by": "independent",
+                "quote": "Raise an error early if the number of aggregate terms in a query exceeds the maximum number of columns, to avoid downstream assertion faults."
+              },
+              {
+                "kind": "press release",
+                "citation": "Kent Walker, Google blog, 15 Jul 2025",
+                "title": "A summer of security: empowering cyber defenders with AI",
+                "url": "https://blog.google/technology/safety-security/cybersecurity-updates-summer-2025/",
+                "date": "2025-07-15",
+                "written_by": "makers",
+                "quote": "Google was able to actually predict that a vulnerability was imminently going to be used and we were able to cut it off beforehand."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].id": {
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "AIBD-0225-source-0001",
+            "AIBD-0225-source-0002",
+            "AIBD-0225-source-0003",
+            "AIBD-0225-source-0004"
+          ],
+          "role": "Existing evidence items, in their original order"
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "complete"
+      },
+      "sources[].language": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "sources[].relationship": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "evidence": [
+              {
+                "kind": "news report",
+                "citation": "Jonathan Greig, The Record from Recorded Future News, 15 Jul 2025",
+                "title": "Google says ‘Big Sleep’ AI tool found bug hackers planned to use",
+                "url": "https://therecord.media/google-big-sleep-ai-tool-found-bug",
+                "date": "2025-07-15",
+                "written_by": "independent",
+                "quote": "who leveraged Big Sleep to isolate the vulnerability the adversary was preparing to exploit in their operations"
+              },
+              {
+                "kind": "registry label",
+                "citation": "CVE Program record CVE-2025-6965 (CNA: Google), published 15 Jul 2025",
+                "title": "CVE-2025-6965",
+                "url": "https://www.cve.org/CVERecord?id=CVE-2025-6965",
+                "date": "2025-07-15",
+                "written_by": "makers",
+                "quote": "Vlad Stolyarov of Google's Threat Analysis Group, with assistance from Google Big Sleep"
+              },
+              {
+                "kind": "other",
+                "citation": "SQLite release log, version 3.50.2, 28 Jun 2025",
+                "title": "SQLite Release 3.50.2 On 2025-06-28",
+                "url": "https://sqlite.org/releaselog/3_50_2.html",
+                "date": "2025-06-28",
+                "written_by": "independent",
+                "quote": "Raise an error early if the number of aggregate terms in a query exceeds the maximum number of columns, to avoid downstream assertion faults."
+              },
+              {
+                "kind": "press release",
+                "citation": "Kent Walker, Google blog, 15 Jul 2025",
+                "title": "A summer of security: empowering cyber defenders with AI",
+                "url": "https://blog.google/technology/safety-security/cybersecurity-updates-summer-2025/",
+                "date": "2025-07-15",
+                "written_by": "makers",
+                "quote": "Google was able to actually predict that a vulnerability was imminently going to be used and we were able to cut it off beforehand."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].upstream_sources": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "strategic_assessments[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "strategic assessments"
+      },
+      "summary": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "summary": "Google says Big Sleep, fed indicators that attackers were staging a zero-day, isolated SQLite CVE-2025–6965; SQLite shipped the fix in 3.50.2 on 28 June 2025, announced 15 July 2025.",
+            "account": "The SQLite 3.50.2 release carrying the fix is dated 28 June 2025. The CVE record was published 15 July 2025. Google's post says that, based on intel from Google Threat Intelligence, the Big Sleep agent discovered an SQLite vulnerability known only to threat actors. It was at risk of being exploited, the post says. A Google spokesperson told The Record that its threat intelligence group found artifacts indicating a zero-day was being staged but could not identify the vulnerability. Big Sleep was used to isolate it, the spokesperson said. Google declined to name the actors or describe the indicators. The CVE record, assigned by Google, credits Vlad Stolyarov of Google's Threat Analysis Group with assistance from Google Big Sleep. SQLite's release log lists the corresponding fix. Independent confirmation that exploitation was imminent is absent. The claim rests on Google."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "summary",
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].autonomy_permissions": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].component_role": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].deployment_configuration": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].inputs_outputs": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].model_name": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].model_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].product_name": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "system": "Big Sleep"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "system"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].provider": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "taxonomy_crosswalks[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "title": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "title": "Google's Big Sleep agent may have isolated SQLite CVE-2025–6965 from threat-intel artifacts; fixed in 3.50.2 before exploitation",
+            "headline": "Big Sleep may have isolated SQLite zero-day CVE-2025–6965"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "title",
+            "headline"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "version": {
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "47231bc70e9d37ed9a559b05a9b21f33873fdd7ae329ca0d2869200f920f1727"
+          ],
+          "role": "SHA-256 of normalized original case data"
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Deterministic content version assigned by the local migration.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "complete"
+      },
+      "workflow": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "account": "The SQLite 3.50.2 release carrying the fix is dated 28 June 2025. The CVE record was published 15 July 2025. Google's post says that, based on intel from Google Threat Intelligence, the Big Sleep agent discovered an SQLite vulnerability known only to threat actors. It was at risk of being exploited, the post says. A Google spokesperson told The Record that its threat intelligence group found artifacts indicating a zero-day was being staged but could not identify the vulnerability. Big Sleep was used to isolate it, the spokesperson said. Google declined to name the actors or describe the indicators. The CVE record, assigned by Google, credits Vlad Stolyarov of Google's Threat Analysis Group with assistance from Google Big Sleep. SQLite's release log lists the corresponding fix. Independent confirmation that exploitation was imminent is absent. The claim rests on Google.",
+            "replication": {
+              "produced_by": [
+                "Threat-intelligence artifacts narrowing the target without identifying the bug",
+                "An LLM agent with code navigation, sandboxed execution and debugging tools pointed at a specific codebase",
+                "A responsive upstream maintainer shipping a fix before disclosure"
+              ],
+              "must_hold": [
+                "Partial indicators of a staged exploit must exist and be shared with the agent's operators",
+                "Target code must be small enough for the agent to reason over",
+                "Coordinated disclosure before the actor's exploitation window"
+              ],
+              "echoes": [
+                {
+                  "date": "2024-11-04",
+                  "setting": "Big Sleep's first real-world find: a stack buffer underflow in a SQLite development branch, fixed in October 2024",
+                  "outcome": "recurred",
+                  "source": "https://thehackernews.com/2024/11/googles-ai-tool-big-sleep-finds-zero.html"
+                },
+                {
+                  "date": "2025-08-11",
+                  "setting": "Big Sleep team reports a curl vulnerability later published as CVE-2025–9086, confirmed by the curl maintainer",
+                  "outcome": "recurred",
+                  "source": "https://daniel.haxx.se/blog/2025/10/10/a-new-breed-of-analyzers/"
+                }
+              ]
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "account",
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      }
+    },
+    "summary": {
+      "total": 91,
+      "addressed": 91,
+      "known": 28,
+      "reviewed": 0,
+      "record_mapped": 28,
+      "not_assessed": 63,
+      "complete": false,
+      "by_state": {
+        "value_present": 28,
+        "not_reported": 0,
+        "unresolved": 0,
+        "not_assessed": 63,
+        "not_applicable": 0,
+        "withheld": 0,
+        "source_unavailable": 0
+      }
+    }
+  }
 }

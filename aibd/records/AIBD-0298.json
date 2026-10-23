@@ -3,8 +3,8 @@
   "title": "Corsano CardioWatch 287–2 algorithm recognizes a real-life ventricular-fibrillation arrest and collapse in post-processing; the patient's ICD, not the wristband, ended it",
   "summary": "Radboudumc DETECT-3 case: a 64-year-old's VF arrest while cycling was ended by his ICD; the CardioWatch PPG algorithm later detected pulselessness at 09:50:17 and the fall; no live alert was sent.",
   "date_observed": "2026-01-29",
-  "date_basis": "event",
-  "date_precision": "day",
+  "date_basis": "unassessed",
+  "date_precision": "unassessed",
   "benefit_status": null,
   "source_collection": null,
   "source_entry": null,
@@ -181,5 +181,1259 @@
   "confidence": "claimed",
   "shade": "low",
   "claim_status": "The makers' claim",
-  "claim_basis": "Sources: one other independent source, two peer-reviewed studies from the makers and three case reports from the makers. The cited evidence includes no independent study or report and no finding by a regulator or court."
+  "claim_basis": "Sources: one other independent source, two peer-reviewed studies from the makers and three case reports from the makers. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "profile": {
+    "case_id": "AIBD-0298",
+    "catalog_version": "1.0.0",
+    "source_fingerprint": "0f34af61a9a1ccde532537290eb6e8237c4681645b2b1f8aaa0f1ffa56eb8ab3",
+    "collection_refs": [
+      {
+        "collection_id": "aibd",
+        "version": "snapshot-8bf7cfec9cb185aa"
+      }
+    ],
+    "source_ids": [
+      "AIBD-0298-source-0001",
+      "AIBD-0298-source-0002",
+      "AIBD-0298-source-0003",
+      "AIBD-0298-source-0004",
+      "AIBD-0298-source-0005",
+      "AIBD-0298-source-0006"
+    ],
+    "families": {
+      "strategic assessments": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "evaluations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "monetary observations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      },
+      "institutional decisions": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "record_ids": []
+      }
+    },
+    "fields": {
+      "actors[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "developer": "DETECT program, Radboud University Medical Center, with Corsano Health, The Hague (device and algorithm processing)",
+            "deployer": "Radboud University Medical Center (DETECT-3 study)"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "developer",
+            "deployer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "actors[].ownership_control": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "ai_contribution": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ai_role": {
+              "status": "assessed",
+              "statement": "The algorithm was run afterwards on exported data by a blinded Corsano data scientist. It correctly flagged the loss of pulse and the fall. It was not running live and sent no alert. The ICD shock is what restored circulation. The developers' own papers are the only full sources. They describe a rule-based detector of absent pulsations by signal amplitude and waveform morphology rather than a machine-learning model."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "ai_relationship": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "category": "general benefit",
+            "ai_role": {
+              "status": "assessed",
+              "statement": "The algorithm was run afterwards on exported data by a blinded Corsano data scientist. It correctly flagged the loss of pulse and the fall. It was not running live and sent no alert. The ICD shock is what restored circulation. The developers' own papers are the only full sources. They describe a rule-based detector of absent pulsations by signal amplitude and waveform morphology rather than a machine-learning model."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ai_role",
+            "category"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].alternatives": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].assessor_date": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].depth": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].display_confidence": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "confidence": "low",
+            "evidence_word": "claimed",
+            "claim_status": "The makers' claim",
+            "basis": "Sources: one other independent source, two peer-reviewed studies from the makers and three case reports from the makers. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].rationale": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "personal",
+                "reason": "The patient was saved by his ICD. The wristband's detection was retrospective and produced no alert or treatment."
+              },
+              {
+                "group": "societal",
+                "reason": "The authors argue a live system could act as a first witness for unwitnessed arrests. No deployment outcome exists yet."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "assessments[].rubric_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].status_basis": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "assessments[].target": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "personal",
+                "reason": "The patient was saved by his ICD. The wristband's detection was retrospective and produced no alert or treatment."
+              },
+              {
+                "group": "societal",
+                "reason": "The authors argue a live system could act as a first witness for unwitnessed arrests. No deployment outcome exists yet."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "availability": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "brief": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "case_kind": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "case_links[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].evidence_links": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].evidence_strength": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].missingness": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "claims[].proposition": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "cross_border_flows[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "decisions[].action_outcome": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].grounds": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].institution_task": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "decisions[].success_criterion": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "institutional decisions"
+      },
+      "deployment_stage": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "economics[].amount": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].costs[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].counterfactual": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].currency_price_basis": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].gross_net": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].measure_type": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].period_unit": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].realization": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].recipient_payer": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].return_payback": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "economics[].valuation_method": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "monetary observations"
+      },
+      "evaluations[].ai_uplift": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].comparator": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].design": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].effect": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].exposure": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].id": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].measurement_method": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].metric": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].reproduction_materials": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].setting_sample": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "evaluations[].uncertainty_limitations": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "evaluations"
+      },
+      "external_references[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "follow_up[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "later": {
+              "status": "persisted",
+              "date": "2026-07-24",
+              "note": "The same group's later prospective validation in ICU patients with non-shockable arrest after withdrawal of life-sustaining treatment reported 100% sensitivity in the 23-patient test set with one false positive, and DETECT-1b (April 2026) externally validated the algorithm in 50 induced shockable arrests; no live alerting has been reported.",
+              "quote": "In the test set, sensitivity was 100% (23/23; 95% CI 82–100%), with one false positive alert.",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13427576/"
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "later"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "human_oversight": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "id": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "id": "AIBD-0298"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "id"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "infrastructure_dependencies[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].beneficiaries": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].beneficiary_count": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].benefit_type": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "benefit_type": "Improved Task Accuracy",
+            "taxonomy_note": "A post-hoc detection on one case is read as task performance; nothing changed for the patient."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "benefit_type",
+            "taxonomy_note"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].claim": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "account": "Edgar, Jansen, Pol, Pisters, van Royen and Bonnes of Radboud University Medical Center (with Rijnstate Hospital) reported in Resuscitation Plus on 29 January 2026. The paper gives no calendar date for the event. They report the first real-life cardiac arrest captured by a wristband with cardiac-arrest detection. A 64-year-old man with heart failure, permanent atrial fibrillation and a secondary-prevention Biotronik ICD was wearing the CE-certified CardioWatch 287–2 (Corsano Health, The Hague). He wore it in the DETECT-3 study. After three weeks, while cycling alone, he developed monomorphic ventricular tachycardia (VT). It accelerated to ventricular fibrillation (VF) after an antitachycardia pacing burst. The ICD delivered a 40 J shock. He regained consciousness, cycled home, and was admitted for rhythm observation with a good recovery. The wristband's 32 Hz photoplethysmography and accelerometry data were exported afterwards. A Corsano Health data scientist blinded to the event ran them through the DETECT photoplethysmography algorithm. It detected cardiac arrest at 09:50:17 after loss of pulse. It ended the alert at 09:50:57 when pulsations returned. The group's fall-detection algorithm flagged the fall about 8–10 seconds after pulselessness. The authors state the detection was retrospective. They state that the study collects data to measure false-positive rates for a future live system. Companion papers from the same program report 98% sensitivity in induced circulatory arrests (DETECT-1a). They report external validation in 50 patients with induced VT/VF (DETECT-1b, April 2026). They report 100% sensitivity (23 of 23) with one false positive in true non-shockable arrests after withdrawal of life-sustaining treatment. That paper (Lancet Regional Health Europe, July 2026) describes the algorithm as rule-based. The patient's survival is attributable to the ICD. The wristband changed nothing for him.",
+            "benefit_type": "Improved Task Accuracy"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "account",
+            "benefit_type"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].distribution": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].duration": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].id": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].stakeholder_group": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "ratings": [
+              {
+                "group": "personal",
+                "reason": "The patient was saved by his ICD. The wristband's detection was retrospective and produced no alert or treatment."
+              },
+              {
+                "group": "societal",
+                "reason": "The authors argue a live system could act as a first witness for unwitnessed arrests. No deployment outcome exists yet."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "outcomes[].status": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].tradeoffs": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "outcomes[].unexpected": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "unexpected": false,
+            "purpose": "Built to detect out-of-hospital cardiac arrest from wrist photoplethysmography and accelerometry and, in future, alert emergency services. The retrospective detection demonstrates the first half of that purpose."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "unexpected",
+            "purpose"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "places[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "location": "Netherlands (DETECT-3 study, Nijmegen; the cycling incident's location is not named)",
+            "developer_country": "Netherlands",
+            "deployer_country": "Netherlands"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "location",
+            "developer_country",
+            "deployer_country"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "purpose": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "purpose": "Built to detect out-of-hospital cardiac arrest from wrist photoplethysmography and accelerometry and, in future, alert emergency services. The retrospective detection demonstrates the first half of that purpose."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "purpose"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "record_dates": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "date_observed": "2026-01-29",
+            "revisions": [
+              {
+                "date": "2026-10-20",
+                "change": "Record drafted from the cited sources.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Benefit type set to Improved Task Accuracy under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
+                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Added what the benefit is measured against, what happened since from the cited sources.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914388/; https://pmc.ncbi.nlm.nih.gov/articles/PMC13427576/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
+                "source": "https://clinicaltrials.gov/api/v2/studies/NCT06692374?fields=NCTId,BriefTitle,OfficialTitle,Acronym,LeadSponsorName,CollaboratorName,LocationFacility,LocationCity,LocationCountry,BriefSummary; https://en.wikipedia.org/wiki/Radboud_University_Medical_Center",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "date_observed",
+            "revisions"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "replication.attempts[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "replication": {
+              "produced_by": [
+                "Continuous wristband wear with 32 Hz photoplethysmography and accelerometry uploaded to a study cloud",
+                "A shockable arrest with clear loss of pulsations during cycling, in a patient whose ICD provided the reference and the rescue",
+                "Blinded after-the-fact processing by the developers' data scientist"
+              ],
+              "must_hold": [
+                "Adequate photoplethysmography quality during motion (the authors note it is typically disturbed by motion)",
+                "A live implementation with acceptable false-positive rates, which DETECT-3 is still measuring",
+                "An alerting chain to emergency services, which does not yet exist for this device"
+              ],
+              "echoes": [
+                {
+                  "date": "2026-07-24",
+                  "setting": "Radboudumc ICU, 44 patients with planned withdrawal of life-sustaining treatment, all non-shockable arrests; test cohort of 23",
+                  "model_version": "CardioWatch with the refined rule-based DETECT algorithm",
+                  "outcome": "recurred",
+                  "source": "Edgar et al. (2026) Lancet Reg Health Eur 67:101791 (quote: 'In the test set, sensitivity was 100% (23/23; 95% CI 82–100%), with one false positive alert.')"
+                },
+                {
+                  "date": "2026-04-14",
+                  "setting": "Multicentre DETECT-1b, 50 adults with induced pulseless VT or VF during ablation or S-ICD implantation, Netherlands",
+                  "model_version": "CardioWatch, DETECT-1a algorithm with a 10-second window",
+                  "outcome": "recurred",
+                  "source": "Edgar et al. (2026) Circ Arrhythm Electrophysiol 19(5):e014708, https://pmc.ncbi.nlm.nih.gov/articles/PMC13182813/"
+                }
+              ]
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "replication.conditions": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "replication": {
+              "produced_by": [
+                "Continuous wristband wear with 32 Hz photoplethysmography and accelerometry uploaded to a study cloud",
+                "A shockable arrest with clear loss of pulsations during cycling, in a patient whose ICD provided the reference and the rescue",
+                "Blinded after-the-fact processing by the developers' data scientist"
+              ],
+              "must_hold": [
+                "Adequate photoplethysmography quality during motion (the authors note it is typically disturbed by motion)",
+                "A live implementation with acceptable false-positive rates, which DETECT-3 is still measuring",
+                "An alerting chain to emergency services, which does not yet exist for this device"
+              ],
+              "echoes": [
+                {
+                  "date": "2026-07-24",
+                  "setting": "Radboudumc ICU, 44 patients with planned withdrawal of life-sustaining treatment, all non-shockable arrests; test cohort of 23",
+                  "model_version": "CardioWatch with the refined rule-based DETECT algorithm",
+                  "outcome": "recurred",
+                  "source": "Edgar et al. (2026) Lancet Reg Health Eur 67:101791 (quote: 'In the test set, sensitivity was 100% (23/23; 95% CI 82–100%), with one false positive alert.')"
+                },
+                {
+                  "date": "2026-04-14",
+                  "setting": "Multicentre DETECT-1b, 50 adults with induced pulseless VT or VF during ablation or S-ICD implantation, Netherlands",
+                  "model_version": "CardioWatch, DETECT-1a algorithm with a 10-second window",
+                  "outcome": "recurred",
+                  "source": "Edgar et al. (2026) Circ Arrhythm Electrophysiol 19(5):e014708, https://pmc.ncbi.nlm.nih.gov/articles/PMC13182813/"
+                }
+              ]
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "revision_history[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "revisions": [
+              {
+                "date": "2026-10-20",
+                "change": "Record drafted from the cited sources.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Benefit type set to Improved Task Accuracy under Trustible's full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.",
+                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Added what the benefit is measured against, what happened since from the cited sources.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914388/; https://pmc.ncbi.nlm.nih.gov/articles/PMC13427576/",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
+                "source": "https://clinicaltrials.gov/api/v2/studies/NCT06692374?fields=NCTId,BriefTitle,OfficialTitle,Acronym,LeadSponsorName,CollaboratorName,LocationFacility,LocationCity,LocationCountry,BriefSummary; https://en.wikipedia.org/wiki/Radboud_University_Medical_Center",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-21",
+                "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "revisions"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sector": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "domain": "Emergency medicine / resuscitation",
+            "segment": "Research wristband for automated cardiac-arrest detection"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "domain",
+            "segment"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].access_version": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "sources[].citation_locator": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "evidence": [
+              {
+                "kind": "case report",
+                "citation": "Edgar R, Jansen CE, Pol LR, Pisters R, van Royen N, Bonnes JL (2026). Out-of-hospital cardiac arrest detection by a wearable: the first real-life case. Resuscitation Plus 28:101245 (PMC12914388). Authors are the DETECT algorithm's developers.",
+                "title": "Out-of-hospital cardiac arrest detection by a wearable: the first real-life case",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914388/",
+                "date": "2026-01-29",
+                "written_by": "makers",
+                "quote": "The cardiac arrest detection algorithm of the CardioWatch correctly recognized the cardiac arrest event and subsequent collapse based on photoplethysmography and accelerometry data during post-processing."
+              },
+              {
+                "kind": "case report",
+                "citation": "Edgar et al. (2026), Resusc Plus 28:101245, case description.",
+                "title": "Out-of-hospital cardiac arrest detection by a wearable: the first real-life case",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914388/",
+                "date": "2026-01-29",
+                "written_by": "makers",
+                "quote": "While cycling, the patient experienced a ventricular fibrillation cardiac arrest that was successfully terminated by the ICD."
+              },
+              {
+                "kind": "case report",
+                "citation": "Edgar et al. (2026), Resusc Plus 28:101245, on who ran the algorithm.",
+                "title": "Out-of-hospital cardiac arrest detection by a wearable: the first real-life case",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914388/",
+                "date": "2026-01-29",
+                "written_by": "makers",
+                "quote": "A data scientist at Corsano Health, who was blinded to the cardiac arrest event, ran the data through the photoplethysmography-based cardiac arrest detection algorithm."
+              },
+              {
+                "kind": "peer-reviewed study",
+                "citation": "Edgar R, Jansen CE, Pol LR, Ebrahimkheil K, van Kaam RC, Ronner E, Brouwer MA, Beukema RJ, Cetinyurek-Yavuz A, Stas PC, Boersma E, Hoedemaekers CWE, van Royen N, Bonnes JL (2026). Automated cardiac arrest detection using wrist-derived photoplethysmography during withdrawal of life-sustaining treatment: a prospective clinical validation study. The Lancet Regional Health - Europe 67:101791 (PMC13427576). Corsano Health co-authors.",
+                "title": "Automated cardiac arrest detection using wrist-derived photoplethysmography during withdrawal of life-sustaining treatment: a prospective clinical validation study",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13427576/",
+                "date": "2026-07-24",
+                "written_by": "makers",
+                "quote": "The previously developed rule-based algorithm was refined using two training cohorts and evaluated in a separate test cohort."
+              },
+              {
+                "kind": "peer-reviewed study",
+                "citation": "Edgar R, Scholte NTB, Ebrahimkheil K, et al. (2026). Automated Cardiac Arrest Detection Using Wrist-Worn Photoplethysmography: External Validation in Patients With Induced Shockable Cardiac Arrest (DETECT-1b). Circulation: Arrhythmia and Electrophysiology 19(5):e014708 (PMC13182813). Corsano Health co-authors.",
+                "title": "Automated Cardiac Arrest Detection Using Wrist-Worn Photoplethysmography: External Validation in Patients With Induced Shockable Cardiac Arrest (DETECT-1b)",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13182813/",
+                "date": "2026-04-14",
+                "written_by": "makers",
+                "quote": "In the DETECT-1a study, we developed a wrist-derived photoplethysmography (PPG) algorithm for cardiac arrest detection using patient data from induced short‑lasting circulatory arrests, achieving 98% sensitivity."
+              },
+              {
+                "kind": "other",
+                "citation": "Veigl C, Billig S (2026). A digital witness for cardiac arrest: are wearables ready for real-world use? Resuscitation Plus 28:101246 (editorial accompanying the two case reports; PMC12914390).",
+                "title": "A digital witness for cardiac arrest: are wearables ready for real-world use?",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914390/",
+                "date": "2026-01-29",
+                "written_by": "independent"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].id": {
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "AIBD-0298-source-0001",
+            "AIBD-0298-source-0002",
+            "AIBD-0298-source-0003",
+            "AIBD-0298-source-0004",
+            "AIBD-0298-source-0005",
+            "AIBD-0298-source-0006"
+          ],
+          "role": "Existing evidence items, in their original order"
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "complete"
+      },
+      "sources[].language": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "sources[].relationship": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "evidence": [
+              {
+                "kind": "case report",
+                "citation": "Edgar R, Jansen CE, Pol LR, Pisters R, van Royen N, Bonnes JL (2026). Out-of-hospital cardiac arrest detection by a wearable: the first real-life case. Resuscitation Plus 28:101245 (PMC12914388). Authors are the DETECT algorithm's developers.",
+                "title": "Out-of-hospital cardiac arrest detection by a wearable: the first real-life case",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914388/",
+                "date": "2026-01-29",
+                "written_by": "makers",
+                "quote": "The cardiac arrest detection algorithm of the CardioWatch correctly recognized the cardiac arrest event and subsequent collapse based on photoplethysmography and accelerometry data during post-processing."
+              },
+              {
+                "kind": "case report",
+                "citation": "Edgar et al. (2026), Resusc Plus 28:101245, case description.",
+                "title": "Out-of-hospital cardiac arrest detection by a wearable: the first real-life case",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914388/",
+                "date": "2026-01-29",
+                "written_by": "makers",
+                "quote": "While cycling, the patient experienced a ventricular fibrillation cardiac arrest that was successfully terminated by the ICD."
+              },
+              {
+                "kind": "case report",
+                "citation": "Edgar et al. (2026), Resusc Plus 28:101245, on who ran the algorithm.",
+                "title": "Out-of-hospital cardiac arrest detection by a wearable: the first real-life case",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914388/",
+                "date": "2026-01-29",
+                "written_by": "makers",
+                "quote": "A data scientist at Corsano Health, who was blinded to the cardiac arrest event, ran the data through the photoplethysmography-based cardiac arrest detection algorithm."
+              },
+              {
+                "kind": "peer-reviewed study",
+                "citation": "Edgar R, Jansen CE, Pol LR, Ebrahimkheil K, van Kaam RC, Ronner E, Brouwer MA, Beukema RJ, Cetinyurek-Yavuz A, Stas PC, Boersma E, Hoedemaekers CWE, van Royen N, Bonnes JL (2026). Automated cardiac arrest detection using wrist-derived photoplethysmography during withdrawal of life-sustaining treatment: a prospective clinical validation study. The Lancet Regional Health - Europe 67:101791 (PMC13427576). Corsano Health co-authors.",
+                "title": "Automated cardiac arrest detection using wrist-derived photoplethysmography during withdrawal of life-sustaining treatment: a prospective clinical validation study",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13427576/",
+                "date": "2026-07-24",
+                "written_by": "makers",
+                "quote": "The previously developed rule-based algorithm was refined using two training cohorts and evaluated in a separate test cohort."
+              },
+              {
+                "kind": "peer-reviewed study",
+                "citation": "Edgar R, Scholte NTB, Ebrahimkheil K, et al. (2026). Automated Cardiac Arrest Detection Using Wrist-Worn Photoplethysmography: External Validation in Patients With Induced Shockable Cardiac Arrest (DETECT-1b). Circulation: Arrhythmia and Electrophysiology 19(5):e014708 (PMC13182813). Corsano Health co-authors.",
+                "title": "Automated Cardiac Arrest Detection Using Wrist-Worn Photoplethysmography: External Validation in Patients With Induced Shockable Cardiac Arrest (DETECT-1b)",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13182813/",
+                "date": "2026-04-14",
+                "written_by": "makers",
+                "quote": "In the DETECT-1a study, we developed a wrist-derived photoplethysmography (PPG) algorithm for cardiac arrest detection using patient data from induced short‑lasting circulatory arrests, achieving 98% sensitivity."
+              },
+              {
+                "kind": "other",
+                "citation": "Veigl C, Billig S (2026). A digital witness for cardiac arrest: are wearables ready for real-world use? Resuscitation Plus 28:101246 (editorial accompanying the two case reports; PMC12914390).",
+                "title": "A digital witness for cardiac arrest: are wearables ready for real-world use?",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12914390/",
+                "date": "2026-01-29",
+                "written_by": "independent"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "sources[].upstream_sources": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "strategic_assessments[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial",
+        "family": "strategic assessments"
+      },
+      "summary": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "summary": "Radboudumc DETECT-3 case: a 64-year-old's VF arrest while cycling was ended by his ICD; the CardioWatch PPG algorithm later detected pulselessness at 09:50:17 and the fall; no live alert was sent.",
+            "account": "Edgar, Jansen, Pol, Pisters, van Royen and Bonnes of Radboud University Medical Center (with Rijnstate Hospital) reported in Resuscitation Plus on 29 January 2026. The paper gives no calendar date for the event. They report the first real-life cardiac arrest captured by a wristband with cardiac-arrest detection. A 64-year-old man with heart failure, permanent atrial fibrillation and a secondary-prevention Biotronik ICD was wearing the CE-certified CardioWatch 287–2 (Corsano Health, The Hague). He wore it in the DETECT-3 study. After three weeks, while cycling alone, he developed monomorphic ventricular tachycardia (VT). It accelerated to ventricular fibrillation (VF) after an antitachycardia pacing burst. The ICD delivered a 40 J shock. He regained consciousness, cycled home, and was admitted for rhythm observation with a good recovery. The wristband's 32 Hz photoplethysmography and accelerometry data were exported afterwards. A Corsano Health data scientist blinded to the event ran them through the DETECT photoplethysmography algorithm. It detected cardiac arrest at 09:50:17 after loss of pulse. It ended the alert at 09:50:57 when pulsations returned. The group's fall-detection algorithm flagged the fall about 8–10 seconds after pulselessness. The authors state the detection was retrospective. They state that the study collects data to measure false-positive rates for a future live system. Companion papers from the same program report 98% sensitivity in induced circulatory arrests (DETECT-1a). They report external validation in 50 patients with induced VT/VF (DETECT-1b, April 2026). They report 100% sensitivity (23 of 23) with one false positive in true non-shockable arrests after withdrawal of life-sustaining treatment. That paper (Lancet Regional Health Europe, July 2026) describes the algorithm as rule-based. The patient's survival is attributable to the ICD. The wristband changed nothing for him."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "summary",
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].autonomy_permissions": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].component_role": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].deployment_configuration": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].inputs_outputs": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].model_name": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].model_version": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "model_version": "CardioWatch 287-2 (CE-certified); DETECT algorithm as developed in DETECT-1a"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "model_version"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].product_name": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "system": "Corsano CardioWatch 287-2 with the DETECT photoplethysmography cardiac-arrest detection and accelerometry fall-detection algorithms"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "system"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "systems[].provider": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "taxonomy_crosswalks[]": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "title": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "title": "Corsano CardioWatch 287–2 algorithm recognizes a real-life ventricular-fibrillation arrest and collapse in post-processing; the patient's ICD, not the wristband, ended it",
+            "headline": "Corsano CardioWatch recognizes a VF arrest in post-processing"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "title",
+            "headline"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      },
+      "version": {
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "0f34af61a9a1ccde532537290eb6e8237c4681645b2b1f8aaa0f1ffa56eb8ab3"
+          ],
+          "role": "SHA-256 of normalized original case data"
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Deterministic content version assigned by the local migration.",
+          "record_fields": [],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "complete"
+      },
+      "workflow": {
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "account": "Edgar, Jansen, Pol, Pisters, van Royen and Bonnes of Radboud University Medical Center (with Rijnstate Hospital) reported in Resuscitation Plus on 29 January 2026. The paper gives no calendar date for the event. They report the first real-life cardiac arrest captured by a wristband with cardiac-arrest detection. A 64-year-old man with heart failure, permanent atrial fibrillation and a secondary-prevention Biotronik ICD was wearing the CE-certified CardioWatch 287–2 (Corsano Health, The Hague). He wore it in the DETECT-3 study. After three weeks, while cycling alone, he developed monomorphic ventricular tachycardia (VT). It accelerated to ventricular fibrillation (VF) after an antitachycardia pacing burst. The ICD delivered a 40 J shock. He regained consciousness, cycled home, and was admitted for rhythm observation with a good recovery. The wristband's 32 Hz photoplethysmography and accelerometry data were exported afterwards. A Corsano Health data scientist blinded to the event ran them through the DETECT photoplethysmography algorithm. It detected cardiac arrest at 09:50:17 after loss of pulse. It ended the alert at 09:50:57 when pulsations returned. The group's fall-detection algorithm flagged the fall about 8–10 seconds after pulselessness. The authors state the detection was retrospective. They state that the study collects data to measure false-positive rates for a future live system. Companion papers from the same program report 98% sensitivity in induced circulatory arrests (DETECT-1a). They report external validation in 50 patients with induced VT/VF (DETECT-1b, April 2026). They report 100% sensitivity (23 of 23) with one false positive in true non-shockable arrests after withdrawal of life-sustaining treatment. That paper (Lancet Regional Health Europe, July 2026) describes the algorithm as rule-based. The patient's survival is attributable to the ICD. The wristband changed nothing for him.",
+            "replication": {
+              "produced_by": [
+                "Continuous wristband wear with 32 Hz photoplethysmography and accelerometry uploaded to a study cloud",
+                "A shockable arrest with clear loss of pulsations during cycling, in a patient whose ICD provided the reference and the rescue",
+                "Blinded after-the-fact processing by the developers' data scientist"
+              ],
+              "must_hold": [
+                "Adequate photoplethysmography quality during motion (the authors note it is typically disturbed by motion)",
+                "A live implementation with acceptable false-positive rates, which DETECT-3 is still measuring",
+                "An alerting chain to emergency services, which does not yet exist for this device"
+              ],
+              "echoes": [
+                {
+                  "date": "2026-07-24",
+                  "setting": "Radboudumc ICU, 44 patients with planned withdrawal of life-sustaining treatment, all non-shockable arrests; test cohort of 23",
+                  "model_version": "CardioWatch with the refined rule-based DETECT algorithm",
+                  "outcome": "recurred",
+                  "source": "Edgar et al. (2026) Lancet Reg Health Eur 67:101791 (quote: 'In the test set, sensitivity was 100% (23/23; 95% CI 82–100%), with one false positive alert.')"
+                },
+                {
+                  "date": "2026-04-14",
+                  "setting": "Multicentre DETECT-1b, 50 adults with induced pulseless VT or VF during ablation or S-ICD implantation, Netherlands",
+                  "model_version": "CardioWatch, DETECT-1a algorithm with a 10-second window",
+                  "outcome": "recurred",
+                  "source": "Edgar et al. (2026) Circ Arrhythm Electrophysiol 19(5):e014708, https://pmc.ncbi.nlm.nih.gov/articles/PMC13182813/"
+                }
+              ]
+            }
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "record_fields": [
+            "account",
+            "replication"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial"
+      }
+    },
+    "summary": {
+      "total": 91,
+      "addressed": 91,
+      "known": 28,
+      "reviewed": 0,
+      "record_mapped": 28,
+      "not_assessed": 63,
+      "complete": false,
+      "by_state": {
+        "value_present": 28,
+        "not_reported": 0,
+        "unresolved": 0,
+        "not_assessed": 63,
+        "not_applicable": 0,
+        "withheld": 0,
+        "source_unavailable": 0
+      }
+    }
+  }
 }

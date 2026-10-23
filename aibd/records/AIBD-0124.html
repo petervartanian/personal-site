@@ -22,7 +22,8 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/atom+xml" title="Feed of new and revised cases" href="../feed.xml">
-<link rel="stylesheet" href="../style.css?v=a05d842b9b">
+<link rel="stylesheet" href="../style.css?v=444c19ac0e">
+<link rel="stylesheet" href="../requirements.css?v=444c19ac0e">
 </head>
 <body class="record-page d2">
 <div class="page">
@@ -42,7 +43,7 @@
 <div class="record">
   <aside class="aside">
     <dl class="props">
-      <div><dt>Observed</dt><dd>1 November 2024</dd></div>
+      <div><dt>Date basis unassessed</dt><dd>2024 (precision unassessed)</dd></div>
 <div><dt>Location</dt><dd>Bonn, Germany</dd></div>      <div><dt>System</dt><dd>Spark, AI test agent in Code Intelligence&#39;s CI Fuzz (invoked as &#39;cifuzz spark&#39;)</dd></div>
 <div><dt>Developer</dt><dd><img class="logo" src="../logos/code-intelligence-gmbh.png" alt="" width="24" height="24">Code Intelligence GmbH <span class="ink3">(Germany)</span></dd></div><div><dt>Deployer</dt><dd><span class="ditto" role="img" aria-label="the same">”</span> (beta test run by the vendor)</dd></div>      <div><dt>Type</dt><dd><a href="../cases.html?open=matrix"><span class="rn">XIV</span>Reduced Risk</a></dd></div>
       <div><dt>Sector</dt><dd>Safety and rescue, Software security</dd></div>
@@ -131,6 +132,452 @@
 
 
 
+<section class="sec profile" id="field-profile">
+  <h2>Fields and evidence</h2>
+  <p class="prose">28 of 91 public field groups contain recorded values. 63 await assessment.</p>
+  <details class="profile-disclosure">
+    <summary>Explore all 91 fields</summary>
+    <p class="profile-intro">A recorded value can still need review. Missing evidence and conflicting evidence have separate statuses. <a href="../fields.html">Field definitions and assessment rules</a>.</p>
+    <section class="profile-group">
+      <h3>Case identity and dates</h3>
+      <details class="profile-field">
+        <summary><span>Stable AIBD identifier</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Preserve the existing identifier and URL through corrections.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Id</dt><dd>AIBD-0124</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Kind of case</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Individual experience, deployment, program/activity, evaluation/study, or another defined unit. Link components of the same project.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Related cases and counting relationship</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Link the same deployment, evaluation, replication, duplicate, or incident. Do not count additional articles as additional benefits.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Title</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Name the activity and claimed or observed benefit plainly.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Title</dt><dd>Code Intelligence&#39;s Spark agent found a heap use-after-free in wolfSSL&#39;s pem_read_bio_key() during its beta test; wolfSSL merged a fix within days and shipped it in 5.7.6</dd></div><div><dt>Headline</dt><dd>Code Intelligence&#39;s Spark finds a heap use-after-free in wolfSSL</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Short account</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">State what happened, for whom, and the main qualification.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Summary</dt><dd>Spark, an AI fuzz-test agent, found a heap use-after-free in wolfSSL in late Oct 2024; fixed in PR 8139 and shipped in 5.7.6 on 31 December 2024.</dd></div><div><dt>Account</dt><dd>Spark is the AI test agent in Code Intelligence GmbH&#39;s CI Fuzz product. Its final beta test in late October 2024 ran it on wolfSSL, an open-source cryptography library for embedded and IoT devices. By the vendor&#39;s account, after one command the agent chose the target, generated and ran a fuzz test and exposed a heap use-after-free in pem_read_bio_key(). There a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024. It shipped in release 5.7.6 on 31 December 2024, crediting “Peter” in the release notes. The vendor&#39;s blog post on the find is by engineer Peter Samarin.</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Sector and application domain</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Support sector and task filtering without forcing one exclusive category.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Domain</dt><dd>Software security / open-source cryptography library testing</dd></div><div><dt>Segment</dt><dd>Open-source TLS and cryptography library for embedded and IoT systems</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Intended purpose</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Distinguish the deployment&#39;s purpose from a benefit that emerged unexpectedly.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Purpose</dt><dd>Spark was built to find bugs and vulnerabilities autonomously by selecting functions to fuzz and generating and running fuzz tests. Finding this flaw was exactly that function, exercised in the vendor&#39;s own beta test.</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Dates and precision</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Separate occurrence start/end, first publication, database discovery, added date, and last checked date. Allow unknown dates and day/month/year precision.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Date observed</dt><dd>2024-11-01</dd></div><div><dt>Revisions</dt><dd><ul class="profile-list"><li><dl class="profile-values"><div><dt>Date</dt><dd>2026-10-20</dd></div><div><dt>Change</dt><dd>Record drafted from the OECD Monitor entry and the cited sources.</dd></div><div><dt>Source</dt><dd><a href="https://oecd.ai/en/incidents/2025-01-09-764d" rel="noopener">Source</a></dd></div><div><dt>Editor</dt><dd>AIBD</dd></div></dl></li><li><dl class="profile-values"><div><dt>Date</dt><dd>2026-10-21</dd></div><div><dt>Change</dt><dd>Benefit type set to Reduced Risk under Trustible&#39;s full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.</dd></div><div><dt>Source</dt><dd><a href="https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/" rel="noopener">Source</a></dd></div><div><dt>Editor</dt><dd>AIBD</dd></div></dl></li><li><dl class="profile-values"><div><dt>Date</dt><dd>2026-10-21</dd></div><div><dt>Change</dt><dd>Added what happened since from the cited sources.</dd></div><div><dt>Source</dt><dd><a href="https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable" rel="noopener">Source</a></dd></div><div><dt>Editor</dt><dd>AIBD</dd></div></dl></li><li><dl class="profile-values"><div><dt>Date</dt><dd>2026-10-21</dd></div><div><dt>Change</dt><dd>Country of the developer and the deployer added from the organization&#39;s own site or a registry.</dd></div><div><dt>Source</dt><dd><a href="https://www.northdata.de/Code+Intelligence+GmbH,+Bonn; https://www.northdata.de/Code+Intelligence+GmbH,+Bonn" rel="noopener">Source</a></dd></div><div><dt>Editor</dt><dd>AIBD</dd></div></dl></li><li><dl class="profile-values"><div><dt>Date</dt><dd>2026-10-21</dd></div><div><dt>Change</dt><dd>Prose pass: a rating reason, account, purpose, the replication conditions, the system&#39;s part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.</dd></div><div><dt>Editor</dt><dd>AIBD</dd></div></dl></li></ul>
+</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Stage of use</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Proposed, simulated, laboratory test, pilot, routine use, scaling, retired, or unknown. This is separate from benefit evidence.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Record version</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Identify the exact published version that a user cited.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Identifiers</dt><dd><ul class="profile-list"><li>7ce94ae129baf748ac97ed8b650550a439de68537780b073ab8c984a81c60a8a</li></ul>
+</dd></div><div><dt>Role</dt><dd>SHA-256 of normalized original case data</dd></div></dl></div>      </details>
+    </section>
+    <section class="profile-group">
+      <h3>AI system and use</h3>
+      <details class="profile-field">
+        <summary><span>AI product or system</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Identify the application actually used, including an in-house system. A vendor name alone is insufficient.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>System</dt><dd>Spark, AI test agent in Code Intelligence&#39;s CI Fuzz (invoked as &#39;cifuzz spark&#39;)</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Underlying model</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Record the model behind the application when known. Allow several components with different roles.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Exact model version</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Preserve the observed version, checkpoint, release, or snapshot. Do not infer it from the latest product version.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Model or system provider</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Distinguish the model provider from the application developer and organization operating it.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Role in the system</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Identify generation, retrieval, classification, planning, verification, perception, or another component function.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Actual configuration</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Application/interface version, wrapper, retrieval, fine-tuning, tools, inference budget, agent count/coordination, and weight/API access when they materially affect the result.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Inputs and outputs</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Describe data types, languages, provenance, and outputs relevant to the task, subject to access restrictions.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Autonomy and permissions</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Record what the AI could decide or execute, tool permissions, and escalation or approval boundaries.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Human and organizational workflow</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Explain who used the AI, what they did before and after it, and which decisions remained human.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Account</dt><dd>Spark is the AI test agent in Code Intelligence GmbH&#39;s CI Fuzz product. Its final beta test in late October 2024 ran it on wolfSSL, an open-source cryptography library for embedded and IoT devices. By the vendor&#39;s account, after one command the agent chose the target, generated and ran a fuzz test and exposed a heap use-after-free in pem_read_bio_key(). There a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024. It shipped in release 5.7.6 on 31 December 2024, crediting “Peter” in the release notes. The vendor&#39;s blog post on the find is by engineer Peter Samarin.</dd></div><div><dt>Replication</dt><dd><dl class="profile-values"><div><dt>Produced by</dt><dd><ul class="profile-list"><li>wolfSSL&#39;s source tree (before 5.7.6) set up as a CI Fuzz project by the vendor</li><li>A single “cifuzz spark” command, after which the agent chose pem_read_bio_key() as a target and generated and ran a fuzz test</li><li>A sanitizer-detectable heap use-after-free in the BIO write-back path of pem_read_bio_key() that a generated input could trigger</li><li>A maintainer team that tracked the report as ZD#18875 and merged a fix within three days of the discovery</li></ul>
+</dd></div><div><dt>Must hold</dt><dd><ul class="profile-list"><li>A human must confirm the finding. The vendor says the one manual step was assessing that the bug exists and is exploitable under specific conditions</li><li>The beneficiary must be an identifiable project with a public fix record. Without wolfSSL&#39;s PR and release notes the event would rest on vendor claims alone</li><li>The AI&#39;s share of the work is described only by the vendor. wolfSSL&#39;s records name the reporter, not the tool, so the autonomy claim cannot be replicated without the vendor&#39;s product</li></ul>
+</dd></div><div><dt>Echoes</dt><dd><ul class="profile-list"></ul>
+</dd></div></dl></dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Human review and safeguards</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Review steps, responsible roles, override options, training, and controls in the actual deployment.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>How the benefit relates to AI</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Direct AI use, AI-related education, AI-related convening, institutional activity, another identified relationship, or unresolved. Record the actual route to benefit.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Category</dt><dd>benefit created</dd></div><div><dt>Ai role</dt><dd><dl class="profile-values"><div><dt>Status</dt><dd>assessed</dd></div><div><dt>Statement</dt><dd>On the vendor&#39;s account, Spark selected the target, generated the fuzz test and ran it after a single “cifuzz spark” command. One manual step confirmed that the finding was real and exploitable under narrow conditions. wolfSSL&#39;s pull request and release notes confirm the bug, its location in pem_read_bio_key(), the timing and the reporter&#39;s first name. They mention neither AI nor Code Intelligence. The autonomous discovery therefore rests on the vendor&#39;s statements, repeated by QA Financial and SC Media, not on an independent test.</dd></div></dl></dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>AI contribution and alternative explanation</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Distinguish AI&#39;s contribution from human work, ordinary digitization, or other simultaneous changes. The contribution may be unassessed.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Ai role</dt><dd><dl class="profile-values"><div><dt>Status</dt><dd>assessed</dd></div><div><dt>Statement</dt><dd>On the vendor&#39;s account, Spark selected the target, generated the fuzz test and ran it after a single “cifuzz spark” command. One manual step confirmed that the finding was real and exploitable under narrow conditions. wolfSSL&#39;s pull request and release notes confirm the bug, its location in pem_read_bio_key(), the timing and the reporter&#39;s first name. They mention neither AI nor Code Intelligence. The autonomous discovery therefore rests on the vendor&#39;s statements, repeated by QA Financial and SC Media, not on an independent test.</dd></div></dl></dd></div></dl>
+</div>      </details>
+    </section>
+    <section class="profile-group">
+      <h3>Organizations and geography</h3>
+      <details class="profile-field">
+        <summary><span>Actors and roles</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Identify developer, model provider, deployer, operator, evaluator, funder, and beneficiaries where relevant. A single actor can hold several roles.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Developer</dt><dd>Code Intelligence GmbH</dd></div><div><dt>Deployer</dt><dd>Code Intelligence GmbH (beta test run by the vendor)</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Places with defined roles</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Separate development, compute/hosting, physical site, deployment, beneficiary location, actor headquarters, and applicable jurisdiction. Include place resolution and source.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Location</dt><dd>Bonn, Germany</dd></div><div><dt>Developer country</dt><dd>Germany</dd></div><div><dt>Deployer country</dt><dd>Germany</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Ownership or effective control</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Record ownership or control only where documented and relevant. Headquarters does not establish nationality, state control, or allegiance.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Physical and digital dependencies</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Link hosting/compute, chips, connectivity, energy, water, suppliers, data access, and locations when material to use or replication.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Cross-border relationships</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Record sourced flows of data, compute, services, funding, or value, with origin, destination, and relationship type.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Geopolitical interpretation</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Specify the country or institution whose interests are being assessed, security/economic domain, assessed capability change, rationale, confidence, sources, and date.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+    </section>
+    <section class="profile-group">
+      <h3>Benefits and beneficiaries</h3>
+      <details class="profile-field">
+        <summary><span>Outcome identifier</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Give each distinct stakeholder-specific outcome a stable identifier within the case.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Benefit statement</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">State the particular claimed or observed change. Retain multiple outcomes without duplicating the deployment count.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Account</dt><dd>Spark is the AI test agent in Code Intelligence GmbH&#39;s CI Fuzz product. Its final beta test in late October 2024 ran it on wolfSSL, an open-source cryptography library for embedded and IoT devices. By the vendor&#39;s account, after one command the agent chose the target, generated and ran a fuzz test and exposed a heap use-after-free in pem_read_bio_key(). There a BIO write-back could reallocate a buffer still referenced by a pointer. The vendor reported it to wolfSSL, which merged a fix in PR 8139 on 1 November 2024. It shipped in release 5.7.6 on 31 December 2024, crediting “Peter” in the release notes. The vendor&#39;s blog post on the find is by engineer Peter Samarin.</dd></div><div><dt>Benefit type</dt><dd>Reduced Risk</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Benefit category</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Use a versioned benefit category and preserve source wording where it differs.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Benefit type</dt><dd>Reduced Risk</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Outcome status</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Intended, observed, mixed, not demonstrated, reversed, or unclear. Distinguish status from confidence and deployment stage.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Beneficiary class</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Personal, organizational, or societal. Apply the existing shape grammar to the relevant outcome.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Ratings</dt><dd><ul class="profile-list"><li><dl class="profile-values"><div><dt>Group</dt><dd>organizational</dd></div><div><dt>Depth</dt><dd>2</dd></div><div><dt>Reason</dt><dd>wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path. It merged the fix within days (PR 8139, 1 November 2024) and shipped it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release&#39;s Vulnerabilities section. No CVE for it appears on wolfSSL&#39;s vulnerabilities page. The vendor itself says the exploit conditions “don&#39;t seem easy to meet”, so the benefit is material but bounded.</dd></div></dl></li></ul>
+</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Specific beneficiaries</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Describe the people or organizations that benefit, rather than stopping at an abstract class.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Beneficiary count and reach</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Count actually benefiting, merely exposed, eligible, and intended populations separately. Preserve unit, period, estimation basis, and overlap limits.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Distribution and access</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Record relevant differences by subgroup, geography, income, language, disability, or access conditions when evidence supports them.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Duration and persistence</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Distinguish a one-time result from recurring or sustained benefit and state the observation horizon.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Expected or unexpected</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Expected, unexpected, partly unexpected, or unknown. Do not infer intention from the presence of a positive outcome.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Unexpected</dt><dd>No
+</dd></div><div><dt>Purpose</dt><dd>Spark was built to find bugs and vulnerabilities autonomously by selecting functions to fuzz and generating and running fuzz tests. Finding this flaw was exactly that function, exercised in the vendor&#39;s own beta test.</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Costs, burdens, and harms to stakeholders</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Record costs or harms to the same beneficiaries and to other parties, with timing and evidence. Link relevant incident records where available.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+    </section>
+    <section class="profile-group">
+      <h3>Measurement and comparison</h3>
+      <details class="profile-field">
+        <summary><span>Evaluation identifier</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Identify an evaluation independently of its reports and the outcomes that it measures.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Evaluation design</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Randomized, quasi-experimental, controlled observational, before/after, qualitative evaluation, case study, simulation, testimonial, forecast, or other. Record the actual design.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Measurement method</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Instrument, administrative data, observation, interview, survey, model estimate, or another method. Preserve qualitative findings without forcing a number.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Setting and sample</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Population, eligibility, sample size, sites, recruitment, allocation, and study period where reported.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Measured outcome</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Metric name, exact operational definition, value, unit, numerator, denominator, and period. Retain source wording and distinguish proxy from ultimate outcome.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Comparator and baseline</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">No AI, prior workflow, human-only work, another AI system, another intervention, or no comparator. Record the exact baseline and comparison period.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Difference from the comparator</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Absolute and relative effects with their units, uncertainty interval, calculation, and source. Do not combine incompatible measures.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Increment attributable to AI</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Assess changes in cost, time, quality, scale, access, or capability relative to the alternative. Separate estimated contribution from total observed improvement.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Uncertainty and limitations</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Record sampling uncertainty, confounding, missing observations, selection, failed comparisons, and bounds on causal interpretation.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Exposure denominator</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Population at risk or eligible to benefit, uses, agent-hours, task-hours, transactions, distance, or another matched denominator, with source and period.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Reproduction materials</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Protocols, logs, prompts, action traces, code, data, and evaluation artifacts with model/configuration and permitted use.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+    </section>
+    <section class="profile-group">
+      <h3>Monetary value and costs</h3>
+      <details class="profile-field">
+        <summary><span>Kind of monetary value</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Cash saving, labor capacity freed, revenue, profit, recovered money, avoided loss, recipient transfer, willingness to pay, or another stated valuation. Preserve these distinctions.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Amount</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Store the numerical figure with its original quoted amount. Distinguish an outcome level from an incremental gain. Zero differs from unknown.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Currency and price basis</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Original currency, price year when relevant, nominal/real basis, and any documented conversion rate/date. Retain the original amount after conversion.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Period and unit</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">One-time or recurring, period covered, per-user/per-task/per-organization/total basis, and population or volume to which the estimate applies.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Realization and estimation status</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Observed cash flow, measured resource saving, estimated monetary value, forecast, or target. A time saving is not automatically a cash saving.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Who benefits and who pays</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Identify the recipient of value and each cost bearer. Separate organizational savings from worker or societal effects.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Gross or net</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Gross, net, or unspecified. State which cost categories the estimate includes or excludes.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Cost components</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Purchase, integration, training, infrastructure, operation, maintenance, human review, compliance, transition, and other documented costs, with time basis.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Economic comparator</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Specify the alternative against which costs or gains are measured. Preserve differences in quality, volume, and time horizon.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Calculation and assumptions</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Show the source&#39;s method, rates, unit conversions, discount rate if applicable, uncertainty, and sensitivity. Label any AIBD calculation explicitly.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Return or payback</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Retain a source-reported ROI or payback period, or a transparent calculation with matched inputs. State numerator, denominator, and horizon.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+    </section>
+    <section class="profile-group">
+      <h3>Sources and claim evidence</h3>
+      <details class="profile-field">
+        <summary><span>Source identifier</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Identify each report or evidence artifact separately from the case.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Identifiers</dt><dd><ul class="profile-list"><li>AIBD-0124-source-0001</li><li>AIBD-0124-source-0002</li><li>AIBD-0124-source-0003</li><li>AIBD-0124-source-0004</li><li>AIBD-0124-source-0005</li><li>AIBD-0124-source-0006</li></ul>
+</dd></div><div><dt>Role</dt><dd>Existing evidence items, in their original order</dd></div></dl></div>      </details>
+      <details class="profile-field">
+        <summary><span>Citation and exact locator</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Title, author/publisher, URL or persistent identifier, publication date, page/paragraph/table, and a short supporting excerpt when permitted.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Evidence</dt><dd><ul class="profile-list"><li><dl class="profile-values"><div><dt>Citation</dt><dd>wolfSSL (2024). wolfSSL Release 5.7.6 (Dec 31, 2024), release notes, Bug Fixes. GitHub, wolfSSL/wolfssl, tag v5.7.6-stable, published 31 December 2024.</dd></div><div><dt>Title</dt><dd>wolfSSL Release 5.7.6 (Dec 31, 2024)</dd></div><div><dt>Url</dt><dd><a href="https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2024-12-31</dd></div><div><dt>Written by</dt><dd>beneficiary</dd></div><div><dt>Quote</dt><dd>Fix for potential heap use after free with wolfSSL_PEM_read_bio_PrivateKey. Thanks to Peter for the issue reported. (PR 8139)</dd></div></dl></li><li><dl class="profile-values"><div><dt>Citation</dt><dd>douzzer (2024). 20241031-fixes. wolfSSL/wolfssl pull request 8139, GitHub, opened and merged 1 November 2024; commit b41ce042 changes src/pk.c.</dd></div><div><dt>Title</dt><dd>20241031-fixes (wolfSSL pull request 8139)</dd></div><div><dt>Url</dt><dd><a href="https://github.com/wolfSSL/wolfssl/pull/8139" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2024-11-01</dd></div><div><dt>Written by</dt><dd>beneficiary</dd></div><div><dt>Quote</dt><dd>src/pk.c: in pem_read_bio_key(), fix invalid read (ZD#18875).</dd></div></dl></li><li><dl class="profile-values"><div><dt>Citation</dt><dd>Samarin, P. (2025). How AI-generated fuzz test uncovered a vulnerability in wolfSSL. Code Intelligence blog, 3 January 2025; Wayback Machine capture of 9 January 2025 (the live domain did not resolve on 20 October 2026).</dd></div><div><dt>Title</dt><dd>How AI-generated fuzz test uncovered a vulnerability in wolfSSL</dd></div><div><dt>Url</dt><dd><a href="https://web.archive.org/web/20250109141038/https://www.code-intelligence.com/blog/ai-generated-fuzz-test-wolfssl-vulnerability" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2025-01-03</dd></div><div><dt>Written by</dt><dd>makers</dd></div><div><dt>Quote</dt><dd>The vulnerability was identified in wolfSSL, an open-source cryptography library widely used in developing embedded devices and IoT systems, during the final week of October 2024.</dd></div></dl></li><li><dl class="profile-values"><div><dt>Citation</dt><dd>Code Intelligence (2025). Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction. PR Newswire, Bonn, 9 January 2025.</dd></div><div><dt>Title</dt><dd>Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction</dd></div><div><dt>Url</dt><dd><a href="https://www.prnewswire.com/news-releases/code-intelligence-launches-spark-its-ai-test-agent-that-autonomously-uncovers-vulnerabilities-without-human-interaction-302345548.html" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2025-01-09</dd></div><div><dt>Written by</dt><dd>makers</dd></div><div><dt>Quote</dt><dd>The only human involvement was launching a single command to run the AI Test Agent; analyzing the code, generating a relevant test case, and running it was done autonomously.</dd></div></dl></li><li><dl class="profile-values"><div><dt>Citation</dt><dd>Willems, M. (2025). German startup to launch world&#39;s first AI test agent. QA Financial, 13 January 2025.</dd></div><div><dt>Title</dt><dd>German startup to launch world&#39;s first AI test agent</dd></div><div><dt>Url</dt><dd><a href="https://qa-financial.com/german-startup-to-launch-worlds-first-ai-test-agent/" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2025-01-13</dd></div><div><dt>Written by</dt><dd>independent</dd></div><div><dt>Quote</dt><dd>Brueggemann claimed his firm shared the bug with WolfSSL’s team, which went on to issue a warning and update in December of last year.</dd></div></dl></li><li><dl class="profile-values"><div><dt>Citation</dt><dd>French, L. (2025). How AI can revolutionize vulnerability research. SC Media, 3 February 2025.</dd></div><div><dt>Title</dt><dd>How AI can revolutionize vulnerability research</dd></div><div><dt>Url</dt><dd><a href="https://www.scworld.com/feature/how-ai-can-revolutionize-vulnerability-research" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2025-02-03</dd></div><div><dt>Written by</dt><dd>independent</dd></div><div><dt>Quote</dt><dd>Code Intelligence’s Spark autonomously discovering a heap-based user-after-free vulnerability in popular open-source wolfSSL library during its beta testing in October 2024.</dd></div></dl></li></ul>
+</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Source language and translation</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Original language, translation status/method, and original wording needed to verify a consequential claim.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Source relationship and interests</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Maker, deployer, beneficiary, evaluator, independent reporter, funder, other, or unclear relationship. Unknown does not default to independent. Record disclosed funding/conflicts separately from research design.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Evidence</dt><dd><ul class="profile-list"><li><dl class="profile-values"><div><dt>Citation</dt><dd>wolfSSL (2024). wolfSSL Release 5.7.6 (Dec 31, 2024), release notes, Bug Fixes. GitHub, wolfSSL/wolfssl, tag v5.7.6-stable, published 31 December 2024.</dd></div><div><dt>Title</dt><dd>wolfSSL Release 5.7.6 (Dec 31, 2024)</dd></div><div><dt>Url</dt><dd><a href="https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2024-12-31</dd></div><div><dt>Written by</dt><dd>beneficiary</dd></div><div><dt>Quote</dt><dd>Fix for potential heap use after free with wolfSSL_PEM_read_bio_PrivateKey. Thanks to Peter for the issue reported. (PR 8139)</dd></div></dl></li><li><dl class="profile-values"><div><dt>Citation</dt><dd>douzzer (2024). 20241031-fixes. wolfSSL/wolfssl pull request 8139, GitHub, opened and merged 1 November 2024; commit b41ce042 changes src/pk.c.</dd></div><div><dt>Title</dt><dd>20241031-fixes (wolfSSL pull request 8139)</dd></div><div><dt>Url</dt><dd><a href="https://github.com/wolfSSL/wolfssl/pull/8139" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2024-11-01</dd></div><div><dt>Written by</dt><dd>beneficiary</dd></div><div><dt>Quote</dt><dd>src/pk.c: in pem_read_bio_key(), fix invalid read (ZD#18875).</dd></div></dl></li><li><dl class="profile-values"><div><dt>Citation</dt><dd>Samarin, P. (2025). How AI-generated fuzz test uncovered a vulnerability in wolfSSL. Code Intelligence blog, 3 January 2025; Wayback Machine capture of 9 January 2025 (the live domain did not resolve on 20 October 2026).</dd></div><div><dt>Title</dt><dd>How AI-generated fuzz test uncovered a vulnerability in wolfSSL</dd></div><div><dt>Url</dt><dd><a href="https://web.archive.org/web/20250109141038/https://www.code-intelligence.com/blog/ai-generated-fuzz-test-wolfssl-vulnerability" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2025-01-03</dd></div><div><dt>Written by</dt><dd>makers</dd></div><div><dt>Quote</dt><dd>The vulnerability was identified in wolfSSL, an open-source cryptography library widely used in developing embedded devices and IoT systems, during the final week of October 2024.</dd></div></dl></li><li><dl class="profile-values"><div><dt>Citation</dt><dd>Code Intelligence (2025). Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction. PR Newswire, Bonn, 9 January 2025.</dd></div><div><dt>Title</dt><dd>Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction</dd></div><div><dt>Url</dt><dd><a href="https://www.prnewswire.com/news-releases/code-intelligence-launches-spark-its-ai-test-agent-that-autonomously-uncovers-vulnerabilities-without-human-interaction-302345548.html" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2025-01-09</dd></div><div><dt>Written by</dt><dd>makers</dd></div><div><dt>Quote</dt><dd>The only human involvement was launching a single command to run the AI Test Agent; analyzing the code, generating a relevant test case, and running it was done autonomously.</dd></div></dl></li><li><dl class="profile-values"><div><dt>Citation</dt><dd>Willems, M. (2025). German startup to launch world&#39;s first AI test agent. QA Financial, 13 January 2025.</dd></div><div><dt>Title</dt><dd>German startup to launch world&#39;s first AI test agent</dd></div><div><dt>Url</dt><dd><a href="https://qa-financial.com/german-startup-to-launch-worlds-first-ai-test-agent/" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2025-01-13</dd></div><div><dt>Written by</dt><dd>independent</dd></div><div><dt>Quote</dt><dd>Brueggemann claimed his firm shared the bug with WolfSSL’s team, which went on to issue a warning and update in December of last year.</dd></div></dl></li><li><dl class="profile-values"><div><dt>Citation</dt><dd>French, L. (2025). How AI can revolutionize vulnerability research. SC Media, 3 February 2025.</dd></div><div><dt>Title</dt><dd>How AI can revolutionize vulnerability research</dd></div><div><dt>Url</dt><dd><a href="https://www.scworld.com/feature/how-ai-can-revolutionize-vulnerability-research" rel="noopener">Source</a></dd></div><div><dt>Date</dt><dd>2025-02-03</dd></div><div><dt>Written by</dt><dd>independent</dd></div><div><dt>Quote</dt><dd>Code Intelligence’s Spark autonomously discovering a heap-based user-after-free vulnerability in popular open-source wolfSSL library during its beta testing in October 2024.</dd></div></dl></li></ul>
+</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Shared evidence lineage</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Identify reports that repeat the same press release, study, witness, or dataset. Several articles may constitute one evidentiary origin.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Access and source version</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Access date, source version, archive/persistent link when permitted, corrections or retractions, and availability limits.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Precisely supported claim</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Tie evidence to the exact factual assertion, outcome, actor attribution, or AI-contribution claim. Publicly identify source statements, analyst inferences, and generated summaries.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Supporting and contradicting evidence</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Link the exact passage and distinguish support, contradiction, and contextual evidence.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Evidence assessment</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Assess occurrence, outcome, AI contribution, and actor attribution separately where relevant, with reasons and an explicit unassessed state.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Missing information</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Distinguish not reported, unknown after review, not assessed, not applicable, withheld, and disputed. Do not substitute zero or false.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+    </section>
+    <section class="profile-group">
+      <h3>Ratings and interpretations</h3>
+      <details class="profile-field">
+        <summary><span>Assessment target</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Identify the exact benefit and beneficiary to which the rating applies.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Ratings</dt><dd><ul class="profile-list"><li><dl class="profile-values"><div><dt>Group</dt><dd>organizational</dd></div><div><dt>Depth</dt><dd>2</dd></div><div><dt>Reason</dt><dd>wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path. It merged the fix within days (PR 8139, 1 November 2024) and shipped it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release&#39;s Vulnerabilities section. No CVE for it appears on wolfSSL&#39;s vulnerabilities page. The vendor itself says the exploit conditions “don&#39;t seem easy to meet”, so the benefit is material but bounded.</dd></div></dl></li></ul>
+</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Depth of benefit</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Keep the current depth scale and color mapping. Money, beneficiary count, confidence, and strategic significance remain separate dimensions.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Ratings</dt><dd><ul class="profile-list"><li><dl class="profile-values"><div><dt>Group</dt><dd>organizational</dd></div><div><dt>Depth</dt><dd>2</dd></div><div><dt>Reason</dt><dd>wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path. It merged the fix within days (PR 8139, 1 November 2024) and shipped it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release&#39;s Vulnerabilities section. No CVE for it appears on wolfSSL&#39;s vulnerabilities page. The vendor itself says the exploit conditions “don&#39;t seem easy to meet”, so the benefit is material but bounded.</dd></div></dl></li></ul>
+</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Rating rationale</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Explain why the observed or intended benefit fits the stated depth for that stakeholder.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Ratings</dt><dd><ul class="profile-list"><li><dl class="profile-values"><div><dt>Group</dt><dd>organizational</dd></div><div><dt>Depth</dt><dd>2</dd></div><div><dt>Reason</dt><dd>wolfSSL received a reproducible report of a heap use-after-free in a private-key parsing path. It merged the fix within days (PR 8139, 1 November 2024) and shipped it in 5.7.6 on 31 December 2024. The maintainers listed it among bug fixes rather than in the release&#39;s Vulnerabilities section. No CVE for it appears on wolfSSL&#39;s vulnerabilities page. The vendor itself says the exploit conditions “don&#39;t seem easy to meet”, so the benefit is material but bounded.</dd></div></dl></li></ul>
+</dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Observed or intended basis</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">State whether the depth describes a realized, intended, projected, or unclear outcome. Assess support separately: a claim can concern a realized result. Keep unrealized benefits eligible.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Rubric and taxonomy version</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Identify the definitions and rules under which the assessment was made.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Assessor and assessment date</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Store who assessed the claim and when. Use a public role or pseudonym where disclosure requires it.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Disagreement and alternatives</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Preserve materially different ratings, rationales, and unresolved questions rather than averaging them away.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Confidence shown by fill</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Support for the beneficial outcome and its stated relationship to AI. Certainty that someone made a claim or that a benefit failed is separate. Retain unassessed. Do not infer confidence from publisher prestige alone.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Data</dt><dd><dl class="profile-values"><div><dt>Confidence</dt><dd>medium</dd></div><div><dt>Evidence word</dt><dd>reported</dd></div><div><dt>Claim status</dt><dd>Independently reported</dd></div><div><dt>Basis</dt><dd>Sources: two independent news reports, two press releases from the makers and two other sources from the beneficiary. The cited evidence includes no independent study or report and no finding by a regulator or court.</dd></div><div><dt>Interpretation</dt><dd>Existing display rule preserved; the richer outcome-specific confidence question still needs review.</dd></div></dl></dd></div></dl></div>      </details>
+    </section>
+    <section class="profile-group">
+      <h3>Replication, follow-up, and decisions</h3>
+      <details class="profile-field">
+        <summary><span>Conditions needed to repeat the benefit</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Skills, data, language, infrastructure, workflows, controls, and contextual prerequisites that evidence identifies.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Replication</dt><dd><dl class="profile-values"><div><dt>Produced by</dt><dd><ul class="profile-list"><li>wolfSSL&#39;s source tree (before 5.7.6) set up as a CI Fuzz project by the vendor</li><li>A single “cifuzz spark” command, after which the agent chose pem_read_bio_key() as a target and generated and ran a fuzz test</li><li>A sanitizer-detectable heap use-after-free in the BIO write-back path of pem_read_bio_key() that a generated input could trigger</li><li>A maintainer team that tracked the report as ZD#18875 and merged a fix within three days of the discovery</li></ul>
+</dd></div><div><dt>Must hold</dt><dd><ul class="profile-list"><li>A human must confirm the finding. The vendor says the one manual step was assessing that the bug exists and is exploitable under specific conditions</li><li>The beneficiary must be an identifiable project with a public fix record. Without wolfSSL&#39;s PR and release notes the event would rest on vendor claims alone</li><li>The AI&#39;s share of the work is described only by the vendor. wolfSSL&#39;s records name the reporter, not the tool, so the autonomy claim cannot be replicated without the vendor&#39;s product</li></ul>
+</dd></div><div><dt>Echoes</dt><dd><ul class="profile-list"></ul>
+</dd></div></dl></dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Attempts to reproduce the result</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Setting, population, model/version, protocol differences, observed result, source, and independent/same-team relationship. Include failed attempts.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Subsequent outcomes</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Track persisted, scaled, mixed, reversed, withdrawn, or unknown outcomes and relevant changes in model or context.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Later</dt><dd><dl class="profile-values"><div><dt>Status</dt><dd>persisted</dd></div><div><dt>Date</dt><dd>2024-12-31</dd></div><div><dt>Note</dt><dd>wolfSSL shipped the fix in release 5.7.6 on 31 December 2024, crediting the reporter in its release notes, and Code Intelligence launched Spark publicly in January 2025.</dd></div><div><dt>Quote</dt><dd>Fix for potential heap use after free with wolfSSL_PEM_read_bio_PrivateKey. Thanks to Peter for the issue reported. (PR 8139)</dd></div><div><dt>Url</dt><dd><a href="https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable" rel="noopener">Source</a></dd></div></dl></dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Access and availability</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Whether and how the system/activity can be accessed, procurement or license conditions, cost, geographic/language availability, and as-of date.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Institution and decision</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Identify who was deciding whether to adopt, fund, scale, regulate, or stop a use, and the task that evidence served.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Decision grounds and alternatives</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Relevant mandate, jurisdiction, threshold, evidence considered, alternatives, reasons to act or not act, and constraints.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Action and observed consequence</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Record what was done, who owned it, when, and what later evidence showed. Distinguish intended response from tested effectiveness.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>What would show success</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Preserve the measurable question that would establish whether the adoption or intervention worked, with unanswered follow-up questions.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+    </section>
+    <section class="profile-group">
+      <h3>Interoperability and publication</h3>
+      <details class="profile-field">
+        <summary><span>Other databases and identifiers</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Link original collection entries, risk/incident records, studies, registries, and standards without implying that they are equivalent records.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Registry ids</dt><dd><dl class="profile-values"><div><dt>Oecd aim</dt><dd>2025-01-09-764d</dd></div></dl></dd></div></dl>
+</div>      </details>
+      <details class="profile-field">
+        <summary><span>Versioned category mappings</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Record exact, broader, narrower, partial, or no-match mappings with rationale and versions. Retain disagreement.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Citable case brief</span><span class="profile-state state-not_assessed">Not assessed</span></summary>
+        <p class="profile-definition">Present the main result, comparison, beneficiary, material limitations, and source links. Preserve qualifications in export.</p>
+<p class="profile-explanation">This question has not yet been assessed.</p>      </details>
+      <details class="profile-field">
+        <summary><span>Field-level changes</span><span class="profile-state state-value_present">Recorded; review pending</span></summary>
+        <p class="profile-definition">Changed field, old/new values or recoverable versions, date, source, editor, and correction reason.</p>
+<div class="profile-answer"><dl class="profile-values"><div><dt>Revisions</dt><dd><ul class="profile-list"><li><dl class="profile-values"><div><dt>Date</dt><dd>2026-10-20</dd></div><div><dt>Change</dt><dd>Record drafted from the OECD Monitor entry and the cited sources.</dd></div><div><dt>Source</dt><dd><a href="https://oecd.ai/en/incidents/2025-01-09-764d" rel="noopener">Source</a></dd></div><div><dt>Editor</dt><dd>AIBD</dd></div></dl></li><li><dl class="profile-values"><div><dt>Date</dt><dd>2026-10-21</dd></div><div><dt>Change</dt><dd>Benefit type set to Reduced Risk under Trustible&#39;s full taxonomy of 23 types; it was Improved Knowledge Discovery among the six first used.</dd></div><div><dt>Source</dt><dd><a href="https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/" rel="noopener">Source</a></dd></div><div><dt>Editor</dt><dd>AIBD</dd></div></dl></li><li><dl class="profile-values"><div><dt>Date</dt><dd>2026-10-21</dd></div><div><dt>Change</dt><dd>Added what happened since from the cited sources.</dd></div><div><dt>Source</dt><dd><a href="https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable" rel="noopener">Source</a></dd></div><div><dt>Editor</dt><dd>AIBD</dd></div></dl></li><li><dl class="profile-values"><div><dt>Date</dt><dd>2026-10-21</dd></div><div><dt>Change</dt><dd>Country of the developer and the deployer added from the organization&#39;s own site or a registry.</dd></div><div><dt>Source</dt><dd><a href="https://www.northdata.de/Code+Intelligence+GmbH,+Bonn; https://www.northdata.de/Code+Intelligence+GmbH,+Bonn" rel="noopener">Source</a></dd></div><div><dt>Editor</dt><dd>AIBD</dd></div></dl></li><li><dl class="profile-values"><div><dt>Date</dt><dd>2026-10-21</dd></div><div><dt>Change</dt><dd>Prose pass: a rating reason, account, purpose, the replication conditions, the system&#39;s part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.</dd></div><div><dt>Editor</dt><dd>AIBD</dd></div></dl></li></ul>
+</dd></div></dl>
+</div>      </details>
+    </section>
+    <p class="profile-download"><a href="AIBD-0124.json">Download this case and its public field profile</a></p>
+  </details>
+</section>
+
     <section class="sec" data-panel="provenance">
       <h2>Revisions</h2>
       <p class="prose revs-line">Added 20 October 2026. Updated 21 October 2026. <a href="AIBD-0124.json">Revision history</a>.</p>
@@ -142,6 +589,8 @@
 <footer class="footer sheet">
   <div class="footer-inner">
     <a href="../cases.html?open=method">How a record is made</a>
+    <a href="../pecunia.html">Pecunia</a>
+    <a href="../fields.html">Fields and evidence</a>
     <a href="../data/records.json">records.json</a>
     <a href="../data/records.csv">records.csv</a>
     <a href="../feed.xml">Feed of new and revised cases</a>
@@ -150,6 +599,6 @@
 </footer>
 </div>
 <div class="tip" data-tip aria-hidden="true"></div>
-<script src="../app.js?v=a05d842b9b"></script>
+<script src="../app.js?v=444c19ac0e"></script>
 </body>
 </html>
