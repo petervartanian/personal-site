@@ -1,7 +1,7 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-audience-cards';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-audience-cards';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-audience-cards';
-import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-audience-cards';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-restored-cards';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-restored-cards';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-restored-cards';
+import { frameworkSelection, frameworkAnalysis, selectedStory, safeguardsMatrix } from './framework.mjs?v=20261023-restored-cards';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
@@ -9,7 +9,8 @@ setupCredit();
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const stateNames = { held: 'Worked', failed: 'Failed', absent: 'Absent', disabled: 'Off', unknown: 'Unknown' };
 const organizationMarks = { OpenAI: 'openai.png', 'Hugging Face': 'hugging-face.svg', Modal: 'modal.svg' };
-const organizationName = name => `<span class="organization-name">${organizationMarks[name] ? `<img src="assets/${organizationMarks[name]}" class="organization-logo" width="22" height="22" alt="">` : ''}${escape(name)}</span>`;
+const applicationMark = '<svg class="organization-logo application-mark" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01m-1 6-2 2 2 2m6-4 2 2-2 2"/></svg>';
+const organizationName = name => `<span class="organization-name">${organizationMarks[name] ? `<img src="assets/${organizationMarks[name]}" class="organization-logo" width="22" height="22" alt="">` : name === 'Customer application operator' ? applicationMark : ''}${escape(name)}</span>`;
 const icons = {
   access: '<path d="M13 3h6v18h-6M3 12h11m-4-4 4 4-4 4"/>',
   network: '<rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M6 9v9h9M9 6h9v9"/>',
