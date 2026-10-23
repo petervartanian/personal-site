@@ -12,8 +12,7 @@ export function systemSelection(data, current, routeFor) {
     <span class="system-route-edge" aria-label="Requests from the customer application to Hugging Face services"><span>Launchpad</span></span>
     <div class="system-place">${systemLink('hugging-face-control','<strong>Hugging Face</strong><span>Dataset processing</span>')}</div>
   </nav>
-  <figure class="control-loop-diagram" aria-label="Controller: ${escape(selected.controller)}. Controlled process: ${escape(selected.controlledProcess)}. ${unknown ? 'Feedback needs to be established.' : 'Feedback from the process.'}"><div class="controller-node">${escape(selected.controller)}</div><div class="loop-connections" aria-hidden="true"><span class="action-direction">Control action</span><span class="feedback-direction ${unknown ? 'feedback-unknown' : ''}">${unknown ? 'Feedback to establish' : 'Feedback'}</span></div><div class="process-node">${escape(selected.controlledProcess)}</div></figure>
-  <div class="system-coordination"><p>OpenAI and Hugging Face connected their investigations after finding matching credentials.</p><a href="${routeFor('questions','cross-organization-response')}">Examine their cooperation</a></div></section>`;
+  <figure class="control-loop-diagram" aria-label="Controller: ${escape(selected.controller)}. Controlled process: ${escape(selected.controlledProcess)}. ${unknown ? 'Feedback needs to be established.' : 'Feedback from the process.'}"><div class="controller-node">${escape(selected.controller)}</div><div class="loop-connections" aria-hidden="true"><span class="action-direction">Control action</span><span class="feedback-direction ${unknown ? 'feedback-unknown' : ''}">${unknown ? 'Feedback to establish' : 'Feedback'}</span></div><div class="process-node">${escape(selected.controlledProcess)}</div></figure></section>`;
 }
 
 export function systemAnalysis(item, citationLinks, related, routeFor) {
