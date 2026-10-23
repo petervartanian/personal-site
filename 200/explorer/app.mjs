@@ -1,6 +1,6 @@
-import { views, navigationViews, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-cast';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-cast';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-cast';
+import { views, navigationViews, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-spacing';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-spacing';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-spacing';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();

@@ -344,6 +344,27 @@ body{min-height:100svh}
 .library-guide:has(+.incident-library>.library-case:only-child){max-width:820px}
 .library-case:only-child h2{max-width:none}
 
+/* Share spare viewport height between the introduction and the case contents. */
+@media(min-width:761px){
+  body[data-view=library]{--library-space:clamp(24px,calc((100svh - 30rem)/13),56px)}
+  body[data-view=library] .page{min-height:calc(100svh - 74px);padding-block:var(--library-space);display:flex;flex-direction:column}
+  #case-library{flex:1;display:flex;flex-direction:column;gap:var(--library-space)}
+  .library-intro{display:grid;gap:var(--library-space);padding:0}
+  .library-intro p{margin:0 auto}
+  .library-guide{width:100%;margin:0 auto}
+  .incident-library{flex:1;width:100%;gap:var(--library-space);margin:0 auto}
+  .library-case{padding:var(--library-space);gap:var(--library-space);justify-content:space-between}
+  .case-events{min-height:44px;margin:-7px -7px 0}
+  .library-summary,.selection-reason{margin:0}
+  .library-case-meta{margin:0 0 12px}
+  .selection-reason{margin-top:16px}
+  .library-case-actions{margin:0;padding-top:var(--library-space)}
+  .comparison-tray{width:100%;margin:0 auto}
+}
+@media(min-width:1100px){
+  body[data-view=library]{--library-space:clamp(24px,calc((100svh - 24rem)/13),56px)}
+}
+
 /* Control structure: controller, action and feedback channels, controlled process. */
 .case-outcome{max-width:850px;margin-top:12px;font-size:14px;color:#526168;line-height:1.5}
 .case-outcome a{margin-left:8px;white-space:nowrap}

@@ -1,4 +1,4 @@
-import { caseRouteFor, comparisonRoute } from './state.mjs?v=20261023-cast';
+import { caseRouteFor, comparisonRoute } from './state.mjs?v=20261023-spacing';
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const phaseColor = phase => ({Access:'access',Intrusion:'intrusion',Response:'response',Assessment:'assessment'}[phase] || 'assessment');
 export function libraryMarkup(catalog, selected) {
@@ -6,10 +6,10 @@ export function libraryMarkup(catalog, selected) {
   <p class="library-guide">Select an incident. Each dot opens an event.</p><div class="incident-library">${catalog.map(data => {
     const c = data.case;
     return `<article class="library-case"><div class="case-events" aria-label="Events in ${escape(c.title)}">${data.events.map(event => `<a href="${caseRouteFor(c.id,'events',event.id)}" class="library-event phase-${phaseColor(event.phase)}" aria-label="${escape(event.date)}, ${escape(event.phase)}: ${escape(event.label)}"><span class="library-dot" aria-hidden="true"></span><span class="event-hint" aria-hidden="true">${escape(event.phase)}: ${escape(event.label)}</span></a>`).join('')}</div>
-    <div class="library-case-meta"><time>${escape(c.dateLabel || c.dateRange)}</time>${c.incidentId ? `<span>#${escape(c.incidentId)}</span>` : ''}</div>
-    <h2><a href="${caseRouteFor(c.id,'events')}">${escape(c.title)}</a></h2>
-    <p class="library-summary">${escape(c.catalogSummary || c.summary)}</p>
-    <p class="selection-reason">${escape(c.selectionReason)}</p>
+    <header class="library-case-heading"><div class="library-case-meta"><time>${escape(c.dateLabel || c.dateRange)}</time>${c.incidentId ? `<span>#${escape(c.incidentId)}</span>` : ''}</div>
+    <h2><a href="${caseRouteFor(c.id,'events')}">${escape(c.title)}</a></h2></header>
+    <div class="library-case-description"><p class="library-summary">${escape(c.catalogSummary || c.summary)}</p>
+    <p class="selection-reason">${escape(c.selectionReason)}</p></div>
     <div class="library-case-actions"><a class="investigate-link" href="${caseRouteFor(c.id,'events')}">Open investigation</a>${catalog.length > 1 ? `<label class="compare-choice"><input type="checkbox" name="compare-case" value="${escape(c.id)}" ${selected.has(c.id) ? 'checked' : ''}><span>Compare<span class="visually-hidden"> ${escape(c.title)}</span></span></label>` : ''}</div></article>`;
   }).join('')}</div>
   <div class="comparison-tray" id="comparison-tray" ${selected.size ? '' : 'hidden'}>${selectionMarkup(selected)}</div>`;
