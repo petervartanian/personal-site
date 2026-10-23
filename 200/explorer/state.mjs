@@ -24,3 +24,27 @@ export function routeFor(view, itemId, sourceId) {
 export function selectSourceRef(item, sourceId) {
   return item.sourceRefs?.find(ref => ref.sourceId === sourceId) || { sourceId };
 }
+
+export function caseRouteFor(caseId, view, itemId, sourceId) {
+  return '#/cases/' + encodeURIComponent(caseId) + '/' + routeFor(view, itemId, sourceId).slice(2);
+}
+
+export function readLocation(hash, catalog) {
+  let parts;
+  try { parts = hash.replace(/^#\/?/, '').split('/').map(decodeURIComponent); }
+  catch { return { screen: 'home' }; }
+  if (parts[0] === 'compare') {
+    const caseIds = [...new Set(parts.slice(1))].filter(id => catalog.some(d => d.case.id === id));
+    return caseIds.length > 1 ? { screen: 'compare', caseIds } : { screen: 'home' };
+  }
+  if (parts[0] === 'cases') {
+    if (!catalog.some(d => d.case.id === parts[1])) return { screen: 'home' };
+    return { screen: 'case', caseId: parts[1], hash: '#/' + parts.slice(2).map(encodeURIComponent).join('/') };
+  }
+  if (views.some(v => v.id === parts[0]) && catalog.some(d => d.case.id === 'hugging-face-1604')) return { screen: 'case', caseId: 'hugging-face-1604', hash };
+  return { screen: 'home' };
+}
+
+export function comparisonRoute(ids) {
+  return '#/compare/' + [...new Set(ids)].map(encodeURIComponent).join('/');
+}

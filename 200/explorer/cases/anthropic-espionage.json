@@ -1,0 +1,482 @@
+{
+  "case": {
+    "id": "anthropic-espionage-1263",
+    "incidentId": 1263,
+    "incidentUrl": "https://incidentdatabase.ai/cite/1263/",
+    "title": "Claude Code used in a cyber-espionage campaign",
+    "dateRange": "September 2025",
+    "dateLabel": "September 2025",
+    "chronologyRange": "September 2025",
+    "chronologyDateRange": {
+      "start": "2025-09",
+      "end": "2025-09",
+      "precision": "month"
+    },
+    "catalogSummary": "Anthropic reported that attackers used Claude Code across roughly 30 targets, breaching a small number.",
+    "summary": "Attackers used Claude Code to conduct intrusions under human direction, according to Anthropic. Examine how the operation progressed and what the response addressed.",
+    "reportedOutcome": "Anthropic reported successful intrusions at a small number of targets.",
+    "selectionReason": "A multi-target campaign combined agent orchestration, tool access, stolen credentials, and a response involving the model provider and affected organizations.",
+    "sourceIds": [
+      "anthropic-disclosure",
+      "anthropic-report",
+      "mitre-campaign"
+    ],
+    "comparison": {
+      "setting": {
+        "text": "A malicious campaign against organizations in several sectors.",
+        "sourceIds": [
+          "mitre-campaign"
+        ]
+      },
+      "aiRole": {
+        "text": "Claude Code performed intrusion tasks under human direction.",
+        "sourceIds": [
+          "mitre-campaign"
+        ]
+      },
+      "outcome": {
+        "text": "A small number of targets were breached, Anthropic reported.",
+        "sourceIds": [
+          "anthropic-disclosure"
+        ]
+      },
+      "response": {
+        "text": "Anthropic banned accounts and notified affected parties as appropriate.",
+        "sourceIds": [
+          "anthropic-disclosure"
+        ]
+      },
+      "unknown": {
+        "text": "The report does not establish whether every victim removed persistent access.",
+        "sourceIds": [
+          "anthropic-report"
+        ]
+      }
+    }
+  },
+  "sources": [
+    {
+      "id": "anthropic-disclosure",
+      "title": "Disrupting the first reported AI-orchestrated cyber espionage campaign",
+      "publisher": "Anthropic",
+      "date": "2025-11-13",
+      "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
+      "kind": "Provider account",
+      "locator": "Opening account and How the cyberattack worked"
+    },
+    {
+      "id": "anthropic-report",
+      "title": "Cyber-espionage campaign: full report",
+      "publisher": "Anthropic",
+      "date": "2025-11-17",
+      "url": "https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf",
+      "kind": "Provider investigation",
+      "locator": "November 17 revision; printed pages 6–13"
+    },
+    {
+      "id": "mitre-campaign",
+      "title": "Anthropic AI-orchestrated Campaign (C0062)",
+      "publisher": "MITRE ATT&CK",
+      "date": "2026-07-31",
+      "url": "https://attack.mitre.org/campaigns/C0062/",
+      "kind": "Technique catalog citing Anthropic",
+      "locator": "Campaign description and Techniques Used; last modified July 31, 2026"
+    }
+  ],
+  "events": [
+    {
+      "id": "campaign-targeting",
+      "date": "September 2025",
+      "label": "Operators choose targets",
+      "phase": "Access",
+      "summary": "Human operators selected targets and presented tasks as authorized security work, Anthropic reported.",
+      "detail": "The claimed authorization helped bypass model safeguards.",
+      "actors": [
+        "Campaign operators",
+        "Claude Code"
+      ],
+      "sourceIds": [
+        "anthropic-disclosure"
+      ],
+      "controlIds": [
+        "model-refusals"
+      ],
+      "questionIds": [
+        "misuse-detection"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "anthropic-disclosure",
+          "locator": "How the cyberattack worked, Phase 1",
+          "supports": "summary, detail",
+          "account": "The operators claimed that they worked for cybersecurity firms and framed requests as defensive testing."
+        }
+      ]
+    },
+    {
+      "id": "target-exploitation",
+      "date": "September 2025",
+      "label": "Agents find routes into targets",
+      "phase": "Intrusion",
+      "summary": "Agents scanned systems and exploited vulnerable applications, according to Anthropic.",
+      "detail": "The report describes reconnaissance followed by exploit development and testing.",
+      "actors": [
+        "Campaign operators",
+        "Claude Code",
+        "Targeted organizations"
+      ],
+      "sourceIds": [
+        "anthropic-report"
+      ],
+      "controlIds": [
+        "model-refusals"
+      ],
+      "questionIds": [
+        "misuse-detection",
+        "exposure-confirmation"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "anthropic-report",
+          "locator": "Phases 2 and 3, printed pages 9–10",
+          "supports": "summary, detail",
+          "account": "The report describes reconnaissance followed by exploit development and testing."
+        }
+      ]
+    },
+    {
+      "id": "credential-data-access",
+      "date": "September 2025",
+      "label": "Credentials enable further access",
+      "phase": "Intrusion",
+      "summary": "Stolen credentials enabled access to internal services and data.",
+      "detail": "These mappings cite Anthropic's investigation.",
+      "actors": [
+        "Campaign operators",
+        "Claude Code",
+        "Compromised organizations"
+      ],
+      "sourceIds": [
+        "mitre-campaign"
+      ],
+      "controlIds": [
+        "victim-access-removal"
+      ],
+      "questionIds": [
+        "exposure-confirmation",
+        "containment-handoff"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "mitre-campaign",
+          "locator": "Techniques Used: T1078, T1213.006, and T1136.001",
+          "supports": "summary, detail",
+          "account": "MITRE catalogs credential reuse, database collection, and a backdoor account, citing Anthropic."
+        }
+      ]
+    },
+    {
+      "id": "provider-detection",
+      "date": "Mid-September 2025",
+      "label": "Anthropic detects suspicious activity",
+      "phase": "Response",
+      "summary": "Anthropic says that it detected suspicious activity and began investigating.",
+      "detail": "The provider examined the related operation over the following ten days.",
+      "actors": [
+        "Anthropic"
+      ],
+      "sourceIds": [
+        "anthropic-disclosure"
+      ],
+      "controlIds": [
+        "provider-enforcement"
+      ],
+      "questionIds": [
+        "misuse-detection",
+        "containment-handoff"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "anthropic-disclosure",
+          "locator": "Opening account, paragraphs beginning In mid-September 2025 and Upon detecting this activity",
+          "supports": "summary, detail",
+          "account": "The provider examined the operation over the following ten days."
+        }
+      ]
+    },
+    {
+      "id": "provider-disruption",
+      "date": "Following ten days",
+      "label": "Accounts are banned",
+      "phase": "Response",
+      "summary": "Anthropic banned identified accounts and shared findings with affected parties and authorities.",
+      "detail": "Its report also describes changes to detection systems.",
+      "actors": [
+        "Anthropic",
+        "Affected organizations",
+        "Relevant authorities"
+      ],
+      "sourceIds": [
+        "anthropic-report"
+      ],
+      "controlIds": [
+        "provider-enforcement",
+        "victim-access-removal"
+      ],
+      "questionIds": [
+        "containment-handoff"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "anthropic-report",
+          "locator": "Our response, printed page 13; timing from Executive summary, printed page 3",
+          "supports": "summary, detail",
+          "account": "The response also included changes to detection systems."
+        }
+      ]
+    }
+  ],
+  "causes": [
+    {
+      "id": "fragmented-requests",
+      "title": "Separate tasks obscured the attack",
+      "summary": "Separate requests concealed their combined purpose, according to Anthropic.",
+      "explanation": "Claimed security-testing roles helped the operators obtain assistance.",
+      "kind": "Observation",
+      "eventIds": [
+        "campaign-targeting",
+        "target-exploitation"
+      ],
+      "sourceIds": [
+        "anthropic-report"
+      ],
+      "controlIds": [
+        "model-refusals"
+      ],
+      "questionIds": [
+        "misuse-detection"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "anthropic-report",
+          "locator": "Operational infrastructure, printed page 6; Phase 1, printed page 8",
+          "supports": "summary, explanation",
+          "account": "Attack components appeared legitimate individually; claimed security-testing roles supplied misleading context."
+        }
+      ]
+    },
+    {
+      "id": "credential-reuse",
+      "title": "Stolen credentials connected systems",
+      "summary": "Reused credentials let the operation spread across internal services.",
+      "explanation": "Its campaign mapping covers databases, APIs, container registries, and logging systems.",
+      "kind": "Observation",
+      "eventIds": [
+        "credential-data-access"
+      ],
+      "sourceIds": [
+        "mitre-campaign"
+      ],
+      "controlIds": [
+        "victim-access-removal"
+      ],
+      "questionIds": [
+        "exposure-confirmation",
+        "containment-handoff"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "mitre-campaign",
+          "locator": "Techniques Used: T1078 Valid Accounts",
+          "supports": "summary, explanation",
+          "account": "The campaign used harvested credentials against APIs, databases, container registries, and logging systems."
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "model-refusals",
+      "title": "Model safeguards",
+      "state": "failed",
+      "owner": "Anthropic",
+      "summary": "Anthropic reports that attackers bypassed safeguards against harmful requests.",
+      "explanation": "The campaign obtained assistance through misleading context and divided tasks.",
+      "implication": "Assess requests in the context of related activity.",
+      "decision": "When should related requests trigger a misuse investigation?",
+      "option": "Review sequences across sessions and accounts.",
+      "verification": "Test whether the detection rule identifies coordinated misuse while preserving authorized security work.",
+      "eventIds": [
+        "campaign-targeting",
+        "target-exploitation"
+      ],
+      "sourceIds": [
+        "anthropic-disclosure"
+      ],
+      "questionIds": [
+        "misuse-detection"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "anthropic-disclosure",
+          "locator": "How the cyberattack worked, Phase 1",
+          "supports": "state, summary, explanation",
+          "account": "The operators divided attacks into requests and claimed authorization for defensive testing."
+        }
+      ]
+    },
+    {
+      "id": "provider-enforcement",
+      "title": "Account bans",
+      "state": "held",
+      "owner": "Anthropic",
+      "summary": "Anthropic reports that it banned the identified accounts.",
+      "explanation": "The provider reports account enforcement; target-side remediation is a separate question.",
+      "implication": "Coordinate provider enforcement with victim remediation.",
+      "decision": "Which accounts should be blocked, and which records should be preserved?",
+      "option": "Pair account suspension with an evidence-preservation and notification process.",
+      "verification": "Confirm suspension times, linked accounts, retained logs, and notification receipts.",
+      "eventIds": [
+        "provider-detection",
+        "provider-disruption"
+      ],
+      "sourceIds": [
+        "anthropic-report"
+      ],
+      "questionIds": [
+        "containment-handoff"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "anthropic-report",
+          "locator": "Our response, printed page 13",
+          "supports": "state, summary, explanation",
+          "account": "The report describes account bans as part of the provider response."
+        }
+      ]
+    },
+    {
+      "id": "victim-access-removal",
+      "title": "Removal of persistent access",
+      "state": "unknown",
+      "owner": "Affected organizations",
+      "summary": "The report does not establish whether every victim removed the attackers' access.",
+      "explanation": "Its response section describes provider actions and notifications.",
+      "implication": "Victim remediation requires separate confirmation.",
+      "decision": "When can an affected organization consider access contained?",
+      "option": "Review compromised accounts, credentials, and persistence before closing the incident.",
+      "verification": "Obtain revocation records, investigation results, and monitoring outcomes from each affected organization.",
+      "eventIds": [
+        "credential-data-access",
+        "provider-disruption"
+      ],
+      "sourceIds": [
+        "anthropic-report"
+      ],
+      "questionIds": [
+        "containment-handoff"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "anthropic-report",
+          "locator": "Phase 6, printed page 12; Our response, printed page 13",
+          "supports": "state, summary, explanation",
+          "account": "The report describes persistent access and provider actions, without a victim-by-victim remediation account."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "misuse-detection",
+      "topic": "Misuse detection",
+      "title": "Which combination of requests should trigger investigation?",
+      "context": "Anthropic describes attacks divided into requests that appeared legitimate individually.",
+      "whyItMatters": "The threshold must work across related activity while accommodating legitimate security testing.",
+      "decision": "What behavior warrants escalation or suspension?",
+      "informationNeeded": "Linked session records, authorization checks, detection timestamps, and examples of legitimate activity that triggers the same signals.",
+      "informationHolder": "Anthropic safeguards and threat-intelligence teams",
+      "scope": "case",
+      "sourceIds": [
+        "anthropic-report"
+      ],
+      "eventIds": [
+        "campaign-targeting",
+        "target-exploitation",
+        "provider-detection"
+      ],
+      "controlIds": [
+        "model-refusals",
+        "provider-enforcement"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "anthropic-report",
+          "locator": "Operational infrastructure, printed page 6",
+          "supports": "context",
+          "account": "Attack components appeared legitimate when evaluated individually."
+        }
+      ]
+    },
+    {
+      "id": "exposure-confirmation",
+      "topic": "Impact verification",
+      "title": "Which claimed intrusions and data losses can be confirmed?",
+      "context": "Anthropic reports that Claude sometimes overstated results or fabricated credentials.",
+      "whyItMatters": "Response priorities depend on which systems and data were actually reached.",
+      "decision": "Which systems require remediation and which affected parties require notification?",
+      "informationNeeded": "Target-side access logs, valid credential tests, confirmed downloads, and a distinction between attempted and successful operations.",
+      "informationHolder": "Affected organizations and Anthropic investigators",
+      "scope": "case",
+      "sourceIds": [
+        "anthropic-report"
+      ],
+      "eventIds": [
+        "target-exploitation",
+        "credential-data-access"
+      ],
+      "controlIds": [
+        "victim-access-removal"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "anthropic-report",
+          "locator": "Executive summary, printed page 4, paragraph beginning An important limitation",
+          "supports": "context",
+          "account": "Claimed credentials sometimes failed; purported secrets sometimes proved public."
+        }
+      ]
+    },
+    {
+      "id": "containment-handoff",
+      "topic": "Response coordination",
+      "title": "What must pass from the model provider to each affected organization?",
+      "context": "Anthropic says that it shared information with impacted entities where appropriate.",
+      "whyItMatters": "Provider enforcement and remediation of compromised systems involve different owners.",
+      "decision": "What information is needed to coordinate containment?",
+      "informationNeeded": "Affected assets, relevant timestamps, account identifiers, access paths, retained logs, and a contact responsible for follow-up.",
+      "informationHolder": "Anthropic investigators and each affected organization's incident-response lead",
+      "scope": "case",
+      "sourceIds": [
+        "anthropic-disclosure"
+      ],
+      "eventIds": [
+        "credential-data-access",
+        "provider-detection",
+        "provider-disruption"
+      ],
+      "controlIds": [
+        "provider-enforcement",
+        "victim-access-removal"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "anthropic-disclosure",
+          "locator": "Opening account, paragraph beginning Upon detecting this activity",
+          "supports": "context",
+          "account": "Anthropic notified affected entities as appropriate and coordinated with authorities."
+        }
+      ]
+    }
+  ]
+}

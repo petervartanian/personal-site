@@ -1,11 +1,12 @@
-import { views, readRoute, routeFor, selectSourceRef } from './state.mjs?v=20261023-status-labels';
+import { views, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-case-library';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-case-library';
 import { setupCredit } from './credit.mjs';
 
 setupCredit();
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const stateNames = { held: 'Worked', failed: 'Failed', absent: 'Absent', disabled: 'Off', unknown: 'Unknown' };
-const organizationMarks = { OpenAI: 'openai.png', 'Hugging Face': 'hugging-face.svg', Modal: 'modal.svg' };
+const organizationMarks = { Anthropic: 'anthropic.png', OpenAI: 'openai.png', 'Hugging Face': 'hugging-face.svg', Modal: 'modal.svg' };
 const organizationName = name => `<span class="organization-name">${organizationMarks[name] ? `<img src="assets/${organizationMarks[name]}" class="organization-logo" width="22" height="22" alt="">` : ''}${escape(name)}</span>`;
 const icons = {
   access: '<path d="M13 3h6v18h-6M3 12h11m-4-4 4 4-4 4"/>',
@@ -39,12 +40,19 @@ const causeIcons = { 'boundary-crossing': 'network', 'data-to-execution': 'bound
 const phaseIcons = { Access: 'access', Intrusion: 'network', Response: 'shield', Assessment: 'report' };
 const icon = name => `<svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name] || icons.report}</svg>`;
 const $ = id => document.getElementById(id);
-const remembered = {};
-const rememberedSources = {};
+let remembered = {};
+let rememberedSources = {};
+const caseMemory = new Map();
+const caseSourceMemory = new Map();
+const selectedCases = new Set();
+let catalog = [];
+let screen;
+let loadNotice = '';
 let data;
 let current;
 let previous;
 
+const routeFor = (view, itemId, sourceId) => caseRouteFor(data.case.id, view, itemId, sourceId);
 const link = (view, item, text, attrs = '') => `<a href="${routeFor(view, item.id)}" ${attrs}>${text}</a>`;
 const stateLabel = item => `<span class="state state-${escape(item.state)}">${icon(item.state)}${escape(stateNames[item.state])}</span>`;
 const sourceDate = iso => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
@@ -63,6 +71,7 @@ function inquiryField(name, symbol, text, className = '', supportingText = '') {
 
 function mitigationType(item) {
   const taxonomy = data.mitigationTaxonomy;
+  if (!item.classification || !taxonomy?.categories?.[item.classification.code]) return '';
   const category = taxonomy.categories[item.classification.code];
   return `<div class="taxonomy-field"><span class="taxonomy-field-label">Suggested MIT category</span><a class="taxonomy-link" href="${escape(category.sourceUrl)}" target="_blank" rel="noopener noreferrer" title="${escape(taxonomy.title)}, ${escape(taxonomy.version)}"><span class="taxonomy-code">${escape(item.classification.code)}</span>${escape(category.name)}<span class="visually-hidden"> in ${escape(taxonomy.title)} (opens in a new tab)</span></a><span class="taxonomy-version">${escape(taxonomy.version)} draft</span></div>`;
 }
@@ -70,7 +79,7 @@ function mitigationType(item) {
 function renderSelection() {
   const definition = views.find(v => v.id === current.view);
   if (current.view === 'events') {
-    $('selection').innerHTML = `<div class="chronology"><h2 class="selection-heading">Chronology <span class="date-span">July 8–27</span></h2><ol class="event-list" style="--event-count:${data.events.length}" aria-label="Select an event">${data.events.map(i => itemSelection('events', i)).join('')}</ol></div>`;
+    $('selection').innerHTML = `<div class="chronology"><h2 class="selection-heading">Chronology <span class="date-span">${escape(data.case.chronologyRange || data.case.dateRange)}</span></h2><ol class="event-list" style="--event-count:${data.events.length}" aria-label="Select an event">${data.events.map(i => itemSelection('events', i)).join('')}</ol></div>`;
   } else {
     $('selection').innerHTML = `<div class="choice-section"><h2 class="visually-hidden">${definition.selectionLabel}</h2><ul class="choice-list ${current.view}" aria-label="${definition.selectionLabel}">${data[current.view].map(i => itemSelection(current.view, i)).join('')}</ul></div>`;
   }
@@ -95,7 +104,7 @@ function mechanism(item) {
 }
 
 function renderAnalysis(item) {
-  const context = current.view === 'events' ? `<span>${escape(item.date)}, 2026</span><span class="phase-label">${icon(phaseIcons[item.phase])}${escape(item.phase)}</span>` : current.view === 'controls' ? `${stateLabel(item)}<span class="control-owner">Owner: ${organizationName(item.owner)}</span>` : current.view === 'causes' && item.kind === 'Interpretation' ? 'Interpretation' : '';
+  const context = current.view === 'events' ? `<span>${escape(item.date)}</span><span class="phase-label">${icon(phaseIcons[item.phase])}${escape(item.phase)}</span>` : current.view === 'controls' ? `${stateLabel(item)}<span class="control-owner">Owner: ${organizationName(item.owner)}</span>` : current.view === 'causes' && item.kind === 'Interpretation' ? 'Interpretation' : '';
   let body = `<div class="detail-context">${context}</div><h2 id="analysis-title" tabindex="-1">${escape(item.label || item.title)}</h2>`;
   if (current.view === 'questions') {
     body += `<p class="detail-summary">${escape(item.context)}</p><dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision', item.whyItMatters)}${inquiryField('Information to request', 'request', item.informationNeeded, 'field-request')}${inquiryField('Who to ask', 'people', item.informationHolder, 'field-holder')}</dl>`;
@@ -141,7 +150,44 @@ function renderSources(item) {
 }
 
 function render({ focus = false, destination = null } = {}) {
-  current = readRoute(location.hash, data, remembered);
+  const locationState = readLocation(location.hash, catalog);
+  const lastScreen = screen;
+  screen = locationState.screen;
+  const isCase = screen === 'case';
+  $('case-library').hidden = isCase;
+  $('case-workspace').hidden = !isCase;
+  if (!isCase) {
+    document.body.dataset.view = 'library';
+    if (screen === 'compare') locationState.caseIds.forEach(id => selectedCases.add(id));
+    $('case-library').innerHTML = screen === 'compare' ? comparisonMarkup(catalog, locationState.caseIds) : libraryMarkup(catalog, selectedCases);
+    if (loadNotice) $('case-library').insertAdjacentHTML('beforeend', loadNotice);
+    document.title = screen === 'compare' ? 'Compare incidents | AI Incident Explorer' : 'AI Incident Explorer';
+    $('status').textContent = screen === 'compare' ? 'Incident comparison' : 'Choose an incident';
+    previous = null;
+    if (lastScreen !== screen) window.scrollTo({top:0,behavior:'instant'});
+    if (focus) $('case-library').querySelector('h1').focus({preventScroll:true});
+    return;
+  }
+  const switchedCase = data?.case.id !== locationState.caseId;
+  data = catalog.find(d => d.case.id === locationState.caseId);
+  if (switchedCase || lastScreen !== screen) {
+    previous = null;
+    $('case-title').textContent = data.case.title;
+    document.querySelector('.case-context').textContent = data.case.dateLabel || data.case.dateRange;
+    document.querySelector('.case-summary').textContent = data.case.catalogSummary || data.case.summary;
+    const number = document.querySelector('.incident-number');
+    number.hidden = !data.case.incidentId;
+    number.textContent = '#' + data.case.incidentId;
+    number.href = 'https://incidentdatabase.ai/cite/' + data.case.incidentId;
+    number.setAttribute('aria-label', 'Incident ' + data.case.incidentId + ' in the AI Incident Database');
+    $('case-picker').innerHTML = catalog.map(d => `<option value="${escape(d.case.id)}" ${d.case.id === data.case.id ? 'selected' : ''}>${escape(d.case.title)}</option>`).join('');
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  if (!caseMemory.has(data.case.id)) caseMemory.set(data.case.id, {});
+  if (!caseSourceMemory.has(data.case.id)) caseSourceMemory.set(data.case.id, {});
+  remembered = caseMemory.get(data.case.id);
+  rememberedSources = caseSourceMemory.get(data.case.id);
+  current = readRoute(locationState.hash, data, remembered);
   document.body.dataset.view = current.view;
   remembered[current.view] = current.itemId;
   rememberedSources[`${current.view}/${current.itemId}`] = current.sourceId;
@@ -182,20 +228,47 @@ document.addEventListener('click', event => {
   destination = anchor.matches('.citation') ? 'sources-title' : anchor.closest('.related-list') ? 'analysis-title' : null;
 });
 window.addEventListener('hashchange', () => {
-  if (data && location.hash !== '#investigation') render({ focus: keyboardNavigation, destination });
+  if (catalog.length && !['#main','#investigation'].includes(location.hash)) render({ focus: keyboardNavigation, destination });
   keyboardNavigation = false;
   destination = null;
 });
-matchMedia('(max-width:760px)').addEventListener('change', () => { if (data) render(); });
+matchMedia('(max-width:760px)').addEventListener('change', () => { if (catalog.length) render(); });
+document.addEventListener('change', event => {
+  if (event.target.id === 'case-picker') location.hash = caseRouteFor(event.target.value, current?.view || 'events');
+  if (event.target.name === 'compare-case') {
+    if (event.target.checked) selectedCases.add(event.target.value);
+    else selectedCases.delete(event.target.value);
+    const tray = $('comparison-tray');
+    tray.hidden = selectedCases.size === 0;
+    tray.innerHTML = selectionMarkup(selectedCases);
+    $('status').textContent = `${selectedCases.size} incidents selected for comparison`;
+  }
+});
+document.addEventListener('click', event => {
+  if (event.target.closest('[data-reload-cases]')) location.reload();
+  if (!event.target.closest('[data-clear-comparison]')) return;
+  selectedCases.clear();
+  document.querySelectorAll('[name="compare-case"]').forEach(input => {input.checked = false;});
+  document.querySelector('[name="compare-case"]')?.focus({preventScroll:true});
+  $('comparison-tray').hidden = true;
+  $('status').textContent = 'Comparison selection cleared';
+});
 
 try {
-  const dataUrl = new URL('./case-data.json', import.meta.url);
-  dataUrl.search = new URL(import.meta.url).search;
-  const response = await fetch(dataUrl, { cache: 'no-cache' });
-  if (!response.ok) throw new Error('Case data could not be loaded');
-  data = await response.json();
+  const readData = async path => {
+    const url = new URL(path, import.meta.url);
+    url.search = new URL(import.meta.url).search;
+    const response = await fetch(url, { cache: 'no-cache' });
+    if (!response.ok) throw new Error('Incident data could not be loaded');
+    return response.json();
+  };
+  const results = await Promise.allSettled([readData('./case-data.json'), readData('./cases/anthropic-espionage.json')]);
+  const first = results[0].status === 'fulfilled' ? results[0].value : null;
+  catalog = results.filter(r => r.status === 'fulfilled').map(r => ({mitigationTaxonomy:first?.mitigationTaxonomy, reportingFramework:first?.reportingFramework, ...r.value}));
+  if (!catalog.length) throw new Error('No incident accounts could be loaded');
+  if (catalog.length < results.length) loadNotice = '<p class="load-notice" role="alert">One investigation could not be loaded. <button type="button" data-reload-cases>Retry</button></p>';
   render();
 } catch (error) {
-  $('analysis').innerHTML = '<p class="error">The investigation could not be loaded. Please reload the page.</p>';
+  $('case-library').innerHTML = '<p class="error">The incidents could not be loaded. Please reload the page.</p>';
   console.error(error);
 }
