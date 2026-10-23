@@ -37,7 +37,8 @@ export function readRoute(hash, data, remembered = {}) {
     (view === 'framework' && item.type !== 'story' && story.conceptIds?.includes(item.id))
     || (view === 'controlRelationships' && story.relationshipIds?.includes(item.id))
   ) ? story.id : null;
-  return { view, itemId: item.id, sourceId, ...(storyId ? { storyId } : {}) };
+  const reportingFieldId = view === 'questions' && data.reporting?.fields?.some(field => field.id === parts[3]) ? parts[3] : null;
+  return { view, itemId: item.id, sourceId, ...(storyId ? { storyId } : {}), ...(reportingFieldId ? { reportingFieldId } : {}) };
 }
 
 export function routeFor(view, itemId, sourceId, storyId) {

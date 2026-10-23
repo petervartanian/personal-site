@@ -31,18 +31,20 @@ export function frameworkSelection(data, current, routeFor, rememberedStory, sys
   const controlIds = relationship ? story.controlIds.filter(id => relationship.controlIds.includes(id)) : story.controlIds;
   const contextTitle = relationship?.title || story.title;
   const groups = [['cause','Causes'], ['capability','Capabilities'], ['harm','Harms']];
+  const scopedConcepts = data.framework.filter(item => conceptIds.includes(item.id));
+  const scopedMitigations = Object.entries(data.mitigationTaxonomy.categories).filter(([code]) => data.controls.some(control => control.classification.code === code && controlIds.includes(control.id)));
   return `<section class="framework-panel" aria-label="Incident connections">
     <nav class="story-choices" aria-label="Choose an aspect of the incident">${stories.map(s => `<a href="${routeFor('framework',s.id)}" ${s.id === story.id ? 'aria-current="true"' : ''}>${escape(s.id === 'all-connections' ? 'All connections' : s.title)}</a>`).join('')}</nav>
     ${systemMarkup}
-    <div class="framework-axes">${groups.map(([type,label]) => `<section class="framework-axis axis-${type}"><h2>${label}</h2><div class="concept-choices">${data.framework.filter(i => i.type === type).map(i => {
+    <div class="framework-axes">${groups.filter(([type]) => scopedConcepts.some(item => item.type === type)).map(([type,label]) => `<section class="framework-axis axis-${type}"><h2>${label}</h2><div class="concept-choices">${scopedConcepts.filter(i => i.type === type).map(i => {
       const linked = conceptIds.includes(i.id);
       return `<a aria-label="${escape(i.title)}. ${linked ? `Related to ${escape(contextTitle)}` : 'Select to examine this topic'}" class="concept-choice ${linked ? 'in-story' : 'outside-story'}" href="${routeFor('framework',i.id,undefined,story.id)}" ${i.id === current.itemId ? 'aria-current="true"' : ''}><span class="concept-mark" aria-hidden="true"></span>${escape(i.title)}</a>`;
     }).join('')}</div></section>`).join('')}
-    <section class="framework-axis axis-mitigation"><h2>Mitigations</h2><div class="concept-choices">${Object.entries(data.mitigationTaxonomy.categories).map(([code,category]) => {
+    ${scopedMitigations.length ? `<section class="framework-axis axis-mitigation"><h2>Mitigations</h2><div class="concept-choices">${scopedMitigations.map(([code,category]) => {
       const controls = data.controls.filter(c => c.classification.code === code);
       const linked = controls.filter(c => controlIds.includes(c.id));
       return `<a aria-label="${escape(category.name)}. ${linked.length ? `Related to ${escape(contextTitle)}` : 'Select to examine these safeguards'}" class="concept-choice ${linked.length ? 'in-story' : 'outside-story'}" href="${routeFor('controls',(linked[0] || controls[0]).id)}"><span class="concept-mark" aria-hidden="true"></span>${escape(category.name)}</a>`;
-    }).join('')}</div></section></div>
+    }).join('')}</div></section>` : ''}</div>
   </section>`;
 }
 
