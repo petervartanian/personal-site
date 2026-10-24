@@ -2,18 +2,18 @@
   "id": "AIBD-0553",
   "title": "Leeds City Council and Xylo: transforming planning with AI",
   "summary": "Leeds reports over 40% more applications processed per officer, less research time, and improved officer wellbeing during its Xylo pilot.",
-  "date_observed": "2026-05-08",
+  "date_observed": "2026-03-12",
   "date_basis": "source publication",
   "date_precision": "day",
   "benefit_status": "reported",
   "source_collection": "LGA AI case-study bank",
   "source_entry": "LGA-013",
-  "account": "Leeds co-designed and piloted Xylo Core to support planning officers from post-validation through determination. Officer interviews and usage data reportedly show over 40% more householder/minor applications processed monthly per officer, with reduced research and consultation-processing time. Percentages come from project-side interviews and usage data. The page does not provide sample sizes or an independent causal evaluation.",
+  "account": "Leeds and Xylo developed a workspace that helps planning officers research applications and prepare material for human review. The council reports that its pilot began with eight officers and later expanded to 20. Officer interviews and usage data reportedly showed over 40% more householder and minor applications processed monthly per officer, less research work, and improved wellbeing. Xylo cofounder Habs Isabelle Kim had reported a 40% increase against a control group on March 12, 2026. Neither account provides the throughput denominator, group assignment, baseline totals, or analysis needed to assess that comparison. The reported accuracy improvement concerns officers’ judgments of their work, rather than an independently measured change in decision accuracy. Xylo’s separate March 11 account describes six officers and 33 pre-applications using Patch. That sample cannot automatically be treated as the denominator for the Core throughput result. The council’s earlier technical disclosure names the language models and requires officers to review the generated material. These are original accounts from the council and supplier, without an independent evaluation of the reported benefit.",
   "category": "general benefit",
   "unexpected": false,
   "purpose": "Help planning officers find and process relevant information while retaining professional judgment.",
   "system": "Xylo Core AI planning workspace",
-  "model_version": null,
+  "model_version": "The November 27, 2025 council disclosure lists gpt-5-2025-08-07, gemini-2.5-pro, and claude-sonnet-4@20250514. Versions used for individual reported results are unspecified.",
   "developer": "Xylo",
   "deployer": "Leeds City Council",
   "location": "United Kingdom",
@@ -36,16 +36,43 @@
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The workspace brings together planning-application content and context to support research and processing tasks. The reported throughput and wellbeing figures come from officer interviews and usage data, without an independent causal comparison."
+    "statement": "The council describes retrieval of relevant planning material and API calls to language models that generate suggestions and draft text for officer review. Its November 2025 disclosure identifies GPT-5, Gemini 2.5 Pro, and Claude Sonnet 4. The models do not determine planning merits. Reported changes in work and wellbeing come from project-side interviews and usage data. A supplier-reported control group lacks sufficient published methods to establish an independent causal comparison."
   },
   "evidence": [
     {
       "kind": "report",
-      "citation": "Council or project account published in the Local Government Association AI case-study bank. The account provides no independent outcome evaluation.",
+      "citation": "Leeds City Council and Xylo, published by the Local Government Association. Leeds City Council and Xylo: transforming planning with AI. 2026-05-08. Sections “The collaborative process,” “Successes and results,” and “Risk identification and mitigation.” Original project account with pilot participation and outcome figures; no underlying evaluation dataset or independent assessment.",
       "title": "Leeds City Council and Xylo: transforming planning with AI",
       "url": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
       "date": "2026-05-08",
       "written_by": "deployer",
+      "quote": null
+    },
+    {
+      "kind": "report",
+      "citation": "Habs Isabelle Kim, Xylo cofounder. Leeds planning pilot: 40% more applications than the control group. 2026-03-12. Original supplier account of results presented alongside Leeds planning officer Benedict Barnett. Page metadata gives March 12, 2026, 11:05:31 UTC. Adds the control-group claim and earlier chronology, without disclosing methods.",
+      "title": "Leeds planning pilot: 40% more applications than the control group",
+      "url": "https://www.linkedin.com/posts/habin-isa_our-pilot-officers-processed-40-more-planning-activity-7437816039079489537-z4dP",
+      "date": "2026-03-12",
+      "written_by": "makers",
+      "quote": null
+    },
+    {
+      "kind": "report",
+      "citation": "Leeds City Council and Xylo. Leeds City Council: Xylo Core. 2025-11-27. Algorithmic Transparency Recording Standard, §§2.1, 3.2–3.3, 4.1–4.2, and 5.1–5.2. Original council/supplier disclosure of system design, named model versions, human review, and risks. Publication on GOV.UK is not independent regulatory confirmation of the outcomes.",
+      "title": "Leeds City Council: Xylo Core",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/leeds-city-council-xylo-core",
+      "date": "2025-11-27",
+      "written_by": "deployer",
+      "quote": null
+    },
+    {
+      "kind": "report",
+      "citation": "Xylo. Leeds Patch pilot: six officers and 33 pre-applications. 2026-03-11. Original supplier report describing a pre-application pilot and its sample. Retained to distinguish that sample from the Core householder/minor throughput result. The post is marked edited and provides no public version history.",
+      "title": "Leeds Patch pilot: six officers and 33 pre-applications",
+      "url": "https://www.linkedin.com/posts/buildxylo_using-xylo-cut-down-the-time-i-spent-on-activity-7437461682311925760-Oc3w",
+      "date": "2026-03-11",
+      "written_by": "makers",
       "quote": null
     }
   ],
@@ -55,7 +82,9 @@
       "The reported pilot focused on time, work quality, and officer wellbeing."
     ],
     "must_hold": [
-      "The conditions needed to reproduce the benefit are unspecified."
+      "Local planning policies and application material are available and kept current for retrieval.",
+      "Planning officers review generated suggestions against the original material and retain responsibility for decisions.",
+      "Integration limits, officer training, and the time required for review affect the achievable gains."
     ],
     "echoes": []
   },
@@ -76,16 +105,22 @@
       "change": "Added the case.",
       "source": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-24",
+      "change": "Traced the original project reports, corrected publication chronology to March 12, 2026, identified disclosed model versions, and distinguished pilot participation from unpublished outcome denominators.",
+      "source": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
+      "editor": "AIBD"
     }
   ],
   "confidence": "claimed",
   "shade": "low",
   "claim_status": "The deployer's account",
-  "claim_basis": "Sources: the deployer's report. The cited evidence includes no independent source and no finding by a regulator or court.",
+  "claim_basis": "Sources: two reports from the makers and two reports from the deployer. The cited evidence includes no independent source and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0553",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "6dc73816d3942985870888e18a256f77b34e8f73f79e411b96aa5dcc5bff6d48",
+    "source_fingerprint": "547cdd694349861b4afbe0dddffb6a16bd6730437c4352c4ed41516726b28719",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -93,7 +128,10 @@
       }
     ],
     "source_ids": [
-      "AIBD-0553-source-0001"
+      "AIBD-0553-source-0001",
+      "AIBD-0553-source-0002",
+      "AIBD-0553-source-0003",
+      "AIBD-0553-source-0004"
     ],
     "families": {
       "strategic assessments": {
@@ -155,17 +193,23 @@
           "fields": {
             "ai_role": {
               "status": "assessed",
-              "statement": "The workspace brings together planning-application content and context to support research and processing tasks. The reported throughput and wellbeing figures come from officer interviews and usage data, without an independent causal comparison."
+              "statement": "The council describes retrieval of relevant planning material and API calls to language models that generate suggestions and draft text for officer review. Its November 2025 disclosure identifies GPT-5, Gemini 2.5 Pro, and Claude Sonnet 4. The models do not determine planning merits. Reported changes in work and wellbeing come from project-side interviews and usage data. A supplier-reported control group lacks sufficient published methods to establish an independent causal comparison."
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "curatorial",
+          "basis": "Updated affected case fields after the dated primary-source review. Unrelated requirement assessments retain their existing status.",
           "record_fields": [
             "ai_role"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -178,18 +222,24 @@
             "category": "general benefit",
             "ai_role": {
               "status": "assessed",
-              "statement": "The workspace brings together planning-application content and context to support research and processing tasks. The reported throughput and wellbeing figures come from officer interviews and usage data, without an independent causal comparison."
+              "statement": "The council describes retrieval of relevant planning material and API calls to language models that generate suggestions and draft text for officer review. Its November 2025 disclosure identifies GPT-5, Gemini 2.5 Pro, and Claude Sonnet 4. The models do not determine planning merits. Reported changes in work and wellbeing come from project-side interviews and usage data. A supplier-reported control group lacks sufficient published methods to establish an independent causal comparison."
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "curatorial",
+          "basis": "Updated affected case fields after the dated primary-source review. Unrelated requirement assessments retain their existing status.",
           "record_fields": [
-            "ai_role",
-            "category"
+            "category",
+            "ai_role"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -242,7 +292,7 @@
             "confidence": "low",
             "evidence_word": "claimed",
             "claim_status": "The deployer's account",
-            "basis": "Sources: the deployer's report. The cited evidence includes no independent source and no finding by a regulator or court.",
+            "basis": "Sources: two reports from the makers and two reports from the deployer. The cited evidence includes no independent source and no finding by a regulator or court.",
             "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
           }
         },
@@ -620,18 +670,24 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "Leeds co-designed and piloted Xylo Core to support planning officers from post-validation through determination. Officer interviews and usage data reportedly show over 40% more householder/minor applications processed monthly per officer, with reduced research and consultation-processing time. Percentages come from project-side interviews and usage data. The page does not provide sample sizes or an independent causal evaluation.",
+            "account": "Leeds and Xylo developed a workspace that helps planning officers research applications and prepare material for human review. The council reports that its pilot began with eight officers and later expanded to 20. Officer interviews and usage data reportedly showed over 40% more householder and minor applications processed monthly per officer, less research work, and improved wellbeing. Xylo cofounder Habs Isabelle Kim had reported a 40% increase against a control group on March 12, 2026. Neither account provides the throughput denominator, group assignment, baseline totals, or analysis needed to assess that comparison. The reported accuracy improvement concerns officers’ judgments of their work, rather than an independently measured change in decision accuracy. Xylo’s separate March 11 account describes six officers and 33 pre-applications using Patch. That sample cannot automatically be treated as the denominator for the Core throughput result. The council’s earlier technical disclosure names the language models and requires officers to review the generated material. These are original accounts from the council and supplier, without an independent evaluation of the reported benefit.",
             "benefit_type": "Improved Organizational Efficiency"
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "curatorial",
+          "basis": "Updated affected case fields after the dated primary-source review. Unrelated requirement assessments retain their existing status.",
           "record_fields": [
             "account",
             "benefit_type"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -769,7 +825,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "date_observed": "2026-05-08",
+            "date_observed": "2026-03-12",
             "date_basis": "source publication",
             "date_precision": "day",
             "revisions": [
@@ -778,20 +834,32 @@
                 "change": "Added the case.",
                 "source": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Traced the original project reports, corrected publication chronology to March 12, 2026, identified disclosed model versions, and distinguished pilot participation from unpublished outcome denominators.",
+                "source": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "curatorial",
+          "basis": "Updated affected case fields after the dated primary-source review. Unrelated requirement assessments retain their existing status.",
           "record_fields": [
             "date_observed",
             "date_basis",
             "date_precision",
             "revisions"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -812,19 +880,27 @@
                 "The reported pilot focused on time, work quality, and officer wellbeing."
               ],
               "must_hold": [
-                "The conditions needed to reproduce the benefit are unspecified."
+                "Local planning policies and application material are available and kept current for retrieval.",
+                "Planning officers review generated suggestions against the original material and retain responsibility for decisions.",
+                "Integration limits, officer training, and the time required for review affect the achievable gains."
               ],
               "echoes": []
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "curatorial",
+          "basis": "Updated affected case fields after the dated primary-source review. Unrelated requirement assessments retain their existing status.",
           "record_fields": [
             "replication"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -840,17 +916,29 @@
                 "change": "Added the case.",
                 "source": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Traced the original project reports, corrected publication chronology to March 12, 2026, identified disclosed model versions, and distinguished pilot participation from unpublished outcome denominators.",
+                "source": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "curatorial",
+          "basis": "Updated affected case fields after the dated primary-source review. Unrelated requirement assessments retain their existing status.",
           "record_fields": [
             "revisions"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -887,24 +975,54 @@
             "evidence": [
               {
                 "kind": "report",
-                "citation": "Council or project account published in the Local Government Association AI case-study bank. The account provides no independent outcome evaluation.",
+                "citation": "Leeds City Council and Xylo, published by the Local Government Association. Leeds City Council and Xylo: transforming planning with AI. 2026-05-08. Sections “The collaborative process,” “Successes and results,” and “Risk identification and mitigation.” Original project account with pilot participation and outcome figures; no underlying evaluation dataset or independent assessment.",
                 "title": "Leeds City Council and Xylo: transforming planning with AI",
                 "url": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
                 "date": "2026-05-08",
                 "written_by": "deployer"
+              },
+              {
+                "kind": "report",
+                "citation": "Habs Isabelle Kim, Xylo cofounder. Leeds planning pilot: 40% more applications than the control group. 2026-03-12. Original supplier account of results presented alongside Leeds planning officer Benedict Barnett. Page metadata gives March 12, 2026, 11:05:31 UTC. Adds the control-group claim and earlier chronology, without disclosing methods.",
+                "title": "Leeds planning pilot: 40% more applications than the control group",
+                "url": "https://www.linkedin.com/posts/habin-isa_our-pilot-officers-processed-40-more-planning-activity-7437816039079489537-z4dP",
+                "date": "2026-03-12",
+                "written_by": "makers"
+              },
+              {
+                "kind": "report",
+                "citation": "Leeds City Council and Xylo. Leeds City Council: Xylo Core. 2025-11-27. Algorithmic Transparency Recording Standard, §§2.1, 3.2–3.3, 4.1–4.2, and 5.1–5.2. Original council/supplier disclosure of system design, named model versions, human review, and risks. Publication on GOV.UK is not independent regulatory confirmation of the outcomes.",
+                "title": "Leeds City Council: Xylo Core",
+                "url": "https://www.gov.uk/algorithmic-transparency-records/leeds-city-council-xylo-core",
+                "date": "2025-11-27",
+                "written_by": "deployer"
+              },
+              {
+                "kind": "report",
+                "citation": "Xylo. Leeds Patch pilot: six officers and 33 pre-applications. 2026-03-11. Original supplier report describing a pre-application pilot and its sample. Retained to distinguish that sample from the Core householder/minor throughput result. The post is marked edited and provides no public version history.",
+                "title": "Leeds Patch pilot: six officers and 33 pre-applications",
+                "url": "https://www.linkedin.com/posts/buildxylo_using-xylo-cut-down-the-time-i-spent-on-activity-7437461682311925760-Oc3w",
+                "date": "2026-03-11",
+                "written_by": "makers"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Traced the original project reports, corrected publication chronology to March 12, 2026, identified disclosed model versions, and distinguished pilot participation from unpublished outcome denominators.",
           "record_fields": [
             "evidence"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "sources[].id": {
@@ -912,17 +1030,28 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "AIBD-0553-source-0001"
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Active evidence sources in reviewed order"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
-          "record_fields": [],
-          "source_refs": []
+          "basis": "Assigned to the retained evidence in the dated source review.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "complete"
       },
       "sources[].language": {
@@ -938,29 +1067,226 @@
             "evidence": [
               {
                 "kind": "report",
-                "citation": "Council or project account published in the Local Government Association AI case-study bank. The account provides no independent outcome evaluation.",
+                "citation": "Leeds City Council and Xylo, published by the Local Government Association. Leeds City Council and Xylo: transforming planning with AI. 2026-05-08. Sections “The collaborative process,” “Successes and results,” and “Risk identification and mitigation.” Original project account with pilot participation and outcome figures; no underlying evaluation dataset or independent assessment.",
                 "title": "Leeds City Council and Xylo: transforming planning with AI",
                 "url": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
                 "date": "2026-05-08",
                 "written_by": "deployer"
+              },
+              {
+                "kind": "report",
+                "citation": "Habs Isabelle Kim, Xylo cofounder. Leeds planning pilot: 40% more applications than the control group. 2026-03-12. Original supplier account of results presented alongside Leeds planning officer Benedict Barnett. Page metadata gives March 12, 2026, 11:05:31 UTC. Adds the control-group claim and earlier chronology, without disclosing methods.",
+                "title": "Leeds planning pilot: 40% more applications than the control group",
+                "url": "https://www.linkedin.com/posts/habin-isa_our-pilot-officers-processed-40-more-planning-activity-7437816039079489537-z4dP",
+                "date": "2026-03-12",
+                "written_by": "makers"
+              },
+              {
+                "kind": "report",
+                "citation": "Leeds City Council and Xylo. Leeds City Council: Xylo Core. 2025-11-27. Algorithmic Transparency Recording Standard, §§2.1, 3.2–3.3, 4.1–4.2, and 5.1–5.2. Original council/supplier disclosure of system design, named model versions, human review, and risks. Publication on GOV.UK is not independent regulatory confirmation of the outcomes.",
+                "title": "Leeds City Council: Xylo Core",
+                "url": "https://www.gov.uk/algorithmic-transparency-records/leeds-city-council-xylo-core",
+                "date": "2025-11-27",
+                "written_by": "deployer"
+              },
+              {
+                "kind": "report",
+                "citation": "Xylo. Leeds Patch pilot: six officers and 33 pre-applications. 2026-03-11. Original supplier report describing a pre-application pilot and its sample. Retained to distinguish that sample from the Core householder/minor throughput result. The post is marked edited and provides no public version history.",
+                "title": "Leeds Patch pilot: six officers and 33 pre-applications",
+                "url": "https://www.linkedin.com/posts/buildxylo_using-xylo-cut-down-the-time-i-spent-on-activity-7437461682311925760-Oc3w",
+                "date": "2026-03-11",
+                "written_by": "makers"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Traced the original project reports, corrected publication chronology to March 12, 2026, identified disclosed model versions, and distinguished pilot participation from unpublished outcome denominators.",
           "record_fields": [
             "evidence"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "source_refs": [
+                  "AIBD-0553-source-0001"
+                ],
+                "url": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
+                "title": "Leeds City Council and Xylo: transforming planning with AI",
+                "published_on": "2026-05-08",
+                "relationship": "deployer",
+                "citation": "Leeds City Council and Xylo, published by the Local Government Association. Leeds City Council and Xylo: transforming planning with AI. 2026-05-08. Sections “The collaborative process,” “Successes and results,” and “Risk identification and mitigation.” Original project account with pilot participation and outcome figures; no underlying evaluation dataset or independent assessment."
+              },
+              {
+                "source_refs": [
+                  "AIBD-0553-source-0002"
+                ],
+                "url": "https://www.linkedin.com/posts/habin-isa_our-pilot-officers-processed-40-more-planning-activity-7437816039079489537-z4dP",
+                "title": "Leeds planning pilot: 40% more applications than the control group",
+                "published_on": "2026-03-12",
+                "relationship": "makers",
+                "citation": "Habs Isabelle Kim, Xylo cofounder. Leeds planning pilot: 40% more applications than the control group. 2026-03-12. Original supplier account of results presented alongside Leeds planning officer Benedict Barnett. Page metadata gives March 12, 2026, 11:05:31 UTC. Adds the control-group claim and earlier chronology, without disclosing methods."
+              },
+              {
+                "source_refs": [
+                  "AIBD-0553-source-0003"
+                ],
+                "url": "https://www.gov.uk/algorithmic-transparency-records/leeds-city-council-xylo-core",
+                "title": "Leeds City Council: Xylo Core",
+                "published_on": "2025-11-27",
+                "relationship": "deployer",
+                "citation": "Leeds City Council and Xylo. Leeds City Council: Xylo Core. 2025-11-27. Algorithmic Transparency Recording Standard, §§2.1, 3.2–3.3, 4.1–4.2, and 5.1–5.2. Original council/supplier disclosure of system design, named model versions, human review, and risks. Publication on GOV.UK is not independent regulatory confirmation of the outcomes."
+              },
+              {
+                "source_refs": [
+                  "AIBD-0553-source-0004"
+                ],
+                "url": "https://www.linkedin.com/posts/buildxylo_using-xylo-cut-down-the-time-i-spent-on-activity-7437461682311925760-Oc3w",
+                "title": "Leeds Patch pilot: six officers and 33 pre-applications",
+                "published_on": "2026-03-11",
+                "relationship": "makers",
+                "citation": "Xylo. Leeds Patch pilot: six officers and 33 pre-applications. 2026-03-11. Original supplier report describing a pre-application pilot and its sample. Retained to distinguish that sample from the Core householder/minor throughput result. The post is marked edited and provides no public version history."
+              }
+            ],
+            "excluded_republications": [
+              {
+                "url": "https://www.linkedin.com/posts/oriordde_i-had-three-applications-to-do-using-activity-7447579215773921281--EeL",
+                "title": "Dermot O’Riordan: Leeds officer account",
+                "published_on": "2026-04-08",
+                "relationship": "Later supplier account with an embedded company summary; original March reports provide the earlier claim and sample distinction. Not counted as independent evidence."
+              }
+            ],
+            "independent_evaluations_of_reported_results": 0,
+            "lead_source_ref": "AIBD-0553-source-0001",
+            "retained_source_order": [
+              "AIBD-0553-source-0001",
+              "AIBD-0553-source-0002",
+              "AIBD-0553-source-0003",
+              "AIBD-0553-source-0004"
+            ],
+            "ordering_basis": "The original council/project account directly supports the central reported benefit. Additional sources are retained only for the specific earlier claim, technical disclosure, or sample distinction recorded in claim_lineage.",
+            "claim_lineage": [
+              {
+                "claim": "Application throughput, time savings, and officer wellbeing",
+                "source_chain": [
+                  {
+                    "url": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
+                    "locator": "The collaborative process; Successes and results",
+                    "role": "Original council/supplier case account",
+                    "access_status": "Full relevant text reviewed",
+                    "published_on": "2026-05-08"
+                  }
+                ],
+                "limitations": [
+                  "Eight initial participants and 20 later participants are reported, but the outcome denominators, measurement period, and raw interview/usage data are not published.",
+                  "Reported improvements in accuracy are officers’ perceptions, not an independent measurement of decision accuracy."
+                ],
+                "source_ref": "AIBD-0553-source-0001"
+              },
+              {
+                "claim": "Earlier throughput claim and asserted control group",
+                "source_chain": [
+                  {
+                    "url": "https://www.linkedin.com/posts/habin-isa_our-pilot-officers-processed-40-more-planning-activity-7437816039079489537-z4dP",
+                    "locator": "Main post; SocialMediaPosting datePublished metadata",
+                    "role": "Original founder account of joint presentation with a Leeds planning officer",
+                    "access_status": "Full relevant text reviewed",
+                    "published_on": "2026-03-12"
+                  }
+                ],
+                "limitations": [
+                  "The post supplies no control-group size, allocation, baseline, analysis, or underlying presentation file.",
+                  "The founder describes all application types; the later LGA case restricts the throughput figure to householder and minor applications."
+                ],
+                "source_ref": "AIBD-0553-source-0002"
+              },
+              {
+                "claim": "AI mechanism, model versions, and human oversight",
+                "source_chain": [
+                  {
+                    "url": "https://www.gov.uk/algorithmic-transparency-records/leeds-city-council-xylo-core",
+                    "locator": "§§2.1, 3.2–3.3, 4.1–4.2, 5.1–5.2",
+                    "role": "Original council/supplier technical disclosure",
+                    "access_status": "Full relevant text reviewed",
+                    "published_on": "2025-11-27"
+                  },
+                  {
+                    "url": "https://drive.google.com/file/d/1nZ74WlVBt-pULJeobghflw8JrI4otlmN/view?usp=sharing",
+                    "locator": "Linked from ATRS §4.1.1",
+                    "role": "Original architecture and data-protection overview",
+                    "access_status": "Google Drive request returned 401; download redirected to sign-in. Contents not reviewed."
+                  }
+                ],
+                "limitations": [
+                  "The disclosed versions are a November 2025 snapshot, not a version log for individual outcome measurements.",
+                  "The ATRS entry is a deployer/supplier submission, not a regulator’s evaluation of the benefit.",
+                  "The LGA mentions an opportunities report, privacy/AI white paper, DPIA, and responsible-AI assessment; complete underlying files were not provided in the reviewed pages.",
+                  "Generic model cards and planning-policy input datasets linked by the ATRS entry document components and inputs; they do not independently establish the local pilot results."
+                ],
+                "source_ref": "AIBD-0553-source-0003"
+              },
+              {
+                "claim": "Sample distinction for pre-application results",
+                "source_chain": [
+                  {
+                    "url": "https://www.linkedin.com/posts/buildxylo_using-xylo-cut-down-the-time-i-spent-on-activity-7437461682311925760-Oc3w",
+                    "locator": "Main post: Patch, six officers, 33 pre-applications; datePublished metadata",
+                    "role": "Original supplier account of a related but separately described pilot",
+                    "access_status": "Full relevant text reviewed",
+                    "published_on": "2026-03-11"
+                  }
+                ],
+                "limitations": [
+                  "The relationship between this sample and the LGA outcome percentages is not specified. Do not use the six-officer sample as a known Core throughput denominator.",
+                  "The current post is marked edited; the text at original publication is not independently archived."
+                ],
+                "source_ref": "AIBD-0553-source-0004"
+              }
+            ],
+            "limitations": [
+              "No independent evaluation or publicly inspectable underlying outcome dataset was found.",
+              "The technical overview requires Google Drive access; complete internal assessments, pilot calculations, and outcome denominators remain unavailable."
+            ],
+            "chronology_source": {
+              "url": "https://www.linkedin.com/posts/habin-isa_our-pilot-officers-processed-40-more-planning-activity-7437816039079489537-z4dP",
+              "title": "Leeds planning pilot: 40% more applications than the control group",
+              "date": "2026-03-12",
+              "timestamp": "2026-03-12T11:05:31.637Z",
+              "basis": "Original post metadata; first verified report of the central throughput claim."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Traced the original project reports, corrected publication chronology to March 12, 2026, identified disclosed model versions, and distinguished pilot participation from unpublished outcome denominators.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "strategic_assessments[]": {
@@ -975,17 +1301,23 @@
           "kind": "record_fields",
           "fields": {
             "summary": "Leeds reports over 40% more applications processed per officer, less research time, and improved officer wellbeing during its Xylo pilot.",
-            "account": "Leeds co-designed and piloted Xylo Core to support planning officers from post-validation through determination. Officer interviews and usage data reportedly show over 40% more householder/minor applications processed monthly per officer, with reduced research and consultation-processing time. Percentages come from project-side interviews and usage data. The page does not provide sample sizes or an independent causal evaluation."
+            "account": "Leeds and Xylo developed a workspace that helps planning officers research applications and prepare material for human review. The council reports that its pilot began with eight officers and later expanded to 20. Officer interviews and usage data reportedly showed over 40% more householder and minor applications processed monthly per officer, less research work, and improved wellbeing. Xylo cofounder Habs Isabelle Kim had reported a 40% increase against a control group on March 12, 2026. Neither account provides the throughput denominator, group assignment, baseline totals, or analysis needed to assess that comparison. The reported accuracy improvement concerns officers’ judgments of their work, rather than an independently measured change in decision accuracy. Xylo’s separate March 11 account describes six officers and 33 pre-applications using Patch. That sample cannot automatically be treated as the denominator for the Core throughput result. The council’s earlier technical disclosure names the language models and requires officers to review the generated material. These are original accounts from the council and supplier, without an independent evaluation of the reported benefit."
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "curatorial",
+          "basis": "Updated affected case fields after the dated primary-source review. Unrelated requirement assessments retain their existing status.",
           "record_fields": [
             "summary",
             "account"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -1016,8 +1348,25 @@
         "coverage": "partial"
       },
       "systems[].model_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "record_fields",
+          "fields": {
+            "model_version": "The November 27, 2025 council disclosure lists gpt-5-2025-08-07, gemini-2.5-pro, and claude-sonnet-4@20250514. Versions used for individual reported results are unspecified."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Council/supplier ATRS disclosure, November 27, 2025, §§4.2.1–4.2.2. Per-result model versions remain unspecified.",
+          "record_fields": [
+            "model_version"
+          ],
+          "source_refs": [
+            "AIBD-0553-source-0003"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].product_name": {
@@ -1075,15 +1424,16 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "6dc73816d3942985870888e18a256f77b34e8f73f79e411b96aa5dcc5bff6d48"
+            "547cdd694349861b4afbe0dddffb6a16bd6730437c4352c4ed41516726b28719"
           ],
           "role": "SHA-256 of normalized original case data"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Deterministic content version assigned by the local migration.",
+          "basis": "Deterministic content version after the October 24, 2026 primary-source review.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "complete"
@@ -1093,27 +1443,35 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "Leeds co-designed and piloted Xylo Core to support planning officers from post-validation through determination. Officer interviews and usage data reportedly show over 40% more householder/minor applications processed monthly per officer, with reduced research and consultation-processing time. Percentages come from project-side interviews and usage data. The page does not provide sample sizes or an independent causal evaluation.",
+            "account": "Leeds and Xylo developed a workspace that helps planning officers research applications and prepare material for human review. The council reports that its pilot began with eight officers and later expanded to 20. Officer interviews and usage data reportedly showed over 40% more householder and minor applications processed monthly per officer, less research work, and improved wellbeing. Xylo cofounder Habs Isabelle Kim had reported a 40% increase against a control group on March 12, 2026. Neither account provides the throughput denominator, group assignment, baseline totals, or analysis needed to assess that comparison. The reported accuracy improvement concerns officers’ judgments of their work, rather than an independently measured change in decision accuracy. Xylo’s separate March 11 account describes six officers and 33 pre-applications using Patch. That sample cannot automatically be treated as the denominator for the Core throughput result. The council’s earlier technical disclosure names the language models and requires officers to review the generated material. These are original accounts from the council and supplier, without an independent evaluation of the reported benefit.",
             "replication": {
               "produced_by": [
                 "Leeds and Xylo co-designed and tested the workspace over more than six months.",
                 "The reported pilot focused on time, work quality, and officer wellbeing."
               ],
               "must_hold": [
-                "The conditions needed to reproduce the benefit are unspecified."
+                "Local planning policies and application material are available and kept current for retrieval.",
+                "Planning officers review generated suggestions against the original material and retain responsibility for decisions.",
+                "Integration limits, officer training, and the time required for review affect the achievable gains."
               ],
               "echoes": []
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "curatorial",
+          "basis": "Updated affected case fields after the dated primary-source review. Unrelated requirement assessments retain their existing status.",
           "record_fields": [
             "account",
             "replication"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0553-source-0001",
+            "AIBD-0553-source-0002",
+            "AIBD-0553-source-0003",
+            "AIBD-0553-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -1122,16 +1480,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 28,
-      "reviewed": 0,
-      "record_mapped": 28,
-      "not_assessed": 63,
+      "known": 30,
+      "reviewed": 5,
+      "record_mapped": 25,
+      "not_assessed": 61,
       "complete": false,
       "by_state": {
-        "value_present": 28,
+        "value_present": 30,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 63,
+        "not_assessed": 61,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

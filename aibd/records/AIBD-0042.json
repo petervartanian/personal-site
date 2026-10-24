@@ -3,12 +3,12 @@
   "title": "BenevolentAI knowledge graph proposed baricitinib for COVID-19; randomized trials and regulators confirmed benefit",
   "summary": "AI knowledge graph proposed baricitinib in Feb 2020; ACTT-2 showed faster recovery and COV-BARRIER lower 28-day mortality (a secondary endpoint); FDA and WHO endorsed it.",
   "date_observed": "2020-11-19",
-  "date_basis": "unassessed",
-  "date_precision": "unassessed",
+  "date_basis": "source publication",
+  "date_precision": "day",
   "benefit_status": null,
   "source_collection": null,
   "source_entry": null,
-  "account": "On 4 February 2020 BenevolentAI staff published a Lancet correspondence. It reported that the company's machine-learning-built knowledge graph identified baricitinib, a rheumatoid-arthritis JAK inhibitor, as a candidate against 2019-nCoV because it binds AAK1. AAK1 is a regulator of viral endocytosis. Randomized trials tested it. ACTT-2 (1,033 patients, enrolled 8 May to 1 July 2020) reported median recovery of 7 days versus 8 (rate ratio 1.16, 95% CI 1.01–1.32). On high-flow oxygen or non-invasive ventilation, 10 versus 18 days. COV-BARRIER (1,525 patients) missed its primary endpoint of disease progression (27.8% versus 30.5%, odds ratio 0.85, p=0.18). Its 28-day all-cause mortality, a secondary endpoint, was 8% versus 13% (hazard ratio 0.57, nominal p=0.0018). The Food and Drug Administration (FDA) authorized it with remdesivir on 19 November 2020. WHO strongly recommended it on 14 January 2022.",
+  "account": "On 4 February 2020 BenevolentAI staff published a Lancet correspondence. It reported that the company's machine-learning-built knowledge graph identified baricitinib, a rheumatoid-arthritis JAK inhibitor, as a candidate against 2019-nCoV because it binds AAK1. AAK1 is a regulator of viral endocytosis. Randomized trials tested it. ACTT-2 (1,033 patients, enrolled 8 May to 1 July 2020) reported median recovery of 7 days versus 8 (rate ratio 1.16, 95% CI 1.01–1.32). On high-flow oxygen or non-invasive ventilation, 10 versus 18 days. COV-BARRIER (1,525 patients) missed its primary endpoint of disease progression (27.8% versus 30.5%, odds ratio 0.85, p=0.18). Its 28-day all-cause mortality, a secondary endpoint, was 8% versus 13% (hazard ratio 0.57, nominal p=0.0018). Because the primary endpoint failed, the prespecified procedure did not establish statistical significance for the secondary endpoints after adjustment for multiple testing. The Food and Drug Administration (FDA) authorized it with remdesivir on 19 November 2020. WHO strongly recommended it on 14 January 2022.",
   "category": "benefit created",
   "unexpected": false,
   "purpose": "Drug repurposing: mine a machine-learning-built biomedical knowledge graph for approved drugs that might block a new coronavirus.",
@@ -41,9 +41,27 @@
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The AI's role was hypothesis generation only: BenevolentAI's knowledge graph ranked baricitinib among six high-affinity AAK1-binding approved drugs and the authors published the prediction. It did not design, run or analyze the trials. The demonstrated clinical benefit was established by randomized controlled trials (ACTT-2, COV-BARRIER) conducted by investigators unconnected to BenevolentAI, and judged by FDA and WHO."
+    "statement": "The AI's role was hypothesis generation only: BenevolentAI's knowledge graph ranked baricitinib among six high-affinity AAK1-binding approved drugs and the authors published the prediction. It did not design, run or analyze the trials. ACTT-2 was led by NIAID, with input from the drug suppliers. COV-BARRIER was designed with Eli Lilly, which also analyzed the data. These trials tested the drug, not the additional benefit of using AI to identify it. FDA and WHO subsequently assessed the clinical evidence."
   },
   "evidence": [
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Marconi VC, Ramanan AV, de Bono S, et al. (2021). Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER). Lancet Respir Med. Results and Figure 2; supplementary appendix 6, pp. 9–14, including the prespecified testing hierarchy.",
+      "title": "Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER): a randomised, double-blind, parallel-group, placebo-controlled phase 3 trial",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
+      "date": "2021-09-01",
+      "written_by": "deployer",
+      "quote": "The 28-day all-cause mortality was 8% (n=62) for baricitinib and 13% (n=100) for placebo (hazard ratio [HR] 0·57 [95% CI 0·41–0·78]; nominal p=0·0018)"
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Kalil AC, Patterson TF, Mehta AK, et al. (2021). Baricitinib plus Remdesivir for Hospitalized Adults with Covid-19. N Engl J Med. Table 2 and trial oversight; supplementary appendix, pp. 19–23; protocol NCT04401579.",
+      "title": "Baricitinib plus Remdesivir for Hospitalized Adults with Covid-19",
+      "url": "https://europepmc.org/article/PMC/PMC7745180",
+      "date": "2020-12-11",
+      "written_by": "deployer",
+      "quote": "median time to recovery of 7 days (95% confidence interval [CI], 6 to 8), as compared with 8 days (95% CI, 7 to 9)"
+    },
     {
       "kind": "other",
       "citation": "Richardson P, Griffin I, Tucker C, Smith D, Oechsle O, Phelan A, Rawling M, Savory E, Stebbing J (2020). Baricitinib as potential treatment for 2019-nCoV acute respiratory disease. Lancet.",
@@ -52,24 +70,6 @@
       "date": "2020-02-04",
       "written_by": "makers",
       "quote": "BenevolentAI's knowledge graph is a large repository of structured medical information, including numerous connections extracted from scientific literature by machine learning."
-    },
-    {
-      "kind": "peer-reviewed study",
-      "citation": "Kalil AC, Patterson TF, Mehta AK, et al. (2021). Baricitinib plus Remdesivir for Hospitalized Adults with Covid-19. N Engl J Med.",
-      "title": "Baricitinib plus Remdesivir for Hospitalized Adults with Covid-19",
-      "url": "https://europepmc.org/article/PMC/PMC7745180",
-      "date": "2020-12-11",
-      "written_by": "deployer",
-      "quote": "median time to recovery of 7 days (95% confidence interval [CI], 6 to 8), as compared with 8 days (95% CI, 7 to 9)"
-    },
-    {
-      "kind": "peer-reviewed study",
-      "citation": "Marconi VC, Ramanan AV, de Bono S, et al. (2021). Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER). Lancet Respir Med.",
-      "title": "Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER): a randomised, double-blind, parallel-group, placebo-controlled phase 3 trial",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
-      "date": "2021-09-01",
-      "written_by": "deployer",
-      "quote": "The 28-day all-cause mortality was 8% (n=62) for baricitinib and 13% (n=100) for placebo (hazard ratio [HR] 0·57 [95% CI 0·41–0·78]; nominal p=0·0018)"
     },
     {
       "kind": "regulatory document",
@@ -88,15 +88,6 @@
       "date": "2022-01-14",
       "written_by": "independent",
       "quote": "The first drug, baricitinib, is strongly recommended for patients with severe or critical COVID-19."
-    },
-    {
-      "kind": "regulatory document",
-      "citation": "US Food and Drug Administration. Coronavirus (COVID-19) Drugs.",
-      "title": "Coronavirus (COVID-19) | Drugs",
-      "url": "https://www.fda.gov/drugs/emergency-preparedness-drugs/coronavirus-covid-19-drugs",
-      "date": null,
-      "written_by": "independent",
-      "quote": "Olumiant (baricitinib) is an immune modulator drug, approved for certain adults"
     }
   ],
   "replication": {
@@ -207,16 +198,22 @@
       "change": "Personal benefit depth changed from 4 to 5 for the reported life-preserving outcome.",
       "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-24",
+      "change": "Traced the AI hypothesis, recovery and mortality findings, and regulatory actions to their original sources. Put COV-BARRIER first for the mortality claim, preserved the failed primary endpoint and added the multiplicity limitation. Removed the generic FDA drug-list page from active evidence because it adds no case-specific support beyond the retained authorization. Distinguished NIAID-led ACTT-2 from the Lilly-sponsored COV-BARRIER analysis.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
+      "editor": "AIBD"
     }
   ],
   "confidence": "found",
   "shade": "high",
   "claim_status": "Found by a regulator",
-  "claim_basis": "Sources: two independent regulatory documents, one independent report, the makers' other and two peer-reviewed studies from the deployer.",
+  "claim_basis": "Sources: one independent regulatory document, one independent report, the makers' other and two peer-reviewed studies from the deployer.",
   "profile": {
     "case_id": "AIBD-0042",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "beac2b19ee5d18b7084dc57e1e652cbf02aac6782fc495a1d8e3e18cbb283c56",
+    "source_fingerprint": "fc385f7b282cba184044344cc5d1a700506611617712f40db7a219af8e61ff37",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -228,8 +225,7 @@
       "AIBD-0042-source-0002",
       "AIBD-0042-source-0003",
       "AIBD-0042-source-0004",
-      "AIBD-0042-source-0005",
-      "AIBD-0042-source-0006"
+      "AIBD-0042-source-0005"
     ],
     "families": {
       "strategic assessments": {
@@ -291,19 +287,26 @@
           "fields": {
             "ai_role": {
               "status": "assessed",
-              "statement": "The AI's role was hypothesis generation only: BenevolentAI's knowledge graph ranked baricitinib among six high-affinity AAK1-binding approved drugs and the authors published the prediction. It did not design, run or analyze the trials. The demonstrated clinical benefit was established by randomized controlled trials (ACTT-2, COV-BARRIER) conducted by investigators unconnected to BenevolentAI, and judged by FDA and WHO."
+              "statement": "The AI's role was hypothesis generation only: BenevolentAI's knowledge graph ranked baricitinib among six high-affinity AAK1-binding approved drugs and the authors published the prediction. It did not design, run or analyze the trials. ACTT-2 was led by NIAID, with input from the drug suppliers. COV-BARRIER was designed with Eli Lilly, which also analyzed the data. These trials tested the drug, not the additional benefit of using AI to identify it. FDA and WHO subsequently assessed the clinical evidence."
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
           "record_fields": [
             "ai_role"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "ai_relationship": {
@@ -314,20 +317,27 @@
             "category": "benefit created",
             "ai_role": {
               "status": "assessed",
-              "statement": "The AI's role was hypothesis generation only: BenevolentAI's knowledge graph ranked baricitinib among six high-affinity AAK1-binding approved drugs and the authors published the prediction. It did not design, run or analyze the trials. The demonstrated clinical benefit was established by randomized controlled trials (ACTT-2, COV-BARRIER) conducted by investigators unconnected to BenevolentAI, and judged by FDA and WHO."
+              "statement": "The AI's role was hypothesis generation only: BenevolentAI's knowledge graph ranked baricitinib among six high-affinity AAK1-binding approved drugs and the authors published the prediction. It did not design, run or analyze the trials. ACTT-2 was led by NIAID, with input from the drug suppliers. COV-BARRIER was designed with Eli Lilly, which also analyzed the data. These trials tested the drug, not the additional benefit of using AI to identify it. FDA and WHO subsequently assessed the clinical evidence."
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
           "record_fields": [
-            "ai_role",
-            "category"
+            "category",
+            "ai_role"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "assessments[].alternatives": {
@@ -383,17 +393,26 @@
             "confidence": "high",
             "evidence_word": "found",
             "claim_status": "Found by a regulator",
-            "basis": "Sources: two independent regulatory documents, one independent report, the makers' other and two peer-reviewed studies from the deployer.",
-            "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
+            "basis": "Sources: one independent regulatory document, one independent report, the makers' other and two peer-reviewed studies from the deployer.",
+            "interpretation": "Existing display rule retained. Originality, authorship, and independence are assessed separately in the source lineage. Repeated formats, quotations, and versions are not independent confirmations."
           }
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
-          "record_fields": [],
-          "source_refs": []
+          "kind": "source_review",
+          "basis": "Rechecked source authorship and independence without changing benefit-depth ratings.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "assessments[].rationale": {
@@ -798,18 +817,25 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "On 4 February 2020 BenevolentAI staff published a Lancet correspondence. It reported that the company's machine-learning-built knowledge graph identified baricitinib, a rheumatoid-arthritis JAK inhibitor, as a candidate against 2019-nCoV because it binds AAK1. AAK1 is a regulator of viral endocytosis. Randomized trials tested it. ACTT-2 (1,033 patients, enrolled 8 May to 1 July 2020) reported median recovery of 7 days versus 8 (rate ratio 1.16, 95% CI 1.01–1.32). On high-flow oxygen or non-invasive ventilation, 10 versus 18 days. COV-BARRIER (1,525 patients) missed its primary endpoint of disease progression (27.8% versus 30.5%, odds ratio 0.85, p=0.18). Its 28-day all-cause mortality, a secondary endpoint, was 8% versus 13% (hazard ratio 0.57, nominal p=0.0018). The Food and Drug Administration (FDA) authorized it with remdesivir on 19 November 2020. WHO strongly recommended it on 14 January 2022.",
+            "account": "On 4 February 2020 BenevolentAI staff published a Lancet correspondence. It reported that the company's machine-learning-built knowledge graph identified baricitinib, a rheumatoid-arthritis JAK inhibitor, as a candidate against 2019-nCoV because it binds AAK1. AAK1 is a regulator of viral endocytosis. Randomized trials tested it. ACTT-2 (1,033 patients, enrolled 8 May to 1 July 2020) reported median recovery of 7 days versus 8 (rate ratio 1.16, 95% CI 1.01–1.32). On high-flow oxygen or non-invasive ventilation, 10 versus 18 days. COV-BARRIER (1,525 patients) missed its primary endpoint of disease progression (27.8% versus 30.5%, odds ratio 0.85, p=0.18). Its 28-day all-cause mortality, a secondary endpoint, was 8% versus 13% (hazard ratio 0.57, nominal p=0.0018). Because the primary endpoint failed, the prespecified procedure did not establish statistical significance for the secondary endpoints after adjustment for multiple testing. The Food and Drug Administration (FDA) authorized it with remdesivir on 19 November 2020. WHO strongly recommended it on 14 January 2022.",
             "benefit_type": "Improved Physical Health"
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
           "record_fields": [
             "account",
             "benefit_type"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -943,6 +969,8 @@
           "kind": "record_fields",
           "fields": {
             "date_observed": "2020-11-19",
+            "date_basis": "source publication",
+            "date_precision": "day",
             "revisions": [
               {
                 "date": "2026-10-20",
@@ -989,20 +1017,35 @@
                 "change": "Personal benefit depth changed from 4 to 5 for the reported life-preserving outcome.",
                 "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Traced the AI hypothesis, recovery and mortality findings, and regulatory actions to their original sources. Put COV-BARRIER first for the mortality claim, preserved the failed primary endpoint and added the multiplicity limitation. Removed the generic FDA drug-list page from active evidence because it adds no case-specific support beyond the retained authorization. Distinguished NIAID-led ACTT-2 from the Lilly-sponsored COV-BARRIER analysis.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
           "record_fields": [
             "date_observed",
-            "revisions"
+            "revisions",
+            "date_basis",
+            "date_precision"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "replication.attempts[]": {
@@ -1144,19 +1187,32 @@
                 "change": "Personal benefit depth changed from 4 to 5 for the reported life-preserving outcome.",
                 "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Traced the AI hypothesis, recovery and mortality findings, and regulatory actions to their original sources. Put COV-BARRIER first for the mortality claim, preserved the failed primary endpoint and added the multiplicity limitation. Removed the generic FDA drug-list page from active evidence because it adds no case-specific support beyond the retained authorization. Distinguished NIAID-led ACTT-2 from the Lilly-sponsored COV-BARRIER analysis.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
           "record_fields": [
             "revisions"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "sector": {
@@ -1181,9 +1237,54 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-24",
+            "versions_and_access": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7302766/",
+                "finding": "June 18, 2020 correction restores two omitted BenevolentAI authors."
+              },
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8425787/",
+                "finding": "September 8, 2021 correction changes the baricitinib number at risk on day 14 in Figure 2A to 684."
+              },
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
+                "supplements": "Original and final protocols, analysis plans, supplementary methods/results, and Figure S2 were inspected. Patient-level trial data were not reanalyzed."
+              },
+              {
+                "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4780864/",
+                "status": "Full original text, Figure 3 and its description, and methods inspected through Europe PMC XML. Supplementary Table S1 remained inaccessible."
+              }
+            ],
+            "limitations": [
+              "No trial randomized the discovery process to AI versus no AI. The full proprietary graph and ranking run are unavailable.",
+              "COV-BARRIER was sponsor-designed and sponsor-analyzed. Its mortality inference is nominal under the prespecified testing hierarchy.",
+              "The cited recommendation establishes guidance, not measured worldwide adoption or a count of lives saved.",
+              "The original Sorrell et al. article was read. Its linked supplementary Table S1 was identified, but the download returned 403 or a verification page and the supplementary archive timed out; no unavailable table contents were inferred."
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the available originals and relevant source chains, with unresolved access and evidentiary limits recorded explicitly.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1192,17 +1293,17 @@
           "fields": {
             "evidence": [
               {
-                "kind": "other",
-                "citation": "Richardson P, Griffin I, Tucker C, Smith D, Oechsle O, Phelan A, Rawling M, Savory E, Stebbing J (2020). Baricitinib as potential treatment for 2019-nCoV acute respiratory disease. Lancet.",
-                "title": "Baricitinib as potential treatment for 2019-nCoV acute respiratory disease",
-                "url": "https://europepmc.org/article/PMC/PMC7137985",
-                "date": "2020-02-04",
-                "written_by": "makers",
-                "quote": "BenevolentAI's knowledge graph is a large repository of structured medical information, including numerous connections extracted from scientific literature by machine learning."
+                "kind": "peer-reviewed study",
+                "citation": "Marconi VC, Ramanan AV, de Bono S, et al. (2021). Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER). Lancet Respir Med. Results and Figure 2; supplementary appendix 6, pp. 9–14, including the prespecified testing hierarchy.",
+                "title": "Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER): a randomised, double-blind, parallel-group, placebo-controlled phase 3 trial",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
+                "date": "2021-09-01",
+                "written_by": "deployer",
+                "quote": "The 28-day all-cause mortality was 8% (n=62) for baricitinib and 13% (n=100) for placebo (hazard ratio [HR] 0·57 [95% CI 0·41–0·78]; nominal p=0·0018)"
               },
               {
                 "kind": "peer-reviewed study",
-                "citation": "Kalil AC, Patterson TF, Mehta AK, et al. (2021). Baricitinib plus Remdesivir for Hospitalized Adults with Covid-19. N Engl J Med.",
+                "citation": "Kalil AC, Patterson TF, Mehta AK, et al. (2021). Baricitinib plus Remdesivir for Hospitalized Adults with Covid-19. N Engl J Med. Table 2 and trial oversight; supplementary appendix, pp. 19–23; protocol NCT04401579.",
                 "title": "Baricitinib plus Remdesivir for Hospitalized Adults with Covid-19",
                 "url": "https://europepmc.org/article/PMC/PMC7745180",
                 "date": "2020-12-11",
@@ -1210,13 +1311,13 @@
                 "quote": "median time to recovery of 7 days (95% confidence interval [CI], 6 to 8), as compared with 8 days (95% CI, 7 to 9)"
               },
               {
-                "kind": "peer-reviewed study",
-                "citation": "Marconi VC, Ramanan AV, de Bono S, et al. (2021). Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER). Lancet Respir Med.",
-                "title": "Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER): a randomised, double-blind, parallel-group, placebo-controlled phase 3 trial",
-                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
-                "date": "2021-09-01",
-                "written_by": "deployer",
-                "quote": "The 28-day all-cause mortality was 8% (n=62) for baricitinib and 13% (n=100) for placebo (hazard ratio [HR] 0·57 [95% CI 0·41–0·78]; nominal p=0·0018)"
+                "kind": "other",
+                "citation": "Richardson P, Griffin I, Tucker C, Smith D, Oechsle O, Phelan A, Rawling M, Savory E, Stebbing J (2020). Baricitinib as potential treatment for 2019-nCoV acute respiratory disease. Lancet.",
+                "title": "Baricitinib as potential treatment for 2019-nCoV acute respiratory disease",
+                "url": "https://europepmc.org/article/PMC/PMC7137985",
+                "date": "2020-02-04",
+                "written_by": "makers",
+                "quote": "BenevolentAI's knowledge graph is a large repository of structured medical information, including numerous connections extracted from scientific literature by machine learning."
               },
               {
                 "kind": "regulatory document",
@@ -1235,27 +1336,26 @@
                 "date": "2022-01-14",
                 "written_by": "independent",
                 "quote": "The first drug, baricitinib, is strongly recommended for patients with severe or critical COVID-19."
-              },
-              {
-                "kind": "regulatory document",
-                "citation": "US Food and Drug Administration. Coronavirus (COVID-19) Drugs.",
-                "title": "Coronavirus (COVID-19) | Drugs",
-                "url": "https://www.fda.gov/drugs/emergency-preparedness-drugs/coronavirus-covid-19-drugs",
-                "written_by": "independent",
-                "quote": "Olumiant (baricitinib) is an immune modulator drug, approved for certain adults"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
           "record_fields": [
             "evidence"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "sources[].id": {
@@ -1267,18 +1367,26 @@
             "AIBD-0042-source-0002",
             "AIBD-0042-source-0003",
             "AIBD-0042-source-0004",
-            "AIBD-0042-source-0005",
-            "AIBD-0042-source-0006"
+            "AIBD-0042-source-0005"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained evidence sources in reviewed order"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
-          "record_fields": [],
-          "source_refs": []
+          "basis": "Updated identifiers after consolidating duplicate excerpts and reviewing original sources.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "complete"
       },
       "sources[].language": {
@@ -1293,17 +1401,17 @@
           "fields": {
             "evidence": [
               {
-                "kind": "other",
-                "citation": "Richardson P, Griffin I, Tucker C, Smith D, Oechsle O, Phelan A, Rawling M, Savory E, Stebbing J (2020). Baricitinib as potential treatment for 2019-nCoV acute respiratory disease. Lancet.",
-                "title": "Baricitinib as potential treatment for 2019-nCoV acute respiratory disease",
-                "url": "https://europepmc.org/article/PMC/PMC7137985",
-                "date": "2020-02-04",
-                "written_by": "makers",
-                "quote": "BenevolentAI's knowledge graph is a large repository of structured medical information, including numerous connections extracted from scientific literature by machine learning."
+                "kind": "peer-reviewed study",
+                "citation": "Marconi VC, Ramanan AV, de Bono S, et al. (2021). Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER). Lancet Respir Med. Results and Figure 2; supplementary appendix 6, pp. 9–14, including the prespecified testing hierarchy.",
+                "title": "Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER): a randomised, double-blind, parallel-group, placebo-controlled phase 3 trial",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
+                "date": "2021-09-01",
+                "written_by": "deployer",
+                "quote": "The 28-day all-cause mortality was 8% (n=62) for baricitinib and 13% (n=100) for placebo (hazard ratio [HR] 0·57 [95% CI 0·41–0·78]; nominal p=0·0018)"
               },
               {
                 "kind": "peer-reviewed study",
-                "citation": "Kalil AC, Patterson TF, Mehta AK, et al. (2021). Baricitinib plus Remdesivir for Hospitalized Adults with Covid-19. N Engl J Med.",
+                "citation": "Kalil AC, Patterson TF, Mehta AK, et al. (2021). Baricitinib plus Remdesivir for Hospitalized Adults with Covid-19. N Engl J Med. Table 2 and trial oversight; supplementary appendix, pp. 19–23; protocol NCT04401579.",
                 "title": "Baricitinib plus Remdesivir for Hospitalized Adults with Covid-19",
                 "url": "https://europepmc.org/article/PMC/PMC7745180",
                 "date": "2020-12-11",
@@ -1311,13 +1419,13 @@
                 "quote": "median time to recovery of 7 days (95% confidence interval [CI], 6 to 8), as compared with 8 days (95% CI, 7 to 9)"
               },
               {
-                "kind": "peer-reviewed study",
-                "citation": "Marconi VC, Ramanan AV, de Bono S, et al. (2021). Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER). Lancet Respir Med.",
-                "title": "Efficacy and safety of baricitinib for the treatment of hospitalised adults with COVID-19 (COV-BARRIER): a randomised, double-blind, parallel-group, placebo-controlled phase 3 trial",
-                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
-                "date": "2021-09-01",
-                "written_by": "deployer",
-                "quote": "The 28-day all-cause mortality was 8% (n=62) for baricitinib and 13% (n=100) for placebo (hazard ratio [HR] 0·57 [95% CI 0·41–0·78]; nominal p=0·0018)"
+                "kind": "other",
+                "citation": "Richardson P, Griffin I, Tucker C, Smith D, Oechsle O, Phelan A, Rawling M, Savory E, Stebbing J (2020). Baricitinib as potential treatment for 2019-nCoV acute respiratory disease. Lancet.",
+                "title": "Baricitinib as potential treatment for 2019-nCoV acute respiratory disease",
+                "url": "https://europepmc.org/article/PMC/PMC7137985",
+                "date": "2020-02-04",
+                "written_by": "makers",
+                "quote": "BenevolentAI's knowledge graph is a large repository of structured medical information, including numerous connections extracted from scientific literature by machine learning."
               },
               {
                 "kind": "regulatory document",
@@ -1336,33 +1444,158 @@
                 "date": "2022-01-14",
                 "written_by": "independent",
                 "quote": "The first drug, baricitinib, is strongly recommended for patients with severe or critical COVID-19."
-              },
-              {
-                "kind": "regulatory document",
-                "citation": "US Food and Drug Administration. Coronavirus (COVID-19) Drugs.",
-                "title": "Coronavirus (COVID-19) | Drugs",
-                "url": "https://www.fda.gov/drugs/emergency-preparedness-drugs/coronavirus-covid-19-drugs",
-                "written_by": "independent",
-                "quote": "Olumiant (baricitinib) is an immune modulator drug, approved for certain adults"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
           "record_fields": [
             "evidence"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-24",
+            "lead_source_ref": "AIBD-0042-source-0001",
+            "retained_source_order": [
+              "AIBD-0042-source-0001",
+              "AIBD-0042-source-0002",
+              "AIBD-0042-source-0003",
+              "AIBD-0042-source-0004",
+              "AIBD-0042-source-0005"
+            ],
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
+                "contribution": "Original 1,525-patient randomized trial: progression endpoint and day-28 mortality.",
+                "locator": "Results, Figure 2; supplementary appendix 6, pp. 9–14 and Figure S2.",
+                "relationship": "Original trial by clinicians and the drug sponsor; not an independent evaluation of the AI discovery process.",
+                "source_refs": [
+                  "AIBD-0042-source-0001"
+                ]
+              },
+              {
+                "url": "https://europepmc.org/article/PMC/PMC7745180",
+                "contribution": "Original 1,033-patient randomized trial: recovery time and respiratory-support subgroup.",
+                "locator": "Table 2; Trial Oversight; supplementary appendix, pp. 19–23; NCT04401579.",
+                "relationship": "NIAID-led trial. Lilly and Gilead supplied drugs and provided protocol input.",
+                "source_refs": [
+                  "AIBD-0042-source-0002"
+                ]
+              },
+              {
+                "url": "https://europepmc.org/article/PMC/PMC7137985",
+                "contribution": "Original report of the knowledge-graph hypothesis.",
+                "locator": "Lancet 395:e30–e31, text, figure, and references, corrected June 18, 2020.",
+                "relationship": "BenevolentAI authors and an adviser report their own hypothesis.",
+                "source_refs": [
+                  "AIBD-0042-source-0003"
+                ]
+              },
+              {
+                "url": "https://www.fda.gov/news-events/press-announcements/coronavirus-covid-19-update-fda-authorizes-drug-combination-treatment-covid-19",
+                "contribution": "FDA decision and its date.",
+                "locator": "November 19, 2020 announcement, authorization link and ACTT-2 paragraphs.",
+                "relationship": "Original regulator statement; its efficacy figures derive from ACTT-2.",
+                "source_refs": [
+                  "AIBD-0042-source-0004"
+                ]
+              },
+              {
+                "url": "https://www.who.int/news/item/14-01-2022-who-recommends-two-new-drugs-to-treat-covid-19",
+                "contribution": "WHO recommendation and its date.",
+                "locator": "January 14, 2022 statement, baricitinib recommendation and guideline link.",
+                "relationship": "Original WHO recommendation based on trial synthesis, not another clinical experiment.",
+                "source_refs": [
+                  "AIBD-0042-source-0005"
+                ]
+              }
+            ],
+            "claim_chains": [
+              {
+                "claim": "Mortality and failure of the primary endpoint",
+                "path": [
+                  "https://pmc.ncbi.nlm.nih.gov/articles/PMC8409066/",
+                  "Supplementary appendix 6: Statistical analysis, pp. 9–10; Select secondary outcomes, pp. 11–12; Figure S2, p. 14"
+                ],
+                "finding": "The failure of the primary endpoint left no alpha for confirmatory testing of key secondary endpoints. The mortality p-value is nominal."
+              },
+              {
+                "claim": "Recovery time",
+                "path": [
+                  "https://europepmc.org/article/PMC/PMC7745180",
+                  "Table 2; supplementary appendix and original/final protocols"
+                ],
+                "finding": "ACTT-2 compared baricitinib plus remdesivir with placebo plus remdesivir. Its mortality comparison was not statistically conclusive."
+              },
+              {
+                "claim": "AI contribution",
+                "path": [
+                  "https://europepmc.org/article/PMC/PMC7137985",
+                  "Figure and original reference 6: Sorrell et al., Structure 24 (2016):401–411, doi:10.1016/j.str.2015.12.015",
+                  "https://pmc.ncbi.nlm.nih.gov/articles/PMC4780864/"
+                ],
+                "finding": "The correspondence is the origin of the AI-assisted prioritization claim. Sorrell et al. (2016), Figure 3B and the ligand-interaction results, supply original laboratory evidence of baricitinib binding to AAK1. That biochemical result does not establish the proposed antiviral mechanism or the clinical contribution of the AI discovery process."
+              },
+              {
+                "claim": "Regulatory follow-up",
+                "path": [
+                  "https://www.fda.gov/news-events/press-announcements/coronavirus-covid-19-update-fda-authorizes-drug-combination-treatment-covid-19",
+                  "https://www.fda.gov/media/143822/download",
+                  "https://www.who.int/news/item/14-01-2022-who-recommends-two-new-drugs-to-treat-covid-19",
+                  "https://iris.who.int/bitstream/handle/10665/351006/WHO-2019-nCoV-therapeutics-2022.1-eng.pdf"
+                ],
+                "finding": "The current FDA letter is a later reissuance with authorization history. The original WHO January 2022 PDF was identified but returned 403; the dated WHO announcement was read."
+              }
+            ],
+            "limitations": [
+              "No trial randomized the discovery process to AI versus no AI. The full proprietary graph and ranking run are unavailable.",
+              "COV-BARRIER was sponsor-designed and sponsor-analyzed. Its mortality inference is nominal under the prespecified testing hierarchy.",
+              "The cited recommendation establishes guidance, not measured worldwide adoption or a count of lives saved.",
+              "The original Sorrell et al. article was read. Its linked supplementary Table S1 was identified, but the download returned 403 or a verification page and the supplementary archive timed out; no unavailable table contents were inferred."
+            ],
+            "excluded_or_consolidated_sources": [
+              {
+                "url": "https://www.fda.gov/drugs/emergency-preparedness-drugs/coronavirus-covid-19-drugs",
+                "reason": "Generic, changing drug directory; no additional claim in the current case requires it."
+              }
+            ],
+            "review_scope": "Traced the claims in this case through accessible original publications and relevant embedded references, tables, appendices, corrections, and supplements. The stated access limits remain unresolved."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the available originals and relevant source chains, with unresolved access and evidentiary limits recorded explicitly.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1376,19 +1609,26 @@
           "kind": "record_fields",
           "fields": {
             "summary": "AI knowledge graph proposed baricitinib in Feb 2020; ACTT-2 showed faster recovery and COV-BARRIER lower 28-day mortality (a secondary endpoint); FDA and WHO endorsed it.",
-            "account": "On 4 February 2020 BenevolentAI staff published a Lancet correspondence. It reported that the company's machine-learning-built knowledge graph identified baricitinib, a rheumatoid-arthritis JAK inhibitor, as a candidate against 2019-nCoV because it binds AAK1. AAK1 is a regulator of viral endocytosis. Randomized trials tested it. ACTT-2 (1,033 patients, enrolled 8 May to 1 July 2020) reported median recovery of 7 days versus 8 (rate ratio 1.16, 95% CI 1.01–1.32). On high-flow oxygen or non-invasive ventilation, 10 versus 18 days. COV-BARRIER (1,525 patients) missed its primary endpoint of disease progression (27.8% versus 30.5%, odds ratio 0.85, p=0.18). Its 28-day all-cause mortality, a secondary endpoint, was 8% versus 13% (hazard ratio 0.57, nominal p=0.0018). The Food and Drug Administration (FDA) authorized it with remdesivir on 19 November 2020. WHO strongly recommended it on 14 January 2022."
+            "account": "On 4 February 2020 BenevolentAI staff published a Lancet correspondence. It reported that the company's machine-learning-built knowledge graph identified baricitinib, a rheumatoid-arthritis JAK inhibitor, as a candidate against 2019-nCoV because it binds AAK1. AAK1 is a regulator of viral endocytosis. Randomized trials tested it. ACTT-2 (1,033 patients, enrolled 8 May to 1 July 2020) reported median recovery of 7 days versus 8 (rate ratio 1.16, 95% CI 1.01–1.32). On high-flow oxygen or non-invasive ventilation, 10 versus 18 days. COV-BARRIER (1,525 patients) missed its primary endpoint of disease progression (27.8% versus 30.5%, odds ratio 0.85, p=0.18). Its 28-day all-cause mortality, a secondary endpoint, was 8% versus 13% (hazard ratio 0.57, nominal p=0.0018). Because the primary endpoint failed, the prespecified procedure did not establish statistical significance for the secondary endpoints after adjustment for multiple testing. The Food and Drug Administration (FDA) authorized it with remdesivir on 19 November 2020. WHO strongly recommended it on 14 January 2022."
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
           "record_fields": [
             "summary",
             "account"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
@@ -1476,15 +1716,16 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "beac2b19ee5d18b7084dc57e1e652cbf02aac6782fc495a1d8e3e18cbb283c56"
+            "fc385f7b282cba184044344cc5d1a700506611617712f40db7a219af8e61ff37"
           ],
           "role": "SHA-256 of normalized original case data"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Deterministic content version assigned by the local migration.",
+          "basis": "Updated the fingerprint after this targeted source review.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "complete"
@@ -1494,7 +1735,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "On 4 February 2020 BenevolentAI staff published a Lancet correspondence. It reported that the company's machine-learning-built knowledge graph identified baricitinib, a rheumatoid-arthritis JAK inhibitor, as a candidate against 2019-nCoV because it binds AAK1. AAK1 is a regulator of viral endocytosis. Randomized trials tested it. ACTT-2 (1,033 patients, enrolled 8 May to 1 July 2020) reported median recovery of 7 days versus 8 (rate ratio 1.16, 95% CI 1.01–1.32). On high-flow oxygen or non-invasive ventilation, 10 versus 18 days. COV-BARRIER (1,525 patients) missed its primary endpoint of disease progression (27.8% versus 30.5%, odds ratio 0.85, p=0.18). Its 28-day all-cause mortality, a secondary endpoint, was 8% versus 13% (hazard ratio 0.57, nominal p=0.0018). The Food and Drug Administration (FDA) authorized it with remdesivir on 19 November 2020. WHO strongly recommended it on 14 January 2022.",
+            "account": "On 4 February 2020 BenevolentAI staff published a Lancet correspondence. It reported that the company's machine-learning-built knowledge graph identified baricitinib, a rheumatoid-arthritis JAK inhibitor, as a candidate against 2019-nCoV because it binds AAK1. AAK1 is a regulator of viral endocytosis. Randomized trials tested it. ACTT-2 (1,033 patients, enrolled 8 May to 1 July 2020) reported median recovery of 7 days versus 8 (rate ratio 1.16, 95% CI 1.01–1.32). On high-flow oxygen or non-invasive ventilation, 10 versus 18 days. COV-BARRIER (1,525 patients) missed its primary endpoint of disease progression (27.8% versus 30.5%, odds ratio 0.85, p=0.18). Its 28-day all-cause mortality, a secondary endpoint, was 8% versus 13% (hazard ratio 0.57, nominal p=0.0018). Because the primary endpoint failed, the prespecified procedure did not establish statistical significance for the secondary endpoints after adjustment for multiple testing. The Food and Drug Administration (FDA) authorized it with remdesivir on 19 November 2020. WHO strongly recommended it on 14 January 2022.",
             "replication": {
               "produced_by": [
                 "A machine-learning-built knowledge graph queried for approved drugs likely to block viral endocytosis through AAK1",
@@ -1524,13 +1765,20 @@
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
           "record_fields": [
             "account",
             "replication"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0042-source-0001",
+            "AIBD-0042-source-0002",
+            "AIBD-0042-source-0003",
+            "AIBD-0042-source-0004",
+            "AIBD-0042-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -1539,16 +1787,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 29,
-      "reviewed": 0,
-      "record_mapped": 29,
-      "not_assessed": 62,
+      "known": 31,
+      "reviewed": 11,
+      "record_mapped": 20,
+      "not_assessed": 60,
       "complete": false,
       "by_state": {
-        "value_present": 29,
+        "value_present": 31,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 62,
+        "not_assessed": 60,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

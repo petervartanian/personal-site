@@ -1,14 +1,14 @@
 {
   "id": "AIBD-0234",
   "title": "Asilla's behavior-analysis AI at about 40 Japanese stations and buildings may have prompted two suicide interventions",
-  "summary": "Kyodo (1 June 2026) reports Asilla's camera-analysis system at about 40 stations and buildings alerted guards in two cases where people later said they meant to jump; the claims are the developer's.",
+  "summary": "Asilla told Kyodo that camera alerts prompted guards to intervene in two apparent suicide risks. The facilities and dates were not identified, and the company is the sole source of those accounts.",
   "date_observed": "2026-06-01",
-  "date_basis": "unassessed",
-  "date_precision": "unassessed",
+  "date_basis": "source publication",
+  "date_precision": "day",
   "benefit_status": null,
   "source_collection": null,
   "source_entry": null,
-  "account": "The two interventions are undated. Tokyo-based Asilla's system assesses the likelihood that a person will jump by analyzing behavior on security-camera footage. It looks for behavior such as pacing or lingering near a platform edge or rooftop. It alerts security guards and station staff, in some cases with loudspeaker warnings. In one case it detected a man loitering in a non-customer area of a commercial facility. A guard found him, and he later said he had intended to kill himself by jumping. In another, a child lingering near an upper-floor railing was found to have been writing a suicide note. Asilla says it trained the system since 2022 with around 200 facilities on about seven million pieces of footage. All details come from the company via Kyodo, and no operator, police or academic confirmation is among the sources. The OECD AI Incidents Monitor records the case.",
+  "account": "The two interventions are undated. Tokyo-based Asilla's system assesses the likelihood that a person will jump by analyzing behavior on security-camera footage. It looks for behavior such as pacing or lingering near a platform edge or rooftop. It alerts security guards and station staff, in some cases with loudspeaker warnings. In one case it detected a man loitering in a non-customer area of a commercial facility. A guard found him, and he later said he had intended to kill himself by jumping. In another, a child lingering near an upper-floor railing was found to have been writing a suicide note. Asilla says it trained the system since 2022 with around 200 facilities on about seven million pieces of footage. All details come from the company via Kyodo, and no operator, police or academic confirmation is among the sources. Asilla’s earlier product release identifies a jump-risk detection function in AI Security asilla version 2.4, using movement trajectories, position, and body-motion patterns. It does not identify the version used in these two interventions.",
   "category": "protective response",
   "unexpected": false,
   "purpose": "Detect behavior indicating suicide risk (and illness, immobility or violence) in security-camera footage and alert staff.",
@@ -36,7 +36,7 @@
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The system's alert prompted the guard's approach in both described cases. The intervention and the person's later statement are human. The only source is the developer speaking to Kyodo. System accuracy, alert volume and the operators' views are undocumented."
+    "statement": "Kyodo attributes both interventions to Asilla’s account. The company’s original product documentation supports the existence and intended mechanism of jump-risk alerts, but does not independently verify either intervention. The facilities, dates, alert logs, and subsequent outcomes are not supplied."
   },
   "evidence": [
     {
@@ -49,13 +49,13 @@
       "quote": "The man later said he had intended to kill himself by jumping, according to the company."
     },
     {
-      "kind": "registry label",
-      "citation": "OECD AI Incidents Monitor, incident 2026-06-01-db16",
-      "title": "AI System in Japan Prevents Suicides at Train Stations and Commercial Buildings",
-      "url": "https://oecd.ai/en/incidents/2026-06-01-db16",
-      "date": "2026-06-01",
-      "written_by": "independent",
-      "quote": "has reportedly helped prevent at least two suicide attempts."
+      "kind": "press release",
+      "citation": "Asilla, “アジラ、最先端のAI警備システム『AI Security asilla』をバージョンアップ。ver.2.4のリリースを開始！,” January 26, 2024, “飛び降り予兆検知機能.”",
+      "title": "アジラ、最先端のAI警備システム『AI Security asilla』をバージョンアップ。ver.2.4のリリースを開始！",
+      "url": "https://jp.asilla.com/post/version-2-4-20240126",
+      "date": "2024-01-26",
+      "written_by": "makers",
+      "quote": null
     }
   ],
   "replication": {
@@ -73,12 +73,12 @@
   },
   "paired_incident": null,
   "headline": "Asilla's camera AI may have prompted two suicide interventions",
-  "metric": "alerted guards in two cases where people later said they meant to jump",
+  "metric": "two reported interventions after alerts; dates and facilities undisclosed",
   "comparator": null,
   "later": {
     "status": "unknown",
     "date": null,
-    "note": "No development after 1 June 2026 was found; the Anadolu wire adds only that the system is installed at around 30 commercial facilities and about 10 railway stations in Tokyo and Kanagawa.",
+    "note": "The retained sources do not establish subsequent outcomes for the two people.",
     "quote": null,
     "url": null
   },
@@ -130,16 +130,22 @@
       "change": "Notes about which sources could be read were reworded for readers; facts, figures and quotations unchanged.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-24",
+      "change": "Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
+      "source": "https://www.straitstimes.com/asia/east-asia/japan-stations-facilities-use-ai-system-to-prevent-suicide-by-jumping",
+      "editor": "AIBD"
     }
   ],
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: one independent news report and a registry entry. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "claim_basis": "Sources: one independent news report and the makers' press release. The cited evidence includes no independent study or report and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0234",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "96977f556c0d260ac6fd6cdc2172bfc2108e88ae05e01539b261685a9627b6d7",
+    "source_fingerprint": "f901188e7feedf658f44ab9f117672015b105d67cca14325d6cd760c68c7535e",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -210,19 +216,23 @@
           "fields": {
             "ai_role": {
               "status": "assessed",
-              "statement": "The system's alert prompted the guard's approach in both described cases. The intervention and the person's later statement are human. The only source is the developer speaking to Kyodo. System accuracy, alert volume and the operators' views are undocumented."
+              "statement": "Kyodo attributes both interventions to Asilla’s account. The company’s original product documentation supports the existence and intended mechanism of jump-risk alerts, but does not independently verify either intervention. The facilities, dates, alert logs, and subsequent outcomes are not supplied."
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the mapped fields during the source review. Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
           "record_fields": [
             "ai_role"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "ai_relationship": {
@@ -233,20 +243,24 @@
             "category": "protective response",
             "ai_role": {
               "status": "assessed",
-              "statement": "The system's alert prompted the guard's approach in both described cases. The intervention and the person's later statement are human. The only source is the developer speaking to Kyodo. System accuracy, alert volume and the operators' views are undocumented."
+              "statement": "Kyodo attributes both interventions to Asilla’s account. The company’s original product documentation supports the existence and intended mechanism of jump-risk alerts, but does not independently verify either intervention. The facilities, dates, alert logs, and subsequent outcomes are not supplied."
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the mapped fields during the source review. Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
           "record_fields": [
-            "ai_role",
-            "category"
+            "category",
+            "ai_role"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "assessments[].alternatives": {
@@ -296,13 +310,13 @@
             "confidence": "medium",
             "evidence_word": "reported",
             "claim_status": "Independently reported",
-            "basis": "Sources: one independent news report and a registry entry. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "basis": "Sources: one independent news report and the makers' press release. The cited evidence includes no independent study or report and no finding by a regulator or court.",
             "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
           }
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
+          "basis": "Recomputed from the retained evidence using the existing display rule. Source originality is documented separately and does not imply independent verification.",
           "record_fields": [],
           "source_refs": []
         },
@@ -595,19 +609,23 @@
           "fields": {
             "later": {
               "status": "unknown",
-              "note": "No development after 1 June 2026 was found; the Anadolu wire adds only that the system is installed at around 30 commercial facilities and about 10 railway stations in Tokyo and Kanagawa."
+              "note": "The retained sources do not establish subsequent outcomes for the two people."
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the mapped fields during the source review. Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
           "record_fields": [
             "later"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "human_oversight": {
@@ -675,20 +693,24 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "The two interventions are undated. Tokyo-based Asilla's system assesses the likelihood that a person will jump by analyzing behavior on security-camera footage. It looks for behavior such as pacing or lingering near a platform edge or rooftop. It alerts security guards and station staff, in some cases with loudspeaker warnings. In one case it detected a man loitering in a non-customer area of a commercial facility. A guard found him, and he later said he had intended to kill himself by jumping. In another, a child lingering near an upper-floor railing was found to have been writing a suicide note. Asilla says it trained the system since 2022 with around 200 facilities on about seven million pieces of footage. All details come from the company via Kyodo, and no operator, police or academic confirmation is among the sources. The OECD AI Incidents Monitor records the case.",
+            "account": "The two interventions are undated. Tokyo-based Asilla's system assesses the likelihood that a person will jump by analyzing behavior on security-camera footage. It looks for behavior such as pacing or lingering near a platform edge or rooftop. It alerts security guards and station staff, in some cases with loudspeaker warnings. In one case it detected a man loitering in a non-customer area of a commercial facility. A guard found him, and he later said he had intended to kill himself by jumping. In another, a child lingering near an upper-floor railing was found to have been writing a suicide note. Asilla says it trained the system since 2022 with around 200 facilities on about seven million pieces of footage. All details come from the company via Kyodo, and no operator, police or academic confirmation is among the sources. Asilla’s earlier product release identifies a jump-risk detection function in AI Security asilla version 2.4, using movement trajectories, position, and body-motion patterns. It does not identify the version used in these two interventions.",
             "benefit_type": "Improved Physical Health"
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the mapped fields during the source review. Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
           "record_fields": [
             "account",
             "benefit_type"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "outcomes[].distribution": {
@@ -810,6 +832,8 @@
           "kind": "record_fields",
           "fields": {
             "date_observed": "2026-06-01",
+            "date_basis": "source publication",
+            "date_precision": "day",
             "revisions": [
               {
                 "date": "2026-10-20",
@@ -847,20 +871,32 @@
                 "date": "2026-10-21",
                 "change": "Notes about which sources could be read were reworded for readers; facts, figures and quotations unchanged.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
+                "source": "https://www.straitstimes.com/asia/east-asia/japan-stations-facilities-use-ai-system-to-prevent-suicide-by-jumping",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "June 1, 2026 is the Kyodo report’s publication date. Neither intervention is dated. Revision history is preserved separately from case chronology.",
           "record_fields": [
             "date_observed",
-            "revisions"
+            "revisions",
+            "date_basis",
+            "date_precision"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "replication.attempts[]": {
@@ -941,19 +977,29 @@
                 "date": "2026-10-21",
                 "change": "Notes about which sources could be read were reworded for readers; facts, figures and quotations unchanged.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
+                "source": "https://www.straitstimes.com/asia/east-asia/japan-stations-facilities-use-ai-system-to-prevent-suicide-by-jumping",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the mapped fields during the source review. Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
           "record_fields": [
             "revisions"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "sector": {
@@ -978,9 +1024,44 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "sources": [
+              {
+                "url": "https://www.straitstimes.com/asia/east-asia/japan-stations-facilities-use-ai-system-to-prevent-suicide-by-jumping",
+                "access": "complete identified Kyodo syndication read"
+              },
+              {
+                "url": "https://www.chiba-tv.com/plus/detail/amp/2026061691278",
+                "access": "Kyodo attribution, date, and original distribution link read"
+              },
+              {
+                "url": "https://news.jp/i/1433984055470228190",
+                "access": "inaccessible; not read"
+              },
+              {
+                "url": "https://jp.asilla.com/post/version-2-4-20240126",
+                "access": "complete original product release read"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Recorded which versions were inspected and which origins or supplements could not be read.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -998,26 +1079,29 @@
                 "quote": "The man later said he had intended to kill himself by jumping, according to the company."
               },
               {
-                "kind": "registry label",
-                "citation": "OECD AI Incidents Monitor, incident 2026-06-01-db16",
-                "title": "AI System in Japan Prevents Suicides at Train Stations and Commercial Buildings",
-                "url": "https://oecd.ai/en/incidents/2026-06-01-db16",
-                "date": "2026-06-01",
-                "written_by": "independent",
-                "quote": "has reportedly helped prevent at least two suicide attempts."
+                "kind": "press release",
+                "citation": "Asilla, “アジラ、最先端のAI警備システム『AI Security asilla』をバージョンアップ。ver.2.4のリリースを開始！,” January 26, 2024, “飛び降り予兆検知機能.”",
+                "title": "アジラ、最先端のAI警備システム『AI Security asilla』をバージョンアップ。ver.2.4のリリースを開始！",
+                "url": "https://jp.asilla.com/post/version-2-4-20240126",
+                "date": "2024-01-26",
+                "written_by": "makers"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the mapped fields during the source review. Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
           "record_fields": [
             "evidence"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "sources[].id": {
@@ -1028,15 +1112,21 @@
             "AIBD-0234-source-0001",
             "AIBD-0234-source-0002"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained evidence entries in reviewed order for this fingerprinted record version"
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
-          "record_fields": [],
-          "source_refs": []
+          "kind": "source_review",
+          "basis": "Assigned to the retained evidence entries after this source review.",
+          "record_fields": [
+            "evidence"
+          ],
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "complete"
       },
       "sources[].language": {
@@ -1060,32 +1150,160 @@
                 "quote": "The man later said he had intended to kill himself by jumping, according to the company."
               },
               {
-                "kind": "registry label",
-                "citation": "OECD AI Incidents Monitor, incident 2026-06-01-db16",
-                "title": "AI System in Japan Prevents Suicides at Train Stations and Commercial Buildings",
-                "url": "https://oecd.ai/en/incidents/2026-06-01-db16",
-                "date": "2026-06-01",
-                "written_by": "independent",
-                "quote": "has reportedly helped prevent at least two suicide attempts."
+                "kind": "press release",
+                "citation": "Asilla, “アジラ、最先端のAI警備システム『AI Security asilla』をバージョンアップ。ver.2.4のリリースを開始！,” January 26, 2024, “飛び降り予兆検知機能.”",
+                "title": "アジラ、最先端のAI警備システム『AI Security asilla』をバージョンアップ。ver.2.4のリリースを開始！",
+                "url": "https://jp.asilla.com/post/version-2-4-20240126",
+                "date": "2024-01-26",
+                "written_by": "makers"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the mapped fields during the source review. Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
           "record_fields": [
             "evidence"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "source_refs": [
+                  "AIBD-0234-source-0001"
+                ],
+                "url": "https://www.straitstimes.com/asia/east-asia/japan-stations-facilities-use-ai-system-to-prevent-suicide-by-jumping",
+                "title": "Japan stations, facilities use AI system to prevent suicide by jumping",
+                "published_on": "2026-06-01",
+                "relationship": "Kyodo’s report is original journalism carried by The Straits Times. The two intervention accounts are explicitly attributed to Asilla, not independently confirmed by the reporter."
+              },
+              {
+                "source_refs": [
+                  "AIBD-0234-source-0002"
+                ],
+                "url": "https://jp.asilla.com/post/version-2-4-20240126",
+                "title": "アジラ、最先端のAI警備システム『AI Security asilla』をバージョンアップ。ver.2.4のリリースを開始！",
+                "published_on": "2024-01-26",
+                "relationship": "Asilla’s January 2024 release identifies the product function and technical inputs. It is separate primary documentation of the mechanism, not corroboration of the two events."
+              }
+            ],
+            "excluded_republications": [
+              {
+                "url": "https://oecd.ai/en/incidents/2026-06-01-db16",
+                "citation": "OECD AI Incidents Monitor, incident 2026-06-01-db16",
+                "relationship": "The OECD entry repeats the reported interventions and adds no independent evidence."
+              }
+            ],
+            "lead_source_ref": "AIBD-0234-source-0001",
+            "retained_source_order": [
+              "AIBD-0234-source-0001",
+              "AIBD-0234-source-0002"
+            ],
+            "ordering_basis": "The first source directly supports the reported benefit or is the closest accessible original account. Each additional source has a distinct evidentiary contribution described in its relationship. Documented inaccessible origins are not represented as having been read.",
+            "claim_lineage": [
+              {
+                "claim": "Asilla said that alerts prompted guards to reach two people who appeared to be at risk of jumping.",
+                "source_ref": "AIBD-0234-source-0001",
+                "source_chain": [
+                  {
+                    "url": "https://www.straitstimes.com/asia/east-asia/japan-stations-facilities-use-ai-system-to-prevent-suicide-by-jumping",
+                    "locator": "Two case paragraphs following the alert workflow",
+                    "role": "Kyodo’s report is original journalism carried by The Straits Times. The two intervention accounts are explicitly attributed to Asilla, not independently confirmed by the reporter."
+                  }
+                ],
+                "locator": "Two case paragraphs following the alert workflow",
+                "method": {},
+                "limitations": [
+                  "The developer is the sole identified origin of both cases.",
+                  "No facility, date, operator statement, or intervention log is given."
+                ]
+              },
+              {
+                "claim": "AI Security asilla version 2.4 introduced jump-risk detection based on trajectories, position, and body movement.",
+                "source_ref": "AIBD-0234-source-0002",
+                "source_chain": [
+                  {
+                    "url": "https://jp.asilla.com/post/version-2-4-20240126",
+                    "locator": "“飛び降り予兆検知機能”",
+                    "role": "Asilla’s January 2024 release identifies the product function and technical inputs. It is separate primary documentation of the mechanism, not corroboration of the two events."
+                  }
+                ],
+                "locator": "“飛び降り予兆検知機能”",
+                "method": {},
+                "limitations": [
+                  "The version deployed in the two 2026-reported cases is unspecified."
+                ]
+              }
+            ],
+            "limitations": [
+              "The original Kyodo distribution address was traced through Chiba TV to https://news.jp/i/1433984055470228190; that endpoint was inaccessible. The complete identified Kyodo syndication in The Straits Times was read.",
+              "The company’s claim that lives were saved is not independent evidence of the counterfactual.",
+              "A related Osaka report describes false alarms and response gaps, but cannot be matched to either anonymous case."
+            ],
+            "access_audit": [
+              {
+                "url": "https://www.straitstimes.com/asia/east-asia/japan-stations-facilities-use-ai-system-to-prevent-suicide-by-jumping",
+                "access": "complete identified Kyodo syndication read"
+              },
+              {
+                "url": "https://www.chiba-tv.com/plus/detail/amp/2026061691278",
+                "access": "Kyodo attribution, date, and original distribution link read"
+              },
+              {
+                "url": "https://news.jp/i/1433984055470228190",
+                "access": "inaccessible; not read"
+              },
+              {
+                "url": "https://jp.asilla.com/post/version-2-4-20240126",
+                "access": "complete original product release read"
+              }
+            ],
+            "related_material": [
+              {
+                "url": "https://www.mlit.go.jp/toshi/tosiko/content/001892574.pdf",
+                "title": "スマートシティ実装化支援事業 調査報告書",
+                "author": "うめきた２期地区等スマートシティ形成協議会",
+                "date": "March 2025",
+                "locators": [
+                  "pp. 26–31, AI camera deployment using asilla and icetana"
+                ],
+                "access": "relevant operational results and limitations read, not represented as a complete audit of all 46 pages",
+                "finding": "Reports worker-related false alerts, difficulty responding promptly to detections, and the limitation of jump-risk criteria for immediate jumps.",
+                "relationship": "A separate deployment and useful operational caution. It is not attributed to the two anonymous interventions and is not counted as corroboration."
+              }
+            ],
+            "scope": "Complete review of retained-source lineage and access status. This does not mean that inaccessible upstream documents were inspected, that every required case field is complete, or that the original claims were independently verified."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration. Access limits are enumerated in the review.",
+          "record_fields": [
+            "evidence",
+            "account",
+            "ai_role"
+          ],
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1098,20 +1316,24 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "summary": "Kyodo (1 June 2026) reports Asilla's camera-analysis system at about 40 stations and buildings alerted guards in two cases where people later said they meant to jump; the claims are the developer's.",
-            "account": "The two interventions are undated. Tokyo-based Asilla's system assesses the likelihood that a person will jump by analyzing behavior on security-camera footage. It looks for behavior such as pacing or lingering near a platform edge or rooftop. It alerts security guards and station staff, in some cases with loudspeaker warnings. In one case it detected a man loitering in a non-customer area of a commercial facility. A guard found him, and he later said he had intended to kill himself by jumping. In another, a child lingering near an upper-floor railing was found to have been writing a suicide note. Asilla says it trained the system since 2022 with around 200 facilities on about seven million pieces of footage. All details come from the company via Kyodo, and no operator, police or academic confirmation is among the sources. The OECD AI Incidents Monitor records the case."
+            "summary": "Asilla told Kyodo that camera alerts prompted guards to intervene in two apparent suicide risks. The facilities and dates were not identified, and the company is the sole source of those accounts.",
+            "account": "The two interventions are undated. Tokyo-based Asilla's system assesses the likelihood that a person will jump by analyzing behavior on security-camera footage. It looks for behavior such as pacing or lingering near a platform edge or rooftop. It alerts security guards and station staff, in some cases with loudspeaker warnings. In one case it detected a man loitering in a non-customer area of a commercial facility. A guard found him, and he later said he had intended to kill himself by jumping. In another, a child lingering near an upper-floor railing was found to have been writing a suicide note. Asilla says it trained the system since 2022 with around 200 facilities on about seven million pieces of footage. All details come from the company via Kyodo, and no operator, police or academic confirmation is among the sources. Asilla’s earlier product release identifies a jump-risk detection function in AI Security asilla version 2.4, using movement trajectories, position, and body-motion patterns. It does not identify the version used in these two interventions."
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the mapped fields during the source review. Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
           "record_fields": [
             "summary",
             "account"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
@@ -1199,13 +1421,13 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "96977f556c0d260ac6fd6cdc2172bfc2108e88ae05e01539b261685a9627b6d7"
+            "f901188e7feedf658f44ab9f117672015b105d67cca14325d6cd760c68c7535e"
           ],
-          "role": "SHA-256 of normalized original case data"
+          "role": "SHA-256 of normalized current case data"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Deterministic content version assigned by the local migration.",
+          "basis": "Deterministic content version of the updated case record.",
           "record_fields": [],
           "source_refs": []
         },
@@ -1217,7 +1439,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "The two interventions are undated. Tokyo-based Asilla's system assesses the likelihood that a person will jump by analyzing behavior on security-camera footage. It looks for behavior such as pacing or lingering near a platform edge or rooftop. It alerts security guards and station staff, in some cases with loudspeaker warnings. In one case it detected a man loitering in a non-customer area of a commercial facility. A guard found him, and he later said he had intended to kill himself by jumping. In another, a child lingering near an upper-floor railing was found to have been writing a suicide note. Asilla says it trained the system since 2022 with around 200 facilities on about seven million pieces of footage. All details come from the company via Kyodo, and no operator, police or academic confirmation is among the sources. The OECD AI Incidents Monitor records the case.",
+            "account": "The two interventions are undated. Tokyo-based Asilla's system assesses the likelihood that a person will jump by analyzing behavior on security-camera footage. It looks for behavior such as pacing or lingering near a platform edge or rooftop. It alerts security guards and station staff, in some cases with loudspeaker warnings. In one case it detected a man loitering in a non-customer area of a commercial facility. A guard found him, and he later said he had intended to kill himself by jumping. In another, a child lingering near an upper-floor railing was found to have been writing a suicide note. Asilla says it trained the system since 2022 with around 200 facilities on about seven million pieces of footage. All details come from the company via Kyodo, and no operator, police or academic confirmation is among the sources. Asilla’s earlier product release identifies a jump-risk detection function in AI Security asilla version 2.4, using movement trajectories, position, and body-motion patterns. It does not identify the version used in these two interventions.",
             "replication": {
               "produced_by": [
                 "Existing security cameras in areas with jump risk",
@@ -1234,31 +1456,35 @@
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the mapped fields during the source review. Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration.",
           "record_fields": [
             "account",
             "replication"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 27,
-      "reviewed": 0,
-      "record_mapped": 27,
-      "not_assessed": 64,
+      "known": 29,
+      "reviewed": 13,
+      "record_mapped": 16,
+      "not_assessed": 62,
       "complete": false,
       "by_state": {
-        "value_present": 27,
+        "value_present": 29,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 64,
+        "not_assessed": 62,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0
