@@ -7,8 +7,8 @@
 .collection { min-width: 0; }
 .collection-opening { position: relative; margin: 18px 0; }
 .collection-head { min-width: 0; padding: 34px 38px; }
-.collection-titleline { display: flex; align-items: center; gap: 18px; margin: 10px 0 18px; color: var(--collection-ink); }
-.collection-head h1 { font: 400 clamp(50px, 5.5vw, 76px)/1.04 var(--serif); letter-spacing: -.035em; }
+.collection-titleline { font-size: clamp(50px, 5.5vw, 76px); display: flex; align-items: center; gap: 18px; margin: 10px 0 18px; color: var(--collection-ink); }
+.collection-head h1 { font: 400 1em/1.04 var(--serif); letter-spacing: -.035em; }
 .collection-subtitle { margin: 0; font: 12px/19px var(--sans); color: var(--ink-2); }
 .collection-description { max-width: 24rem; margin: 0; font: 20px/29px var(--serif); }
 .collection-opening-count { margin: 24px 0 0; color: var(--ink-3); font: 11px/18px var(--mono); }
@@ -89,11 +89,11 @@
 .querist-context .case-identity { max-width: 54rem; margin-top: 0; }
 
 /* Viator: an open atlas, with headquarters in the margin of each group. */
-.collection-viator .collection-opening { display: grid; grid-template-columns: minmax(280px, 32%) minmax(0, 1fr); align-items: start; gap: 28px; min-height: 370px; }
+.collection-viator .collection-opening { display: grid; grid-template-columns: minmax(310px, 32%) minmax(0, 1fr); align-items: start; gap: 28px; min-height: 370px; }
 .collection-viator .collection-head { padding: 32px 34px; }
-.collection-viator .collection-titleline { flex-wrap: wrap; gap: 10px 18px; margin: 19px 0; }
-.collection-viator .collection-head h1 { font-size: 66px; }
-.collection-viator .collection-emblem { width: 52px; height: 42px; }
+.collection-viator .collection-titleline { gap: 18px; margin: 19px 0; }
+.collection-viator .collection-titleline { font-size: 66px; }
+.collection-viator .collection-emblem { width: 52px; height: 42px; transform: translateY(-0.12em); }
 .viator-atlas { align-self: end; padding: 20px 28px 22px; }
 .viator-map { margin: 0 auto; max-width: 720px; }
 .viator-map svg { display: block; width: 100%; max-height: 210px; }
@@ -102,7 +102,8 @@
 .viator-map [data-destination-active="true"] { fill: #69a1b3; }
 .viator-map [data-origin-active="true"][data-destination-active="true"] { fill: #355a68; }
 .viator-map figcaption { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin-top: 7px; font: 11px/18px var(--sans); color: var(--ink-3); }
-.viator-map figcaption span::before { content: ''; display: inline-block; width: 9px; height: 9px; margin-right: 6px; background: #b8945b; }
+.viator-map figcaption > span { display: inline-flex; align-items: center; gap: 6px; }
+.viator-map figcaption span::before { content: ''; display: block; flex: none; width: 9px; height: 9px; background: #b8945b; }
 .viator-map .map-destination::before { background: #69a1b3; }
 .viator-map .map-both::before { background: #355a68; }
 .viator-atlas-key { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 28px; margin-top: 17px; padding-top: 15px; border-top: 1px solid var(--rule); color: var(--ink-3); font: 11px/18px var(--sans); }
@@ -128,7 +129,7 @@
 .collection-adyt .collection-opening { display: flex; justify-content: center; align-items: center; min-height: 362px; margin-block: 26px; }
 .collection-adyt .collection-head { width: 368px; padding: 29px 38px 31px; text-align: center; }
 .collection-adyt .collection-titleline { flex-direction: column-reverse; gap: 12px; margin: 18px 0 15px; }
-.collection-adyt .collection-head h1 { font-size: 72px; }
+.collection-adyt .collection-titleline { font-size: 72px; }
 .collection-adyt .collection-emblem { width: 72px; height: 54px; }
 .collection-adyt .collection-description { font-size: 20px; line-height: 28px; }
 .collection-adyt .collection-opening-count { margin-top: 21px; }
@@ -162,10 +163,10 @@
 .collection-chanticleer .collection-head { grid-row: 2; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; column-gap: 40px; padding: 28px 36px; }
 .collection-chanticleer .collection-subtitle { grid-column: 1; }
 .collection-chanticleer .collection-titleline { grid-column: 1; grid-row: 2 / 4; margin: 9px 0 0; gap: 16px; }
-.collection-chanticleer .collection-head h1 { font-size: clamp(46px, 5.2vw, 72px); }
+.collection-chanticleer .collection-titleline { font-size: clamp(46px, 5.2vw, 72px); }
 .collection-chanticleer .collection-description { grid-column: 2; grid-row: 2; max-width: 25rem; font-size: 21px; line-height: 29px; }
 .collection-chanticleer .collection-opening-count { grid-column: 2; grid-row: 3; margin: 12px 0 0; }
-.collection-chanticleer .collection-emblem { width: 61px; height: 46px; }
+.collection-chanticleer .collection-emblem { width: 61px; height: 46px; transform: translateY(-0.14em); }
 .collection-chanticleer .collection-choices { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 28px; }
 .collection-chanticleer .collection-choices button { align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--rule); padding: 11px 0; font-size: 18px; line-height: 25px; }
 .collection-chanticleer .collection-group-head { border-bottom: 3px double var(--collection-ink); padding-bottom: 14px; }
@@ -182,7 +183,7 @@
   .collection-querist .collection-head { padding-inline: 30px; }
   .collection-viator .collection-opening { grid-template-columns: minmax(260px, 34%) minmax(0, 1fr); gap: 20px; }
   .collection-viator .collection-head { padding-inline: 26px; }
-  .collection-viator .collection-head h1 { font-size: 58px; }
+  .collection-viator .collection-titleline { font-size: 58px; gap: 12px; }
   .collection-viator .collection-emblem { width: 46px; }
   .viator-atlas { padding-inline: 20px; }
   .collection-viator .collection-group { grid-template-columns: minmax(0, 1fr); gap: 22px; }
@@ -190,7 +191,7 @@
   .collection-viator .collection-group-head h2 { margin-bottom: 0; }
   .collection-viator .collection-group-head h2::before { display: inline; margin-right: 8px; }
   .collection-chanticleer .collection-head { column-gap: 25px; }
-  .collection-chanticleer .collection-head h1 { font-size: 51px; }
+  .collection-chanticleer .collection-titleline { font-size: 51px; }
   .collection-chanticleer .collection-emblem { width: 46px; }
   .collection-chanticleer .collection-choices { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .chanticleer-case { grid-template-columns: 95px minmax(0, 1fr); gap: 24px; }
@@ -199,9 +200,9 @@
 @media (max-width: 760px) {
   .collection-querist .collection-opening { grid-template-columns: minmax(270px, 56%) minmax(0, 1fr); min-height: 300px; }
   .collection-querist .collection-head { min-height: 280px; padding: 25px 28px; }
-  .collection-querist .collection-head h1 { font-size: 60px; }
+  .collection-querist .collection-titleline { font-size: 60px; }
   .collection-querist .collection-titleline { flex-direction: row; align-items: center; gap: 13px; }
-  .collection-querist .collection-emblem { width: 48px; height: 38px; }
+  .collection-querist .collection-emblem { width: 48px; height: 38px; transform: translateY(-0.03em); }
   .collection-viator .collection-opening { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: 76px; }
   .collection-viator .collection-head { width: min(370px, 80%); padding: 25px 28px; }
   .viator-atlas { margin-left: 10%; }
@@ -215,20 +216,20 @@
 }
 @media (max-width: 650px) {
   .collection-opening { margin-block: 12px; }
-  .collection-head h1 { font-size: 48px; }
+  .collection-titleline { font-size: 48px; }
   .collection-subtitle { font-size: 12px; line-height: 18px; }
   .collection-description { max-width: 25rem; font-size: 18px; line-height: 25px; }
   .collection-opening-count { margin-top: 15px; }
   .collection-querist .collection-opening { display: block; min-height: 0; padding-bottom: 74px; }
   .collection-querist .collection-head { width: calc(100% - 30px); min-height: 0; padding: 25px 24px; }
   .collection-querist .collection-titleline { margin: 14px 0; }
-  .collection-querist .collection-head h1 { font-size: 52px; }
+  .collection-querist .collection-titleline { font-size: 52px; }
   .collection-querist .collection-emblem { width: 49px; }
   .collection-querist .collection-opening-count { margin-top: 16px; }
   .collection-viator .collection-opening { gap: 54px; }
   .collection-viator .collection-head { width: calc(100% - 34px); padding: 24px; }
   .collection-viator .collection-titleline { margin: 14px 0; }
-  .collection-viator .collection-head h1 { font-size: 56px; }
+  .collection-viator .collection-titleline { font-size: 56px; }
   .collection-viator .collection-emblem { width: 52px; }
   .viator-atlas { margin-left: 0; padding: 18px 18px 16px; }
   .viator-map svg { max-height: 170px; }
@@ -238,14 +239,14 @@
   .collection-adyt .collection-opening { min-height: 0; padding-block: 28px; margin-block: 12px; }
   .collection-adyt .collection-head { width: calc(100% - 52px); padding: 23px 22px; }
   .collection-adyt .collection-titleline { gap: 8px; margin: 14px 0; }
-  .collection-adyt .collection-head h1 { font-size: 59px; }
+  .collection-adyt .collection-titleline { font-size: 59px; }
   .collection-adyt .collection-emblem { width: 64px; height: 48px; }
   .collection-adyt .collection-description { font-size: 18px; line-height: 25px; }
   .collection-adyt .collection-opening-count { margin-top: 16px; }
   .collection-chanticleer .collection-opening { grid-template-rows: 112px auto; }
   .collection-chanticleer .collection-head { padding: 24px; }
   .collection-chanticleer .collection-titleline { gap: 12px; margin-top: 11px; }
-  .collection-chanticleer .collection-head h1 { font-size: 44px; }
+  .collection-chanticleer .collection-titleline { font-size: 44px; }
   .collection-chanticleer .collection-emblem { width: 48px; height: 38px; }
   .collection-chanticleer .collection-description { font-size: 18px; line-height: 25px; margin-top: 13px; }
   .collection-controls, .collection-adyt .collection-controls { padding: 21px 20px 17px; }
@@ -309,11 +310,11 @@
 }
 @media (max-width: 360px) {
   .collection-querist .collection-head, .collection-viator .collection-head { padding-inline: 20px; }
-  .collection-querist .collection-head h1 { font-size: 46px; }
+  .collection-querist .collection-titleline { font-size: 46px; }
   .collection-querist .collection-emblem { width: 43px; }
   .collection-adyt .collection-head { width: calc(100% - 34px); padding-inline: 20px; }
   .collection-chanticleer .collection-head { padding-inline: 20px; }
-  .collection-chanticleer .collection-head h1 { font-size: 38px; }
+  .collection-chanticleer .collection-titleline { font-size: 38px; }
   .collection-chanticleer .collection-titleline { gap: 9px; }
   .collection-chanticleer .collection-emblem { width: 42px; }
   .collection-controls, .collection-group, .collection-data, .collection-adyt .collection-controls, .collection-adyt .collection-group, .collection-adyt .collection-data { padding-inline: 18px; }
