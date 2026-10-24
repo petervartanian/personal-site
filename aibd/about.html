@@ -32,8 +32,9 @@
 .about-claims li { padding-left: 0.25em; margin-bottom: 22px; color: var(--ink-2); }
 .about-claims strong { color: var(--ink); font-weight: 500; }
 .about-note-anchor { white-space: nowrap; }
-.about-note-ref { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-left: 4px; padding: 0; border: 1px solid var(--rule-2); border-radius: 50%; color: var(--ink-3); font: 11px/1 var(--serif); vertical-align: 0.2em; }
-.about-note-ref::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; }
+.about-note-ref { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-left: 4px; padding: 0; border: 1px solid var(--rule-2); border-radius: 0; color: var(--ink-3); font: 11px/1 var(--serif); vertical-align: 0.2em; }
+.about-note-ref > span { transform: translateY(-1px); }
+.about-note-ref::after { content: ""; position: absolute; inset: -6px; }
 .about-note-ref:hover, .about-note-ref[aria-expanded="true"] { color: var(--ink); border-color: var(--ink); background: var(--paper-2); }
 .about-note { position: fixed; inset: 0; width: min(32rem, calc(100vw - 24px)); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); margin: auto; padding: 24px 44px 24px 24px; overflow: auto; border: 1px solid var(--rule-2); background: var(--paper); color: var(--ink-2); font-size: var(--t-small); line-height: var(--l-small); }
 .about-note p { margin: 0; }
@@ -136,22 +137,22 @@ document.addEventListener('DOMContentLoaded', () => {
   <p class="about-purpose">I want more people to benefit from AI that has already helped someone else.</p>
   <p class="about-description">I collect these cases so that others can judge whether a similar use of AI could help them. Each case includes sources that readers can check and makes clear whether the benefit has been reported or is still proposed.</p>
   <ol class="about-claims">
-    <li><strong>In 2024, AI-governance researchers Airlie Hilliard, Emre Kazim, and Stephan Ledain</strong> wrote in <em>AI and Ethics</em> that “there is a lack of an equivalent for positive outcomes” to the databases that document AI <span class="about-note-anchor">harms.<button type="button" class="about-note-ref" popovertarget="endnote-i" aria-label="Endnote i" aria-controls="endnote-i">i</button></span>
+    <li><strong>In 2024, AI-governance researchers Airlie Hilliard, Emre Kazim, and Stephan Ledain</strong> wrote in <em>AI and Ethics</em> that “there is a lack of an equivalent for positive outcomes” to the databases that document AI <span class="about-note-anchor">harms.<button type="button" class="about-note-ref" popovertarget="endnote-i" aria-label="Endnote i" aria-controls="endnote-i"><span>i</span></button></span>
       <aside id="endnote-i" class="about-note" popover="auto" role="note" aria-label="Endnote i">
         <p>Airlie Hilliard et al., “Are the Robots Taking Over? On AI and Perceived Existential Risk,” <em>AI and Ethics</em> 5, no. 3 (June 2025): 2937, §&nbsp;4, <a href="https://doi.org/10.1007/s43681-024-00600-9" tabindex="0">https://doi.org/10.1007/s43681-024-00600-9</a>.</p>
         <button type="button" class="about-note-close" popovertarget="endnote-i" popovertargetaction="hide" aria-label="Close endnote i">×</button>
       </aside>
     </li>
-    <li><strong>Following a joint workshop in 2024, Amazon Web Services and Minerva Technology Policy Advisors</strong> recommended establishing a centralized “AI Success Database” to “document and share positive case studies of AI adoption in the public <span class="about-note-anchor">sector.”<button type="button" class="about-note-ref" popovertarget="endnote-ii" aria-label="Endnote ii" aria-controls="endnote-ii">ii</button></span>
+    <li><strong>Following a joint workshop in 2024, Amazon Web Services and Minerva Technology Policy Advisors</strong> recommended establishing a centralized “AI Success Database” to “document and share positive case studies of AI adoption in the public <span class="about-note-anchor">sector.”<button type="button" class="about-note-ref" popovertarget="endnote-ii" aria-label="Endnote ii" aria-controls="endnote-ii"><span>ii</span></button></span>
       <aside id="endnote-ii" class="about-note" popover="auto" role="note" aria-label="Endnote ii">
         <p>Amazon Web Services and Minerva Technology Policy Advisors, <em>AI, Everywhere, All at Once: A New Policy Agenda for AI Success through Faster Adoption</em> (workshop report, n.d.), 12, §&nbsp;9.2, <a href="https://adopt-ai.org/wp-content/uploads/2025/10/AIAI_0325_AI-Everywhere-All-At-Once_Updated-Final.pdf#page=36" tabindex="0">https://adopt-ai.org/wp-content/uploads/2025/10/AIAI_0325_AI-Everywhere-All-At-Once_Updated-Final.pdf</a>.</p>
         <button type="button" class="about-note-close" popovertarget="endnote-ii" popovertargetaction="hide" aria-label="Close endnote ii">×</button>
       </aside>
     </li>
-    <li><strong>In 2026, Valerie Wirtschafter, a fellow at the Brookings Institution,</strong> called for “documenting and sharing AI success stories and lessons learned” in her assessment of federal AI <span class="about-note-anchor">adoption.<button type="button" class="about-note-ref" popovertarget="endnote-iii" aria-label="Endnote iii" aria-controls="endnote-iii">iii</button></span>
+    <li><strong>In 2026, Valerie Wirtschafter, a fellow at the Brookings Institution,</strong> called for “documenting and sharing AI success stories and lessons learned” in her assessment of federal AI <span class="about-note-anchor">adoption.<button type="button" class="about-note-ref" popovertarget="endnote-iii" aria-label="Endnote iii" aria-controls="endnote-iii"><span>iii</span></button></span>
       <aside id="endnote-iii" class="about-note" popover="auto" role="note" aria-label="Endnote iii">
         <p>Valerie Wirtschafter, “Assessing the State of AI Adoption across the Federal Government,” Brookings Institution, April 15, 2026, 21, ¶&nbsp;1, <a href="https://www.brookings.edu/articles/assessing-the-state-of-ai-adoption-across-the-federal-government/" tabindex="0">https://www.brookings.edu/articles/assessing-the-state-of-ai-adoption-across-the-federal-government/</a>.</p>
-        <p>She proposes a public repository on AI.gov to show how federal agencies are using AI to benefit the public.</p>
+        <p><em>See esp.</em> her proposal for a public repository on AI.gov showing how federal agencies use AI to benefit the public.</p>
         <button type="button" class="about-note-close" popovertarget="endnote-iii" popovertargetaction="hide" aria-label="Close endnote iii">×</button>
       </aside>
     </li>
