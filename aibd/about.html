@@ -32,10 +32,12 @@
 .about-claims li { padding-left: 0.25em; margin-bottom: 22px; color: var(--ink-2); }
 .about-claims strong { color: var(--ink); font-weight: 500; }
 .about-note-anchor { white-space: nowrap; }
-.about-note-ref { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-left: 0.4em; padding: 0; border: 1px solid var(--ink-3); border-radius: 50%; color: var(--ink-2); font: 16px/1 var(--serif); vertical-align: middle; }
+.about-note-ref { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-left: 4px; padding: 0; border: 1px solid var(--rule-2); border-radius: 50%; color: var(--ink-3); font: 11px/1 var(--serif); vertical-align: 0.2em; }
+.about-note-ref::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; }
 .about-note-ref:hover, .about-note-ref[aria-expanded="true"] { color: var(--ink); border-color: var(--ink); background: var(--paper-2); }
 .about-note { position: fixed; inset: 0; width: min(32rem, calc(100vw - 24px)); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); margin: auto; padding: 24px 44px 24px 24px; overflow: auto; border: 1px solid var(--rule-2); background: var(--paper); color: var(--ink-2); font-size: var(--t-small); line-height: var(--l-small); }
 .about-note p { margin: 0; }
+.about-note p + p { margin-top: 12px; }
 .about-note a { overflow-wrap: anywhere; }
 .about-note-close { position: absolute; top: 4px; right: 4px; display: grid; place-items: center; width: 32px; height: 32px; color: var(--ink-3); font: 24px/1 var(--sans); }
 .about-note-close:hover { color: var(--ink); }
@@ -149,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <li><strong>In 2026, Valerie Wirtschafter, a fellow at the Brookings Institution,</strong> called for “documenting and sharing AI success stories and lessons learned” in her assessment of federal AI <span class="about-note-anchor">adoption.<button type="button" class="about-note-ref" popovertarget="endnote-iii" aria-label="Endnote iii" aria-controls="endnote-iii">iii</button></span>
       <aside id="endnote-iii" class="about-note" popover="auto" role="note" aria-label="Endnote iii">
         <p>Valerie Wirtschafter, “Assessing the State of AI Adoption across the Federal Government,” Brookings Institution, April 15, 2026, 21, ¶&nbsp;1, <a href="https://www.brookings.edu/articles/assessing-the-state-of-ai-adoption-across-the-federal-government/" tabindex="0">https://www.brookings.edu/articles/assessing-the-state-of-ai-adoption-across-the-federal-government/</a>.</p>
+        <p>She proposes a public repository on AI.gov to show how federal agencies are using AI to benefit the public.</p>
         <button type="button" class="about-note-close" popovertarget="endnote-iii" popovertargetaction="hide" aria-label="Close endnote iii">×</button>
       </aside>
     </li>
