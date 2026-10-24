@@ -1,6 +1,6 @@
-/* AIBD. Typography carries the hierarchy; rules and white space do the structuring.
-   Color is reserved for meaning: the five depth hues (mint to purple) and, on paired
-   incidents only, the harm scale's own colors. No gradients, no shadows, no radius. */
+/* AIBD. Typography, rules, and white space establish the hierarchy.
+   The wordmark has four distinct colors. Case colors indicate benefit depth or,
+   on paired incidents, the harm scale. No gradients, no shadows, no radius. */
 
 @font-face { font-family: "AIBD Serif"; src: url("fonts/optimized/AIBDSerif-Regular-Latin.woff2?v=46857d2d20") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; unicode-range: U+20-7E,U+A0-FF,U+131,U+152-153,U+2010,U+2013-2014,U+2018-2019,U+201C-201E,U+2026,U+20A6,U+20AC,U+20B9,U+2122,U+2212; }
 @font-face { font-family: "AIBD Serif"; src: url("fonts/optimized/AIBDSerif-Regular-Extended.woff2?v=651f288aa2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; unicode-range: U+100-130,U+134-148,U+14A-151,U+154-17E,U+1A1,U+1B0,U+1EA1,U+1EA3,U+1EA5,U+1EA7,U+1EA9,U+1EAD,U+1EAF,U+1EB1,U+1EB7,U+1EBB,U+1EBF,U+1EC1,U+1EC3,U+1EC5,U+1EC7,U+1EC9,U+1ECB,U+1ECD,U+1ED1,U+1ED3,U+1ED5,U+1ED7,U+1ED9,U+1EDB,U+1EDD,U+1EDF,U+1EE3,U+1EE5,U+1EE7-1EE9,U+1EEB,U+1EED,U+1EEF,U+1EF1,U+1EF5,U+1EF9,U+2264-2265; }
@@ -59,9 +59,8 @@ select { appearance: none; -webkit-appearance: none; padding-right: 16px; backgr
 /* Masthead */
 .masthead { position: relative; z-index: 10; padding: 0; }
 .mast-row { display: flex; align-items: center; gap: 32px; padding: 18px 36px 16px; }
-.wordmark { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 1.45rem; font-weight: 500; letter-spacing: 0.01em; text-decoration: none; white-space: nowrap; }
-/* Center the a/i letter bodies; the dot sits above the wordmark's capital line. */
-.brand-mark { display: block; flex: none; width: 38px; height: 32px; transform: translateY(-4px); }
+.wordmark { display: block; flex: none; max-width: 100%; text-decoration: none; line-height: 0; }
+.brand-wordmark { display: block; width: 288px; max-width: 100%; height: auto; }
 .find { min-width: 0; flex: 1; }
 .find input { width: 100%; max-width: 260px; font-size: 0.95rem; }
 .mast-nav { margin-left: auto; display: flex; align-items: center; gap: 24px; font: 17px/24px var(--serif); }
@@ -385,7 +384,7 @@ table.records th[aria-sort] { color: var(--ink); border-bottom-color: var(--ink)
 .list-head a { margin-left: 18px; }
 [data-explorer] .table-scroll { margin-top: 10px; }
 
-h1.wordmark { margin: 0; font-size: 1.45rem; line-height: inherit; }
+h1.wordmark { margin: 0; }
 .lede { max-width: 46rem; margin: 2px 0 22px; font-size: 1.02rem; line-height: 1.5; color: var(--ink-2); }
 .soundings { width: 100%; height: auto; display: block; }
 .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -665,7 +664,6 @@ table.compare { border-collapse: collapse; font-size: 0.9rem; margin: 10px 0 18p
 body { font-size: var(--t-body); line-height: var(--l-body); }
 .record-head h1, .record h1 { font-size: var(--t-h1); line-height: var(--l-h1); letter-spacing: -0.02em; font-weight: 500; }
 .lede { font-size: var(--t-lede); line-height: var(--l-lede); font-weight: 400; max-width: 32rem; }
-.wordmark, h1.wordmark { font-size: var(--t-head); line-height: var(--l-head); }
 .panel-name, .figure-head h2, .sec h2, .record h2, .method h2, .panel h2, .tax-group, .panel-h, .brief-head { font-size: var(--t-head); line-height: var(--l-head); }
 .results h3, .sources h3, .case h3, .compare thead th, .record-head .sum, .sum { font-size: var(--t-title); line-height: var(--l-title); }
 .record-head .sum { max-width: 32rem; }
