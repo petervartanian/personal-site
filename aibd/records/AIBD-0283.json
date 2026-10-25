@@ -177,6 +177,12 @@
       "change": "Revised the homepage subtitle for concise database prose, with courtesy titles for named beneficiaries and numbered clauses for the Coates drug-selection account. Preserved the reported evidence and material uncertainty.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Added both Austrian and Italian developer affiliations and identified Austria as the documented research-computing location. Distinguished the U.S. LIGO data sources from the research location. Preserved the first-version publication date and counted the later paper version as the same source.",
+      "source": "https://arxiv.org/html/2609.39583v2",
+      "editor": "AIBD"
     }
   ],
   "confidence": "claimed",
@@ -186,7 +192,7 @@
   "profile": {
     "case_id": "AIBD-0283",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "9884c3e1a63f300ba2ab421b3e6552af3ffd6f6ab93a7026bf45e41559f63486",
+    "source_fingerprint": "9a239a727d550cd771e1f73eca2daaf960cfa4c0c3a9881269f88fa1e5a365a0",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -798,24 +804,36 @@
       "places[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
+          "kind": "structured",
+          "data": {
             "location": "Vienna, Austria",
             "developer_country": "Austria",
-            "deployer_country": "Austria"
+            "deployer_country": "Austria",
+            "developer_jurisdictions": [
+              "Austria",
+              "Italy"
+            ],
+            "case_jurisdictions": [
+              "Austria"
+            ],
+            "location_label": "Research location",
+            "location_note": "The paper identifies Austrian computing facilities. The LIGO instruments supplied U.S. data."
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "The original paper’s author affiliations identify the Marietta Blau Institute in Vienna, Austria, and the University of Urbino and INFN Florence in Italy. The acknowledgments state that computational results used Austrian Scientific Computing infrastructure, including VSC-5 and MUSICA. Austria is the documented research-computing location, not the location of the celestial events. Hanford and Livingston LIGO supplied U.S. observational data. This review adds geographic roles from version 2 without treating it as an independent work or changing the version 1 publication chronology.",
           "record_fields": [
             "location",
             "developer_country",
             "deployer_country"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0283-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "purpose": {
@@ -924,13 +942,19 @@
                 "date": "2026-10-24",
                 "change": "Revised the homepage subtitle for concise database prose, with courtesy titles for named beneficiaries and numbered clauses for the Coates drug-selection account. Preserved the reported evidence and material uncertainty.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Added both Austrian and Italian developer affiliations and identified Austria as the documented research-computing location. Distinguished the U.S. LIGO data sources from the research location. Preserved the first-version publication date and counted the later paper version as the same source.",
+                "source": "https://arxiv.org/html/2609.39583v2",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Updated the displayed wording and revision history without changing the reviewed facts, sources, or assessments.",
+          "kind": "source_review",
+          "basis": "Added the geography review to the revision history and preserved the original publication chronology and prior version assessment.",
           "record_fields": [
             "date_observed",
             "revisions",
@@ -940,7 +964,7 @@
           "source_refs": [
             "AIBD-0283-source-0001"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-25"
         },
         "review_state": "reviewed",
         "coverage": "partial"
@@ -1063,20 +1087,26 @@
                 "date": "2026-10-24",
                 "change": "Revised the homepage subtitle for concise database prose, with courtesy titles for named beneficiaries and numbered clauses for the Coates drug-selection account. Preserved the reported evidence and material uncertainty.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Added both Austrian and Italian developer affiliations and identified Austria as the documented research-computing location. Distinguished the U.S. LIGO data sources from the research location. Preserved the first-version publication date and counted the later paper version as the same source.",
+                "source": "https://arxiv.org/html/2609.39583v2",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Updated the displayed wording and revision history without changing the reviewed facts, sources, or assessments.",
+          "kind": "source_review",
+          "basis": "Added the geography review to the revision history and preserved the original publication chronology and prior version assessment.",
           "record_fields": [
             "revisions"
           ],
           "source_refs": [
             "AIBD-0283-source-0001"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-25"
         },
         "review_state": "reviewed",
         "coverage": "partial"
@@ -1145,23 +1175,32 @@
               "commit_date": "2026-09-19",
               "accessed_on": "2026-10-24",
               "qualification": "A fixed code snapshot, separate from the preprint versions; the exact runtime commit is not established."
-            }
+            },
+            "reviewed_on": "2026-10-25",
+            "versions_and_access": [
+              {
+                "source_ref": "AIBD-0283-source-0001",
+                "source_url": "https://arxiv.org/abs/2609.39583v1",
+                "access_url": "https://arxiv.org/html/2609.39583v2",
+                "publication_date": "2026-10-19",
+                "accessed_on": "2026-10-25",
+                "locator": "Author affiliations and Acknowledgements, paragraph 1.",
+                "status": "Version 2 inspected for developer affiliations and documented computing facilities. Same work as the first version, not another source."
+              }
+            ]
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Read the preprint versions and arXiv submission history, then inspected the authors' fixed public code snapshot. Kept publication and software identifiers separate.",
+          "basis": "Inspected the geography passages in version 2 and retained the existing first-version chronology.",
           "record_fields": [
-            "evidence",
-            "date_observed",
-            "date_basis",
-            "date_precision"
+            "evidence"
           ],
           "source_refs": [
             "AIBD-0283-source-0001",
             "AIBD-0283-source-0002"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-25"
         },
         "review_state": "reviewed",
         "coverage": "complete"
@@ -1298,7 +1337,9 @@
                 ],
                 "published_on": "2026-09-30",
                 "relationship": "One primary preprint by the pipeline developers. Its abstract, HTML versions, and revision are the same work, not independent evidence.",
-                "display_name": "arXiv"
+                "display_name": "arXiv",
+                "contribution": " Version 2 author affiliations establish Austria and Italy, and acknowledgments identify Austrian computing facilities.",
+                "locator": " Author affiliations and Acknowledgements, paragraph 1."
               },
               {
                 "source_refs": [
@@ -1362,20 +1403,33 @@
                 "The code repository and paper have the same authorship and are not independent confirmations.",
                 "There is no numbered software release or Git tag."
               ]
-            }
+            },
+            "reviewed_on": "2026-10-25",
+            "claim_chains": [
+              {
+                "claim": "Developer affiliations and research location",
+                "path": [
+                  "https://arxiv.org/html/2609.39583v2"
+                ],
+                "finding": "The original paper’s author affiliations identify the Marietta Blau Institute in Vienna, Austria, and the University of Urbino and INFN Florence in Italy. The acknowledgments state that computational results used Austrian Scientific Computing infrastructure, including VSC-5 and MUSICA. Austria is the documented research-computing location, not the location of the celestial events. Hanford and Livingston LIGO supplied U.S. observational data. This review adds geographic roles from version 2 without treating it as an independent work or changing the version 1 publication chronology."
+              }
+            ],
+            "review_scope": " Additional geographic review on October 25, 2026, distinguishes author affiliations, research computing, and the observational-data source without adding another independent work."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Read the original publications and distinguished original reporting from republication and retelling. Multiple excerpts or copies do not provide independent corroboration.",
+          "basis": "Added geographic roles from the original paper’s affiliations and acknowledgments, preserving the existing version chronology and source identity.",
           "record_fields": [
-            "evidence"
+            "evidence",
+            "developer_country",
+            "location"
           ],
           "source_refs": [
             "AIBD-0283-source-0001",
             "AIBD-0283-source-0002"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-25"
         },
         "review_state": "reviewed",
         "coverage": "complete"
@@ -1630,7 +1684,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "9884c3e1a63f300ba2ab421b3e6552af3ffd6f6ab93a7026bf45e41559f63486"
+            "9a239a727d550cd771e1f73eca2daaf960cfa4c0c3a9881269f88fa1e5a365a0"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1683,8 +1737,8 @@
       "total": 91,
       "addressed": 91,
       "known": 31,
-      "reviewed": 14,
-      "record_mapped": 18,
+      "reviewed": 15,
+      "record_mapped": 17,
       "not_assessed": 59,
       "complete": false,
       "by_state": {

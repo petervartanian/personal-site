@@ -855,12 +855,30 @@ section.door .lede { max-width: none; margin: 0 0 16px; font-size: clamp(28px, 2
 .door-benefit { display: block; margin: 6px 0 0; color: var(--ink-2); font: 15px/23px var(--sans); }
 .door-item { margin: 0; padding: 14px 0; border-bottom: 1px solid var(--rule); }
 .door-case { margin: 0; font: 20px/28px var(--serif); letter-spacing: 0; }
-.door-src { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 0 10px; margin: 10px 0 0; color: var(--ink-3); font-size: 14px; line-height: 22px; overflow-wrap: anywhere; }
-.door-references { display: grid; min-width: 0; gap: 2px; }
-.door-reference { display: flex; flex-wrap: wrap; align-items: center; gap: 0 10px; min-width: 0; }
-.door-src a { display: inline-flex; align-items: center; min-height: 24px; color: var(--ink-2); }
-.door-src time, .door-number { white-space: nowrap; }
-.door-number { display: inline-flex; align-items: center; min-height: 24px; font-variant-numeric: tabular-nums; }
+.door-meta { display: grid; grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr); align-items: center; column-gap: 10px; margin-top: 8px; color: var(--ink-3); font: 13px/22px var(--sans); }
+.door-number, .door-date { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.door-number { justify-self: start; }
+.door-date { justify-self: center; }
+.door-date > span { color: var(--ink-3); }
+.door-date-bound { text-decoration: none; font-size: 12px; }
+.door-route { display: inline-flex; align-items: center; justify-self: end; gap: 0; margin: -5px -8px -5px 0; color: var(--ink-2); }
+.door-place { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.door-place img, .door-place-info img { display: block; width: 20px; height: 14px; object-fit: contain; flex: none; }
+.door-place:hover, .door-place[aria-expanded="true"] { background: #00000006; }
+.door-place:focus-visible { outline: 1px solid currentColor; outline-offset: -2px; }
+.door-globe { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.3; }
+.door-unknown { font: 20px/1 var(--serif); }
+.door-route-arrow { width: 18px; text-align: center; font: 17px/1 var(--sans); }
+.door-place-info { display: none; position: fixed; inset: auto; width: max-content; max-width: min(320px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); margin: 0; padding: 10px 12px; overflow: auto; border: 1px solid var(--rule-2); background: var(--paper); color: var(--ink-2); font: 14px/21px var(--sans); }
+.door-place-info:popover-open { display: block; }
+.door-place-info ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(28px, 1fr)); gap: 6px; }
+.door-place-info li { display: flex; align-items: center; justify-content: center; height: 24px; border: 0; }
+.door-place-info img { width: 24px; height: 16px; }
+.door-place-info p { margin: 0; }
+.door-place-many { width: 258px; }
+.door-place-many:has(li:last-child:nth-child(2)) { width: 88px; }
+@media (pointer: coarse) { .door-place { width: 44px; height: 44px; } .door-route { margin: -9px -12px -9px 0; } }
+@media (max-width: 360px) { .door-meta { grid-template-columns: max-content minmax(0, 1fr) max-content; column-gap: 4px; font-size: 12px; } .door-route-arrow { width: 12px; } .door-date-bound { font-size: 11px; } }
 .door-more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 10px; font-size: 15px; }
 .door-credit { grid-column: 1 / -1; max-width: none; margin: 0; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--ink-3); font: 14px/22px var(--sans); }
 body.door { min-height: 0; }

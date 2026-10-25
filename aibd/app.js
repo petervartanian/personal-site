@@ -72,6 +72,113 @@
   });
 })();
 
+// Geographic details open on hover, keyboard focus, or a tap.
+(function () {
+  const triggers = [...document.querySelectorAll('[data-place-trigger]')];
+  if (!triggers.length || !('showPopover' in HTMLElement.prototype)) return;
+  let active = null;
+  let closeTimer;
+  let pinned = false;
+  let restoringFocus = false;
+
+  function place(button, panel) {
+    const anchor = button.getBoundingClientRect();
+    const viewport = window.visualViewport;
+    const left = viewport?.offsetLeft || 0;
+    const top = viewport?.offsetTop || 0;
+    const width = viewport?.width || document.documentElement.clientWidth;
+    const height = viewport?.height || window.innerHeight;
+    const gap = 6, edge = 12;
+    if (anchor.bottom < top || anchor.top > top + height) {
+      panel.hidePopover();
+      return;
+    }
+    panel.style.maxWidth = `${width - edge * 2}px`;
+    panel.style.maxHeight = `${height - edge * 2}px`;
+    const box = panel.getBoundingClientRect();
+    const below = top + height - anchor.bottom - gap - edge;
+    const above = anchor.top - top - gap - edge;
+    const useBelow = box.height <= below || below >= above;
+    const available = Math.max(64, useBelow ? below : above);
+    panel.style.maxHeight = `${available}px`;
+    const actual = panel.getBoundingClientRect();
+    panel.style.left = `${Math.max(left + edge, Math.min(anchor.left + (anchor.width - actual.width) / 2, left + width - edge - actual.width))}px`;
+    panel.style.top = `${Math.max(top + edge, useBelow ? anchor.bottom + gap : anchor.top - gap - actual.height)}px`;
+  }
+
+  function show(button) {
+    clearTimeout(closeTimer);
+    const panel = document.getElementById(button.getAttribute('popovertarget'));
+    if (active && active.button !== button) {
+      active.panel.hidePopover();
+      pinned = false;
+    }
+    active = { button, panel };
+    if (!panel.matches(':popover-open')) panel.showPopover();
+    place(button, panel);
+    button.setAttribute('aria-expanded', 'true');
+  }
+
+  function scheduleClose() {
+    clearTimeout(closeTimer);
+    closeTimer = setTimeout(() => {
+      if (!active || pinned) return;
+      if (active.button.matches(':hover, :focus-visible') || active.panel.matches(':hover') || active.panel.contains(document.activeElement)) return;
+      active.panel.hidePopover();
+    }, 180);
+  }
+
+  triggers.forEach((button) => {
+    const panel = document.getElementById(button.getAttribute('popovertarget'));
+    button.addEventListener('pointerenter', (event) => {
+      if (event.pointerType === 'mouse') show(button);
+    });
+    button.addEventListener('pointerleave', scheduleClose);
+    button.addEventListener('focus', () => {
+      if (!restoringFocus && button.matches(':focus-visible')) show(button);
+    });
+    button.addEventListener('blur', scheduleClose);
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (active?.button === button && pinned && panel.matches(':popover-open')) {
+        panel.hidePopover();
+      } else {
+        show(button);
+        pinned = true;
+      }
+    });
+    panel.addEventListener('pointerenter', () => clearTimeout(closeTimer));
+    panel.addEventListener('pointerleave', scheduleClose);
+    panel.addEventListener('toggle', () => {
+      const open = panel.matches(':popover-open');
+      button.setAttribute('aria-expanded', String(open));
+      if (!open && active?.panel === panel) {
+        active = null;
+        pinned = false;
+      }
+    });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !active) return;
+    event.preventDefault();
+    const closing = active;
+    active = null;
+    pinned = false;
+    restoringFocus = true;
+    closing.panel.hidePopover();
+    closing.button.setAttribute('aria-expanded', 'false');
+    closing.button.focus({ preventScroll: true });
+    requestAnimationFrame(() => { restoringFocus = false; });
+  });
+  const reposition = () => {
+    if (active?.panel.matches(':popover-open')) place(active.button, active.panel);
+  };
+  window.addEventListener('resize', reposition, { passive: true });
+  window.addEventListener('scroll', reposition, { passive: true });
+  window.visualViewport?.addEventListener('resize', reposition, { passive: true });
+  window.visualViewport?.addEventListener('scroll', reposition, { passive: true });
+})();
+
 // Views tailored to tasks (R1): presets choose record panels and table columns; Custom remembers the reader's own choice.
 (function () {
   var PANELS = ['who', 'system', 'evidence', 'replication', 'compare', 'provenance'];
