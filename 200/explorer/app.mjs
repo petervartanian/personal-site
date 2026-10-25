@@ -1,8 +1,8 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261025-investigation';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261025-investigation';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261025-investigation';
-import { frameworkAnalysis, frameworkTopics, safeguardsMatrix } from './framework.mjs?v=20261025-investigation';
-import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup, comparisonForReference } from './reporting.mjs?v=20261025-investigation';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261025-reading';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261025-reading';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261025-reading';
+import { frameworkAnalysis, frameworkTopics, safeguardsMatrix } from './framework.mjs?v=20261025-reading';
+import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup, comparisonForReference } from './reporting.mjs?v=20261025-reading';
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const stateNames = { held: 'Worked', failed: 'Failed', absent: 'Absent', disabled: 'Off', unknown: 'Unknown' };
@@ -176,7 +176,7 @@ function renderAnalysis(item) {
   } else if (current.view === 'controlRelationships') {
     body = systemAnalysis(item, citationLinks, related, routeFor, frameworkTopics(data, current, routeFor), data.questions);
   } else if (current.view === 'questions') {
-    body += `<p class="detail-summary">${escape(item.context)} <span class="inline-citations">${citationLinks(item, 'context')}</span></p><dl class="inquiry-fields">${inquiryField('Decision', 'decision', item.decision, 'field-decision', item.whyItMatters)}${item.requestFields?.length ? `<div class="inquiry-field field-request"><dt>${icon('request')}Information to request</dt><dd><ul class="requested-records">${item.requestFields.map(field => `<li>${escape(field)}</li>`).join('')}</ul>${item.handling ? `<p class="handling-note">${escape(item.handling)}</p>` : ''}</dd></div>` : inquiryField('Information to request', 'request', item.informationNeeded, 'field-request')}${inquiryField('Who to ask', 'people', item.informationHolder, 'field-holder')}</dl>`;
+    body += `<div class="question-detail"><p class="detail-summary">${escape(item.context)} <span class="inline-citations">${citationLinks(item, 'context')}</span></p><section class="question-records"><h3>Missing information</h3>${item.requestFields?.length ? `<ul class="requested-records">${item.requestFields.map(field => `<li>${escape(field)}</li>`).join('')}</ul>` : `<p>${escape(item.informationNeeded)}</p>`}<p class="question-holder"><strong>Potential sources:</strong> ${escape(item.informationHolder.replace(/[.]+$/, ''))}.</p></section></div>`;
   } else {
     body += `<p class="detail-summary">${escape([item.summary, item.detail || item.explanation].filter(Boolean).join(' '))} <span class="inline-citations">${citationLinks(item)}</span></p>`;
   }
@@ -205,13 +205,14 @@ function renderAnalysis(item) {
     const fields = reportingFieldsForQuestion(data.reporting, item.id);
     if (fields.length) {
       const reportingHref = routeFor('questions', item.id, current.sourceId, fields[0].id);
-      body += navigationIdFor(current) === 'framework'
-        ? `<a class="reporting-inventory-link context-reporting-link" href="${reportingHref}">Related OECD reporting fields</a>`
-        : reportingReferenceMarkup(data.reporting, item.id, reportingHref);
+      body += `<div class="question-tools">${reportingReferenceMarkup(data.reporting, item.id, reportingHref)}`;
+    } else {
+      body += '<div class="question-tools">';
     }
     for (const comparison of data.reporting?.comparisons || []) {
-      if (comparison.questionId === item.id) body += `<a class="reporting-inventory-link legal-comparison-link" href="${routeFor('questions',item.id,current.sourceId,comparison.id)}">Compare EU cloud-service reporting requirements</a>`;
+      if (comparison.questionId === item.id) body += `<a class="reporting-inventory-link legal-comparison-link" href="${routeFor('questions',item.id,current.sourceId,comparison.id)}">EU reporting requirements</a>`;
     }
+    body += '</div>';
     body += `<div class="related-columns">${related('events', item.eventIds, 'Relevant events')}${related('controls', item.controlIds, 'Related safeguards')}</div>`;
   }
   const sourcePanel = $('sources');
@@ -227,13 +228,13 @@ function renderAnalysis(item) {
 function renderSources(item) {
   const source = data.sources.find(s => s.id === current.sourceId);
   const ref = selectSourceRef(item, source.id);
-  const options = item.sourceIds.length > 1 ? `<div class="source-options" aria-label="Choose a source">${item.sourceIds.map((id, i) => {
+  const options = item.sourceIds.length > 1 ? `<label class="visually-hidden" for="source-picker">Choose a source</label><select id="source-picker">${item.sourceIds.map((id, i) => {
     const s = data.sources.find(s => s.id === id);
-    return `<a href="${routeFor(current.view, item.id, id)}" class="source-option" aria-current="${id === current.sourceId}">${i + 1}. ${escape(s.publisher)}${item.sourceIds.filter(other => data.sources.find(entry => entry.id === other).publisher === s.publisher).length > 1 ? `, ${escape(sourceDate(s.date).replace(', 2026',''))}` : ''}</a>`;
-  }).join('')}</div>` : '';
+    return `<option value="${escape(id)}"${id === current.sourceId ? ' selected' : ''}>${i + 1}. ${escape(s.publisher)}${item.sourceIds.filter(other => data.sources.find(entry => entry.id === other).publisher === s.publisher).length > 1 ? `, ${escape(sourceDate(s.date).replace(', 2026',''))}` : ''}</option>`;
+  }).join('')}</select>` : '';
   const passages = ref.passages?.length ? ref.passages : [{ label: 'Read the source', url: source.url }];
   const passageLinks = passages.map(passage => `<a href="${escape(passage.url)}" class="source-link" target="_blank" rel="noopener noreferrer">${escape(passage.label)}<span class="visually-hidden"> (opens in a new tab)</span></a>`).join('');
-  $('sources').innerHTML = `<div class="sources-heading"><h2 id="sources-title" tabindex="-1">${current.view === 'questions' ? 'Relevant sources' : 'Sources'}</h2>${item.sourceIds.length > 1 ? `<span class="source-count">${item.sourceIds.indexOf(source.id) + 1} of ${item.sourceIds.length}</span>` : ''}</div>${options}<div class="source-publisher"><span>${escape(source.publisher)}</span><time datetime="${escape(source.date)}">${sourceDate(source.date)}</time></div><h3 class="source-title">${escape(source.title)}</h3><p class="source-kind">${escape(source.kind)}</p>${source.scope ? `<p class="source-scope">${escape(source.scope)}</p>` : ''}${ref.account ? `<div class="source-account"><h3>${item.kind === 'Interpretation' ? 'Assessment in this source' : 'Account in this source'}</h3><p>${escape(ref.account)}</p></div>` : ''}${ref.excerpt ? `<blockquote>“${escape(ref.excerpt)}”</blockquote>` : ''}<div class="source-locator"><strong>Where to look</strong>${escape(ref.locator || source.locator)}</div><div class="source-passages">${passageLinks}</div>`;
+  $('sources').innerHTML = `<div class="sources-heading"><h2 id="sources-title" tabindex="-1">Sources</h2></div>${options}<div class="source-publisher"><span>${escape(source.publisher)}</span><time datetime="${escape(source.date)}">${sourceDate(source.date)}</time></div><h3 class="source-title">${escape(source.title)}</h3><p class="source-kind">${escape(source.kind)}</p>${source.scope ? `<p class="source-scope">${escape(source.scope)}</p>` : ''}${ref.account ? `<div class="source-account"><p>${escape(ref.account)}</p></div>` : ''}${ref.excerpt ? `<blockquote>“${escape(ref.excerpt)}”</blockquote>` : ''}<div class="source-locator">${escape(ref.locator || source.locator)}</div><div class="source-passages">${passageLinks}</div>`;
 }
 
 function render({ focus = false, destination = null } = {}) {
@@ -243,6 +244,7 @@ function render({ focus = false, destination = null } = {}) {
   const focusView = activeLink?.dataset.view;
   const restoreReportingFocus = ['reporting-field-select','reporting-stage-select'].includes(document.activeElement?.id) ? document.activeElement.id : null;
   const restoreInquiryFocus = document.activeElement?.id === 'inquiry-picker';
+  const restoreSourceFocus = document.activeElement?.id === 'source-picker';
   const locationState = readLocation(location.hash, catalog);
   const lastScreen = screen;
   screen = locationState.screen;
@@ -347,7 +349,8 @@ function render({ focus = false, destination = null } = {}) {
   $('status').textContent = selectedComparison ? `${selectedComparison.title}${selectedRequirement ? ': ' + selectedRequirement.title : ''}` : selectedReportingField ? `Reporting field ${selectedReportingField.number}: ${selectedReportingField.label}` : `${views.find(v => v.id === navigationId).label} ${item.label || item.title}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
   if (restoreReportingFocus) $(restoreReportingFocus)?.focus({ preventScroll: true });
   if (restoreInquiryFocus) $('inquiry-picker')?.focus({ preventScroll: true });
-  if (focus && !restoreInquiryFocus && !restoreReportingFocus) {
+  if (restoreSourceFocus) $('source-picker')?.focus({ preventScroll: true });
+  if (focus && !restoreInquiryFocus && !restoreReportingFocus && !restoreSourceFocus) {
     const matchingControl = focusView
       ? $('question-navigation').querySelector(`[data-view="${focusView}"]`)
       : [...document.querySelectorAll('a[href]')].find(link => link.getAttribute('href') === focusHref && link.getClientRects().length);
@@ -402,6 +405,7 @@ window.addEventListener('hashchange', () => {
 });
 matchMedia('(max-width:760px)').addEventListener('change', () => { if (catalog.length) render(); });
 document.addEventListener('change', event => {
+  if (event.target.id === 'source-picker') location.hash = routeFor(current.view, current.itemId, event.target.value);
   if (event.target.id === 'inquiry-picker') location.hash = routeFor('questions', event.target.value);
   if (event.target.matches('[data-reporting-field-select]')) location.hash = routeFor('questions', current.itemId, current.sourceId, event.target.value);
   if (event.target.id === 'case-picker') location.hash = caseRouteFor(event.target.value, current?.view || 'events');
