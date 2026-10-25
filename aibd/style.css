@@ -743,6 +743,62 @@ sup, .sn-mark { font-size: 0.75em; line-height: 0; }
 .record > article, .record article { min-width: 0; }
 @media (max-width: 700px) { .record { grid-template-columns: minmax(0, 1fr); } .record .aside { min-width: 0; } }
 
+/* A record opens with its benefit; metadata accompanies the account. */
+.record-page .record-head { position: relative; padding: 28px 130px 30px 0; border-bottom: var(--rule-width) solid var(--rule); }
+.record-page .record-head h1 { max-width: 28ch; margin: 8px 0 16px; font-size: clamp(30px, 3.3vw, 44px); line-height: 1.12; text-wrap: balance; }
+.record-page .record-head .sum { max-width: 42rem; margin: 0; font-size: 20px; line-height: 28px; }
+.record-date { margin: 0; color: var(--ink-3); font: 13px/20px var(--sans); }
+.record-date time { margin-left: 8px; }
+.record-grades { position: absolute; top: 52px; right: 0; display: flex; align-items: center; gap: 16px; }
+.record-grade-key { display: inline-flex; min-width: 40px; min-height: 44px; align-items: center; justify-content: center; text-decoration: none; color: var(--ink-3); }
+.record-page .record { grid-template-columns: minmax(0, 8fr) minmax(220px, 3fr); gap: 48px; padding-top: 24px; }
+.record-page .record .aside { position: static; max-height: none; overflow: visible; min-width: 0; }
+.record-page .aside h2 { font: 500 18px/28px var(--serif); margin: 0 0 16px; }
+.record-page .aside .props { border-top: 0; }
+.record-page .aside .props > div { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
+.record-page .aside .props > div:first-child { padding-top: 0; }
+.record-page .aside .props dt { font-size: 12px; }
+.record-page .aside .props dd { font-size: 14px; line-height: 22px; overflow-wrap: anywhere; }
+.record-page .aside { --case-icon-width: 36px; }
+.record-page .aside .case-party-line, .record-page .aside .case-country { grid-template-columns: var(--case-icon-width) minmax(0, 1fr); }
+.record-page .record article > .sec:first-child { border-top: 0; padding-top: 0; }
+.record-page .record article p, .record-page .record-head .sum { text-align: justify; text-align-last: left; -webkit-hyphens: auto; hyphens: auto; }
+.record-page .record article .do { text-align: left; }
+.record-page .prose, .record-page .ratings p, .record-page .purpose { max-width: none; }
+.record-page .sec { padding-block: 24px; }
+.record-page .sec > h2 { font: 500 22px/28px var(--serif); margin-bottom: 16px; }
+.record-page .sources .kind { display: flex; flex-wrap: wrap; gap: 4px 14px; font-family: var(--sans); }
+.record-page .sources .cit { max-width: none; margin-bottom: 6px; }
+.record-page .source-contribution { font-size: 14px; line-height: 22px; color: var(--ink-2); margin: 8px 0 0; }
+.record-page .followup-list { list-style: none; padding: 0; margin: 20px 0 0; }
+.record-page .followup-list li { padding-block: 16px; border-top: var(--rule-width) solid var(--rule); }
+.record-page .followup-list p { max-width: none; margin-bottom: 8px; }
+.record-page .followup-date { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13px; line-height: 20px; color: var(--ink-3); }
+.record-page .followup-source { font-size: 13px; line-height: 20px; overflow-wrap: anywhere; }
+.record-page .ratings li { grid-template-columns: 88px minmax(0, 1fr); gap: 16px; }
+.record-page .facts > div { grid-template-columns: 100px minmax(0, 1fr); }
+.record-page .mini { font-size: 14px; }
+.record-page .mini .when { white-space: normal; }
+@media (max-width: 980px) {
+  .record-page .record { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .record-page .record .aside { border-top: var(--rule-width) solid var(--rule); padding-top: 24px; }
+  .record-page .aside .props { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+}
+@media (max-width: 600px) {
+  .record-page .record-head { padding: 20px 0 24px; }
+  .record-page .record-head h1 { font-size: 32px; }
+  .record-page .record-head .sum { font-size: 18px; line-height: 26px; }
+  .record-page .record-grades { position: static; margin-top: 16px; justify-content: space-between; }
+  .record-page .record { padding-top: 24px; }
+  .record-page .ratings li { grid-template-columns: 64px minmax(0, 1fr); gap: 12px; }
+  .record-page .facts > div { grid-template-columns: 1fr; gap: 4px; }
+  .record-page .aside .props { grid-template-columns: 1fr; }
+  .record-page .sources li { grid-template-columns: 22px minmax(0, 1fr); gap: 8px; }
+  .record-page .mini { display: block; overflow-x: auto; }
+  .record-page .mini td { min-width: 100px; }
+  .record-page .mini td:nth-child(3) { min-width: 200px; }
+}
+
 /* Atlas: outlines in one quiet tone; circles carry the counts. */
 .worldmap .land { fill: #e6e3dc; }
 .worldmap .land.on { fill: #cfcbc2; }
