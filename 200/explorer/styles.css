@@ -1520,3 +1520,27 @@ body[data-navigation=framework] .sources .source-locator{font-size:13px;line-hei
  .model-grid :is(.model-loop-edge,.model-access,.model-notification):focus-visible>span{outline-color:Highlight}
  .model-loop-edge::after,.model-access::after,.model-notification::after{forced-color-adjust:none;background:CanvasText}
 }
+
+/* Connectors terminate at the shared grid boundaries of the linked shapes. */
+@container investigation-map (min-width:760px){
+ .model-grid{grid-template-columns:minmax(180px,1fr) 100px minmax(180px,1fr) 100px minmax(180px,1fr)}
+ .model-notification{margin-inline:calc((100% - 200px)/6)}
+ .model-loop-edge::before{top:0;bottom:6px}
+ .model-loop-edge::after{bottom:0}
+ .model-loop-edge.information::before{top:6px;bottom:0}
+ .model-loop-edge.information::after{top:0}
+ .model-access::before{right:6px}
+ .model-access::after{right:0}
+}
+@container investigation-map (max-width:759px){
+ .model-station{align-items:stretch;grid-template-rows:minmax(106px,auto) auto}
+ .model-station>.model-actor,.model-station>.model-process{align-self:stretch;min-height:0}
+ .model-loop{padding:0;gap:6px}
+ .model-loop-edge::before{left:0;right:6px}
+ .model-loop-edge::after{right:0}
+ .model-loop-edge.information::before{left:6px;right:0}
+ .model-loop-edge.information::after{left:0}
+ .model-evaluation::after,.model-application::after{position:static;grid-column:3;grid-row:2;justify-self:center;align-self:stretch;inset:auto;width:0;border-left:1px solid #888}
+ .model-access::before{bottom:6px}
+ .model-access::after{bottom:0}
+}
