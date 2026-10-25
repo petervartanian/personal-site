@@ -173,6 +173,10 @@
       {
         "collection_id": "aibd",
         "version": "snapshot-8bf7cfec9cb185aa"
+      },
+      {
+        "collection_id": "aibd",
+        "version": "2026-10-25"
       }
     ],
     "source_ids": [
@@ -428,8 +432,33 @@
         "coverage": "partial"
       },
       "case_links[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Both are hospital decision-support systems meant to flag a life-threatening condition in a critically ill patient; Epic's false negatives and false positives left seriously ill inpatients unrecognised by their clinicians.",
+            "links": [
+              {
+                "database": "AI Incident Database",
+                "identifier": "123",
+                "title": "Epic Systems’s Sepsis Prediction Algorithms Revealed to Have High Error Rates on Seriously Ill Patients",
+                "url": "https://incidentdatabase.ai/cite/123",
+                "group": "personal",
+                "basis": "Both are hospital decision-support systems meant to flag a life-threatening condition in a critically ill patient; Epic's false negatives and false positives left seriously ill inpatients unrecognised by their clinicians.",
+                "relation": "comparable_harm"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Existing paired_incident classification; no new source review.",
+          "record_fields": [
+            "paired_incident"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "claims[].evidence_links": {
@@ -1447,16 +1476,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 32,
+      "known": 33,
       "reviewed": 0,
-      "record_mapped": 32,
-      "not_assessed": 59,
+      "record_mapped": 33,
+      "not_assessed": 58,
       "complete": false,
       "by_state": {
-        "value_present": 32,
+        "value_present": 33,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 59,
+        "not_assessed": 58,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

@@ -14,17 +14,26 @@
   const statistics = Array.from(collection.querySelectorAll('[data-collection-stat]'));
   const countries = Array.from(collection.querySelectorAll('[data-collection-country]'));
   const swaps = Array.from(collection.querySelectorAll('[data-collection-swap]'));
+  const pagination = collection.querySelector('[data-collection-pagination]');
+  const more = collection.querySelector('[data-collection-more]');
+  const showAll = collection.querySelector('[data-collection-show-all]');
+  const shownCount = collection.querySelector('[data-collection-shown]');
   const evidenceOrder = { found: 0, studied: 1, reported: 2, claimed: 3 };
   const normalize = (text) => String(text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const fieldFor = (name) => form.elements.namedItem(name);
   const valueFor = (name) => fieldFor(name)?.value || '';
   const groups = Array.from(collection.querySelectorAll('[data-collection-results]')).map((list) => {
     const element = list.closest('[data-collection-group]');
+    const remaining = element?.querySelector('template[data-collection-remaining]');
+    const initialRows = Array.from(list.querySelectorAll('[data-collection-row]'));
+    const elements = initialRows.concat(remaining ? Array.from(remaining.content.querySelectorAll('[data-collection-row]')) : []);
+    remaining?.remove();
     return {
       list,
       element,
+      mounted: initialRows,
       count: element?.querySelector('[data-collection-group-count]'),
-      rows: Array.from(list.querySelectorAll('[data-collection-row]')).map((row, index) => ({
+      rows: elements.map((row, index) => ({
         element: row,
         index,
         text: normalize(row.dataset.searchText),
@@ -38,6 +47,9 @@
   const rows = groups.flatMap((group) => group.rows);
   let previousOrder = null;
   let timer;
+  const pageSize = 40;
+  let limit = collection.hasAttribute('data-collection-all') ? Infinity : pageSize;
+  let printing = false;
 
   function acceptsValue(name, value) {
     const field = fieldFor(name);
@@ -123,7 +135,7 @@
   function sortGroups(order) {
     if (order === previousOrder) return;
     groups.forEach((group) => {
-      const ordered = group.rows.slice().sort((first, second) => {
+      group.ordered = group.rows.slice().sort((first, second) => {
         if (order === 'evidence') {
           return (evidenceOrder[first.evidence] ?? 99) - (evidenceOrder[second.evidence] ?? 99)
             || second.date.localeCompare(first.date) || first.index - second.index;
@@ -132,9 +144,6 @@
         if (order === 'title') return first.title.localeCompare(second.title, 'en') || first.index - second.index;
         return first.index - second.index;
       });
-      const fragment = document.createDocumentFragment();
-      ordered.forEach((row) => fragment.appendChild(row.element));
-      group.list.appendChild(fragment);
     });
     previousOrder = order;
   }
@@ -150,21 +159,26 @@
     const matchingRows = [];
     const activeElement = document.activeElement;
     let hiddenFocus = false;
-    groups.forEach((group) => {
-      let shown = 0;
-      group.rows.forEach((row) => {
-        const visible = matches(row, state);
-        if (!visible && row.element.contains(activeElement)) hiddenFocus = true;
-        row.element.hidden = !visible;
-        if (visible) {
-          shown += 1;
-          matchingRows.push(row);
-        }
-      });
-      if (group.element) group.element.hidden = shown === 0;
-      if (group.count) group.count.textContent = `${shown} case${shown === 1 ? '' : 's'}`;
-    });
+    let available = printing ? Infinity : limit;
+    let mountedCount = 0;
     sortGroups(order);
+    groups.forEach((group) => {
+      const matching = group.ordered.filter(row => matches(row, state));
+      matchingRows.push(...matching);
+      const visible = matching.slice(0, available).map(row => row.element);
+      available -= visible.length;
+      mountedCount += visible.length;
+      if (group.mounted.length !== visible.length || group.mounted.some((row, index) => row !== visible[index])) {
+        if (group.mounted.some(row => row.contains(activeElement) && !visible.includes(row))) hiddenFocus = true;
+        const fragment = document.createDocumentFragment();
+        visible.forEach(row => { row.hidden = false; fragment.appendChild(row); });
+        group.list.replaceChildren(fragment);
+        group.mounted = visible;
+        window.aibdBindTips?.(group.list);
+      }
+      if (group.element) group.element.hidden = visible.length === 0;
+      if (group.count) group.count.textContent = `${matching.length} case${matching.length === 1 ? '' : 's'}`;
+    });
     updateChoices(state);
     updateStatistics(matchingRows);
     updateSwaps();
@@ -177,6 +191,11 @@
     }
     if (empty) empty.hidden = matchingRows.length > 0;
     if (reset) reset.hidden = !filtered;
+    const remaining = matchingRows.length - mountedCount;
+    if (pagination) pagination.hidden = printing || remaining === 0;
+    if (more) more.textContent = `Show ${Math.min(pageSize, remaining)} more`;
+    if (showAll) showAll.textContent = `Show all ${matchingRows.length}`;
+    if (shownCount) shownCount.textContent = `${mountedCount} of ${matchingRows.length} shown`;
     if (hiddenFocus) fieldFor('q')?.focus({ preventScroll: true });
 
     if (updateAddress) {
@@ -229,6 +248,28 @@
     apply();
     if (restoreFocus) fieldFor('q')?.focus({ preventScroll: true });
   });
+  function expand(all) {
+    const previous = new Set(groups.flatMap(group => group.mounted));
+    limit = all ? Infinity : limit + pageSize;
+    apply(false);
+    const added = groups.flatMap(group => group.mounted).find(row => !previous.has(row));
+    added?.querySelector('h3 a')?.focus({ preventScroll: true });
+  }
+  more?.addEventListener('click', () => expand(false));
+  showAll?.addEventListener('click', () => expand(true));
+  window.addEventListener('beforeprint', () => { printing = true; apply(false); });
+  window.addEventListener('afterprint', () => { printing = false; apply(false); });
+  function revealHash() {
+    let id;
+    try { id = decodeURIComponent(window.location.hash.slice(1)); } catch { return; }
+    const row = rows.find(row => row.element.id === id);
+    if (!row) return;
+    limit = Infinity;
+    ['q', 'evidence', ...filterFields.map(field => field.name)].forEach(key => setValue(key, ''));
+    apply(false);
+    window.requestAnimationFrame(() => row.element.scrollIntoView({ block: 'start' }));
+  }
+  window.addEventListener('hashchange', revealHash);
   window.addEventListener('popstate', () => {
     window.clearTimeout(timer);
     readParameters();
@@ -239,4 +280,5 @@
   apply(false);
   form.hidden = false;
   collection.querySelectorAll('[data-collection-enhance]').forEach((element) => { element.hidden = false; });
+  revealHash();
 })();

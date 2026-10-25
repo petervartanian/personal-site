@@ -1,18 +1,18 @@
 {
   "id": "AIBD-0166",
-  "title": "Flint's ML-guided lead-pipe search hits 70% through 2017; hit rate falls to 15% after the model is dropped",
-  "summary": "A University of Michigan XGBoost and active-learning model guided Flint's FAST Start digs; 6,228 of 8,833 homes inspected through 2017 had lead pipes replaced (70%), versus 15% in 2018 without it.",
-  "date_observed": "2018-07-19",
-  "date_basis": "unassessed",
-  "date_precision": "unassessed",
-  "benefit_status": null,
+  "title": "ActiveRemediation helps Flint locate hazardous water pipes",
+  "summary": "ActiveRemediation helped Flint prioritize homes for inspection and replacement of lead or galvanized-steel service lines.",
+  "date_observed": "2016-01-01",
+  "date_basis": "event",
+  "date_precision": "year",
+  "benefit_status": "reported",
   "source_collection": null,
   "source_entry": null,
-  "account": "From summer 2016 Jacob Abernethy, Eric Schwartz and colleagues at the University of Michigan worked with Flint's FAST Start service-line replacement program. They built a statistical model (gradient-boosted trees in XGBoost with a hierarchical Bayesian spatial layer) and an active-learning procedure, ActiveRemediation. They chose which homes to inspect and replace (KDD 2018 paper, arXiv 1806.10692). The paper reports 91.6% accuracy on a 1,606-home holdout set. By September 2017, 4,419 hazardous service lines were replaced, with the composition of 6,506 homes identified. The Atlantic (Alexis Madrigal, 3 January 2019) reported that through 2017 workers inspected 8,833 homes and replaced pipes at 6,228, a 70 percent rate. It quoted program head Michael McDaniel saying accuracy was above 80 percent in late 2017. The City hired AECOM in 2018, which discarded the model's predictions. By mid-December 2018, 10,531 properties were explored and only 1,567 digs found lead, a 15 percent hit rate. In a court filing Schwartz estimated 4,964 to 6,119 homes with hazardous lines remained. The model-guided phase ran through 2017.",
+  "account": "University researchers worked with Flint’s service-line replacement program from summer 2016. ActiveRemediation used property records and confirmed pipe materials to recommend inspections. Its held-out prediction accuracy was 91.6%. The researchers reported that the program had replaced hazardous lines at 4,419 homes by September 2017. A separate simulation estimated savings of about US$622 per replacement. Independent reporting later documented a decline in inspection success after the contractor changed its approach, alongside changes in geography and policy. A March 2019 court order required prioritization using the model’s address lists. The field evidence does not isolate the model’s effect on residents’ health or realized expenditure.",
   "category": "benefit created",
   "unexpected": false,
   "purpose": "The model and active-learning rules were built to predict which Flint homes had lead or galvanized service lines and to direct inspections and replacements. The improved hit rate was the intended use.",
-  "system": "ActiveRemediation: XGBoost classifier with hierarchical Bayesian spatial model and importance-weighted active learning for service-line selection",
+  "system": "ActiveRemediation, combining XGBoost predictions, a hierarchical Bayesian spatial model, and active learning",
   "model_version": null,
   "developer": "University of Michigan (Jacob Abernethy, Alex Chojnacki, Arya Farahi, Eric Schwartz, Jared Webb)",
   "deployer": "City of Flint (FAST Start service-line replacement program)",
@@ -26,109 +26,92 @@
     {
       "group": "personal",
       "depth": 2,
-      "reason": "Households had lead or galvanized lines replaced faster under model-guided targeting (6,228 replacements through 2017). Outcomes are documented in aggregate, no individual named."
+      "reason": "Residents benefited from identification and replacement of hazardous service lines, without a measured health effect attributable to the model."
     },
     {
       "group": "organizational",
-      "depth": 3,
-      "reason": "FAST Start's hit rate was 70 percent through 2017, above 80 percent in late 2017 per McDaniel, against 15 percent in 2018 without the model. The KDD paper reports 91.6% holdout accuracy."
+      "depth": 2,
+      "reason": "The program gained a measured capability to predict pipe materials and prioritize work."
     },
     {
       "group": "societal",
       "depth": 3,
-      "reason": "Flint's court-ordered lead-removal mandate was served faster while the model guided digs. The Atlantic reports thousands of homes kept lead pipes longer after it was dropped."
+      "reason": "Flint replaced hazardous service lines at thousands of homes, with predictions helping prioritize inspections."
     }
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The model's predictions guided which homes were excavated through 2017. The hit-rate collapse after AECOM discarded them supports its contribution. The comparison is observational and confounded by the City's simultaneous shift to digging across wards. Sources are the makers' peer-reviewed paper and an independent news report with named sources."
+    "statement": "Predictions helped officials prioritize inspections and replacements. The field comparison also involved changes in geography and policy, so it does not isolate the model’s contribution. The monetary saving came from simulation."
   },
   "evidence": [
     {
       "kind": "peer-reviewed study",
-      "citation": "Abernethy, J., Chojnacki, A., Farahi, A., Schwartz, E., Webb, J., 'ActiveRemediation: The Search for Lead Pipes in Flint, Michigan', KDD '18, doi:10.1145/3219819.3219896; arXiv:1806.10692",
+      "citation": "Abernethy, Jacob, Alex Chojnacki, Arya Farahi, Eric Schwartz, and Jared Webb. “ActiveRemediation: The Search for Lead Pipes in Flint, Michigan.” KDD 2018. https://doi.org/10.1145/3219819.3219896.",
       "title": "ActiveRemediation: The Search for Lead Pipes in Flint, Michigan",
       "url": "https://arxiv.org/abs/1806.10692",
-      "date": "2018-07-19",
+      "date": "2018-06-10",
       "written_by": "makers",
-      "quote": "The overall accuracy of the best performing XGBoost model, based on a holdout set of 1,606 homes (25% of available data), is 91.6%"
-    },
-    {
-      "kind": "peer-reviewed study",
-      "citation": "Abernethy et al., KDD 2018, Table 1 timeline",
-      "title": "ActiveRemediation: The Search for Lead Pipes in Flint, Michigan",
-      "url": "https://arxiv.org/abs/1806.10692",
-      "date": "2018-07-19",
-      "written_by": "makers",
-      "quote": "2017 Sept. Fast Start replaced 4,419 hazardous service lines so far, identifying composition of a total of 6,506 homes."
-    },
-    {
-      "kind": "news report",
-      "citation": "Alexis C. Madrigal, 'How a Feel-Good AI Story Went Wrong in Flint', The Atlantic, 3 January 2019",
-      "title": "How a Feel-Good AI Story Went Wrong in Flint",
-      "url": "https://www.theatlantic.com/technology/archive/2019/01/how-machine-learning-found-flints-lead-pipes/578692/",
-      "date": "2019-01-03",
-      "written_by": "independent",
-      "quote": "Workers inspected 8,833 homes, and of those, 6,228 homes had their pipes replaced—a 70 percent rate of accuracy."
-    },
-    {
-      "kind": "news report",
-      "citation": "Alexis C. Madrigal, The Atlantic, 3 January 2019",
-      "title": "How a Feel-Good AI Story Went Wrong in Flint",
-      "url": "https://www.theatlantic.com/technology/archive/2019/01/how-machine-learning-found-flints-lead-pipes/578692/",
-      "date": "2019-01-03",
-      "written_by": "independent",
-      "quote": "AECOM discarded the machine-learning model’s predictions, which had guided excavations."
-    },
-    {
-      "kind": "news report",
-      "citation": "Tribou, D. (2019). In Flint, algorithm predicts lead pipe locations as replacement work continues. Michigan Public (Michigan Radio), 25 April 2019.",
-      "title": "In Flint, algorithm predicts lead pipe locations as replacement work continues",
-      "url": "https://www.michiganpublic.org/news/2019-04-25/in-flint-algorithm-predicts-lead-pipe-locations-as-replacement-work-continues",
-      "date": "2019-04-25",
-      "written_by": "independent",
       "quote": null
     },
     {
       "kind": "news report",
-      "citation": "Municipal Sewer & Water (2019). Flint to Revert Back to Data-Driven Predictive Model for Lead Pipe Replacements. MSW Magazine online exclusive, 25 February 2019.",
-      "title": "Flint to Revert Back to Data-Driven Predictive Model for Lead Pipe Replacements",
-      "url": "https://www.mswmag.com/online_exclusives/2019/02/flint-to-revert-back-to-data-driven-predictive-model-for-lead-pipe-replacements",
-      "date": "2019-02-25",
+      "citation": "Madrigal, Alexis C. “How a Feel-Good AI Story Went Wrong in Flint.” The Atlantic, January 3, 2019.",
+      "title": "How a Feel-Good AI Story Went Wrong in Flint",
+      "url": "https://www.theatlantic.com/technology/archive/2019/01/how-machine-learning-found-flints-lead-pipes/578692/",
+      "date": "2019-01-03",
+      "written_by": "independent",
+      "quote": null
+    },
+    {
+      "kind": "court document",
+      "citation": "Concerned Pastors for Social Action v. Khouri, No. 16-10277, ECF No. 208 (E.D. Mich. March 26, 2019).",
+      "title": "Order Amending Settlement Agreement",
+      "url": "https://www.nrdc.org/sites/default/files/order-amending-settlement-agreement-flint-20190326.pdf",
+      "date": "2019-03-26",
+      "written_by": "independent",
+      "quote": null,
+      "supports_benefit": false
+    },
+    {
+      "kind": "news report",
+      "citation": "Tribou, Doug. “In Flint, Algorithm Predicts Lead Pipe Locations as Replacement Work Continues.” Michigan Radio, April 25, 2019.",
+      "title": "In Flint, algorithm predicts lead pipe locations as replacement work continues",
+      "url": "https://www.michiganpublic.org/news/2019-04-25/in-flint-algorithm-predicts-lead-pipe-locations-as-replacement-work-continues",
+      "date": "2019-04-25",
       "written_by": "independent",
       "quote": null
     }
   ],
   "replication": {
     "produced_by": [
-      "Digitized historical parcel and service-line records plus water-sample data",
-      "Contractor hydrovac inspections and replacements feeding labels back to the model",
-      "City officials who followed the model's recommendations when selecting homes"
+      "Digitized parcel records and confirmed pipe materials",
+      "Models that updated as inspection results arrived",
+      "Researchers, officials, and contractors who shared information"
     ],
     "must_hold": [
-      "Decision-makers continue to use the predictions (the 2018 hit rate fell when they were dropped)",
-      "Inspection results are returned to the model to update it",
-      "Equity constraints that do not override targeting entirely"
+      "Verified inspection results",
+      "Practical rules for prioritizing excavations",
+      "Official use of the predictions alongside local needs"
     ],
     "echoes": []
   },
   "paired_incident": null,
-  "headline": "ActiveRemediation guides Flint digs to a 70% lead-pipe hit rate",
-  "metric": "6,228 of 8,833 homes inspected through 2017 had lead pipes replaced (70%)",
+  "headline": "Flint uses predictions to find hazardous water pipes",
+  "metric": "91.6% held-out prediction accuracy; 10.7% lower cost per replacement in simulation",
   "comparator": {
-    "against": "home selection by the new contractor in 2018 without the model",
-    "before": "they were only finding lead at about 15 of those",
-    "after": "80-some-odd percent",
-    "basis": "measured",
-    "quote": "What we found was actually for every hundred homes they were going to with the intention of replacing those lines, they were only finding lead at about 15 of those. So, instead of 80-some-odd percent, it went down to 15% in just a matter of a few months.",
-    "url": "https://www.michiganpublic.org/news/2019-04-25/in-flint-algorithm-predicts-lead-pipe-locations-as-replacement-work-continues"
+    "against": "The recorded sequence of inspection and replacement work in a simulation",
+    "before": "Estimated US$5,818 per replacement",
+    "after": "Estimated US$5,196 per replacement",
+    "basis": "assumed",
+    "quote": "The proposed method lowers the effective cost per successful service line replacement, saving $621.7 per home (10.7%)",
+    "url": "https://arxiv.org/abs/1806.10692"
   },
   "later": {
     "status": "litigated",
-    "date": "2019-02-25",
-    "note": "Under the court settlement in Concerned Pastors for Social Action v. Khouri, Flint agreed to use the Schwartz-Abernethy model again to select homes for excavation in 2019.",
-    "quote": "The parties to the settlement in Concerned Pastors for Social Action v. Khouri agreed that the city will use a statistical model developed by Dr. Eric Schwartz of the University of Michigan and Dr. Jacob Abernethy at the Georgia Institute of Technology to guide its selection of homes for service line excavations in 2019.",
-    "url": "https://www.mswmag.com/online_exclusives/2019/02/flint-to-revert-back-to-data-driven-predictive-model-for-lead-pipe-replacements"
+    "date": "2019-03-26",
+    "note": "The federal court ordered that Flint prioritize the model’s address lists for excavation and replacement, with defined exceptions.",
+    "quote": null,
+    "url": "https://www.nrdc.org/sites/default/files/order-amending-settlement-agreement-flint-20190326.pdf"
   },
   "value": null,
   "developer_country": "United States",
@@ -172,29 +155,45 @@
       "change": "Organization name standardized to City of Flint and University of Michigan.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Reviewed the original evidence and supporting material; updated system details, methods, outcomes, limitations, costs, and source lineage.",
+      "source": "https://arxiv.org/abs/1806.10692",
+      "editor": "AIBD"
     }
   ],
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: three independent news reports and the makers' peer-reviewed study. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "claim_basis": "Sources: one independent court document, two independent news reports and the makers' peer-reviewed study. For the benefit itself, the cited sources include no independent study or report and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0166",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "710a4cd26ba694ca21d939d3360f91983e728e80a825ddfca44f779b4cabad1a",
+    "source_fingerprint": "ded7efa1cccb04911fafe17bc25bbadc63f7fe17832804028c9c7cac855e0272",
     "collection_refs": [
       {
         "collection_id": "aibd",
         "version": "snapshot-8bf7cfec9cb185aa"
+      },
+      {
+        "collection_id": "aibd",
+        "version": "2026-10-25"
+      },
+      {
+        "collection_id": "querist",
+        "version": "2026-10-25"
+      },
+      {
+        "collection_id": "chanticleer",
+        "version": "2026-10-25"
       }
     ],
     "source_ids": [
       "AIBD-0166-source-0001",
       "AIBD-0166-source-0002",
       "AIBD-0166-source-0003",
-      "AIBD-0166-source-0004",
-      "AIBD-0166-source-0005",
-      "AIBD-0166-source-0006"
+      "AIBD-0166-source-0004"
     ],
     "families": {
       "strategic assessments": {
@@ -204,96 +203,239 @@
         "record_ids": []
       },
       "evaluations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "record_ids": []
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "records": [
+              {
+                "id": "AIBD-0166-E01",
+                "design": "retrospective held-out validation",
+                "held_out_n": 1606,
+                "accuracy_percent": 91.6,
+                "false_positive_rate_percent": 3,
+                "false_negative_rate_percent": 27,
+                "source_refs": [
+                  "AIBD-0166-source-0001"
+                ],
+                "locator": "§4.1.1"
+              },
+              {
+                "id": "AIBD-0166-E02",
+                "design": "simulation of inspection and replacement strategies",
+                "observed_homes": 6506,
+                "replications": 25,
+                "effect": "10.7% lower modeled cost per replacement",
+                "source_refs": [
+                  "AIBD-0166-source-0001"
+                ],
+                "locator": "§4.2; Table 5"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original sources and locators are preserved with each observation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The original evaluation and any distinct follow-up analyses."
+        },
+        "record_ids": [
+          "AIBD-0166-E01",
+          "AIBD-0166-E02"
+        ]
       },
       "monetary observations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "record_ids": []
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "records": [
+              {
+                "id": "AIBD-0166-M01",
+                "type": "modeled_cost_saving",
+                "amount": 621.7,
+                "currency": "USD",
+                "unit": "replacement",
+                "comparator_cost": 5818,
+                "proposed_cost": 5196,
+                "rounding_note": "The displayed costs are rounded; the reported difference is US$621.7.",
+                "excludes": [
+                  "travel",
+                  "other logistical constraints"
+                ],
+                "source_refs": [
+                  "AIBD-0166-source-0001"
+                ],
+                "locator": "§4.2; Table 5"
+              },
+              {
+                "id": "AIBD-0166-M02",
+                "type": "forecast_saving",
+                "amount": 11180000,
+                "currency": "USD",
+                "unit": "18,000 replacements",
+                "scenario": "Extrapolation of the modeled per-replacement saving",
+                "source_refs": [
+                  "AIBD-0166-source-0001"
+                ],
+                "locator": "Table 5"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original sources and locators are preserved with each observation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reported costs, forecasts, or savings, with their separate scopes."
+        },
+        "record_ids": [
+          "AIBD-0166-M01",
+          "AIBD-0166-M02"
+        ]
       },
       "institutional decisions": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "record_ids": []
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "records": [
+              {
+                "id": "AIBD-0166-D01",
+                "institution": "U.S. District Court, Eastern District of Michigan",
+                "task": "Amend the settlement governing Flint service-line replacement",
+                "decision": "Prioritize the model’s address lists, with defined exceptions and monthly reports.",
+                "decision_date": "2019-03-26",
+                "required_completion_date": "2020-01-01",
+                "source_refs": [
+                  "AIBD-0166-source-0003"
+                ],
+                "locator": "¶¶1–6",
+                "causal_validation": false
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original sources and locators are preserved with each observation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The documented institutional decision."
+        },
+        "record_ids": [
+          "AIBD-0166-D01"
+        ]
       }
     },
     "fields": {
       "actors[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "developer": "University of Michigan (Jacob Abernethy, Alex Chojnacki, Arya Farahi, Eric Schwartz, Jared Webb)",
-            "deployer": "City of Flint (FAST Start service-line replacement program)"
-          }
+          "kind": "text",
+          "text": "University researchers developed the system. Flint officials managed the program, and contractors inspected and replaced service lines."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "developer",
-            "deployer"
+          "kind": "source_review",
+          "basis": "§§1–2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "University researchers developed the system. Flint officials managed the program, and contractors inspected and replaced service lines."
+        }
       },
       "actors[].ownership_control": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The research team developed the models. The city controlled the replacement program and its contracts."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§2–3.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The research team developed the models. The city controlled the replacement program and its contracts."
+        }
       },
       "ai_contribution": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ai_role": {
-              "status": "assessed",
-              "statement": "The model's predictions guided which homes were excavated through 2017. The hit-rate collapse after AECOM discarded them supports its contribution. The comparison is observational and confounded by the City's simultaneous shift to digging across wards. Sources are the makers' peer-reviewed paper and an independent news report with named sources."
-            }
-          }
+          "kind": "text",
+          "text": "Predictions informed inspection and replacement priorities. The paper did not randomize the city’s decisions."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ai_role"
+          "kind": "source_review",
+          "basis": "§4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Predictions informed inspection and replacement priorities. The paper did not randomize the city’s decisions."
+        }
       },
       "ai_relationship": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "category": "benefit created",
-            "ai_role": {
-              "status": "assessed",
-              "statement": "The model's predictions guided which homes were excavated through 2017. The hit-rate collapse after AECOM discarded them supports its contribution. The comparison is observational and confounded by the City's simultaneous shift to digging across wards. Sources are the makers' peer-reviewed paper and an independent news report with named sources."
-            }
-          }
+          "kind": "text",
+          "text": "The system used machine learning to predict pipe materials and guide inspections."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ai_role",
-            "category"
+          "kind": "source_review",
+          "basis": "§3.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The system used machine learning to predict pipe materials and guide inspections."
+        }
       },
       "assessments[].alternatives": {
         "state": "not_assessed",
@@ -308,37 +450,41 @@
       "assessments[].depth": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
+          "kind": "structured",
+          "data": {
             "ratings": [
               {
                 "group": "personal",
                 "depth": 2,
-                "reason": "Households had lead or galvanized lines replaced faster under model-guided targeting (6,228 replacements through 2017). Outcomes are documented in aggregate, no individual named."
+                "reason": "Residents benefited from identification and replacement of hazardous service lines, without a measured health effect attributable to the model."
               },
               {
                 "group": "organizational",
-                "depth": 3,
-                "reason": "FAST Start's hit rate was 70 percent through 2017, above 80 percent in late 2017 per McDaniel, against 15 percent in 2018 without the model. The KDD paper reports 91.6% holdout accuracy."
+                "depth": 2,
+                "reason": "The program gained a measured capability to predict pipe materials and prioritize work."
               },
               {
                 "group": "societal",
                 "depth": 3,
-                "reason": "Flint's court-ordered lead-removal mandate was served faster while the model guided digs. The Atlantic reports thousands of homes kept lead pipes longer after it was dropped."
+                "reason": "Flint replaced hazardous service lines at thousands of homes, with predictions helping prioritize inspections."
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "source_review",
+          "basis": "Application of the existing AIBD depth rubric to the reported benefit.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Personal: 2; Organizational: 2; Societal: 3"
+        }
       },
       "assessments[].display_confidence": {
         "state": "value_present",
@@ -348,53 +494,47 @@
             "confidence": "medium",
             "evidence_word": "reported",
             "claim_status": "Independently reported",
-            "basis": "Sources: three independent news reports and the makers' peer-reviewed study. The cited evidence includes no independent study or report and no finding by a regulator or court.",
-            "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
+            "basis": "Sources: one independent court document, two independent news reports and the makers' peer-reviewed study. For the benefit itself, the cited sources include no independent study or report and no finding by a regulator or court."
           }
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
+          "kind": "source_review",
+          "basis": "Derived from the corrected source inventory; authorship and original findings are documented separately.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0166-source-0001",
+            "AIBD-0166-source-0002",
+            "AIBD-0166-source-0003",
+            "AIBD-0166-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Independently reported"
+        }
       },
       "assessments[].rationale": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ratings": [
-              {
-                "group": "personal",
-                "depth": 2,
-                "reason": "Households had lead or galvanized lines replaced faster under model-guided targeting (6,228 replacements through 2017). Outcomes are documented in aggregate, no individual named."
-              },
-              {
-                "group": "organizational",
-                "depth": 3,
-                "reason": "FAST Start's hit rate was 70 percent through 2017, above 80 percent in late 2017 per McDaniel, against 15 percent in 2018 without the model. The KDD paper reports 91.6% holdout accuracy."
-              },
-              {
-                "group": "societal",
-                "depth": 3,
-                "reason": "Flint's court-ordered lead-removal mandate was served faster while the model guided digs. The Atlantic reports thousands of homes kept lead pipes longer after it was dropped."
-              }
-            ]
-          }
+          "kind": "text",
+          "text": "Residents benefited from identification and replacement of hazardous service lines, without a measured health effect attributable to the model. The program gained a measured capability to predict pipe materials and prioritize work. Flint replaced hazardous service lines at thousands of homes, with predictions helping prioritize inspections."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "source_review",
+          "basis": "Benefit depth is assessed separately from strength of evidence.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Residents benefited from identification and replacement of hazardous service lines, without a measured health effect attributable to the model. The program gained a measured capability to predict pipe materials and prioritize work. Flint replaced hazardous service lines at thousands of homes, with predictions helping prioritize inspections."
+        }
       },
       "assessments[].rubric_version": {
         "state": "not_assessed",
@@ -402,44 +542,46 @@
         "coverage": "partial"
       },
       "assessments[].status_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system was used in the field. Accuracy was tested retrospectively, and monetary savings were modeled."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§2–4, Tables 1 and 5.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The system was used in the field. Accuracy was tested retrospectively, and monetary savings were modeled."
+        }
       },
       "assessments[].target": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ratings": [
-              {
-                "group": "personal",
-                "depth": 2,
-                "reason": "Households had lead or galvanized lines replaced faster under model-guided targeting (6,228 replacements through 2017). Outcomes are documented in aggregate, no individual named."
-              },
-              {
-                "group": "organizational",
-                "depth": 3,
-                "reason": "FAST Start's hit rate was 70 percent through 2017, above 80 percent in late 2017 per McDaniel, against 15 percent in 2018 without the model. The KDD paper reports 91.6% holdout accuracy."
-              },
-              {
-                "group": "societal",
-                "depth": 3,
-                "reason": "Flint's court-ordered lead-removal mandate was served faster while the model guided digs. The Atlantic reports thousands of homes kept lead pipes longer after it was dropped."
-              }
-            ]
-          }
+          "kind": "text",
+          "text": "Identification and replacement of hazardous service lines."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "source_review",
+          "basis": "§§2–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Identification and replacement of hazardous service lines."
+        }
       },
       "availability": {
         "state": "not_assessed",
@@ -452,9 +594,25 @@
         "coverage": "partial"
       },
       "case_kind": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "An operational application with retrospective validation and simulation."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "An operational application with retrospective validation and simulation."
+        }
       },
       "case_links[]": {
         "state": "not_assessed",
@@ -462,14 +620,82 @@
         "coverage": "partial"
       },
       "claims[].evidence_links": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "links": [
+              {
+                "proposition": "Original methods, field implementation, validation, and simulated costs.",
+                "source_refs": [
+                  "AIBD-0166-source-0001"
+                ],
+                "locator": "§§2–4, Tables 1 and 5."
+              },
+              {
+                "proposition": "Independent reporting about model use, excavation results, and the contractor’s later change in priorities.",
+                "source_refs": [
+                  "AIBD-0166-source-0002"
+                ],
+                "locator": "Field totals and interviews with Michael McDaniel, Karen Weaver, Alan Wong, and Eric Schwartz."
+              },
+              {
+                "proposition": "The court required prioritization of addresses selected using the predictive model, with specified exceptions and reporting.",
+                "source_refs": [
+                  "AIBD-0166-source-0003"
+                ],
+                "locator": "¶¶1–6, pp. 1–4."
+              },
+              {
+                "proposition": "A later firsthand interview reports that the research team was again working with Flint in 2019.",
+                "source_refs": [
+                  "AIBD-0166-source-0004"
+                ],
+                "locator": "“A goal of efficiency” and the original interview with Eric Schwartz."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original-source lineage.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001",
+            "AIBD-0166-source-0002",
+            "AIBD-0166-source-0003",
+            "AIBD-0166-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The sources are linked to the findings that they support."
+        }
       },
       "claims[].evidence_strength": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The developers reported validation and simulation results. Independent reporting and a court order document how officials used the system."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "F1 §4; F2 interviews; F3 ¶¶1–6.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001",
+            "AIBD-0166-source-0002",
+            "AIBD-0166-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The developers reported validation and simulation results. Independent reporting and a court order document how officials used the system."
+        }
       },
       "claims[].missingness": {
         "state": "not_assessed",
@@ -477,187 +703,608 @@
         "coverage": "partial"
       },
       "claims[].proposition": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Predictions can help locate hazardous service lines and avoid some unnecessary excavations."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Predictions can help locate hazardous service lines and avoid some unnecessary excavations."
+        }
       },
       "cross_border_flows[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Affiliations and methods.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The research institutions and deployment were in the United States. No international data transfer is documented.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The research institutions and deployment were in the United States. No international data transfer is documented."
+        }
       },
       "decisions[].action_outcome": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The city had to prioritize the model’s address lists, document exceptions, and report completed work."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "¶¶1–6.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The city had to prioritize the model’s address lists, document exceptions, and report completed work."
+        }
       },
       "decisions[].grounds": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The parties agreed that the city should first excavate homes with the highest predicted likelihood of hazardous lines."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "¶¶1–3.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The parties agreed that the city should first excavate homes with the highest predicted likelihood of hazardous lines."
+        }
       },
       "decisions[].institution_task": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The federal court amended the settlement governing Flint’s service-line replacement program."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Opening order.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The federal court amended the settlement governing Flint’s service-line replacement program."
+        }
       },
       "decisions[].success_criterion": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The city had to excavate the listed addresses and replace hazardous lines by 1 January 2020."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "¶3.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The city had to excavate the listed addresses and replace hazardous lines by 1 January 2020."
+        }
       },
       "deployment_stage": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers worked with Flint’s replacement program from summer 2016."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§2; Table 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Researchers worked with Flint’s replacement program from summer 2016."
+        }
       },
       "economics[].amount": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The simulation estimated about US$622 less per replacement, or US$11.18 million if applied to 18,000 replacements."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Table 5.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The simulation estimated about US$622 less per replacement, or US$11.18 million if applied to 18,000 replacements."
+        }
       },
       "economics[].costs[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The simulation assumed US$250 for a hydrovac inspection, US$2,500 for an unnecessary excavation, and US$5,000 for a needed replacement."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The simulation assumed US$250 for a hydrovac inspection, US$2,500 for an unnecessary excavation, and US$5,000 for a needed replacement."
+        }
       },
       "economics[].counterfactual": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Estimated average cost was US$5,818 under the recorded work sequence and US$5,196 under the proposed strategy."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Table 5.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Estimated average cost was US$5,818 under the recorded work sequence and US$5,196 under the proposed strategy."
+        }
       },
       "economics[].currency_price_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "U.S. dollars, using the unit costs assumed in the study. A separate inflation base year is not stated."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "U.S. dollars, using the unit costs assumed in the study. A separate inflation base year is not stated."
+        }
       },
       "economics[].gross_net": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The estimate includes excavation and replacement costs, but not every cost of operating the program."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The estimate includes excavation and replacement costs, but not every cost of operating the program."
+        }
       },
       "economics[].measure_type": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Modeled cost savings."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Table 5.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Modeled cost savings."
+        }
       },
       "economics[].period_unit": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Per replacement, with an extrapolation to 18,000 replacements."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Table 5.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Per replacement, with an extrapolation to 18,000 replacements."
+        }
       },
       "economics[].realization": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The savings were simulated. They are not an audited reduction in city expenditure."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.2; Table 5.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The savings were simulated. They are not an audited reduction in city expenditure."
+        }
       },
       "economics[].recipient_payer": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The modeled savings would reduce the cost of the publicly funded replacement program."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§1; §4.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The modeled savings would reduce the cost of the publicly funded replacement program."
+        }
       },
       "economics[].return_payback": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "No complete return-on-investment or payback calculation is reported.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "No complete return-on-investment or payback calculation is reported."
+        }
       },
       "economics[].valuation_method": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers simulated inspection and replacement sequences, applied fixed unit costs, and extrapolated the difference."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Researchers simulated inspection and replacement sequences, applied fixed unit costs, and extrapolated the difference."
+        }
       },
       "evaluations[].ai_uplift": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The estimated cost improvement came from a simulation. The field results do not isolate the model from crews, funding, and policy decisions."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The estimated cost improvement came from a simulation. The field results do not isolate the model from crews, funding, and policy decisions."
+        }
       },
       "evaluations[].comparator": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The cost simulation compared the proposed strategy with the sequence of work in the city’s records."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.2; Table 5.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The cost simulation compared the proposed strategy with the sequence of work in the city’s records."
+        }
       },
       "evaluations[].design": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers tested predictions on held-out homes and compared inspection strategies in simulations."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§4.1–4.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Researchers tested predictions on held-out homes and compared inspection strategies in simulations."
+        }
       },
       "evaluations[].effect": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The held-out prediction accuracy was 91.6%. The simulated strategy lowered estimated cost per replacement by 10.7%."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.1.1; Table 5.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The held-out prediction accuracy was 91.6%. The simulated strategy lowered estimated cost per replacement by 10.7%."
+        }
       },
       "evaluations[].exposure": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Predictions were updated as crews recorded new inspections and replacements."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§2.3–3.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Predictions were updated as crews recorded new inspections and replacements."
+        }
       },
       "evaluations[].id": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "AIBD-0166-E01",
+            "AIBD-0166-E02"
+          ],
+          "role": "evaluations"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Identifiers assigned to the evaluations described here.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD-0166-E01, AIBD-0166-E02"
+        }
       },
       "evaluations[].measurement_method": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Excavation results supplied the pipe-material labels. Validation and simulated work sequences used those records."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Excavation results supplied the pipe-material labels. Validation and simulated work sequences used those records."
+        }
       },
       "evaluations[].metric": {
-        "state": "not_assessed",
-        "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "metric"
-          ],
-          "source_refs": []
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Pipe-material prediction, inspection success, and modeled cost per replacement."
         },
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
         "display": {
-          "answer": "6,228 of 8,833 homes inspected through 2017 had lead pipes replaced (70%)",
-          "editor_note": ""
+          "answer": "Pipe-material prediction, inspection success, and modeled cost per replacement."
         }
       },
       "evaluations[].reproduction_materials": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§3; §4.1.1, n. 6.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The paper describes the algorithms and simulations. It does not supply all settings needed to reproduce the deployed system.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The paper describes the algorithms and simulations. It does not supply all settings needed to reproduce the deployed system."
+        }
       },
       "evaluations[].setting_sample": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The database covered 55,893 parcels. The main accuracy test held out 1,606 homes with known pipe materials."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§2.1; §4.1.1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The database covered 55,893 parcels. The main accuracy test held out 1,606 homes with known pipe materials."
+        }
       },
       "evaluations[].uncertainty_limitations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Known pipe materials came from a selected set of inspected homes. The simulated costs omitted travel and other logistical constraints."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§4.1–4.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Known pipe materials came from a selected set of inspected homes. The simulated costs omitted travel and other logistical constraints."
+        }
       },
       "external_references[]": {
         "state": "not_assessed",
@@ -667,32 +1314,44 @@
       "follow_up[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "later": {
-              "status": "litigated",
-              "date": "2019-02-25",
-              "note": "Under the court settlement in Concerned Pastors for Social Action v. Khouri, Flint agreed to use the Schwartz-Abernethy model again to select homes for excavation in 2019.",
-              "quote": "The parties to the settlement in Concerned Pastors for Social Action v. Khouri agreed that the city will use a statistical model developed by Dr. Eric Schwartz of the University of Michigan and Dr. Jacob Abernethy at the Georgia Institute of Technology to guide its selection of homes for service line excavations in 2019.",
-              "url": "https://www.mswmag.com/online_exclusives/2019/02/flint-to-revert-back-to-data-driven-predictive-model-for-lead-pipe-replacements"
-            }
-          }
+          "kind": "text",
+          "text": "A March 2019 court order required the city to prioritize addresses identified by the predictive model, subject to defined exceptions."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "later"
+          "kind": "source_review",
+          "basis": "¶¶1–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0003"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A March 2019 court order required the city to prioritize addresses identified by the predictive model, subject to defined exceptions."
+        }
       },
       "human_oversight": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "City officials set priorities, contractors confirmed pipe materials, and researchers maintained the model."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§2–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "City officials set priorities, contractors confirmed pipe materials, and researchers maintained the model."
+        }
       },
       "id": {
         "state": "value_present",
@@ -714,71 +1373,151 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system depended on digitized parcel records, reliable excavation labels, a shared database, and crews who could inspect and replace pipes."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The system depended on digitized parcel records, reliable excavation labels, a shared database, and crews who could inspect and replace pipes."
+        }
       },
       "outcomes[].beneficiaries": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Residents whose hazardous service lines were identified and replaced."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Table 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Residents whose hazardous service lines were identified and replaced."
+        }
       },
       "outcomes[].beneficiary_count": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "By September 2017, the program had replaced hazardous lines at 4,419 homes and identified pipe materials at 6,506."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Table 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "By September 2017, the program had replaced hazardous lines at 4,419 homes and identified pipe materials at 6,506."
+        }
       },
       "outcomes[].benefit_type": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "benefit_type": "Improved Task Accuracy",
-            "taxonomy_note": "The public-health good of lead removal is the end; the documented gain is the hit rate per excavation."
-          }
+          "kind": "text",
+          "text": "Improved accuracy in locating hazardous service lines."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "benefit_type",
-            "taxonomy_note"
+          "kind": "source_review",
+          "basis": "§4.1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Improved accuracy in locating hazardous service lines."
+        }
       },
       "outcomes[].claim": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "From summer 2016 Jacob Abernethy, Eric Schwartz and colleagues at the University of Michigan worked with Flint's FAST Start service-line replacement program. They built a statistical model (gradient-boosted trees in XGBoost with a hierarchical Bayesian spatial layer) and an active-learning procedure, ActiveRemediation. They chose which homes to inspect and replace (KDD 2018 paper, arXiv 1806.10692). The paper reports 91.6% accuracy on a 1,606-home holdout set. By September 2017, 4,419 hazardous service lines were replaced, with the composition of 6,506 homes identified. The Atlantic (Alexis Madrigal, 3 January 2019) reported that through 2017 workers inspected 8,833 homes and replaced pipes at 6,228, a 70 percent rate. It quoted program head Michael McDaniel saying accuracy was above 80 percent in late 2017. The City hired AECOM in 2018, which discarded the model's predictions. By mid-December 2018, 10,531 properties were explored and only 1,567 digs found lead, a 15 percent hit rate. In a court filing Schwartz estimated 4,964 to 6,119 homes with hazardous lines remained. The model-guided phase ran through 2017.",
-            "benefit_type": "Improved Task Accuracy"
-          }
+          "kind": "text",
+          "text": "The model helped direct inspections toward homes likely to have hazardous pipes."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "benefit_type"
+          "kind": "source_review",
+          "basis": "§§3–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The model helped direct inspections toward homes likely to have hazardous pipes."
+        }
       },
       "outcomes[].distribution": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Predictions varied by address and neighborhood. The benefit depended on whether officials used them to set priorities."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§2–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Predictions varied by address and neighborhood. The benefit depended on whether officials used them to set priorities."
+        }
       },
       "outcomes[].duration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Replacement permanently changed the identified service lines. The paper did not measure residents’ later health."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§2–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Replacement permanently changed the identified service lines. The paper did not measure residents’ later health."
+        }
       },
       "outcomes[].id": {
         "state": "not_assessed",
@@ -788,165 +1527,162 @@
       "outcomes[].stakeholder_group": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ratings": [
-              {
-                "group": "personal",
-                "depth": 2,
-                "reason": "Households had lead or galvanized lines replaced faster under model-guided targeting (6,228 replacements through 2017). Outcomes are documented in aggregate, no individual named."
-              },
-              {
-                "group": "organizational",
-                "depth": 3,
-                "reason": "FAST Start's hit rate was 70 percent through 2017, above 80 percent in late 2017 per McDaniel, against 15 percent in 2018 without the model. The KDD paper reports 91.6% holdout accuracy."
-              },
-              {
-                "group": "societal",
-                "depth": 3,
-                "reason": "Flint's court-ordered lead-removal mandate was served faster while the model guided digs. The Atlantic reports thousands of homes kept lead pipes longer after it was dropped."
-              }
-            ]
-          }
+          "kind": "text",
+          "text": "Residents and the city’s water-infrastructure program."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "source_review",
+          "basis": "§§1–2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Residents and the city’s water-infrastructure program."
+        }
       },
       "outcomes[].status": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system was used in the field. Accuracy was tested retrospectively, and monetary savings were modeled."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The system was used in the field. Accuracy was tested retrospectively, and monetary savings were modeled."
+        }
       },
       "outcomes[].tradeoffs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Residents and officials also sought broad coverage and certainty about individual homes. These priorities could change the order of excavation."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Interviews about the 2018 change in priorities.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Residents and officials also sought broad coverage and certainty about individual homes. These priorities could change the order of excavation."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "unexpected": false,
-            "purpose": "The model and active-learning rules were built to predict which Flint homes had lead or galvanized service lines and to direct inspections and replacements. The improved hit rate was the intended use."
-          }
+          "kind": "text",
+          "text": "Finding and removing hazardous pipes was the intended benefit."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "unexpected",
-            "purpose"
+          "kind": "source_review",
+          "basis": "§1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Finding and removing hazardous pipes was the intended benefit."
+        }
       },
       "places[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "location": "Flint, United States",
-            "developer_country": "United States",
-            "deployer_country": "United States"
-          }
+          "kind": "text",
+          "text": "Flint, Michigan, United States."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "location",
-            "developer_country",
-            "deployer_country"
+          "kind": "source_review",
+          "basis": "§1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Flint, Michigan, United States."
+        }
       },
       "purpose": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "purpose": "The model and active-learning rules were built to predict which Flint homes had lead or galvanized service lines and to direct inspections and replacements. The improved hit rate was the intended use."
-          }
+          "kind": "text",
+          "text": "The system estimated which homes were most likely to have hazardous service lines."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "purpose"
+          "kind": "source_review",
+          "basis": "§1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The system estimated which homes were most likely to have hazardous service lines."
+        }
       },
       "record_dates": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "date_observed": "2018-07-19",
-            "revisions": [
-              {
-                "date": "2026-10-20",
-                "change": "Record drafted from the cited sources.",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Benefit type set to Improved Task Accuracy under Trustible's full taxonomy of 23 types; it was Improved Organizational Efficiency among the six first used.",
-                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Added what the benefit is measured against, what happened since from the cited sources.",
-                "source": "https://www.michiganpublic.org/news/2019-04-25/in-flint-algorithm-predicts-lead-pipe-locations-as-replacement-work-continues; https://www.mswmag.com/online_exclusives/2019/02/flint-to-revert-back-to-data-driven-predictive-model-for-lead-pipe-replacements",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
-                "source": "https://en.wikipedia.org/wiki/University_of_Michigan; https://en.wikipedia.org/wiki/Flint,_Michigan",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-22",
-                "change": "Organization name standardized to City of Flint and University of Michigan.",
-                "editor": "AIBD"
-              }
-            ]
+          "kind": "structured",
+          "data": {
+            "start": "2016",
+            "end": "2017-09",
+            "precision": "season to month",
+            "display": "Summer 2016–September 2017",
+            "refs": [
+              "AIBD-0166-source-0001"
+            ],
+            "current_date_observed": "2018-07-19",
+            "instruction": "Use the observed result period for the case date. Keep the full study period separately; the normalized sort date does not imply a more precise observation.",
+            "observed_result_period": "2016",
+            "observed_result_precision": "year",
+            "observed_result_basis": "Model-guided fieldwork began in summer 2016."
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "date_observed",
-            "revisions"
+          "kind": "source_review",
+          "basis": "Original study timing.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Field work began in summer 2016. The paper reports replacements and inspections through September 2017."
+        }
       },
       "replication.attempts[]": {
         "state": "not_assessed",
@@ -956,33 +1692,23 @@
       "replication.conditions": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "replication": {
-              "produced_by": [
-                "Digitized historical parcel and service-line records plus water-sample data",
-                "Contractor hydrovac inspections and replacements feeding labels back to the model",
-                "City officials who followed the model's recommendations when selecting homes"
-              ],
-              "must_hold": [
-                "Decision-makers continue to use the predictions (the 2018 hit rate fell when they were dropped)",
-                "Inspection results are returned to the model to update it",
-                "Equity constraints that do not override targeting entirely"
-              ],
-              "echoes": []
-            }
-          }
+          "kind": "text",
+          "text": "Useful parcel records, verified inspection results, and a working relationship with the people who choose excavation sites are necessary."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "replication"
+          "kind": "source_review",
+          "basis": "§§2–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Useful parcel records, verified inspection results, and a working relationship with the people who choose excavation sites are necessary."
+        }
       },
       "revision_history[]": {
         "state": "value_present",
@@ -1022,6 +1748,12 @@
                 "date": "2026-10-22",
                 "change": "Organization name standardized to City of Flint and University of Michigan.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Reviewed the original evidence and supporting material; updated system details, methods, outcomes, limitations, costs, and source lineage.",
+                "source": "https://arxiv.org/abs/1806.10692",
+                "editor": "AIBD"
               }
             ]
           }
@@ -1040,100 +1772,69 @@
       "sector": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "domain": "Water infrastructure",
-            "segment": "Lead service-line replacement"
-          }
+          "kind": "text",
+          "text": "Water infrastructure and public health."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "domain",
-            "segment"
+          "kind": "source_review",
+          "basis": "§1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Water infrastructure and public health."
+        }
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The revised original paper, the complete news article, and the relevant court-order provisions were read. Earlier versions and the underlying stipulation are preserved in the source chain."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§2–4, Tables 1 and 5.; Field totals and interviews with Michael McDaniel, Karen Weaver, Alan Wong, and Eric Schwartz.; ¶¶1–6, pp. 1–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001",
+            "AIBD-0166-source-0002",
+            "AIBD-0166-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The revised original paper, the complete news article, and the relevant court-order provisions were read. Earlier versions and the underlying stipulation are preserved in the source chain."
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "evidence": [
-              {
-                "kind": "peer-reviewed study",
-                "citation": "Abernethy, J., Chojnacki, A., Farahi, A., Schwartz, E., Webb, J., 'ActiveRemediation: The Search for Lead Pipes in Flint, Michigan', KDD '18, doi:10.1145/3219819.3219896; arXiv:1806.10692",
-                "title": "ActiveRemediation: The Search for Lead Pipes in Flint, Michigan",
-                "url": "https://arxiv.org/abs/1806.10692",
-                "date": "2018-07-19",
-                "written_by": "makers",
-                "quote": "The overall accuracy of the best performing XGBoost model, based on a holdout set of 1,606 homes (25% of available data), is 91.6%"
-              },
-              {
-                "kind": "peer-reviewed study",
-                "citation": "Abernethy et al., KDD 2018, Table 1 timeline",
-                "title": "ActiveRemediation: The Search for Lead Pipes in Flint, Michigan",
-                "url": "https://arxiv.org/abs/1806.10692",
-                "date": "2018-07-19",
-                "written_by": "makers",
-                "quote": "2017 Sept. Fast Start replaced 4,419 hazardous service lines so far, identifying composition of a total of 6,506 homes."
-              },
-              {
-                "kind": "news report",
-                "citation": "Alexis C. Madrigal, 'How a Feel-Good AI Story Went Wrong in Flint', The Atlantic, 3 January 2019",
-                "title": "How a Feel-Good AI Story Went Wrong in Flint",
-                "url": "https://www.theatlantic.com/technology/archive/2019/01/how-machine-learning-found-flints-lead-pipes/578692/",
-                "date": "2019-01-03",
-                "written_by": "independent",
-                "quote": "Workers inspected 8,833 homes, and of those, 6,228 homes had their pipes replaced—a 70 percent rate of accuracy."
-              },
-              {
-                "kind": "news report",
-                "citation": "Alexis C. Madrigal, The Atlantic, 3 January 2019",
-                "title": "How a Feel-Good AI Story Went Wrong in Flint",
-                "url": "https://www.theatlantic.com/technology/archive/2019/01/how-machine-learning-found-flints-lead-pipes/578692/",
-                "date": "2019-01-03",
-                "written_by": "independent",
-                "quote": "AECOM discarded the machine-learning model’s predictions, which had guided excavations."
-              },
-              {
-                "kind": "news report",
-                "citation": "Tribou, D. (2019). In Flint, algorithm predicts lead pipe locations as replacement work continues. Michigan Public (Michigan Radio), 25 April 2019.",
-                "title": "In Flint, algorithm predicts lead pipe locations as replacement work continues",
-                "url": "https://www.michiganpublic.org/news/2019-04-25/in-flint-algorithm-predicts-lead-pipe-locations-as-replacement-work-continues",
-                "date": "2019-04-25",
-                "written_by": "independent"
-              },
-              {
-                "kind": "news report",
-                "citation": "Municipal Sewer & Water (2019). Flint to Revert Back to Data-Driven Predictive Model for Lead Pipe Replacements. MSW Magazine online exclusive, 25 February 2019.",
-                "title": "Flint to Revert Back to Data-Driven Predictive Model for Lead Pipe Replacements",
-                "url": "https://www.mswmag.com/online_exclusives/2019/02/flint-to-revert-back-to-data-driven-predictive-model-for-lead-pipe-replacements",
-                "date": "2019-02-25",
-                "written_by": "independent"
-              }
-            ]
-          }
+          "kind": "text",
+          "text": "The original paper establishes the methods and modeled savings. Independent interviews describe implementation. The court order establishes the required prioritization."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "evidence"
+          "kind": "source_review",
+          "basis": "§§2–4, Tables 1 and 5.; Field totals and interviews with Michael McDaniel, Karen Weaver, Alan Wong, and Eric Schwartz.; ¶¶1–6, pp. 1–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001",
+            "AIBD-0166-source-0002",
+            "AIBD-0166-source-0003"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The original paper establishes the methods and modeled savings. Independent interviews describe implementation. The court order establishes the required prioritization."
+        }
       },
       "sources[].id": {
         "state": "value_present",
@@ -1143,102 +1844,202 @@
             "AIBD-0166-source-0001",
             "AIBD-0166-source-0002",
             "AIBD-0166-source-0003",
-            "AIBD-0166-source-0004",
-            "AIBD-0166-source-0005",
-            "AIBD-0166-source-0006"
+            "AIBD-0166-source-0004"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "retained evidence"
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "kind": "source_review",
+          "basis": "Retained evidence in the reviewed order.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0166-source-0001",
+            "AIBD-0166-source-0002",
+            "AIBD-0166-source-0003",
+            "AIBD-0166-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "complete"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD-0166-source-0001, AIBD-0166-source-0002, AIBD-0166-source-0003, AIBD-0166-source-0004"
+        }
       },
       "sources[].language": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "English."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§2–4, Tables 1 and 5.; Field totals and interviews with Michael McDaniel, Karen Weaver, Alan Wong, and Eric Schwartz.; ¶¶1–6, pp. 1–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001",
+            "AIBD-0166-source-0002",
+            "AIBD-0166-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "English."
+        }
       },
       "sources[].relationship": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "evidence": [
+          "kind": "text",
+          "text": "The researchers evaluated their own system. The Atlantic adds independent reporting. The court order is evidence of a decision, not an independent estimate of lives or money saved."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§2–4, Tables 1 and 5.; Field totals and interviews with Michael McDaniel, Karen Weaver, Alan Wong, and Eric Schwartz.; ¶¶1–6, pp. 1–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001",
+            "AIBD-0166-source-0002",
+            "AIBD-0166-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The researchers evaluated their own system. The Atlantic adds independent reporting. The court order is evidence of a decision, not an independent estimate of lives or money saved."
+        }
+      },
+      "sources[].upstream_sources": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "lead_source_ref": "AIBD-0166-source-0001",
+            "retained_source_order": [
+              "AIBD-0166-source-0001",
+              "AIBD-0166-source-0002",
+              "AIBD-0166-source-0003",
+              "AIBD-0166-source-0004"
+            ],
+            "origins": [
               {
-                "kind": "peer-reviewed study",
-                "citation": "Abernethy, J., Chojnacki, A., Farahi, A., Schwartz, E., Webb, J., 'ActiveRemediation: The Search for Lead Pipes in Flint, Michigan', KDD '18, doi:10.1145/3219819.3219896; arXiv:1806.10692",
-                "title": "ActiveRemediation: The Search for Lead Pipes in Flint, Michigan",
                 "url": "https://arxiv.org/abs/1806.10692",
-                "date": "2018-07-19",
-                "written_by": "makers",
-                "quote": "The overall accuracy of the best performing XGBoost model, based on a holdout set of 1,606 homes (25% of available data), is 91.6%"
-              },
-              {
-                "kind": "peer-reviewed study",
-                "citation": "Abernethy et al., KDD 2018, Table 1 timeline",
                 "title": "ActiveRemediation: The Search for Lead Pipes in Flint, Michigan",
-                "url": "https://arxiv.org/abs/1806.10692",
-                "date": "2018-07-19",
-                "written_by": "makers",
-                "quote": "2017 Sept. Fast Start replaced 4,419 hazardous service lines so far, identifying composition of a total of 6,506 homes."
+                "locator": "§§2–4, Tables 1 and 5.",
+                "contribution": "Original methods, field implementation, validation, and simulated costs.",
+                "relationship": "Primary report by the researchers who developed and helped deploy the system.",
+                "source_refs": [
+                  "AIBD-0166-source-0001"
+                ],
+                "access": "The original arXiv version history and full v2 PDF dated 17 August 2018 were inspected. The first submission date is 10 June 2018.",
+                "publication_date": "2018-06-10"
               },
               {
-                "kind": "news report",
-                "citation": "Alexis C. Madrigal, 'How a Feel-Good AI Story Went Wrong in Flint', The Atlantic, 3 January 2019",
-                "title": "How a Feel-Good AI Story Went Wrong in Flint",
+                "url": "https://arxiv.org/pdf/1806.10692v2",
+                "locator": "17 August 2018 revision.",
+                "contribution": "17 August 2018 revision.",
+                "relationship": "Access copy, supplement, or earlier version of the same work.",
+                "source_refs": [
+                  "AIBD-0166-source-0001"
+                ]
+              },
+              {
                 "url": "https://www.theatlantic.com/technology/archive/2019/01/how-machine-learning-found-flints-lead-pipes/578692/",
-                "date": "2019-01-03",
-                "written_by": "independent",
-                "quote": "Workers inspected 8,833 homes, and of those, 6,228 homes had their pipes replaced—a 70 percent rate of accuracy."
-              },
-              {
-                "kind": "news report",
-                "citation": "Alexis C. Madrigal, The Atlantic, 3 January 2019",
                 "title": "How a Feel-Good AI Story Went Wrong in Flint",
-                "url": "https://www.theatlantic.com/technology/archive/2019/01/how-machine-learning-found-flints-lead-pipes/578692/",
-                "date": "2019-01-03",
-                "written_by": "independent",
-                "quote": "AECOM discarded the machine-learning model’s predictions, which had guided excavations."
+                "locator": "Field totals and interviews with Michael McDaniel, Karen Weaver, Alan Wong, and Eric Schwartz.",
+                "contribution": "Independent reporting about model use, excavation results, and the contractor’s later change in priorities.",
+                "relationship": "Original interviews and reporting. The model description and some estimates derive from F1 and court filings.",
+                "source_refs": [
+                  "AIBD-0166-source-0002"
+                ],
+                "access": "The original article’s body was read.",
+                "publication_date": "2019-01-03"
               },
               {
-                "kind": "news report",
-                "citation": "Tribou, D. (2019). In Flint, algorithm predicts lead pipe locations as replacement work continues. Michigan Public (Michigan Radio), 25 April 2019.",
-                "title": "In Flint, algorithm predicts lead pipe locations as replacement work continues",
+                "url": "https://www.nrdc.org/sites/default/files/declaration-eric-schwartz-flint-20181001.pdf",
+                "title": "Declaration of Eric Schwartz, October 1, 2018",
+                "locator": "ECF 203-4, model development and communications with AECOM.",
+                "contribution": "Primary declaration underlying part of the implementation account. Targeted passages were read; the whole filing was not reviewed.",
+                "relationship": "Primary declaration underlying part of the implementation account. Targeted passages were read; the whole filing was not reviewed.",
+                "source_refs": [
+                  "AIBD-0166-source-0002"
+                ]
+              },
+              {
+                "url": "https://www.nrdc.org/sites/default/files/order-amending-settlement-agreement-flint-20190326.pdf",
+                "title": "Order Amending Settlement Agreement",
+                "locator": "¶¶1–6, pp. 1–4.",
+                "contribution": "The court required prioritization of addresses selected using the predictive model, with specified exceptions and reporting.",
+                "relationship": "Original judicial order. It establishes the required decision process, not a causal finding about the system’s benefit.",
+                "source_refs": [
+                  "AIBD-0166-source-0003"
+                ],
+                "access": "Original PDF downloaded; ¶¶1–6 were read.",
+                "publication_date": "2019-03-26",
+                "retention_note": "Decision evidence only. The order does not establish a causal benefit finding."
+              },
+              {
+                "url": "https://www.nrdc.org/sites/default/files/notice-modified-settlement-agreement-flint-20190212.pdf",
+                "title": "Stipulation and Notice of Proposed Amendments to Settlement Agreement",
+                "locator": "ECF 207, pp. 1–6; ¶1 n. 1 cites ActiveRemediation.",
+                "contribution": "The agreement that the court approved. Relevant original pages were read.",
+                "relationship": "The agreement that the court approved. Relevant original pages were read.",
+                "source_refs": [
+                  "AIBD-0166-source-0003"
+                ]
+              },
+              {
                 "url": "https://www.michiganpublic.org/news/2019-04-25/in-flint-algorithm-predicts-lead-pipe-locations-as-replacement-work-continues",
-                "date": "2019-04-25",
-                "written_by": "independent"
-              },
-              {
-                "kind": "news report",
-                "citation": "Municipal Sewer & Water (2019). Flint to Revert Back to Data-Driven Predictive Model for Lead Pipe Replacements. MSW Magazine online exclusive, 25 February 2019.",
-                "title": "Flint to Revert Back to Data-Driven Predictive Model for Lead Pipe Replacements",
-                "url": "https://www.mswmag.com/online_exclusives/2019/02/flint-to-revert-back-to-data-driven-predictive-model-for-lead-pipe-replacements",
-                "date": "2019-02-25",
-                "written_by": "independent"
+                "title": "In Flint, algorithm predicts lead pipe locations as replacement work continues",
+                "locator": "“A goal of efficiency” and the original interview with Eric Schwartz.",
+                "contribution": "A later firsthand interview reports that the research team was again working with Flint in 2019.",
+                "relationship": "Independent interview with a developer. It establishes his account of renewed implementation, not an independent measurement of the modeled saving.",
+                "source_refs": [
+                  "AIBD-0166-source-0004"
+                ],
+                "access": "The original article’s full substantive text was read on 25 October 2026. The audio was not played.",
+                "publication_date": "2019-04-25"
               }
-            ]
+            ],
+            "excluded_or_consolidated_sources": [
+              {
+                "old_source_ref": "AIBD-0166-source-0006",
+                "url": "https://www.mswmag.com/online_exclusives/2019/02/flint-to-revert-back-to-data-driven-predictive-model-for-lead-pipe-replacements",
+                "reason": "A summary or secondary account was replaced by the original evidence. Any unique earlier quotation remains in the audit artifact."
+              }
+            ],
+            "review_scope": "Original evidence, systems, evaluation methods and results, costs, chronology, human roles, limitations, and follow-up.",
+            "chronology_source": {
+              "source_ref": "AIBD-0166-source-0001",
+              "date": "2018-06-10",
+              "url": "https://arxiv.org/abs/1806.10692v1",
+              "title": "ActiveRemediation: The Search for Lead Pipes in Flint, Michigan",
+              "role": "First public manuscript. Field work began in summer 2016; publication is not the deployment date."
+            },
+            "source_relationship_note": "Versions, supplements, reanalyses, and repeated developer statements are not independent replications."
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "evidence"
+          "kind": "source_review",
+          "basis": "The original evidence and exact locators are preserved in this assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001",
+            "AIBD-0166-source-0002",
+            "AIBD-0166-source-0003",
+            "AIBD-0166-source-0004"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
-      },
-      "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The original model paper supplies the validation and simulation. The court order follows the parties’ February 2019 stipulation."
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1249,91 +2050,188 @@
       "summary": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "summary": "A University of Michigan XGBoost and active-learning model guided Flint's FAST Start digs; 6,228 of 8,833 homes inspected through 2017 had lead pipes replaced (70%), versus 15% in 2018 without it.",
-            "account": "From summer 2016 Jacob Abernethy, Eric Schwartz and colleagues at the University of Michigan worked with Flint's FAST Start service-line replacement program. They built a statistical model (gradient-boosted trees in XGBoost with a hierarchical Bayesian spatial layer) and an active-learning procedure, ActiveRemediation. They chose which homes to inspect and replace (KDD 2018 paper, arXiv 1806.10692). The paper reports 91.6% accuracy on a 1,606-home holdout set. By September 2017, 4,419 hazardous service lines were replaced, with the composition of 6,506 homes identified. The Atlantic (Alexis Madrigal, 3 January 2019) reported that through 2017 workers inspected 8,833 homes and replaced pipes at 6,228, a 70 percent rate. It quoted program head Michael McDaniel saying accuracy was above 80 percent in late 2017. The City hired AECOM in 2018, which discarded the model's predictions. By mid-December 2018, 10,531 properties were explored and only 1,567 digs found lead, a 15 percent hit rate. In a court filing Schwartz estimated 4,964 to 6,119 homes with hazardous lines remained. The model-guided phase ran through 2017."
-          }
+          "kind": "text",
+          "text": "ActiveRemediation helped Flint prioritize homes for inspection and replacement of lead or galvanized-steel service lines."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "summary",
-            "account"
+          "kind": "source_review",
+          "basis": "§§2–4, Tables 1 and 5.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "ActiveRemediation helped Flint prioritize homes for inspection and replacement of lead or galvanized-steel service lines."
+        }
       },
       "systems[].autonomy_permissions": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system recommended priorities. City officials and contractors decided where to excavate and replaced the pipes."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§2–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The system recommended priorities. City officials and contractors decided where to excavate and replaced the pipes."
+        }
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system estimated pipe materials and ranked homes for further investigation."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§3.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The system estimated pipe materials and ranked homes for further investigation."
+        }
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A shared database and a password-protected Flask application let city staff and contractors review maps and add excavation results."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§2.3.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A shared database and a password-protected Flask application let city staff and contractors review maps and add excavation results."
+        }
       },
       "systems[].inputs_outputs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Parcel records, property characteristics, and confirmed pipe materials produced address-level probabilities and inspection priorities."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§2.1–3.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Parcel records, property characteristics, and confirmed pipe materials produced address-level probabilities and inspection priorities."
+        }
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "XGBoost classification trees with a hierarchical Bayesian model for spatial patterns. An active-learning policy selected further inspections."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§§3.1–3.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "XGBoost classification trees with a hierarchical Bayesian model for spatial patterns. An active-learning policy selected further inspections."
+        }
       },
       "systems[].model_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "§3; §4.1.1, n. 6.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The paper names the algorithms but does not identify an XGBoost release or a reproducible deployment configuration.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The paper names the algorithms but does not identify an XGBoost release or a reproducible deployment configuration."
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "system": "ActiveRemediation: XGBoost classifier with hierarchical Bayesian spatial model and importance-weighted active learning for service-line selection"
-          }
+          "kind": "text",
+          "text": "ActiveRemediation."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "system"
+          "kind": "source_review",
+          "basis": "Title and §3.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "ActiveRemediation."
+        }
       },
       "systems[].provider": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "application_developer": "University of Michigan (Jacob Abernethy, Alex Chojnacki, Arya Farahi, Eric Schwartz, Jared Webb)"
-          }
+          "kind": "text",
+          "text": "A research team from the University of Michigan, Georgia Tech, and Brigham Young University."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "developer"
+          "kind": "source_review",
+          "basis": "Author affiliations.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A research team from the University of Michigan, Georgia Tech, and Brigham Young University."
+        }
       },
       "taxonomy_crosswalks[]": {
         "state": "not_assessed",
@@ -1343,30 +2241,30 @@
       "title": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "title": "Flint's ML-guided lead-pipe search hits 70% through 2017; hit rate falls to 15% after the model is dropped",
-            "headline": "ActiveRemediation guides Flint digs to a 70% lead-pipe hit rate"
-          }
+          "kind": "text",
+          "text": "ActiveRemediation helps Flint locate hazardous water pipes"
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "title",
-            "headline"
+          "kind": "source_review",
+          "basis": "§§2–4, Tables 1 and 5.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "ActiveRemediation helps Flint locate hazardous water pipes"
+        }
       },
       "version": {
         "state": "value_present",
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "710a4cd26ba694ca21d939d3360f91983e728e80a825ddfca44f779b4cabad1a"
+            "ded7efa1cccb04911fafe17bc25bbadc63f7fe17832804028c9c7cac855e0272"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1382,50 +2280,38 @@
       "workflow": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "From summer 2016 Jacob Abernethy, Eric Schwartz and colleagues at the University of Michigan worked with Flint's FAST Start service-line replacement program. They built a statistical model (gradient-boosted trees in XGBoost with a hierarchical Bayesian spatial layer) and an active-learning procedure, ActiveRemediation. They chose which homes to inspect and replace (KDD 2018 paper, arXiv 1806.10692). The paper reports 91.6% accuracy on a 1,606-home holdout set. By September 2017, 4,419 hazardous service lines were replaced, with the composition of 6,506 homes identified. The Atlantic (Alexis Madrigal, 3 January 2019) reported that through 2017 workers inspected 8,833 homes and replaced pipes at 6,228, a 70 percent rate. It quoted program head Michael McDaniel saying accuracy was above 80 percent in late 2017. The City hired AECOM in 2018, which discarded the model's predictions. By mid-December 2018, 10,531 properties were explored and only 1,567 digs found lead, a 15 percent hit rate. In a court filing Schwartz estimated 4,964 to 6,119 homes with hazardous lines remained. The model-guided phase ran through 2017.",
-            "replication": {
-              "produced_by": [
-                "Digitized historical parcel and service-line records plus water-sample data",
-                "Contractor hydrovac inspections and replacements feeding labels back to the model",
-                "City officials who followed the model's recommendations when selecting homes"
-              ],
-              "must_hold": [
-                "Decision-makers continue to use the predictions (the 2018 hit rate fell when they were dropped)",
-                "Inspection results are returned to the model to update it",
-                "Equity constraints that do not override targeting entirely"
-              ],
-              "echoes": []
-            }
-          }
+          "kind": "text",
+          "text": "Crews inspected pipes and recorded their materials. Researchers used those results to update predictions and recommend further inspections."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "replication"
+          "kind": "source_review",
+          "basis": "§§2.3–3.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0166-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Crews inspected pipes and recorded their materials. Researchers used those results to update predictions and recommend further inspections."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 28,
-      "reviewed": 0,
-      "record_mapped": 28,
-      "not_assessed": 63,
+      "known": 75,
+      "reviewed": 76,
+      "record_mapped": 3,
+      "not_assessed": 12,
       "complete": false,
       "by_state": {
-        "value_present": 28,
-        "not_reported": 0,
+        "value_present": 75,
+        "not_reported": 4,
         "unresolved": 0,
-        "not_assessed": 63,
+        "not_assessed": 12,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

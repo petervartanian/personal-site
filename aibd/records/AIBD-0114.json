@@ -1,18 +1,18 @@
 {
   "id": "AIBD-0114",
-  "title": "China Medical University Hospital's AI mass-spectrometry platform predicts ceftazidime-resistant Stenotrophomonas maltophilia within an hour; 78-year-old woman switched to levofloxacin, extubated and discharged",
-  "summary": "AI read of a MALDI-TOF spectrum flagged ceftazidime resistance in 1 hour; 78-year-old septic woman switched to levofloxacin and recovered.",
+  "title": "An early resistance warning helped doctors change a woman’s antibiotic",
+  "summary": "An early resistance warning from CMUH’s Intelligent Anti-Microbial System helped doctors change a 78-year-old woman’s antibiotic before she recovered.",
   "date_observed": "2022-07-01",
-  "date_basis": "unassessed",
-  "date_precision": "unassessed",
-  "benefit_status": null,
+  "date_basis": "event",
+  "date_precision": "month",
+  "benefit_status": "reported",
   "source_collection": null,
   "source_entry": null,
-  "account": "A 78-year-old woman with diabetes, hypertension and chronic kidney disease was admitted to China Medical University Hospital, Taichung, Taiwan, in mid-April 2022 with swollen legs. She developed rhabdomyolysis, acute kidney failure and coma and was intubated. In late May she got pneumonia, treated with ceftazidime while sputum culture confirmed Stenotrophomonas maltophilia. The hospital's 智抗菌平台 (Intelligent Anti-bacterial Platform), a machine-learning model on routine MALDI-TOF mass spectra, predicted within one hour the isolate was ceftazidime-resistant and suggested levofloxacin. The team switched and the lung infection improved within a week. She was extubated in early July and went home in late July 2022. The hospital presented the case on 26 October 2022.",
+  "account": "A 78-year-old woman at China Medical University Hospital developed severe pneumonia during a prolonged admission. The hospital’s Intelligent Anti-Microbial System predicted within an hour that her Stenotrophomonas maltophilia isolate resisted ceftazidime and suggested levofloxacin. Clinicians changed the antibiotic. The hospital reported that she recovered and went home in late July 2022. The account concerns one patient. More than 100,000 platform uses and projected changes in hospital mortality concern the wider service, not 100,000 demonstrated recoveries.",
   "category": "harm prevented",
   "unexpected": false,
-  "purpose": "The platform's core, the 智能抗藥性細菌快速預測系統 (intelligent rapid prediction system for antibiotic-resistant bacteria), was built to predict resistance from routine MALDI-TOF spectra within an hour. That replaces the two to three days the hospital gives for conventional susceptibility testing, so an effective antibiotic is given earlier. This case is that intended use.",
-  "system": "智抗菌平台 (Intelligent Anti-bacterial Platform) of China Medical University Hospital, in hospital-wide use since February 2022; its core 智能抗藥性細菌快速預測系統 applies machine learning to routine MALDI-TOF mass spectra linked to susceptibility records, covering nine bacterial species including Stenotrophomonas maltophilia",
+  "purpose": "Help clinicians select an effective antibiotic sooner by predicting resistance from routine mass spectra.",
+  "system": "智抗菌平台 / Intelligent Anti-Microbial System (i.A.M.S)",
   "model_version": null,
   "developer": "China Medical University Hospital, Taichung (team of superintendent Der-Yang Cho 周德陽, Po-Ren Hsueh 薛博仁 of the Department of Laboratory Medicine, and Jiaxin Yu 游家鑫)",
   "deployer": "China Medical University Hospital, Taichung",
@@ -28,31 +28,31 @@
     {
       "group": "personal",
       "depth": 4,
-      "reason": "The hospital describes a patient in mortal danger from sepsis and severe pneumonia caused by a multidrug-resistant organism it says carries 33% mortality. She was on an antibiotic the model predicted ineffective. After the switch she improved within a week, was extubated and discharged, and the hospital calls the rescue timely and life-saving. This rests on the treating hospital's account at its press conference."
+      "reason": "The treating hospital described timely treatment of a severe infection, followed by recovery and discharge. The account does not establish a counterfactual life saved."
     }
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The platform's model read the isolate's routine MALDI-TOF spectrum and predicted ceftazidime resistance within one hour. That was about two days ahead of the conventional result, which the hospital says takes two to three days. It suggested levofloxacin; the clinicians made the switch and the antibiotic did the curing. The hospital puts the model's accuracy at 92% and argues each hour of delayed effective therapy in sepsis raises mortality by 7.6%. The case is reported only by the treating hospital, without independent review, and the counterfactual is earlier rather than different treatment."
+    "statement": "The platform analyzed a bacterial mass spectrum to predict resistance and suggest an alternative antibiotic. Clinicians selected and administered treatment. The hospital attributes earlier selection to the system, but the available account cannot isolate its effect on survival."
   },
   "evidence": [
+    {
+      "kind": "press release",
+      "citation": "China Medical University Hospital, “78歲婦人感染超級細菌昏迷 ! AI質譜儀1小時找出有效抗生素 《智抗菌》平臺累積十萬人以上使用 刊登頂尖醫學期刊《Journal of Infection》,” October 31, 2022. Original treating-hospital account, patient narrative and figure captions.",
+      "title": "78歲婦人感染超級細菌昏迷 ! AI質譜儀1小時找出有效抗生素",
+      "url": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8151",
+      "date": "2022-10-31",
+      "written_by": "deployer",
+      "quote": null
+    },
     {
       "kind": "news report",
       "citation": "中央社 (Central News Agency), 記者郝雪卿 (2022). 78歲婦人感染超級細菌命危 AI質譜儀輔助治療. CNA, Taichung, 26 October 2022, reporting the hospital's press conference and quoting superintendent 周德陽 and vice-superintendent 薛博仁.",
       "title": "78歲婦人感染超級細菌命危 AI質譜儀輔助治療",
       "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
       "date": "2022-10-26",
-      "written_by": "independent",
-      "quote": "關鍵1小時內運用智抗菌平台啟用AI質譜儀輔助分析，選出正確藥物"
-    },
-    {
-      "kind": "news report",
-      "citation": "中央社 (Central News Agency), 記者郝雪卿 (2022). CNA, 26 October 2022 (second quotation, on the outcome).",
-      "title": "78歲婦人感染超級細菌命危 AI質譜儀輔助治療",
-      "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
-      "date": "2022-10-26",
-      "written_by": "independent",
-      "quote": "患者後續肺部浸潤改善，7月上旬順利拔管後，康復出院"
+      "written_by": "deployer",
+      "quote": null
     },
     {
       "kind": "news report",
@@ -60,35 +60,8 @@
       "title": "7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命",
       "url": "https://health.ltn.com.tw/article/breakingnews/4102412",
       "date": "2022-10-26",
-      "written_by": "independent",
-      "quote": "1小時能快速預測有抗藥性，準確率達92%"
-    },
-    {
-      "kind": "news report",
-      "citation": "自由健康網 (Liberty Times), 記者蔡淑媛 (2022). Liberty Times, 26 October 2022 (second quotation, on the drug switch).",
-      "title": "7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命",
-      "url": "https://health.ltn.com.tw/article/breakingnews/4102412",
-      "date": "2022-10-26",
-      "written_by": "independent",
-      "quote": "醫療團隊發現原先用藥有抗藥性，立刻換上無抗藥性的抗生素"
-    },
-    {
-      "kind": "news report",
-      "citation": "華人健康網 (Top1Health), 記者黃曼瑩 (2022). 8旬嬤感染「超級細菌」陷昏迷…AI質譜儀快找抗藥性，阻止病情惡化. 26 October 2022.",
-      "title": "8旬嬤感染「超級細菌」陷昏迷…AI質譜儀快找抗藥性，阻止病情惡化",
-      "url": "https://www.top1health.com/Article/240/90334",
-      "date": "2022-10-26",
-      "written_by": "independent",
-      "quote": "1小時內即預測該超級細菌對抗生素Ceftazidime具有其抗藥性"
-    },
-    {
-      "kind": "news report",
-      "citation": "中天新聞網 (CTi News), 記者藍麗琪 (2022). 八旬老婦感染「超級細菌」 黃金救命關鍵1小時 靠AI精準選藥「成功續命」！. Syndicated on Yahoo奇摩新聞, 26 October 2022.",
-      "title": "八旬老婦感染「超級細菌」 黃金救命關鍵1小時 靠AI精準選藥「成功續命」！",
-      "url": "https://tw.news.yahoo.com/%E5%85%AB%E6%97%AC%E8%80%81%E5%A9%A6%E6%84%9F%E6%9F%93-%E8%B6%85%E7%B4%9A%E7%B4%B0%E8%8F%8C-%E9%BB%83%E9%87%91%E6%95%91%E5%91%BD%E9%97%9C%E9%8D%B51%E5%B0%8F%E6%99%82-%E9%9D%A0ai%E7%B2%BE%E6%BA%96%E9%81%B8%E8%97%A5-%E6%88%90%E5%8A%9F%E7%BA%8C%E5%91%BD-020303572.html",
-      "date": "2022-10-26",
-      "written_by": "independent",
-      "quote": "系統並建議改用氟喹諾酮類抗生素（levofloxacin）"
+      "written_by": "deployer",
+      "quote": null
     },
     {
       "kind": "peer-reviewed study",
@@ -97,16 +70,16 @@
       "url": "https://doi.org/10.1016/j.jinf.2022.09.005",
       "date": "2022-09-09",
       "written_by": "makers",
-      "quote": "Ceftazidime; Levofloxacin; Stenotrophomonas maltophilia; Machine Learning; Maldi–tof Mass Spectra"
+      "quote": null
     },
     {
-      "kind": "peer-reviewed study",
-      "citation": "Yu J, Tien N, Liu YC, Cho DY, Chen JW, Tsai YT, Huang YC, Chao HJ, Chen CJ (2022). Rapid Identification of Methicillin-Resistant Staphylococcus aureus Using MALDI-TOF MS and Machine Learning from over 20,000 Clinical Isolates. Microbiology Spectrum 10(2): e00483-22, online 16 March 2022, doi:10.1128/spectrum.00483-22. Validation of the platform's MRSA model, not of the S. maltophilia model used in this case.",
-      "title": "Rapid Identification of Methicillin-Resistant Staphylococcus aureus Using MALDI-TOF MS and Machine Learning from over 20,000 Clinical Isolates",
-      "url": "https://doi.org/10.1128/spectrum.00483-22",
-      "date": "2022-03-16",
-      "written_by": "makers",
-      "quote": "For the data set comprising 20,359 clinical isolates, the area under the receiver operating curve of the classification model was 0.78 to 0.88."
+      "kind": "report",
+      "citation": "China Medical University Hospital, 2022 Corporate Sustainability Report, 37, “預測抗藥細菌，醫療數位轉型.” The report identifies i.A.M.S and compares inpatient drug spending with the corresponding period of 2021.",
+      "title": "中國醫藥大學附設醫院 2022 永續報告書",
+      "url": "https://www.cmuh.org.tw/FileUploads/FileUpload/2022%E4%B8%AD%E5%9C%8B%E9%86%ABCSR%28ESG%29_PDF.pdf",
+      "date": null,
+      "written_by": "deployer",
+      "quote": null
     }
   ],
   "replication": {
@@ -123,22 +96,22 @@
     "echoes": []
   },
   "paired_incident": null,
-  "headline": "Intelligent Anti-bacterial Platform flags resistance in an hour",
+  "headline": "An early resistance warning helped doctors change a woman’s antibiotic",
   "metric": "flagged ceftazidime resistance in 1 hour",
   "comparator": {
-    "against": "conventional clinical antimicrobial susceptibility testing",
-    "before": "一般臨床檢驗抗藥性要2、3天 (2 to 3 days)",
-    "after": "1小時能快速預測有抗藥性，準確率達92% (1 hour, 92% accuracy)",
+    "against": "The two to three days that hospital clinicians said conventional susceptibility testing required",
+    "before": "Two to three days",
+    "after": "A prediction within one hour",
     "basis": "assumed",
     "quote": "中國附醫驗醫學中心副院長薛博仁說，由於菌嗜麥芽窄食單胞菌抗藥性強，一般臨床檢驗抗藥性要2、3天，透過AI大數據分析細菌質譜儀圖譜，1小時能快速預測有抗藥性，準確率達92%，醫療團隊發現原先用藥有抗藥性，立刻換上無抗藥性的抗生素，1週後就肺部感染大幅好轉，之後順利拔管出院返家。",
     "url": "https://health.ltn.com.tw/article/breakingnews/4102412"
   },
   "later": {
     "status": "persisted",
-    "date": "2022-10-26",
-    "note": "When the hospital presented the case in October 2022 it said the platform, in use since February 2022, had already been applied more than 100,000 times.",
-    "quote": "中國醫藥大學附設醫院智抗菌平台在周德陽院長帶領下（圖中），自2022年2月起導入「智抗菌平台」，已有超過十萬人次應用。",
-    "url": "https://www.top1health.com/Article/240/90334"
+    "date": "2022-10-31",
+    "note": "The hospital reported more than 100,000 platform uses since rollout. Its five-year mortality and medication-error figures were projections, not observed results.",
+    "quote": null,
+    "url": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8151"
   },
   "value": null,
   "developer_country": "Taiwan",
@@ -176,20 +149,34 @@
       "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Reviewed the original evidence and supporting material; updated system details, methods, outcomes, limitations, costs, and source lineage.",
+      "source": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8151",
+      "editor": "AIBD"
     }
   ],
-  "confidence": "reported",
-  "shade": "medium",
-  "claim_status": "Independently reported",
-  "claim_basis": "Sources: four independent news reports and two peer-reviewed studies from the makers. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "confidence": "claimed",
+  "shade": "low",
+  "claim_status": "The deployer's account",
+  "claim_basis": "Sources: the makers' peer-reviewed study, the deployer's report, two news reports from the deployer and the deployer's press release. The cited evidence includes no independent source and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0114",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "2b7ddd0173468f06e66db69cf66840c6b72f529f42b57b556457c09396967a9c",
+    "source_fingerprint": "60e0410e98964a3c30cb0ae8f5c4e28c43bc3fc69209a8b348bedb8d77c1ae09",
     "collection_refs": [
       {
         "collection_id": "aibd",
         "version": "snapshot-8bf7cfec9cb185aa"
+      },
+      {
+        "collection_id": "aibd",
+        "version": "2026-10-25"
+      },
+      {
+        "collection_id": "adyt",
+        "version": "2026-10-25"
       }
     ],
     "source_ids": [
@@ -197,10 +184,7 @@
       "AIBD-0114-source-0002",
       "AIBD-0114-source-0003",
       "AIBD-0114-source-0004",
-      "AIBD-0114-source-0005",
-      "AIBD-0114-source-0006",
-      "AIBD-0114-source-0007",
-      "AIBD-0114-source-0008"
+      "AIBD-0114-source-0005"
     ],
     "families": {
       "strategic assessments": {
@@ -210,72 +194,149 @@
         "record_ids": []
       },
       "evaluations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "record_ids": []
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "CMUH clinical account, NewsArticle 8151"
+          ],
+          "role": "evaluations"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The evaluation described in the cited original sources."
+        },
+        "record_ids": [
+          "CMUH clinical account, NewsArticle 8151"
+        ]
       },
       "monetary observations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "record_ids": []
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "AIBD-0114-platform-drug-spending"
+          ],
+          "role": "monetary observations"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Platform-wide spending figures, separate from the patient’s recovery."
+        },
+        "record_ids": [
+          "AIBD-0114-platform-drug-spending"
+        ]
       },
       "institutional decisions": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "record_ids": []
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "CMUH i.A.M.S rollout 2022"
+          ],
+          "role": "institutional decisions"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Hospital adoption of the clinical platform."
+        },
+        "record_ids": [
+          "CMUH i.A.M.S rollout 2022"
+        ]
       }
     },
     "fields": {
       "actors[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "developer": "China Medical University Hospital, Taichung (team of superintendent Der-Yang Cho 周德陽, Po-Ren Hsueh 薛博仁 of the Department of Laboratory Medicine, and Jiaxin Yu 游家鑫)",
-            "deployer": "China Medical University Hospital, Taichung"
-          }
+          "kind": "text",
+          "text": "China Medical University Hospital developed and deployed the platform. Its laboratory and treating clinicians cared for the patient."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "developer",
-            "deployer"
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "China Medical University Hospital developed and deployed the platform. Its laboratory and treating clinicians cared for the patient."
+        }
       },
       "actors[].ownership_control": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed clinical sources identify the organizations involved, but do not establish their complete ownership or control arrangements.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed clinical sources identify the organizations involved, but do not establish their complete ownership or control arrangements."
+        }
       },
       "ai_contribution": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ai_role": {
-              "status": "assessed",
-              "statement": "The platform's model read the isolate's routine MALDI-TOF spectrum and predicted ceftazidime resistance within one hour. That was about two days ahead of the conventional result, which the hospital says takes two to three days. It suggested levofloxacin; the clinicians made the switch and the antibiotic did the curing. The hospital puts the model's accuracy at 92% and argues each hour of delayed effective therapy in sepsis raises mortality by 7.6%. The case is reported only by the treating hospital, without independent review, and the counterfactual is earlier rather than different treatment."
-            }
-          }
+          "kind": "text",
+          "text": "The reported contribution was an earlier resistance warning and antibiotic suggestion. The antibiotic and clinical care treated the infection."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ai_role"
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reported contribution was an earlier resistance warning and antibiotic suggestion. The antibiotic and clinical care treated the infection."
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -285,7 +346,7 @@
             "category": "harm prevented",
             "ai_role": {
               "status": "assessed",
-              "statement": "The platform's model read the isolate's routine MALDI-TOF spectrum and predicted ceftazidime resistance within one hour. That was about two days ahead of the conventional result, which the hospital says takes two to three days. It suggested levofloxacin; the clinicians made the switch and the antibiotic did the curing. The hospital puts the model's accuracy at 92% and argues each hour of delayed effective therapy in sepsis raises mortality by 7.6%. The case is reported only by the treating hospital, without independent review, and the counterfactual is earlier rather than different treatment."
+              "statement": "The platform analyzed a bacterial mass spectrum to predict resistance and suggest an alternative antibiotic. Clinicians selected and administered treatment. The hospital attributes earlier selection to the system, but the available account cannot isolate its effect on survival."
             }
           }
         },
@@ -302,125 +363,204 @@
         "coverage": "partial"
       },
       "assessments[].alternatives": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "assessments[].assessor_date": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "assessments[].depth": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ratings": [
-              {
-                "group": "personal",
-                "depth": 4,
-                "reason": "The hospital describes a patient in mortal danger from sepsis and severe pneumonia caused by a multidrug-resistant organism it says carries 33% mortality. She was on an antibiotic the model predicted ineffective. After the switch she improved within a week, was extubated and discharged, and the hospital calls the rescue timely and life-saving. This rests on the treating hospital's account at its press conference."
-              }
-            ]
-          }
+          "kind": "text",
+          "text": "Depth 5 would imply stronger evidence that the intervention preserved a life. Platform-wide forecasts do not increase this patient’s grade."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "curatorial",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Depth 5 would imply stronger evidence that the intervention preserved a life. Platform-wide forecasts do not increase this patient’s grade."
+        }
       },
-      "assessments[].display_confidence": {
+      "assessments[].assessor_date": {
         "state": "value_present",
         "value": {
           "kind": "structured",
           "data": {
-            "confidence": "medium",
-            "evidence_word": "reported",
-            "claim_status": "Independently reported",
-            "basis": "Sources: four independent news reports and two peer-reviewed studies from the makers. The cited evidence includes no independent study or report and no finding by a regulator or court.",
-            "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
+            "assessor": "AIBD, AI-assisted source review",
+            "date": "2026-10-25"
           }
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
+          "basis": "Review of the sources listed in the lineage assessment.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD, 25 October 2026."
+        }
+      },
+      "assessments[].depth": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "ratings": [
+              {
+                "group": "personal",
+                "depth": 4,
+                "reason": "The treating hospital described timely treatment of a severe infection, followed by recovery and discharge. The account does not establish a counterfactual life saved."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Local five-level depth rubric; CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Depth 4 for the reported resolution of a serious condition."
+        }
+      },
+      "assessments[].display_confidence": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The original clinical evidence comes from the treating hospital, including its testimony reported by news outlets. The outline is appropriate."
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The original clinical evidence comes from the treating hospital, including its testimony reported by news outlets. The outline is appropriate."
+        }
       },
       "assessments[].rationale": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ratings": [
-              {
-                "group": "personal",
-                "depth": 4,
-                "reason": "The hospital describes a patient in mortal danger from sepsis and severe pneumonia caused by a multidrug-resistant organism it says carries 33% mortality. She was on an antibiotic the model predicted ineffective. After the switch she improved within a week, was extubated and discharged, and the hospital calls the rescue timely and life-saving. This rests on the treating hospital's account at its press conference."
-              }
-            ]
-          }
+          "kind": "text",
+          "text": "Depth 4 for the reported resolution of a serious condition."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "curatorial",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Depth 4 for the reported resolution of a serious condition."
+        }
       },
       "assessments[].rubric_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "AIBD’s five-level depth rubric, reviewed on 25 October 2026."
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Local methodology; no separately numbered rubric version is published.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD’s five-level depth rubric, reviewed on 25 October 2026."
+        }
       },
       "assessments[].status_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The depth describes the reported result. Evidence strength is assessed separately."
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The depth describes the reported result. Evidence strength is assessed separately."
+        }
       },
       "assessments[].target": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ratings": [
-              {
-                "group": "personal",
-                "depth": 4,
-                "reason": "The hospital describes a patient in mortal danger from sepsis and severe pneumonia caused by a multidrug-resistant organism it says carries 33% mortality. She was on an antibiotic the model predicted ineffective. After the switch she improved within a week, was extubated and discharged, and the hospital calls the rescue timely and life-saving. This rests on the treating hospital's account at its press conference."
-              }
-            ]
-          }
+          "kind": "text",
+          "text": "The benefit described here, for the beneficiary groups shown."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "curatorial",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The benefit described here, for the beneficiary groups shown."
+        }
       },
       "availability": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The platform was in clinical use at the hospital in 2022. The patient account does not establish public or commercial access to that version."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The platform was in clinical use at the hospital in 2022. The patient account does not establish public or commercial access to that version."
+        }
       },
       "brief": {
         "state": "not_assessed",
@@ -428,9 +568,25 @@
         "coverage": "partial"
       },
       "case_kind": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A treating hospital’s account of one patient, with separate information about the wider platform."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A treating hospital’s account of one patient, with separate information about the wider platform."
+        }
       },
       "case_links[]": {
         "state": "not_assessed",
@@ -438,202 +594,722 @@
         "coverage": "partial"
       },
       "claims[].evidence_links": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "patient_recovery": {
+              "url": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8151",
+              "locator": "Patient narrative and clinical-image captions"
+            },
+            "early_July_extubation": {
+              "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
+              "locator": "Paragraph quoting superintendent Cho"
+            },
+            "drug_spending": {
+              "url": "https://www.cmuh.org.tw/FileUploads/FileUpload/2022%E4%B8%AD%E5%9C%8B%E9%86%ABCSR%28ESG%29_PDF.pdf",
+              "locator": "p. 37"
+            },
+            "model_publication": {
+              "url": "https://doi.org/10.1016/j.jinf.2022.09.005",
+              "locator": "Bibliographic metadata only; full text inaccessible"
+            }
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0002",
+            "AIBD-0114-source-0004",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital supports the clinical account. Its report provides separate figures about the wider platform."
+        }
       },
       "claims[].evidence_strength": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A firsthand hospital account, supplemented by reporting from its press conference. The clinical outcome has not been independently verified in the reviewed materials."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A firsthand hospital account, supplemented by reporting from its press conference. The clinical outcome has not been independently verified in the reviewed materials."
+        }
       },
       "claims[].missingness": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The exact deployed model, release, configuration, and patient-level treatment record remain unavailable. The source does not quantify this woman’s financial benefit."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The exact deployed model, release, configuration, and patient-level treatment record remain unavailable. The source does not quantify this woman’s financial benefit."
+        }
       },
       "claims[].proposition": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The platform predicted antibiotic resistance before clinicians changed treatment, after which the patient recovered."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The platform predicted antibiotic resistance before clinicians changed treatment, after which the patient recovered."
+        }
       },
       "cross_border_flows[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not document international transfers of patient data or quantify cross-border financial flows.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed sources do not document international transfers of patient data or quantify cross-border financial flows."
+        }
       },
       "decisions[].action_outcome": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The hospital introduced the platform in 2022 and reported more than 100,000 uses by October. Its publications differ on whether rollout began in January or February."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Hospital rollout and projection paragraphs; 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital introduced the platform in 2022 and reported more than 100,000 uses by October. Its publications differ on whether rollout began in January or February."
+        }
       },
       "decisions[].grounds": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Hospital leaders described delayed susceptibility results and the consequences of inappropriate treatment."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Hospital rollout and projection paragraphs; 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Hospital leaders described delayed susceptibility results and the consequences of inappropriate treatment."
+        }
       },
       "decisions[].institution_task": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "China Medical University Hospital sought faster resistance predictions and earlier selection of antibiotics."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Hospital rollout and projection paragraphs; 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "China Medical University Hospital sought faster resistance predictions and earlier selection of antibiotics."
+        }
       },
       "decisions[].success_criterion": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The hospital described faster laboratory results and reduced drug spending. Its five-year mortality and medication-error figures were forecasts."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Hospital rollout and projection paragraphs; 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital described faster laboratory results and reduced drug spending. Its five-year mortality and medication-error figures were forecasts."
+        }
       },
       "deployment_stage": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Clinical use at China Medical University Hospital in 2022."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Clinical use at China Medical University Hospital in 2022."
+        }
       },
       "economics[].amount": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "hospital_report": {
+              "inpatient_drug_spending_reduction_percent": [
+                30,
+                40
+              ],
+              "comparison": "Corresponding period of 2021"
+            },
+            "press_quote": {
+              "annual_antibiotic_spending_reduction_raw": "千萬",
+              "numeric_reading": 10000000,
+              "currency_explicitly_stated": false,
+              "realization_uncertain": true
+            },
+            "scope": "Entire platform, not this patient",
+            "fructus_status_recommendation": "context or review queue pending monetary base, currency, and attribution review"
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH 2022 sustainability report, p. 37; Liberty Times, final paragraph.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital reports 30–40% lower inpatient drug spending. A news report quotes annual savings of “10 million,” without stating a currency or calculation."
+        }
       },
       "economics[].costs[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Implementation and operating costs are not reported alongside the savings."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH 2022 sustainability report, p. 37; Liberty Times, final platform paragraph.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Implementation and operating costs are not reported alongside the savings."
+        }
       },
       "economics[].counterfactual": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The hospital report uses the corresponding period of 2021. It does not describe adjustment for changes in patients or treatment."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH 2022 sustainability report, p. 37; Liberty Times, final platform paragraph.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital report uses the corresponding period of 2021. It does not describe adjustment for changes in patients or treatment."
+        }
       },
       "economics[].currency_price_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "unresolved",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Liberty Times, final paragraph; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The annual figure does not state its currency or price year. The hospital report gives only percentages.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The annual figure does not state its currency or price year. The hospital report gives only percentages.",
+          "editor_note": "New Taiwan dollars are a plausible reading because the report concerns a Taiwanese hospital’s domestic drug spending. The cited sentence does not name the currency, so no conversion has been applied."
+        }
       },
       "economics[].gross_net": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The figures concern drug spending. They do not subtract development, equipment, staffing, or operating costs."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH 2022 sustainability report, p. 37; Liberty Times, final platform paragraph.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The figures concern drug spending. They do not subtract development, equipment, staffing, or operating costs."
+        }
       },
       "economics[].measure_type": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Reported reductions in drug spending across the hospital’s platform."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH 2022 sustainability report, p. 37; Liberty Times, final platform paragraph.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Reported reductions in drug spending across the hospital’s platform."
+        }
       },
       "economics[].period_unit": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The hospital compared the period after rollout in 2022 with the corresponding period in 2021. A separate news account gives an annual figure."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH 2022 sustainability report, p. 37; Liberty Times, final platform paragraph.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital compared the period after rollout in 2022 with the corresponding period in 2021. A separate news account gives an annual figure."
+        }
       },
       "economics[].realization": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The sustainability report presents the spending reduction as observed. The annual figure’s calculation and period of observation are unclear."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH 2022 sustainability report, p. 37; Liberty Times, final platform paragraph.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The sustainability report presents the spending reduction as observed. The annual figure’s calculation and period of observation are unclear."
+        }
       },
       "economics[].recipient_payer": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The hospital describes lower inpatient drug spending. It does not allocate the saving between the insurer, hospital, and patients."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH 2022 sustainability report, p. 37; Liberty Times, final platform paragraph.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital describes lower inpatient drug spending. It does not allocate the saving between the insurer, hospital, and patients."
+        }
       },
       "economics[].return_payback": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The sources do not calculate net return or a payback period."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH 2022 sustainability report, p. 37; Liberty Times, final platform paragraph.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The sources do not calculate net return or a payback period."
+        }
       },
       "economics[].valuation_method": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The report states a percentage reduction without publishing the underlying spending amounts, denominators, or calculation."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH 2022 sustainability report, p. 37; Liberty Times, final platform paragraph.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The report states a percentage reduction without publishing the underlying spending amounts, denominators, or calculation."
+        }
       },
       "evaluations[].ai_uplift": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The evidence supports the system’s role in selecting treatment earlier. It does not establish what would have happened without that warning."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The evidence supports the system’s role in selecting treatment earlier. It does not establish what would have happened without that warning."
+        }
       },
       "evaluations[].comparator": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The hospital’s stated turnaround for conventional susceptibility testing. There was no controlled comparison of this patient’s recovery."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital’s stated turnaround for conventional susceptibility testing. There was no controlled comparison of this patient’s recovery."
+        }
       },
       "evaluations[].design": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A single-patient clinical account without a control. The hospital also reported separate, aggregate observations about its platform."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A single-patient clinical account without a control. The hospital also reported separate, aggregate observations about its platform."
+        }
       },
       "evaluations[].effect": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The resistance prediction was available within an hour. Clinicians changed the antibiotic, and the patient later recovered and was discharged."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The resistance prediction was available within an hour. Clinicians changed the antibiotic, and the patient later recovered and was discharged."
+        }
       },
       "evaluations[].exposure": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The admission began in April 2022, pneumonia developed in late May, and discharge occurred in late July. The exact date of the AI warning is not established."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The admission began in April 2022, pneumonia developed in late May, and discharge occurred in late July. The exact date of the AI warning is not established."
+        }
       },
       "evaluations[].id": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "CMUH clinical account, NewsArticle 8151"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "CMUH clinical account, NewsArticle 8151"
+        }
       },
       "evaluations[].measurement_method": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The hospital described the laboratory warning, antibiotic change, improvement, extubation, and discharge. Public reports do not include the full medical record."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital described the laboratory warning, antibiotic change, improvement, extubation, and discharge. Public reports do not include the full medical record."
+        }
       },
       "evaluations[].metric": {
-        "state": "not_assessed",
-        "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "metric"
-          ],
-          "source_refs": []
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Time to a resistance prediction and the patient’s subsequent clinical recovery."
         },
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
         "display": {
-          "answer": "flagged ceftazidime resistance in 1 hour",
-          "editor_note": ""
+          "answer": "Time to a resistance prediction and the patient’s subsequent clinical recovery."
         }
       },
       "evaluations[].reproduction_materials": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The hospital reproduces a figure from its resistance-model letter. The reviewed public materials do not provide model code, weights, or patient-level data."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital reproduces a figure from its resistance-model letter. The reviewed public materials do not provide model code, weights, or patient-level data."
+        }
       },
       "evaluations[].setting_sample": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "One patient at China Medical University Hospital. The hospital separately reported more than 100,000 uses of its platform."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "One patient at China Medical University Hospital. The hospital separately reported more than 100,000 uses of its platform."
+        }
       },
       "evaluations[].uncertainty_limitations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The clinical evidence comes from the treating hospital. News reports repeat its account. The original resistance-model letter could be identified but not read in full."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The clinical evidence comes from the treating hospital. News reports repeat its account. The original resistance-model letter could be identified but not read in full."
+        }
       },
       "external_references[]": {
         "state": "value_present",
@@ -659,32 +1335,44 @@
       "follow_up[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "later": {
-              "status": "persisted",
-              "date": "2022-10-26",
-              "note": "When the hospital presented the case in October 2022 it said the platform, in use since February 2022, had already been applied more than 100,000 times.",
-              "quote": "中國醫藥大學附設醫院智抗菌平台在周德陽院長帶領下（圖中），自2022年2月起導入「智抗菌平台」，已有超過十萬人次應用。",
-              "url": "https://www.top1health.com/Article/240/90334"
-            }
-          }
+          "kind": "text",
+          "text": "The hospital’s 2022 report describes lower inpatient drug spending across the platform. It provides no later follow-up on this woman."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "later"
+          "kind": "source_review",
+          "basis": "2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0005"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital’s 2022 report describes lower inpatient drug spending across the platform. It provides no later follow-up on this woman."
+        }
       },
       "human_oversight": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Laboratory staff prepared and identified the isolate. Physicians interpreted the warning and made the treatment decision."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Laboratory staff prepared and identified the isolate. Physicians interpreted the warning and made the treatment decision."
+        }
       },
       "id": {
         "state": "value_present",
@@ -706,19 +1394,72 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The service depended on a microbiology laboratory, MALDI-TOF mass spectrometry, susceptibility records, clinical staff, and an available alternative antibiotic."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The service depended on a microbiology laboratory, MALDI-TOF mass spectrometry, susceptibility records, clinical staff, and an available alternative antibiotic."
+        }
       },
       "outcomes[].beneficiaries": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "One 78-year-old woman with severe pneumonia, diabetes, hypertension, and chronic kidney disease."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "One 78-year-old woman with severe pneumonia, diabetes, hypertension, and chronic kidney disease."
+        }
       },
       "outcomes[].beneficiary_count": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "documented_patients": 1,
+            "platform_uses_lower_bound": 100000,
+            "uses_are_not_unique_beneficiaries": true,
+            "patient_name": "Pseudonym in the source; no legal name recorded."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Hospital patient narrative and rollout paragraph.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "One reported recovery. The hospital’s figure of more than 100,000 platform uses is not a count of distinct beneficiaries."
+        }
       },
       "outcomes[].benefit_type": {
         "state": "value_present",
@@ -744,73 +1485,153 @@
       "outcomes[].claim": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "A 78-year-old woman with diabetes, hypertension and chronic kidney disease was admitted to China Medical University Hospital, Taichung, Taiwan, in mid-April 2022 with swollen legs. She developed rhabdomyolysis, acute kidney failure and coma and was intubated. In late May she got pneumonia, treated with ceftazidime while sputum culture confirmed Stenotrophomonas maltophilia. The hospital's 智抗菌平台 (Intelligent Anti-bacterial Platform), a machine-learning model on routine MALDI-TOF mass spectra, predicted within one hour the isolate was ceftazidime-resistant and suggested levofloxacin. The team switched and the lung infection improved within a week. She was extubated in early July and went home in late July 2022. The hospital presented the case on 26 October 2022.",
-            "benefit_type": "Improved Physical Health"
-          }
+          "kind": "text",
+          "text": "The hospital reported that an early resistance warning helped clinicians change the antibiotic before the woman recovered."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "benefit_type"
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital reported that an early resistance warning helped clinicians change the antibiotic before the woman recovered."
+        }
       },
       "outcomes[].distribution": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The reported clinical result concerns one patient at one hospital. Platform-wide usage does not count confirmed individual benefits."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reported clinical result concerns one patient at one hospital. Platform-wide usage does not count confirmed individual benefits."
+        }
       },
       "outcomes[].duration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The woman went home in late July 2022. The sources do not report her subsequent health."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The woman went home in late July 2022. The sources do not report her subsequent health."
+        }
       },
       "outcomes[].id": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "AIBD-0114-outcome-01"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD-0114-outcome-01"
+        }
       },
       "outcomes[].stakeholder_group": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ratings": [
-              {
-                "group": "personal",
-                "depth": 4,
-                "reason": "The hospital describes a patient in mortal danger from sepsis and severe pneumonia caused by a multidrug-resistant organism it says carries 33% mortality. She was on an antibiotic the model predicted ineffective. After the switch she improved within a week, was extubated and discharged, and the hospital calls the rescue timely and life-saving. This rests on the treating hospital's account at its press conference."
-              }
+          "kind": "structured",
+          "data": {
+            "groups": [
+              "personal"
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "curatorial",
+          "basis": "The beneficiary groups correspond to the reviewed depth assessments.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "People."
+        }
       },
       "outcomes[].status": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Recovery was reported by the treating hospital. The platform’s five-year mortality forecasts were intended benefits."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Recovery was reported by the treating hospital. The platform’s five-year mortality forecasts were intended benefits."
+        }
       },
       "outcomes[].tradeoffs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The account does not report false predictions, adverse effects of the antibiotic change, or the full costs of the system."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The account does not report false predictions, adverse effects of the antibiotic change, or the full costs of the system."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -818,7 +1639,7 @@
           "kind": "record_fields",
           "fields": {
             "unexpected": false,
-            "purpose": "The platform's core, the 智能抗藥性細菌快速預測系統 (intelligent rapid prediction system for antibiotic-resistant bacteria), was built to predict resistance from routine MALDI-TOF spectra within an hour. That replaces the two to three days the hospital gives for conventional susceptibility testing, so an effective antibiotic is given earlier. This case is that intended use."
+            "purpose": "Help clinicians select an effective antibiotic sooner by predicting resistance from routine mass spectra."
           }
         },
         "provenance": {
@@ -836,32 +1657,30 @@
       "places[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "location": "Taichung, Taiwan",
-            "developer_country": "Taiwan",
-            "deployer_country": "Taiwan"
-          }
+          "kind": "text",
+          "text": "Taichung, Taiwan, where the platform was developed and the patient was treated."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "location",
-            "developer_country",
-            "deployer_country"
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Taichung, Taiwan, where the platform was developed and the patient was treated."
+        }
       },
       "purpose": {
         "state": "value_present",
         "value": {
           "kind": "record_fields",
           "fields": {
-            "purpose": "The platform's core, the 智能抗藥性細菌快速預測系統 (intelligent rapid prediction system for antibiotic-resistant bacteria), was built to predict resistance from routine MALDI-TOF spectra within an hour. That replaces the two to three days the hospital gives for conventional susceptibility testing, so an effective antibiotic is given earlier. This case is that intended use."
+            "purpose": "Help clinicians select an effective antibiotic sooner by predicting resistance from routine mass spectra."
           }
         },
         "provenance": {
@@ -878,89 +1697,87 @@
       "record_dates": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "date_observed": "2022-07-01",
-            "revisions": [
-              {
-                "date": "2026-10-20",
-                "change": "Record drafted from the OECD Monitor entry and the cited sources.",
-                "source": "https://oecd.ai/en/incidents/2022-10-25-1879",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Benefit type set to Improved Physical Health under Trustible's full taxonomy of 23 types; it was Improved Organizational Efficiency among the six first used.",
-                "source": "https://trustible.ai/post/a-framework-for-measuring-the-benefits-of-ai/",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Added what the benefit is measured against, what happened since from the cited sources.",
-                "source": "https://health.ltn.com.tw/article/breakingnews/4102412; https://www.top1health.com/Article/240/90334",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
-                "source": "https://en.wikipedia.org/wiki/China_Medical_University_(Taiwan); https://en.wikipedia.org/wiki/China_Medical_University_(Taiwan)",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
-                "editor": "AIBD"
-              }
-            ]
-          }
-        },
-        "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "date_observed",
-            "revisions"
-          ],
-          "source_refs": []
-        },
-        "review_state": "record_mapped",
-        "coverage": "partial"
-      },
-      "replication.attempts[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "replication.conditions": {
-        "state": "value_present",
-        "value": {
-          "kind": "record_fields",
-          "fields": {
-            "replication": {
-              "produced_by": [
-                "The hospital's own laboratory identifies isolates by MALDI-TOF, so a spectrum exists as soon as a culture grows",
-                "A machine-learning classifier trained on the hospital's spectra and susceptibility records for Stenotrophomonas maltophilia and ceftazidime, one of nine species the platform covers",
-                "The platform returns the resistance prediction and a suggested alternative to the treating team within an hour"
-              ],
-              "must_hold": [
-                "The organism and antibiotic are ones the model was trained for",
-                "Clinicians act on the prediction before the conventional susceptibility result arrives",
-                "An effective alternative antibiotic is available and tolerated by the patient"
-              ],
-              "echoes": []
+          "kind": "structured",
+          "data": {
+            "admission": {
+              "year": 2022,
+              "month": 4,
+              "qualifier": "mid-month"
+            },
+            "pneumonia": {
+              "year": 2022,
+              "month": 5,
+              "qualifier": "late month"
+            },
+            "discharge": {
+              "year": 2022,
+              "month": 7,
+              "qualifier": "late month",
+              "precision": "month"
+            },
+            "press_conference": "2022-10-26",
+            "hospital_article": "2022-10-31",
+            "rollout_conflict": {
+              "hospital_article": "February 2022",
+              "sustainability_report": "January 2022"
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "replication"
+          "kind": "source_review",
+          "basis": "Hospital narrative; CNA report; 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0002",
+            "AIBD-0114-source-0005"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The woman went home in late July 2022. The hospital presented the case on 26 October and published its account on 31 October."
+        }
+      },
+      "replication.attempts[]": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report an independent repetition of this clinical result.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed sources do not report an independent repetition of this clinical result."
+        }
+      },
+      "replication.conditions": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The laboratory needed a suitable isolate and mass spectrum, and clinicians needed a timely warning and an effective alternative antibiotic."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The laboratory needed a suitable isolate and mass spectrum, and clinicians needed a timely warning and an effective alternative antibiotic."
+        }
       },
       "revision_history[]": {
         "state": "value_present",
@@ -995,6 +1812,12 @@
               {
                 "date": "2026-10-21",
                 "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Reviewed the original evidence and supporting material; updated system details, methods, outcomes, limitations, costs, and source lineage.",
+                "source": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8151",
                 "editor": "AIBD"
               }
             ]
@@ -1033,101 +1856,177 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "sources[].citation_locator": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "evidence": [
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "versions_and_access": [
               {
-                "kind": "news report",
-                "citation": "中央社 (Central News Agency), 記者郝雪卿 (2022). 78歲婦人感染超級細菌命危 AI質譜儀輔助治療. CNA, Taichung, 26 October 2022, reporting the hospital's press conference and quoting superintendent 周德陽 and vice-superintendent 薛博仁.",
-                "title": "78歲婦人感染超級細菌命危 AI質譜儀輔助治療",
-                "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "關鍵1小時內運用智抗菌平台啟用AI質譜儀輔助分析，選出正確藥物"
+                "source_ref": "AIBD-0114-source-0001",
+                "source_url": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8151",
+                "access_url": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8151",
+                "locator": "Patient narrative; captions; rollout paragraph; five-year projections.",
+                "status": "Original text read.",
+                "reviewed_on": "2026-10-25"
               },
               {
-                "kind": "news report",
-                "citation": "中央社 (Central News Agency), 記者郝雪卿 (2022). CNA, 26 October 2022 (second quotation, on the outcome).",
-                "title": "78歲婦人感染超級細菌命危 AI質譜儀輔助治療",
-                "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "患者後續肺部浸潤改善，7月上旬順利拔管後，康復出院"
+                "source_ref": "AIBD-0114-source-0002",
+                "source_url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
+                "access_url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
+                "locator": "Paragraphs describing the 26 October press conference and early-July extubation.",
+                "status": "Original text read.",
+                "reviewed_on": "2026-10-25"
               },
               {
-                "kind": "news report",
-                "citation": "自由健康網 (Liberty Times), 記者蔡淑媛 (2022). 7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命. Liberty Times, Taichung, 26 October 2022, quoting 周德陽 and 薛博仁.",
-                "title": "7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命",
-                "url": "https://health.ltn.com.tw/article/breakingnews/4102412",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "1小時能快速預測有抗藥性，準確率達92%"
+                "source_ref": "AIBD-0114-source-0003",
+                "source_url": "https://health.ltn.com.tw/article/breakingnews/4102412",
+                "access_url": "https://health.ltn.com.tw/article/breakingnews/4102412",
+                "locator": "Paragraph quoting Hsueh; final platform paragraph.",
+                "status": "Original text read.",
+                "reviewed_on": "2026-10-25"
               },
               {
-                "kind": "news report",
-                "citation": "自由健康網 (Liberty Times), 記者蔡淑媛 (2022). Liberty Times, 26 October 2022 (second quotation, on the drug switch).",
-                "title": "7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命",
-                "url": "https://health.ltn.com.tw/article/breakingnews/4102412",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "醫療團隊發現原先用藥有抗藥性，立刻換上無抗藥性的抗生素"
+                "source_ref": "AIBD-0114-source-0004",
+                "source_url": "https://doi.org/10.1016/j.jinf.2022.09.005",
+                "access_url": "https://scholars.lib.ntu.edu.tw/entities/publication/a5dab231-119a-453f-820f-9d2adcf111e2",
+                "locator": "Bibliographic record and the hospital’s reproduced figure.",
+                "status": "Metadata inspected; full letter unavailable through the publisher and institutional repository. No unseen model settings or performance are asserted.",
+                "reviewed_on": "2026-10-25"
               },
               {
-                "kind": "news report",
-                "citation": "華人健康網 (Top1Health), 記者黃曼瑩 (2022). 8旬嬤感染「超級細菌」陷昏迷…AI質譜儀快找抗藥性，阻止病情惡化. 26 October 2022.",
-                "title": "8旬嬤感染「超級細菌」陷昏迷…AI質譜儀快找抗藥性，阻止病情惡化",
-                "url": "https://www.top1health.com/Article/240/90334",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "1小時內即預測該超級細菌對抗生素Ceftazidime具有其抗藥性"
-              },
-              {
-                "kind": "news report",
-                "citation": "中天新聞網 (CTi News), 記者藍麗琪 (2022). 八旬老婦感染「超級細菌」 黃金救命關鍵1小時 靠AI精準選藥「成功續命」！. Syndicated on Yahoo奇摩新聞, 26 October 2022.",
-                "title": "八旬老婦感染「超級細菌」 黃金救命關鍵1小時 靠AI精準選藥「成功續命」！",
-                "url": "https://tw.news.yahoo.com/%E5%85%AB%E6%97%AC%E8%80%81%E5%A9%A6%E6%84%9F%E6%9F%93-%E8%B6%85%E7%B4%9A%E7%B4%B0%E8%8F%8C-%E9%BB%83%E9%87%91%E6%95%91%E5%91%BD%E9%97%9C%E9%8D%B51%E5%B0%8F%E6%99%82-%E9%9D%A0ai%E7%B2%BE%E6%BA%96%E9%81%B8%E8%97%A5-%E6%88%90%E5%8A%9F%E7%BA%8C%E5%91%BD-020303572.html",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "系統並建議改用氟喹諾酮類抗生素（levofloxacin）"
-              },
-              {
-                "kind": "peer-reviewed study",
-                "citation": "Yu J, Lin HH, Tseng KH, Tien N, Hsueh PR, Cho DY (2023). Direct prediction of ceftazidime-resistant Stenotrophomonas maltophilia from routine MALDI-TOF mass spectra using machine learning. Journal of Infection 86(2): e58-e60, letter, online 9 September 2022, doi:10.1016/j.jinf.2022.09.005. All authors at China Medical University Hospital; the letter has no abstract, so its keywords are quoted.",
-                "title": "Direct prediction of ceftazidime-resistant Stenotrophomonas maltophilia from routine MALDI-TOF mass spectra using machine learning",
-                "url": "https://doi.org/10.1016/j.jinf.2022.09.005",
-                "date": "2022-09-09",
-                "written_by": "makers",
-                "quote": "Ceftazidime; Levofloxacin; Stenotrophomonas maltophilia; Machine Learning; Maldi–tof Mass Spectra"
-              },
-              {
-                "kind": "peer-reviewed study",
-                "citation": "Yu J, Tien N, Liu YC, Cho DY, Chen JW, Tsai YT, Huang YC, Chao HJ, Chen CJ (2022). Rapid Identification of Methicillin-Resistant Staphylococcus aureus Using MALDI-TOF MS and Machine Learning from over 20,000 Clinical Isolates. Microbiology Spectrum 10(2): e00483-22, online 16 March 2022, doi:10.1128/spectrum.00483-22. Validation of the platform's MRSA model, not of the S. maltophilia model used in this case.",
-                "title": "Rapid Identification of Methicillin-Resistant Staphylococcus aureus Using MALDI-TOF MS and Machine Learning from over 20,000 Clinical Isolates",
-                "url": "https://doi.org/10.1128/spectrum.00483-22",
-                "date": "2022-03-16",
-                "written_by": "makers",
-                "quote": "For the data set comprising 20,359 clinical isolates, the area under the receiver operating curve of the classification model was 0.78 to 0.88."
+                "source_ref": "AIBD-0114-source-0005",
+                "source_url": "https://www.cmuh.org.tw/FileUploads/FileUpload/2022%E4%B8%AD%E5%9C%8B%E9%86%ABCSR%28ESG%29_PDF.pdf",
+                "access_url": "https://www.cmuh.org.tw/FileUploads/FileUpload/2022%E4%B8%AD%E5%9C%8B%E9%86%ABCSR%28ESG%29_PDF.pdf",
+                "locator": "Printed p. 37, “預測抗藥細菌，醫療數位轉型.”",
+                "status": "Original text read.",
+                "reviewed_on": "2026-10-25"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "evidence"
+          "kind": "source_review",
+          "basis": "Access records below distinguish full text, supplements, metadata, and inaccessible material.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0002",
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0004",
+            "AIBD-0114-source-0005"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Access and version details are listed for each reviewed source."
+        }
+      },
+      "sources[].citation_locator": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "citations": [
+              {
+                "source_ref": "AIBD-0114-source-0001",
+                "citation": "China Medical University Hospital, “78歲婦人感染超級細菌昏迷 ! AI質譜儀1小時找出有效抗生素 《智抗菌》平臺累積十萬人以上使用 刊登頂尖醫學期刊《Journal of Infection》,” October 31, 2022. Original treating-hospital account, patient narrative and figure captions.",
+                "url": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8151",
+                "date": "2022-10-31"
+              },
+              {
+                "source_ref": "AIBD-0114-source-0002",
+                "citation": "中央社 (Central News Agency), 記者郝雪卿 (2022). 78歲婦人感染超級細菌命危 AI質譜儀輔助治療. CNA, Taichung, 26 October 2022, reporting the hospital's press conference and quoting superintendent 周德陽 and vice-superintendent 薛博仁.",
+                "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
+                "date": "2022-10-26"
+              },
+              {
+                "source_ref": "AIBD-0114-source-0003",
+                "citation": "自由健康網 (Liberty Times), 記者蔡淑媛 (2022). 7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命. Liberty Times, Taichung, 26 October 2022, quoting 周德陽 and 薛博仁.",
+                "url": "https://health.ltn.com.tw/article/breakingnews/4102412",
+                "date": "2022-10-26"
+              },
+              {
+                "source_ref": "AIBD-0114-source-0004",
+                "citation": "Yu J, Lin HH, Tseng KH, Tien N, Hsueh PR, Cho DY (2023). Direct prediction of ceftazidime-resistant Stenotrophomonas maltophilia from routine MALDI-TOF mass spectra using machine learning. Journal of Infection 86(2): e58-e60, letter, online 9 September 2022, doi:10.1016/j.jinf.2022.09.005. All authors at China Medical University Hospital; the letter has no abstract, so its keywords are quoted.",
+                "url": "https://doi.org/10.1016/j.jinf.2022.09.005",
+                "date": "2022-09-09"
+              },
+              {
+                "source_ref": "AIBD-0114-source-0005",
+                "citation": "China Medical University Hospital, 2022 Corporate Sustainability Report, 37, “預測抗藥細菌，醫療數位轉型.” The report identifies i.A.M.S and compares inpatient drug spending with the corresponding period of 2021.",
+                "url": "https://www.cmuh.org.tw/FileUploads/FileUpload/2022%E4%B8%AD%E5%9C%8B%E9%86%ABCSR%28ESG%29_PDF.pdf"
+              }
+            ],
+            "locators": [
+              {
+                "url": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8151",
+                "locator": "Patient narrative; captions; rollout paragraph; five-year projections.",
+                "contribution": "Original clinical account, system role, pseudonym, dates, usage, and intended platform benefits.",
+                "relationship": "Treating hospital and developer.",
+                "source_refs": [
+                  "AIBD-0114-source-0001"
+                ]
+              },
+              {
+                "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
+                "locator": "Paragraphs describing the 26 October press conference and early-July extubation.",
+                "contribution": "Earlier public report and an additional clinical timing detail.",
+                "relationship": "Reporter-authored account of firsthand deployer testimony; retained for chronology and extubation timing, not independent clinical verification.",
+                "source_refs": [
+                  "AIBD-0114-source-0002"
+                ]
+              },
+              {
+                "url": "https://health.ltn.com.tw/article/breakingnews/4102412",
+                "locator": "Paragraph quoting Hsueh; final platform paragraph.",
+                "contribution": "Reported conventional turnaround, one-week improvement, accuracy claim, and annual drug-spending figure.",
+                "relationship": "Reporter-authored account of firsthand deployer testimony; adds turnaround and spending details, not a second clinical evaluation.",
+                "source_refs": [
+                  "AIBD-0114-source-0003"
+                ]
+              },
+              {
+                "url": "https://doi.org/10.1016/j.jinf.2022.09.005",
+                "locator": "Bibliographic record and the hospital’s reproduced figure.",
+                "contribution": "Identifies the original S. maltophilia resistance-model publication.",
+                "relationship": "Study by the hospital team.",
+                "source_refs": [
+                  "AIBD-0114-source-0004"
+                ]
+              },
+              {
+                "url": "https://www.cmuh.org.tw/FileUploads/FileUpload/2022%E4%B8%AD%E5%9C%8B%E9%86%ABCSR%28ESG%29_PDF.pdf",
+                "locator": "Printed p. 37, “預測抗藥細菌，醫療數位轉型.”",
+                "contribution": "Names i.A.M.S; reports spending and turnaround changes; distinguishes projected five-year benefits.",
+                "relationship": "Hospital’s original sustainability report, not independent evaluation.",
+                "source_refs": [
+                  "AIBD-0114-source-0005"
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Reviewed source metadata and contribution-specific locators.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0002",
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0004",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Original citations and the passages that support each finding."
+        }
       },
       "sources[].id": {
         "state": "value_present",
@@ -1138,123 +2037,177 @@
             "AIBD-0114-source-0002",
             "AIBD-0114-source-0003",
             "AIBD-0114-source-0004",
-            "AIBD-0114-source-0005",
-            "AIBD-0114-source-0006",
-            "AIBD-0114-source-0007",
-            "AIBD-0114-source-0008"
+            "AIBD-0114-source-0005"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained sources"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "basis": "Identifiers correspond to the retained source order.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "complete"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "5 retained sources."
+        }
       },
       "sources[].language": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The hospital account, report, and news articles are in Traditional Chinese. The model letter’s metadata is in English. Summaries were translated from the Chinese sources."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Reviewed source languages.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0002",
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0004",
+            "AIBD-0114-source-0005"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital account, report, and news articles are in Traditional Chinese. The model letter’s metadata is in English. Summaries were translated from the Chinese sources."
+        }
       },
       "sources[].relationship": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "evidence": [
+          "kind": "text",
+          "text": "The hospital is the original clinical source. CNA and Liberty Times add reported details from its clinicians, without independent clinical verification. Their evidence relationship is therefore the deployer’s testimony."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Hospital account; CNA and Liberty Times reports.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0002",
+            "AIBD-0114-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital is the original clinical source. CNA and Liberty Times add reported details from its clinicians, without independent clinical verification. Their evidence relationship is therefore the deployer’s testimony."
+        }
+      },
+      "sources[].upstream_sources": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "lead_source_ref": "AIBD-0114-source-0001",
+            "retained_source_order": [
+              "AIBD-0114-source-0001",
+              "AIBD-0114-source-0002",
+              "AIBD-0114-source-0003",
+              "AIBD-0114-source-0004",
+              "AIBD-0114-source-0005"
+            ],
+            "origins": [
               {
-                "kind": "news report",
-                "citation": "中央社 (Central News Agency), 記者郝雪卿 (2022). 78歲婦人感染超級細菌命危 AI質譜儀輔助治療. CNA, Taichung, 26 October 2022, reporting the hospital's press conference and quoting superintendent 周德陽 and vice-superintendent 薛博仁.",
-                "title": "78歲婦人感染超級細菌命危 AI質譜儀輔助治療",
+                "url": "https://www.cmuh.cmu.edu.tw/NewsInfo/NewsArticle?no=8151",
+                "locator": "Patient narrative; captions; rollout paragraph; five-year projections.",
+                "contribution": "Original clinical account, system role, pseudonym, dates, usage, and intended platform benefits.",
+                "relationship": "Treating hospital and developer.",
+                "source_refs": [
+                  "AIBD-0114-source-0001"
+                ]
+              },
+              {
                 "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "關鍵1小時內運用智抗菌平台啟用AI質譜儀輔助分析，選出正確藥物"
+                "locator": "Paragraphs describing the 26 October press conference and early-July extubation.",
+                "contribution": "Earlier public report and an additional clinical timing detail.",
+                "relationship": "Reporter-authored account of firsthand deployer testimony; retained for chronology and extubation timing, not independent clinical verification.",
+                "source_refs": [
+                  "AIBD-0114-source-0002"
+                ]
               },
               {
-                "kind": "news report",
-                "citation": "中央社 (Central News Agency), 記者郝雪卿 (2022). CNA, 26 October 2022 (second quotation, on the outcome).",
-                "title": "78歲婦人感染超級細菌命危 AI質譜儀輔助治療",
-                "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "患者後續肺部浸潤改善，7月上旬順利拔管後，康復出院"
-              },
-              {
-                "kind": "news report",
-                "citation": "自由健康網 (Liberty Times), 記者蔡淑媛 (2022). 7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命. Liberty Times, Taichung, 26 October 2022, quoting 周德陽 and 薛博仁.",
-                "title": "7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命",
                 "url": "https://health.ltn.com.tw/article/breakingnews/4102412",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "1小時能快速預測有抗藥性，準確率達92%"
+                "locator": "Paragraph quoting Hsueh; final platform paragraph.",
+                "contribution": "Reported conventional turnaround, one-week improvement, accuracy claim, and annual drug-spending figure.",
+                "relationship": "Reporter-authored account of firsthand deployer testimony; adds turnaround and spending details, not a second clinical evaluation.",
+                "source_refs": [
+                  "AIBD-0114-source-0003"
+                ]
               },
               {
-                "kind": "news report",
-                "citation": "自由健康網 (Liberty Times), 記者蔡淑媛 (2022). Liberty Times, 26 October 2022 (second quotation, on the drug switch).",
-                "title": "7旬嬤感染超級細菌命危 AI預測有抗藥性趕緊換藥救命",
-                "url": "https://health.ltn.com.tw/article/breakingnews/4102412",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "醫療團隊發現原先用藥有抗藥性，立刻換上無抗藥性的抗生素"
-              },
-              {
-                "kind": "news report",
-                "citation": "華人健康網 (Top1Health), 記者黃曼瑩 (2022). 8旬嬤感染「超級細菌」陷昏迷…AI質譜儀快找抗藥性，阻止病情惡化. 26 October 2022.",
-                "title": "8旬嬤感染「超級細菌」陷昏迷…AI質譜儀快找抗藥性，阻止病情惡化",
-                "url": "https://www.top1health.com/Article/240/90334",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "1小時內即預測該超級細菌對抗生素Ceftazidime具有其抗藥性"
-              },
-              {
-                "kind": "news report",
-                "citation": "中天新聞網 (CTi News), 記者藍麗琪 (2022). 八旬老婦感染「超級細菌」 黃金救命關鍵1小時 靠AI精準選藥「成功續命」！. Syndicated on Yahoo奇摩新聞, 26 October 2022.",
-                "title": "八旬老婦感染「超級細菌」 黃金救命關鍵1小時 靠AI精準選藥「成功續命」！",
-                "url": "https://tw.news.yahoo.com/%E5%85%AB%E6%97%AC%E8%80%81%E5%A9%A6%E6%84%9F%E6%9F%93-%E8%B6%85%E7%B4%9A%E7%B4%B0%E8%8F%8C-%E9%BB%83%E9%87%91%E6%95%91%E5%91%BD%E9%97%9C%E9%8D%B51%E5%B0%8F%E6%99%82-%E9%9D%A0ai%E7%B2%BE%E6%BA%96%E9%81%B8%E8%97%A5-%E6%88%90%E5%8A%9F%E7%BA%8C%E5%91%BD-020303572.html",
-                "date": "2022-10-26",
-                "written_by": "independent",
-                "quote": "系統並建議改用氟喹諾酮類抗生素（levofloxacin）"
-              },
-              {
-                "kind": "peer-reviewed study",
-                "citation": "Yu J, Lin HH, Tseng KH, Tien N, Hsueh PR, Cho DY (2023). Direct prediction of ceftazidime-resistant Stenotrophomonas maltophilia from routine MALDI-TOF mass spectra using machine learning. Journal of Infection 86(2): e58-e60, letter, online 9 September 2022, doi:10.1016/j.jinf.2022.09.005. All authors at China Medical University Hospital; the letter has no abstract, so its keywords are quoted.",
-                "title": "Direct prediction of ceftazidime-resistant Stenotrophomonas maltophilia from routine MALDI-TOF mass spectra using machine learning",
                 "url": "https://doi.org/10.1016/j.jinf.2022.09.005",
-                "date": "2022-09-09",
-                "written_by": "makers",
-                "quote": "Ceftazidime; Levofloxacin; Stenotrophomonas maltophilia; Machine Learning; Maldi–tof Mass Spectra"
+                "locator": "Bibliographic record and the hospital’s reproduced figure.",
+                "contribution": "Identifies the original S. maltophilia resistance-model publication.",
+                "relationship": "Study by the hospital team.",
+                "source_refs": [
+                  "AIBD-0114-source-0004"
+                ]
               },
               {
-                "kind": "peer-reviewed study",
-                "citation": "Yu J, Tien N, Liu YC, Cho DY, Chen JW, Tsai YT, Huang YC, Chao HJ, Chen CJ (2022). Rapid Identification of Methicillin-Resistant Staphylococcus aureus Using MALDI-TOF MS and Machine Learning from over 20,000 Clinical Isolates. Microbiology Spectrum 10(2): e00483-22, online 16 March 2022, doi:10.1128/spectrum.00483-22. Validation of the platform's MRSA model, not of the S. maltophilia model used in this case.",
-                "title": "Rapid Identification of Methicillin-Resistant Staphylococcus aureus Using MALDI-TOF MS and Machine Learning from over 20,000 Clinical Isolates",
-                "url": "https://doi.org/10.1128/spectrum.00483-22",
-                "date": "2022-03-16",
-                "written_by": "makers",
-                "quote": "For the data set comprising 20,359 clinical isolates, the area under the receiver operating curve of the classification model was 0.78 to 0.88."
+                "url": "https://www.cmuh.org.tw/FileUploads/FileUpload/2022%E4%B8%AD%E5%9C%8B%E9%86%ABCSR%28ESG%29_PDF.pdf",
+                "locator": "Printed p. 37, “預測抗藥細菌，醫療數位轉型.”",
+                "contribution": "Names i.A.M.S; reports spending and turnaround changes; distinguishes projected five-year benefits.",
+                "relationship": "Hospital’s original sustainability report, not independent evaluation.",
+                "source_refs": [
+                  "AIBD-0114-source-0005"
+                ]
               }
-            ]
+            ],
+            "excluded_or_consolidated_sources": [
+              {
+                "url": "https://www.cna.com.tw/news/ahel/202210260324.aspx",
+                "reason": "Duplicate quotation from CNA consolidated."
+              },
+              {
+                "url": "https://health.ltn.com.tw/article/breakingnews/4102412",
+                "reason": "Duplicate quotation from Liberty Times consolidated."
+              },
+              {
+                "url": "https://www.top1health.com/Article/240/90334",
+                "reason": "Repeats the hospital account without material additional clinical evidence."
+              },
+              {
+                "url": "https://tw.news.yahoo.com/%E5%85%AB%E6%97%AC%E8%80%81%E5%A9%A6%E6%84%9F%E6%9F%93-%E8%B6%85%E7%B4%9A%E7%B4%B0%E8%8F%8C-%E9%BB%83%E9%87%91%E6%95%91%E5%91%BD%E9%97%9C%E9%8D%B51%E5%B0%8F%E6%99%82-%E9%9D%A0ai%E7%B2%BE%E6%BA%96%E9%81%B8%E8%97%A5-%E6%88%90%E5%8A%9F%E7%BA%8C%E5%91%BD-020303572.html",
+                "reason": "Repeats the same drug-selection account."
+              },
+              {
+                "url": "https://doi.org/10.1128/spectrum.00483-22",
+                "reason": "The MRSA model concerns a different organism and cannot validate the S. maltophilia model used for this patient."
+              }
+            ],
+            "review_scope": "Methods, results, counts, chronology, AI identity and operation, human responsibilities, limitations, and economic evidence."
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "evidence"
+          "kind": "source_review",
+          "basis": "The original materials and exact locators are listed in this assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0002",
+            "AIBD-0114-source-0003",
+            "AIBD-0114-source-0004",
+            "AIBD-0114-source-0005"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
-      },
-      "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The original studies and their supporting materials are linked to the findings that they support."
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1265,91 +2218,185 @@
       "summary": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "summary": "AI read of a MALDI-TOF spectrum flagged ceftazidime resistance in 1 hour; 78-year-old septic woman switched to levofloxacin and recovered.",
-            "account": "A 78-year-old woman with diabetes, hypertension and chronic kidney disease was admitted to China Medical University Hospital, Taichung, Taiwan, in mid-April 2022 with swollen legs. She developed rhabdomyolysis, acute kidney failure and coma and was intubated. In late May she got pneumonia, treated with ceftazidime while sputum culture confirmed Stenotrophomonas maltophilia. The hospital's 智抗菌平台 (Intelligent Anti-bacterial Platform), a machine-learning model on routine MALDI-TOF mass spectra, predicted within one hour the isolate was ceftazidime-resistant and suggested levofloxacin. The team switched and the lung infection improved within a week. She was extubated in early July and went home in late July 2022. The hospital presented the case on 26 October 2022."
-          }
+          "kind": "text",
+          "text": "An early resistance warning from CMUH’s Intelligent Anti-Microbial System helped doctors change a 78-year-old woman’s antibiotic before she recovered."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "summary",
-            "account"
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "An early resistance warning from CMUH’s Intelligent Anti-Microbial System helped doctors change a 78-year-old woman’s antibiotic before she recovered."
+        }
       },
       "systems[].autonomy_permissions": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system supplied a prediction and treatment suggestion. Clinicians chose and administered the antibiotic."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The system supplied a prediction and treatment suggestion. Clinicians chose and administered the antibiotic."
+        }
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The resistance-prediction component analyzed the bacterial spectrum. The broader platform supported antibiotic selection."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The resistance-prediction component analyzed the bacterial spectrum. The broader platform supported antibiotic selection."
+        }
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Hospital account; full model letter inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The exact instrument model, software settings, and prediction threshold are not reported in the accessible patient account.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The exact instrument model, software settings, and prediction threshold are not reported in the accessible patient account."
+        }
       },
       "systems[].inputs_outputs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A routine MALDI-TOF mass spectrum informed a prediction of ceftazidime resistance and a suggestion to consider levofloxacin."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A routine MALDI-TOF mass spectrum informed a prediction of ceftazidime resistance and a suggestion to consider levofloxacin."
+        }
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "unresolved",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Hospital account; cited letter, doi:10.1016/j.jinf.2022.09.005. The full letter was inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The sources identify a machine-learning model for resistance prediction but do not establish its exact architecture.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The sources identify a machine-learning model for resistance prediction but do not establish its exact architecture."
+        }
       },
       "systems[].model_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Hospital account and public letter metadata.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001",
+            "AIBD-0114-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The hospital account does not report a model release.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The hospital account does not report a model release."
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "system": "智抗菌平台 (Intelligent Anti-bacterial Platform) of China Medical University Hospital, in hospital-wide use since February 2022; its core 智能抗藥性細菌快速預測系統 applies machine learning to routine MALDI-TOF mass spectra linked to susceptibility records, covering nine bacterial species including Stenotrophomonas maltophilia"
-          }
+          "kind": "text",
+          "text": "智抗菌平台, also called the Intelligent Anti-Microbial System or i.A.M.S."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "system"
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "智抗菌平台, also called the Intelligent Anti-Microbial System or i.A.M.S."
+        }
       },
       "systems[].provider": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "application_developer": "China Medical University Hospital, Taichung (team of superintendent Der-Yang Cho 周德陽, Po-Ren Hsueh 薛博仁 of the Department of Laboratory Medicine, and Jiaxin Yu 游家鑫)"
-          }
+          "kind": "text",
+          "text": "China Medical University Hospital, Taichung, Taiwan."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "developer"
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "China Medical University Hospital, Taichung, Taiwan."
+        }
       },
       "taxonomy_crosswalks[]": {
         "state": "not_assessed",
@@ -1359,38 +2406,39 @@
       "title": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "title": "China Medical University Hospital's AI mass-spectrometry platform predicts ceftazidime-resistant Stenotrophomonas maltophilia within an hour; 78-year-old woman switched to levofloxacin, extubated and discharged",
-            "headline": "Intelligent Anti-bacterial Platform flags resistance in an hour"
-          }
+          "kind": "text",
+          "text": "An early resistance warning helped doctors change a woman’s antibiotic"
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "title",
-            "headline"
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "An early resistance warning helped doctors change a woman’s antibiotic"
+        }
       },
       "version": {
         "state": "value_present",
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "2b7ddd0173468f06e66db69cf66840c6b72f529f42b57b556457c09396967a9c"
+            "60e0410e98964a3c30cb0ae8f5c4e28c43bc3fc69209a8b348bedb8d77c1ae09"
           ],
           "role": "SHA-256 of normalized original case data"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Deterministic content version assigned by the local migration.",
+          "basis": "Content fingerprint refreshed after the October 25, 2026 source review.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [],
+          "reviewed_on": "2026-10-25"
         },
         "review_state": "record_mapped",
         "coverage": "complete"
@@ -1398,50 +2446,38 @@
       "workflow": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "A 78-year-old woman with diabetes, hypertension and chronic kidney disease was admitted to China Medical University Hospital, Taichung, Taiwan, in mid-April 2022 with swollen legs. She developed rhabdomyolysis, acute kidney failure and coma and was intubated. In late May she got pneumonia, treated with ceftazidime while sputum culture confirmed Stenotrophomonas maltophilia. The hospital's 智抗菌平台 (Intelligent Anti-bacterial Platform), a machine-learning model on routine MALDI-TOF mass spectra, predicted within one hour the isolate was ceftazidime-resistant and suggested levofloxacin. The team switched and the lung infection improved within a week. She was extubated in early July and went home in late July 2022. The hospital presented the case on 26 October 2022.",
-            "replication": {
-              "produced_by": [
-                "The hospital's own laboratory identifies isolates by MALDI-TOF, so a spectrum exists as soon as a culture grows",
-                "A machine-learning classifier trained on the hospital's spectra and susceptibility records for Stenotrophomonas maltophilia and ceftazidime, one of nine species the platform covers",
-                "The platform returns the resistance prediction and a suggested alternative to the treating team within an hour"
-              ],
-              "must_hold": [
-                "The organism and antibiotic are ones the model was trained for",
-                "Clinicians act on the prediction before the conventional susceptibility result arrives",
-                "An effective alternative antibiotic is available and tolerated by the patient"
-              ],
-              "echoes": []
-            }
-          }
+          "kind": "text",
+          "text": "The laboratory cultured the organism and obtained its mass spectrum. The system predicted resistance, and the treating team changed the antibiotic."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "replication"
+          "kind": "source_review",
+          "basis": "CMUH, hospital account of 31 October 2022, patient narrative and figure captions; CNA and Liberty Times, 26 October 2022; CMUH 2022 sustainability report, p. 37.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0114-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The laboratory cultured the organism and obtained its mass spectrum. The system predicted resistance, and the treating team changed the antibiotic."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 29,
-      "reviewed": 0,
-      "record_mapped": 29,
-      "not_assessed": 62,
+      "known": 80,
+      "reviewed": 78,
+      "record_mapped": 9,
+      "not_assessed": 4,
       "complete": false,
       "by_state": {
-        "value_present": 29,
-        "not_reported": 0,
-        "unresolved": 0,
-        "not_assessed": 62,
+        "value_present": 80,
+        "not_reported": 5,
+        "unresolved": 2,
+        "not_assessed": 4,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

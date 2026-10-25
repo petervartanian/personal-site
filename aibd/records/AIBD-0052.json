@@ -1,19 +1,19 @@
 {
   "id": "AIBD-0052",
-  "title": "Stentrode endovascular brain-computer interface lets two people with ALS text, shop and manage finances independently at home",
-  "summary": "Two ALS participants in Melbourne used a Stentrode BCI with ML click decoding for unsupervised home texting, shopping and banking.",
+  "title": "People with severe paralysis regained control of a computer at home",
+  "summary": "Two people with ALS regained control of a computer at home using Stentrode and eye tracking.",
   "date_observed": "2020-10-28",
-  "date_basis": "unassessed",
-  "date_precision": "unassessed",
-  "benefit_status": null,
+  "date_basis": "source publication",
+  "date_precision": "day",
+  "benefit_status": "reported",
   "source_collection": null,
   "source_entry": null,
-  "account": "Two people with amyotrophic lateral sclerosis and flaccid upper-limb paralysis received the Stentrode at the Royal Melbourne Hospital. The Stentrode is an electrode array delivered via the jugular vein into the superior sagittal sinus. The first-in-human study is in the Journal of NeuroInterventional Surgery (published online 28 October 2020). Participant 1 was implanted in mid-2019 and participant 2 in early 2020. The paper gives no exact event dates. Machine-learning-assisted training mapped attempted-movement electrocorticography to mouse clicks, combined with an eye-tracker for cursor navigation. Unsupervised home use then began on day 86 for participant 1 and day 71 for participant 2. Click accuracies were 92.63% and 93.18%, and they typed 13.81 and 20.10 correct characters per minute. They independently did text messaging, online shopping and managing finances. The hospital's statement of 29 October 2020 confirms these activities.",
+  "account": "Two people with ALS received a Stentrode implant at the Royal Melbourne Hospital. Attempted movements generated computer clicks, while an eye tracker moved the cursor. Participant 1 used a support-vector machine, and participant 2 used a manually tuned threshold classifier. They began use at home without research staff on days 86 and 71 after implantation, although a caregiver still helped set up the system. Both could text, shop, and check finances. A later report followed four implanted participants, including the original two, for 12 months. It reported no serious device-related events and eight mild device effects.",
   "category": "benefit created",
   "unexpected": false,
   "purpose": "Restore digital device control for people with severe paralysis without open-brain surgery",
-  "system": "Synchron Stentrode endovascular brain-computer interface with machine-learning click decoder and eye-tracker cursor navigation",
-  "model_version": "Stentrode first-in-human system (early feasibility trial, Clinicaltrials.gov NCT03834857)",
+  "system": "Synchron Stentrode with a participant-specific decoder and Tobii Dynavox eye tracking",
+  "model_version": null,
   "developer": "Synchron Inc. with the University of Melbourne",
   "deployer": "Royal Melbourne Hospital (implantation and follow-up); participants' homes (use)",
   "location": "Melbourne, Australia",
@@ -21,22 +21,19 @@
   "segment": "People with ALS and severe upper-limb paralysis",
   "benefit_type": "Improved Accessibility",
   "taxonomy_note": null,
-  "registry_ids": {},
+  "registry_ids": {
+    "clinicaltrials_gov": "NCT03834857"
+  },
   "ratings": [
     {
       "group": "personal",
-      "depth": 2,
-      "reason": "Two identified participants regained independent texting, shopping and money management at home. An eye-tracker handled cursor navigation, so the BCI's own contribution is the click control."
-    },
-    {
-      "group": "societal",
-      "depth": 1,
-      "reason": "First-in-human feasibility in two people. Later SWITCH follow-up covered four patients with no serious adverse events, still a small cohort."
+      "depth": 3,
+      "reason": "Participants regained sustained control of everyday computer tasks at home. No separate societal outcome was measured."
     }
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "Per the paper, a machine-learning-assisted decoder (binary SVM or threshold classifier on spectral power) detected attempted movements and generated click commands. Cursor navigation came from an eye-tracker, so the AI contribution is the click selection channel, which the authors report with 92–93% accuracy."
+    "statement": "Participant 1 used a support-vector machine trained on movement attempts. Participant 2 used a manually tuned threshold classifier. Both converted brain signals into clicks, while an eye tracker handled cursor movement. The measured benefit belonged to the combined system."
   },
   "evidence": [
     {
@@ -49,71 +46,52 @@
       "quote": "Completion of IADL tasks including text messaging, online shopping and managing finances independently was demonstrated in both participants."
     },
     {
-      "kind": "press release",
-      "citation": "The Royal Melbourne Hospital (2020). Small brain device proves big game changer for severely paralysed patients. Hospital news statement, 29 October 2020.",
-      "title": "Small brain device proves big game changer for severely paralysed patients",
-      "url": "https://www.thermh.org.au/news/small-brain-device-proves-big-game-changer-for-severely-paralysed-patients",
-      "date": "2020-10-29",
-      "written_by": "deployer",
-      "quote": "machine learning-assisted training to control multiple mouse click actions, including zoom and left click"
-    },
-    {
-      "kind": "press release",
-      "citation": "The Royal Melbourne Hospital (2023). Brain interface proves to be safe and effective. Hospital news statement, 24 January 2023.",
-      "title": "Brain interface proves to be safe and effective",
-      "url": "https://www.thermh.org.au/news/brain-interface-proves-to-be-safe-and-effective",
-      "date": "2023-01-24",
-      "written_by": "deployer",
-      "quote": "This technology holds great promise for people with paralysis who want to maintain a level of independence."
-    },
-    {
       "kind": "peer-reviewed study",
-      "citation": "Mitchell P, Lee SCM, Yoo PE, et al. (2023). Assessment of Safety of a Fully Implanted Endovascular Brain-Computer Interface for Severe Paralysis in 4 Patients: The SWITCH Study. JAMA Neurology 80(3).",
+      "citation": "Peter Mitchell et al., “Assessment of Safety of a Fully Implanted Endovascular Brain-Computer Interface for Severe Paralysis in 4 Patients: The Stentrode With Thought-Controlled Digital Switch (SWITCH) Study,” JAMA Neurology 80, no. 3 (2023): 270–278, doi:10.1001/jamaneurol.2022.4847. Published online January 9, 2023.",
       "title": "Assessment of Safety of a Fully Implanted Endovascular Brain-Computer Interface for Severe Paralysis in 4 Patients: The Stentrode With Thought-Controlled Digital Switch (SWITCH) Study",
-      "url": "https://europepmc.org/abstract/MED/36622685",
-      "date": "2023-03-01",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9857731/",
+      "date": "2023-01-09",
       "written_by": "makers",
-      "quote": "At least 5 attempted movement types were decoded offline, and each patient successfully controlled a computer with the BCI."
+      "quote": null
     }
   ],
   "replication": {
     "produced_by": [
-      "Endovascular electrode array recording motor-cortex ECoG from the superior sagittal sinus",
-      "Machine-learning-assisted training of a movement-versus-rest click decoder",
-      "Pairing of BCI clicks with eye-tracker cursor navigation on Windows 10"
+      "An implanted electrode array recorded attempted movements.",
+      "A participant-specific decoder converted signals into computer clicks.",
+      "Eye tracking supplied cursor movement, and caregivers helped with setup."
     ],
     "must_hold": [
-      "Preserved motor cortex activity and suitable venous anatomy",
-      "Stable signal bandwidth over months without migration or occlusion",
-      "Patient able to use an eye-tracker for navigation"
+      "Suitable venous anatomy and preserved motor-cortex activity.",
+      "Clinical follow-up, training, caregiver assistance, and antiplatelet treatment."
     ],
     "echoes": [
       {
-        "date": "2023-01-24",
-        "setting": "SWITCH study follow-up of four patients at Royal Melbourne Hospital over 12 months",
-        "model_version": "Stentrode (SWITCH)",
+        "date": "2023-01-09",
+        "setting": "The same SWITCH study, expanded to four implanted participants",
+        "model_version": null,
         "outcome": "recurred",
-        "source": "Mitchell et al. (2023) JAMA Neurology, PMID 36622685; RMH statement 24 January 2023"
+        "source": "Mitchell et al. (2023), doi:10.1001/jamaneurol.2022.4847. The first two participants overlap with the earlier report."
       }
     ]
   },
   "paired_incident": null,
-  "headline": "Stentrode BCI lets two men with ALS text and shop at home",
+  "headline": "People with severe paralysis regained control of a computer at home",
   "metric": "typed 13.81 and 20.10 correct characters per minute",
   "comparator": {
-    "against": "a previous fully implanted BCI requiring burr hole craniotomy",
-    "before": "197 days of training prior to unsupervised home use and achieved a single binary click",
-    "after": "unsupervised home use of multiple-click actions within 86 days (participant 1) and 71 days (participant 2) of neurointerventional surgery",
+    "against": "An earlier, separate study of the Utrecht implanted interface",
+    "before": "Home use began 197 days after implantation in that earlier participant",
+    "after": "Home use began on days 86 and 71 in the two Stentrode participants",
     "basis": "measured",
     "quote": "The current study achieved unsupervised home use of multiple-click actions within 86 days (participant 1) and 71 days (participant 2) of neurointerventional surgery.",
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/"
   },
   "later": {
-    "status": "scaled",
-    "date": "2023-03-01",
-    "note": "The SWITCH study reported four implanted patients completing 12-month follow-up without serious adverse events, and the trial continued in the United States with more participants planned.",
-    "quote": "Each completed 12-month follow-up with no serious adverse events and no vessel occlusion or device migration.",
-    "url": "https://europepmc.org/abstract/MED/36622685"
+    "status": "persisted",
+    "date": "2023-01-09",
+    "note": "A report covering four implanted participants, including the original two, found no serious device-related events during 12 months of follow-up. Eight mild device effects occurred.",
+    "quote": null,
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9857731/"
   },
   "value": null,
   "developer_country": "United States",
@@ -151,27 +129,39 @@
       "change": "Prose pass: a rating reason, account, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Reviewed the original evidence and supporting material; updated system details, methods, outcomes, limitations, costs, and source lineage.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/",
+      "editor": "AIBD"
     }
   ],
   "confidence": "claimed",
   "shade": "low",
-  "claim_status": "The deployer's account",
-  "claim_basis": "Sources: two peer-reviewed studies from the makers and two press releases from the deployer. The cited evidence includes no independent source and no finding by a regulator or court.",
+  "claim_status": "The makers' claim",
+  "claim_basis": "Sources: two peer-reviewed studies from the makers. The cited evidence includes no independent source and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0052",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "ba9038dba5d186f846a9aeca1e2254e4bf1b4b1748bef1f3091003f83c94e4e6",
+    "source_fingerprint": "1bedfa433679e79d0899a74679fd4d86a39e5fc243628f6951ae8a1aa7d24871",
     "collection_refs": [
       {
         "collection_id": "aibd",
         "version": "snapshot-8bf7cfec9cb185aa"
+      },
+      {
+        "collection_id": "aibd",
+        "version": "2026-10-25"
+      },
+      {
+        "collection_id": "viator",
+        "version": "2026-10-25"
       }
     ],
     "source_ids": [
       "AIBD-0052-source-0001",
-      "AIBD-0052-source-0002",
-      "AIBD-0052-source-0003",
-      "AIBD-0052-source-0004"
+      "AIBD-0052-source-0002"
     ],
     "families": {
       "strategic assessments": {
@@ -181,72 +171,140 @@
         "record_ids": []
       },
       "evaluations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "record_ids": []
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "NCT03834857"
+          ],
+          "role": "evaluations"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The evaluation described in the cited original sources."
+        },
+        "record_ids": [
+          "NCT03834857"
+        ]
       },
       "monetary observations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report a monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed sources do not report a monetary valuation or financial return."
+        },
         "record_ids": []
       },
       "institutional decisions": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "record_ids": []
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "CT-2018-CTN-02369-1 v1.0"
+          ],
+          "role": "institutional decisions"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Australian authorization and hospital ethics approvals for the trial."
+        },
+        "record_ids": [
+          "CT-2018-CTN-02369-1 v1.0"
+        ]
       }
     },
     "fields": {
       "actors[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "developer": "Synchron Inc. with the University of Melbourne",
-            "deployer": "Royal Melbourne Hospital (implantation and follow-up); participants' homes (use)"
-          }
+          "kind": "text",
+          "text": "Synchron and University of Melbourne researchers developed the interface. The Royal Melbourne Hospital implanted and followed participants, who used it at home."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "developer",
-            "deployer"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Synchron and University of Melbourne researchers developed the interface. The Royal Melbourne Hospital implanted and followed participants, who used it at home."
+        }
       },
       "actors[].ownership_control": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed clinical sources identify the organizations involved, but do not establish their complete ownership or control arrangements.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed clinical sources identify the organizations involved, but do not establish their complete ownership or control arrangements."
+        }
       },
       "ai_contribution": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ai_role": {
-              "status": "assessed",
-              "statement": "Per the paper, a machine-learning-assisted decoder (binary SVM or threshold classifier on spectral power) detected attempted movements and generated click commands. Cursor navigation came from an eye-tracker, so the AI contribution is the click selection channel, which the authors report with 92–93% accuracy."
-            }
-          }
+          "kind": "text",
+          "text": "The learned decoder supplied the click channel for one of the first two participants. The other used a threshold rule. Eye tracking and commercial software supplied the rest of the interface."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ai_role"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The learned decoder supplied the click channel for one of the first two participants. The other used a threshold rule. Eye tracking and commercial software supplied the rest of the interface."
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -256,7 +314,7 @@
             "category": "benefit created",
             "ai_role": {
               "status": "assessed",
-              "statement": "Per the paper, a machine-learning-assisted decoder (binary SVM or threshold classifier on spectral power) detected attempted movements and generated click commands. Cursor navigation came from an eye-tracker, so the AI contribution is the click selection channel, which the authors report with 92–93% accuracy."
+              "statement": "Participant 1 used a support-vector machine trained on movement attempts. Participant 2 used a manually tuned threshold classifier. Both converted brain signals into clicks, while an eye tracker handled cursor movement. The measured benefit belonged to the combined system."
             }
           }
         },
@@ -273,140 +331,204 @@
         "coverage": "partial"
       },
       "assessments[].alternatives": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "assessments[].assessor_date": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "assessments[].depth": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ratings": [
-              {
-                "group": "personal",
-                "depth": 2,
-                "reason": "Two identified participants regained independent texting, shopping and money management at home. An eye-tracker handled cursor navigation, so the BCI's own contribution is the click control."
-              },
-              {
-                "group": "societal",
-                "depth": 1,
-                "reason": "First-in-human feasibility in two people. Later SWITCH follow-up covered four patients with no serious adverse events, still a small cohort."
-              }
-            ]
-          }
+          "kind": "text",
+          "text": "Depth 2 understates the restored practical ability. A separate societal grade would require a demonstrated societal benefit."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "curatorial",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Depth 2 understates the restored practical ability. A separate societal grade would require a demonstrated societal benefit."
+        }
       },
-      "assessments[].display_confidence": {
+      "assessments[].assessor_date": {
         "state": "value_present",
         "value": {
           "kind": "structured",
           "data": {
-            "confidence": "low",
-            "evidence_word": "claimed",
-            "claim_status": "The deployer's account",
-            "basis": "Sources: two peer-reviewed studies from the makers and two press releases from the deployer. The cited evidence includes no independent source and no finding by a regulator or court.",
-            "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
+            "assessor": "AIBD, AI-assisted source review",
+            "date": "2026-10-25"
           }
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
+          "basis": "Review of the sources listed in the lineage assessment.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD, 25 October 2026."
+        }
+      },
+      "assessments[].depth": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "ratings": [
+              {
+                "group": "personal",
+                "depth": 3,
+                "reason": "Participants regained sustained control of everyday computer tasks at home. No separate societal outcome was measured."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Local five-level depth rubric; Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Depth 3 for a restored ability that participants used at home."
+        }
+      },
+      "assessments[].display_confidence": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Peer-reviewed studies by the developers and clinical team. The outline is retained."
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Peer-reviewed studies by the developers and clinical team. The outline is retained."
+        }
       },
       "assessments[].rationale": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ratings": [
-              {
-                "group": "personal",
-                "depth": 2,
-                "reason": "Two identified participants regained independent texting, shopping and money management at home. An eye-tracker handled cursor navigation, so the BCI's own contribution is the click control."
-              },
-              {
-                "group": "societal",
-                "depth": 1,
-                "reason": "First-in-human feasibility in two people. Later SWITCH follow-up covered four patients with no serious adverse events, still a small cohort."
-              }
-            ]
-          }
+          "kind": "text",
+          "text": "Depth 3 for a restored ability that participants used at home."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "curatorial",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Depth 3 for a restored ability that participants used at home."
+        }
       },
       "assessments[].rubric_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "AIBD’s five-level depth rubric, reviewed on 25 October 2026."
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Local methodology; no separately numbered rubric version is published.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD’s five-level depth rubric, reviewed on 25 October 2026."
+        }
       },
       "assessments[].status_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The depth describes the reported result. Evidence strength is assessed separately."
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The depth describes the reported result. Evidence strength is assessed separately."
+        }
       },
       "assessments[].target": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ratings": [
-              {
-                "group": "personal",
-                "depth": 2,
-                "reason": "Two identified participants regained independent texting, shopping and money management at home. An eye-tracker handled cursor navigation, so the BCI's own contribution is the click control."
-              },
-              {
-                "group": "societal",
-                "depth": 1,
-                "reason": "First-in-human feasibility in two people. Later SWITCH follow-up covered four patients with no serious adverse events, still a small cohort."
-              }
-            ]
-          }
+          "kind": "text",
+          "text": "The benefit described here, for the beneficiary groups shown."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "curatorial",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The benefit described here, for the beneficiary groups shown."
+        }
       },
       "availability": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The reports concern an investigational device. They do not establish routine commercial access at the time of the study."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reports concern an investigational device. They do not establish routine commercial access at the time of the study."
+        }
       },
       "brief": {
         "state": "not_assessed",
@@ -414,247 +536,823 @@
         "coverage": "partial"
       },
       "case_kind": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "case_links[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "claims[].evidence_links": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "claims[].evidence_strength": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "claims[].missingness": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "claims[].proposition": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "cross_border_flows[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "decisions[].action_outcome": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
-      },
-      "decisions[].grounds": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
-      },
-      "decisions[].institution_task": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
-      },
-      "decisions[].success_criterion": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
-      },
-      "deployment_stage": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "economics[].amount": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
-      },
-      "economics[].costs[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
-      },
-      "economics[].counterfactual": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
-      },
-      "economics[].currency_price_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
-      },
-      "economics[].gross_net": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
-      },
-      "economics[].measure_type": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
-      },
-      "economics[].period_unit": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
-      },
-      "economics[].realization": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
-      },
-      "economics[].recipient_payer": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
-      },
-      "economics[].return_payback": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
-      },
-      "economics[].valuation_method": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
-      },
-      "evaluations[].ai_uplift": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
-      },
-      "evaluations[].comparator": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
-      },
-      "evaluations[].design": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
-      },
-      "evaluations[].effect": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
-      },
-      "evaluations[].exposure": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
-      },
-      "evaluations[].id": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
-      },
-      "evaluations[].measurement_method": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
-      },
-      "evaluations[].metric": {
-        "state": "not_assessed",
-        "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "metric"
-          ],
-          "source_refs": []
-        },
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations",
-        "display": {
-          "answer": "typed 13.81 and 20.10 correct characters per minute",
-          "editor_note": ""
-        }
-      },
-      "evaluations[].reproduction_materials": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
-      },
-      "evaluations[].setting_sample": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
-      },
-      "evaluations[].uncertainty_limitations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
-      },
-      "external_references[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "follow_up[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "later": {
-              "status": "scaled",
-              "date": "2023-03-01",
-              "note": "The SWITCH study reported four implanted patients completing 12-month follow-up without serious adverse events, and the trial continued in the United States with more participants planned.",
-              "quote": "Each completed 12-month follow-up with no serious adverse events and no vessel occlusion or device migration.",
-              "url": "https://europepmc.org/abstract/MED/36622685"
+          "kind": "text",
+          "text": "An early feasibility study of an implanted brain–computer interface."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "An early feasibility study of an implanted brain–computer interface."
+        }
+      },
+      "case_links[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "AIBD-0265 describes the Utrecht interface cited as a historical comparison. The studies were not head-to-head."
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "2020 Discussion.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD-0265 describes the Utrecht interface cited as a historical comparison. The studies were not head-to-head."
+        }
+      },
+      "claims[].evidence_links": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "initial_abilities": {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/",
+              "locator": "Results"
+            },
+            "decoder_difference": {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/",
+              "locator": "Supplementary Appendix, pp. 6–8"
+            },
+            "follow_up": {
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9857731/",
+              "locator": "Results and Table 2"
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "later"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The first paper documents the two decoders and home tasks. The later paper adds two participants and longer safety follow-up."
+        }
+      },
+      "claims[].evidence_strength": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Original peer-reviewed studies by the developers and clinical team. The four-person follow-up is an extension, not an independent replication."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Original peer-reviewed studies by the developers and clinical team. The four-person follow-up is an extension, not an independent replication."
+        }
+      },
+      "claims[].missingness": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The studies do not establish a financial return, a broadly representative effect, or one fixed decoder used by every participant."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The studies do not establish a financial return, a broadly representative effect, or one fixed decoder used by every participant."
+        }
+      },
+      "claims[].proposition": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Stentrode supported independent computer tasks after caregiver setup, with eye tracking for cursor navigation."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Stentrode supported independent computer tasks after caregiver setup, with eye tracking for cursor navigation."
+        }
+      },
+      "cross_border_flows[]": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not document international transfers of patient data or quantify cross-border financial flows.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed sources do not document international transfers of patient data or quantify cross-border financial flows."
+        }
+      },
+      "decisions[].action_outcome": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Investigators selected participants, implanted the device, and monitored home use and safety."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "2020 Supplementary Appendix, p. 3; 2023 Methods: End points.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Investigators selected participants, implanted the device, and monitored home use and safety."
+        }
+      },
+      "decisions[].grounds": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The study received hospital ethics approvals and authorization under Australia’s Clinical Trial Notification scheme."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "2020 Supplementary Appendix, p. 3; 2023 Methods: End points.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The study received hospital ethics approvals and authorization under Australia’s Clinical Trial Notification scheme."
+        }
+      },
+      "decisions[].institution_task": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Australian investigators tested the safety and feasibility of an endovascular brain–computer interface."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "2020 Supplementary Appendix, p. 3; 2023 Methods: End points.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Australian investigators tested the safety and feasibility of an endovascular brain–computer interface."
+        }
+      },
+      "decisions[].success_criterion": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The primary safety outcome was a device-related serious event causing death or permanent disability within 12 months."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "2020 Supplementary Appendix, p. 3; 2023 Methods: End points.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The primary safety outcome was a device-related serious event causing death or permanent disability within 12 months."
+        }
+      },
+      "deployment_stage": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Investigational implantation and supervised training, followed by use at home."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Investigational implantation and supervised training, followed by use at home."
+        }
+      },
+      "economics[].amount": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report a monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "The reviewed sources do not report a monetary valuation or financial return."
+        }
+      },
+      "economics[].costs[]": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "Surgery, follow-up, equipment, and caregiver time were required, but the reports do not price them or value the regained abilities.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Surgery, follow-up, equipment, and caregiver time were required, but the reports do not price them or value the regained abilities."
+        }
+      },
+      "economics[].counterfactual": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report a monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "The reviewed sources do not report a monetary valuation or financial return."
+        }
+      },
+      "economics[].currency_price_basis": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report a monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "The reviewed sources do not report a monetary valuation or financial return."
+        }
+      },
+      "economics[].gross_net": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report a monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "The reviewed sources do not report a monetary valuation or financial return."
+        }
+      },
+      "economics[].measure_type": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report a monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "The reviewed sources do not report a monetary valuation or financial return."
+        }
+      },
+      "economics[].period_unit": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report a monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "The reviewed sources do not report a monetary valuation or financial return."
+        }
+      },
+      "economics[].realization": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report a monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "The reviewed sources do not report a monetary valuation or financial return."
+        }
+      },
+      "economics[].recipient_payer": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report a monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "The reviewed sources do not report a monetary valuation or financial return."
+        }
+      },
+      "economics[].return_payback": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report a monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "The reviewed sources do not report a monetary valuation or financial return."
+        }
+      },
+      "economics[].valuation_method": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not report a monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "The reviewed sources do not report a monetary valuation or financial return."
+        }
+      },
+      "evaluations[].ai_uplift": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The study demonstrates use of the combined implant, decoder, eye tracker, and software. It does not isolate the benefit of machine learning."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The study demonstrates use of the combined implant, decoder, eye tracker, and software. It does not isolate the benefit of machine learning."
+        }
+      },
+      "evaluations[].comparator": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "There was no concurrent control. The comparison with the Utrecht interface involved different participants and protocols."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "There was no concurrent control. The comparison with the Utrecht interface involved different participants and protocols."
+        }
+      },
+      "evaluations[].design": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A prospective, open-label feasibility study without a control group. The later report includes the first two participants."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A prospective, open-label feasibility study without a control group. The later report includes the first two participants."
+        }
+      },
+      "evaluations[].effect": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "first_two": {
+              "selection_accuracy_percent": [
+                92.63,
+                93.18
+              ],
+              "correct_characters_per_minute": [
+                13.81,
+                20.1
+              ]
+            },
+            "later_four": {
+              "selection_accuracy_mean_percent": 93.9,
+              "selection_accuracy_SD": 1.8,
+              "correct_characters_per_minute_mean": 16.6,
+              "correct_characters_per_minute_SD": 5.6,
+              "device_related_serious_events": 0,
+              "mild_device_effects": 8,
+              "follow_up_months": 12,
+              "mild_effect_types": [
+                "Bruising",
+                "Anemia",
+                "Hematoma",
+                "Postoperative fatigue"
+              ]
+            },
+            "initial_procedure_event": {
+              "participant": 1,
+              "event": "Brief syncope with two sinus pauses",
+              "pause_seconds": [
+                7.5,
+                6
+              ],
+              "resolved": "Consciousness returned within 10 seconds; no intervention required."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "2020 Results; 2023 Results and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The first two participants typed 13.81 and 20.10 correct characters per minute, with selection accuracy above 92%."
+        }
+      },
+      "evaluations[].exposure": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The first participants began home use without research staff on days 86 and 71 after implantation. Caregiver assistance with setup remained necessary."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The first participants began home use without research staff on days 86 and 71 after implantation. Caregiver assistance with setup remained necessary."
+        }
+      },
+      "evaluations[].id": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "NCT03834857"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "NCT03834857"
+        }
+      },
+      "evaluations[].measurement_method": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers measured typing and selection accuracy, observed everyday computer tasks, recorded adverse events, and checked vessel patency and device position."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Researchers measured typing and selection accuracy, observed everyday computer tasks, recorded adverse events, and checked vessel patency and device position."
+        }
+      },
+      "evaluations[].metric": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Correct characters per minute, selection accuracy, completion of everyday tasks, serious device-related events, vessel occlusion, and migration."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Correct characters per minute, selection accuracy, completion of everyday tasks, serious device-related events, vessel occlusion, and migration."
+        }
+      },
+      "evaluations[].reproduction_materials": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The 2020 supplement gives participant-specific filters, training splits, and click rules. It does not publish exact trained weights or a software release."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The 2020 supplement gives participant-specific filters, training splits, and click rules. It does not publish exact trained weights or a software release."
+        }
+      },
+      "evaluations[].setting_sample": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Two implanted participants appeared in the first report. The later study enrolled five people, implanted four, and excluded one because of venous anatomy."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Two implanted participants appeared in the first report. The later study enrolled five people, implanted four, and excluded one because of venous anatomy."
+        }
+      },
+      "evaluations[].uncertainty_limitations": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The cohort was small and selected, and decoders differed between participants. Without a control group, superiority over other assistive systems cannot be established."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The cohort was small and selected, and decoders differed between participants. Without a control group, superiority over other assistive systems cannot be established."
+        }
+      },
+      "external_references[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "ClinicalTrials.gov": "NCT03834857"
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original study registration, inspected through the ClinicalTrials.gov API.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "NCT03834857"
+        }
+      },
+      "follow_up[]": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The four-person follow-up found no serious device-related events over 12 months. Eight mild device effects occurred, and one participant later demonstrated texting without eye tracking."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "2023 Results: Safety and Feasibility end points; Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The four-person follow-up found no serious device-related events over 12 months. Eight mild device effects occurred, and one participant later demonstrated texting without eye tracking."
+        }
       },
       "human_oversight": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Clinicians selected and implanted participants, monitored safety, and managed antiplatelet treatment. Researchers tuned decoders, and caregivers helped with setup at home."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Clinicians selected and implanted participants, monitored safety, and managed antiplatelet treatment. Researchers tuned decoders, and caregivers helped with setup at home."
+        }
       },
       "id": {
         "state": "value_present",
@@ -676,19 +1374,84 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system required implantation, a chest receiver, a computer, eye tracking, individual training, caregiver support, and clinical follow-up."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The system required implantation, a chest receiver, a computer, eye tracking, individual training, caregiver support, and clinical follow-up."
+        }
       },
       "outcomes[].beneficiaries": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "People with severe upper-limb paralysis who retained suitable brain activity and venous anatomy."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "People with severe upper-limb paralysis who retained suitable brain activity and venous anatomy."
+        }
       },
       "outcomes[].beneficiary_count": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "initial_report_implanted": 2,
+            "later_report_enrolled": 5,
+            "later_report_implanted": 4,
+            "overlap": 2,
+            "unique_implanted_total": 4,
+            "typing_observations_initial": {
+              "participant_1": {
+                "selections": 748,
+                "trials": 129
+              },
+              "participant_2": {
+                "selections": 569,
+                "trials": 95
+              }
+            }
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "2020 Results; 2023 Methods and Results.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Four unique implanted participants are described across both reports. The initial two are included in the later four."
+        }
       },
       "outcomes[].benefit_type": {
         "state": "value_present",
@@ -712,78 +1475,153 @@
       "outcomes[].claim": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "Two people with amyotrophic lateral sclerosis and flaccid upper-limb paralysis received the Stentrode at the Royal Melbourne Hospital. The Stentrode is an electrode array delivered via the jugular vein into the superior sagittal sinus. The first-in-human study is in the Journal of NeuroInterventional Surgery (published online 28 October 2020). Participant 1 was implanted in mid-2019 and participant 2 in early 2020. The paper gives no exact event dates. Machine-learning-assisted training mapped attempted-movement electrocorticography to mouse clicks, combined with an eye-tracker for cursor navigation. Unsupervised home use then began on day 86 for participant 1 and day 71 for participant 2. Click accuracies were 92.63% and 93.18%, and they typed 13.81 and 20.10 correct characters per minute. They independently did text messaging, online shopping and managing finances. The hospital's statement of 29 October 2020 confirms these activities.",
-            "benefit_type": "Improved Accessibility"
-          }
+          "kind": "text",
+          "text": "Participants regained the ability to select items and perform everyday computer tasks at home."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "benefit_type"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Participants regained the ability to select items and perform everyday computer tasks at home."
+        }
       },
       "outcomes[].distribution": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The four implanted participants were men of European ancestry. The small, selected group does not establish broad suitability."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The four implanted participants were men of European ancestry. The small, selected group does not establish broad suitability."
+        }
       },
       "outcomes[].duration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The original report covered 12 months for participant 1 and three months for participant 2. The later paper followed four implanted participants for 12 months each."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The original report covered 12 months for participant 1 and three months for participant 2. The later paper followed four implanted participants for 12 months each."
+        }
       },
       "outcomes[].id": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "AIBD-0052-outcome-01"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD-0052-outcome-01"
+        }
       },
       "outcomes[].stakeholder_group": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ratings": [
-              {
-                "group": "personal",
-                "depth": 2,
-                "reason": "Two identified participants regained independent texting, shopping and money management at home. An eye-tracker handled cursor navigation, so the BCI's own contribution is the click control."
-              },
-              {
-                "group": "societal",
-                "depth": 1,
-                "reason": "First-in-human feasibility in two people. Later SWITCH follow-up covered four patients with no serious adverse events, still a small cohort."
-              }
+          "kind": "structured",
+          "data": {
+            "groups": [
+              "personal"
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ratings"
+          "kind": "curatorial",
+          "basis": "The beneficiary groups correspond to the reviewed depth assessments.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "People."
+        }
       },
       "outcomes[].status": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Demonstrated in a small, uncontrolled clinical study."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Demonstrated in a small, uncontrolled clinical study."
+        }
       },
       "outcomes[].tradeoffs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Implantation required anesthesia and antiplatelet treatment. One participant fainted briefly after surgery. The later four-person report recorded eight mild device effects."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Implantation required anesthesia and antiplatelet treatment. One participant fainted briefly after surgery. The later four-person report recorded eight mild device effects."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -809,25 +1647,23 @@
       "places[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "location": "Melbourne, Australia",
-            "developer_country": "United States",
-            "deployer_country": "Australia"
-          }
+          "kind": "text",
+          "text": "The first clinical study and home use took place in Melbourne, Australia. Synchron was based in the United States and worked with Australian investigators."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "location",
-            "developer_country",
-            "deployer_country"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The first clinical study and home use took place in Melbourne, Australia. Synchron was based in the United States and worked with Australian investigators."
+        }
       },
       "purpose": {
         "state": "value_present",
@@ -851,130 +1687,78 @@
       "record_dates": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "date_observed": "2020-10-28",
-            "revisions": [
-              {
-                "date": "2026-10-20",
-                "change": "Record drafted from the cited sources.",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-20",
-                "change": "Replaced “two men” with “two people” in the title and account because no cited source gives the participants' sex; added the paper's implant timing (mid-2019 and early 2020) and an explicit note that the publication date stands in for the date observed; renamed the model version to the paper's own registration (NCT03834857) because the JNIS paper never uses the SWITCH name; and treated Mitchell 2023 as independent because its lead and senior authors are Royal Melbourne Hospital investigators.",
-                "source": "Oxley et al. (2021) J NeuroInterv Surg, PMC7848062; Mitchell et al. (2023) JAMA Neurology, PMID 36622685; RMH statement 24 January 2023",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Added what the benefit is measured against, what happened since from the cited sources.",
-                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/; https://europepmc.org/abstract/MED/36622685",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
-                "source": "https://synchron.com/news; https://en.wikipedia.org/wiki/Royal_Melbourne_Hospital",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Prose pass: a rating reason, account, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
-                "editor": "AIBD"
-              }
-            ]
+          "kind": "structured",
+          "data": {
+            "initial_publication": "2020-10-28",
+            "follow_up_publication": "2023-01-09",
+            "first_participant_implant": "mid-2019",
+            "second_participant_implant": "early 2020",
+            "precision_of_individual_implants": "part-year only"
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "date_observed",
-            "revisions"
+          "kind": "source_review",
+          "basis": "2020 Results; 2023 publisher online-publication metadata.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The first implants occurred in mid-2019 and early 2020. The initial report appeared on 28 October 2020."
+        }
       },
       "replication.attempts[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "replication": {
-              "produced_by": [
-                "Endovascular electrode array recording motor-cortex ECoG from the superior sagittal sinus",
-                "Machine-learning-assisted training of a movement-versus-rest click decoder",
-                "Pairing of BCI clicks with eye-tracker cursor navigation on Windows 10"
-              ],
-              "must_hold": [
-                "Preserved motor cortex activity and suitable venous anatomy",
-                "Stable signal bandwidth over months without migration or occlusion",
-                "Patient able to use an eye-tracker for navigation"
-              ],
-              "echoes": [
-                {
-                  "date": "2023-01-24",
-                  "setting": "SWITCH study follow-up of four patients at Royal Melbourne Hospital over 12 months",
-                  "model_version": "Stentrode (SWITCH)",
-                  "outcome": "recurred",
-                  "source": "Mitchell et al. (2023) JAMA Neurology, PMID 36622685; RMH statement 24 January 2023"
-                }
-              ]
-            }
+          "kind": "structured",
+          "data": {
+            "study": "NCT03834857",
+            "first_report": 2,
+            "later_report": 4,
+            "overlapping_participants": 2,
+            "independent_replication": false
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "replication"
+          "kind": "source_review",
+          "basis": "2023 Introduction and Results.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0002"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The later four-person report includes the original two participants."
+        }
       },
       "replication.conditions": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "replication": {
-              "produced_by": [
-                "Endovascular electrode array recording motor-cortex ECoG from the superior sagittal sinus",
-                "Machine-learning-assisted training of a movement-versus-rest click decoder",
-                "Pairing of BCI clicks with eye-tracker cursor navigation on Windows 10"
-              ],
-              "must_hold": [
-                "Preserved motor cortex activity and suitable venous anatomy",
-                "Stable signal bandwidth over months without migration or occlusion",
-                "Patient able to use an eye-tracker for navigation"
-              ],
-              "echoes": [
-                {
-                  "date": "2023-01-24",
-                  "setting": "SWITCH study follow-up of four patients at Royal Melbourne Hospital over 12 months",
-                  "model_version": "Stentrode (SWITCH)",
-                  "outcome": "recurred",
-                  "source": "Mitchell et al. (2023) JAMA Neurology, PMID 36622685; RMH statement 24 January 2023"
-                }
-              ]
-            }
-          }
+          "kind": "text",
+          "text": "Suitable anatomy, preserved motor signals, training, caregiver setup, and continuing clinical care were required."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "replication"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Suitable anatomy, preserved motor signals, training, caregiver setup, and continuing clinical care were required."
+        }
       },
       "revision_history[]": {
         "state": "value_present",
@@ -1008,6 +1792,12 @@
               {
                 "date": "2026-10-21",
                 "change": "Prose pass: a rating reason, account, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Reviewed the original evidence and supporting material; updated system details, methods, outcomes, limitations, costs, and source lineage.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/",
                 "editor": "AIBD"
               }
             ]
@@ -1046,65 +1836,154 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "sources[].citation_locator": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "evidence": [
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "versions_and_access": [
               {
-                "kind": "peer-reviewed study",
-                "citation": "Oxley TJ, Yoo PE, Rind GS, et al. (2021). Motor neuroprosthesis implanted with neurointerventional surgery improves capacity for activities of daily living tasks in severe paralysis: first in-human experience. Journal of NeuroInterventional Surgery 13(2):102-108.",
-                "title": "Motor neuroprosthesis implanted with neurointerventional surgery improves capacity for activities of daily living tasks in severe paralysis: first in-human experience",
-                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/",
-                "date": "2020-10-28",
-                "written_by": "makers",
-                "quote": "Completion of IADL tasks including text messaging, online shopping and managing finances independently was demonstrated in both participants."
+                "source_ref": "AIBD-0052-source-0001",
+                "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/",
+                "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/",
+                "locator": "Results; Methods; Supplementary Appendix, pp. 3–10.",
+                "status": "Original text read.",
+                "reviewed_on": "2026-10-25"
               },
               {
-                "kind": "press release",
-                "citation": "The Royal Melbourne Hospital (2020). Small brain device proves big game changer for severely paralysed patients. Hospital news statement, 29 October 2020.",
-                "title": "Small brain device proves big game changer for severely paralysed patients",
-                "url": "https://www.thermh.org.au/news/small-brain-device-proves-big-game-changer-for-severely-paralysed-patients",
-                "date": "2020-10-29",
-                "written_by": "deployer",
-                "quote": "machine learning-assisted training to control multiple mouse click actions, including zoom and left click"
+                "source_ref": "AIBD-0052-source-0001",
+                "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7848062/supplementaryFiles",
+                "access_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7848062/supplementaryFiles",
+                "locator": "neurintsurg-2020-016862supp001.pdf, pp. 3–10.",
+                "status": "Original text read.",
+                "reviewed_on": "2026-10-25"
               },
               {
-                "kind": "press release",
-                "citation": "The Royal Melbourne Hospital (2023). Brain interface proves to be safe and effective. Hospital news statement, 24 January 2023.",
-                "title": "Brain interface proves to be safe and effective",
-                "url": "https://www.thermh.org.au/news/brain-interface-proves-to-be-safe-and-effective",
-                "date": "2023-01-24",
-                "written_by": "deployer",
-                "quote": "This technology holds great promise for people with paralysis who want to maintain a level of independence."
+                "source_ref": "AIBD-0052-source-0002",
+                "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9857731/",
+                "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9857731/?report=xml",
+                "locator": "Methods; Results; Table 2; Funding and sponsor role.",
+                "status": "Original text read.",
+                "reviewed_on": "2026-10-25"
               },
               {
-                "kind": "peer-reviewed study",
-                "citation": "Mitchell P, Lee SCM, Yoo PE, et al. (2023). Assessment of Safety of a Fully Implanted Endovascular Brain-Computer Interface for Severe Paralysis in 4 Patients: The SWITCH Study. JAMA Neurology 80(3).",
-                "title": "Assessment of Safety of a Fully Implanted Endovascular Brain-Computer Interface for Severe Paralysis in 4 Patients: The Stentrode With Thought-Controlled Digital Switch (SWITCH) Study",
-                "url": "https://europepmc.org/abstract/MED/36622685",
-                "date": "2023-03-01",
-                "written_by": "makers",
-                "quote": "At least 5 attempted movement types were decoded offline, and each patient successfully controlled a computer with the BCI."
+                "source_ref": "AIBD-0052-source-0002",
+                "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/9857731/bin/jamaneurol-e224847-s001.pdf",
+                "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/9857731/bin/jamaneurol-e224847-s001.pdf",
+                "locator": "2023 Supplement 1.",
+                "status": "Direct PDF access returned an access page. The main paper was read in full.",
+                "reviewed_on": "2026-10-25"
+              },
+              {
+                "source_ref": "AIBD-0052-source-0001",
+                "source_url": "https://clinicaltrials.gov/study/NCT03834857",
+                "access_url": "https://clinicaltrials.gov/api/v2/studies/NCT03834857",
+                "locator": "Identification, status, design, and eligibility.",
+                "status": "Original text read.",
+                "reviewed_on": "2026-10-25"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "evidence"
+          "kind": "source_review",
+          "basis": "Access records below distinguish full text, supplements, metadata, and inaccessible material.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Access and version details are listed for each reviewed source."
+        }
+      },
+      "sources[].citation_locator": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "citations": [
+              {
+                "source_ref": "AIBD-0052-source-0001",
+                "citation": "Oxley TJ, Yoo PE, Rind GS, et al. (2021). Motor neuroprosthesis implanted with neurointerventional surgery improves capacity for activities of daily living tasks in severe paralysis: first in-human experience. Journal of NeuroInterventional Surgery 13(2):102-108.",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/",
+                "date": "2020-10-28"
+              },
+              {
+                "source_ref": "AIBD-0052-source-0002",
+                "citation": "Peter Mitchell et al., “Assessment of Safety of a Fully Implanted Endovascular Brain-Computer Interface for Severe Paralysis in 4 Patients: The Stentrode With Thought-Controlled Digital Switch (SWITCH) Study,” JAMA Neurology 80, no. 3 (2023): 270–278, doi:10.1001/jamaneurol.2022.4847. Published online January 9, 2023.",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9857731/",
+                "date": "2023-01-09"
+              }
+            ],
+            "locators": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/",
+                "locator": "Results; Methods; Supplementary Appendix, pp. 3–10.",
+                "contribution": "Original home-use outcomes, distinct decoders, training, caregiver setup, and safety.",
+                "relationship": "Original first-in-human report by developers and clinicians.",
+                "source_refs": [
+                  "AIBD-0052-source-0001"
+                ]
+              },
+              {
+                "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7848062/supplementaryFiles",
+                "locator": "neurintsurg-2020-016862supp001.pdf, pp. 3–10.",
+                "contribution": "Detailed decoder architecture, training splits, click logic, and patient-reported outcomes.",
+                "relationship": "Supplement to the initial report.",
+                "source_refs": [
+                  "AIBD-0052-source-0001"
+                ]
+              },
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9857731/",
+                "locator": "Methods; Results; Table 2; Funding and sponsor role.",
+                "contribution": "Follow-up of four implanted participants, overlap, mild adverse effects, and independent safety-monitor role.",
+                "relationship": "Developer-funded extension of the same trial.",
+                "source_refs": [
+                  "AIBD-0052-source-0002"
+                ]
+              },
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/9857731/bin/jamaneurol-e224847-s001.pdf",
+                "locator": "2023 Supplement 1.",
+                "contribution": "Referenced for additional methods; no uninspected details are used.",
+                "relationship": "Supplement to the later paper.",
+                "source_refs": [
+                  "AIBD-0052-source-0002"
+                ]
+              },
+              {
+                "url": "https://clinicaltrials.gov/study/NCT03834857",
+                "locator": "Identification, status, design, and eligibility.",
+                "contribution": "Original registration and study sponsor.",
+                "relationship": "Sponsor-supplied registry entry.",
+                "source_refs": [
+                  "AIBD-0052-source-0001"
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Reviewed source metadata and contribution-specific locators.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Original citations and the passages that support each finding."
+        }
       },
       "sources[].id": {
         "state": "value_present",
@@ -1112,86 +1991,153 @@
           "kind": "identifiers",
           "identifiers": [
             "AIBD-0052-source-0001",
-            "AIBD-0052-source-0002",
-            "AIBD-0052-source-0003",
-            "AIBD-0052-source-0004"
+            "AIBD-0052-source-0002"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained sources"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "basis": "Identifiers correspond to the retained source order.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "complete"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "2 retained sources."
+        }
       },
       "sources[].language": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "English. No translation was used."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "English. No translation was used."
+        }
       },
       "sources[].relationship": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "evidence": [
+          "kind": "text",
+          "text": "Synchron funded and participated in the later study. An independent safety monitor reviewed safety data, but this does not make the whole efficacy study independent."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "2023 Funding and Role of the Funder; Methods: End points.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Synchron funded and participated in the later study. An independent safety monitor reviewed safety data, but this does not make the whole efficacy study independent."
+        }
+      },
+      "sources[].upstream_sources": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "lead_source_ref": "AIBD-0052-source-0001",
+            "retained_source_order": [
+              "AIBD-0052-source-0001",
+              "AIBD-0052-source-0002"
+            ],
+            "origins": [
               {
-                "kind": "peer-reviewed study",
-                "citation": "Oxley TJ, Yoo PE, Rind GS, et al. (2021). Motor neuroprosthesis implanted with neurointerventional surgery improves capacity for activities of daily living tasks in severe paralysis: first in-human experience. Journal of NeuroInterventional Surgery 13(2):102-108.",
-                "title": "Motor neuroprosthesis implanted with neurointerventional surgery improves capacity for activities of daily living tasks in severe paralysis: first in-human experience",
                 "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7848062/",
-                "date": "2020-10-28",
-                "written_by": "makers",
-                "quote": "Completion of IADL tasks including text messaging, online shopping and managing finances independently was demonstrated in both participants."
+                "locator": "Results; Methods; Supplementary Appendix, pp. 3–10.",
+                "contribution": "Original home-use outcomes, distinct decoders, training, caregiver setup, and safety.",
+                "relationship": "Original first-in-human report by developers and clinicians.",
+                "source_refs": [
+                  "AIBD-0052-source-0001"
+                ]
               },
               {
-                "kind": "press release",
-                "citation": "The Royal Melbourne Hospital (2020). Small brain device proves big game changer for severely paralysed patients. Hospital news statement, 29 October 2020.",
-                "title": "Small brain device proves big game changer for severely paralysed patients",
-                "url": "https://www.thermh.org.au/news/small-brain-device-proves-big-game-changer-for-severely-paralysed-patients",
-                "date": "2020-10-29",
-                "written_by": "deployer",
-                "quote": "machine learning-assisted training to control multiple mouse click actions, including zoom and left click"
+                "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7848062/supplementaryFiles",
+                "locator": "neurintsurg-2020-016862supp001.pdf, pp. 3–10.",
+                "contribution": "Detailed decoder architecture, training splits, click logic, and patient-reported outcomes.",
+                "relationship": "Supplement to the initial report.",
+                "source_refs": [
+                  "AIBD-0052-source-0001"
+                ]
               },
               {
-                "kind": "press release",
-                "citation": "The Royal Melbourne Hospital (2023). Brain interface proves to be safe and effective. Hospital news statement, 24 January 2023.",
-                "title": "Brain interface proves to be safe and effective",
-                "url": "https://www.thermh.org.au/news/brain-interface-proves-to-be-safe-and-effective",
-                "date": "2023-01-24",
-                "written_by": "deployer",
-                "quote": "This technology holds great promise for people with paralysis who want to maintain a level of independence."
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9857731/",
+                "locator": "Methods; Results; Table 2; Funding and sponsor role.",
+                "contribution": "Follow-up of four implanted participants, overlap, mild adverse effects, and independent safety-monitor role.",
+                "relationship": "Developer-funded extension of the same trial.",
+                "source_refs": [
+                  "AIBD-0052-source-0002"
+                ]
               },
               {
-                "kind": "peer-reviewed study",
-                "citation": "Mitchell P, Lee SCM, Yoo PE, et al. (2023). Assessment of Safety of a Fully Implanted Endovascular Brain-Computer Interface for Severe Paralysis in 4 Patients: The SWITCH Study. JAMA Neurology 80(3).",
-                "title": "Assessment of Safety of a Fully Implanted Endovascular Brain-Computer Interface for Severe Paralysis in 4 Patients: The Stentrode With Thought-Controlled Digital Switch (SWITCH) Study",
-                "url": "https://europepmc.org/abstract/MED/36622685",
-                "date": "2023-03-01",
-                "written_by": "makers",
-                "quote": "At least 5 attempted movement types were decoded offline, and each patient successfully controlled a computer with the BCI."
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/9857731/bin/jamaneurol-e224847-s001.pdf",
+                "locator": "2023 Supplement 1.",
+                "contribution": "Referenced for additional methods; no uninspected details are used.",
+                "relationship": "Supplement to the later paper.",
+                "source_refs": [
+                  "AIBD-0052-source-0002"
+                ]
+              },
+              {
+                "url": "https://clinicaltrials.gov/study/NCT03834857",
+                "locator": "Identification, status, design, and eligibility.",
+                "contribution": "Original registration and study sponsor.",
+                "relationship": "Sponsor-supplied registry entry.",
+                "source_refs": [
+                  "AIBD-0052-source-0001"
+                ]
               }
-            ]
+            ],
+            "excluded_or_consolidated_sources": [
+              {
+                "url": "https://www.thermh.org.au/news/small-brain-device-proves-big-game-changer-for-severely-paralysed-patients",
+                "reason": "The original clinical papers directly document the same outcomes and add methods and limitations."
+              },
+              {
+                "url": "https://www.thermh.org.au/news/brain-interface-proves-to-be-safe-and-effective",
+                "reason": "The original clinical papers directly document the same outcomes and add methods and limitations."
+              }
+            ],
+            "review_scope": "Methods, results, counts, chronology, AI identity and operation, human responsibilities, limitations, and economic evidence."
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "evidence"
+          "kind": "source_review",
+          "basis": "The original materials and exact locators are listed in this assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001",
+            "AIBD-0052-source-0002"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
-      },
-      "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The original studies and their supporting materials are linked to the findings that they support."
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1202,136 +2148,220 @@
       "summary": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "summary": "Two ALS participants in Melbourne used a Stentrode BCI with ML click decoding for unsupervised home texting, shopping and banking.",
-            "account": "Two people with amyotrophic lateral sclerosis and flaccid upper-limb paralysis received the Stentrode at the Royal Melbourne Hospital. The Stentrode is an electrode array delivered via the jugular vein into the superior sagittal sinus. The first-in-human study is in the Journal of NeuroInterventional Surgery (published online 28 October 2020). Participant 1 was implanted in mid-2019 and participant 2 in early 2020. The paper gives no exact event dates. Machine-learning-assisted training mapped attempted-movement electrocorticography to mouse clicks, combined with an eye-tracker for cursor navigation. Unsupervised home use then began on day 86 for participant 1 and day 71 for participant 2. Click accuracies were 92.63% and 93.18%, and they typed 13.81 and 20.10 correct characters per minute. They independently did text messaging, online shopping and managing finances. The hospital's statement of 29 October 2020 confirms these activities."
-          }
+          "kind": "text",
+          "text": "Two people with ALS regained control of a computer at home using Stentrode and eye tracking."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "summary",
-            "account"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Two people with ALS regained control of a computer at home using Stentrode and eye tracking."
+        }
       },
       "systems[].autonomy_permissions": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Participants controlled selections through attempted movements. The system did not choose messages or purchases for them."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Participants controlled selections through attempted movements. The system did not choose messages or purchases for them."
+        }
       },
       "systems[].component_role": {
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "The decoder recognized attempted movements and generated computer-click commands."
+          "text": "The decoder generated clicks from attempted movements. Eye tracking moved the cursor."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Restated the mechanical task already described in the existing system and AI-role fields. No new source review is claimed.",
-          "record_fields": [
-            "system",
-            "ai_role"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The decoder generated clicks from attempted movements. Eye tracking moved the cursor."
+        }
       },
       "systems[].deployment_configuration": {
         "state": "value_present",
         "value": {
-          "kind": "text",
-          "text": "Researchers used the first Stentrode system in a human feasibility trial, registered as NCT03834857."
-        },
-        "provenance": {
-          "kind": "legacy_record",
-          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
-          "record_fields": [
-            "model_version",
-            "system",
-            "ai_role"
-          ],
-          "source_refs": []
-        },
-        "review_state": "record_mapped",
-        "coverage": "partial"
-      },
-      "systems[].inputs_outputs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "systems[].model_version": {
-        "state": "value_present",
-        "value": {
-          "kind": "record_fields",
-          "fields": {
-            "model_version": "Stentrode first-in-human system (early feasibility trial, Clinicaltrials.gov NCT03834857)"
+          "kind": "structured",
+          "data": {
+            "sampling_Hz": 2000,
+            "prediction_stride_ms": 100,
+            "participant_1": {
+              "classifier": "binary SVM, Gaussian radial basis kernel",
+              "features": 78,
+              "frequency_Hz": [
+                4,
+                30
+              ],
+              "train_trials": 24,
+              "validation_trials": 18,
+              "test_trials": 16,
+              "parameter_freeze_day": 92,
+              "C_gamma": "selected to maximize validation F1; numerical values not reported"
+            },
+            "participant_2": {
+              "classifier": "threshold",
+              "feature": "mean normalized spectral power",
+              "frequency_Hz": [
+                12,
+                70
+              ],
+              "calibration_seconds": 30,
+              "lower_threshold": "while typing",
+              "higher_threshold": "otherwise, restored after 15 seconds without typing"
+            },
+            "short_click_consecutive_predictions": [
+              3,
+              9
+            ],
+            "long_click_minimum_predictions": 10
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "model_version"
+          "kind": "source_review",
+          "basis": "2020 Supplementary Appendix, pp. 6–8: Decoder.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial",
+        "review_state": "reviewed",
+        "coverage": "complete",
         "display": {
-          "answer": "Exact release not established.",
-          "editor_note": ""
+          "answer": "The first participant used a trained SVM. The second used a threshold that changed during typing. Both produced short and held clicks."
+        }
+      },
+      "systems[].inputs_outputs": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Electrical signals recorded from a cerebral vein were converted into no click, a short click, or a held click."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Electrical signals recorded from a cerebral vein were converted into no click, a short click, or a held click."
+        }
+      },
+      "systems[].model_name": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A support-vector machine with a radial-basis kernel for participant 1, and a manually tuned threshold classifier for participant 2."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A support-vector machine with a radial-basis kernel for participant 1, and a manually tuned threshold classifier for participant 2."
+        }
+      },
+      "systems[].model_version": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original paper and Supplementary Appendix: Decoder.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "No software release or trained-weight identifier is reported. NCT03834857 identifies the trial, not the model.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "No software release or trained-weight identifier is reported. NCT03834857 identifies the trial, not the model."
         }
       },
       "systems[].product_name": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "system": "Synchron Stentrode endovascular brain-computer interface with machine-learning click decoder and eye-tracker cursor navigation"
-          }
+          "kind": "text",
+          "text": "Stentrode, with a custom decoder and Tobii Dynavox software."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "system"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Stentrode, with a custom decoder and Tobii Dynavox software."
+        }
       },
       "systems[].provider": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "application_developer": "Synchron Inc. with the University of Melbourne"
-          }
+          "kind": "text",
+          "text": "Synchron supplied Stentrode. The research team developed the decoding method, and Tobii Dynavox supplied eye tracking and computer-access software."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "developer"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Synchron supplied Stentrode. The research team developed the decoding method, and Tobii Dynavox supplied eye tracking and computer-access software."
+        }
       },
       "taxonomy_crosswalks[]": {
         "state": "not_assessed",
@@ -1341,38 +2371,39 @@
       "title": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "title": "Stentrode endovascular brain-computer interface lets two people with ALS text, shop and manage finances independently at home",
-            "headline": "Stentrode BCI lets two men with ALS text and shop at home"
-          }
+          "kind": "text",
+          "text": "People with severe paralysis regained control of a computer at home"
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "title",
-            "headline"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "People with severe paralysis regained control of a computer at home"
+        }
       },
       "version": {
         "state": "value_present",
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "ba9038dba5d186f846a9aeca1e2254e4bf1b4b1748bef1f3091003f83c94e4e6"
+            "1bedfa433679e79d0899a74679fd4d86a39e5fc243628f6951ae8a1aa7d24871"
           ],
           "role": "SHA-256 of normalized original case data"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Deterministic content version assigned by the local migration.",
+          "basis": "Content fingerprint refreshed after the October 25, 2026 source review.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [],
+          "reviewed_on": "2026-10-25"
         },
         "review_state": "record_mapped",
         "coverage": "complete"
@@ -1380,58 +2411,38 @@
       "workflow": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "Two people with amyotrophic lateral sclerosis and flaccid upper-limb paralysis received the Stentrode at the Royal Melbourne Hospital. The Stentrode is an electrode array delivered via the jugular vein into the superior sagittal sinus. The first-in-human study is in the Journal of NeuroInterventional Surgery (published online 28 October 2020). Participant 1 was implanted in mid-2019 and participant 2 in early 2020. The paper gives no exact event dates. Machine-learning-assisted training mapped attempted-movement electrocorticography to mouse clicks, combined with an eye-tracker for cursor navigation. Unsupervised home use then began on day 86 for participant 1 and day 71 for participant 2. Click accuracies were 92.63% and 93.18%, and they typed 13.81 and 20.10 correct characters per minute. They independently did text messaging, online shopping and managing finances. The hospital's statement of 29 October 2020 confirms these activities.",
-            "replication": {
-              "produced_by": [
-                "Endovascular electrode array recording motor-cortex ECoG from the superior sagittal sinus",
-                "Machine-learning-assisted training of a movement-versus-rest click decoder",
-                "Pairing of BCI clicks with eye-tracker cursor navigation on Windows 10"
-              ],
-              "must_hold": [
-                "Preserved motor cortex activity and suitable venous anatomy",
-                "Stable signal bandwidth over months without migration or occlusion",
-                "Patient able to use an eye-tracker for navigation"
-              ],
-              "echoes": [
-                {
-                  "date": "2023-01-24",
-                  "setting": "SWITCH study follow-up of four patients at Royal Melbourne Hospital over 12 months",
-                  "model_version": "Stentrode (SWITCH)",
-                  "outcome": "recurred",
-                  "source": "Mitchell et al. (2023) JAMA Neurology, PMID 36622685; RMH statement 24 January 2023"
-                }
-              ]
-            }
-          }
+          "kind": "text",
+          "text": "A caregiver attached the receiver and opened the software. The participant then used eye movements and brain-generated clicks to operate a computer."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "replication"
+          "kind": "source_review",
+          "basis": "Oxley et al. (2020), Results and Methods; Supplementary Appendix, pp. 3–10. Mitchell et al. (2023), Methods, Results, and Table 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0052-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A caregiver attached the receiver and opened the software. The participant then used eye movements and brain-generated clicks to operate a computer."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 32,
-      "reviewed": 0,
-      "record_mapped": 32,
-      "not_assessed": 59,
+      "known": 74,
+      "reviewed": 80,
+      "record_mapped": 8,
+      "not_assessed": 3,
       "complete": false,
       "by_state": {
-        "value_present": 32,
-        "not_reported": 0,
+        "value_present": 74,
+        "not_reported": 14,
         "unresolved": 0,
-        "not_assessed": 59,
+        "not_assessed": 3,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

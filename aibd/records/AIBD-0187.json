@@ -1,18 +1,18 @@
 {
   "id": "AIBD-0187",
-  "title": "DOJ data analytics flag a $10.6 billion catheter billing scheme; CMS withholds $4.41 billion (Operation Gold Rush)",
-  "summary": "DOJ's 2025 Health Care Fraud Takedown says its Data Analytics Team detected anomalous billing by a transnational organization and that HHS-OIG and CMS prevented all but $41 million of $4.45 billion...",
+  "title": "Medicare withholds $4.41 billion in suspected fraudulent payments",
+  "summary": "Federal analysts flagged unusual billing, and HHS-OIG and CMS held $4.41 billion in escrow during Operation Gold Rush.",
   "date_observed": "2025-06-30",
-  "date_basis": "unassessed",
-  "date_precision": "unassessed",
-  "benefit_status": null,
+  "date_basis": "source publication",
+  "date_precision": "day",
+  "benefit_status": "reported",
   "source_collection": null,
   "source_entry": null,
-  "account": "The Department of Justice's press release of 30 June 2025 announced the 2025 National Health Care Fraud Takedown. It covered 324 defendants and over $14.6 billion in intended loss. The release describes Operation Gold Rush. An organization allegedly used foreign straw owners to buy dozens of medical supply companies. It submitted $10.6 billion in fraudulent Medicare claims for urinary catheters and other durable medical equipment. The claims used the stolen identities of over one million Americans. Per the release, the Health Care Fraud Unit's Data Analytics Team and its partners detected the anomalous billing through proactive data analytics. Medicare was scheduled to pay approximately $4.45 billion. HHS-OIG and CMS prevented the organization from receiving all but approximately $41 million of it, per the release. HHS and CMS intend to return the $4.41 billion in escrow to the Medicare trust fund. Medicare supplemental insurers still paid approximately $900 million. Nineteen defendants were charged and twelve arrested, four in Estonia. The Data Analytics Team was established in 2018, the release says. It announces a Health Care Fraud Data Fusion Center to leverage cloud computing, artificial intelligence and advanced analytics. It does not say that AI or machine learning was used in the Gold Rush detection.",
+  "account": "DOJ reported that analysts detected unusual billing in Operation Gold Rush. HHS-OIG and CMS held $4.41 billion in escrow from about $4.45 billion scheduled for payment. Medicare paid about $41 million, and supplemental insurers paid about $900 million. DOJ stated that HHS and CMS intended to seek the return of the escrow to the Medicare trust fund. The announcement also proposed an AI-enabled Data Fusion Center. It does not establish that AI was used in the Gold Rush detection.",
   "category": "harm prevented",
   "unexpected": false,
   "purpose": "Detect, investigate and prosecute complex health care fraud schemes.",
-  "system": "Health Care Fraud Unit Data Analytics Team proactive data analytics (technique unspecified); Health Care Fraud Data Fusion Center announced",
+  "system": "DOJ Health Care Fraud Unit proactive billing analytics",
   "model_version": null,
   "developer": "U.S. Department of Justice, Criminal Division Fraud Section, Health Care Fraud Unit Data Analytics Team",
   "deployer": "U.S. Department of Justice with HHS-OIG and CMS",
@@ -41,16 +41,16 @@
   ],
   "ai_role": {
     "status": "unassessed",
-    "statement": "The detection is attributed to the Data Analytics Team's proactive data analytics. No statement says that AI or machine learning was involved. The Fusion Center that will use artificial intelligence is announced as future work. Developer and deployer of the analytics are the same public body, DOJ's Health Care Fraud Unit, acting with HHS-OIG and CMS."
+    "statement": "DOJ attributes detection to proactive data analytics. The reviewed sources do not establish that AI was used. The AI-enabled Data Fusion Center was announced separately as future work."
   },
   "evidence": [
     {
       "kind": "press release",
-      "citation": "U.S. Department of Justice, Office of Public Affairs, press release, 30 June 2025",
+      "citation": "U.S. Department of Justice, Office of Public Affairs, “National Health Care Fraud Takedown Results in 324 Defendants Charged in Connection with Over $14.6 Billion in Alleged Fraud,” June 30, 2025, § “Transnational Criminal Organizations.”",
       "title": "National Health Care Fraud Takedown Results in 324 Defendants Charged in Connection with Over $14.6 Billion in Alleged Fraud",
       "url": "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146",
       "date": "2025-06-30",
-      "written_by": "makers",
+      "written_by": "deployer",
       "quote": "The Health Care Fraud Unit's Data Analytics Team and its partners detected the anomalous billing through proactive data analytics"
     },
     {
@@ -59,32 +59,41 @@
       "title": "Brooklyn Banker Pleads Guilty to Laundering Proceeds of Medicare Fraud for Transnational Criminal Organization",
       "url": "https://www.justice.gov/opa/pr/brooklyn-banker-pleads-guilty-laundering-proceeds-medicare-fraud-transnational-criminal",
       "date": "2026-02-03",
-      "written_by": "makers",
+      "written_by": "deployer",
+      "quote": null
+    },
+    {
+      "kind": "court document",
+      "citation": "United States v. Nakhmatullaev et al., No. 25-cr-203, indictment, June 18, 2025, 1–10, ¶¶ 1–20, 32–34 (E.D.N.Y.).",
+      "title": "United States v. Nakhmatullaev et al., indictment",
+      "url": "https://www.justice.gov/criminal/media/1405326/dl?inline=",
+      "date": "2025-06-18",
+      "written_by": "deployer",
+      "quote": null
+    },
+    {
+      "kind": "press release",
+      "citation": "U.S. Department of Justice, Office of Public Affairs, “Ohio Man Pleads Guilty to Laundering Health Care Fraud Proceeds for Transnational Criminal Organization,” August 14, 2026, ¶¶ 1–9.",
+      "title": "Ohio Man Pleads Guilty to Laundering Health Care Fraud Proceeds for Transnational Criminal Organization",
+      "url": "https://www.justice.gov/opa/pr/ohio-man-pleads-guilty-laundering-health-care-fraud-proceeds-transnational-criminal",
+      "date": "2026-08-14",
+      "written_by": "deployer",
       "quote": null
     }
   ],
   "replication": {
     "produced_by": [
-      "Centralized Medicare claims data in which rapid, anomalous billing for durable medical equipment could be detected before payment",
-      "Coordination that let CMS and HHS-OIG hold scheduled payments in escrow"
+      "Analysts detected anomalous Medicare billing.",
+      "HHS-OIG and CMS suspended scheduled payments."
     ],
     "must_hold": [
-      "Payment holds triggered before funds leave Medicare",
-      "Interagency data sharing and analytic capacity (the Fusion Center is meant to pool DOJ, HHS-OIG and FBI analysts)",
-      "Prosecutorial follow-through converting holds into charges and seizures"
+      "Access to billing data before payment.",
+      "Legal authority and operational capacity to suspend payments."
     ],
-    "echoes": [
-      {
-        "date": "2026-06-26",
-        "setting": "2026 National Health Care Fraud Takedown",
-        "model_version": null,
-        "outcome": "unknown",
-        "source": "Google News RSS headlines (National Law Review, Wiley, Baker Donelson, June and July 2026) only"
-      }
-    ]
+    "echoes": []
   },
   "paired_incident": null,
-  "headline": "DOJ data analytics flag a $10.6 billion catheter billing scheme",
+  "headline": "Medicare withholds $4.41 billion in suspected fraudulent payments",
   "metric": "HHS-OIG and CMS prevented all but $41 million of $4.45 billion",
   "comparator": {
     "against": "the amount Medicare was scheduled to pay on the fraudulent claims had the billing gone undetected",
@@ -96,10 +105,10 @@
   },
   "later": {
     "status": "litigated",
-    "date": "2026-02-03",
-    "note": "On 3 February 2026 a Brooklyn bank relationship manager pleaded guilty to conspiring to launder more than $8 million of proceeds of the scheme uncovered by Operation Gold Rush, with sentencing set for 20 April 2026.",
-    "quote": "According to court documents, Renat Abramov, 36, of Brooklyn, a former relationship manager at a U.S. bank branch in Sheepshead Bay, used his position to aid a sophisticated international scheme uncovered by Operation Gold Rush.",
-    "url": "https://www.justice.gov/opa/pr/brooklyn-banker-pleads-guilty-laundering-proceeds-medicare-fraud-transnational-criminal"
+    "date": "2026-08-13",
+    "note": "DOJ reported 35 people charged and 16 convicted by August 14, 2026, following a money-laundering guilty plea the previous day. These developments do not establish an AI contribution or the final disposition of the $4.41 billion in escrow.",
+    "quote": null,
+    "url": "https://www.justice.gov/opa/pr/ohio-man-pleads-guilty-laundering-health-care-fraud-proceeds-transnational-criminal"
   },
   "value": {
     "amount": "$4.41 billion",
@@ -144,25 +153,49 @@
       "change": "Prose pass: a rating reason, account, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Read the original DOJ announcements and linked indictment; separated billing analytics from the proposed AI-enabled Fusion Center, clarified escrow and losses, and added the August 2026 prosecution update.",
+      "source": "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146",
+      "editor": "AIBD"
     }
   ],
   "confidence": "claimed",
   "shade": "low",
-  "claim_status": "The makers' claim",
-  "claim_basis": "Sources: two press releases from the makers. The cited evidence includes no independent source and no finding by a regulator or court.",
+  "claim_status": "The deployer's account",
+  "claim_basis": "Sources: the deployer's court document and three press releases from the deployer. The cited evidence includes no independent source and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0187",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "6343f74e8a95a2ca972b205ea6af39c21b5d6e5526e384d9bbf965a834b3db5d",
+    "source_fingerprint": "97b6aaeb2665f23ec816fe89bd7d400e53a9861274835d537c0b95d803e7f548",
     "collection_refs": [
       {
         "collection_id": "aibd",
         "version": "snapshot-8bf7cfec9cb185aa"
+      },
+      {
+        "collection_id": "aibd",
+        "version": "2026-10-25"
+      },
+      {
+        "collection_id": "querist",
+        "version": "2026-10-25"
+      },
+      {
+        "collection_id": "adyt",
+        "version": "2026-10-25"
+      },
+      {
+        "collection_id": "chanticleer",
+        "version": "2026-10-25"
       }
     ],
     "source_ids": [
       "AIBD-0187-source-0001",
-      "AIBD-0187-source-0002"
+      "AIBD-0187-source-0002",
+      "AIBD-0187-source-0003",
+      "AIBD-0187-source-0004"
     ],
     "families": {
       "strategic assessments": {
@@ -182,86 +215,132 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "AIBD-0187-legacy-value",
             "DIV-0026"
           ],
-          "role": "Existing monetary observations and Fructus statements with matched AIBD case links; each statement retains its own review and eligibility status"
+          "role": "monetary observations"
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Linked to the current Fructus dataset by its validated case identifier. Eligible statements can supply unanswered monetary questions without a new source review or a finding of net benefit.",
+          "kind": "source_review",
+          "basis": "DOJ reports a gross payment hold, without an established AI contribution.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial",
+        "review_state": "reviewed",
+        "coverage": "complete",
         "record_ids": [
-          "AIBD-0187-legacy-value",
           "DIV-0026"
         ]
       },
       "institutional decisions": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "record_ids": []
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "25-cr-203"
+          ],
+          "role": "institutional decisions"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "DOJ announcement and the linked indictment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "record_ids": [
+          "25-cr-203"
+        ]
       }
     },
     "fields": {
       "actors[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "developer": "U.S. Department of Justice, Criminal Division Fraud Section, Health Care Fraud Unit Data Analytics Team",
-            "deployer": "U.S. Department of Justice with HHS-OIG and CMS"
-          }
+          "kind": "text",
+          "text": "DOJ’s Health Care Fraud Unit and partners analyzed billing. HHS-OIG and CMS suspended payments."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "developer",
-            "deployer"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "DOJ’s Health Care Fraud Unit and partners analyzed billing. HHS-OIG and CMS suspended payments."
+        }
       },
       "actors[].ownership_control": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "ai_contribution": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "ai_relationship": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "category": "harm prevented",
-            "ai_role": {
-              "status": "unassessed",
-              "statement": "The detection is attributed to the Data Analytics Team's proactive data analytics. No statement says that AI or machine learning was involved. The Fusion Center that will use artificial intelligence is announced as future work. Developer and deployer of the analytics are the same public body, DOJ's Health Care Fraud Unit, acting with HHS-OIG and CMS."
-            }
-          }
+          "kind": "text",
+          "text": "The named teams are U.S. federal agencies. The sources do not identify a private software owner."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ai_role",
-            "category"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The named teams are U.S. federal agencies. The sources do not identify a private software owner."
+        }
+      },
+      "ai_contribution": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "DOJ credits proactive data analytics. It does not identify an AI component or measure its separate contribution."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "DOJ credits proactive data analytics. It does not identify an AI component or measure its separate contribution."
+        }
+      },
+      "ai_relationship": {
+        "state": "unresolved",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "Whether the billing analysis used AI remains unresolved.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Whether the billing analysis used AI remains unresolved."
+        }
       },
       "assessments[].alternatives": {
         "state": "not_assessed",
@@ -310,23 +389,26 @@
       "assessments[].display_confidence": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "confidence": "low",
-            "evidence_word": "claimed",
-            "claim_status": "The makers' claim",
-            "basis": "Sources: two press releases from the makers. The cited evidence includes no independent source and no finding by a regulator or court.",
-            "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
-          }
+          "kind": "text",
+          "text": "An outline: the payment figure comes from the participating agencies, and an AI contribution remains unresolved."
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "An outline: the payment figure comes from the participating agencies, and an AI contribution remains unresolved."
+        }
       },
       "assessments[].rationale": {
         "state": "value_present",
@@ -368,9 +450,25 @@
         "coverage": "partial"
       },
       "assessments[].status_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The payment hold is reported as completed. Returning the escrow to the Medicare trust fund was still intended."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The payment hold is reported as completed. Returning the escrow to the Medicare trust fund was still intended."
+        }
       },
       "assessments[].target": {
         "state": "value_present",
@@ -407,9 +505,22 @@
         "coverage": "partial"
       },
       "availability": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not provide public access to the analytic system.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed sources do not provide public access to the analytic system."
+        }
       },
       "brief": {
         "state": "not_assessed",
@@ -417,9 +528,25 @@
         "coverage": "partial"
       },
       "case_kind": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A federal fraud investigation and administrative payment suspension."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A federal fraud investigation and administrative payment suspension."
+        }
       },
       "case_links[]": {
         "state": "not_assessed",
@@ -427,176 +554,454 @@
         "coverage": "partial"
       },
       "claims[].evidence_links": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The June 2025 announcement supports the payment figures. The indictment describes the alleged scheme. The later releases add prosecution updates."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The June 2025 announcement supports the payment figures. The indictment describes the alleged scheme. The later releases add prosecution updates."
+        }
       },
       "claims[].evidence_strength": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Official accounts support the withheld-payment figure and prosecution updates. They do not establish that AI produced the benefit."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Official accounts support the withheld-payment figure and prosecution updates. They do not establish that AI produced the benefit."
+        }
       },
       "claims[].missingness": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The algorithm, AI contribution, operating costs, false-positive rate, and final escrow disposition remain unestablished."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The algorithm, AI contribution, operating costs, false-positive rate, and final escrow disposition remain unestablished."
+        }
       },
       "claims[].proposition": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Billing analysis contributed to the detection of a scheme whose scheduled payments were largely suspended."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Billing analysis contributed to the detection of a scheme whose scheduled payments were largely suspended."
+        }
       },
       "cross_border_flows[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "DOJ describes criminal transfers to overseas companies and accounts. It does not document cross-border movement of the analytic system, its training data, or its computing resources."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "DOJ describes criminal transfers to overseas companies and accounts. It does not document cross-border movement of the analytic system, its training data, or its computing resources."
+        }
       },
       "decisions[].action_outcome": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Payments were suspended. The June 2025 indictment and later guilty pleas concern the alleged criminal scheme."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Payments were suspended. The June 2025 indictment and later guilty pleas concern the alleged criminal scheme."
+        }
       },
       "decisions[].grounds": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Anomalous billing and evidence of fraudulent claims were the stated grounds. The sources do not give a separate test of AI’s contribution."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Anomalous billing and evidence of fraudulent claims were the stated grounds. The sources do not give a separate test of AI’s contribution."
+        }
       },
       "decisions[].institution_task": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "HHS-OIG and CMS suspended payments while DOJ and its partners investigated the alleged fraud."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "HHS-OIG and CMS suspended payments while DOJ and its partners investigated the alleged fraud."
+        }
       },
       "decisions[].success_criterion": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "institutional decisions"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The announcements describe preventing improper payments and prosecuting fraud. They do not specify a prospective numerical threshold for success."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The announcements describe preventing improper payments and prosecuting fraud. They do not specify a prospective numerical threshold for success."
+        }
       },
       "deployment_stage": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Operational billing analysis supported an active investigation."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Operational billing analysis supported an active investigation."
+        }
       },
       "economics[].amount": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "value": {
-              "amount": "$4.41 billion",
-              "what": "fraudulent Medicare payments held in escrow rather than paid out, to be returned to the Medicare trust fund",
-              "who": "Medicare trust fund (HHS and CMS)",
-              "estimate": false,
-              "quote": "HHS and CMS intend to seek to return the $4.41 billion in escrow to the Medicare trust fund for needed medical care.",
-              "url": "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146"
-            }
-          }
+          "kind": "text",
+          "text": "US$4.41 billion held in escrow."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "value"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "US$4.41 billion held in escrow."
+        }
       },
       "economics[].costs[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not quantify operating or enforcement costs.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed sources do not quantify operating or enforcement costs."
+        }
       },
       "economics[].counterfactual": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "About $4.45 billion was scheduled for payment; about $41 million was paid. This accounting comparison does not isolate AI’s effect."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "About $4.45 billion was scheduled for payment; about $41 million was paid. This accounting comparison does not isolate AI’s effect."
+        }
       },
       "economics[].currency_price_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "U.S. dollars. The figures are nominal; no inflation adjustment is stated."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "U.S. dollars. The figures are nominal; no inflation adjustment is stated."
+        }
       },
       "economics[].gross_net": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The figure is gross money withheld. It does not deduct investigation, prosecution, or administrative costs."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The figure is gross money withheld. It does not deduct investigation, prosecution, or administrative costs."
+        }
       },
       "economics[].measure_type": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "value": {
-              "amount": "$4.41 billion",
-              "what": "fraudulent Medicare payments held in escrow rather than paid out, to be returned to the Medicare trust fund",
-              "who": "Medicare trust fund (HHS and CMS)",
-              "estimate": false,
-              "quote": "HHS and CMS intend to seek to return the $4.41 billion in escrow to the Medicare trust fund for needed medical care.",
-              "url": "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146"
-            }
-          }
+          "kind": "text",
+          "text": "Scheduled payments withheld in escrow, rather than a realized net saving."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "value"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Scheduled payments withheld in escrow, rather than a realized net saving."
+        }
       },
       "economics[].period_unit": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The Operation Gold Rush payment hold reported on June 30, 2025. The exact interval covered by the total is not specified."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The Operation Gold Rush payment hold reported on June 30, 2025. The exact interval covered by the total is not specified."
+        }
       },
       "economics[].realization": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "$4.41 billion was held in escrow. Returning it to the trust fund remained an intention in the announcement."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "$4.41 billion was held in escrow. Returning it to the trust fund remained an intention in the announcement."
+        }
       },
       "economics[].recipient_payer": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "value": {
-              "amount": "$4.41 billion",
-              "what": "fraudulent Medicare payments held in escrow rather than paid out, to be returned to the Medicare trust fund",
-              "who": "Medicare trust fund (HHS and CMS)",
-              "estimate": false,
-              "quote": "HHS and CMS intend to seek to return the $4.41 billion in escrow to the Medicare trust fund for needed medical care.",
-              "url": "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146"
-            }
-          }
+          "kind": "text",
+          "text": "Medicare was the scheduled payer; the Medicare trust fund was the intended recipient of returned escrow."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "value"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Medicare was the scheduled payer; the Medicare trust fund was the intended recipient of returned escrow."
+        }
       },
       "economics[].return_payback": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "unresolved",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "A return or payback period cannot be calculated from the reviewed figures because costs and an AI contribution are unestablished.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A return or payback period cannot be calculated from the reviewed figures because costs and an AI contribution are unestablished."
+        }
       },
       "economics[].valuation_method": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "DOJ reports the scheduled, paid, and escrowed amounts. No monetary valuation model is described."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "DOJ reports the scheduled, paid, and escrowed amounts. No monetary valuation model is described."
+        }
       },
       "evaluations[].ai_uplift": {
         "state": "not_assessed",
@@ -677,39 +1082,68 @@
         "family": "evaluations"
       },
       "external_references[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "United States v. Nakhmatullaev et al., No. 25-cr-203."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "United States v. Nakhmatullaev et al., No. 25-cr-203."
+        }
       },
       "follow_up[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "later": {
-              "status": "litigated",
-              "date": "2026-02-03",
-              "note": "On 3 February 2026 a Brooklyn bank relationship manager pleaded guilty to conspiring to launder more than $8 million of proceeds of the scheme uncovered by Operation Gold Rush, with sentencing set for 20 April 2026.",
-              "quote": "According to court documents, Renat Abramov, 36, of Brooklyn, a former relationship manager at a U.S. bank branch in Sheepshead Bay, used his position to aid a sophisticated international scheme uncovered by Operation Gold Rush.",
-              "url": "https://www.justice.gov/opa/pr/brooklyn-banker-pleads-guilty-laundering-proceeds-medicare-fraud-transnational-criminal"
-            }
-          }
+          "kind": "text",
+          "text": "DOJ reported 35 people charged and 16 convicted by August 14, 2026, following a money-laundering guilty plea the previous day. These developments do not establish an AI contribution or the final disposition of the $4.41 billion in escrow."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "later"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0004"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "DOJ reported 35 people charged and 16 convicted by August 14, 2026, following a money-laundering guilty plea the previous day. These developments do not establish an AI contribution or the final disposition of the $4.41 billion in escrow."
+        }
       },
       "human_oversight": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Federal analysts, investigators, prosecutors, and payment administrators performed distinct roles. The sources do not describe a specific review protocol for software alerts."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Federal analysts, investigators, prosecutors, and payment administrators performed distinct roles. The sources do not describe a specific review protocol for software alerts."
+        }
       },
       "id": {
         "state": "value_present",
@@ -731,74 +1165,170 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The investigation required Medicare billing records, access to payment administration, and cooperation among federal agencies."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The investigation required Medicare billing records, access to payment administration, and cooperation among federal agencies."
+        }
       },
       "outcomes[].beneficiaries": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Medicare and the public funds that support it."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Medicare and the public funds that support it."
+        }
       },
       "outcomes[].beneficiary_count": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "More than one million people had identities stolen. That is a count of people affected by the alleged fraud, not a measured count of people helped by AI."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0003"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "More than one million people had identities stolen. That is a count of people affected by the alleged fraud, not a measured count of people helped by AI."
+        }
       },
       "outcomes[].benefit_type": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "benefit_type": "Reduced Risk"
-          }
+          "kind": "text",
+          "text": "Avoided payment of suspected fraudulent claims."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "benefit_type"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Avoided payment of suspected fraudulent claims."
+        }
       },
       "outcomes[].claim": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "The Department of Justice's press release of 30 June 2025 announced the 2025 National Health Care Fraud Takedown. It covered 324 defendants and over $14.6 billion in intended loss. The release describes Operation Gold Rush. An organization allegedly used foreign straw owners to buy dozens of medical supply companies. It submitted $10.6 billion in fraudulent Medicare claims for urinary catheters and other durable medical equipment. The claims used the stolen identities of over one million Americans. Per the release, the Health Care Fraud Unit's Data Analytics Team and its partners detected the anomalous billing through proactive data analytics. Medicare was scheduled to pay approximately $4.45 billion. HHS-OIG and CMS prevented the organization from receiving all but approximately $41 million of it, per the release. HHS and CMS intend to return the $4.41 billion in escrow to the Medicare trust fund. Medicare supplemental insurers still paid approximately $900 million. Nineteen defendants were charged and twelve arrested, four in Estonia. The Data Analytics Team was established in 2018, the release says. It announces a Health Care Fraud Data Fusion Center to leverage cloud computing, artificial intelligence and advanced analytics. It does not say that AI or machine learning was used in the Gold Rush detection.",
-            "benefit_type": "Reduced Risk"
-          }
+          "kind": "text",
+          "text": "$4.41 billion in scheduled Medicare payments was held in escrow."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "benefit_type"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "$4.41 billion in scheduled Medicare payments was held in escrow."
+        }
       },
       "outcomes[].distribution": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The announcement does not measure how the payment hold benefited particular beneficiaries or communities.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The announcement does not measure how the payment hold benefited particular beneficiaries or communities."
+        }
       },
       "outcomes[].duration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The money was held by June 30, 2025. The reviewed sources do not establish the final disposition of the escrow."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The money was held by June 30, 2025. The reviewed sources do not establish the final disposition of the escrow."
+        }
       },
       "outcomes[].id": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "AIBD-0187-outcome-01"
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD-0187-outcome-01"
+        }
       },
       "outcomes[].stakeholder_group": {
         "state": "value_present",
@@ -835,75 +1365,114 @@
         "coverage": "partial"
       },
       "outcomes[].status": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The payment suspension occurred. Return of the escrow to the Medicare trust fund remained intended."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The payment suspension occurred. Return of the escrow to the Medicare trust fund remained intended."
+        }
       },
       "outcomes[].tradeoffs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "About $41 million reached the organization through Medicare, and supplemental insurers paid about $900 million. Enforcement costs and effects on legitimate payments are not quantified."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "About $41 million reached the organization through Medicare, and supplemental insurers paid about $900 million. Enforcement costs and effects on legitimate payments are not quantified."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "unexpected": false,
-            "purpose": "Detect, investigate and prosecute complex health care fraud schemes."
-          }
+          "kind": "text",
+          "text": "Preventing fraudulent payments was an intended purpose of the analysis."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "unexpected",
-            "purpose"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Preventing fraudulent payments was an intended purpose of the analysis."
+        }
       },
       "places[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
+          "kind": "structured",
+          "data": {
             "developer_country": "United States",
-            "deployer_country": "United States"
+            "deployer_country": "United States",
+            "location": "United States",
+            "answer": "The analysis and payment administration occurred in the United States. The investigation involved overseas arrests and transfers."
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "developer_country",
-            "deployer_country"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The analysis and payment administration occurred in the United States. The investigation involved overseas arrests and transfers."
+        }
       },
       "purpose": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "purpose": "Detect, investigate and prosecute complex health care fraud schemes."
-          }
+          "kind": "text",
+          "text": "Detect health care fraud before scheduled payments leave Medicare."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "purpose"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Detect health care fraud before scheduled payments leave Medicare."
+        }
       },
       "record_dates": {
         "state": "value_present",
@@ -911,6 +1480,8 @@
           "kind": "record_fields",
           "fields": {
             "date_observed": "2025-06-30",
+            "date_basis": "source publication",
+            "date_precision": "day",
             "revisions": [
               {
                 "date": "2026-10-20",
@@ -939,6 +1510,12 @@
                 "date": "2026-10-21",
                 "change": "Prose pass: a rating reason, account, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Read the original DOJ announcements and linked indictment; separated billing analytics from the proposed AI-enabled Fusion Center, clarified escrow and losses, and added the August 2026 prosecution update.",
+                "source": "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146",
+                "editor": "AIBD"
               }
             ]
           }
@@ -948,6 +1525,8 @@
           "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
           "record_fields": [
             "date_observed",
+            "date_basis",
+            "date_precision",
             "revisions"
           ],
           "source_refs": []
@@ -956,78 +1535,46 @@
         "coverage": "partial"
       },
       "replication.attempts[]": {
-        "state": "value_present",
-        "value": {
-          "kind": "record_fields",
-          "fields": {
-            "replication": {
-              "produced_by": [
-                "Centralized Medicare claims data in which rapid, anomalous billing for durable medical equipment could be detected before payment",
-                "Coordination that let CMS and HHS-OIG hold scheduled payments in escrow"
-              ],
-              "must_hold": [
-                "Payment holds triggered before funds leave Medicare",
-                "Interagency data sharing and analytic capacity (the Fusion Center is meant to pool DOJ, HHS-OIG and FBI analysts)",
-                "Prosecutorial follow-through converting holds into charges and seizures"
-              ],
-              "echoes": [
-                {
-                  "date": "2026-06-26",
-                  "setting": "2026 National Health Care Fraud Takedown",
-                  "outcome": "unknown",
-                  "source": "Google News RSS headlines (National Law Review, Wiley, Baker Donelson, June and July 2026) only"
-                }
-              ]
-            }
-          }
-        },
+        "state": "not_reported",
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "replication"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "reason": "The reviewed sources do not describe an independent replication of the billing analysis.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed sources do not describe an independent replication of the billing analysis."
+        }
       },
       "replication.conditions": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "replication": {
-              "produced_by": [
-                "Centralized Medicare claims data in which rapid, anomalous billing for durable medical equipment could be detected before payment",
-                "Coordination that let CMS and HHS-OIG hold scheduled payments in escrow"
-              ],
-              "must_hold": [
-                "Payment holds triggered before funds leave Medicare",
-                "Interagency data sharing and analytic capacity (the Fusion Center is meant to pool DOJ, HHS-OIG and FBI analysts)",
-                "Prosecutorial follow-through converting holds into charges and seizures"
-              ],
-              "echoes": [
-                {
-                  "date": "2026-06-26",
-                  "setting": "2026 National Health Care Fraud Takedown",
-                  "outcome": "unknown",
-                  "source": "Google News RSS headlines (National Law Review, Wiley, Baker Donelson, June and July 2026) only"
-                }
-              ]
-            }
-          }
+          "kind": "text",
+          "text": "The agencies needed billing data and the authority to stop payments before the money was transferred."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "replication"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The agencies needed billing data and the authority to stop payments before the money was transferred."
+        }
       },
       "revision_history[]": {
         "state": "value_present",
@@ -1062,6 +1609,12 @@
                 "date": "2026-10-21",
                 "change": "Prose pass: a rating reason, account, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Read the original DOJ announcements and linked indictment; separated billing analytics from the proposed AI-enabled Fusion Center, clarified escrow and losses, and added the August 2026 prosecution update.",
+                "source": "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146",
+                "editor": "AIBD"
               }
             ]
           }
@@ -1080,28 +1633,47 @@
       "sector": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "domain": "Health care fraud and public insurance",
-            "segment": "Medicare durable medical equipment claims"
-          }
+          "kind": "text",
+          "text": "Public health insurance and fraud enforcement."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "domain",
-            "segment"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Public health insurance and fraud enforcement."
+        }
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "DOJ’s original online releases and the June 18, 2025 indictment were inspected on October 25, 2026."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "DOJ’s original online releases and the June 18, 2025 indictment were inspected on October 25, 2026."
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1111,11 +1683,11 @@
             "evidence": [
               {
                 "kind": "press release",
-                "citation": "U.S. Department of Justice, Office of Public Affairs, press release, 30 June 2025",
+                "citation": "U.S. Department of Justice, Office of Public Affairs, “National Health Care Fraud Takedown Results in 324 Defendants Charged in Connection with Over $14.6 Billion in Alleged Fraud,” June 30, 2025, § “Transnational Criminal Organizations.”",
                 "title": "National Health Care Fraud Takedown Results in 324 Defendants Charged in Connection with Over $14.6 Billion in Alleged Fraud",
                 "url": "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146",
                 "date": "2025-06-30",
-                "written_by": "makers",
+                "written_by": "deployer",
                 "quote": "The Health Care Fraud Unit's Data Analytics Team and its partners detected the anomalous billing through proactive data analytics"
               },
               {
@@ -1124,7 +1696,23 @@
                 "title": "Brooklyn Banker Pleads Guilty to Laundering Proceeds of Medicare Fraud for Transnational Criminal Organization",
                 "url": "https://www.justice.gov/opa/pr/brooklyn-banker-pleads-guilty-laundering-proceeds-medicare-fraud-transnational-criminal",
                 "date": "2026-02-03",
-                "written_by": "makers"
+                "written_by": "deployer"
+              },
+              {
+                "kind": "court document",
+                "citation": "United States v. Nakhmatullaev et al., No. 25-cr-203, indictment, June 18, 2025, 1–10, ¶¶ 1–20, 32–34 (E.D.N.Y.).",
+                "title": "United States v. Nakhmatullaev et al., indictment",
+                "url": "https://www.justice.gov/criminal/media/1405326/dl?inline=",
+                "date": "2025-06-18",
+                "written_by": "deployer"
+              },
+              {
+                "kind": "press release",
+                "citation": "U.S. Department of Justice, Office of Public Affairs, “Ohio Man Pleads Guilty to Laundering Health Care Fraud Proceeds for Transnational Criminal Organization,” August 14, 2026, ¶¶ 1–9.",
+                "title": "Ohio Man Pleads Guilty to Laundering Health Care Fraud Proceeds for Transnational Criminal Organization",
+                "url": "https://www.justice.gov/opa/pr/ohio-man-pleads-guilty-laundering-health-care-fraud-proceeds-transnational-criminal",
+                "date": "2026-08-14",
+                "written_by": "deployer"
               }
             ]
           }
@@ -1146,65 +1734,151 @@
           "kind": "identifiers",
           "identifiers": [
             "AIBD-0187-source-0001",
-            "AIBD-0187-source-0002"
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained sources"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "complete"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "4 retained sources."
+        }
       },
       "sources[].language": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "English."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "English."
+        }
       },
       "sources[].relationship": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "evidence": [
+          "kind": "text",
+          "text": "DOJ reports its own investigation and prosecutions. The indictment records prosecutors’ allegations, not a judicial finding about an AI benefit."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "DOJ reports its own investigation and prosecutions. The indictment records prosecutors’ allegations, not a judicial finding about an AI benefit."
+        }
+      },
+      "sources[].upstream_sources": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "lead_source_ref": "AIBD-0187-source-0001",
+            "retained_source_order": [
+              "AIBD-0187-source-0001",
+              "AIBD-0187-source-0002",
+              "AIBD-0187-source-0003",
+              "AIBD-0187-source-0004"
+            ],
+            "origins": [
               {
-                "kind": "press release",
-                "citation": "U.S. Department of Justice, Office of Public Affairs, press release, 30 June 2025",
-                "title": "National Health Care Fraud Takedown Results in 324 Defendants Charged in Connection with Over $14.6 Billion in Alleged Fraud",
+                "source_refs": [
+                  "AIBD-0187-source-0001"
+                ],
+                "display_name": "U.S. Department of Justice",
                 "url": "https://www.justice.gov/opa/pr/national-health-care-fraud-takedown-results-324-defendants-charged-connection-over-146",
-                "date": "2025-06-30",
-                "written_by": "makers",
-                "quote": "The Health Care Fraud Unit's Data Analytics Team and its partners detected the anomalous billing through proactive data analytics"
+                "contribution": "Reports the billing detection, scheduled payments, escrow, and losses. Announces the future AI-enabled center separately.",
+                "locator": "§§ “Transnational Criminal Organizations” and “Breaking Down Silos in the Fight Against Health Care Fraud.”"
               },
               {
-                "kind": "press release",
-                "citation": "U.S. Department of Justice, Office of Public Affairs, press release, 3 February 2026. Brooklyn Banker Pleads Guilty to Laundering Proceeds of Medicare Fraud for Transnational Criminal Organization.",
-                "title": "Brooklyn Banker Pleads Guilty to Laundering Proceeds of Medicare Fraud for Transnational Criminal Organization",
+                "source_refs": [
+                  "AIBD-0187-source-0002"
+                ],
+                "display_name": "U.S. Department of Justice",
                 "url": "https://www.justice.gov/opa/pr/brooklyn-banker-pleads-guilty-laundering-proceeds-medicare-fraud-transnational-criminal",
-                "date": "2026-02-03",
-                "written_by": "makers"
+                "contribution": "Documents the banker’s guilty plea on February 3, 2026.",
+                "locator": "¶¶ 1–5."
+              },
+              {
+                "source_refs": [
+                  "AIBD-0187-source-0003"
+                ],
+                "display_name": "U.S. Department of Justice",
+                "url": "https://www.justice.gov/criminal/media/1405326/dl?inline=",
+                "contribution": "Original indictment underlying the announcement. Describes alleged ownership, billing, and money laundering; it does not establish an AI method.",
+                "locator": "1–10, ¶¶ 1–20, 32–34."
+              },
+              {
+                "source_refs": [
+                  "AIBD-0187-source-0004"
+                ],
+                "display_name": "U.S. Department of Justice",
+                "url": "https://www.justice.gov/opa/pr/ohio-man-pleads-guilty-laundering-health-care-fraud-proceeds-transnational-criminal",
+                "contribution": "Reports 35 people charged and 16 convicted by August 14, 2026.",
+                "locator": "¶¶ 1–9."
               }
+            ],
+            "limitations": [
+              "No reviewed source identifies an AI component in the billing detection.",
+              "The announcements do not document a final return of the escrowed money to the trust fund."
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "evidence"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001",
+            "AIBD-0187-source-0002",
+            "AIBD-0187-source-0003",
+            "AIBD-0187-source-0004"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
-      },
-      "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "DOJ is the original source for the payment figures. Its linked indictment describes the alleged scheme; later announcements document guilty pleas."
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1215,91 +1889,182 @@
       "summary": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "summary": "DOJ's 2025 Health Care Fraud Takedown says its Data Analytics Team detected anomalous billing by a transnational organization and that HHS-OIG and CMS prevented all but $41 million of $4.45 billion...",
-            "account": "The Department of Justice's press release of 30 June 2025 announced the 2025 National Health Care Fraud Takedown. It covered 324 defendants and over $14.6 billion in intended loss. The release describes Operation Gold Rush. An organization allegedly used foreign straw owners to buy dozens of medical supply companies. It submitted $10.6 billion in fraudulent Medicare claims for urinary catheters and other durable medical equipment. The claims used the stolen identities of over one million Americans. Per the release, the Health Care Fraud Unit's Data Analytics Team and its partners detected the anomalous billing through proactive data analytics. Medicare was scheduled to pay approximately $4.45 billion. HHS-OIG and CMS prevented the organization from receiving all but approximately $41 million of it, per the release. HHS and CMS intend to return the $4.41 billion in escrow to the Medicare trust fund. Medicare supplemental insurers still paid approximately $900 million. Nineteen defendants were charged and twelve arrested, four in Estonia. The Data Analytics Team was established in 2018, the release says. It announces a Health Care Fraud Data Fusion Center to leverage cloud computing, artificial intelligence and advanced analytics. It does not say that AI or machine learning was used in the Gold Rush detection."
-          }
+          "kind": "text",
+          "text": "Federal analysts flagged unusual billing, and HHS-OIG and CMS held $4.41 billion in escrow during Operation Gold Rush."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "summary",
-            "account"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Federal analysts flagged unusual billing, and HHS-OIG and CMS held $4.41 billion in escrow during Operation Gold Rush."
+        }
       },
       "systems[].autonomy_permissions": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "HHS-OIG and CMS controlled payment suspensions. The sources do not describe an autonomous system that could withhold funds."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "HHS-OIG and CMS controlled payment suspensions. The sources do not describe an autonomous system that could withhold funds."
+        }
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The analysts detected unusual billing. HHS-OIG and CMS then stopped most scheduled payments."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The analysts detected unusual billing. HHS-OIG and CMS then stopped most scheduled payments."
+        }
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not specify the software, hosting, or runtime settings.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed sources do not specify the software, hosting, or runtime settings."
+        }
       },
       "systems[].inputs_outputs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Analysts examined health care billing and identified anomalous patterns. The model inputs and alert format are not specified."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Analysts examined health care billing and identified anomalous patterns. The model inputs and alert format are not specified."
+        }
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not identify a model.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed sources do not identify a model."
+        }
       },
       "systems[].model_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The reviewed sources do not identify a model release.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The reviewed sources do not identify a model release."
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "system": "Health Care Fraud Unit Data Analytics Team proactive data analytics (technique unspecified); Health Care Fraud Data Fusion Center announced"
-          }
+          "kind": "text",
+          "text": "DOJ Health Care Fraud Unit proactive billing analytics"
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "system"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "DOJ Health Care Fraud Unit proactive billing analytics"
+        }
       },
       "systems[].provider": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "application_developer": "U.S. Department of Justice, Criminal Division Fraud Section, Health Care Fraud Unit Data Analytics Team"
-          }
+          "kind": "text",
+          "text": "The Department of Justice identifies its Health Care Fraud Unit Data Analytics Team and partners; it names no software supplier."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "developer"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The Department of Justice identifies its Health Care Fraud Unit Data Analytics Team and partners; it names no software supplier."
+        }
       },
       "taxonomy_crosswalks[]": {
         "state": "not_assessed",
@@ -1309,38 +2074,39 @@
       "title": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "title": "DOJ data analytics flag a $10.6 billion catheter billing scheme; CMS withholds $4.41 billion (Operation Gold Rush)",
-            "headline": "DOJ data analytics flag a $10.6 billion catheter billing scheme"
-          }
+          "kind": "text",
+          "text": "Medicare withholds $4.41 billion in suspected fraudulent payments"
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "title",
-            "headline"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Medicare withholds $4.41 billion in suspected fraudulent payments"
+        }
       },
       "version": {
         "state": "value_present",
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "6343f74e8a95a2ca972b205ea6af39c21b5d6e5526e384d9bbf965a834b3db5d"
+            "97b6aaeb2665f23ec816fe89bd7d400e53a9861274835d537c0b95d803e7f548"
           ],
           "role": "SHA-256 of normalized original case data"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Deterministic content version assigned by the local migration.",
+          "basis": "Content fingerprint refreshed after the October 25, 2026 source review.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [],
+          "reviewed_on": "2026-10-25"
         },
         "review_state": "record_mapped",
         "coverage": "complete"
@@ -1348,56 +2114,38 @@
       "workflow": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "The Department of Justice's press release of 30 June 2025 announced the 2025 National Health Care Fraud Takedown. It covered 324 defendants and over $14.6 billion in intended loss. The release describes Operation Gold Rush. An organization allegedly used foreign straw owners to buy dozens of medical supply companies. It submitted $10.6 billion in fraudulent Medicare claims for urinary catheters and other durable medical equipment. The claims used the stolen identities of over one million Americans. Per the release, the Health Care Fraud Unit's Data Analytics Team and its partners detected the anomalous billing through proactive data analytics. Medicare was scheduled to pay approximately $4.45 billion. HHS-OIG and CMS prevented the organization from receiving all but approximately $41 million of it, per the release. HHS and CMS intend to return the $4.41 billion in escrow to the Medicare trust fund. Medicare supplemental insurers still paid approximately $900 million. Nineteen defendants were charged and twelve arrested, four in Estonia. The Data Analytics Team was established in 2018, the release says. It announces a Health Care Fraud Data Fusion Center to leverage cloud computing, artificial intelligence and advanced analytics. It does not say that AI or machine learning was used in the Gold Rush detection.",
-            "replication": {
-              "produced_by": [
-                "Centralized Medicare claims data in which rapid, anomalous billing for durable medical equipment could be detected before payment",
-                "Coordination that let CMS and HHS-OIG hold scheduled payments in escrow"
-              ],
-              "must_hold": [
-                "Payment holds triggered before funds leave Medicare",
-                "Interagency data sharing and analytic capacity (the Fusion Center is meant to pool DOJ, HHS-OIG and FBI analysts)",
-                "Prosecutorial follow-through converting holds into charges and seizures"
-              ],
-              "echoes": [
-                {
-                  "date": "2026-06-26",
-                  "setting": "2026 National Health Care Fraud Takedown",
-                  "outcome": "unknown",
-                  "source": "Google News RSS headlines (National Law Review, Wiley, Baker Donelson, June and July 2026) only"
-                }
-              ]
-            }
-          }
+          "kind": "text",
+          "text": "Analysts detected anomalous billing; investigators examined the scheme, and HHS-OIG and CMS withheld scheduled payments."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "replication"
+          "kind": "source_review",
+          "basis": "Original DOJ announcements and the linked indictment, reviewed October 25, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0187-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Analysts detected anomalous billing; investigators examined the scheme, and HHS-OIG and CMS withheld scheduled payments."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 31,
-      "reviewed": 0,
-      "record_mapped": 31,
-      "not_assessed": 60,
+      "known": 64,
+      "reviewed": 64,
+      "record_mapped": 9,
+      "not_assessed": 18,
       "complete": false,
       "by_state": {
-        "value_present": 31,
-        "not_reported": 0,
-        "unresolved": 0,
-        "not_assessed": 60,
+        "value_present": 64,
+        "not_reported": 7,
+        "unresolved": 2,
+        "not_assessed": 18,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

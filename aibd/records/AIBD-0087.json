@@ -216,6 +216,14 @@
       {
         "collection_id": "aibd",
         "version": "snapshot-8bf7cfec9cb185aa"
+      },
+      {
+        "collection_id": "aibd",
+        "version": "2026-10-25"
+      },
+      {
+        "collection_id": "adyt",
+        "version": "2026-10-25"
       }
     ],
     "source_ids": [
@@ -496,8 +504,33 @@
         "coverage": "partial"
       },
       "case_links[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "DWP's risk-flagging algorithm, the same alert-then-investigate design as ALICE, flagged mostly legitimate claims, wasting public funds instead of saving them.",
+            "links": [
+              {
+                "database": "AI Incident Database",
+                "identifier": "738",
+                "title": "Department for Work and Pensions (DWP) Algorithm Wrongly Flags 200,000 for Housing Benefit Fraud",
+                "url": "https://incidentdatabase.ai/cite/738",
+                "group": "organizational",
+                "basis": "DWP's risk-flagging algorithm, the same alert-then-investigate design as ALICE, flagged mostly legitimate claims, wasting public funds instead of saving them.",
+                "relation": "comparable_harm"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Existing paired_incident classification; no new source review.",
+          "record_fields": [
+            "paired_incident"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "claims[].evidence_links": {
@@ -1586,16 +1619,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 33,
+      "known": 34,
       "reviewed": 0,
-      "record_mapped": 33,
-      "not_assessed": 58,
+      "record_mapped": 34,
+      "not_assessed": 57,
       "complete": false,
       "by_state": {
-        "value_present": 33,
+        "value_present": 34,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 58,
+        "not_assessed": 57,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

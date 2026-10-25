@@ -396,6 +396,13 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (e.target.closest('[data-shelf-restore]')) { save(lastCleared); lastCleared = []; paint(); document.querySelectorAll('[data-shelf-undo]').forEach(function (u) { u.hidden = true; }); if (window.aibdApply) window.aibdApply(); }
   });
   shelf.paint = paint;
+  window.addEventListener('storage', function (event) {
+    if (event.key !== KEY && event.key !== null) return;
+    lastCleared = [];
+    paint();
+    document.querySelectorAll('[data-shelf-undo]').forEach(function (element) { element.hidden = true; });
+    if (window.aibdApply) window.aibdApply();
+  });
   paint();
 })();
 
@@ -425,7 +432,10 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
   var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'deployer', 'harm'];
-  var compareData = null, compareLoading = false;
+  var compareData = null, compareLoading = false, compareFailed = false;
+  var compareStatus = ex.querySelector('[data-compare-status]');
+  var compareMessage = ex.querySelector('[data-compare-message]');
+  var compareRetry = ex.querySelector('[data-compare-retry]');
   var PANELS = ['map', 'lists', 'timeline', 'matrix', 'table', 'shelf', 'roles', 'latest', 'briefs', 'submit', 'method', 'data'];
   var VIEWS = ['table', 'map', 'timeline', 'matrix'];
   var ALIAS = { entities: 'map' };
@@ -617,7 +627,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       if (!land) { readout.textContent = ''; return; }
       var key = land.getAttribute('data-route-key') || land.getAttribute('data-route');
       var card = key ? ex.querySelector('[data-route-card="' + key.replace(/"/g, '\\"') + '"]') : null;
-      if (card) { readout.innerHTML = card.innerHTML; return; }
+      if (card && atlas.dataset.filtered !== 'true') { readout.innerHTML = card.innerHTML; return; }
       var t = land.querySelector('title'); readout.textContent = t ? t.textContent : '';
     }
     atlas.addEventListener('mousemove', function (e) { show(e.target.closest('.land, [data-route]')); });
@@ -646,6 +656,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     });
     atlas.addEventListener('focusin', function (e) { var land = e.target.closest('.land, [data-route]'); if (land) show(land); });
     atlas.addEventListener('mouseleave', function () { lastReadout = null; if (readout) readout.textContent = ''; });
+    atlas.addEventListener('aibd:counts', function () { lastReadout = null; if (readout) readout.textContent = ''; var land = document.activeElement && document.activeElement.closest('.land, [data-route]'); if (land && atlas.contains(land)) show(land); });
   }
   bindAtlas();
   ex.addEventListener('click', function (e) {
@@ -705,6 +716,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     buttons.forEach(function (button) {
       if (!buttonData.has(button)) buttonData.set(button, {
         key: button.dataset.facet, value: button.dataset.value, badge: button.querySelector('[data-n]'),
+        panel: button.closest('[data-tool-panel]')?.getAttribute('data-tool-panel'),
         count: null, on: null
       });
     });
@@ -723,7 +735,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   function roleLine(c) {
     if (role === 'buyer') {
       var s = c.sys + (c.dev && c.dev !== 'Unstated' ? ', by ' + c.dev : '') + '. ';
-      s += c.cmp ? 'Measured against ' + c.cmp + (c.before && c.after && c.before.length <= 60 && c.after.length <= 60 ? ': ' + c.before + ' to ' + c.after : '') + '.' : 'No comparison stated.';
+      s += c.cmp ? (c.basis === 'measured' ? 'Measured against ' : c.basis === 'assumed' ? 'Assumed comparison: ' : 'Comparison: ') + c.cmp + (c.before && c.after && c.before.length <= 60 && c.after.length <= 60 ? ': ' + c.before + ' to ' + c.after : '') + '.' : 'No comparison stated.';
       if (c.lstatus && c.lstatus !== 'unknown') s += ' Since then: ' + c.lstatus + (c.ldate ? ', ' + c.ldate : '') + '.';
       return s;
     }
@@ -742,12 +754,43 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       box.textContent = roleLine(c);
     });
   }
+  function paintCompareStatus() {
+    var needed = Boolean(role || (openTool === 'shelf' && window.aibdShelf && window.aibdShelf.ids().length));
+    if (compareStatus) compareStatus.hidden = !needed || (!compareLoading && !compareFailed);
+    if (compareMessage) compareMessage.textContent = compareFailed ? 'Details for this view could not load.' : 'Loading case details…';
+    if (compareRetry) { compareRetry.hidden = !compareFailed; compareRetry.disabled = compareLoading; }
+    var box = ex.querySelector('[data-compare]');
+    if (box) box.setAttribute('aria-busy', String(needed && compareLoading));
+  }
+  function loadCompare() {
+    if (compareData || compareLoading || compareFailed) return;
+    compareLoading = true;
+    paintCompareStatus();
+    fetch('compare.json').then(function (response) {
+      if (!response.ok) throw new Error('Case details request failed');
+      return response.json();
+    }).then(function (data) {
+      compareData = data; compareLoading = false;
+      // The reader can change views while this shared request is in flight.
+      paintRole();
+      if (openTool === 'shelf' && window.aibdRenderCompare) window.aibdRenderCompare();
+      paintCompareStatus();
+    }).catch(function () {
+      compareLoading = false; compareFailed = true; paintCompareStatus();
+    });
+  }
+  if (compareRetry) compareRetry.addEventListener('click', function () {
+    compareFailed = false; loadCompare();
+    var target = openTool === 'shelf' ? ex.querySelector('[data-compare-open]') : roleSelect;
+    if (target) target.focus({ preventScroll: true });
+  });
   function setRole(r) {
     role = r || '';
     if (roleSelect) roleSelect.value = role;
     if (role) ex.setAttribute('data-role', role); else ex.removeAttribute('data-role');
-    if (role && !compareData && !compareLoading) { compareLoading = true; fetch('compare.json').then(function (x) { return x.json(); }).then(function (d) { compareData = d; compareLoading = false; paintRole(); }).catch(function () { compareLoading = false; }); }
+    if (role) loadCompare();
     paintRole();
+    paintCompareStatus();
     ex.querySelectorAll('[data-role]').forEach(function (b) { b.setAttribute('aria-pressed', String((b.getAttribute('data-role') || '') === role)); });
     if (role && ROLE_SORT[role]) sortBy(ROLE_SORT[role][0], ROLE_SORT[role][1]);
   }
@@ -770,31 +813,101 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   readSort(params);
   function hasAny(obj) { for (var k in obj) if (obj.hasOwnProperty(k)) return true; return false; }
   // Jurisdictions and organizations are downstream of each other: the map's circles, rings and routes recount from the cases that match the filters.
-  function paintAtlas() {
+  function paintAtlas(filtered) {
+    if (openTool !== 'map') return;
     var atlas = ex.querySelector('.worldmap'); if (!atlas) return;
-    var where = {}, made = {}, routes = {};
+    if (filtered !== undefined) atlas.dataset.filtered = String(filtered);
+    var where = {}, made = {}, routes = {}, countries = {};
     matchedRows.forEach(function (r) {
       var cached = rowData.get(r), pks = cached.places, ok = cached.data.origin;
       if (ok) made[ok] = (made[ok] || 0) + 1;
       pks.forEach(function (pk) { where[pk] = (where[pk] || 0) + 1; if (ok) routes[ok + '|' + pk] = (routes[ok + '|' + pk] || 0) + 1; });
+      cached.facets.country.forEach(function (country) { countries[country] = (countries[country] || 0) + 1; });
     });
+    function updateCount(element, n) {
+      var title = element.querySelector('title'); if (!title) return;
+      if (!element.dataset.originalTitle) element.dataset.originalTitle = title.textContent;
+      var text = element.dataset.originalTitle;
+      if (atlas.dataset.filtered === 'true') {
+        text = text.replace(/(?:\d+|no) (cases?|records?)\b/, function (_, noun) { return n + ' ' + noun.replace(/s$/, '') + (n === 1 ? '' : 's'); });
+        text = text.replace(/(\b\d+ cases?)\.[\s\S]*$/, '$1.');
+      }
+      title.textContent = text;
+      element.dataset.filteredCount = String(n);
+    }
     function size(n) { return ((1.8 + 1.5 * Math.sqrt(n)) / Math.pow(atlasZoom, 0.75)).toFixed(2); }
-    atlas.querySelectorAll('[data-layer="where"] circle').forEach(function (c) { var n = where[c.dataset.place] || 0; c.style.display = n ? '' : 'none'; if (n) c.setAttribute('r', size(n)); });
-    atlas.querySelectorAll('[data-layer="made"] circle').forEach(function (c) { var n = made[c.dataset.place] || 0; c.style.display = n ? '' : 'none'; if (n) c.setAttribute('r', size(n)); });
+    atlas.querySelectorAll('path[data-facet="country"]').forEach(function (land) { updateCount(land, countries[land.dataset.value] || 0); });
+    atlas.querySelectorAll('[data-layer="where"] circle').forEach(function (c) { var n = where[c.dataset.place] || 0; c.style.display = n ? '' : 'none'; updateCount(c, n); if (n) c.setAttribute('r', size(n)); });
+    atlas.querySelectorAll('[data-layer="made"] circle').forEach(function (c) { var n = made[c.dataset.place] || 0; c.style.display = n ? '' : 'none'; updateCount(c, n); if (n) c.setAttribute('r', size(n)); });
     atlas.querySelectorAll('.worldmap [data-route]').forEach(function (el) {
       var k = el.getAttribute('data-route-keys') || '', n = k ? (routes[k] || 0) : 0, vis = el.nextElementSibling && el.nextElementSibling.classList.contains('flow-vis') ? el.nextElementSibling : null;
       el.style.display = n ? '' : 'none'; if (vis) { vis.style.display = n ? '' : 'none'; if (n) vis.style.strokeWidth = (0.6 + 0.35 * Math.sqrt(n)).toFixed(2); }
+      updateCount(el, n);
       if (n && el.classList.contains('ring')) el.setAttribute('r', size(n));
     });
+    atlas.dispatchEvent(new Event('aibd:counts'));
   }
-  var searchText = null, searchLoading = false;
+  var searchText = null, searchLoading = false, searchFailed = false;
+  var searchStatus = ex.querySelector('[data-search-status]');
   function loadSearch() {
-    if (searchText || searchLoading) return;
+    if (searchText || searchLoading || searchFailed) return;
     searchLoading = true;
-    fetch('search.json').then(function (r) { return r.json(); }).then(function (data) {
+    fetch('search.json').then(function (r) { if (!r.ok) throw new Error('Search request failed'); return r.json(); }).then(function (data) {
       searchText = {}; for (var id in data) if (data.hasOwnProperty(id)) searchText[id] = String(data[id]).toLowerCase();
       searchLoading = false; apply();
-    }).catch(function () { searchLoading = false; });
+    }).catch(function () { searchLoading = false; searchFailed = true; apply(); });
+  }
+  var searchRetry = ex.querySelector('[data-search-retry]');
+  if (searchRetry) searchRetry.addEventListener('click', function () { searchFailed = false; apply(); if (q) q.focus({ preventScroll: true }); });
+  function paintCharts() {
+    if (openTool !== 'timeline' && openTool !== 'matrix') return;
+    var matchedIds = new Set(), counts = Object.create(null), totals = Object.create(null);
+    var dated = 0, unassessed = 0, peak = 1;
+    matchedRows.forEach(function (row) {
+      var data = rowData.get(row).data;
+      if (data.date) { matchedIds.add(data.id); dated += 1; if (data.depth === 'n/a') unassessed += 1; }
+      if (!counts[data.type]) counts[data.type] = Object.create(null);
+      var n = counts[data.type][data.depth] = (counts[data.type][data.depth] || 0) + 1;
+      totals[data.depth] = (totals[data.depth] || 0) + 1;
+      peak = Math.max(peak, n);
+    });
+    if (openTool === 'timeline') {
+      var hiddenFocus = false;
+      ex.querySelectorAll('.soundings [data-case-id]').forEach(function (mark) {
+        var visible = matchedIds.has(mark.dataset.caseId);
+        if (!visible && mark.contains(document.activeElement)) hiddenFocus = true;
+        mark.toggleAttribute('hidden', !visible);
+      });
+      if (hiddenFocus && q) q.focus({ preventScroll: true });
+      var datedCount = ex.querySelector('[data-timeline-count]');
+      if (datedCount) datedCount.textContent = 'Dates are available for ' + dated + ' of ' + matchedRows.length + ' benefits.';
+      var unassessedCount = ex.querySelector('[data-timeline-unassessed]');
+      if (unassessedCount) { unassessedCount.textContent = 'depth unassessed, ' + unassessed + ' records'; unassessedCount.toggleAttribute('hidden', !unassessed); }
+      return;
+    }
+    function matrixAddress(type, depth) {
+      var address = new URLSearchParams();
+      if (q && q.value.trim()) address.set('q', q.value.trim());
+      KEYS.forEach(function (key) { var values = Object.keys(active[key]); if (values.length) address.set(key, values.join('|')); });
+      address.set('type', type);
+      if (depth !== undefined) address.set('depth', depth);
+      if (role) address.set('role', role);
+      return 'cases.html?' + address.toString();
+    }
+    ex.querySelectorAll('[data-matrix-type]').forEach(function (row) {
+      var type = row.dataset.matrixType, values = counts[type] || {}, total = 0;
+      row.querySelector('[data-matrix-type-link]').href = matrixAddress(type);
+      row.querySelectorAll('[data-matrix-depth]').forEach(function (cell) {
+        var depth = cell.dataset.matrixDepth, n = values[depth] || 0;
+        total += n;
+        cell.style.setProperty('--i', String(n / peak));
+        var link = cell.querySelector('a'); link.textContent = String(n); link.hidden = !n;
+        link.href = matrixAddress(type, depth);
+      });
+      row.querySelector('[data-matrix-row-total]').textContent = String(total);
+    });
+    ex.querySelectorAll('[data-matrix-total-depth]').forEach(function (cell) { cell.textContent = String(totals[cell.dataset.matrixTotalDepth] || 0); });
+    var total = ex.querySelector('[data-matrix-total]'); if (total) total.textContent = String(matchedRows.length);
   }
   window.aibdApply = function () { apply(); };
   function apply(push) {
@@ -805,6 +918,11 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (clear) clear.hidden = !text && !activeKeys.length;
     var facetCounts = baseCounts;
     if (text && !searchText) loadSearch();
+    resultList.setAttribute('aria-busy', String(Boolean(text && searchLoading)));
+    if (searchStatus) {
+      searchStatus.hidden = !text || !searchFailed;
+      if (searchRetry) searchRetry.disabled = searchLoading;
+    }
     if (filtered) {
       facetCounts = Object.create(null);
       KEYS.forEach(function (key) { facetCounts[key] = Object.create(null); });
@@ -826,10 +944,12 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var shown = matchedRows.length;
     renderRows(showAll ? matchedRows : matchedRows.slice(0, PAGE));
     if (more) { more.hidden = showAll || shown <= PAGE; more.textContent = 'Show all ' + shown; }
-    var empty = ex.querySelector('[data-empty]'); if (empty) empty.hidden = shown > 0 || openTool === 'shelf';
+    var empty = ex.querySelector('[data-empty]'); if (empty) empty.hidden = shown > 0 || openTool === 'shelf' || Boolean(text && searchLoading);
     if (openTool === 'shelf' && window.aibdRenderCompare) window.aibdRenderCompare();
+    paintCompareStatus();
     buttons.forEach(function (b) {
       var info = buttonData.get(b), k = info.key, v = info.value, n = facetCounts[k][v] || 0;
+      if (info.panel && info.panel !== openTool) return;
       var on = !!active[k][v];
       if (info.count === n && info.on === on) return;
       if (info.badge) info.badge.textContent = n;
@@ -839,12 +959,15 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       if (b.tagName === 'BUTTON') b.disabled = n === 0 && !on;
       info.count = n; info.on = on;
     });
-    paintAtlas();
-    var places = Object.keys(active.country || {}).concat(Object.keys(active.made || {}));
-    ex.querySelectorAll('.juris[data-country]').forEach(function (sec) { sec.hidden = places.length > 0 && places.indexOf(sec.getAttribute('data-country')) === -1; });
-    ex.querySelectorAll('.gaz [data-route]').forEach(function (b) { var parts = b.getAttribute('data-route').split('|'); b.classList.toggle('on', !!(active.made && active.made[parts[0]] && active.country && active.country[parts[1]])); });
+    paintAtlas(filtered);
+    paintCharts();
+    if (openTool === 'map') {
+      var places = Object.keys(active.country || {}).concat(Object.keys(active.made || {}));
+      ex.querySelectorAll('.juris[data-country]').forEach(function (sec) { sec.hidden = places.length > 0 && places.indexOf(sec.getAttribute('data-country')) === -1; });
+      ex.querySelectorAll('.gaz [data-route]').forEach(function (b) { var parts = b.getAttribute('data-route').split('|'); b.classList.toggle('on', !!(active.made && active.made[parts[0]] && active.country && active.country[parts[1]])); });
+    }
     if (count) {
-      count.textContent = filtered ? shown + ' of ' + rows.length + ' cases' : rows.length + ' cases';
+      count.textContent = text && searchLoading ? 'Searching all fields…' : filtered ? shown + ' of ' + rows.length + ' cases' : rows.length + ' cases';
       var mirror = ex.querySelector('[data-count-mirror]'); if (mirror) mirror.textContent = shown + ' of ' + rows.length + ' cases';
     }
     KEYS.forEach(function (k) { if (hasAny(active[k])) { var g = ex.querySelector('[data-facet-group="' + k + '"]'); if (g) { g.removeAttribute('data-collapsed'); var h = g.querySelector('[data-facet-head]'); if (h) h.setAttribute('aria-expanded', 'true'); } } });
@@ -941,7 +1064,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var ids = window.aibdShelf ? window.aibdShelf.ids() : [];
     if (!ids.length) { box.innerHTML = ''; return; }
     if (!compareData) {
-      if (!compareLoading) { compareLoading = true; fetch('compare.json').then(function (r) { return r.json(); }).then(function (d) { compareData = d; compareLoading = false; window.aibdRenderCompare(); }).catch(function () { compareLoading = false; }); }
+      loadCompare();
       return;
     }
     var GW = { personal: 'a person', organizational: 'an organization', societal: 'society' };
@@ -949,13 +1072,13 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       ['Depth', function (c) { return Object.keys(c.dep).map(function (g) { return (c.dep[g] === null ? 'not rated' : c.dep[g]) + ' for ' + GW[g]; }).join('; '); }],
       ['Confidence', function (c) { return c.conf; }],
       ['Claim', function (c) { return c.claim; }],
-      ['Observed', function (c) { return c.d; }],
+      ['Date', function (c) { return c.d; }],
       ['Sector', function (c) { return c.sec; }],
       ['Country', function (c) { return c.c; }],
       ['Benefit type', function (c) { return c.type; }],
       ['System', function (c) { return c.sys; }],
       ['Developer', function (c) { return c.dev; }],
-      ['Measured against', function (c) { if (!c.cmp) return 'No source states a comparison.'; var s = c.cmp; if (c.before || c.after) s += ' (' + (c.before || '') + (c.before && c.after ? ' to ' : '') + (c.after || '') + ')'; return s + (c.basis ? ', ' + (c.basis === 'measured' ? 'measured' : 'asserted') : ''); }],
+      ['Comparison', function (c) { if (!c.cmp) return 'No source states a comparison.'; var s = c.cmp; if (c.before || c.after) s += ' (' + (c.before || '') + (c.before && c.after ? ' to ' : '') + (c.after || '') + ')'; return s + (c.basis ? ', ' + c.basis : ''); }],
       ['Since then', function (c) { return c.later || ''; }],
       ['Value as stated', function (c) { return c.val || ''; }]
     ];

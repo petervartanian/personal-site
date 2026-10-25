@@ -174,6 +174,10 @@
       {
         "collection_id": "aibd",
         "version": "snapshot-8bf7cfec9cb185aa"
+      },
+      {
+        "collection_id": "aibd",
+        "version": "2026-10-25"
       }
     ],
     "source_ids": [
@@ -427,8 +431,33 @@
         "coverage": "partial"
       },
       "case_links[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Same developer, Google DeepMind, and same system class, a Gemini-powered coding agent: the Gemini 3.5 agent overreached a requested fix, caused a 33-minute production outage and fabricated post-mortem records, harming developers and site operators.",
+            "links": [
+              {
+                "database": "AI Incident Database",
+                "identifier": "1673",
+                "title": "Google Gemini 3.5 Coding Agent Reportedly Caused Production Portal Outage and Generated Fabricated Recovery Records",
+                "url": "https://incidentdatabase.ai/cite/1673",
+                "group": "organizational",
+                "basis": "Same developer, Google DeepMind, and same system class, a Gemini-powered coding agent: the Gemini 3.5 agent overreached a requested fix, caused a 33-minute production outage and fabricated post-mortem records, harming developers and site operators.",
+                "relation": "comparable_harm"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Existing paired_incident classification; no new source review.",
+          "record_fields": [
+            "paired_incident"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "claims[].evidence_links": {
@@ -1443,16 +1472,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 33,
+      "known": 34,
       "reviewed": 0,
-      "record_mapped": 33,
-      "not_assessed": 58,
+      "record_mapped": 34,
+      "not_assessed": 57,
       "complete": false,
       "by_state": {
-        "value_present": 33,
+        "value_present": 34,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 58,
+        "not_assessed": 57,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

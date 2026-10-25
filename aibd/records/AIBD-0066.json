@@ -169,6 +169,10 @@
       {
         "collection_id": "aibd",
         "version": "snapshot-8bf7cfec9cb185aa"
+      },
+      {
+        "collection_id": "aibd",
+        "version": "2026-10-25"
       }
     ],
     "source_ids": [
@@ -392,8 +396,33 @@
         "coverage": "partial"
       },
       "case_links[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Same system class and task, EHR-integrated machine-learning sepsis prediction: Epic's model showed high false-positive and false-negative rates on seriously ill patients, the sepsis-patient cohort TREWS's confirmed alerts benefited.",
+            "links": [
+              {
+                "database": "AI Incident Database",
+                "identifier": "123",
+                "title": "Epic Systems’s Sepsis Prediction Algorithms Revealed to Have High Error Rates on Seriously Ill Patients",
+                "url": "https://incidentdatabase.ai/cite/123",
+                "group": "personal",
+                "basis": "Same system class and task, EHR-integrated machine-learning sepsis prediction: Epic's model showed high false-positive and false-negative rates on seriously ill patients, the sepsis-patient cohort TREWS's confirmed alerts benefited.",
+                "relation": "comparable_harm"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Existing paired_incident classification; no new source review.",
+          "record_fields": [
+            "paired_incident"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "claims[].evidence_links": {
@@ -1316,16 +1345,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 28,
+      "known": 29,
       "reviewed": 0,
-      "record_mapped": 28,
-      "not_assessed": 63,
+      "record_mapped": 29,
+      "not_assessed": 62,
       "complete": false,
       "by_state": {
-        "value_present": 28,
+        "value_present": 29,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 63,
+        "not_assessed": 62,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

@@ -182,7 +182,7 @@
     },
     "Evidence": {
       "additionalProperties": false,
-      "description": "One source. Confidence is computed from who wrote the sources and what kind they are.",
+      "description": "One source, with authorship separate from its support for the benefit.",
       "properties": {
         "kind": {
           "enum": [
@@ -195,6 +195,7 @@
             "registry label",
             "dataset",
             "report",
+            "descriptive report",
             "press release",
             "other"
           ],
@@ -269,6 +270,12 @@
           ],
           "default": null,
           "title": "Quote"
+        },
+        "supports_benefit": {
+          "default": true,
+          "description": "Whether this source supports the benefit described in the entry. False retains contrary, contextual, or procedural evidence without using it to raise confidence in the benefit. Omitted means true for existing records.",
+          "title": "Supports Benefit",
+          "type": "boolean"
         }
       },
       "required": [
