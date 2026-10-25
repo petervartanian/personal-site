@@ -220,7 +220,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Sleep-apnea notifications prompted the patient to seek care. Clinicians interpreted his morning ECG recordings and chose CPAP treatment. The report does not separately identify an ECG classifier’s contribution or provide a treatment outcome.",
+          "editor_note": ""
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -1019,7 +1023,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "complete"
+        "coverage": "complete",
+        "display": {
+          "answer": "The clinical report gives no sleep-study confirmation or treatment response and does not identify the ECG classifier’s contribution. Nightly breathing-disturbance ratings differ from the feature’s 30-day notification. Apple’s underlying training and validation records are not public.",
+          "editor_note": ""
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1230,7 +1238,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "complete"
+        "coverage": "complete",
+        "display": {
+          "answer": "Treating clinicians report the consultation and ECG findings. Apple’s FDA submission describes the notification algorithm and its validation. FDA’s clearance is a regulatory decision, not confirmation of this patient’s benefit.",
+          "editor_note": ""
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1261,7 +1273,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Apple Watch sleep-apnea notifications prompted a consultation. Clinicians found atrial fibrillation in morning ECG recordings after nights with elevated breathing disturbances and began CPAP treatment, without a confirmatory sleep study.",
+          "editor_note": ""
+        }
       },
       "systems[].autonomy_permissions": {
         "state": "not_assessed",
@@ -1269,13 +1285,40 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The model detected elevated breathing disturbance and generated a notification."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Restated the mechanical task already described in the existing system and AI-role fields. No new source review is claimed.",
+          "record_fields": [
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The participant used an Apple Watch Series 11 with an iPhone 15 Pro."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
+          "record_fields": [
+            "model_version",
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
@@ -1305,7 +1348,11 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Exact release not established.",
+          "editor_note": ""
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -1327,8 +1374,22 @@
         "coverage": "partial"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "Apple"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1416,16 +1477,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 30,
+      "known": 33,
       "reviewed": 11,
-      "record_mapped": 19,
-      "not_assessed": 61,
+      "record_mapped": 22,
+      "not_assessed": 58,
       "complete": false,
       "by_state": {
-        "value_present": 30,
+        "value_present": 33,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 61,
+        "not_assessed": 58,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

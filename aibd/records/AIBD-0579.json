@@ -305,8 +305,20 @@
         "coverage": "partial"
       },
       "assessments[].status_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Reported benefit"
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "benefit_status"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "assessments[].target": {
@@ -518,9 +530,21 @@
       },
       "evaluations[].metric": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "metric"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "1.9 percentage points",
+          "editor_note": ""
+        }
       },
       "evaluations[].reproduction_materials": {
         "state": "not_assessed",
@@ -925,7 +949,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "complete"
+        "coverage": "complete",
+        "display": {
+          "answer": "The study has no randomization or concurrent untreated control. The estimated mortality improvement was statistically significant at one of the two hospitals. Staffing and other care changes may have contributed. Methods are available, but the raw clinical records were not independently reanalyzed.",
+          "editor_note": ""
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1115,7 +1143,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "complete"
+        "coverage": "complete",
+        "display": {
+          "answer": "The developers and deploying health system report the evaluation, with several authors disclosing Healcisio interests. Their correction restores a missing table. It supplies no additional experiment or independent confirmation.",
+          "editor_note": ""
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1194,8 +1226,22 @@
         "coverage": "partial"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "University of California San Diego research team"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1277,16 +1323,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 29,
+      "known": 31,
       "reviewed": 8,
-      "record_mapped": 21,
-      "not_assessed": 62,
+      "record_mapped": 23,
+      "not_assessed": 60,
       "complete": false,
       "by_state": {
-        "value_present": 29,
+        "value_present": 31,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 62,
+        "not_assessed": 60,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

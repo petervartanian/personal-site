@@ -1,20 +1,20 @@
 {
   "id": "AIBD-0043",
   "title": "AI-based structure prediction doubled structural coverage of the human nuclear pore complex scaffold",
-  "summary": "EMBL and Max Planck groups used AI structure prediction plus cryo-ET to build a 70-MDa model covering over 90% of the human NPC scaffold.",
+  "summary": "Researchers combined AI predictions with electron-microscopy maps to model more than 90% of the human nuclear pore scaffold.",
   "date_observed": "2022-06-10",
   "date_basis": "unassessed",
   "date_precision": "unassessed",
   "benefit_status": null,
   "source_collection": null,
   "source_entry": null,
-  "account": "A study appeared in Science on 10 June 2022 from groups at EMBL, the Max Planck Institute of Biophysics and collaborators. They used AI-based structure prediction to model human nucleoporins and their subcomplexes. They fitted those models into cryo-electron tomographic maps of both the constricted and dilated states of the human nuclear pore complex (NPC). The authors benchmarked the predictions against previous and unpublished X-ray and cryo-EM structures and reported unprecedented accuracy. The resulting 70-MDa atomically resolved model covers more than 90% of the NPC scaffold, roughly doubling previous structural coverage. It resolves the anchoring sites of intrinsically disordered linker nucleoporins. Authors: EMBL (Heidelberg and Hamburg), the Max Planck Institute of Biophysics, Goethe University Frankfurt, the Centre for Structural Systems Biology and the University of Michigan. The readable part of the source does not name the prediction tool or its developer.",
+  "account": "Researchers at EMBL, the Max Planck Institute of Biophysics, and collaborating institutions used AlphaFold and RoseTTAfold to predict structures of nuclear-pore proteins. They used ColabFold to model complexes and fitted the predictions to electron-microscopy maps. Their model covered more than 90% of the scaffold, roughly twice the coverage of the previous model. The authors checked the predictions against existing and new experimental structures. The work appeared as a preprint in 2021 and in Science in June 2022.",
   "category": "benefit created",
   "unexpected": false,
   "purpose": "Predict protein and subcomplex structures to enable integrative modeling of a 120-MDa macromolecular machine that resisted conventional structural biology.",
-  "system": "AI-based structure prediction (the source's wording; its abstract does not name the prediction tool) used within an integrative modeling pipeline",
-  "model_version": "AlphaFold and RoseTTAfold",
-  "developer": "Not named in the cited source, whose abstract says only 'artificial intelligence (AI)-based prediction'",
+  "system": "AlphaFold and RoseTTAfold for protein structures, with ColabFold for protein complexes",
+  "model_version": null,
+  "developer": "DeepMind (AlphaFold); University of Washington and Harvard University researchers (RoseTTAFold)",
   "deployer": "EMBL Heidelberg, Max Planck Institute of Biophysics, EMBL Hamburg (Beck, Hummer, Kosinski groups)",
   "location": "Heidelberg, Frankfurt am Main and Hamburg, Germany",
   "domain": "Structural and cell biology",
@@ -55,6 +55,24 @@
       "url": "https://www.biorxiv.org/content/10.1101/2021.10.26.465776v1.full",
       "date": "2021-10-27",
       "written_by": "deployer",
+      "quote": null
+    },
+    {
+      "kind": "report",
+      "citation": "Google DeepMind. “AlphaFold.” Timeline of a breakthrough, entries for 2020 and 2021.",
+      "title": "AlphaFold",
+      "url": "https://deepmind.google/science/alphafold/",
+      "date": null,
+      "written_by": "makers",
+      "quote": null
+    },
+    {
+      "kind": "other",
+      "citation": "Baek, Minkyung, Frank DiMaio, Ivan Anishchenko, Justas Dauparas, Sergey Ovchinnikov, Jue Wang, and David Baker. “RoseTTAFold: The First Release of RoseTTAFold.” Version 1.0.0. Zenodo, July 3, 2021. doi:10.5281/zenodo.5068265.",
+      "title": "RoseTTAFold: The first release of RoseTTAFold",
+      "url": "https://zenodo.org/records/5068265",
+      "date": "2021-07-03",
+      "written_by": "makers",
       "quote": null
     }
   ],
@@ -119,16 +137,22 @@
       "change": "Prose pass: a rating reason, account, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Identified AlphaFold, RoseTTAfold, and ColabFold in the authors’ full preprint. Replaced the earlier abstract-only uncertainty and separated model names from software releases. Added original developer documentation for provider attribution.",
+      "source": "https://www.researchgate.net/publication/355709263_Artificial_intelligence_reveals_nuclear_pore_complexity",
+      "editor": "AIBD"
     }
   ],
   "confidence": "claimed",
   "shade": "low",
   "claim_status": "The deployer's account",
-  "claim_basis": "Sources: the deployer's peer-reviewed study and the deployer's preprint. The cited evidence includes no independent source and no finding by a regulator or court.",
+  "claim_basis": "Sources: the makers' report, the makers' other, the deployer's peer-reviewed study and the deployer's preprint. The cited evidence includes no independent source and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0043",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "2c24a642634dc06525dbb0464710e181dc7398934dcf347fe968781de38295fc",
+    "source_fingerprint": "ffa1d05e02f2f91da862c57768f932b841998625ee451b8cf7bc4619a01ad75b",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -137,7 +161,9 @@
     ],
     "source_ids": [
       "AIBD-0043-source-0001",
-      "AIBD-0043-source-0002"
+      "AIBD-0043-source-0002",
+      "AIBD-0043-source-0003",
+      "AIBD-0043-source-0004"
     ],
     "families": {
       "strategic assessments": {
@@ -169,23 +195,25 @@
       "actors[]": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "developer": "Not named in the cited source, whose abstract says only 'artificial intelligence (AI)-based prediction'",
-            "deployer": "EMBL Heidelberg, Max Planck Institute of Biophysics, EMBL Hamburg (Beck, Hummer, Kosinski groups)"
-          }
+          "kind": "text",
+          "text": "DeepMind developed AlphaFold. Researchers at the University of Washington and Harvard developed RoseTTAFold. The EMBL and Max Planck groups used the software in this study."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "developer",
-            "deployer"
+          "kind": "source_review",
+          "basis": "Read the authors’ original manuscript through its ResearchGate copy, version posted 2 November 2021. Read the original AlphaFold timeline and RoseTTAFold release record for provider attribution. Direct Science, bioRxiv, and the Max Planck final-paper PDF were inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0002",
+            "AIBD-0043-source-0003",
+            "AIBD-0043-source-0004"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "DeepMind developed AlphaFold. Researchers at the University of Washington and Harvard developed RoseTTAFold. The EMBL and Max Planck groups used the software in this study."
+        }
       },
       "actors[].ownership_control": {
         "state": "not_assessed",
@@ -553,9 +581,21 @@
       },
       "evaluations[].metric": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "metric"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "covers more than 90% of the NPC scaffold, roughly doubling previous structural coverage",
+          "editor_note": ""
+        }
       },
       "evaluations[].reproduction_materials": {
         "state": "not_assessed",
@@ -665,7 +705,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "A study appeared in Science on 10 June 2022 from groups at EMBL, the Max Planck Institute of Biophysics and collaborators. They used AI-based structure prediction to model human nucleoporins and their subcomplexes. They fitted those models into cryo-electron tomographic maps of both the constricted and dilated states of the human nuclear pore complex (NPC). The authors benchmarked the predictions against previous and unpublished X-ray and cryo-EM structures and reported unprecedented accuracy. The resulting 70-MDa atomically resolved model covers more than 90% of the NPC scaffold, roughly doubling previous structural coverage. It resolves the anchoring sites of intrinsically disordered linker nucleoporins. Authors: EMBL (Heidelberg and Hamburg), the Max Planck Institute of Biophysics, Goethe University Frankfurt, the Centre for Structural Systems Biology and the University of Michigan. The readable part of the source does not name the prediction tool or its developer.",
+            "account": "Researchers at EMBL, the Max Planck Institute of Biophysics, and collaborating institutions used AlphaFold and RoseTTAfold to predict structures of nuclear-pore proteins. They used ColabFold to model complexes and fitted the predictions to electron-microscopy maps. Their model covered more than 90% of the scaffold, roughly twice the coverage of the previous model. The authors checked the predictions against existing and new experimental structures. The work appeared as a preprint in 2021 and in Science in June 2022.",
             "benefit_type": "Improved Knowledge Discovery"
           }
         },
@@ -825,6 +865,12 @@
                 "date": "2026-10-21",
                 "change": "Prose pass: a rating reason, account, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Identified AlphaFold, RoseTTAfold, and ColabFold in the authors’ full preprint. Replaced the earlier abstract-only uncertainty and separated model names from software releases. Added original developer documentation for provider attribution.",
+                "source": "https://www.researchgate.net/publication/355709263_Artificial_intelligence_reveals_nuclear_pore_complexity",
+                "editor": "AIBD"
               }
             ]
           }
@@ -904,6 +950,12 @@
                 "date": "2026-10-21",
                 "change": "Prose pass: a rating reason, account, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Identified AlphaFold, RoseTTAfold, and ColabFold in the authors’ full preprint. Replaced the earlier abstract-only uncertainty and separated model names from software releases. Added original developer documentation for provider attribution.",
+                "source": "https://www.researchgate.net/publication/355709263_Artificial_intelligence_reveals_nuclear_pore_complexity",
+                "editor": "AIBD"
               }
             ]
           }
@@ -939,9 +991,62 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "versions_and_access": [
+              {
+                "source_ref": "AIBD-0043-source-0002",
+                "source_url": "https://www.biorxiv.org/content/10.1101/2021.10.26.465776v1.full",
+                "access_url": "https://www.researchgate.net/publication/355709263_Artificial_intelligence_reveals_nuclear_pore_complexity",
+                "version": "Manuscript marked “this version posted November 2, 2021.”",
+                "status": "Original manuscript text inspected, including the Introduction, Results, and references. Direct bioRxiv access failed.",
+                "reviewed_on": "2026-10-25"
+              },
+              {
+                "source_ref": "AIBD-0043-source-0001",
+                "source_url": "https://doi.org/10.1126/science.abm9506",
+                "access_url": "https://pure.mpg.de/pubman/item/item_3387892_6/component/file_3397269/abm9506_ArticleContent_CombinedFULL.pdf",
+                "status": "Publisher and institutional full-text retrieval returned HTTP 403. The final article and its supplements were not fully inspected.",
+                "attempted_on": "2026-10-25"
+              },
+              {
+                "source_ref": "AIBD-0043-source-0003",
+                "source_url": "https://deepmind.google/science/alphafold/",
+                "status": "Original developer timeline inspected.",
+                "reviewed_on": "2026-10-25"
+              },
+              {
+                "source_ref": "AIBD-0043-source-0004",
+                "source_url": "https://zenodo.org/records/5068265",
+                "status": "Original software release metadata and affiliations inspected.",
+                "reviewed_on": "2026-10-25"
+              }
+            ],
+            "limitations": [
+              "Exact executable builds and the final paper’s supplementary methods remain unverified."
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the authors’ original manuscript through its ResearchGate copy, version posted 2 November 2021. Read the original AlphaFold timeline and RoseTTAFold release record for provider attribution. Direct Science, bioRxiv, and the Max Planck final-paper PDF were inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0001",
+            "AIBD-0043-source-0002",
+            "AIBD-0043-source-0003",
+            "AIBD-0043-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "An author-posted copy of the November 2021 preprint was accessible. The final Science article and its supplementary methods were unavailable."
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -965,6 +1070,21 @@
                 "url": "https://www.biorxiv.org/content/10.1101/2021.10.26.465776v1.full",
                 "date": "2021-10-27",
                 "written_by": "deployer"
+              },
+              {
+                "kind": "report",
+                "citation": "Google DeepMind. “AlphaFold.” Timeline of a breakthrough, entries for 2020 and 2021.",
+                "title": "AlphaFold",
+                "url": "https://deepmind.google/science/alphafold/",
+                "written_by": "makers"
+              },
+              {
+                "kind": "other",
+                "citation": "Baek, Minkyung, Frank DiMaio, Ivan Anishchenko, Justas Dauparas, Sergey Ovchinnikov, Jue Wang, and David Baker. “RoseTTAFold: The First Release of RoseTTAFold.” Version 1.0.0. Zenodo, July 3, 2021. doi:10.5281/zenodo.5068265.",
+                "title": "RoseTTAFold: The first release of RoseTTAFold",
+                "url": "https://zenodo.org/records/5068265",
+                "date": "2021-07-03",
+                "written_by": "makers"
               }
             ]
           }
@@ -986,9 +1106,11 @@
           "kind": "identifiers",
           "identifiers": [
             "AIBD-0043-source-0001",
-            "AIBD-0043-source-0002"
+            "AIBD-0043-source-0002",
+            "AIBD-0043-source-0003",
+            "AIBD-0043-source-0004"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Sources retained for this case"
         },
         "provenance": {
           "kind": "curatorial",
@@ -1026,6 +1148,21 @@
                 "url": "https://www.biorxiv.org/content/10.1101/2021.10.26.465776v1.full",
                 "date": "2021-10-27",
                 "written_by": "deployer"
+              },
+              {
+                "kind": "report",
+                "citation": "Google DeepMind. “AlphaFold.” Timeline of a breakthrough, entries for 2020 and 2021.",
+                "title": "AlphaFold",
+                "url": "https://deepmind.google/science/alphafold/",
+                "written_by": "makers"
+              },
+              {
+                "kind": "other",
+                "citation": "Baek, Minkyung, Frank DiMaio, Ivan Anishchenko, Justas Dauparas, Sergey Ovchinnikov, Jue Wang, and David Baker. “RoseTTAFold: The First Release of RoseTTAFold.” Version 1.0.0. Zenodo, July 3, 2021. doi:10.5281/zenodo.5068265.",
+                "title": "RoseTTAFold: The first release of RoseTTAFold",
+                "url": "https://zenodo.org/records/5068265",
+                "date": "2021-07-03",
+                "written_by": "makers"
               }
             ]
           }
@@ -1042,9 +1179,110 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "lead_source_ref": "AIBD-0043-source-0002",
+            "retained_source_order": [
+              "AIBD-0043-source-0002",
+              "AIBD-0043-source-0001",
+              "AIBD-0043-source-0003",
+              "AIBD-0043-source-0004"
+            ],
+            "origins": [
+              {
+                "url": "https://www.biorxiv.org/content/10.1101/2021.10.26.465776v1.full",
+                "access_url": "https://www.researchgate.net/publication/355709263_Artificial_intelligence_reveals_nuclear_pore_complexity",
+                "source_refs": [
+                  "AIBD-0043-source-0002"
+                ],
+                "display_name": "bioRxiv",
+                "contribution": "Original manuscript identifies the structure-prediction tools and the coverage of the nuclear pore scaffold.",
+                "locator": "Introduction; Results, “A near-complete model of the human NPC scaffold.”",
+                "relationship": "The deploying researchers report their own analysis. This is an earlier version of reference 1, not independent corroboration."
+              },
+              {
+                "url": "https://doi.org/10.1126/science.abm9506",
+                "source_refs": [
+                  "AIBD-0043-source-0001"
+                ],
+                "display_name": "Science",
+                "contribution": "Published version of the same research. Its full text was not accessible during this review.",
+                "locator": "Abstract; bibliographic record.",
+                "relationship": "Same researchers and study as reference 2."
+              },
+              {
+                "url": "https://deepmind.google/science/alphafold/",
+                "source_refs": [
+                  "AIBD-0043-source-0003"
+                ],
+                "display_name": "Google DeepMind",
+                "contribution": "Original developer account identifies DeepMind as AlphaFold’s developer and documents the 2021 release chronology.",
+                "locator": "Timeline of a breakthrough, entries dated 30 November 2020 and 15 July 2021.",
+                "relationship": "Developer documentation. It does not independently evaluate the nuclear-pore work."
+              },
+              {
+                "url": "https://zenodo.org/records/5068265",
+                "source_refs": [
+                  "AIBD-0043-source-0004"
+                ],
+                "display_name": "Zenodo",
+                "contribution": "The original RoseTTAFold release record names the authors and their University of Washington and Harvard affiliations.",
+                "locator": "Authors/Creators; affiliations; description.",
+                "relationship": "Software release deposited by its developers. Its version number does not establish the exact build used in this study."
+              }
+            ],
+            "claim_chains": [
+              {
+                "claim": "AI system identity",
+                "path": [
+                  "https://www.researchgate.net/publication/355709263_Artificial_intelligence_reveals_nuclear_pore_complexity",
+                  "Introduction and first Results subsection"
+                ],
+                "finding": "The authors name AlphaFold and RoseTTAfold for structures and ColabFold for complexes."
+              },
+              {
+                "claim": "Model providers",
+                "path": [
+                  "https://deepmind.google/science/alphafold/",
+                  "https://zenodo.org/records/5068265"
+                ],
+                "finding": "The original developer timeline and software-release metadata identify the providers."
+              }
+            ],
+            "limitations": [
+              "The final Science article and its supplementary methods were inaccessible. The readable original manuscript supports the system identification, but an exact executable build remains unverified."
+            ],
+            "version_relationships": [
+              {
+                "source_refs": [
+                  "AIBD-0043-source-0001",
+                  "AIBD-0043-source-0002"
+                ],
+                "relationship": "Published paper and preprint from one study; not independent corroboration."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the authors’ original manuscript through its ResearchGate copy, version posted 2 November 2021. Read the original AlphaFold timeline and RoseTTAFold release record for provider attribution. Direct Science, bioRxiv, and the Max Planck final-paper PDF were inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0001",
+            "AIBD-0043-source-0002",
+            "AIBD-0043-source-0003",
+            "AIBD-0043-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The authors’ preprint identifies the models and their results. Original developer records identify the model providers."
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1055,23 +1293,23 @@
       "summary": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "summary": "EMBL and Max Planck groups used AI structure prediction plus cryo-ET to build a 70-MDa model covering over 90% of the human NPC scaffold.",
-            "account": "A study appeared in Science on 10 June 2022 from groups at EMBL, the Max Planck Institute of Biophysics and collaborators. They used AI-based structure prediction to model human nucleoporins and their subcomplexes. They fitted those models into cryo-electron tomographic maps of both the constricted and dilated states of the human nuclear pore complex (NPC). The authors benchmarked the predictions against previous and unpublished X-ray and cryo-EM structures and reported unprecedented accuracy. The resulting 70-MDa atomically resolved model covers more than 90% of the NPC scaffold, roughly doubling previous structural coverage. It resolves the anchoring sites of intrinsically disordered linker nucleoporins. Authors: EMBL (Heidelberg and Hamburg), the Max Planck Institute of Biophysics, Goethe University Frankfurt, the Centre for Structural Systems Biology and the University of Michigan. The readable part of the source does not name the prediction tool or its developer."
-          }
+          "kind": "text",
+          "text": "Researchers combined AI predictions with electron-microscopy maps to model more than 90% of the human nuclear pore scaffold."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "summary",
-            "account"
+          "kind": "source_review",
+          "basis": "Read the authors’ original manuscript through its ResearchGate copy, version posted 2 November 2021. Read the original AlphaFold timeline and RoseTTAFold release record for provider attribution. Direct Science, bioRxiv, and the Max Planck final-paper PDF were inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0002"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Researchers combined AI predictions with electron-microscopy maps to model more than 90% of the human nuclear pore scaffold."
+        }
       },
       "systems[].autonomy_permissions": {
         "state": "not_assessed",
@@ -1079,67 +1317,140 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The models predicted protein structures and complexes for comparison with microscopy data."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the authors’ original manuscript through its ResearchGate copy, version posted 2 November 2021. Read the original AlphaFold timeline and RoseTTAFold release record for provider attribution. Direct Science, bioRxiv, and the Max Planck final-paper PDF were inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers used AlphaFold and RoseTTAfold for protein structures, ColabFold for complexes, and Assembline to fit the models to microscopy data."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original authors’ preprint, version posted 2 November 2021, through its full-text ResearchGate copy. Introduction and Results explicitly identify AlphaFold, RoseTTAfold, ColabFold, and Assembline. Access URL: https://www.researchgate.net/publication/355709263_Artificial_intelligence_reveals_nuclear_pore_complexity . Direct bioRxiv and Science endpoints were inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Protein sequences supplied the basis for predictions of individual structures and complexes. Researchers fitted those predictions to electron-microscopy maps."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original authors’ preprint, version posted 2 November 2021, through its full-text ResearchGate copy. Introduction and Results explicitly identify AlphaFold, RoseTTAfold, ColabFold, and Assembline. Access URL: https://www.researchgate.net/publication/355709263_Artificial_intelligence_reveals_nuclear_pore_complexity . Direct bioRxiv and Science endpoints were inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "AlphaFold and RoseTTAfold."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original authors’ preprint, version posted 2 November 2021, through its full-text ResearchGate copy. Introduction and Results explicitly identify AlphaFold, RoseTTAfold, ColabFold, and Assembline. Access URL: https://www.researchgate.net/publication/355709263_Artificial_intelligence_reveals_nuclear_pore_complexity . Direct bioRxiv and Science endpoints were inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0002"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].model_version": {
-        "state": "value_present",
-        "value": {
-          "kind": "record_fields",
-          "fields": {
-            "model_version": "AlphaFold and RoseTTAfold"
-          }
-        },
+        "state": "unresolved",
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "model_version"
+          "kind": "source_review",
+          "basis": "Read the authors’ original manuscript through its ResearchGate copy, version posted 2 November 2021. Read the original AlphaFold timeline and RoseTTAFold release record for provider attribution. Direct Science, bioRxiv, and the Max Planck final-paper PDF were inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0001",
+            "AIBD-0043-source-0002",
+            "AIBD-0043-source-0003",
+            "AIBD-0043-source-0004"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "reason": "The accessible manuscript names the software but does not establish an exact executable build.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The 2021 research configuration. Exact builds remain unverified."
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "system": "AI-based structure prediction (the source's wording; its abstract does not name the prediction tool) used within an integrative modeling pipeline"
-          }
+          "kind": "text",
+          "text": "AlphaFold and RoseTTAfold for protein structures, with ColabFold for protein complexes"
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "system"
+          "kind": "source_review",
+          "basis": "Read the authors’ original manuscript through its ResearchGate copy, version posted 2 November 2021. Read the original AlphaFold timeline and RoseTTAFold release record for provider attribution. Direct Science, bioRxiv, and the Max Planck final-paper PDF were inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0002"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "AlphaFold, RoseTTAfold, and ColabFold."
+        }
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "DeepMind (AlphaFold); University of Washington and Harvard University researchers (RoseTTAFold)"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the authors’ original manuscript through its ResearchGate copy, version posted 2 November 2021. Read the original AlphaFold timeline and RoseTTAFold release record for provider attribution. Direct Science, bioRxiv, and the Max Planck final-paper PDF were inaccessible.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0003",
+            "AIBD-0043-source-0004"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "DeepMind (AlphaFold); University of Washington and Harvard University researchers (RoseTTAFold)"
+        }
       },
       "taxonomy_crosswalks[]": {
         "state": "not_assessed",
@@ -1172,7 +1483,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "2c24a642634dc06525dbb0464710e181dc7398934dcf347fe968781de38295fc"
+            "ffa1d05e02f2f91da862c57768f932b841998625ee451b8cf7bc4619a01ad75b"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1190,7 +1501,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "A study appeared in Science on 10 June 2022 from groups at EMBL, the Max Planck Institute of Biophysics and collaborators. They used AI-based structure prediction to model human nucleoporins and their subcomplexes. They fitted those models into cryo-electron tomographic maps of both the constricted and dilated states of the human nuclear pore complex (NPC). The authors benchmarked the predictions against previous and unpublished X-ray and cryo-EM structures and reported unprecedented accuracy. The resulting 70-MDa atomically resolved model covers more than 90% of the NPC scaffold, roughly doubling previous structural coverage. It resolves the anchoring sites of intrinsically disordered linker nucleoporins. Authors: EMBL (Heidelberg and Hamburg), the Max Planck Institute of Biophysics, Goethe University Frankfurt, the Centre for Structural Systems Biology and the University of Michigan. The readable part of the source does not name the prediction tool or its developer.",
+            "account": "Researchers at EMBL, the Max Planck Institute of Biophysics, and collaborating institutions used AlphaFold and RoseTTAfold to predict structures of nuclear-pore proteins. They used ColabFold to model complexes and fitted the predictions to electron-microscopy maps. Their model covered more than 90% of the scaffold, roughly twice the coverage of the previous model. The authors checked the predictions against existing and new experimental structures. The work appeared as a preprint in 2021 and in Science in June 2022.",
             "replication": {
               "produced_by": [
                 "Cryo-electron tomographic maps of the human nuclear pore complex in two states",
@@ -1222,16 +1533,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 28,
-      "reviewed": 0,
-      "record_mapped": 28,
-      "not_assessed": 63,
+      "known": 34,
+      "reviewed": 11,
+      "record_mapped": 24,
+      "not_assessed": 56,
       "complete": false,
       "by_state": {
-        "value_present": 28,
+        "value_present": 34,
         "not_reported": 0,
-        "unresolved": 0,
-        "not_assessed": 63,
+        "unresolved": 1,
+        "not_assessed": 56,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

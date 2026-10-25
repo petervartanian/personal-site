@@ -563,9 +563,21 @@
       },
       "evaluations[].metric": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "metric"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "BLEU4 scores of 36.52 and 37.47",
+          "editor_note": ""
+        }
       },
       "evaluations[].reproduction_materials": {
         "state": "not_assessed",
@@ -1169,13 +1181,40 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The models translated Akkadian text into English."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Restated the mechanical task already described in the existing system and AI-role fields. No new source review is claimed.",
+          "record_fields": [
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers used a convolutional model implemented in Fairseq."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
+          "record_fields": [
+            "model_version",
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
@@ -1184,8 +1223,22 @@
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A convolutional model implemented in Fairseq."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
+          "record_fields": [
+            "model_version",
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].model_version": {
@@ -1205,7 +1258,11 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Exact release not established.",
+          "editor_note": ""
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -1227,8 +1284,22 @@
         "coverage": "partial"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "Tel Aviv University (Gutherz, Levy, Berant) and Ariel University (Gordin)"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1315,16 +1386,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 28,
+      "known": 32,
       "reviewed": 0,
-      "record_mapped": 28,
-      "not_assessed": 63,
+      "record_mapped": 32,
+      "not_assessed": 59,
       "complete": false,
       "by_state": {
-        "value_present": 28,
+        "value_present": 32,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 63,
+        "not_assessed": 59,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

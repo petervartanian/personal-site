@@ -218,7 +218,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "The authors used the model to generate recommendations for two selected patients and state that its outputs did not guide care. They did not test whether the recommendations improved treatment or health.",
+          "editor_note": ""
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -674,7 +678,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "ForeSight-HF recommended more diuretic treatment for one patient and less treatment for another. Clinicians managed both patients without using those recommendations.",
+          "editor_note": ""
+        }
       },
       "outcomes[].distribution": {
         "state": "not_assessed",
@@ -885,7 +893,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Prospective studies would need to test whether clinicians use the recommendations and whether patients benefit. An evaluation outside the developer’s team would help establish whether the findings hold elsewhere.",
+          "editor_note": ""
+        }
       },
       "revision_history[]": {
         "state": "value_present",
@@ -991,7 +1003,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "complete"
+        "coverage": "complete",
+        "display": {
+          "answer": "The complete article is available in the publisher’s XML through Europe PMC, including its references and declarations. The article provides no supplementary dataset or appendix.",
+          "editor_note": ""
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1207,7 +1223,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "complete"
+        "coverage": "complete",
+        "display": {
+          "answer": "The authors report two illustrative patients and state that the AI did not guide their care. They provide no raw clinical records or model logs. The cited clinical guidelines supply background rather than independent evidence about these patients.",
+          "editor_note": ""
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1238,7 +1258,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "ForeSight-HF recommended more diuretic treatment for one patient and less treatment for another. Clinicians managed both patients without using those recommendations.",
+          "editor_note": ""
+        }
       },
       "systems[].autonomy_permissions": {
         "state": "not_assessed",
@@ -1246,13 +1270,40 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The model generated care recommendations for illustrative cases that the authors compared with actual treatment."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Restated the mechanical task already described in the existing system and AI-role fields. No new source review is claimed.",
+          "record_fields": [
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The authors accessed GPT-5 mini in late 2025."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
+          "record_fields": [
+            "model_version",
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
@@ -1261,8 +1312,22 @@
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "GPT-5 mini."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
+          "record_fields": [
+            "model_version",
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].model_version": {
@@ -1282,7 +1347,11 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Exact release not established.",
+          "editor_note": ""
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -1304,8 +1373,22 @@
         "coverage": "partial"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "ProviderLoop (New York) with Mount Sinai clinicians"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1385,22 +1468,26 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "The researchers supplied unstructured nursing-home documentation to GPT-5 mini through ProviderLoop. Their proposed workflow includes physician review, but the two illustrated patients received care independently of the model.",
+          "editor_note": ""
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 29,
+      "known": 33,
       "reviewed": 13,
-      "record_mapped": 16,
-      "not_assessed": 62,
+      "record_mapped": 20,
+      "not_assessed": 58,
       "complete": false,
       "by_state": {
-        "value_present": 29,
+        "value_present": 33,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 62,
+        "not_assessed": 58,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

@@ -341,8 +341,20 @@
         "coverage": "partial"
       },
       "assessments[].status_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Reported benefit"
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "benefit_status"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "assessments[].target": {
@@ -1287,7 +1299,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "The council’s account has no independent evaluation or public dataset of outcomes. The technical overview, complete internal assessments, and pilot calculations were inaccessible.",
+          "editor_note": ""
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1328,13 +1344,40 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The models retrieved planning information and generated suggestions and draft text for officers to review."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Restated the mechanical task already described in the existing system and AI-role fields. No new source review is claimed.",
+          "record_fields": [
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The council’s November 2025 disclosure listed gpt-5-2025-08-07, gemini-2.5-pro, and claude-sonnet-4@20250514."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
+          "record_fields": [
+            "model_version",
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
@@ -1343,9 +1386,27 @@
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The council listed GPT-5, Gemini 2.5 Pro, and Claude Sonnet 4."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
+          "record_fields": [
+            "model_version",
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "The council listed GPT-5, Gemini 2.5 Pro, and Claude Sonnet 4.",
+          "editor_note": "The council’s disclosure dated 27 November 2025 lists these models. It does not identify which model produced each reported result."
+        }
       },
       "systems[].model_version": {
         "state": "value_present",
@@ -1367,7 +1428,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "The council’s disclosure of 27 November 2025 lists gpt-5-2025-08-07, gemini-2.5-pro, and claude-sonnet-4@20250514. It does not connect individual results to one of those releases.",
+          "editor_note": ""
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -1389,8 +1454,22 @@
         "coverage": "partial"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "Xylo"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1480,16 +1559,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 30,
+      "known": 35,
       "reviewed": 5,
-      "record_mapped": 25,
-      "not_assessed": 61,
+      "record_mapped": 30,
+      "not_assessed": 56,
       "complete": false,
       "by_state": {
-        "value_present": 30,
+        "value_present": 35,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 61,
+        "not_assessed": 56,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

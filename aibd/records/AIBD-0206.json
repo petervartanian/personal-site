@@ -292,7 +292,11 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Wiz researchers used AI tools to analyze GitHub’s compiled software and reconstruct its internal protocols. They reported that the tools accelerated the work and that they produced a working exploit in under 48 hours.",
+          "editor_note": ""
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -618,9 +622,21 @@
       },
       "evaluations[].metric": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "metric"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "went from idea to working exploit in under 48 hours",
+          "editor_note": ""
+        }
       },
       "evaluations[].reproduction_materials": {
         "state": "not_assessed",
@@ -636,9 +652,22 @@
       },
       "evaluations[].uncertainty_limitations": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "ai_role",
+            "account"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "The account of AI assistance comes from Wiz and interviews with its researchers. Wiz names IDA MCP; The Register and WebProNews name Claude Code. GitHub independently confirmed and fixed the vulnerability but did not describe AI’s contribution.",
+          "editor_note": ""
+        }
       },
       "external_references[]": {
         "state": "value_present",
@@ -687,8 +716,21 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Wiz researchers developed and tested the exploit. GitHub’s security and engineering teams reproduced the vulnerability and deployed the fix."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "ai_role",
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "id": {
@@ -1318,18 +1360,64 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The tools analyzed compiled binaries and helped researchers reconstruct internal protocols."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Restated the mechanical task already described in the existing system and AI-role fields. No new source review is claimed.",
+          "record_fields": [
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Wiz used IDA MCP to analyze GitHub’s compiled binaries. The Register identified Claude Code as the tool through which researchers performed some of that work."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
+          "record_fields": [
+            "model_version",
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "Wiz used IDA MCP to analyze GitHub’s compiled binaries. The Register identified Claude Code as the tool through which researchers performed some of that work.",
+          "editor_note": "Wiz’s original report names IDA MCP but not Claude Code. The latter identification comes from The Register’s reporting (references 4 and 5)."
+        }
       },
       "systems[].inputs_outputs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The tools analyzed compiled binaries and helped researchers reconstruct internal protocols."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
+          "record_fields": [
+            "system",
+            "ai_role",
+            "replication",
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].model_name": {
@@ -1354,7 +1442,11 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Exact release not established.",
+          "editor_note": ""
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -1376,8 +1468,22 @@
         "coverage": "partial"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "Anthropic (Claude Code); the maker of IDA MCP is not named in the sources"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1462,16 +1568,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 29,
+      "known": 34,
       "reviewed": 0,
-      "record_mapped": 29,
-      "not_assessed": 62,
+      "record_mapped": 34,
+      "not_assessed": 57,
       "complete": false,
       "by_state": {
-        "value_present": 29,
+        "value_present": 34,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 62,
+        "not_assessed": 57,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

@@ -13,7 +13,7 @@
   "unexpected": false,
   "purpose": "STAR (Sperm Tracking and Recovery) was built over about five years at the Columbia University Fertility Center. It finds, and recovers undamaged, the few sperm in semen samples of men with azoospermia or cryptozoospermia. They can then be used for IVF by intracytoplasmic sperm injection. This pregnancy was exactly that intended use and its first clinical result.",
   "system": "STAR (Sperm Tracking and Recovery): a semen sample flows through a single-use microfluidic chip while a high-speed camera (about 300 frames per second, over 8 million images an hour) images it; an AI object-detection model flags sperm among cellular debris in real time and a microfluidic gate or robotic step diverts each flagged sperm into a droplet for immediate injection or freezing",
-  "model_version": "YOLOv8",
+  "model_version": null,
   "developer": "Columbia University, Columbia University Irving Medical Center (team led by Zev Williams and Hemant Suryawanshi)",
   "deployer": "Columbia University, New York (used on its own patient)",
   "location": "New York, United States",
@@ -413,6 +413,12 @@
       "change": "Organization name standardized to Columbia University.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Separated the reported AI model from its release and corrected the system identity against the retained evidence.",
+      "source": null,
+      "editor": "AIBD"
     }
   ],
   "confidence": "studied",
@@ -422,7 +428,7 @@
   "profile": {
     "case_id": "AIBD-0151",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "921695d201bd9e94ffa9878d295e134d26adaf79fa20d4bd7ea13e9d83cf8287",
+    "source_fingerprint": "24833b4ff5afe3799bee7da830cd27fc0fdb6055ebf64f1e2ac9435b9b1e57ec",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -537,7 +543,11 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "STAR detected seven sperm, including two motile sperm, in a sample that manual examination had classified as sperm-free. The system recovered them for use in IVF.",
+          "editor_note": ""
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -878,9 +888,21 @@
       },
       "evaluations[].metric": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "metric"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "found 7 sperm (2 motile) in 2.5m images of a “sperm-free” sample",
+          "editor_note": ""
+        }
       },
       "evaluations[].reproduction_materials": {
         "state": "not_assessed",
@@ -896,9 +918,22 @@
       },
       "evaluations[].uncertainty_limitations": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "ai_role",
+            "account"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "The widely reported comparison of 44 sperm found in an hour concerns a different sample. The study did not test whether a longer manual search of this sample would have found the sperm. INCIID names YOLOv8, while Columbia’s patent filings describe YOLOv4; the exact model used remains unidentified.",
+          "editor_note": ""
+        }
       },
       "external_references[]": {
         "state": "value_present",
@@ -947,8 +982,21 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Embryologists injected the two motile sperm into eggs, cultured the embryos, and transferred them. Clinicians provided subsequent obstetric care."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "ai_role",
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "id": {
@@ -1190,6 +1238,11 @@
                 "date": "2026-10-22",
                 "change": "Organization name standardized to Columbia University.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Separated the reported AI model from its release and corrected the system identity against the retained evidence.",
+                "editor": "AIBD"
               }
             ]
           }
@@ -1287,6 +1340,11 @@
               {
                 "date": "2026-10-22",
                 "change": "Organization name standardized to Columbia University.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Separated the reported AI model from its release and corrected the system identity against the retained evidence.",
                 "editor": "AIBD"
               }
             ]
@@ -2052,8 +2110,21 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The detector located sperm in microscope images so that the retrieval system could recover them."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Restated the mechanical task already described in the existing system and AI-role fields. No new source review is claimed.",
+          "record_fields": [
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
@@ -2067,28 +2138,45 @@
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "systems[].model_version": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "model_version": "YOLOv8"
-          }
+          "kind": "text",
+          "text": "A detector from the YOLO family."
         },
         "provenance": {
           "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
           "record_fields": [
-            "model_version"
+            "model_version",
+            "system",
+            "ai_role"
           ],
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "A detector from the YOLO family.",
+          "editor_note": "INCIID names “YOLOv8 Architecture” (reference 25), whereas Columbia’s patent illustrates a “YOLOv4 object detection model” (reference 31, figures 4–5). Neither source identifies the version used for this pregnancy."
+        }
+      },
+      "systems[].model_version": {
+        "state": "unresolved",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Preserved the conflicting architecture descriptions already documented in the existing entry.",
+          "record_fields": [
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "reason": "INCIID names YOLOv8 while the cited patent filings describe YOLOv4; the clinical detector release is not established.",
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "Exact detector release not established.",
+          "editor_note": ""
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -2110,8 +2198,22 @@
         "coverage": "partial"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "Columbia University, Columbia University Irving Medical Center (team led by Zev Williams and Hemant Suryawanshi)"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -2145,7 +2247,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "921695d201bd9e94ffa9878d295e134d26adaf79fa20d4bd7ea13e9d83cf8287"
+            "24833b4ff5afe3799bee7da830cd27fc0fdb6055ebf64f1e2ac9435b9b1e57ec"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -2197,16 +2299,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 29,
+      "known": 32,
       "reviewed": 0,
-      "record_mapped": 29,
-      "not_assessed": 62,
+      "record_mapped": 33,
+      "not_assessed": 58,
       "complete": false,
       "by_state": {
-        "value_present": 29,
+        "value_present": 32,
         "not_reported": 0,
-        "unresolved": 0,
-        "not_assessed": 62,
+        "unresolved": 1,
+        "not_assessed": 58,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

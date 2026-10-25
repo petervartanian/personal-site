@@ -248,7 +248,11 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "The thynC system detected ventricular tachycardia in a wearable ECG feed and raised an alarm. The hospital reported that staff reached the bedside promptly and began CPR.",
+          "editor_note": ""
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -574,9 +578,21 @@
       },
       "evaluations[].metric": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "metric"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "a heart rate that climbed to 192 beats per minute",
+          "editor_note": ""
+        }
       },
       "evaluations[].reproduction_materials": {
         "state": "not_assessed",
@@ -592,9 +608,22 @@
       },
       "evaluations[].uncertainty_limitations": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "ai_role",
+            "account"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "The account comes through a Daewoong Pharmaceutical announcement. No medical record or independent assessment establishes how long the patient would otherwise have waited for attention.",
+          "editor_note": ""
+        }
       },
       "external_references[]": {
         "state": "value_present",
@@ -643,8 +672,21 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Hospital staff responded to the alarm and performed CPR."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "ai_role",
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "id": {
@@ -1250,8 +1292,22 @@
         "coverage": "partial"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "Not stated in the read reports, which describe thynC as the smart bed monitoring system that Daewoong Pharmaceutical supplies (자사 공급)"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1335,16 +1391,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 28,
+      "known": 30,
       "reviewed": 0,
-      "record_mapped": 28,
-      "not_assessed": 63,
+      "record_mapped": 30,
+      "not_assessed": 61,
       "complete": false,
       "by_state": {
-        "value_present": 28,
+        "value_present": 30,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 63,
+        "not_assessed": 61,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

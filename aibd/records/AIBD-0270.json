@@ -12,7 +12,7 @@
   "category": "general benefit",
   "unexpected": false,
   "purpose": "Assist clinicians in reviewing published imaging literature for a case report",
-  "system": "ChatGPT (version not stated)",
+  "system": "ChatGPT using GPT-4o",
   "model_version": "ChatGPT-4o",
   "developer": "OpenAI",
   "deployer": "Affiliated Yuebei People's Hospital of Shantou University Medical College",
@@ -116,6 +116,12 @@
       "change": "Notes about which sources could be read were reworded for readers; facts, figures and quotations unchanged.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Separated the reported AI model from its release and corrected the system identity against the retained evidence.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11602322/",
+      "editor": "AIBD"
     }
   ],
   "confidence": "claimed",
@@ -125,7 +131,7 @@
   "profile": {
     "case_id": "AIBD-0270",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "5246e439a8756e58a51e3ccc98c50fa1432083dac470f19edb08eddd384cdaea",
+    "source_fingerprint": "df5e6ccaabceededaebfb8a67594e537bcc889b5840d59b9551355b0c90f3bd6",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -815,6 +821,12 @@
                 "date": "2026-10-21",
                 "change": "Notes about which sources could be read were reworded for readers; facts, figures and quotations unchanged.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Separated the reported AI model from its release and corrected the system identity against the retained evidence.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11602322/",
+                "editor": "AIBD"
               }
             ]
           }
@@ -901,6 +913,12 @@
                 "date": "2026-10-21",
                 "change": "Notes about which sources could be read were reworded for readers; facts, figures and quotations unchanged.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Separated the reported AI model from its release and corrected the system identity against the retained evidence.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11602322/",
+                "editor": "AIBD"
               }
             ]
           }
@@ -938,9 +956,39 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "versions_and_access": [
+              {
+                "source_ref": "AIBD-0270-source-0001",
+                "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11602322/",
+                "status": "Original full-text article inspected.",
+                "locator": "Section 4 and Acknowledgments.",
+                "reviewed_on": "2026-10-25"
+              }
+            ],
+            "limitations": [
+              "DataSheet1.docx and Table1.xlsx were linked but not inspected."
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original full-text paper. Section 4 and the Acknowledgments expressly identify ChatGPT-4o for the literature review. Supplementary DOCX and XLSX files were identified but not inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0270-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The full article was accessible. Its supplementary files have not been inspected."
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1024,9 +1072,56 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "lead_source_ref": "AIBD-0270-source-0001",
+            "retained_source_order": [
+              "AIBD-0270-source-0001"
+            ],
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11602322/",
+                "source_refs": [
+                  "AIBD-0270-source-0001"
+                ],
+                "display_name": "Frontiers in Immunology",
+                "contribution": "The authors identify the use of GPT-4o for their review of MRI findings from 11 papers.",
+                "locator": "Section 4, first paragraph; Acknowledgments.",
+                "relationship": "Original account from the researchers who used the model. The clinical diagnosis and treatment preceded this literature review."
+              }
+            ],
+            "claim_chains": [
+              {
+                "claim": "AI system identity and role",
+                "path": [
+                  "https://pmc.ncbi.nlm.nih.gov/articles/PMC11602322/",
+                  "Section 4 and Acknowledgments"
+                ],
+                "finding": "The authors name ChatGPT-4o and describe inputting literature-derived MRI information. This does not describe AI use in patient care."
+              }
+            ],
+            "limitations": [
+              "The linked supplementary DOCX and XLSX files were not inspected."
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original full-text paper. Section 4 and the Acknowledgments expressly identify ChatGPT-4o for the literature review. Supplementary DOCX and XLSX files were identified but not inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0270-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The researchers describe their own use of GPT-4o in section 4 of the paper."
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1061,8 +1156,21 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "GPT-4o summarized MRI findings from published papers for the authors’ literature review."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original full-text paper. Section 4 and the Acknowledgments expressly identify ChatGPT-4o for the literature review. Supplementary DOCX and XLSX files were identified but not inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0270-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
@@ -1076,9 +1184,25 @@
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "GPT-4o."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original full-text paper. Section 4 and the Acknowledgments expressly identify ChatGPT-4o for the literature review. Supplementary DOCX and XLSX files were identified but not inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0270-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "GPT-4o."
+        }
       },
       "systems[].model_version": {
         "state": "value_present",
@@ -1097,30 +1221,50 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Exact release not established.",
+          "editor_note": ""
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "system": "ChatGPT (version not stated)"
+          "kind": "text",
+          "text": "ChatGPT."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original full-text paper. Section 4 and the Acknowledgments expressly identify ChatGPT-4o for the literature review. Supplementary DOCX and XLSX files were identified but not inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0270-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "ChatGPT."
+        }
+      },
+      "systems[].provider": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "OpenAI"
           }
         },
         "provenance": {
           "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "basis": "Mapped from the existing case description without a new external source review.",
           "record_fields": [
-            "system"
+            "developer"
           ],
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
-      },
-      "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1154,7 +1298,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "5246e439a8756e58a51e3ccc98c50fa1432083dac470f19edb08eddd384cdaea"
+            "df5e6ccaabceededaebfb8a67594e537bcc889b5840d59b9551355b0c90f3bd6"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1200,16 +1344,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 27,
-      "reviewed": 0,
+      "known": 32,
+      "reviewed": 5,
       "record_mapped": 27,
-      "not_assessed": 64,
+      "not_assessed": 59,
       "complete": false,
       "by_state": {
-        "value_present": 27,
+        "value_present": 32,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 64,
+        "not_assessed": 59,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

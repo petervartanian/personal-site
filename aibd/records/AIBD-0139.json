@@ -235,7 +235,11 @@
       "ai_contribution": {
         "state": "not_assessed",
         "review_state": "not_assessed",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Franklin reported that Tesla Full Self-Driving drove him 13 miles to an emergency department without intervention and offered to park on arrival.",
+          "editor_note": ""
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -561,9 +565,21 @@
       },
       "evaluations[].metric": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "metric"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "drove Max Paul Franklin 13 miles to a VA emergency room",
+          "editor_note": ""
+        }
       },
       "evaluations[].reproduction_materials": {
         "state": "not_assessed",
@@ -579,9 +595,22 @@
       },
       "evaluations[].uncertainty_limitations": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "ai_role",
+            "account"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "The account has no supporting vehicle logs, route footage, hospital record, or interview with the hospital. Tesla and Elon Musk reposted it without adding evidence. The effect of using an alternative means of reaching care was not examined.",
+          "editor_note": ""
+        }
       },
       "external_references[]": {
         "state": "value_present",
@@ -1202,14 +1231,45 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Franklin reported that the system drove his car to an emergency department."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Restated the mechanical task already described in the existing system and AI-role fields. No new source review is claimed.",
+          "record_fields": [
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Franklin reported using Full Self-Driving v12 (Supervised), which was enabled on the car on 1 April 2024."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
+          "record_fields": [
+            "model_version",
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "Franklin reported using Full Self-Driving v12 (Supervised), which was enabled on the car on 1 April 2024.",
+          "editor_note": "Franklin identified FSD v12, but not the exact build. The Driven described 12.3.3 as the release available at that time, which does not establish the build installed in his car."
+        }
       },
       "systems[].inputs_outputs": {
         "state": "not_assessed",
@@ -1238,7 +1298,11 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Full Self-Driving v12. The exact installed build is not established.",
+          "editor_note": ""
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -1260,8 +1324,22 @@
         "coverage": "partial"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "Tesla"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1345,16 +1423,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 28,
+      "known": 31,
       "reviewed": 0,
-      "record_mapped": 28,
-      "not_assessed": 63,
+      "record_mapped": 31,
+      "not_assessed": 60,
       "complete": false,
       "by_state": {
-        "value_present": 28,
+        "value_present": 31,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 63,
+        "not_assessed": 60,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

@@ -223,7 +223,11 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Lunit INSIGHT CXR flagged all 13 nodules and made the results available to clinicians immediately after the chest X-rays. In one patient, it flagged a nodule that proved cancerous where the radiologist had reported no active lung disease.",
+          "editor_note": ""
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -564,9 +568,21 @@
       },
       "evaluations[].metric": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "metric"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "13 (17.3%) had cancers found incidentally because the software flagged a nodule",
+          "editor_note": ""
+        }
       },
       "evaluations[].reproduction_materials": {
         "state": "not_assessed",
@@ -582,9 +598,22 @@
       },
       "evaluations[].uncertainty_limitations": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "ai_role",
+            "account"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "The authors inferred from timestamps that AI aided eight same-day consultations. They could not establish whether clinicians acted on the software’s result or the radiologist’s report. Radiologists described an abnormality at the same site in 12 of the 13 cases. Table 1 does not fully agree with the reported count of eight same-day consultations.",
+          "editor_note": ""
+        }
       },
       "external_references[]": {
         "state": "value_present",
@@ -635,8 +664,21 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Radiologists also interpreted the images, and clinicians decided on consultations and further care."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "ai_role",
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "id": {
@@ -1139,13 +1181,40 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The software flagged suspicious nodules on chest X-rays for clinicians to review."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Restated the mechanical task already described in the existing system and AI-role fields. No new source review is claimed.",
+          "record_fields": [
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The studies used versions 2 and 3 of the system."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
+          "record_fields": [
+            "model_version",
+            "system",
+            "ai_role"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
@@ -1175,7 +1244,11 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Lunit INSIGHT CXR versions 2 and 3.",
+          "editor_note": ""
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -1197,8 +1270,22 @@
         "coverage": "partial"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "Lunit Inc."
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1280,16 +1367,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 29,
+      "known": 33,
       "reviewed": 0,
-      "record_mapped": 29,
-      "not_assessed": 62,
+      "record_mapped": 33,
+      "not_assessed": 58,
       "complete": false,
       "by_state": {
-        "value_present": 29,
+        "value_present": 33,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 62,
+        "not_assessed": 58,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

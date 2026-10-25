@@ -307,8 +307,20 @@
         "coverage": "partial"
       },
       "assessments[].status_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Reported benefit"
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "benefit_status"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "assessments[].target": {
@@ -520,9 +532,21 @@
       },
       "evaluations[].metric": {
         "state": "not_assessed",
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "metric"
+          ],
+          "source_refs": []
+        },
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "3.6% versus 4.3%",
+          "editor_note": ""
+        }
       },
       "evaluations[].reproduction_materials": {
         "state": "not_assessed",
@@ -950,7 +974,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "complete"
+        "coverage": "complete",
+        "display": {
+          "answer": "The trial does not establish which clinical responses produced the mortality difference. Most patients came from one center, and restricted model weights and patient data prevent full reproduction. The 90-day economic analysis excludes wider societal and family costs and does not estimate lifetime quality-adjusted survival.",
+          "editor_note": ""
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1146,7 +1174,11 @@
           "reviewed_on": "2026-10-24"
         },
         "review_state": "reviewed",
-        "coverage": "complete"
+        "coverage": "complete",
+        "display": {
+          "answer": "The developers and deploying hospitals report the randomized trial. An overlapping team analyzes its costs. Several authors disclose potential licensing benefits, and the economic paper is not an independent replication of the mortality result.",
+          "editor_note": ""
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1225,8 +1257,22 @@
         "coverage": "partial"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "National Defense Medical Center and Tri-Service General Hospital research team"
+          }
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Mapped from the existing case description without a new external source review.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1308,16 +1354,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 30,
+      "known": 32,
       "reviewed": 8,
-      "record_mapped": 22,
-      "not_assessed": 61,
+      "record_mapped": 24,
+      "not_assessed": 59,
       "complete": false,
       "by_state": {
-        "value_present": 30,
+        "value_present": 32,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 61,
+        "not_assessed": 59,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0
