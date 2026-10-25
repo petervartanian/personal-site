@@ -1,20 +1,20 @@
 {
   "id": "AIBD-0582",
   "title": "AI flags Julie Knichel's brain hemorrhage before aneurysm treatment and her return to nursing",
-  "summary": "Baptist Health does not name the software that analyzed her brain scan. After treatment for a ruptured aneurysm, she recovered and returned to nursing full time.",
-  "date_observed": "2024-11-25",
-  "date_basis": "source publication",
+  "summary": "Viz.ai alerted the stroke team to her brain bleed. After treatment for a ruptured aneurysm, she recovered and returned to nursing full time.",
+  "date_observed": "2024-02-02",
+  "date_basis": "event",
   "date_precision": "day",
   "benefit_status": "reported",
   "source_collection": null,
   "source_entry": null,
-  "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on February 2. The year is unspecified.",
+  "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The Viz.ai attribution is inferred from Snelling’s follow-up interview: he names Viz.ai, then describes an ICU nurse with a subarachnoid hemorrhage and points to the hospital’s earlier public account. The clinician, hospital, patient’s occupation, condition, and alert sequence match Knichel’s story. He does not name the nurse in that interview or identify a software module or version.",
   "category": "harm prevented",
   "unexpected": false,
   "purpose": "Detect brain hemorrhage and alert clinicians.",
-  "system": "AI analysis of brain scans",
+  "system": "Viz.ai stroke detection and care coordination",
   "model_version": null,
-  "developer": null,
+  "developer": "Viz.ai",
   "deployer": "Baptist Health, Marcus Neuroscience Institute",
   "location": "Boca Raton, Florida, United States",
   "domain": "Stroke care",
@@ -31,7 +31,7 @@
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "AI flagged the bleeding. Clinicians treated it. Neither the software nor its separate effect on survival is specified."
+    "statement": "Viz.ai flagged the bleeding and notified the stroke team. Clinicians treated the aneurysm. The platform attribution follows from the treating surgeon’s subsequent interview and matching published case. Its separate effect on survival was not measured."
   },
   "evidence": [
     {
@@ -42,6 +42,24 @@
       "date": "2024-11-25",
       "written_by": "deployer",
       "quote": "Ms. Knichel is happy to have returned to work full time and to her previous activities"
+    },
+    {
+      "kind": "news report",
+      "citation": "Brian Snelling and Felipe De Los Rios. “Incorporating AI Into Stroke Triage,” NeurologyLive, October 22, 2025. Original video, 2:29–2:36 and 5:03–5:36; edited transcript, Snelling’s responses.",
+      "title": "Incorporating AI Into Stroke Triage",
+      "url": "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
+      "date": "2025-10-22",
+      "written_by": "deployer",
+      "quote": null
+    },
+    {
+      "kind": "news report",
+      "citation": "Jan Engoren. “Health & Harmony: Fast action, expert surgeon empower nurse’s recovery from stroke,” The Coastal Star, April 29, 2025. Paragraphs describing February 2024 treatment, subarachnoid hemorrhage, and recovery.",
+      "title": "Health & Harmony: Fast action, expert surgeon empower nurse’s recovery from stroke",
+      "url": "https://thecoastalstar.com/profiles/blogs/fast-action-expert-surgeon-empowers-nurse-to-recover",
+      "date": "2025-04-29",
+      "written_by": "independent",
+      "quote": null
     }
   ],
   "replication": {
@@ -88,16 +106,22 @@
       "change": "Identified the AI system or feature in the supporting summary, or stated that the source does not name the software. Preserved the reported benefit and material qualifications.",
       "source": "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-24",
+      "change": "Traced the system identity beyond the original case report. Added product names and supporting original sources, preserving historical-version limits and any inference in the source notes.",
+      "source": "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
+      "editor": "AIBD"
     }
   ],
-  "confidence": "claimed",
-  "shade": "low",
-  "claim_status": "The deployer's account",
-  "claim_basis": "Sources: the deployer's report. The cited evidence includes no independent source and no finding by a regulator or court.",
+  "confidence": "reported",
+  "shade": "medium",
+  "claim_status": "Independently reported",
+  "claim_basis": "Sources: one independent news report, the deployer's report and the deployer's news report. The cited evidence includes no independent study or report and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0582",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "f6330eb571873b8b11933a5036878197979541313fd8fc928e1805817d3dd60f",
+    "source_fingerprint": "6ed1cbf0ef998b510d21f51b6ed6901fac603ffedb6fdc38059e80c6690d3827",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -105,7 +129,9 @@
       }
     ],
     "source_ids": [
-      "AIBD-0582-source-0001"
+      "AIBD-0582-source-0001",
+      "AIBD-0582-source-0002",
+      "AIBD-0582-source-0003"
     ],
     "families": {
       "strategic assessments": {
@@ -139,18 +165,25 @@
         "value": {
           "kind": "record_fields",
           "fields": {
+            "developer": "Viz.ai",
             "deployer": "Baptist Health, Marcus Neuroscience Institute"
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
           "record_fields": [
-            "deployer"
+            "deployer",
+            "developer"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "actors[].ownership_control": {
@@ -165,19 +198,24 @@
           "fields": {
             "ai_role": {
               "status": "assessed",
-              "statement": "AI flagged the bleeding. Clinicians treated it. Neither the software nor its separate effect on survival is specified."
+              "statement": "Viz.ai flagged the bleeding and notified the stroke team. Clinicians treated the aneurysm. The platform attribution follows from the treating surgeon’s subsequent interview and matching published case. Its separate effect on survival was not measured."
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
           "record_fields": [
             "ai_role"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "ai_relationship": {
@@ -188,20 +226,25 @@
             "category": "harm prevented",
             "ai_role": {
               "status": "assessed",
-              "statement": "AI flagged the bleeding. Clinicians treated it. Neither the software nor its separate effect on survival is specified."
+              "statement": "Viz.ai flagged the bleeding and notified the stroke team. Clinicians treated the aneurysm. The platform attribution follows from the treating surgeon’s subsequent interview and matching published case. Its separate effect on survival was not measured."
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
           "record_fields": [
-            "ai_role",
-            "category"
+            "category",
+            "ai_role"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "assessments[].alternatives": {
@@ -244,21 +287,23 @@
         "value": {
           "kind": "structured",
           "data": {
-            "confidence": "low",
-            "evidence_word": "claimed",
-            "claim_status": "The deployer's account",
-            "basis": "Sources: the deployer's report. The cited evidence includes no independent source and no finding by a regulator or court.",
-            "interpretation": "Existing display rule retained. Originality, authorship, and independence are assessed separately in the source lineage. Repeated formats, quotations, and versions are not independent confirmations."
+            "confidence": "medium",
+            "evidence_word": "reported",
+            "claim_status": "Independently reported",
+            "basis": "Sources include Baptist Health’s patient story, the treating neurosurgeon’s follow-up interview, and The Coastal Star’s separate patient and clinician interviews. No independent study measures the AI contribution, and no finding by a regulator or court is cited.",
+            "interpretation": "Independent interviews corroborate the patient outcome and event year. The product attribution follows the treating clinician’s account and is not independently verified."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Rechecked source authorship and independence without changing benefit-depth ratings.",
+          "basis": "Recomputed the existing display rule after adding the reviewed sources. Source independence remains claim-specific.",
           "record_fields": [
             "evidence"
           ],
           "source_refs": [
-            "AIBD-0582-source-0001"
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
           ],
           "reviewed_on": "2026-10-24"
         },
@@ -604,20 +649,25 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on February 2. The year is unspecified.",
+            "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The Viz.ai attribution is inferred from Snelling’s follow-up interview: he names Viz.ai, then describes an ICU nurse with a subarachnoid hemorrhage and points to the hospital’s earlier public account. The clinician, hospital, patient’s occupation, condition, and alert sequence match Knichel’s story. He does not name the nurse in that interview or identify a software module or version.",
             "benefit_type": "Improved Physical Health"
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
           "record_fields": [
             "account",
             "benefit_type"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "outcomes[].distribution": {
@@ -750,8 +800,8 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "date_observed": "2024-11-25",
-            "date_basis": "source publication",
+            "date_observed": "2024-02-02",
+            "date_basis": "event",
             "date_precision": "day",
             "revisions": [
               {
@@ -777,13 +827,19 @@
                 "change": "Identified the AI system or feature in the supporting summary, or stated that the source does not name the software. Preserved the reported benefit and material qualifications.",
                 "source": "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Traced the system identity beyond the original case report. Added product names and supporting original sources, preserving historical-version limits and any inference in the source notes.",
+                "source": "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
+          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
           "record_fields": [
             "date_observed",
             "date_basis",
@@ -791,7 +847,9 @@
             "revisions"
           ],
           "source_refs": [
-            "AIBD-0582-source-0001"
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
           ],
           "reviewed_on": "2026-10-24"
         },
@@ -859,18 +917,26 @@
                 "change": "Identified the AI system or feature in the supporting summary, or stated that the source does not name the software. Preserved the reported benefit and material qualifications.",
                 "source": "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Traced the system identity beyond the original case report. Added product names and supporting original sources, preserving historical-version limits and any inference in the source notes.",
+                "source": "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
+          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
           "record_fields": [
             "revisions"
           ],
           "source_refs": [
-            "AIBD-0582-source-0001"
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
           ],
           "reviewed_on": "2026-10-24"
         },
@@ -909,23 +975,48 @@
                 "source_url": "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
                 "published_on": "2024-11-25",
                 "status": "Complete article and outgoing links inspected."
+              },
+              {
+                "source_url": "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
+                "status": "Original source inspected.",
+                "locator": "Original video 2:29–2:36, 5:03–5:36. The edited transcript omits the pointer to the earlier press release.",
+                "reviewed_on": "2026-10-24"
+              },
+              {
+                "source_url": "https://thecoastalstar.com/profiles/blogs/fast-action-expert-surgeon-empowers-nurse-to-recover",
+                "status": "Original source inspected.",
+                "locator": "Paragraph beginning “Knichel came under Snelling’s care in February 2024”; treatment and recovery paragraphs.",
+                "reviewed_on": "2026-10-24"
+              },
+              {
+                "source_url": "https://players.brightcove.net/10203567001/wf0hzDVjW_default/index.html?videoId=6383528276112",
+                "source_ref": "AIBD-0582-source-0002",
+                "status": "Original interview captions inspected; same work as the edited transcript.",
+                "locator": "2:29–2:36 and 5:03–5:36."
+              },
+              {
+                "source_url": "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
+                "source_ref": "AIBD-0582-source-0001",
+                "status": "Embedded hospital-video transcript and frames inspected. No product brand appears in the AI passage.",
+                "locator": "1:42–2:19."
               }
             ],
             "limitations": [
-              "No independent clinical account, raw scan, alert timestamp, product name or model version is provided.",
-              "The faster-than-manual claim is the institution's description, without a case-specific measured comparison.",
-              "The embedded video was identified but not separately transcribed; it is not counted as an independent evidence source."
+              "Viz.ai is inferred by matching Snelling’s later account to the hospital’s named patient story. The original video refers to the earlier public story, but does not repeat Knichel’s name.",
+              "No reviewed source identifies the exact Viz.ai module or model version, or supplies a patient-specific measured comparison of AI against manual review."
             ]
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Read the available originals and relevant source chains, with unresolved access and evidentiary limits recorded explicitly.",
+          "basis": "Inspected the added originals and retained prior access limitations for other sources.",
           "record_fields": [
             "evidence"
           ],
           "source_refs": [
-            "AIBD-0582-source-0001"
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
           ],
           "reviewed_on": "2026-10-24"
         },
@@ -946,19 +1037,40 @@
                 "date": "2024-11-25",
                 "written_by": "deployer",
                 "quote": "Ms. Knichel is happy to have returned to work full time and to her previous activities"
+              },
+              {
+                "kind": "news report",
+                "citation": "Brian Snelling and Felipe De Los Rios. “Incorporating AI Into Stroke Triage,” NeurologyLive, October 22, 2025. Original video, 2:29–2:36 and 5:03–5:36; edited transcript, Snelling’s responses.",
+                "title": "Incorporating AI Into Stroke Triage",
+                "url": "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
+                "date": "2025-10-22",
+                "written_by": "deployer"
+              },
+              {
+                "kind": "news report",
+                "citation": "Jan Engoren. “Health & Harmony: Fast action, expert surgeon empower nurse’s recovery from stroke,” The Coastal Star, April 29, 2025. Paragraphs describing February 2024 treatment, subarachnoid hemorrhage, and recovery.",
+                "title": "Health & Harmony: Fast action, expert surgeon empower nurse’s recovery from stroke",
+                "url": "https://thecoastalstar.com/profiles/blogs/fast-action-expert-surgeon-empowers-nurse-to-recover",
+                "date": "2025-04-29",
+                "written_by": "independent"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
           "record_fields": [
             "evidence"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "sources[].id": {
@@ -966,18 +1078,22 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "AIBD-0582-source-0001"
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
           ],
           "role": "Retained evidence sources in reviewed order"
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Updated identifiers after consolidating duplicate excerpts and reviewing original sources.",
+          "kind": "source_review",
+          "basis": "Appended sources that add system identity or patient chronology without changing the lead source.",
           "record_fields": [
             "evidence"
           ],
           "source_refs": [
-            "AIBD-0582-source-0001"
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
           ],
           "reviewed_on": "2026-10-24"
         },
@@ -1003,19 +1119,40 @@
                 "date": "2024-11-25",
                 "written_by": "deployer",
                 "quote": "Ms. Knichel is happy to have returned to work full time and to her previous activities"
+              },
+              {
+                "kind": "news report",
+                "citation": "Brian Snelling and Felipe De Los Rios. “Incorporating AI Into Stroke Triage,” NeurologyLive, October 22, 2025. Original video, 2:29–2:36 and 5:03–5:36; edited transcript, Snelling’s responses.",
+                "title": "Incorporating AI Into Stroke Triage",
+                "url": "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
+                "date": "2025-10-22",
+                "written_by": "deployer"
+              },
+              {
+                "kind": "news report",
+                "citation": "Jan Engoren. “Health & Harmony: Fast action, expert surgeon empower nurse’s recovery from stroke,” The Coastal Star, April 29, 2025. Paragraphs describing February 2024 treatment, subarachnoid hemorrhage, and recovery.",
+                "title": "Health & Harmony: Fast action, expert surgeon empower nurse’s recovery from stroke",
+                "url": "https://thecoastalstar.com/profiles/blogs/fast-action-expert-surgeon-empowers-nurse-to-recover",
+                "date": "2025-04-29",
+                "written_by": "independent"
               }
             ]
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
           "record_fields": [
             "evidence"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
@@ -1026,7 +1163,9 @@
             "reviewed_on": "2026-10-24",
             "lead_source_ref": "AIBD-0582-source-0001",
             "retained_source_order": [
-              "AIBD-0582-source-0001"
+              "AIBD-0582-source-0001",
+              "AIBD-0582-source-0002",
+              "AIBD-0582-source-0003"
             ],
             "origins": [
               {
@@ -1038,6 +1177,27 @@
                   "AIBD-0582-source-0001"
                 ],
                 "display_name": "Baptist Health"
+              },
+              {
+                "url": "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
+                "contribution": "Names Viz.ai and describes the matching ICU-nurse hemorrhage case, with a pointer to the earlier public patient story.",
+                "locator": "Original video 2:29–2:36, 5:03–5:36. The edited transcript omits the pointer to the earlier press release.",
+                "relationship": "Treating clinician’s firsthand account. Matching the unnamed nurse to Knichel is an inference, not independent corroboration.",
+                "source_refs": [
+                  "AIBD-0582-source-0002"
+                ],
+                "display_name": "NeurologyLive",
+                "access_url": "https://players.brightcove.net/10203567001/wf0hzDVjW_default/index.html?videoId=6383528276112"
+              },
+              {
+                "url": "https://thecoastalstar.com/profiles/blogs/fast-action-expert-surgeon-empowers-nurse-to-recover",
+                "contribution": "Patient and clinician interviews establish February 2024, subarachnoid hemorrhage, treatment, and return to work.",
+                "locator": "Paragraph beginning “Knichel came under Snelling’s care in February 2024”; treatment and recovery paragraphs.",
+                "relationship": "Original reporting corroborates the patient outcome and chronology, not the AI product or its separate effect.",
+                "source_refs": [
+                  "AIBD-0582-source-0003"
+                ],
+                "display_name": "The Coastal Star"
               }
             ],
             "claim_chains": [
@@ -1049,18 +1209,35 @@
                 "finding": "Baptist Health is the original source of the patient story. Links lead to institutional or clinician pages, not a case study, scan record or model evaluation."
               },
               {
+                "claim": "System identity",
+                "path": [
+                  "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
+                  "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
+                  "https://thecoastalstar.com/profiles/blogs/fast-action-expert-surgeon-empowers-nurse-to-recover"
+                ],
+                "finding": "Viz.ai stroke detection and care coordination"
+              },
+              {
+                "claim": "System attribution",
+                "path": [
+                  "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
+                  "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
+                  "https://players.brightcove.net/10203567001/wf0hzDVjW_default/index.html?videoId=6383528276112"
+                ],
+                "finding": "Viz.ai is inferred by matching Snelling’s later account to the hospital’s named patient story. The original video refers to the earlier public story, but does not repeat Knichel’s name."
+              },
+              {
                 "claim": "Event chronology",
                 "path": [
                   "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
-                  "Opening paragraph; publication header"
+                  "https://thecoastalstar.com/profiles/blogs/fast-action-expert-surgeon-empowers-nurse-to-recover"
                 ],
-                "finding": "The source gives February 2 without a year. November 25, 2024 remains the source-publication date, not an invented event date."
+                "finding": "The hospital gives February 2. The subsequent patient and clinician interviews establish February 2024, supporting 2 February 2024."
               }
             ],
             "limitations": [
-              "No independent clinical account, raw scan, alert timestamp, product name or model version is provided.",
-              "The faster-than-manual claim is the institution's description, without a case-specific measured comparison.",
-              "The embedded video was identified but not separately transcribed; it is not counted as an independent evidence source."
+              "Viz.ai is inferred by matching Snelling’s later account to the hospital’s named patient story. The original video refers to the earlier public story, but does not repeat Knichel’s name.",
+              "No reviewed source identifies the exact Viz.ai module or model version, or supplies a patient-specific measured comparison of AI against manual review."
             ],
             "excluded_or_consolidated_sources": [],
             "review_scope": "Traced the claims in this case through accessible original publications and relevant embedded references, tables, appendices, corrections, and supplements. The stated access limits remain unresolved."
@@ -1068,12 +1245,15 @@
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Read the available originals and relevant source chains, with unresolved access and evidentiary limits recorded explicitly.",
+          "basis": "Traced the specific system through original developer, deployer, funder, or clinician accounts. Limits are recorded alongside each identification.",
           "record_fields": [
-            "evidence"
+            "evidence",
+            "system"
           ],
           "source_refs": [
-            "AIBD-0582-source-0001"
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
           ],
           "reviewed_on": "2026-10-24"
         },
@@ -1091,20 +1271,25 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "summary": "Baptist Health does not name the software that analyzed her brain scan. After treatment for a ruptured aneurysm, she recovered and returned to nursing full time.",
-            "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on February 2. The year is unspecified."
+            "summary": "Viz.ai alerted the stroke team to her brain bleed. After treatment for a ruptured aneurysm, she recovered and returned to nursing full time.",
+            "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The Viz.ai attribution is inferred from Snelling’s follow-up interview: he names Viz.ai, then describes an ICU nurse with a subarachnoid hemorrhage and points to the hospital’s earlier public account. The clinician, hospital, patient’s occupation, condition, and alert sequence match Knichel’s story. He does not name the nurse in that interview or identify a software module or version."
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
           "record_fields": [
             "summary",
             "account"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
@@ -1133,33 +1318,73 @@
         "coverage": "partial"
       },
       "systems[].model_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Distinguished the platform or product name from a particular release.",
+          "record_fields": [
+            "model_version"
+          ],
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "reason": "The reviewed sources do not establish an exact model or software release for this case.",
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "systems[].product_name": {
         "state": "value_present",
         "value": {
           "kind": "record_fields",
           "fields": {
-            "system": "AI analysis of brain scans"
+            "system": "Viz.ai stroke detection and care coordination"
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "derivation",
+          "basis": "System identification follows the cited source chain and its stated historical or patient-matching qualifications.",
           "record_fields": [
             "system"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "provider": "Viz.ai",
+            "attribution": "inferred",
+            "basis": "Viz.ai is inferred by matching Snelling’s later account to the hospital’s named patient story. The original video refers to the earlier public story, but does not repeat Knichel’s name."
+          }
+        },
+        "provenance": {
+          "kind": "derivation",
+          "basis": "Viz.ai is inferred by matching Snelling’s later account to the hospital’s named patient story. The original video refers to the earlier public story, but does not repeat Knichel’s name.",
+          "record_fields": [
+            "developer",
+            "system"
+          ],
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "taxonomy_crosswalks[]": {
         "state": "not_assessed",
@@ -1192,15 +1417,23 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "f6330eb571873b8b11933a5036878197979541313fd8fc928e1805817d3dd60f"
+            "6ed1cbf0ef998b510d21f51b6ed6901fac603ffedb6fdc38059e80c6690d3827"
           ],
           "role": "SHA-256 of normalized original case data"
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Updated the fingerprint after this targeted source review.",
-          "record_fields": [],
-          "source_refs": [],
+          "kind": "derivation",
+          "basis": "Recomputed the fingerprint after the system-identification review.",
+          "record_fields": [
+            "system",
+            "evidence",
+            "summary"
+          ],
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
+          ],
           "reviewed_on": "2026-10-24"
         },
         "review_state": "record_mapped",
@@ -1211,7 +1444,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on February 2. The year is unspecified.",
+            "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The Viz.ai attribution is inferred from Snelling’s follow-up interview: he names Viz.ai, then describes an ICU nurse with a subarachnoid hemorrhage and points to the hospital’s earlier public account. The clinician, hospital, patient’s occupation, condition, and alert sequence match Knichel’s story. He does not name the nurse in that interview or identify a software module or version.",
             "replication": {
               "produced_by": [
                 "AI-assisted imaging and specialist treatment."
@@ -1224,31 +1457,36 @@
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
           "record_fields": [
             "account",
             "replication"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0582-source-0001",
+            "AIBD-0582-source-0002",
+            "AIBD-0582-source-0003"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 29,
-      "reviewed": 6,
-      "record_mapped": 23,
-      "not_assessed": 62,
+      "known": 30,
+      "reviewed": 17,
+      "record_mapped": 14,
+      "not_assessed": 60,
       "complete": false,
       "by_state": {
-        "value_present": 29,
-        "not_reported": 0,
+        "value_present": 30,
+        "not_reported": 1,
         "unresolved": 0,
-        "not_assessed": 62,
+        "not_assessed": 60,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0
