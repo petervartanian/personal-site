@@ -23,6 +23,7 @@
   if (!form || !tools || !sort || !sections.length) return;
 
   const collator = new Intl.Collator('en', { sensitivity: 'base', numeric: true });
+  const search = window.AIBDSearch;
   const normalize = value => String(value || '').normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const groups = sections.map(section => ({
@@ -36,6 +37,7 @@
       list: element.closest('[data-dv-list]'),
       index,
       text: normalize([element.textContent, element.dataset.caseTitle].join(' ')),
+      searchFields: search ? [search.field('Monetary outcome', [element.textContent, element.dataset.caseTitle].join(' '))] : [],
       type: element.dataset.type || '',
       status: element.dataset.status || '',
       currencies: (element.dataset.currencies || 'Unstated').split(',').filter(Boolean),
@@ -120,7 +122,7 @@
   }
 
   function apply(updateUrl = true) {
-    const terms = normalize(form.elements.q.value).trim().split(/\s+/).filter(Boolean);
+    const terms = search ? search.parse(form.elements.q.value) : normalize(form.elements.q.value).trim().split(/\s+/).filter(Boolean);
     const values = Object.fromEntries(fields.slice(1).map(key => [key, form.elements[key].value]));
     const currencies = selectedCurrencies();
     const filtered = terms.length > 0 || Object.values(values).some(Boolean) || currencies.length > 0;
@@ -132,7 +134,7 @@
     groups.forEach(group => {
       let shown = 0;
       ordered(group.rows).forEach(row => {
-        const otherMatches = terms.every(term => row.text.includes(term))
+        const otherMatches = (search ? search.match(row.searchFields, terms) !== null : terms.every(term => row.text.includes(term)))
           && (!values.type || row.type === values.type)
           && (!values.status || row.status === values.status);
         if (otherMatches && group.key === view) row.jurisdictions.forEach(item => jurisdictionFacets.add(item));

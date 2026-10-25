@@ -384,14 +384,25 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   function paint() {
     var n = ids().length;
     document.querySelectorAll('[data-shelf-link]').forEach(function (a) { a.textContent = n ? 'Compare (' + n + ')' : 'Compare'; });
-    document.querySelectorAll('[data-keep]').forEach(function (b) { var on = shelf.has(b.getAttribute('data-keep')); b.textContent = on ? 'Kept' : 'Keep this case'; b.setAttribute('aria-pressed', String(on)); });
+    document.querySelectorAll('[data-keep]').forEach(function (b) {
+      var id = b.getAttribute('data-keep'), on = shelf.has(id);
+      var label = on ? b.getAttribute('data-kept-label') || 'Kept' : b.getAttribute('data-keep-label') || 'Keep this case';
+      b.textContent = label; b.setAttribute('aria-pressed', String(on));
+      b.setAttribute('aria-label', label + (/\b(benefit|case)\b/i.test(label) ? '' : ' benefit') + ' № ' + id.replace('AIBD-', '') + (b.closest('[data-compare]') ? ' from comparison' : ''));
+    });
     document.querySelectorAll('[data-shelf-count]').forEach(function (s) { s.textContent = String(n); });
-    document.querySelectorAll('[data-shelf-words]').forEach(function (s) { s.textContent = n ? n + (n === 1 ? ' case kept' : ' cases kept') : 'Nothing kept yet'; });
-    document.querySelectorAll('[data-compare-open]').forEach(function (b) { var panel = document.querySelector('[data-tool-panel="shelf"]'); b.hidden = !n && !(panel && !panel.hidden); });
+    document.querySelectorAll('[data-shelf-words]').forEach(function (s) { s.textContent = n ? n + (n === 1 ? ' benefit selected' : ' benefits selected') : 'Nothing selected yet'; });
+    document.querySelectorAll('[data-compare-open]').forEach(function (b) { b.hidden = false; });
   }
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-keep]');
-    if (b) { shelf.toggle(b.getAttribute('data-keep')); paint(); return; }
+    if (b) {
+      var comparison = b.closest('[data-compare]');
+      shelf.toggle(b.getAttribute('data-keep')); paint();
+      if (window.aibdApply) window.aibdApply();
+      if (!b.isConnected) { var target = comparison && comparison.childElementCount ? comparison : document.querySelector('[data-compare-open]'); if (target) target.focus({ preventScroll: true }); }
+      return;
+    }
     if (e.target.closest('[data-shelf-clear]')) { lastCleared = ids(); shelf.clear(); paint(); document.querySelectorAll('[data-shelf-undo]').forEach(function (u) { u.hidden = !lastCleared.length; }); if (window.aibdApply) window.aibdApply(); return; }
     if (e.target.closest('[data-shelf-restore]')) { save(lastCleared); lastCleared = []; paint(); document.querySelectorAll('[data-shelf-undo]').forEach(function (u) { u.hidden = true; }); if (window.aibdApply) window.aibdApply(); }
   });
@@ -518,7 +529,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       if (b.hasAttribute('aria-pressed')) b.setAttribute('aria-pressed', String(on));
     });
     var compare = ex.querySelector('[data-compare-open]');
-    if (compare) compare.hidden = openTool !== 'shelf' && !(window.aibdShelf && window.aibdShelf.ids().length);
+    if (compare) compare.hidden = false;
   }
   ex.addEventListener('click', function (e) {
     var c = e.target.closest('[data-tool-close]');
@@ -547,26 +558,22 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   if (viewSelect) viewSelect.addEventListener('change', function () { openTool = viewSelect.value || null; applyTools(); apply(true); });
   applyTools();
   var sortState = { key: null, dir: 1 };
-  var CONF = { found: 0, studied: 1, reported: 2, claimed: 3 };
+  var search = window.AIBDSearch;
+  var sortDescription = ex.querySelector('[data-sort-description]');
   function sortBy(key, dir) {
     sortState.key = key; sortState.dir = dir;
-    var val = function (r) {
-      var d = rowData.get(r).data;
-      if (key === 'depth') return d.depth === 'n/a' ? null : parseInt(d.depth, 10);
-      if (key === 'date') return d.date || null;
-      if (key === 'sources') return parseInt(d.sources, 10);
-      if (key === 'evidence') return -(CONF[d.evidence] || 0);
-      return d[key] || '';
-    };
     rows = rows.slice().sort(function (p, q) {
-      var first = rowData.get(p), second = rowData.get(q);
-      if (!key) return first.rank - second.rank;
-      var x = val(p), y = val(q);
-      // An unassessed depth or date belongs last in either direction. Ties
-      // retain the existing evidence-aware order, even after another sort.
-      if (x === null || y === null) return x === y ? first.rank - second.rank : x === null ? 1 : -1;
-      return (x < y ? -1 : x > y ? 1 : 0) * -dir || first.rank - second.rank;
+      return search.compareRows(rowData.get(p).data, rowData.get(q).data, key, dir);
     });
+    if (sortDescription) {
+      var rule;
+      if (!key || key === 'depth') rule = 'Depth ' + (dir === 1 ? '5 to 1' : '1 to 5') + '. Ties: evidence, latest date, then number. Unassessed depths follow.';
+      else if (key === 'date') rule = (dir === 1 ? 'Latest' : 'Earliest') + ' case date first. Dates marked ≤ use publication dates. Ties: evidence, depth, then number. Unassessed dates follow.';
+      else if (key === 'evidence') rule = (dir === 1 ? 'Courts and regulators, independent studies, independent reporting, then parties’ accounts.' : 'Parties’ accounts, independent reporting, independent studies, then courts and regulators.') + ' Ties: depth, latest date, then number.';
+      else if (key === 'sources') rule = 'Publications, ' + (dir === 1 ? 'most' : 'fewest') + ' first. Several publications may describe one observation. Ties: depth, evidence, latest date, then number.';
+      else rule = (key === 'headline' ? 'Title' : 'Sector') + (dir === 1 ? ', Z to A.' : ', A to Z.') + ' Ties: depth, evidence, latest date, then number.';
+      sortDescription.textContent = rule;
+    }
     ex.querySelectorAll('[data-sort-key]').forEach(function (x) {
       var on = x.getAttribute('data-sort-key') === (key || 'depth');
       x.classList.toggle('on', on);
@@ -577,7 +584,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       var choice = key ? key + ':' + (dir === 1 ? 'desc' : 'asc') : 'depth:desc';
       var available = Array.prototype.some.call(sortSelect.options, function (option) { return option.value === choice; });
       var custom = sortSelect.querySelector('[data-column-order]');
-      if (custom) { custom.hidden = available; custom.textContent = (key === 'headline' ? 'Case' : key === 'sector' ? 'Sector' : 'Sources') + (key === 'sources' ? (dir === 1 ? ': high to low' : ': low to high') : (dir === 1 ? ': Z–A' : ': A–Z')); }
+      if (custom) { custom.hidden = available; custom.textContent = (key === 'headline' ? 'Case' : key === 'sector' ? 'Sector' : 'Publications') + (key === 'sources' ? (dir === 1 ? ': high to low' : ': low to high') : (dir === 1 ? ': Z–A' : ': A–Z')); }
       sortSelect.value = available ? choice : '';
     }
   }
@@ -680,6 +687,19 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   });
   var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', deployer: 'deployer', made: 'made in' };
   var PAGE = 40, showAll = false;
+  var returnPosition = history.state && history.state.aibdExplorer;
+  if (returnPosition && returnPosition.url !== window.location.href) returnPosition = null;
+  if (returnPosition) showAll = Boolean(returnPosition.showAll);
+  function rememberPosition() {
+    var state = Object.assign({}, history.state || {});
+    state.aibdExplorer = { url: window.location.href, y: window.scrollY, showAll: showAll };
+    history.replaceState(state, '', window.location.href);
+  }
+  window.addEventListener('pagehide', rememberPosition);
+  ex.addEventListener('click', function (event) {
+    var link = event.target.closest('a[href]');
+    if (link && new URL(link.href, window.location.href).pathname !== window.location.pathname) rememberPosition();
+  });
   var more = ex.querySelector('[data-more-rows]');
   var resultList = ex.querySelector('ol.results');
   var rows = Array.prototype.slice.call(ex.querySelectorAll('[data-row]'));
@@ -697,7 +717,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       facets[key] = Array.from(new Set((data[key] || '').split('|')));
       facets[key].forEach(function (value) { baseCounts[key][value] = (baseCounts[key][value] || 0) + 1; });
     });
-    rowData.set(row, { data: data, facets: facets, places: data.place ? data.place.split(';') : [], rank: rank });
+    rowData.set(row, { data: data, facets: facets, places: data.place ? data.place.split(';') : [], rank: rank, titleField: [search.field('Title', data.headline || '')] });
   });
   var matchedRows = rows.slice();
   var mountedRows = Array.prototype.slice.call(resultList.querySelectorAll('[data-row]'));
@@ -708,6 +728,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     resultList.replaceChildren(fragment);
     mountedRows = visible.slice();
     if (window.aibdBindTips) window.aibdBindTips(resultList);
+    if (window.aibdShelf) window.aibdShelf.paint();
   }
   var buttons = [];
   var buttonData = new WeakMap();
@@ -852,13 +873,27 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   function loadSearch() {
     if (searchText || searchLoading || searchFailed) return;
     searchLoading = true;
-    fetch('search.json').then(function (r) { if (!r.ok) throw new Error('Search request failed'); return r.json(); }).then(function (data) {
-      searchText = {}; for (var id in data) if (data.hasOwnProperty(id)) searchText[id] = String(data[id]).toLowerCase();
+    fetch('search-fields.json').then(function (r) { if (!r.ok) throw new Error('Search request failed'); return r.json(); }).then(function (data) {
+      searchText = search.prepare(data);
       searchLoading = false; apply();
     }).catch(function () { searchLoading = false; searchFailed = true; apply(); });
   }
   var searchRetry = ex.querySelector('[data-search-retry]');
   if (searchRetry) searchRetry.addEventListener('click', function () { searchFailed = false; apply(); if (q) q.focus({ preventScroll: true }); });
+  function paintSearchMatch(row, matches) {
+    var cached = rowData.get(row);
+    var explanation = search.explain(matches);
+    if (!explanation) { if (cached.matchLine) cached.matchLine.hidden = true; return; }
+    if (!cached.matchLine) {
+      cached.matchLine = document.createElement('p'); cached.matchLine.className = 'search-match';
+      var target = row.querySelector('.case-result') || row.querySelector('h3').parentNode;
+      target.appendChild(cached.matchLine);
+    }
+    cached.matchLine.hidden = false;
+    var label = document.createElement('strong'); label.textContent = explanation.label + ': ';
+    var passage = document.createTextNode(explanation.text + (explanation.also.length ? ' Also matches: ' + explanation.also.join(', ') + '.' : ''));
+    cached.matchLine.replaceChildren(label, passage);
+  }
   function paintCharts() {
     if (openTool !== 'timeline' && openTool !== 'matrix') return;
     var matchedIds = new Set(), counts = Object.create(null), totals = Object.create(null);
@@ -911,7 +946,8 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   }
   window.aibdApply = function () { apply(); };
   function apply(push) {
-    var text = q ? q.value.trim().toLowerCase() : '';
+    var text = q ? q.value.trim() : '';
+    var terms = search.parse(text);
     var activeKeys = KEYS.filter(function (key) { return hasAny(active[key]); });
     var shelfIds = openTool === 'shelf' ? new Set(window.aibdShelf ? window.aibdShelf.ids() : []) : null;
     var filtered = Boolean(text || shelfIds || activeKeys.length);
@@ -931,7 +967,8 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     rows.forEach(function (row) {
       var cached = rowData.get(row), data = cached.data;
       if (shelfIds && !shelfIds.has(data.id)) return;
-      if (text && (searchText ? searchText[data.id] || '' : data.headline || '').indexOf(text) === -1) return;
+      cached.matches = text ? search.match(searchText ? searchText[data.id] : cached.titleField, terms) : [];
+      if (text && cached.matches === null) return;
       var failed = activeKeys.filter(function (key) {
         return !cached.facets[key].some(function (value) { return active[key][value]; });
       });
@@ -942,7 +979,9 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       });
     });
     var shown = matchedRows.length;
-    renderRows(showAll ? matchedRows : matchedRows.slice(0, PAGE));
+    var visibleRows = showAll ? matchedRows : matchedRows.slice(0, PAGE);
+    visibleRows.forEach(function (row) { paintSearchMatch(row, rowData.get(row).matches); });
+    renderRows(visibleRows);
     if (more) { more.hidden = showAll || shown <= PAGE; more.textContent = 'Show all ' + shown; }
     var empty = ex.querySelector('[data-empty]'); if (empty) empty.hidden = shown > 0 || openTool === 'shelf' || Boolean(text && searchLoading);
     if (openTool === 'shelf' && window.aibdRenderCompare) window.aibdRenderCompare();
@@ -1000,11 +1039,16 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (q && q.value.trim()) next.set('q', q.value.trim());
     KEYS.forEach(function (k) { var vs = Object.keys(active[k]); if (vs.length) next.set(k, vs.join('|')); });
     if (openTool) next.set('open', openTool);
+    if (openTool === 'submit') ['case', 'kind'].forEach(function (key) { if (params.has(key)) next.set(key, params.get(key)); });
     if (role) next.set('role', role);
     if (sortState.key) next.set('sort', sortState.key + ':' + (sortState.dir === 1 ? 'desc' : 'asc'));
     var qs = next.toString();
     var url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
-    if (push) history.pushState(null, '', url); else history.replaceState(null, '', url);
+    if (push) history.pushState(null, '', url); else history.replaceState(history.state, '', url);
+    if (returnPosition && !searchLoading) {
+      var returnY = returnPosition.y; returnPosition = null;
+      window.requestAnimationFrame(function () { window.scrollTo(0, returnY); });
+    }
   }
   ex.addEventListener('click', function (e) {
     var b = e.target.closest('[data-facet]'); if (!b || !ex.contains(b)) return;
@@ -1059,6 +1103,49 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   });
   var clear = ex.querySelector('[data-clear]');
   if (clear) clear.addEventListener('click', clearAll);
+  var comparisonFieldsKey = 'aibd-comparison-fields';
+  var defaultComparisonFields = ['system', 'depth', 'confidence', 'comparison', 'later'];
+  var fieldsDialog = document.getElementById('comparison-fields');
+  var fieldsButton = ex.querySelector('[data-compare-fields-open]');
+  var fieldCheckboxes = fieldsDialog ? Array.from(fieldsDialog.querySelectorAll('[data-compare-field]')) : [];
+  var knownComparisonFields = fieldCheckboxes.map(function (checkbox) { return checkbox.value; });
+  function readComparisonFields() {
+    try {
+      var saved = JSON.parse(localStorage.getItem(comparisonFieldsKey));
+      var selected = Array.isArray(saved) ? knownComparisonFields.filter(function (key) { return saved.indexOf(key) !== -1; }) : [];
+      return selected.length ? selected : defaultComparisonFields.slice();
+    } catch (error) { return defaultComparisonFields.slice(); }
+  }
+  var selectedComparisonFields = readComparisonFields();
+  function paintComparisonFields() {
+    fieldCheckboxes.forEach(function (checkbox) {
+      checkbox.checked = selectedComparisonFields.indexOf(checkbox.value) !== -1;
+      checkbox.disabled = checkbox.checked && selectedComparisonFields.length === 1;
+    });
+  }
+  if (fieldsDialog && fieldsButton) {
+    paintComparisonFields();
+    fieldsButton.addEventListener('click', function () { fieldsDialog.showModal(); });
+    fieldsDialog.querySelector('[data-compare-fields-close]').addEventListener('click', function () { fieldsDialog.close(); });
+    fieldsDialog.addEventListener('cancel', function (event) { event.preventDefault(); fieldsDialog.close(); });
+    fieldsDialog.addEventListener('close', function () {
+      var target = fieldsButton.getClientRects().length ? fieldsButton : ex.querySelector('[data-compare-open]');
+      if (target) target.focus({ preventScroll: true });
+    });
+    fieldsDialog.addEventListener('change', function (event) {
+      if (!event.target.matches('[data-compare-field]')) return;
+      var selected = fieldCheckboxes.filter(function (checkbox) { return checkbox.checked; }).map(function (checkbox) { return checkbox.value; });
+      if (selected.length) selectedComparisonFields = selected;
+      paintComparisonFields();
+      try { localStorage.setItem(comparisonFieldsKey, JSON.stringify(selectedComparisonFields)); } catch (error) {}
+      if (window.aibdRenderCompare) window.aibdRenderCompare();
+    });
+    window.addEventListener('storage', function (event) {
+      if (event.key !== comparisonFieldsKey && event.key !== null) return;
+      selectedComparisonFields = readComparisonFields(); paintComparisonFields();
+      if (openTool === 'shelf' && window.aibdRenderCompare) window.aibdRenderCompare();
+    });
+  }
   window.aibdRenderCompare = function () {
     var box = ex.querySelector('[data-compare]'); if (!box) return;
     var ids = window.aibdShelf ? window.aibdShelf.ids() : [];
@@ -1069,28 +1156,28 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     }
     var GW = { personal: 'a person', organizational: 'an organization', societal: 'society' };
     var fields = [
-      ['Depth', function (c) { return Object.keys(c.dep).map(function (g) { return (c.dep[g] === null ? 'not rated' : c.dep[g]) + ' for ' + GW[g]; }).join('; '); }],
-      ['Confidence', function (c) { return c.conf; }],
-      ['Claim', function (c) { return c.claim; }],
-      ['Date', function (c) { return c.d; }],
-      ['Sector', function (c) { return c.sec; }],
-      ['Country', function (c) { return c.c; }],
-      ['Benefit type', function (c) { return c.type; }],
-      ['System', function (c) { return c.sys; }],
-      ['Developer', function (c) { return c.dev; }],
-      ['Comparison', function (c) { if (!c.cmp) return 'No source states a comparison.'; var s = c.cmp; if (c.before || c.after) s += ' (' + (c.before || '') + (c.before && c.after ? ' to ' : '') + (c.after || '') + ')'; return s + (c.basis ? ', ' + c.basis : ''); }],
-      ['Since then', function (c) { return c.later || ''; }],
-      ['Value as stated', function (c) { return c.val || ''; }]
+      ['system', 'System', function (c) { return c.sys; }],
+      ['depth', 'Depth', function (c) { return Object.keys(c.dep).map(function (g) { return (c.dep[g] === null ? 'not rated' : c.dep[g]) + ' for ' + GW[g]; }).join('; '); }],
+      ['confidence', 'Confidence', function (c) { return c.conf; }],
+      ['comparison', 'Comparison', function (c) { if (!c.cmp) return 'No source states a comparison.'; var s = c.cmp; if (c.before || c.after) s += ' (' + (c.before || '') + (c.before && c.after ? ' to ' : '') + (c.after || '') + ')'; return s + (c.basis ? ', ' + c.basis : ''); }],
+      ['later', 'Since then', function (c) { return c.later || ''; }],
+      ['status', 'Benefit status', function (c) { return c.status || 'Not assessed'; }],
+      ['date', 'Date', function (c) { return c.d; }],
+      ['sector', 'Sector', function (c) { return c.sec; }],
+      ['country', 'Country', function (c) { return c.c; }],
+      ['type', 'Benefit type', function (c) { return c.type; }],
+      ['developer', 'Developer', function (c) { return c.dev; }],
+      ['value', 'Value as stated', function (c) { return c.val || ''; }]
     ];
     var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]; }); };
     var cases = ids.filter(function (id) { return compareData[id]; });
-    var html = '<table class="compare"><thead><tr><th class="f"></th>' + cases.map(function (id) { return '<th><a href="records/' + id + '.html">' + esc(compareData[id].h) + '</a><small>' + id + '</small></th>'; }).join('') + '</tr></thead><tbody>';
-    fields.forEach(function (f) { html += '<tr><th class="f" scope="row">' + f[0] + '</th>' + cases.map(function (id) { return '<td>' + esc(f[1](compareData[id])) + '</td>'; }).join('') + '</tr>'; });
+    var html = '<table class="compare"><caption class="visually-hidden">Comparison of selected benefits</caption><thead><tr><th class="f" scope="col">Field</th>' + cases.map(function (id) { return '<th scope="col"><a href="records/' + id + '.html">' + esc(compareData[id].h) + '</a><small>№ ' + esc(id.replace('AIBD-', '')) + '</small><button type="button" class="textbtn" data-keep="' + esc(id) + '" data-keep-label="Add" data-kept-label="Remove" aria-label="Remove benefit ' + esc(id.replace('AIBD-', '')) + ' from comparison" aria-pressed="true">Remove</button></th>'; }).join('') + '</tr></thead><tbody>';
+    fields.filter(function (field) { return selectedComparisonFields.indexOf(field[0]) !== -1; }).forEach(function (f) { html += '<tr data-comparison-field="' + f[0] + '"><th class="f" scope="row">' + f[1] + '</th>' + cases.map(function (id) { return '<td>' + esc(f[2](compareData[id])) + '</td>'; }).join('') + '</tr>'; });
     box.innerHTML = html + '</tbody></table>';
   };
   apply();
   if (controls) controls.hidden = false;
-  if (window.location.search.length > 1) window.requestAnimationFrame(jump);
+  if (window.location.search.length > 1 && !(history.state && history.state.aibdExplorer)) window.requestAnimationFrame(jump);
 })();
 
 // Table: click a column head to sort; click again to reverse.

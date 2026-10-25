@@ -19,6 +19,7 @@
   const showAll = collection.querySelector('[data-collection-show-all]');
   const shownCount = collection.querySelector('[data-collection-shown]');
   const evidenceOrder = { found: 0, studied: 1, reported: 2, claimed: 3 };
+  const search = window.AIBDSearch;
   const normalize = (text) => String(text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const fieldFor = (name) => form.elements.namedItem(name);
   const valueFor = (name) => fieldFor(name)?.value || '';
@@ -37,6 +38,7 @@
         element: row,
         index,
         text: normalize(row.dataset.searchText),
+        searchFields: search ? [search.field('Text', row.dataset.searchText)] : [],
         filters: JSON.parse(row.dataset.filters || '{}'),
         evidence: row.dataset.evidence || '',
         date: row.dataset.date || '',
@@ -92,7 +94,7 @@
 
   function matches(row, state, excludedField = '') {
     return (excludedField === 'evidence' || !state.evidence || row.evidence === state.evidence)
-      && state.terms.every((term) => row.text.includes(term))
+      && (search ? search.match(row.searchFields, state.terms) !== null : state.terms.every((term) => row.text.includes(term)))
       && state.filters.every(([key, value]) => key === excludedField || valuesFor(row, key).includes(value));
   }
 
@@ -153,7 +155,7 @@
     const order = valueFor('order');
     const state = {
       evidence: valueFor('evidence'),
-      terms: normalize(query).split(/\s+/).filter(Boolean),
+      terms: search ? search.parse(query) : normalize(query).split(/\s+/).filter(Boolean),
       filters: filterFields.filter((field) => field.value).map((field) => [field.name, field.value]),
     };
     const matchingRows = [];
@@ -196,6 +198,7 @@
     if (more) more.textContent = `Show ${Math.min(pageSize, remaining)} more`;
     if (showAll) showAll.textContent = `Show all ${matchingRows.length}`;
     if (shownCount) shownCount.textContent = `${mountedCount} of ${matchingRows.length} shown`;
+    window.aibdShelf?.paint();
     if (hiddenFocus) fieldFor('q')?.focus({ preventScroll: true });
 
     if (updateAddress) {
