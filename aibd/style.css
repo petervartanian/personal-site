@@ -833,15 +833,21 @@ section.door .lede { max-width: none; margin: 0 0 16px; font-size: clamp(28px, 2
 .door-count a { display: inline-flex; align-items: center; min-height: 44px; }
 .door-main, .door-side { min-width: 0; border-top: 1px solid var(--rule); padding-top: 22px; }
 .door-h { margin: 0 0 8px; color: var(--ink); font: 26px/32px var(--serif); }
-.door-section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
-.door-section-head .door-h { margin: 0; }
-.door-sort { flex: none; margin: 0; color: var(--ink-3); font: 13px/20px var(--sans); text-align: right; }
-.door-shape-key { display: flex; flex-wrap: wrap; gap: 4px 18px; list-style: none; margin: 0 0 2px; padding: 0; color: var(--ink-3); font: 12px/18px var(--sans); }
-.door-shape-key li { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
-.door-shape-key li > span:first-child { display: flex; align-items: center; }
-.door-shape-key .mk { --c: var(--ink-3); display: block; width: 14px; height: 14px; }
+.door-heading { display: flex; align-items: center; margin-bottom: 8px; }
+.door-heading .door-h { margin: 0; }
+.door-legend-trigger, .door-key-close { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 44px; height: 44px; padding: 0; color: var(--ink-3); }
+.door-legend-trigger { margin-block: -6px; }
+.door-legend-trigger svg, .door-key-close svg { display: block; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
+.door-info-dot { fill: currentColor; stroke: none; }
+.door-legend-trigger:hover, .door-key-close:hover { color: var(--ink); }
 .door-note { margin: 0; color: var(--ink-2); font-size: 14px; line-height: 22px; }
-.door-key { grid-column: 1 / -1; margin: 0; padding-top: 24px; border-top: 1px solid var(--rule); color: var(--ink-2); font: 15px/23px var(--sans); }
+.door-key { width: min(1040px, calc(100% - 32px)); max-width: none; max-height: calc(100dvh - 32px); margin: auto; padding: 0; overflow: hidden; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); font: 15px/23px var(--sans); }
+.door-key[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+.door-key::backdrop { background: #16161666; }
+html:has(.door-key[open]) { overflow: hidden; }
+.door-key-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px 14px 28px; border-bottom: 1px solid var(--rule); }
+.door-key-top .door-h { margin: 0; }
+.door-key-body { min-height: 0; padding: 24px 28px; overflow: auto; overscroll-behavior: contain; }
 .door-key-intro { margin: 0 0 24px; }
 .door-key-content { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1.4fr); gap: 32px; }
 .door-key-group { min-width: 0; }
@@ -863,6 +869,9 @@ section.door .lede { max-width: none; margin: 0 0 16px; font-size: clamp(28px, 2
 @media (max-width: 800px) {
   .door-key-content { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .door-key-intro { margin-bottom: 20px; }
+  .door-key-top { padding: 10px 8px 10px 20px; }
+  .door-key-top .door-h { font-size: 22px; line-height: 28px; }
+  .door-key-body { padding: 20px; }
 }
 .door-deep { list-style: none; margin: 0; padding: 0; }
 .door-deep li { border-bottom: 1px solid var(--rule); }
@@ -915,6 +924,7 @@ body.door .masthead .find { display: none; }
 @media (max-width: 600px) {
   section.door { padding-top: 24px; }
   .door-h { font-size: 24px; line-height: 30px; }
+  .door-legend-trigger { margin-block: -7px; }
   .door-title, .door-case { font-size: 19px; line-height: 27px; }
 }
 

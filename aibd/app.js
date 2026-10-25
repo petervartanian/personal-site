@@ -72,6 +72,37 @@
   });
 })();
 
+// The benefit legend opens from the information symbol beside its heading.
+(function () {
+  const button = document.querySelector('[data-legend-trigger]');
+  const dialog = document.getElementById('benefit-legend');
+  if (!button || !dialog) return;
+
+  button.addEventListener('click', () => {
+    if (typeof dialog.showModal !== 'function') {
+      window.location.href = 'cases.html?open=method';
+      return;
+    }
+    if ('showPopover' in HTMLElement.prototype) {
+      document.querySelectorAll('.door-place-info:popover-open').forEach(panel => panel.hidePopover());
+    }
+    dialog.showModal();
+    dialog.querySelector('.door-key-body').scrollTop = 0;
+  });
+  dialog.querySelector('[data-legend-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => button.focus({ preventScroll: true }));
+  function outside(event) {
+    const bounds = dialog.getBoundingClientRect();
+    return event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
+  }
+  let pressedOutside = false;
+  dialog.addEventListener('pointerdown', event => { pressedOutside = event.target === dialog && outside(event); });
+  dialog.addEventListener('click', event => {
+    if (pressedOutside && event.target === dialog && outside(event)) dialog.close();
+    pressedOutside = false;
+  });
+})();
+
 // Geographic details open on hover, keyboard focus, or a tap.
 (function () {
   const triggers = [...document.querySelectorAll('[data-place-trigger]')];
