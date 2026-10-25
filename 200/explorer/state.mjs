@@ -42,7 +42,9 @@ export function readRoute(hash, data, remembered = {}) {
     || (view === 'framework' && item.type !== 'story' && story.conceptIds?.includes(item.id))
     || (view === 'controlRelationships' && story.relationshipIds?.includes(item.id))
   ) ? story.id : null;
-  const reportingFieldId = view === 'questions' && data.reporting?.fields?.some(field => field.id === parts[3]) ? parts[3] : null;
+  const legalReference = data.reporting?.comparisons?.some(comparison => comparison.questionId === item.id &&
+    (comparison.id === parts[3] || comparison.requirements.some(row => `${comparison.id}--${row.id}` === parts[3])));
+  const reportingFieldId = view === 'questions' && (data.reporting?.fields?.some(field => field.id === parts[3]) || legalReference) ? parts[3] : null;
   return { view, itemId: item.id, sourceId, ...(storyId ? { storyId } : {}), ...(reportingFieldId ? { reportingFieldId } : {}) };
 }
 
