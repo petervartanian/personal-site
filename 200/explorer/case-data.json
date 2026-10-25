@@ -118,6 +118,57 @@
       "kind": "Infrastructure provider’s clarification",
       "excerpt": "Modal's platform and isolation were not compromised in any way.",
       "locator": "Opening clarification, second and third paragraphs"
+    },
+    {
+      "id": "swarm-traces",
+      "title": "Revealing the details of how OpenAI agents hacked Hugging Face",
+      "publisher": "Swarm Traces",
+      "date": "2026-09-25",
+      "url": "https://swarmtraces.org/",
+      "kind": "Independent reconstruction of public traces",
+      "excerpt": "97% of payloads natively contained no timestamp information.",
+      "locator": "Intro; Discovery Timeline; Limitations, items 1, 3, 5, and 6",
+      "scope": "Reconstructed requests often lack original timestamps and responses. Dates, attribution, and outcomes require corroboration."
+    },
+    {
+      "id": "australia-government",
+      "title": "Press Conference, Sydney",
+      "publisher": "Australian Government",
+      "date": "2026-09-24",
+      "url": "https://www.minister.defence.gov.au/transcripts/2026-09-24/press-conference-sydney",
+      "kind": "Government account of a separate incident",
+      "locator": "Katy Gallagher’s opening account: September 10 notice and the first technical exchange; Richard Marles on June activity",
+      "scope": "The Medicare statistics portal was separate from claims, payments, and individual medical records."
+    },
+    {
+      "id": "australia-openai",
+      "title": "How we will do better for Australia",
+      "publisher": "OpenAI",
+      "date": "2026-09-28",
+      "url": "https://openai.com/index/how-we-will-do-better-for-australia/",
+      "kind": "Developer account of a separate incident",
+      "locator": "When we became aware and how we responded; What happened with Services Australia Medicare Statistics Reporting Service",
+      "scope": "Earlier June activity identified during the review following the July Hugging Face incident."
+    },
+    {
+      "id": "cert-fr-refrigeration",
+      "title": "Incident de sécurité ciblant les contrôleurs à distance des installations de réfrigération",
+      "publisher": "CERT-FR / ANSSI",
+      "date": "2026-10-12",
+      "url": "https://cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-012/",
+      "kind": "Official alert about refrigeration controllers",
+      "locator": "Résumé; Solutions, including the instruction about telemetry and insurance terms. Updated October 16, 2026.",
+      "scope": "The alert describes compromised controllers. It does not identify AI involvement in the attacks."
+    },
+    {
+      "id": "claroty-refrigeration-study",
+      "title": "Firmware to Root in 30 Minutes: How AI is Changing Threat Intelligence",
+      "publisher": "Claroty Team82",
+      "date": "2026-10-13",
+      "url": "https://blog.claroty.com/team82/research/firmware-to-root-in-30-minutes-how-ai-is-changing-threat-intelligence",
+      "kind": "Authorized laboratory study",
+      "locator": "The Experiment; Human Guidance Still Matters; opening statement that the French attack path remains unconfirmed",
+      "scope": "Researchers reproduced known vulnerabilities with an AI assistant, public vulnerability information, tools, and human guidance."
     }
   ],
   "events": [
@@ -450,7 +501,8 @@
       "questionIds": [
         "cross-organization-response",
         "incident-reporting",
-        "forensic-tools"
+        "forensic-tools",
+        "missing-perspectives"
       ],
       "sourceRefs": [
         {
@@ -539,7 +591,8 @@
       ],
       "questionIds": [
         "control-effectiveness",
-        "infrastructure-dependencies"
+        "infrastructure-dependencies",
+        "missing-perspectives"
       ],
       "relationshipIds": [
         "hugging-face-control"
@@ -737,14 +790,15 @@
       "owner": "OpenAI",
       "summary": "Agents obtained internet access through the package proxy.",
       "explanation": "The agents were allowed to reach the package service to install software, but vulnerabilities in that service let them bypass network restrictions.",
-      "implication": "The containment threat model needs to include services that support the evaluation, such as package installation.",
+      "implication": "Containment checks need to cover the package service and actions that agents can induce through other reachable services.",
       "eventIds": [
         "evaluation-restart",
         "evaluation-boundary"
       ],
       "sourceIds": [
         "openai-initial",
-        "openai-findings"
+        "openai-findings",
+        "swarm-traces"
       ],
       "questionIds": [
         "control-effectiveness",
@@ -762,11 +816,23 @@
           "locator": "Security and monitoring; Strengthening incident response process",
           "supports": "reportedChangeText",
           "account": "OpenAI reports that it tightened isolation and internet restrictions and clarified who could stop or restart evaluations."
+        },
+        {
+          "sourceId": "swarm-traces",
+          "locator": "Internet access through chained services, opening section",
+          "supports": "implication, option, verification",
+          "account": "The investigators describe request chains that caused an external browser service to execute code.",
+          "passages": [
+            {
+              "label": "Requests through external services",
+              "url": "https://swarmtraces.org/#:~:text=Agents%20elaborately%20chained%20together%20online%20services"
+            }
+          ]
         }
       ],
       "decision": "What must be checked before evaluations can resume?",
-      "option": "Test whether agents can escape the evaluation environment through package services.",
-      "verification": "Replay the observed route and check that it either blocks outbound access or stops the evaluation before that access can continue.",
+      "option": "Test whether permitted outbound requests can induce unauthorized actions through secondary services.",
+      "verification": "Replay the observed route, including any intermediary services. Check both the requests that leave the evaluation and the actions that they trigger elsewhere.",
       "classification": {
         "frameworkId": "mit-mitigation-taxonomy-2025-07",
         "code": "2.1",
@@ -1376,12 +1442,12 @@
     },
     {
       "id": "infrastructure-dependencies",
-      "title": "Which assets were affected?",
+      "title": "Who and what were affected?",
       "context": "Hugging Face reports that agents accessed five challenge-related datasets.",
-      "whyItMatters": "Responders need to establish which assets the agents reached before deciding whom to notify and what to repair.",
-      "decision": "Who needs to be notified, and which assets require remediation?",
-      "informationNeeded": "Access and credential-use logs, an inventory of affected assets, and the checks used to determine the extent of the impact.",
-      "informationHolder": "Hugging Face response teams, affected service owners, and forensic investigators",
+      "whyItMatters": "The extent of technical access and the consequences for people require different evidence. A dataset count alone cannot establish how many people were affected or what they experienced.",
+      "decision": "Who needs notification or support, and which assets or services require remediation?",
+      "informationNeeded": "Access logs and an inventory of affected assets, the people and services that depend on them, and first-hand accounts that can establish the consequences.",
+      "informationHolder": "Hugging Face response teams, affected dataset owners and users, service operators, and forensic investigators",
       "sourceIds": [
         "hf-timeline"
       ],
@@ -1410,26 +1476,73 @@
       "scope": "case",
       "reportingFrameworkId": "oecd-ai-incident-reporting-2025",
       "requestFields": [
-        "Accessed assets and exposed credentials",
-        "Access attempts that were blocked",
-        "Checks used to establish the reported extent of access"
+        "Accessed assets, exposed credentials, and access attempts that were blocked",
+        "The checks used to establish the reported extent of access",
+        "People and services that relied on the affected assets, and records of any interruption, loss, or recovery",
+        "Accounts from affected owners and users that corroborate, extend, or challenge the reported impact"
       ],
       "relationshipIds": [
         "hugging-face-control"
       ]
     },
     {
+      "id": "missing-perspectives",
+      "title": "Whose experience is missing from the available reports?",
+      "topic": "Affected perspectives",
+      "scope": "case",
+      "context": "Hugging Face reports that five challenge-related datasets were accessed. That asset count does not identify the people who used them or the consequences that they experienced.",
+      "decision": "Whose account is needed before deciding whom to notify or support and how to describe the impact?",
+      "whyItMatters": "People may be absent from the available reports because of language, reporting barriers, or limited access to investigative resources. Their accounts could change the assessment of harm.",
+      "informationNeeded": "First-hand accounts from affected owners and users, the languages and channels through which they report problems, and the records needed to assess their experiences.",
+      "informationHolder": "Affected dataset owners and users, community representatives, service operators, and investigators with relevant local or language expertise",
+      "requestFields": [
+        "Affected owners and users, the services that they relied on, and their accounts of any consequences",
+        "Relevant local-language reports and community accounts that are absent from the collected sources",
+        "Barriers to reporting or investigation, including access to records, technical expertise, and suitable tools",
+        "Records that corroborate or contradict those accounts and the providers’ assessment of impact"
+      ],
+      "sourceIds": [
+        "hf-timeline"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "hf-timeline",
+          "locator": "TL;DR, final paragraph before Initial access: reported extent of customer-content access",
+          "supports": "context",
+          "account": "Hugging Face reports access to five challenge-related datasets. The affected-perspectives inquiry asks what that technical assessment leaves to establish about people.",
+          "passages": [
+            {
+              "label": "Reported impact",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr"
+            }
+          ]
+        }
+      ],
+      "eventIds": [
+        "impact-assessment",
+        "public-disclosure"
+      ],
+      "controlIds": [
+        "hub-database-boundary"
+      ],
+      "relationshipIds": [
+        "hugging-face-control"
+      ],
+      "reportingFrameworkId": "oecd-ai-incident-reporting-2025"
+    },
+    {
       "id": "forensic-tools",
       "title": "Which findings can be checked independently?",
       "topic": "Forensic verification",
       "scope": "case",
-      "context": "Hugging Face reports that hosted APIs blocked forensic requests and that it used a locally run model instead.",
+      "context": "Hugging Face reports that hosted APIs blocked forensic requests and that it used a locally run model instead. Swarm Traces provides a public reconstruction that can be compared with the providers’ accounts.",
       "whyItMatters": "An investigator needs to establish whether the underlying records support a claim and whether another authorized reviewer can reproduce the analysis.",
       "decision": "Which conclusions should a briefing present as independently checked, and which should remain attributed to a provider?",
       "informationNeeded": "For each consequential claim, the original records and analysis steps, any independent corroboration or contradiction, access permissions, and tools that can reproduce the result.",
-      "informationHolder": "OpenAI and Hugging Face response teams, Modal, and independent investigators who can review the records",
+      "informationHolder": "OpenAI and Hugging Face response teams, Modal, and independent investigators, including Alex Forman and Cormac Slade Byrd",
       "sourceIds": [
-        "hf-disclosure"
+        "hf-disclosure",
+        "swarm-traces"
       ],
       "sourceRefs": [
         {
@@ -1445,6 +1558,18 @@
             {
               "label": "Access to analysis tools",
               "url": "https://huggingface.co/blog/security-incident-july-2026#the-asymmetry-problem"
+            }
+          ]
+        },
+        {
+          "sourceId": "swarm-traces",
+          "locator": "Discovery Timeline; Limitations, items 1, 3, 5, and 6",
+          "supports": "context, informationHolder",
+          "account": "The authors report that Hugging Face confirmed matching artifacts. Recovered requests still require corroboration of their outcomes.",
+          "passages": [
+            {
+              "label": "Coverage and dating limits",
+              "url": "https://swarmtraces.org/#limitations"
             }
           ]
         }
@@ -1465,6 +1590,9 @@
       ],
       "requestFields": [
         "The specific claim being checked and the original logs, traces, or artifacts that support it",
+        "Which reconstructed requests have matching execution logs or returned results",
+        "The original timestamp or dating method for each consequential event, including its uncertainty",
+        "How each trace was attributed to the agents involved in this incident",
         "Which records can be reviewed independently of the provider, who can authorize access, and any confidentiality restrictions",
         "Independent records that corroborate or contradict the claim, including what remains solely provider-reported",
         "Analysis steps, tools, and inputs that another authorized investigator could use to reproduce the result",
@@ -1478,105 +1606,97 @@
     },
     {
       "id": "foreign-provider-response",
-      "title": "Could responders contain a similar incident when key providers operate abroad?",
-      "topic": "Cross-border response",
+      "title": "How can a government obtain timely information from an overseas AI developer?",
+      "topic": "Government response across borders",
       "scope": "application",
-      "context": "Hugging Face cut the agents’ access on July 13. On July 20, matching credentials and infrastructure details helped OpenAI and Hugging Face connect their investigations.",
-      "whyItMatters": "For a government that depends on infrastructure operated abroad, the practical question is whether the people who can contain an incident can be reached and authorized to act in time.",
-      "decision": "Which response arrangements should a government establish with foreign providers before relying on their infrastructure?",
-      "informationNeeded": "The providers and jurisdictions involved, who could take each containment action, and what could delay cooperation or the exchange of information, including any legal, contractual, or geopolitical constraints.",
-      "informationHolder": "The government’s response team and relevant public authorities, together with the foreign providers and service operators",
+      "context": "In a separate June incident, an OpenAI agent accessed Australia’s Medicare statistics portal. Officials reported a September 10 notice to a general disclosure inbox and a September 22 technical exchange to request logs. They distinguished the portal from claims, payments, and individual medical records.",
+      "whyItMatters": "A preliminary notice can allow investigation to begin before the developer has completed its own assessment. The recipient also needs a contact who can supply usable records.",
+      "decision": "Which notification and information-sharing arrangements should a government establish with an overseas AI developer?",
+      "informationNeeded": "The notification sequence, responsible contacts, records that the developer and government could exchange, and the actions that each body could take with those records.",
+      "informationHolder": "Services Australia, the Australian Signals Directorate, OpenAI’s incident-response team, and the relevant government review team",
       "sourceIds": [
-        "openai-report",
-        "hf-timeline"
+        "australia-government",
+        "australia-openai"
       ],
       "sourceRefs": [
         {
-          "sourceId": "openai-report",
-          "locator": "VI.A, printed page 15: matching credentials, Artifactory hostname, and the Organization 1 account",
+          "sourceId": "australia-government",
+          "locator": "Gallagher’s opening account: September 10 notification, standalone portal, and first technical exchange on Tuesday September 22",
           "supports": "context",
-          "account": "OpenAI reports that matching credentials and shared infrastructure details connected the investigations on July 20. Hugging Face had already rotated two of those credentials.",
-          "passages": [
-            {
-              "label": "Read page 15",
-              "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=15"
-            }
-          ]
+          "account": "Officials described the notice and later request for logs. They said that the affected statistics portal was separate from Medicare claims and personal records."
         },
         {
-          "sourceId": "hf-timeline",
-          "locator": "Day 5 (07-13): exfil, persistence, cleanup, final paragraph: last meaningful activity and Hugging Face cutting access",
+          "sourceId": "australia-openai",
+          "locator": "When we became aware and how we responded to this incident, paragraphs 1 and 3–5",
           "supports": "context",
-          "account": "Hugging Face reports that its security team cut access on July 13 after the last meaningful activity at 13:37 UTC. The last logged event was at 14:14 UTC.",
+          "account": "OpenAI says that its review identified the June activity in mid-August and that it should have shared preliminary findings sooner.",
           "passages": [
             {
-              "label": "July 13: containment",
-              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#day-5-07-13-exfil-persistence-cleanup"
+              "label": "Discovery and notification",
+              "url": "https://openai.com/index/how-we-will-do-better-for-australia/#:~:text=When%20we%20became%20aware"
             }
           ]
         }
       ],
-      "eventIds": [
-        "external-launchpad",
-        "hf-containment",
-        "developer-attribution"
-      ],
-      "controlIds": [
-        "evaluation-isolation",
-        "application-authentication",
-        "modal-isolation"
-      ],
+      "eventIds": [],
+      "controlIds": [],
       "requestFields": [
-        "Providers and service locations on which containment would depend",
-        "Who could suspend evaluations, revoke access, isolate services, or preserve logs in each organization",
-        "Jurisdictions and legal or contractual permissions relevant to those actions and to sharing information",
-        "Notification contacts, channels for confidential exchanges, and expected response times",
-        "Evidence of any political or diplomatic conditions that could limit cooperation, and the specific response actions that they would affect"
+        "The preliminary information available when the developer discovered the activity, and the reason for the notification date",
+        "The recipient, acknowledgment, and escalation path for the initial notice",
+        "The records requested at the technical exchange, when they arrived, and which conclusions depended on them",
+        "The authority and practical arrangements for preserving and sharing records across jurisdictions, including any documented restrictions",
+        "Direct contacts, notification triggers, and update intervals that the organizations have agreed for future incidents"
       ],
       "handling": "Use a secure channel for credentials, personal data, and sensitive infrastructure details."
     },
     {
       "id": "critical-service-transfer",
-      "title": "Could a similar failure disrupt critical or national services?",
-      "topic": "Critical and national services",
+      "title": "What would protecting a refrigeration service require?",
+      "topic": "Physical services and remote access",
       "scope": "application",
-      "context": "Hugging Face reports that agents accessed five challenge-related datasets and that other customer models, Spaces, and packages were unaffected.",
-      "whyItMatters": "A government assessing another setting would need to establish whether the same mechanism could interrupt a critical service and whether the consequences would pose a national security risk.",
-      "decision": "Does the evidence justify treating this type of failure as a risk to a critical service or national security, or is another incident needed to assess that question?",
-      "informationNeeded": "Evidence connecting the observed mechanism to a named service, its downstream dependencies and recovery options, together with the criteria and evidence needed to establish national-security relevance.",
-      "informationHolder": "Service operators and infrastructure providers, with sector regulators and relevant public authorities",
+      "context": "CERT-FR reported compromises of refrigeration controllers in France. In a separate authorized laboratory study, Claroty used an AI assistant with human guidance to reproduce known controller vulnerabilities. The study did not establish AI involvement in the French attacks.",
+      "whyItMatters": "Disconnecting remote access can affect the contractor’s monitoring arrangements. The operator needs a safe way to maintain the service and verify its configuration.",
+      "decision": "Who can restrict remote access while preserving refrigeration monitoring, and what must be checked before reconnection?",
+      "informationNeeded": "The particular service and users, remote-access responsibilities, temperature and configuration records, contractor requirements, and the consequences of interruption.",
+      "informationHolder": "Affected service operators and refrigeration contractors, equipment vendors, CERT-FR, and the Claroty researchers",
       "sourceIds": [
-        "hf-timeline"
+        "cert-fr-refrigeration",
+        "claroty-refrigeration-study"
       ],
       "sourceRefs": [
         {
-          "sourceId": "hf-timeline",
-          "locator": "TL;DR, final paragraph before Initial access",
+          "sourceId": "cert-fr-refrigeration",
+          "locator": "Résumé; Solutions: remove Internet exposure, check configuration, examine insurance terms before disconnecting telemetry, restore protected access",
           "supports": "context",
-          "account": "Hugging Face reports that five challenge-related datasets were accessed, while other customer models, Spaces, and packages were unaffected.",
+          "account": "CERT-FR advises operators to check contractual insurance conditions before cutting the data feed to the refrigeration contractor.",
           "passages": [
             {
-              "label": "Reported impact",
-              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr"
+              "label": "Operational response",
+              "url": "https://cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-012/#:~:text=Solutions"
+            }
+          ]
+        },
+        {
+          "sourceId": "claroty-refrigeration-study",
+          "locator": "Opening paragraphs; The Experiment; Human Guidance Still Matters",
+          "supports": "context",
+          "account": "The researchers describe a laboratory reproduction of known vulnerabilities, with a human correcting the assistant’s unsuccessful approach. They leave the French attack path unconfirmed.",
+          "passages": [
+            {
+              "label": "Laboratory study and human guidance",
+              "url": "https://blog.claroty.com/team82/research/firmware-to-root-in-30-minutes-how-ai-is-changing-threat-intelligence#:~:text=Human%20Guidance%20Still%20Matters"
             }
           ]
         }
       ],
-      "eventIds": [
-        "worker-compromise",
-        "expanded-access",
-        "impact-assessment"
-      ],
-      "controlIds": [
-        "dataset-processing-isolation",
-        "pod-admission",
-        "hub-database-boundary"
-      ],
+      "eventIds": [],
+      "controlIds": [],
       "requestFields": [
-        "A named critical or national service, its users, and the systems and providers on which it depends",
-        "Technical evidence that the observed failure could occur in that setting, including differences in safeguards and access",
-        "Consequences of an interruption or loss of data integrity, including downstream effects, recovery time, and available alternatives",
-        "Evidence and stated criteria for national-security relevance, plus any additional incident needed to examine those consequences"
+        "The controlled service, its users, and the systems and contractors on which safe operation depends",
+        "Who can disconnect remote access and how monitoring continues during isolation",
+        "Configuration and temperature histories, any physical consequences, and the records that establish them",
+        "Checks of configuration, access controls, and service operation before reconnection",
+        "Evidence of the AI’s actual role before treating a reported attack as an AI incident, and the basis for any critical-service or national-security designation"
       ]
     }
   ],
@@ -1776,7 +1896,8 @@
       "questionIds": [
         "hf-escalation",
         "control-effectiveness",
-        "forensic-tools"
+        "forensic-tools",
+        "missing-perspectives"
       ],
       "sourceIds": [
         "hf-timeline"
@@ -2077,10 +2198,11 @@
       "title": "Access across systems",
       "type": "story",
       "summary": "The agents reached external systems through routes that were available for package installation, code submission, and dataset processing.",
-      "explanation": "They used the package proxy to bypass network restrictions, then used a public customer application on Modal as a launchpad for attacks on Hugging Face. Modal reports that its own platform and other customer workloads remained isolated.",
+      "explanation": "They used the package proxy to bypass network restrictions, then used a public customer application on Modal as a launchpad for attacks on Hugging Face. Modal reports that its own platform and other customer workloads remained isolated. Swarm Traces also describes agents combining link shorteners and a screenshot service to execute requests beyond the evaluation environment.",
       "sourceIds": [
         "openai-report",
-        "modal-clarification"
+        "modal-clarification",
+        "swarm-traces"
       ],
       "sourceRefs": [
         {
@@ -2100,6 +2222,18 @@
           "locator": "Opening clarification, paragraphs 2–3: public customer application, container isolation, and other workloads",
           "supports": "summary, explanation",
           "account": "Modal reports that the customer application accepted code without authentication, while the platform and other customer workloads remained isolated."
+        },
+        {
+          "sourceId": "swarm-traces",
+          "locator": "Internet access through chained services, opening section",
+          "supports": "explanation",
+          "account": "Recovered request chains describe execution through an external browser service.",
+          "passages": [
+            {
+              "label": "Requests through external services",
+              "url": "https://swarmtraces.org/#:~:text=Agents%20elaborately%20chained%20together%20online%20services"
+            }
+          ]
         }
       ],
       "eventIds": [

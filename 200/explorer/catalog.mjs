@@ -1,4 +1,4 @@
-import { caseRouteFor, comparisonRoute } from './state.mjs?v=20261023-distinct-views';
+import { caseRouteFor, comparisonRoute } from './state.mjs?v=20261025-investigation';
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const phaseColor = phase => ({Access:'access',Intrusion:'intrusion',Response:'response',Assessment:'assessment'}[phase] || 'assessment');
 export function libraryMarkup(catalog, selected) {

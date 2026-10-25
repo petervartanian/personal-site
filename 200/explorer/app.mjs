@@ -1,8 +1,8 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261023-distinct-views';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261023-distinct-views';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261023-distinct-views';
-import { frameworkAnalysis, frameworkTopics, safeguardsMatrix } from './framework.mjs?v=20261023-distinct-views';
-import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup } from './reporting.mjs?v=20261023-distinct-views';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor, selectSourceRef } from './state.mjs?v=20261025-investigation';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261025-investigation';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261025-investigation';
+import { frameworkAnalysis, frameworkTopics, safeguardsMatrix } from './framework.mjs?v=20261025-investigation';
+import { reportingFieldsForQuestion, reportingReferenceMarkup, reportingInventoryMarkup, comparisonForReference } from './reporting.mjs?v=20261025-investigation';
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const stateNames = { held: 'Worked', failed: 'Failed', absent: 'Absent', disabled: 'Off', unknown: 'Unknown' };
@@ -36,6 +36,7 @@ const questionIcons = {
   'control-effectiveness': 'test', 'agent-motivation': 'agents',
   'infrastructure-dependencies': 'infrastructure', 'incident-reporting': 'report',
   'forensic-tools': 'test', 'foreign-provider-response': 'globe', 'critical-service-transfer': 'infrastructure',
+  'missing-perspectives': 'people',
 };
 const causeIcons = { 'boundary-crossing': 'network', 'data-to-execution': 'boundary', 'collective-goals': 'agents', 'response-escalation': 'oversight' };
 const phaseIcons = { Access: 'access', Intrusion: 'network', Response: 'shield', Assessment: 'report' };
@@ -208,6 +209,9 @@ function renderAnalysis(item) {
         ? `<a class="reporting-inventory-link context-reporting-link" href="${reportingHref}">Related OECD reporting fields</a>`
         : reportingReferenceMarkup(data.reporting, item.id, reportingHref);
     }
+    for (const comparison of data.reporting?.comparisons || []) {
+      if (comparison.questionId === item.id) body += `<a class="reporting-inventory-link legal-comparison-link" href="${routeFor('questions',item.id,current.sourceId,comparison.id)}">Compare EU cloud-service reporting requirements</a>`;
+    }
     body += `<div class="related-columns">${related('events', item.eventIds, 'Relevant events')}${related('controls', item.controlIds, 'Related safeguards')}</div>`;
   }
   const sourcePanel = $('sources');
@@ -237,7 +241,7 @@ function render({ focus = false, destination = null } = {}) {
   const activeLink = document.activeElement?.closest('a[href]');
   const focusHref = activeLink?.getAttribute('href');
   const focusView = activeLink?.dataset.view;
-  const restoreReportingFocus = document.activeElement?.id === 'reporting-field-select';
+  const restoreReportingFocus = ['reporting-field-select','reporting-stage-select'].includes(document.activeElement?.id) ? document.activeElement.id : null;
   const restoreInquiryFocus = document.activeElement?.id === 'inquiry-picker';
   const locationState = readLocation(location.hash, catalog);
   const lastScreen = screen;
@@ -337,9 +341,11 @@ function render({ focus = false, destination = null } = {}) {
   updateChronologyControls();
   if (!current.reportingFieldId) renderSources(item);
   const selectedReportingField = current.reportingFieldId ? data.reporting.fields.find(field => field.id === current.reportingFieldId) : null;
-  document.title = `${selectedReportingField?.label || item.label || item.title} | AI Incident Explorer`;
-  $('status').textContent = selectedReportingField ? `Reporting field ${selectedReportingField.number}: ${selectedReportingField.label}` : `${views.find(v => v.id === navigationId).label} ${item.label || item.title}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
-  if (restoreReportingFocus) $('reporting-field-select')?.focus({ preventScroll: true });
+  const selectedComparison = comparisonForReference(data.reporting, current.reportingFieldId, item.id);
+  const selectedRequirement = selectedComparison?.requirements.find(row => current.reportingFieldId === `${selectedComparison.id}--${row.id}`);
+  document.title = `${selectedRequirement?.title || selectedComparison?.title || selectedReportingField?.label || item.label || item.title} | AI Incident Explorer`;
+  $('status').textContent = selectedComparison ? `${selectedComparison.title}${selectedRequirement ? ': ' + selectedRequirement.title : ''}` : selectedReportingField ? `Reporting field ${selectedReportingField.number}: ${selectedReportingField.label}` : `${views.find(v => v.id === navigationId).label} ${item.label || item.title}${onlySourceChanged ? `. ${data.sources.find(s => s.id === current.sourceId).publisher} source selected.` : ''}`;
+  if (restoreReportingFocus) $(restoreReportingFocus)?.focus({ preventScroll: true });
   if (restoreInquiryFocus) $('inquiry-picker')?.focus({ preventScroll: true });
   if (focus && !restoreInquiryFocus && !restoreReportingFocus) {
     const matchingControl = focusView

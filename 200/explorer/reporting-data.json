@@ -77,15 +77,11 @@
       "oecd-28",
       "oecd-29"
     ],
-    "foreign-provider-response": [
+    "missing-perspectives": [
+      "oecd-14",
       "oecd-6",
-      "oecd-27",
-      "oecd-29"
-    ],
-    "critical-service-transfer": [
-      "oecd-19",
       "oecd-12",
-      "oecd-11"
+      "oecd-7"
     ]
   },
   "fields": [
@@ -333,7 +329,7 @@
         "expanded-access"
       ],
       "questionIds": [
-        "foreign-provider-response"
+        "missing-perspectives"
       ],
       "interpretationNote": "Do not infer incident location or jurisdiction from a company’s headquarters."
     },
@@ -439,7 +435,8 @@
       "questionIds": [
         "forensic-tools",
         "control-effectiveness",
-        "incident-reporting"
+        "incident-reporting",
+        "missing-perspectives"
       ],
       "interpretationNote": "Published supporting material is available. That does not mean that all underlying evidence is public or independently verified; the METR and Redwood review has a limited scope."
     },
@@ -576,8 +573,7 @@
         "impact-assessment"
       ],
       "questionIds": [
-        "infrastructure-dependencies",
-        "critical-service-transfer"
+        "infrastructure-dependencies"
       ],
       "interpretationNote": "An alert’s operational priority is not the OECD incident-severity field. No severity category is assigned here."
     },
@@ -618,8 +614,7 @@
         "impact-assessment"
       ],
       "questionIds": [
-        "infrastructure-dependencies",
-        "critical-service-transfer"
+        "infrastructure-dependencies"
       ],
       "interpretationNote": "Unauthorized access does not by itself establish every harm category, a rights violation, or disruption of critical infrastructure."
     },
@@ -661,7 +656,7 @@
       ],
       "questionIds": [
         "infrastructure-dependencies",
-        "critical-service-transfer"
+        "missing-perspectives"
       ],
       "interpretationNote": "Five datasets is an asset count, not a count of people harmed or an estimate of economic loss."
     },
@@ -766,7 +761,8 @@
       ],
       "questionIds": [
         "infrastructure-dependencies",
-        "incident-reporting"
+        "incident-reporting",
+        "missing-perspectives"
       ]
     },
     {
@@ -788,8 +784,7 @@
         "impact-assessment"
       ],
       "questionIds": [
-        "infrastructure-dependencies",
-        "critical-service-transfer"
+        "infrastructure-dependencies"
       ],
       "interpretationNote": "Missing evidence is not evidence that no rights impact occurred."
     },
@@ -960,7 +955,7 @@
         "impact-assessment"
       ],
       "questionIds": [
-        "critical-service-transfer"
+        "missing-perspectives"
       ],
       "interpretationNote": "An internet service is not automatically classified as critical infrastructure. Transfer to another setting and national-security relevance remain questions."
     },
@@ -1330,8 +1325,7 @@
         "hf-escalation",
         "cross-organization-response",
         "control-effectiveness",
-        "incident-reporting",
-        "foreign-provider-response"
+        "incident-reporting"
       ],
       "interpretationNote": "These are reported actions. Proposed credential isolation and replay tests in the Explorer are requests or options, not established completed fixes or successful tests."
     },
@@ -1433,10 +1427,302 @@
         "hf-escalation",
         "cross-organization-response",
         "incident-reporting",
-        "forensic-tools",
-        "foreign-provider-response"
+        "forensic-tools"
       ],
       "interpretationNote": "Notification timing, recipient powers, and geopolitical constraints do not have dedicated fields in this framework. Their inclusion here is an Explorer mapping, not an OECD determination."
+    }
+  ],
+  "comparisons": [
+    {
+      "id": "nis2-cloud-reporting",
+      "caseId": "hugging-face-1604",
+      "questionId": "incident-reporting",
+      "title": "EU cloud-service reporting",
+      "scope": "NIS2 provides a useful comparison for an incident affecting a cloud service within its scope.",
+      "applicability": {
+        "status": "not-established",
+        "summary": "The public accounts do not establish whether a named provider had these duties.",
+        "informationNeeded": "Identify the legal entity and affected service, its EU operations, size or other grounds for coverage, main EU establishment or representative, and the applicable national law.",
+        "jurisdiction": "Cloud providers generally fall under the Member State of their main EU establishment. An in-scope provider without an EU establishment must designate an EU representative.",
+        "sourceRefs": [
+          {
+            "sourceId": "nis2-directive",
+            "locator": "Articles 2, 3, 6(30), 26 and Annex I, sector 8",
+            "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj?locale=en"
+          }
+        ]
+      },
+      "significance": {
+        "title": "Which incidents require a report?",
+        "requirement": "The regulation sets general and cloud-specific thresholds. These include suspected-malicious compromise of service data and specified service outages; severe disruption need not already have occurred.",
+        "informationNeeded": "Establish the affected service, data compromise, suspected malicious action, potential disruption, duration, and affected EU users before testing the criteria.",
+        "caseGap": "Unauthorized activity inside a customer application does not by itself establish a compromise of the hosting platform or a reportable incident for that platform.",
+        "sourceRefs": [
+          {
+            "sourceId": "nis2-implementing-regulation",
+            "locator": "Articles 3, 4 and 7",
+            "url": "https://eur-lex.europa.eu/eli/reg_impl/2024/2690/oj?locale=en"
+          },
+          {
+            "sourceId": "modal-clarification",
+            "locator": "Opening clarification: customer application and platform isolation",
+            "url": "https://modal.com/blog/a-note-on-the-hugging-face-agent-incident"
+          }
+        ]
+      },
+      "requirements": [
+        {
+          "id": "early-warning",
+          "title": "Early warning",
+          "deadline": "Without undue delay, within 24 hours of awareness of a significant incident",
+          "recipient": "CSIRT or competent authority",
+          "requirement": "Flag suspected unlawful or malicious acts and possible cross-border impact, where applicable.",
+          "availableInformation": "The chronology contains provider alerts and public disclosures, but no complete record of regulatory notifications.",
+          "informationNeeded": "For each covered entity, when did it become aware that the incident was significant, what did it know, and who received its warning?",
+          "request": "Request the awareness record, initial report, recipient, delivery time, and acknowledgment.",
+          "decision": "Determine whether responders received enough information to begin containment while the investigation continued.",
+          "oecdFieldIds": [
+            "oecd-5",
+            "oecd-6",
+            "oecd-27",
+            "oecd-29"
+          ],
+          "sourceRefs": [
+            {
+              "sourceId": "nis2-directive",
+              "locator": "Article 23(4)(a)",
+              "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj?locale=en"
+            },
+            {
+              "sourceId": "hf-disclosure",
+              "locator": "What we did: law-enforcement notification and public disclosure",
+              "url": "https://huggingface.co/blog/security-incident-july-2026"
+            },
+            {
+              "sourceId": "openai-initial",
+              "locator": "What happened during this incident: detection and notifications",
+              "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/"
+            }
+          ]
+        },
+        {
+          "id": "authority-feedback",
+          "title": "Authority feedback",
+          "deadline": "Initial response without undue delay, where possible within 24 hours after receipt of the early warning",
+          "recipient": "Notifying entity",
+          "requirement": "The CSIRT or competent authority provides initial feedback and, on request, mitigation advice. The CSIRT supplies additional technical support on request. The response includes guidance on reporting to law enforcement when criminal activity is suspected.",
+          "availableInformation": "Hugging Face reports notifying law enforcement and working with outside forensic specialists. Its public account does not show feedback from a CSIRT or competent authority.",
+          "informationNeeded": "What feedback and advice did the authority provide, when did it arrive, and which requests for technical support were answered?",
+          "request": "Request the dated feedback, requests for advice or technical support, responses, and containment decisions that followed.",
+          "decision": "Assess whether the authority supplied timely help that the responding organization could use to contain the incident.",
+          "oecdFieldIds": [
+            "oecd-27",
+            "oecd-29"
+          ],
+          "sourceRefs": [
+            {
+              "sourceId": "nis2-directive",
+              "locator": "Article 23(5)",
+              "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj?locale=en"
+            },
+            {
+              "sourceId": "hf-disclosure",
+              "locator": "What we did, final paragraph: outside forensic specialists and notification to law enforcement",
+              "url": "https://huggingface.co/blog/security-incident-july-2026#what-we-did"
+            }
+          ]
+        },
+        {
+          "id": "incident-notification",
+          "title": "Incident notification",
+          "deadline": "Without undue delay, within 72 hours of awareness of a significant incident",
+          "recipient": "CSIRT or competent authority",
+          "requirement": "Update the warning with an initial severity and impact assessment and available indicators of compromise.",
+          "availableInformation": "Public sources describe technical activity and some containment actions, without showing the contents of any regulatory report.",
+          "informationNeeded": "Which services and users were affected, what could still be reached, and what evidence supported the initial impact assessment?",
+          "request": "Request the submitted assessment, supporting indicators, affected-service inventory, and subsequent corrections.",
+          "decision": "Assess whether the recipient could identify exposed services and coordinate protective action.",
+          "oecdFieldIds": [
+            "oecd-7",
+            "oecd-9",
+            "oecd-11",
+            "oecd-12",
+            "oecd-27"
+          ],
+          "sourceRefs": [
+            {
+              "sourceId": "nis2-directive",
+              "locator": "Article 23(4)(b); this comparison concerns cloud services, not the separate trust-service deadline",
+              "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj?locale=en"
+            },
+            {
+              "sourceId": "hf-timeline",
+              "locator": "Technical timeline: reported activity and containment",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline"
+            },
+            {
+              "sourceId": "hf-disclosure",
+              "locator": "What we did: reported response",
+              "url": "https://huggingface.co/blog/security-incident-july-2026"
+            }
+          ]
+        },
+        {
+          "id": "intermediate-report",
+          "title": "Status updates",
+          "deadline": "When the CSIRT or competent authority requests a report",
+          "recipient": "Requesting CSIRT or competent authority",
+          "requirement": "Provide an intermediate report on relevant status updates.",
+          "availableInformation": "The source accounts were revised as investigators learned more.",
+          "informationNeeded": "Which questions did responders ask, what answers arrived, and which missing answers constrained their actions?",
+          "request": "Request dated questions, responses, unresolved requests, and decisions that depended on them.",
+          "decision": "Identify whether further investigative information could have changed the response.",
+          "oecdFieldIds": [
+            "oecd-27",
+            "oecd-29"
+          ],
+          "sourceRefs": [
+            {
+              "sourceId": "nis2-directive",
+              "locator": "Article 23(4)(c)",
+              "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj?locale=en"
+            },
+            {
+              "sourceId": "openai-initial",
+              "locator": "July 28 update",
+              "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/"
+            },
+            {
+              "sourceId": "hf-timeline",
+              "locator": "Technical timeline and impact assessment",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline"
+            }
+          ]
+        },
+        {
+          "id": "final-report",
+          "title": "Final account",
+          "deadline": "Within one month after the incident notification",
+          "recipient": "CSIRT or competent authority",
+          "requirement": "Describe severity, impact, likely threat or cause, completed and ongoing mitigation, and applicable cross-border effects. An ongoing incident requires a progress report, then a final report within one month of handling.",
+          "availableInformation": "Published reports describe repairs and changes to procedures. They do not provide a complete set of test results for those changes.",
+          "informationNeeded": "What established containment, which repairs were tested, and what residual access or dependencies remained?",
+          "request": "Request the final or progress report and the records supporting its conclusions about mitigation and impact.",
+          "decision": "Assess whether the evidence supports restoring service or relying on a proposed safeguard.",
+          "oecdFieldIds": [
+            "oecd-11",
+            "oecd-12",
+            "oecd-25",
+            "oecd-27",
+            "oecd-28"
+          ],
+          "sourceRefs": [
+            {
+              "sourceId": "nis2-directive",
+              "locator": "Article 23(4)(d)–(e)",
+              "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj?locale=en"
+            },
+            {
+              "sourceId": "hf-disclosure",
+              "locator": "What we did: changes to access and credentials",
+              "url": "https://huggingface.co/blog/security-incident-july-2026"
+            },
+            {
+              "sourceId": "openai-findings",
+              "locator": "Security and monitoring; Strengthening incident response process",
+              "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/"
+            }
+          ]
+        },
+        {
+          "id": "service-recipients",
+          "title": "Affected service users",
+          "deadline": "Without undue delay, where appropriate or applicable",
+          "recipient": "Affected or potentially affected recipients of the service",
+          "requirement": "Notify users about significant incidents likely to affect service and communicate available protective measures for significant cyber threats.",
+          "availableInformation": "The case does not establish which downstream service users received individualized warnings or protective instructions.",
+          "informationNeeded": "Who depended on the affected service, what action could each recipient take, and did the notice reach them in time?",
+          "request": "Request the recipient list or a protected summary, delivery records, and the instructions provided in accessible languages and formats.",
+          "decision": "Assess whether users could protect dependent services and whether any affected community was overlooked.",
+          "oecdFieldIds": [
+            "oecd-14",
+            "oecd-11",
+            "oecd-12",
+            "oecd-27"
+          ],
+          "sourceRefs": [
+            {
+              "sourceId": "nis2-directive",
+              "locator": "Article 23(1)–(2)",
+              "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj?locale=en"
+            },
+            {
+              "sourceId": "hf-timeline",
+              "locator": "TL;DR: reported affected assets and scope",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline"
+            },
+            {
+              "sourceId": "hf-disclosure",
+              "locator": "What we did: published notifications",
+              "url": "https://huggingface.co/blog/security-incident-july-2026"
+            }
+          ]
+        },
+        {
+          "id": "cross-border-sharing",
+          "title": "Sharing across borders",
+          "deadline": "Without undue delay where appropriate",
+          "recipient": "Other affected Member States and ENISA, through the responsible authorities",
+          "requirement": "Authorities share relevant reports while protecting confidentiality and security and commercial interests under applicable law.",
+          "availableInformation": "The organizations are identified, but the locations of affected services and the relevant jurisdictions remain unresolved.",
+          "informationNeeded": "Which jurisdictions needed information, which body could share it, and what could recipients do with it?",
+          "request": "Request the distribution record, handling restrictions, responsible contacts, and a shareable account of any delay.",
+          "decision": "Determine whether a government could obtain the information and cooperation that its response required.",
+          "oecdFieldIds": [
+            "oecd-6",
+            "oecd-9",
+            "oecd-27",
+            "oecd-29"
+          ],
+          "sourceRefs": [
+            {
+              "sourceId": "nis2-directive",
+              "locator": "Article 23(1) and 23(6)",
+              "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj?locale=en"
+            },
+            {
+              "sourceId": "hf-timeline",
+              "locator": "Technical timeline: organizations and affected systems",
+              "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline"
+            },
+            {
+              "sourceId": "openai-findings",
+              "locator": "Incident account and response",
+              "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/"
+            }
+          ]
+        }
+      ],
+      "interpretation": "The case timeline alone cannot establish compliance. Detection, awareness of significance, provider-to-provider contact, regulatory notification, and public disclosure are different events.",
+      "confidentiality": "A regulatory report need not be public. Ask for a redacted passage, a permitted summary, or an authorized review of supporting records when the full report cannot be shared.",
+      "sources": [
+        {
+          "id": "nis2-directive",
+          "publisher": "European Union",
+          "title": "Directive (EU) 2022/2555",
+          "date": "2022-12-14",
+          "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj?locale=en",
+          "locator": "Articles 2, 3, 6(30), 23 and 26; Annex I, sector 8"
+        },
+        {
+          "id": "nis2-implementing-regulation",
+          "publisher": "European Commission",
+          "title": "Implementing Regulation (EU) 2024/2690",
+          "date": "2024-10-17",
+          "url": "https://eur-lex.europa.eu/eli/reg_impl/2024/2690/oj?locale=en",
+          "locator": "Articles 3, 4 and 7"
+        }
+      ]
     }
   ]
 }
