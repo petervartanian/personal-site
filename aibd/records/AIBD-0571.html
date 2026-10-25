@@ -23,9 +23,9 @@
 <link rel="icon" href="data:,">
 <link rel="alternate" type="application/atom+xml" title="New additions and updates" href="../feed.xml">
 <link rel="stylesheet" href="../style.css?v=94af415df9">
-<link rel="stylesheet" href="../requirements.css?v=25d5522ebe"><link rel="stylesheet" href="../datasets.css?v=d639e14e7e"><script src="../app.js?v=cf5f552660" defer></script>
+<link rel="stylesheet" href="../requirements.css?v=ae2308ca13"><link rel="stylesheet" href="../datasets.css?v=d639e14e7e"><script src="../app.js?v=cf5f552660" defer></script>
 </head>
-<body class="record-page unassessed">
+<body class="record-page record-fields-page unassessed">
 <svg class="evidence-defs" width="0" height="0" aria-hidden="true" focusable="false">
   <defs>
     <pattern id="evidence-hatching" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -52,84 +52,606 @@
 </nav>  </div>
 </header>
 <main class="sheet">
-<nav class="crumbs" aria-label="Breadcrumb"><a href="../cases.html">Data</a> / № 0571</nav>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../cases.html">Data</a> / <span data-field-key="id">№ 0571</span></nav>
 <header class="record-head">
-  <p class="record-date">Source information as of <time datetime="2025-06">June 2025</time></p>
-  <h1>Proposed AI rainfall prediction for basin irrigation</h1>
-  <p class="sum">IARI proposes AI rainfall prediction to avoid unnecessary irrigation when rain is expected. The report separates this proposed extension from its existing soil-moisture automation.</p>
+  <h1 data-field-key="title">Proposed AI rainfall prediction for basin irrigation</h1>
+  <p class="sum" data-field-key="summary">IARI proposes AI rainfall prediction to avoid unnecessary irrigation when rain is expected. The report separates this proposed extension from its existing soil-moisture automation.</p>
   <div class="record-grades"><svg class="mobile" viewBox="0 0 118 53" width="118" height="53" role="img" aria-label="not rated for a person, not rated for an organization, not rated for society"><line class="string" x1="14" y1="2" x2="14" y2="34.5"/><g class="unassessed conf-low" transform="translate(6,33)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g><line class="string" x1="48" y1="2" x2="48" y2="35.3"/><g class="unassessed conf-low" transform="translate(40,33)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><line class="string" x1="82" y1="2" x2="82" y2="34.8"/><g class="unassessed conf-low" transform="translate(74,33)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g></svg><a class="record-grade-key" href="../cases.html?open=method" aria-label="How benefit depth, shape, and fill are assessed">ⓘ</a></div>
 </header>
-<div class="record">
-
-  <article>
-
-
-    <section class="sec">
-      <h2>What happened</h2>
-<p class="prose">IARI proposes using AI rainfall predictions to control irrigation gates. A forecast of rain the next day would close the gate. Otherwise, the motor could open it when soil moisture is low. The existing research-farm controller uses sensors and preset moisture thresholds. Water savings and other benefits from the proposed AI extension remain unmeasured. A cited water-saving figure comes from separate research.</p>      <p class="purpose"><b>Purpose.</b> Use AI rainfall forecasts to avoid unnecessary watering while maintaining suitable soil moisture.</p>
-    </section>
-
-    <section class="sec" data-panel="system">
-      <h2>AI’s contribution</h2>
-      <p class="prose">Not assessed. The sequence diagram explicitly proposes AI rainfall prediction as an input to irrigation-gate decisions. Its effect has not been separately evaluated; existing threshold-based automation is a different component.</p>
-    </section>
-
-    <section class="sec" data-panel="who">
-      <h2>Intended beneficiaries</h2>
-      <ul class="ratings">
-        <li class="unassessed conf-low"><div><div class="big unrated-word"><svg class="mobile" viewBox="0 0 50 53" width="50" height="53" role="img" aria-label="not rated for a person"><line class="string" x1="14" y1="2" x2="14" y2="34.5"/><g class="unassessed conf-low" transform="translate(6,33)"><path class="full" d="M8,1.5 A6.5,6.5 0 1 1 7.99,1.5 Z"/></g></svg>unrated</div><small>a person</small></div><p>Farmers are intended to benefit from more appropriate irrigation. The source does not establish the extent of an AI-related yield, workload, or livelihood improvement.</p></li>
-        <li class="unassessed conf-low"><div><div class="big unrated-word"><svg class="mobile" viewBox="0 0 50 53" width="50" height="53" role="img" aria-label="not rated for an organization"><line class="string" x1="14" y1="2" x2="14" y2="35.3"/><g class="unassessed conf-low" transform="translate(6,33)"><path class="full" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g></svg>unrated</div><small>an organization</small></div><p>Farm operations are intended to avoid unnecessary irrigation using AI rainfall predictions. No measured operational gain from this proposed component is reported.</p></li>
-        <li class="unassessed conf-low"><div><div class="big unrated-word"><svg class="mobile" viewBox="0 0 50 53" width="50" height="53" role="img" aria-label="not rated for society"><line class="string" x1="14" y1="2" x2="14" y2="34.8"/><g class="unassessed conf-low" transform="translate(6,33)"><path class="full" d="M8,1.8 L14.6,14.2 L1.4,14.2 Z"/></g></svg>unrated</div><small>society</small></div><p>Reduced water use and more sustainable farming are intended. The extent of savings attributable to the proposed AI component is unassessed.</p></li>
-      </ul>
-    </section>
-
-
-    <section class="sec" data-panel="replication">
-      <h2>Further evidence</h2>
-      <div class="conds">
-        <p class="prose"><b>Setting.</b> The proposed design combines AI rainfall forecasts with soil-moisture readings and irrigation-gate control.</p>
-        <p class="prose"><b>Conditions.</b> Working rainfall predictions, local inputs, soil-moisture sensors, and reliable gate control would be needed. Sufficient conditions for a beneficial outcome remain unknown.</p>
+<article class="record-fields-body">
+<div class="embedded-fields" id="field-profile">
+  <section class="field-group" aria-labelledby="field-group-1">
+    <h2 id="field-group-1">AI system</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="systems[].product_name" id="field-systems-product_name">
+        <dt>System</dt>
+        <dd>
+          <p class="field-answer">Proposed AI rainfall-prediction extension to IARI basin irrigation</p>
+        </dd>
       </div>
-    </section>
-
-
-    <section class="sec" data-panel="evidence">
-      <h2 id="sources">Sources</h2>
-
-      <ol class="sources">
-        <li><div>
-          <div class="kind"><span>report</span><span>Developer-authored</span></div>
-          <h3><a href="https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-952" rel="noopener">Use Case 2: IoT-Based Solar-Powered Automatic Basin Irrigation System</a></h3>
-<p class="cit">International Telecommunication Union, AI for Good Innovate for Impact, 2025 final report, printed page 819. Project-contributed diagram of proposed AI integration into basin irrigation. The account provides no independent outcome evaluation.</p>        </div></li>
-        <li><div>
-          <div class="kind"><span>report</span><span>Developer-authored</span></div>
-          <h3><a href="https://www.itu.int/dms_pub/itu-t/opb/ai4g/T-AI4G-AI4GOOD-2025-5-PDF-E.pdf#page=856" rel="noopener">Proposed AI rainfall-prediction integration diagram</a></h3>
-<p class="cit">International Telecommunication Union, AI for Good Innovate for Impact, 2025 final report, printed page 819, sequence diagram for the basin-irrigation system. Contributor-supplied proposed AI integration, not an independent outcome evaluation.</p>        </div></li>
-      </ol>
-    </section>
-
-<section class="sec profile" id="field-profile">
-  <h2>Assessment</h2>
-  <p class="prose profile-links"><a href="AIBD-0571.assessment.html">Full assessment (91 fields)</a>, <a href="AIBD-0571.json">JSON</a>, and <a href="../fields.html">field definitions</a>.</p>
-</section>
-
-    <section class="sec" data-panel="provenance">
-      <h2>About this entry</h2>
-      <p class="prose revs-line">AIBD-0571. Updated 22 October 2026. <a href="AIBD-0571.json">Revision history</a>.</p>
-      <p class="do"><button type="button" class="textbtn" data-keep="AIBD-0571" aria-pressed="false">Save</button><a href="../cases.html?open=shelf" data-shelf-link>Compare</a><a href="mailto:peter.vartanian@icloud.com?subject=AIBD-0571%20correction">Correction</a></p>
-
-    </section>
-  </article>
-  <aside class="aside" aria-label="System and setting">
-    <h2>System and setting</h2>
-    <dl class="props">
-      <div><dt>System</dt><dd>Proposed AI rainfall-prediction extension to IARI basin irrigation</dd></div>
-<div><dt>Developer</dt><dd><span class="case-party"><span class="case-party-line"><span class="case-icon" aria-hidden="true"></span><span class="case-party-name">Water Technology Centre, ICAR-IARI</span></span></span></dd></div><div><dt>Operator</dt><dd><span class="case-party"><span class="case-party-line"><span class="case-icon" aria-hidden="true"></span><span class="case-party-name">ICAR-IARI research farm</span></span></span></dd></div><div><dt>Location</dt><dd>New Delhi, India</dd></div>      <div><dt>Benefit</dt><dd><a href="../cases.html?open=matrix"><span class="rn">XII</span>Improved Environmental Sustainability</a></dd></div>
-      <div><dt>Sector</dt><dd>Agriculture and food, Smart Agriculture</dd></div>
-<div><dt>Benefit status</dt><dd>Intended benefit</dd></div><div><dt>Collection</dt><dd>ITU AI for Good: Innovate for Impact (2025) <span class="mono" title="AIBD source entry key">ITU-156</span></dd></div>    </dl>
-
-  </aside>
+      <div class="field-row" data-field-key="systems[].model_name" id="field-systems-model_name">
+        <dt>Model</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].model_version" id="field-systems-model_version">
+        <dt>Release</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].provider" id="field-systems-provider">
+        <dt>Provider</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].component_role" id="field-systems-component_role">
+        <dt>Role</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].deployment_configuration" id="field-systems-deployment_configuration">
+        <dt>Configuration</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].inputs_outputs" id="field-systems-inputs_outputs">
+        <dt>Inputs and outputs</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].autonomy_permissions" id="field-systems-autonomy_permissions">
+        <dt>Autonomy</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="workflow" id="field-workflow">
+        <dt>Workflow</dt>
+        <dd>
+          <p class="field-answer">The proposed design combines AI rainfall forecasts with soil-moisture readings and irrigation-gate control.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="human_oversight" id="field-human_oversight">
+        <dt>Human oversight</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="ai_relationship" id="field-ai_relationship">
+        <dt>Relation to AI</dt>
+        <dd>
+          <p class="field-answer">general benefit</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="ai_contribution" id="field-ai_contribution">
+        <dt>AI contribution</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-2">
+    <h2 id="field-group-2">Benefits</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="outcomes[].id" id="field-outcomes-id">
+        <dt>Outcome identifiers</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].claim" id="field-outcomes-claim">
+        <dt>Benefit</dt>
+        <dd>
+          <p class="field-answer">IARI proposes AI rainfall prediction to avoid unnecessary irrigation when rain is expected. The report separates this proposed extension from its existing soil-moisture automation.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].benefit_type" id="field-outcomes-benefit_type">
+        <dt>Category</dt>
+        <dd>
+          <p class="field-answer">Improved Environmental Sustainability</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].status" id="field-outcomes-status">
+        <dt>Status</dt>
+        <dd>
+          <p class="field-answer">Intended benefit</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].stakeholder_group" id="field-outcomes-stakeholder_group">
+        <dt>Beneficiary groups</dt>
+        <dd>
+          <p class="field-answer">People. Organizations. Society.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].beneficiaries" id="field-outcomes-beneficiaries">
+        <dt>Beneficiaries</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].beneficiary_count" id="field-outcomes-beneficiary_count">
+        <dt>Reach</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].distribution" id="field-outcomes-distribution">
+        <dt>Distribution and access</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].duration" id="field-outcomes-duration">
+        <dt>Duration</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].unexpected" id="field-outcomes-unexpected">
+        <dt>Expected?</dt>
+        <dd>
+          <p class="field-answer">Yes</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].tradeoffs" id="field-outcomes-tradeoffs">
+        <dt>Costs and harms</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-3">
+    <h2 id="field-group-3">Measurement</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="evaluations[].id" id="field-evaluations-id">
+        <dt>Studies</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].design" id="field-evaluations-design">
+        <dt>Study design</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].measurement_method" id="field-evaluations-measurement_method">
+        <dt>Measurement</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].setting_sample" id="field-evaluations-setting_sample">
+        <dt>Setting and sample</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].metric" id="field-evaluations-metric">
+        <dt>Measures</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].comparator" id="field-evaluations-comparator">
+        <dt>Comparison</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].effect" id="field-evaluations-effect">
+        <dt>Results</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].ai_uplift" id="field-evaluations-ai_uplift">
+        <dt>Additional value from AI</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].uncertainty_limitations" id="field-evaluations-uncertainty_limitations">
+        <dt>Limitations</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].exposure" id="field-evaluations-exposure">
+        <dt>Denominators</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].reproduction_materials" id="field-evaluations-reproduction_materials">
+        <dt>Materials for replication</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-4">
+    <h2 id="field-group-4">Money</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="economics[].measure_type" id="field-economics-measure_type">
+        <dt>Kind of value</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].amount" id="field-economics-amount">
+        <dt>Amount</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].currency_price_basis" id="field-economics-currency_price_basis">
+        <dt>Currency and prices</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].period_unit" id="field-economics-period_unit">
+        <dt>Period and unit</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].realization" id="field-economics-realization">
+        <dt>Realization</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].recipient_payer" id="field-economics-recipient_payer">
+        <dt>Recipients and payers</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].gross_net" id="field-economics-gross_net">
+        <dt>Gross or net</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].costs[]" id="field-economics-costs">
+        <dt>Included costs</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].counterfactual" id="field-economics-counterfactual">
+        <dt>Comparison</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].valuation_method" id="field-economics-valuation_method">
+        <dt>Method</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].return_payback" id="field-economics-return_payback">
+        <dt>Return and payback</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-5">
+    <h2 id="field-group-5">People and places</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="actors[]" id="field-actors">
+        <dt>Participants</dt>
+        <dd>
+          <p class="field-answer">Developer: Water Technology Centre, ICAR-IARI. Operator: ICAR-IARI research farm.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="places[]" id="field-places">
+        <dt>Jurisdictions</dt>
+        <dd>
+          <p class="field-answer">Benefit: New Delhi, <span class="field-identity"><img src="../flags/india.png" alt="" width="20" height="14" loading="lazy" decoding="async"><span>India</span></span>.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="actors[].ownership_control" id="field-actors-ownership_control">
+        <dt>Ownership and control</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="infrastructure_dependencies[]" id="field-infrastructure_dependencies">
+        <dt>Dependencies</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="cross_border_flows[]" id="field-cross_border_flows">
+        <dt>Cross-border connections</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="strategic_assessments[]" id="field-strategic_assessments">
+        <dt>Geopolitical implications</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-6">
+    <h2 id="field-group-6">Follow-up</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="replication.conditions" id="field-replication-conditions">
+        <dt>Conditions for replication</dt>
+        <dd>
+          <p class="field-answer">Working rainfall predictions, local inputs, soil-moisture sensors, and reliable gate control would be needed. Sufficient conditions for a beneficial outcome remain unknown.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="replication.attempts[]" id="field-replication-attempts">
+        <dt>Replication attempts</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="follow_up[]" id="field-follow_up">
+        <dt>Later findings</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="availability" id="field-availability">
+        <dt>Availability</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="decisions[].institution_task" id="field-decisions-institution_task">
+        <dt>Institutional decision</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="decisions[].grounds" id="field-decisions-grounds">
+        <dt>Grounds</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="decisions[].action_outcome" id="field-decisions-action_outcome">
+        <dt>Action and result</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="decisions[].success_criterion" id="field-decisions-success_criterion">
+        <dt>Success criterion</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-7">
+    <h2 id="field-group-7">Evidence</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="sources[].id" id="field-sources-id">
+        <dt>Source numbers</dt>
+        <dd>
+          <p class="field-answer">AIBD-0571-source-0001–0002</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sources[].citation_locator" id="field-sources-citation_locator">
+        <dt>Citations</dt>
+        <dd>
+          <p class="field-answer">Numbered references below.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sources[].language" id="field-sources-language">
+        <dt>Language</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sources[].relationship" id="field-sources-relationship">
+        <dt>Source relationships</dt>
+        <dd>
+          <p class="field-answer">Developer</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sources[].upstream_sources" id="field-sources-upstream_sources">
+        <dt>Original evidence</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sources[].access_version" id="field-sources-access_version">
+        <dt>Access and versions</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="claims[].proposition" id="field-claims-proposition">
+        <dt>Supported findings</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="claims[].evidence_links" id="field-claims-evidence_links">
+        <dt>Evidence links</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="claims[].evidence_strength" id="field-claims-evidence_strength">
+        <dt>Evidence strength</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="claims[].missingness" id="field-claims-missingness">
+        <dt>Missing evidence</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-8">
+    <h2 id="field-group-8">Grades</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="assessments[].target" id="field-assessments-target">
+        <dt>Assessed benefits</dt>
+        <dd>
+          <p class="field-answer">People. Organizations. Society.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].depth" id="field-assessments-depth">
+        <dt>Depth</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].rationale" id="field-assessments-rationale">
+        <dt>Reasons</dt>
+        <dd>
+          <p class="field-answer">People: Farmers are intended to benefit from more appropriate irrigation. The source does not establish the extent of an AI-related yield, workload, or livelihood improvement. Organizations: Farm operations are intended to avoid unnecessary irrigation using AI rainfall predictions. No measured operational gain from this proposed component is reported. Society: Reduced water use and more sustainable farming are intended. The extent of savings attributable to the proposed AI component is unassessed.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].status_basis" id="field-assessments-status_basis">
+        <dt>Observed or intended</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].rubric_version" id="field-assessments-rubric_version">
+        <dt>Rubric</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].assessor_date" id="field-assessments-assessor_date">
+        <dt>Assessor and date</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].alternatives" id="field-assessments-alternatives">
+        <dt>Alternative assessments</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].display_confidence" id="field-assessments-display_confidence">
+        <dt>Fill</dt>
+        <dd>
+          <p class="field-answer">The makers&#39; claim</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-9">
+    <h2 id="field-group-9">Entry details</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="case_kind" id="field-case_kind">
+        <dt>Kind</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="case_links[]" id="field-case_links">
+        <dt>Related entries</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sector" id="field-sector">
+        <dt>Field</dt>
+        <dd>
+          <p class="field-answer">Smart Agriculture.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="purpose" id="field-purpose">
+        <dt>Purpose</dt>
+        <dd>
+          <p class="field-answer">Use AI rainfall forecasts to avoid unnecessary watering while maintaining suitable soil moisture.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="record_dates" id="field-record_dates">
+        <dt>Dates</dt>
+        <dd>
+          <p class="field-answer">Source information as of: June 2025. Updated: 22 October 2026.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="deployment_stage" id="field-deployment_stage">
+        <dt>Stage</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="version" id="field-version">
+        <dt>Version</dt>
+        <dd>
+          <p class="field-answer">SHA-256: 9e4d7c79e8ac…</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-10">
+    <h2 id="field-group-10">References</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="external_references[]" id="field-external_references">
+        <dt>Other identifiers</dt>
+        <dd>
+          <p class="field-answer">ITU AI for Good: Innovate for Impact (2025). ITU-156.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="taxonomy_crosswalks[]" id="field-taxonomy_crosswalks">
+        <dt>Category mappings</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="brief" id="field-brief">
+        <dt>Brief</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="revision_history[]" id="field-revision_history">
+        <dt>Revisions</dt>
+        <dd>
+          <p class="field-answer">1 revisions. Latest: 22 October 2026.</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
 </div>
+  <section class="record-references" aria-labelledby="sources">
+    <h2 id="sources">Sources</h2>
+    <ol class="compact-sources">
+      <li id="source-1"><p><a href="https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-952" rel="noopener">Use Case 2: IoT-Based Solar-Powered Automatic Basin Irrigation System</a> International Telecommunication Union, AI for Good Innovate for Impact, 2025 final report, printed page 819. Project-contributed diagram of proposed AI integration into basin irrigation. The account provides no independent outcome evaluation.</p></li>
+      <li id="source-2"><p><a href="https://www.itu.int/dms_pub/itu-t/opb/ai4g/T-AI4G-AI4GOOD-2025-5-PDF-E.pdf#page=856" rel="noopener">Proposed AI rainfall-prediction integration diagram</a> International Telecommunication Union, AI for Good Innovate for Impact, 2025 final report, printed page 819, sequence diagram for the basin-irrigation system. Contributor-supplied proposed AI integration, not an independent outcome evaluation.</p></li>
+    </ol>
+  </section>
+  <footer class="record-downloads">
+    <a href="AIBD-0571.json">Full data and source notes</a>
+    <a href="../fields.html">Field definitions</a>
+    <button type="button" class="textbtn" data-keep="AIBD-0571" aria-pressed="false">Save</button>
+<a href="mailto:peter.vartanian@icloud.com?subject=AIBD-0571%20correction">Correction</a>  </footer>
+</article>
 </main>
 <footer class="footer">
   <div class="footer-inner">

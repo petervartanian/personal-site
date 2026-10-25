@@ -908,6 +908,17 @@
               "default": null,
               "title": "Family"
             },
+            "display": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/FieldDisplay"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
+            },
             "record_ids": {
               "items": {
                 "type": "string"
@@ -935,6 +946,34 @@
           "additionalProperties": false
         }
       ]
+    },
+    "FieldDisplay": {
+      "additionalProperties": false,
+      "description": "A concise answer and any qualification that readers need beside it.",
+      "properties": {
+        "answer": {
+          "minLength": 1,
+          "title": "Answer",
+          "type": "string"
+        },
+        "editor_note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Editor Note"
+        }
+      },
+      "required": [
+        "answer"
+      ],
+      "title": "FieldDisplay",
+      "type": "object"
     },
     "IdentifiersValue": {
       "additionalProperties": false,
@@ -1380,6 +1419,17 @@
               ],
               "default": null,
               "title": "Family"
+            },
+            "display": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/FieldDisplay"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null
             }
           },
           "required": [

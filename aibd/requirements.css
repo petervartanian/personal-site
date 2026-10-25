@@ -56,3 +56,39 @@
   .profile-state{display:block;margin-top:5px;max-width:none;text-align:left}
   .profile-values .profile-values{padding-left:10px}
 }
+
+/* Short answers remain in the record, with qualifications beside the answer. */
+.record-fields-page .record-head{padding-top:16px;padding-bottom:24px}
+.record-fields-page .record-head h1{font-size:clamp(30px,3vw,40px);max-width:32ch}
+.record-fields-page .record-head .sum{font-size:18px;line-height:26px}
+.record-fields-body{min-width:0}
+.embedded-fields{scroll-margin-top:24px}
+.field-group{padding:22px 0;border-bottom:var(--rule-width) solid var(--rule)}
+.field-group h2,.record-references h2{font:500 23px/30px var(--serif);margin:0 0 14px}
+.field-rows{margin:0}
+.field-row{display:grid;grid-template-columns:190px minmax(0,1fr);gap:24px;padding:7px 0;scroll-margin-top:24px}
+.field-row dt{font:500 13px/21px var(--sans);color:var(--ink-2)}
+.field-row dd{margin:0;min-width:0}
+.field-answer{font-size:15px;line-height:22px;overflow-wrap:anywhere}
+.field-row p{max-width:none;margin:0;text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto}
+.field-row .field-editor-note{margin-top:4px;font-size:13px;line-height:20px;color:var(--ink-2)}
+.field-editor-note em{font-style:italic}
+.field-identity{display:inline-flex;align-items:center;gap:6px;max-width:100%;vertical-align:middle;line-height:22px;text-align:left}
+.field-identity img{display:block;flex:none;object-fit:contain;margin:0}
+.field-identity>span{min-width:0}
+.record-references{padding-top:24px}
+.compact-sources{margin:0;padding-left:25px;font-size:13px;line-height:20px}
+.compact-sources li{padding:0 0 10px 5px}
+.compact-sources p{margin:0;max-width:none;overflow-wrap:anywhere}
+.compact-sources li::marker{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.record-related{font-size:13px;line-height:20px;margin:14px 0 0}
+.record-downloads{display:flex;flex-wrap:wrap;gap:10px 24px;border-top:var(--rule-width) solid var(--rule);padding-top:18px;margin-top:18px;font-size:13px}
+@media(max-width:600px){
+ .record-fields-page .record-head{padding-top:12px;padding-bottom:20px}
+ .record-fields-page .record-head h1{font-size:30px}
+ .field-group{padding-block:20px}
+ .field-group h2,.record-references h2{font-size:22px;line-height:28px}
+ .field-row{grid-template-columns:1fr;gap:2px;padding:9px 0}
+ .field-row dt{font-size:12px;line-height:18px}
+ .field-answer{font-size:15px;line-height:22px}
+}

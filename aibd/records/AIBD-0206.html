@@ -23,9 +23,9 @@
 <link rel="icon" href="data:,">
 <link rel="alternate" type="application/atom+xml" title="New additions and updates" href="../feed.xml">
 <link rel="stylesheet" href="../style.css?v=94af415df9">
-<link rel="stylesheet" href="../requirements.css?v=25d5522ebe"><link rel="stylesheet" href="../datasets.css?v=d639e14e7e"><script src="../app.js?v=cf5f552660" defer></script>
+<link rel="stylesheet" href="../requirements.css?v=ae2308ca13"><link rel="stylesheet" href="../datasets.css?v=d639e14e7e"><script src="../app.js?v=cf5f552660" defer></script>
 </head>
-<body class="record-page d2">
+<body class="record-page record-fields-page d2">
 <svg class="evidence-defs" width="0" height="0" aria-hidden="true" focusable="false">
   <defs>
     <pattern id="evidence-hatching" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -52,118 +52,613 @@
 </nav>  </div>
 </header>
 <main class="sheet">
-<nav class="crumbs" aria-label="Breadcrumb"><a href="../cases.html">Data</a> / № 0206</nav>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../cases.html">Data</a> / <span data-field-key="id">№ 0206</span></nav>
 <header class="record-head">
-  <p class="record-date">Date basis unassessed <time datetime="2026">2026 (precision unassessed)</time></p>
-  <h1>Wiz finds a critical GitHub RCE with Claude Code and IDA MCP</h1>
-  <p class="sum">Wiz&#39;s AI-aided reverse engineering found a critical GitHub RCE (CVE-2026–3854); github.com was patched the same day, no exploitation found.</p>
+  <h1 data-field-key="title">Wiz finds a critical GitHub RCE with Claude Code and IDA MCP</h1>
+  <p class="sum" data-field-key="summary">Wiz&#39;s AI-aided reverse engineering found a critical GitHub RCE (CVE-2026–3854); github.com was patched the same day, no exploitation found.</p>
   <div class="record-grades"><svg class="mobile" viewBox="0 0 50 43" width="50" height="43" role="img" aria-label="depth 2 for an organization"><line class="string" x1="14" y1="2" x2="14" y2="25.3"/><g class="d2 conf-medium" transform="translate(6,23)"><path class="full evidence-hatch" d="M2.3,2.3 H13.7 V13.7 H2.3 Z" mask="url(#evidence-hatching-mask)"/><path class="evidence-outline" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="25" y="35">2</text></svg><a class="record-grade-key" href="../cases.html?open=method" aria-label="How benefit depth, shape, and fill are assessed">ⓘ</a></div>
 </header>
-<div class="record">
-
-  <article>
-
-
-    <section class="sec">
-      <h2>What happened</h2>
-<p class="prose">On 4 March 2026 Wiz Research reported a critical remote code execution (RCE) flaw to GitHub, later CVE-2026–3854. It sat in GitHub&#39;s internal git infrastructure. Git push options were not sanitized before being written into internal headers. Any authenticated user could therefore run arbitrary commands on GitHub&#39;s servers with a single git push. Wiz says AI-augmented tooling made the research feasible, particularly automated reverse engineering of GitHub&#39;s compiled binaries with IDA MCP. The Register reports that the team used Claude Code and went from idea to working exploit in under 48 hours. GitHub reproduced the bug within 40 minutes and deployed a fix to github.com at 7:00 pm UTC that day. It released GitHub Enterprise Server (GHES) patches from 10 March, and found no exploitation.</p>      <p class="purpose"><b>Purpose.</b> Claude Code is Anthropic&#39;s agentic coding tool, built to read a codebase, edit files, run commands and connect to external tools over MCP. Wiz used it, with IDA MCP, to automate reverse engineering of GitHub&#39;s compiled binaries. Analyzing code for flaws is within that general purpose. The benefit was an application of what the tool was built to do rather than a departure from it.</p>
-    </section>
-
-    <section class="sec" data-panel="system">
-      <h2>AI’s contribution</h2>
-      <p class="prose">The AI&#39;s documented contribution is speed of analysis, on the researchers&#39; own account. Wiz writes that AI-augmented reverse-engineering tooling, particularly IDA MCP, let it rapidly analyze GitHub&#39;s compiled binaries and reconstruct internal protocols. Wiz says that speed would not have been feasible manually. Sagi Tzadik told Dark Reading that with AI tools it took under 48 hours from idea to working exploit. The Register adds that the team used Claude Code “to take a lot of the legwork out of the process”. The hypothesis, the exploit, the report and the fix were human work. Six named Wiz researchers confirmed RCE on GHES 3.19.1 and wrote what GitHub called a thorough report. GitHub&#39;s security and engineering teams reproduced the bug within 40 minutes and deployed the fix. GitHub&#39;s own post, the CVE record and the GHES release notes describe a Bug Bounty report without mentioning AI. The AI-assistance claim therefore rests on Wiz and on outlets quoting Wiz. Wiz&#39;s write-up, in the text as read, names IDA MCP and not Claude.</p>
-    </section>
-
-    <section class="sec" data-panel="who">
-      <h2>Beneficiaries</h2>
-      <ul class="ratings">
-        <li class="d2 conf-medium"><div><div class="big"><svg class="mobile" viewBox="0 0 50 43" width="50" height="43" role="img" aria-label="depth 2 for an organization"><line class="string" x1="14" y1="2" x2="14" y2="25.3"/><g class="d2 conf-medium" transform="translate(6,23)"><path class="full evidence-hatch" d="M2.3,2.3 H13.7 V13.7 H2.3 Z" mask="url(#evidence-hatching-mask)"/><path class="evidence-outline" d="M2.3,2.3 H13.7 V13.7 H2.3 Z"/></g><text class="num" x="25" y="35">2</text></svg></div><small>an organization</small></div><p>GitHub closed a critical remote code execution hole in its git push pipeline within hours of the report. The fix reached github.com at 7:00 pm UTC on 4 March 2026. GitHub also shipped patches for six GitHub Enterprise Server release lines. Wiz earned what GitHub calls one of the highest rewards in the history of its Bug Bounty program. The loss avoided is hypothetical. GitHub&#39;s forensic investigation found that no other account had triggered the code path. No customer data was accessed, modified or exfiltrated. The benefit is an exposure closed rather than a demonstrated loss prevented.</p></li>
-      </ul>
-    </section>
-
-    <section class="sec" data-panel="measured">
-      <h2>Comparison</h2>
-      <dl class="props facts">
-        <div><dt>Compared with</dt><dd>manual reverse engineering of GitHub&#39;s compiled binaries without AI tooling</dd></div>
-<div><dt>Reference</dt><dd>an impractical amount of time and manual effort (Wiz); months&#39; worth of manual analysis, per The Register&#39;s account of Wiz</dd></div><div><dt>Result</dt><dd>from idea to working exploit in less than 48 hours</dd></div>        <div><dt>Basis</dt><dd>Assumed.<q class="fq">However, extracting and auditing the sheer volume of compiled blackbox binaries that run this pipeline historically required an impractical amount of time and manual effort. But this is Round 2, and the landscape has shifted. By leveraging AI-augmented tooling-particularly automated reverse engineering using IDA MCP-we were able to do what was previously too costly.</q> <a class="fsrc" href="https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854">source</a></dd></div>
-        <div><dt>Since then</dt><dd>GitHub&#39;s 28 April 2026 disclosure confirmed the same-day fix, patches for all supported GitHub Enterprise Server releases, and a forensic investigation that found no exploitation beyond the researchers&#39; own testing.<q class="fq">In less than two hours we had validated the finding, deployed a fix to github.com, and begun a forensic investigation that concluded there was no exploitation.</q> <a class="fsrc" href="https://github.blog/security/securing-the-git-push-pipeline-responding-to-a-critical-remote-code-execution-vulnerability/">source</a></dd></div>
-      </dl>
-    </section>
-
-    <section class="sec" data-panel="replication">
-      <h2>Further evidence</h2>
-      <div class="conds">
-        <p class="prose"><b>Setting.</b> A closed-source target that researchers could obtain and disassemble. GitHub&#39;s backend git services also ship as GitHub Enterprise Server binaries. Those binaries gave automated reverse engineering something to work on, and GHES 3.19.1 gave a place to confirm the exploit. AI-augmented tooling for reverse engineering: IDA MCP (per Wiz) driven by Claude Code (per The Register). It reconstructed internal protocols and traced where user input could influence server behavior across the pipeline. Experienced vulnerability researchers: six named Wiz authors formed the hypothesis and built and confirmed a working exploit. They wrote what GitHub called a thorough report that clearly demonstrated the impact. A beneficiary with a Bug Bounty intake and an on-call security team. GitHub reproduced the bug within 40 minutes of the report. It deployed a fix to github.com at 7:00 pm UTC the same day.</p>
-        <p class="prose"><b>Conditions.</b> AI output has to be confirmed by exploit, not trusted. Wiz confirmed RCE on a GHES 3.19.1 instance before reporting. That is why GitHub could validate the report in 40 minutes. The receiving organization must be able to patch its own service and ship fixes to self-hosted customers. GHES customers stayed exposed until they upgraded to the patched versions released from 10 March 2026. Disclosure must wait for the patches, here from 4 March to 28 April 2026. No exploitation had occurred, so the benefit is an exposure closed, not a loss recovered.</p>
+<article class="record-fields-body">
+<div class="embedded-fields" id="field-profile">
+  <section class="field-group" aria-labelledby="field-group-1">
+    <h2 id="field-group-1">AI system</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="systems[].product_name" id="field-systems-product_name">
+        <dt>System</dt>
+        <dd>
+          <p class="field-answer">AI-augmented reverse-engineering tooling used by Wiz Research: Claude Code (named by The Register and WebProNews) with IDA MCP for automated reverse engineering of GitHub&#39;s compiled binaries (named by Wiz), applied to GitHub.com&#39;s backend and GitHub Enterprise Server 3.19.1</p>
+        </dd>
       </div>
-    </section>
-
-
-    <section class="sec" data-panel="evidence">
-      <h2 id="sources">Sources</h2>
-
-      <ol class="sources">
-        <li><div>
-          <div class="kind"><span>report</span><span>Beneficiary-authored</span><span>28 April 2026</span></div>
-          <h3><a href="https://github.blog/security/securing-the-git-push-pipeline-responding-to-a-critical-remote-code-execution-vulnerability/" rel="noopener">Securing the git push pipeline: Responding to a critical remote code execution vulnerability</a></h3>
-<p class="cit">Wales A / GitHub (2026).</p><blockquote>our engineering team developed and deployed a fix to github.com at 7:00 p.m. UTC that same day</blockquote>        </div></li>
-        <li><div>
-          <div class="kind"><span>news report</span><span>Independent of the developer and operator</span><span>29 April 2026</span></div>
-          <h3><a href="https://www.theregister.com/2026/04/29/github_woah_a_genuinely_helpful/" rel="noopener">GitHub: Zounds, a genuinely helpful AI-assisted bug report that isn&#39;t total slop! Here, Wiz, take this wad of cash</a></h3>
-<p class="cit">Jones C / The Register (2026).</p><blockquote>They used Claude Code to take a lot of the legwork out of the process</blockquote>        </div></li>
-        <li><div>
-          <div class="kind"><span>news report</span><span>Independent of the developer and operator</span><span>29 April 2026</span></div>
-          <h3><a href="https://www.theverge.com/news/920295/github-remote-code-execution-vulnerability-fix" rel="noopener">GitHub rushed to fix a critical vulnerability in less than six hours</a></h3>
-<p class="cit">Warren T / The Verge (2026).</p><blockquote>A critical remote code execution vulnerability was discovered using an AI model and patched within hours.</blockquote>        </div></li>
-        <li><div>
-          <div class="kind"><span>news report</span><span>Independent of the developer and operator</span><span>29 April 2026</span></div>
-          <h3><a href="https://www.darkreading.com/application-security/reverse-engineering-ai-unearths-high-severity-github-bug" rel="noopener">Reverse Engineering With AI Unearths High-Severity GitHub Bug</a></h3>
-<p class="cit">Culafi A / Dark Reading (2026).</p><blockquote>With the help of AI tools, it took less than 48 hours to go from idea to a working exploit</blockquote>        </div></li>
-        <li><div>
-          <div class="kind"><span>news report</span><span>Independent of the developer and operator</span><span>30 April 2026</span></div>
-          <h3><a href="https://www.webpronews.com/wizs-ai-powered-strike-how-claude-cracked-githubs-git-fortress-for-a-fat-bounty/" rel="noopener">Wiz&#39;s AI-Powered Strike: How Claude Cracked GitHub&#39;s Git Fortress for a Fat Bounty</a></h3>
-<p class="cit">Ritchie D / WebProNews (2026).</p><blockquote>They leaned on Claude Code, Anthropic&#39;s agentic coding tool, for the heavy lifting.</blockquote>        </div></li>
-        <li><div>
-          <div class="kind"><span>press release</span><span>Operator-authored</span><span>28 April 2026</span></div>
-          <h3><a href="https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854" rel="noopener">Securing GitHub: Wiz Research uncovers Remote Code Execution in GitHub.com and GitHub Enterprise Server (CVE-2026-3854)</a></h3>
-<p class="cit">Tzadik S, Ohfeld N, Shustin R, Ben-Sasson H, Avrahami Y, Malron N / Wiz Research (2026).</p><blockquote>This research was made possible by AI-augmented reverse engineering tooling, particularly IDA MCP, which allowed us to rapidly analyze GitHub&#39;s compiled binaries</blockquote>        </div></li>
-        <li><div>
-          <div class="kind"><span>press release</span><span>Developer-authored</span></div>
-          <h3><a href="https://code.claude.com/docs/en/overview" rel="noopener">Overview</a></h3>
-<p class="cit">Anthropic (2026). Claude Code overview. Claude Code documentation.</p><blockquote>Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools.</blockquote>        </div></li>
-        <li><div>
-          <div class="kind"><span>other</span><span>Beneficiary-authored</span><span>10 March 2026</span></div>
-          <h3><a href="https://cveawg.mitre.org/api/cve/CVE-2026-3854" rel="noopener">CVE-2026-3854</a></h3>
-<p class="cit">GitHub (CNA) (2026).</p><blockquote>allowed an attacker with push access to a repository to achieve remote code execution on the instance</blockquote>        </div></li>
-        <li><div>
-          <div class="kind"><span>other</span><span>Beneficiary-authored</span><span>12 March 2026</span></div>
-          <h3><a href="https://docs.github.com/en/enterprise-server@3.14/admin/release-notes" rel="noopener">GitHub Enterprise Server 3.14 release notes (3.14.25)</a></h3>
-<p class="cit">GitHub (2026).</p><blockquote>GitHub has requested CVE ID CVE-2026-3854 for this vulnerability, which was reported via the GitHub Bug Bounty program.</blockquote>        </div></li>
-      </ol>
-    </section>
-
-<section class="sec profile" id="field-profile">
-  <h2>Assessment</h2>
-  <p class="prose profile-links"><a href="AIBD-0206.assessment.html">Full assessment (91 fields)</a>, <a href="AIBD-0206.json">JSON</a>, and <a href="../fields.html">field definitions</a>.</p>
-</section>
-
-    <section class="sec" data-panel="provenance">
-      <h2>About this entry</h2>
-      <p class="prose revs-line">AIBD-0206. Updated 21 October 2026. <a href="AIBD-0206.json">Revision history</a>.</p>
-      <p class="do"><button type="button" class="textbtn" data-keep="AIBD-0206" aria-pressed="false">Save</button><a href="../cases.html?open=shelf" data-shelf-link>Compare</a><a href="mailto:peter.vartanian@icloud.com?subject=AIBD-0206%20correction">Correction</a></p>
-
-    </section>
-  </article>
-  <aside class="aside" aria-label="System and setting">
-    <h2>System and setting</h2>
-    <dl class="props">
-      <div><dt>System</dt><dd>AI-augmented reverse-engineering tooling used by Wiz Research: Claude Code (named by The Register and WebProNews) with IDA MCP for automated reverse engineering of GitHub&#39;s compiled binaries (named by Wiz), applied to GitHub.com&#39;s backend and GitHub Enterprise Server 3.19.1</dd></div>
-<div><dt>Developer</dt><dd><span class="case-party"><span class="case-party-line"><span class="case-icon" aria-hidden="true"><img class="case-company-logo" src="../logos/thumbs/anthropic.webp" alt="" width="34" height="24" loading="lazy" decoding="async"></span><span class="case-party-name">Anthropic (Claude Code); the maker of IDA MCP is not named in the sources</span></span><span class="case-country"><span class="case-icon" aria-hidden="true"><img class="flag" src="../flags/united-states.png" alt="" width="20" height="14" loading="lazy" decoding="async"></span><span class="case-country-name">United States</span></span></span></dd></div><div><dt>Operator</dt><dd><span class="case-party"><span class="case-party-line"><span class="case-icon" aria-hidden="true"></span><span class="case-party-name">Wiz Research (Sagi Tzadik, Nir Ohfeld, Ronen Shustin, Hillai Ben-Sasson, Yuval Avrahami, Noam Malron)</span></span><span class="case-country"><span class="case-icon" aria-hidden="true"><img class="flag" src="../flags/united-states.png" alt="" width="20" height="14" loading="lazy" decoding="async"></span><span class="case-country-name">United States</span></span></span></dd></div>      <div><dt>Benefit</dt><dd><a href="../cases.html?open=matrix"><span class="rn">XIV</span>Reduced Risk</a></dd></div>
-      <div><dt>Sector</dt><dd>Safety and rescue, Cybersecurity</dd></div>
-<div><dt>Collections</dt><dd><a href="../chanticleer.html" title="Security and threat-watching">Security and threat-watching</a></dd></div><div><dt>Registry</dt><dd><a href="https://oecd.ai/en/incidents/2026-04-28-f5d8">OECD AI Incidents Monitor <span class="mono">2026-04-28-f5d8</span></a></dd></div>    </dl>
-
-  </aside>
+      <div class="field-row" data-field-key="systems[].model_name" id="field-systems-model_name">
+        <dt>Model</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].model_version" id="field-systems-model_version">
+        <dt>Release</dt>
+        <dd>
+          <p class="field-answer">Not named in the cited sources. Wiz&#39;s write-up credits &#39;AI-augmented tooling, particularly automated reverse engineering using IDA MCP&#39; and does not name Claude. The Register and WebProNews name Claude Code.</p>
+<p class="field-editor-note"><em>Editor’s note.</em> This description has not been verified as an exact model release.</p>        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].provider" id="field-systems-provider">
+        <dt>Provider</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].component_role" id="field-systems-component_role">
+        <dt>Role</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].deployment_configuration" id="field-systems-deployment_configuration">
+        <dt>Configuration</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].inputs_outputs" id="field-systems-inputs_outputs">
+        <dt>Inputs and outputs</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="systems[].autonomy_permissions" id="field-systems-autonomy_permissions">
+        <dt>Autonomy</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="workflow" id="field-workflow">
+        <dt>Workflow</dt>
+        <dd>
+          <p class="field-answer">A closed-source target that researchers could obtain and disassemble. GitHub&#39;s backend git services also ship as GitHub Enterprise Server binaries. Those binaries gave automated reverse engineering something to work on, and GHES 3.19.1 gave a place to confirm the exploit. AI-augmented tooling for reverse engineering: IDA MCP (per Wiz) driven by Claude Code (per The Register). It reconstructed internal protocols and traced where user input could influence server behavior across the pipeline. Experienced vulnerability researchers: six named Wiz authors formed the hypothesis and built and confirmed a working exploit. They wrote what GitHub called a thorough report that clearly demonstrated the impact. A beneficiary with a Bug Bounty intake and an on-call security team. GitHub reproduced the bug within 40 minutes of the report. It deployed a fix to github.com at 7:00 pm UTC the same day.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="human_oversight" id="field-human_oversight">
+        <dt>Human oversight</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="ai_relationship" id="field-ai_relationship">
+        <dt>Relation to AI</dt>
+        <dd>
+          <p class="field-answer">benefit created</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="ai_contribution" id="field-ai_contribution">
+        <dt>AI contribution</dt>
+        <dd>
+          <p class="field-answer">The AI&#39;s documented contribution is speed of analysis, on the researchers&#39; own account. Wiz writes that AI-augmented reverse-engineering tooling, particularly IDA MCP, let it rapidly analyze GitHub&#39;s compiled binaries and reconstruct internal protocols. Wiz says that speed would not have been feasible manually. Sagi Tzadik told Dark Reading that with AI tools it took under 48 hours from idea to working exploit. The Register adds that the team used Claude Code “to take a lot of the legwork out of the process”. The hypothesis, the exploit, the report and the fix were human work. Six named Wiz researchers confirmed RCE on GHES 3.19.1 and wrote what GitHub called a thorough report. GitHub&#39;s security and engineering teams reproduced the bug within 40 minutes and deployed the fix. GitHub&#39;s own post, the CVE record and the GHES release notes describe a Bug Bounty report without mentioning AI. The AI-assistance claim therefore rests on Wiz and on outlets quoting Wiz. Wiz&#39;s write-up, in the text as read, names IDA MCP and not Claude.</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-2">
+    <h2 id="field-group-2">Benefits</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="outcomes[].id" id="field-outcomes-id">
+        <dt>Outcome identifiers</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].claim" id="field-outcomes-claim">
+        <dt>Benefit</dt>
+        <dd>
+          <p class="field-answer">went from idea to working exploit in under 48 hours</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].benefit_type" id="field-outcomes-benefit_type">
+        <dt>Category</dt>
+        <dd>
+          <p class="field-answer">Reduced Risk</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].status" id="field-outcomes-status">
+        <dt>Status</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].stakeholder_group" id="field-outcomes-stakeholder_group">
+        <dt>Beneficiary groups</dt>
+        <dd>
+          <p class="field-answer">Organizations.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].beneficiaries" id="field-outcomes-beneficiaries">
+        <dt>Beneficiaries</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].beneficiary_count" id="field-outcomes-beneficiary_count">
+        <dt>Reach</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].distribution" id="field-outcomes-distribution">
+        <dt>Distribution and access</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].duration" id="field-outcomes-duration">
+        <dt>Duration</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].unexpected" id="field-outcomes-unexpected">
+        <dt>Expected?</dt>
+        <dd>
+          <p class="field-answer">Yes</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="outcomes[].tradeoffs" id="field-outcomes-tradeoffs">
+        <dt>Costs and harms</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-3">
+    <h2 id="field-group-3">Measurement</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="evaluations[].id" id="field-evaluations-id">
+        <dt>Studies</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].design" id="field-evaluations-design">
+        <dt>Study design</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].measurement_method" id="field-evaluations-measurement_method">
+        <dt>Measurement</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].setting_sample" id="field-evaluations-setting_sample">
+        <dt>Setting and sample</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].metric" id="field-evaluations-metric">
+        <dt>Measures</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].comparator" id="field-evaluations-comparator">
+        <dt>Comparison</dt>
+        <dd>
+          <p class="field-answer">manual reverse engineering of GitHub&#39;s compiled binaries without AI tooling</p>
+<p class="field-editor-note"><em>Editor’s note.</em> The comparison is assumed. Field review pending.</p>        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].effect" id="field-evaluations-effect">
+        <dt>Results</dt>
+        <dd>
+          <p class="field-answer">Reference: an impractical amount of time and manual effort (Wiz); months&#39; worth of manual analysis, per The Register&#39;s account of Wiz. Result: from idea to working exploit in less than 48 hours.</p>
+<p class="field-editor-note"><em>Editor’s note.</em> The comparison is assumed. Field review pending.</p>        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].ai_uplift" id="field-evaluations-ai_uplift">
+        <dt>Additional value from AI</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].uncertainty_limitations" id="field-evaluations-uncertainty_limitations">
+        <dt>Limitations</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].exposure" id="field-evaluations-exposure">
+        <dt>Denominators</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="evaluations[].reproduction_materials" id="field-evaluations-reproduction_materials">
+        <dt>Materials for replication</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-4">
+    <h2 id="field-group-4">Money</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="economics[].measure_type" id="field-economics-measure_type">
+        <dt>Kind of value</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].amount" id="field-economics-amount">
+        <dt>Amount</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].currency_price_basis" id="field-economics-currency_price_basis">
+        <dt>Currency and prices</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].period_unit" id="field-economics-period_unit">
+        <dt>Period and unit</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].realization" id="field-economics-realization">
+        <dt>Realization</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].recipient_payer" id="field-economics-recipient_payer">
+        <dt>Recipients and payers</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].gross_net" id="field-economics-gross_net">
+        <dt>Gross or net</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].costs[]" id="field-economics-costs">
+        <dt>Included costs</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].counterfactual" id="field-economics-counterfactual">
+        <dt>Comparison</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].valuation_method" id="field-economics-valuation_method">
+        <dt>Method</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="economics[].return_payback" id="field-economics-return_payback">
+        <dt>Return and payback</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-5">
+    <h2 id="field-group-5">People and places</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="actors[]" id="field-actors">
+        <dt>Participants</dt>
+        <dd>
+          <p class="field-answer">Developer: <span class="field-identity"><img src="../logos/thumbs/anthropic.webp" alt="" width="28" height="20" loading="lazy" decoding="async"><span>Anthropic</span></span> (Claude Code); the maker of IDA MCP is not named in the sources. Operator: Wiz Research (Sagi Tzadik, Nir Ohfeld, Ronen Shustin, Hillai Ben-Sasson, Yuval Avrahami, Noam Malron).</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="places[]" id="field-places">
+        <dt>Jurisdictions</dt>
+        <dd>
+          <p class="field-answer">Developer: <span class="field-identity"><img src="../flags/united-states.png" alt="" width="20" height="14" loading="lazy" decoding="async"><span>United States</span></span>. Operator: <span class="field-identity"><img src="../flags/united-states.png" alt="" width="20" height="14" loading="lazy" decoding="async"><span>United States</span></span>.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="actors[].ownership_control" id="field-actors-ownership_control">
+        <dt>Ownership and control</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="infrastructure_dependencies[]" id="field-infrastructure_dependencies">
+        <dt>Dependencies</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="cross_border_flows[]" id="field-cross_border_flows">
+        <dt>Cross-border connections</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="strategic_assessments[]" id="field-strategic_assessments">
+        <dt>Geopolitical implications</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-6">
+    <h2 id="field-group-6">Follow-up</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="replication.conditions" id="field-replication-conditions">
+        <dt>Conditions for replication</dt>
+        <dd>
+          <p class="field-answer">AI output has to be confirmed by exploit, not trusted. Wiz confirmed RCE on a GHES 3.19.1 instance before reporting. That is why GitHub could validate the report in 40 minutes. The receiving organization must be able to patch its own service and ship fixes to self-hosted customers. GHES customers stayed exposed until they upgraded to the patched versions released from 10 March 2026. Disclosure must wait for the patches, here from 4 March to 28 April 2026. No exploitation had occurred, so the benefit is an exposure closed, not a loss recovered.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="replication.attempts[]" id="field-replication-attempts">
+        <dt>Replication attempts</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="follow_up[]" id="field-follow_up">
+        <dt>Later findings</dt>
+        <dd>
+          <p class="field-answer">28 April 2026. GitHub&#39;s 28 April 2026 disclosure confirmed the same-day fix, patches for all supported GitHub Enterprise Server releases, and a forensic investigation that found no exploitation beyond the researchers&#39; own testing.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="availability" id="field-availability">
+        <dt>Availability</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="decisions[].institution_task" id="field-decisions-institution_task">
+        <dt>Institutional decision</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="decisions[].grounds" id="field-decisions-grounds">
+        <dt>Grounds</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="decisions[].action_outcome" id="field-decisions-action_outcome">
+        <dt>Action and result</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="decisions[].success_criterion" id="field-decisions-success_criterion">
+        <dt>Success criterion</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-7">
+    <h2 id="field-group-7">Evidence</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="sources[].id" id="field-sources-id">
+        <dt>Source numbers</dt>
+        <dd>
+          <p class="field-answer">AIBD-0206-source-0001–0009</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sources[].citation_locator" id="field-sources-citation_locator">
+        <dt>Citations</dt>
+        <dd>
+          <p class="field-answer">Numbered references below.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sources[].language" id="field-sources-language">
+        <dt>Language</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sources[].relationship" id="field-sources-relationship">
+        <dt>Source relationships</dt>
+        <dd>
+          <p class="field-answer">Beneficiary, Operator, Independent, Developer</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sources[].upstream_sources" id="field-sources-upstream_sources">
+        <dt>Original evidence</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sources[].access_version" id="field-sources-access_version">
+        <dt>Access and versions</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="claims[].proposition" id="field-claims-proposition">
+        <dt>Supported findings</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="claims[].evidence_links" id="field-claims-evidence_links">
+        <dt>Evidence links</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="claims[].evidence_strength" id="field-claims-evidence_strength">
+        <dt>Evidence strength</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="claims[].missingness" id="field-claims-missingness">
+        <dt>Missing evidence</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-8">
+    <h2 id="field-group-8">Grades</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="assessments[].target" id="field-assessments-target">
+        <dt>Assessed benefits</dt>
+        <dd>
+          <p class="field-answer">Organizations.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].depth" id="field-assessments-depth">
+        <dt>Depth</dt>
+        <dd>
+          <p class="field-answer">Organizations: 2.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].rationale" id="field-assessments-rationale">
+        <dt>Reasons</dt>
+        <dd>
+          <p class="field-answer">Organizations: GitHub closed a critical remote code execution hole in its git push pipeline within hours of the report. The fix reached github.com at 7:00 pm UTC on 4 March 2026. GitHub also shipped patches for six GitHub Enterprise Server release lines. Wiz earned what GitHub calls one of the highest rewards in the history of its Bug Bounty program. The loss avoided is hypothetical. GitHub&#39;s forensic investigation found that no other account had triggered the code path. No customer data was accessed, modified or exfiltrated. The benefit is an exposure closed rather than a demonstrated loss prevented.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].status_basis" id="field-assessments-status_basis">
+        <dt>Observed or intended</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].rubric_version" id="field-assessments-rubric_version">
+        <dt>Rubric</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].assessor_date" id="field-assessments-assessor_date">
+        <dt>Assessor and date</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].alternatives" id="field-assessments-alternatives">
+        <dt>Alternative assessments</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="assessments[].display_confidence" id="field-assessments-display_confidence">
+        <dt>Fill</dt>
+        <dd>
+          <p class="field-answer">Independently reported</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-9">
+    <h2 id="field-group-9">Entry details</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="case_kind" id="field-case_kind">
+        <dt>Kind</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="case_links[]" id="field-case_links">
+        <dt>Related entries</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="sector" id="field-sector">
+        <dt>Field</dt>
+        <dd>
+          <p class="field-answer">Cybersecurity: vulnerability research and software supply chain. Bug bounty research: AI-assisted reverse engineering of closed-source server binaries.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="purpose" id="field-purpose">
+        <dt>Purpose</dt>
+        <dd>
+          <p class="field-answer">Claude Code is Anthropic&#39;s agentic coding tool, built to read a codebase, edit files, run commands and connect to external tools over MCP. Wiz used it, with IDA MCP, to automate reverse engineering of GitHub&#39;s compiled binaries. Analyzing code for flaws is within that general purpose. The benefit was an application of what the tool was built to do rather than a departure from it.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="record_dates" id="field-record_dates">
+        <dt>Dates</dt>
+        <dd>
+          <p class="field-answer">Date basis unassessed: 2026 (precision unassessed). Updated: 21 October 2026.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="deployment_stage" id="field-deployment_stage">
+        <dt>Stage</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="version" id="field-version">
+        <dt>Version</dt>
+        <dd>
+          <p class="field-answer">SHA-256: ff0aea37a833…</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+  <section class="field-group" aria-labelledby="field-group-10">
+    <h2 id="field-group-10">References</h2>
+    <dl class="field-rows">
+      <div class="field-row" data-field-key="external_references[]" id="field-external_references">
+        <dt>Other identifiers</dt>
+        <dd>
+          <p class="field-answer">oecd_aim: 2026-04-28-f5d8.</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="taxonomy_crosswalks[]" id="field-taxonomy_crosswalks">
+        <dt>Category mappings</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="brief" id="field-brief">
+        <dt>Brief</dt>
+        <dd>
+          <p class="field-answer">Not assessed</p>
+        </dd>
+      </div>
+      <div class="field-row" data-field-key="revision_history[]" id="field-revision_history">
+        <dt>Revisions</dt>
+        <dd>
+          <p class="field-answer">6 revisions. Latest: 21 October 2026.</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
 </div>
+  <section class="record-references" aria-labelledby="sources">
+    <h2 id="sources">Sources</h2>
+    <ol class="compact-sources">
+      <li id="source-1"><p><a href="https://github.blog/security/securing-the-git-push-pipeline-responding-to-a-critical-remote-code-execution-vulnerability/" rel="noopener">Securing the git push pipeline: Responding to a critical remote code execution vulnerability</a> Wales A / GitHub (2026).</p></li>
+      <li id="source-2"><p><a href="https://www.theregister.com/2026/04/29/github_woah_a_genuinely_helpful/" rel="noopener">GitHub: Zounds, a genuinely helpful AI-assisted bug report that isn&#39;t total slop! Here, Wiz, take this wad of cash</a> Jones C / The Register (2026).</p></li>
+      <li id="source-3"><p><a href="https://www.theverge.com/news/920295/github-remote-code-execution-vulnerability-fix" rel="noopener">GitHub rushed to fix a critical vulnerability in less than six hours</a> Warren T / The Verge (2026).</p></li>
+      <li id="source-4"><p><a href="https://www.darkreading.com/application-security/reverse-engineering-ai-unearths-high-severity-github-bug" rel="noopener">Reverse Engineering With AI Unearths High-Severity GitHub Bug</a> Culafi A / Dark Reading (2026).</p></li>
+      <li id="source-5"><p><a href="https://www.webpronews.com/wizs-ai-powered-strike-how-claude-cracked-githubs-git-fortress-for-a-fat-bounty/" rel="noopener">Wiz&#39;s AI-Powered Strike: How Claude Cracked GitHub&#39;s Git Fortress for a Fat Bounty</a> Ritchie D / WebProNews (2026).</p></li>
+      <li id="source-6"><p><a href="https://www.wiz.io/blog/github-rce-vulnerability-cve-2026-3854" rel="noopener">Securing GitHub: Wiz Research uncovers Remote Code Execution in GitHub.com and GitHub Enterprise Server (CVE-2026-3854)</a> Tzadik S, Ohfeld N, Shustin R, Ben-Sasson H, Avrahami Y, Malron N / Wiz Research (2026).</p></li>
+      <li id="source-7"><p><a href="https://code.claude.com/docs/en/overview" rel="noopener">Overview</a> Anthropic (2026). Claude Code overview. Claude Code documentation.</p></li>
+      <li id="source-8"><p><a href="https://cveawg.mitre.org/api/cve/CVE-2026-3854" rel="noopener">CVE-2026-3854</a> GitHub (CNA) (2026).</p></li>
+      <li id="source-9"><p><a href="https://docs.github.com/en/enterprise-server@3.14/admin/release-notes" rel="noopener">GitHub Enterprise Server 3.14 release notes (3.14.25)</a> GitHub (2026).</p></li>
+    </ol>
+  </section>
+<p class="record-related">Collections: <a href="../chanticleer.html">Security and threat-watching</a>.</p>  <footer class="record-downloads">
+    <a href="AIBD-0206.json">Full data and source notes</a>
+    <a href="../fields.html">Field definitions</a>
+    <button type="button" class="textbtn" data-keep="AIBD-0206" aria-pressed="false">Save</button>
+<a href="mailto:peter.vartanian@icloud.com?subject=AIBD-0206%20correction">Correction</a>  </footer>
+</article>
 </main>
 <footer class="footer">
   <div class="footer-inner">
