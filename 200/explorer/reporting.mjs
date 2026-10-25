@@ -29,9 +29,7 @@ export function reportingFieldsForQuestion(reportingData, questionId) {
 export function reportingReferenceMarkup(reportingData, questionId, inventoryHref) {
   const fields = reportingFieldsForQuestion(reportingData, questionId);
   if (!fields.length) return '';
-  const priority = reportingData.questionReferences?.[questionId] || [];
-  const references = (priority.length ? fields.filter(field => priority.includes(field.id)) : fields.slice(0, 3));
-  return `<div class="reporting-reference"><span class="reporting-reference-label">OECD reporting fields</span><span class="reporting-reference-fields">${references.map(field => `<span>${field.number}. ${escape(field.label)}</span>`).join('')}</span><a class="reporting-inventory-link" href="${href(inventoryHref)}">Reporting fields and requests</a></div>`;
+  return `<a class="reporting-inventory-link" href="${href(inventoryHref)}">Compare reporting fields</a>`;
 }
 
 export function reportingInventoryMarkup(reportingData, caseData, routeFor, { questionId, fieldId } = {}) {
