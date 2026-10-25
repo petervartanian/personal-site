@@ -432,6 +432,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var pendingTo = (new URLSearchParams(window.location.search).get('to') || '') || ((new URLSearchParams(window.location.search).get('open') === 'entities') ? 'orgs' : '');
   var controls = ex.querySelector('[data-case-controls]');
   var viewSelect = ex.querySelector('[data-case-view]');
+  var sortSelect = ex.querySelector('[data-case-sort]');
   var roleSelect = ex.querySelector('[data-case-role]');
   var entityLogoObserver = null;
   var observedEntityLogos = new WeakSet();
@@ -530,6 +531,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     openTool = (p.get('open') || '').split(',').map(function (k) { return ALIAS[k] || k; }).filter(function (k) { return PANELS.indexOf(k) !== -1; })[0] || null;
     if (typeof readFilters === 'function') readFilters(p);
     if (typeof setRole === 'function') setRole(p.get('role') || '');
+    readSort(p);
     applyTools(); apply();
   });
   if (viewSelect) viewSelect.addEventListener('change', function () { openTool = viewSelect.value || null; applyTools(); apply(true); });
@@ -540,21 +542,55 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     sortState.key = key; sortState.dir = dir;
     var val = function (r) {
       var d = rowData.get(r).data;
-      if (key === 'depth') return d.depth === 'n/a' ? -1 : parseInt(d.depth, 10);
-      if (key === 'year') return parseInt(d.year, 10);
+      if (key === 'depth') return d.depth === 'n/a' ? null : parseInt(d.depth, 10);
+      if (key === 'date') return d.date || null;
       if (key === 'sources') return parseInt(d.sources, 10);
       if (key === 'evidence') return -(CONF[d.evidence] || 0);
       return d[key] || '';
     };
-    var sorted = rows.slice().sort(function (p, q) { var x = val(p), y = val(q); return (x < y ? -1 : x > y ? 1 : 0) * -dir; });
-    if (key === 'headline' || key === 'sector') sorted.reverse();
-    rows = sorted;
-    ex.querySelectorAll('[data-sort-key]').forEach(function (x) { var on = x.getAttribute('data-sort-key') === key; x.classList.toggle('on', on); if (on) x.setAttribute('aria-sort', dir === 1 ? 'descending' : 'ascending'); else x.removeAttribute('aria-sort'); });
+    rows = rows.slice().sort(function (p, q) {
+      var first = rowData.get(p), second = rowData.get(q);
+      if (!key) return first.rank - second.rank;
+      var x = val(p), y = val(q);
+      // An unassessed depth or date belongs last in either direction. Ties
+      // retain the existing evidence-aware order, even after another sort.
+      if (x === null || y === null) return x === y ? first.rank - second.rank : x === null ? 1 : -1;
+      return (x < y ? -1 : x > y ? 1 : 0) * -dir || first.rank - second.rank;
+    });
+    ex.querySelectorAll('[data-sort-key]').forEach(function (x) {
+      var on = x.getAttribute('data-sort-key') === (key || 'depth');
+      x.classList.toggle('on', on);
+      x.setAttribute('aria-pressed', String(on));
+      x.setAttribute('aria-label', x.textContent + (on ? ', ' + (dir === 1 ? 'descending' : 'ascending') + '; reverse order' : '; sort'));
+    });
+    if (sortSelect) {
+      var choice = key ? key + ':' + (dir === 1 ? 'desc' : 'asc') : 'depth:desc';
+      var available = Array.prototype.some.call(sortSelect.options, function (option) { return option.value === choice; });
+      var custom = sortSelect.querySelector('[data-column-order]');
+      if (custom) { custom.hidden = available; custom.textContent = (key === 'headline' ? 'Case' : key === 'sector' ? 'Sector' : 'Sources') + (key === 'sources' ? (dir === 1 ? ': high to low' : ': low to high') : (dir === 1 ? ': Z–A' : ': A–Z')); }
+      sortSelect.value = available ? choice : '';
+    }
   }
+  function readSort(address) {
+    var requested = (address.get('sort') || '').split(':');
+    var key = requested[0] === 'year' ? 'date' : requested[0];
+    if (['depth', 'date', 'evidence', 'headline', 'sector', 'sources'].indexOf(key) !== -1) {
+      sortBy(key, requested[1] === 'asc' ? -1 : 1);
+    } else if (role && ROLE_SORT[role]) {
+      sortBy(ROLE_SORT[role][0], ROLE_SORT[role][1]);
+    } else {
+      sortBy(null, 1);
+    }
+  }
+  if (sortSelect) sortSelect.addEventListener('change', function () {
+    var requested = sortSelect.value.split(':');
+    sortBy(requested[0], requested[1] === 'asc' ? -1 : 1);
+    apply(true);
+  });
   ex.querySelectorAll('[data-sort-key]').forEach(function (h) {
     h.addEventListener('click', function () {
       var key = h.getAttribute('data-sort-key');
-      sortBy(key, sortState.key === key ? -sortState.dir : 1);
+      sortBy(key, (sortState.key || 'depth') === key ? -sortState.dir : key === 'headline' || key === 'sector' ? -1 : 1);
       apply(true);
     });
   });
@@ -644,13 +680,13 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var rowData = new WeakMap();
   var baseCounts = Object.create(null);
   KEYS.forEach(function (key) { baseCounts[key] = Object.create(null); });
-  rows.forEach(function (row) {
+  rows.forEach(function (row, rank) {
     var data = Object.assign({}, row.dataset), facets = Object.create(null);
     KEYS.forEach(function (key) {
       facets[key] = Array.from(new Set((data[key] || '').split('|')));
       facets[key].forEach(function (value) { baseCounts[key][value] = (baseCounts[key][value] || 0) + 1; });
     });
-    rowData.set(row, { data: data, facets: facets, places: data.place ? data.place.split(';') : [] });
+    rowData.set(row, { data: data, facets: facets, places: data.place ? data.place.split(';') : [], rank: rank });
   });
   var matchedRows = rows.slice();
   var mountedRows = Array.prototype.slice.call(resultList.querySelectorAll('[data-row]'));
@@ -683,7 +719,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (q) q.value = p.get('q') || '';
   }
   var role = params.get('role') || '';
-  var ROLE_SORT = { buyer: ['evidence', 1], regulator: ['evidence', 1], insurer: ['depth', 1], reporter: ['year', 1] };
+  var ROLE_SORT = { buyer: ['evidence', 1], regulator: ['evidence', 1], insurer: ['depth', 1], reporter: ['date', 1] };
   function roleLine(c) {
     if (role === 'buyer') {
       var s = c.sys + (c.dev && c.dev !== 'Unstated' ? ', by ' + c.dev : '') + '. ';
@@ -731,7 +767,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var body = 'What happened:\n' + f.body.value.trim() + '\n\nSource: ' + f.source.value.trim() + (f.who.value.trim() ? '\n\nFrom: ' + f.who.value.trim() : '');
     window.location.href = submitForm.getAttribute('action') + '?subject=' + encodeURIComponent('A case for the AI Benefits Database') + '&body=' + encodeURIComponent(body);
   });
-  (function () { var s = (params.get('sort') || '').split(':'); if (s[0] && ex.querySelector('[data-sort-key="' + s[0] + '"]')) sortBy(s[0], s[1] === 'asc' ? -1 : 1); })();
+  readSort(params);
   function hasAny(obj) { for (var k in obj) if (obj.hasOwnProperty(k)) return true; return false; }
   // Jurisdictions and organizations are downstream of each other: the map's circles, rings and routes recount from the cases that match the filters.
   function paintAtlas() {
