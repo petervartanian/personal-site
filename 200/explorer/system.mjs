@@ -15,20 +15,21 @@ export function systemSelection(data, current, routeFor) {
   };
   const actor = (id, name, role) => `<a class="model-actor${relatedIds.has(id) ? ' related-system' : ''}" data-relationship="${id}" href="${routeFor('controlRelationships', id)}" aria-label="${escape(`${name}: ${role}. ${relationship(id).title}`)}"${currentAttr('controlRelationships', id)}><span class="model-mark" aria-hidden="true">${marks[id]}</span><span><strong>${escape(name)}</strong><span>${escape(role)}</span></span></a>`;
   const edge = (id, field, text, kind, targetView, targetId) => {
-    const target = data[targetView].find(entry => entry.id === targetId);
-    return `<a class="model-loop-edge ${kind}${active(targetView, targetId) ? ' is-highlighted' : ''}" data-connection="${id}-${field}" href="${routeFor(targetView, targetId, undefined, 'all-connections')}" aria-label="${escape(`${text}: ${target.title}`)}"${currentAttr(targetView, targetId)}><span>${escape(text)}</span></a>`;
+    const target = relationship(id);
+    const selected = active('controlRelationships', id) && current.claim === field;
+    return `<a class="model-loop-edge ${kind}${selected ? ' is-highlighted' : ''}" data-connection="${id}-${field}" href="${routeFor('controlRelationships', id, undefined, undefined, {claim: field})}" aria-label="${escape(`${text}: ${target.title}`)}"${selected ? ' aria-current="true"' : ''}><span>${escape(text)}</span></a>`;
   };
   const process = (relationshipId, view, id, text) => `<a class="model-process${relatedIds.has(relationshipId) ? ' related-system' : ''}" data-process="${relationshipId}" href="${routeFor(view, id, undefined, 'all-connections')}"${currentAttr(view, id)}>${escape(text)}</a>`;
   const access = (id, text, eventIds, className) => `<a class="model-access ${className}${active('framework', id) || (current.view === 'events' && eventIds.includes(current.itemId)) ? ' is-highlighted' : ''}" data-connection="${id}" href="${routeFor('framework', id)}"${currentAttr('framework', id)}><span>${escape(text)}</span></a>`;
   const supplementary = (view, id, text, className, mark = '') => `<a class="model-supplement ${className}" href="${routeFor(view, id)}"${currentAttr(view, id)}>${mark}<span>${escape(text)}</span></a>`;
   return `<section class="unified-model" aria-labelledby="model-heading">
-    <div class="model-heading"><h2 id="model-heading">Systems and response</h2><button type="button" class="model-read-analysis" data-read-analysis>Read analysis</button><span class="model-key"><span class="key-access">Access</span><span class="key-control">Control</span><span class="key-information">Information</span></span></div>
+    <div class="model-heading"><h2 id="model-heading"><a href="${routeFor('framework', 'all-connections')}">Systems and response</a></h2><span class="model-key"><span class="key-access">Access</span><span class="key-control">Control</span><span class="key-information">Information</span></span></div>
     <div class="unified-model-scroll" role="region" aria-label="Systems and their control relationships" tabindex="0">
       <div class="model-grid">
         <a class="model-notification${active('events', 'developer-attribution') ? ' is-highlighted' : ''}" data-connection="notification" href="${routeFor('events', 'developer-attribution', undefined, 'all-connections')}"${currentAttr('events', 'developer-attribution')}><span>July 20: OpenAI notifies Hugging Face</span></a>
         <div class="model-station model-evaluation${relatedIds.has('evaluation-control') ? ' is-highlighted' : ''}">
           ${actor('evaluation-control', 'OpenAI', 'Research and security teams')}
-          <div class="model-loop">${edge('evaluation-control', 'controlAction', 'Restart criteria', 'control', 'questions', 'response-authority')}${edge('evaluation-control', 'feedback', 'Missed warning signs', 'information', 'framework', 'cause-warning-escalation')}</div>
+          <div class="model-loop">${edge('evaluation-control', 'controlAction', 'Repairs and restart', 'control', 'questions', 'response-authority')}${edge('evaluation-control', 'feedback', 'Missed warning signs', 'information', 'framework', 'cause-warning-escalation')}</div>
           ${process('evaluation-control', 'framework', 'cause-agent-motives', 'Evaluation agents')}
           ${supplementary('framework', 'capability-agent-coordination', 'Shared message board', 'model-board')}
         </div>
@@ -54,11 +55,10 @@ export function systemAnalysis(item, citationLinks, related, routeFor, topics = 
   const questionFields = item.questionFields || [];
   const field = (label, key) => {
     if (questionFields.includes(key)) return '';
-    const refs = item.sourceRefs.filter(ref => ref.supports.split(',').map(x => x.trim()).includes(key));
-    const citations = refs.map(ref => `<a class="citation" href="${routeFor('controlRelationships',item.id,ref.sourceId)}" aria-label="Show source for ${label.toLowerCase()}">[${item.sourceIds.indexOf(ref.sourceId)+1}]</a>`).join(' ');
+    const citations = citationLinks(item, key, 'controlRelationships');
     return `<div class="system-fact" data-system-field="${key}"><dt>${label}</dt><dd>${escape(item[key])} ${citations}</dd></div>`;
   };
-  const decisionLinks = item.questionIds.map(id => questions.find(question => question.id === id)).filter(Boolean).map(question => `<a href="${routeFor('questions',question.id,undefined,'all-connections')}">${escape(question.title)}</a>`).join('');
+  const decisionLinks = item.questionIds.map(id => questions.find(question => question.id === id)).filter(Boolean).map(question => `<a href="${routeFor('questions',question.id)}">${escape(question.title)}</a>`).join('');
   const openQuestions = questionFields.map(key => `<li data-question-field="${key}">${escape(item[key])}</li>`).join('');
-  return `<h2 id="analysis-title" tabindex="-1">${escape(item.title)}</h2>${decisionLinks ? `<nav class="system-decision-links" aria-label="Investigate this responsibility">${decisionLinks}</nav>` : ''}<section class="system-response" aria-label="Roles and response"><dl class="system-response-roles">${field('Team or operator','controller')}${field('Activity under their control','controlledProcess')}</dl><dl class="system-response-actions">${field('Action or setting','controlAction')}${field('Information and feedback','feedback')}</dl><dl class="system-response-context">${field('Understanding at the time','understanding')}${field('Operating context','context')}</dl></section>${topics}<section class="system-objective"><h3>Proposed requirement</h3><p>${escape(item.requiredConstraint)}</p></section><section class="system-request"><h3>Questions for ${escape(item.informationHolder)}</h3>${openQuestions ? `<ul class="system-open-questions">${openQuestions}</ul>` : ''}<p>${escape(item.informationNeeded)}</p><div class="system-request-links">${item.questionIds.map(id => questions.find(question => question.id === id)).filter(Boolean).map(question => `<a href="${routeFor('questions',question.id)}">${escape(question.title)}</a>`).join('')}</div></section>${topics ? '' : related('controls',item.controlIds,'Safeguards and possible changes')}`;
+  return `<h2 id="analysis-title" tabindex="-1">${escape(item.title)}</h2><p class="system-role">${escape(item.controller)}: ${escape(item.controlledProcess.charAt(0).toLowerCase() + item.controlledProcess.slice(1))}.</p><section class="system-response" aria-label="Actions and information"><dl class="system-response-actions">${field('Action or setting','controlAction')}${field('Information and feedback','feedback')}</dl><dl class="system-response-context">${field('Understanding at the time','understanding')}${field('Operating context','context')}</dl></section>${openQuestions ? `<section class="system-unknowns"><h3>Unresolved</h3><ul>${openQuestions}</ul></section>` : ''}${topics}${decisionLinks ? `<section class="analysis-section"><h3>Assess the response</h3><nav class="system-decision-links" aria-label="Assess this response">${decisionLinks}</nav></section>` : ''}`;
 }
