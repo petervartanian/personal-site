@@ -837,10 +837,12 @@ section.door .lede { max-width: none; margin: 0 0 16px; font-size: clamp(28px, 2
 .door-benefit { display: block; margin: 6px 0 0; color: var(--ink-2); font: 15px/23px var(--sans); }
 .door-item { margin: 0; padding: 18px 0; border-bottom: 1px solid var(--rule); }
 .door-case { margin: 0; font: 20px/28px var(--serif); letter-spacing: 0; }
-.door-src { display: flex; flex-wrap: wrap; align-items: center; gap: 0 10px; margin: 10px 0 0; color: var(--ink-3); font-size: 14px; line-height: 22px; overflow-wrap: anywhere; }
+.door-src { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 0 10px; margin: 10px 0 0; color: var(--ink-3); font-size: 14px; line-height: 22px; overflow-wrap: anywhere; }
+.door-references { display: grid; min-width: 0; gap: 2px; }
+.door-reference { display: flex; flex-wrap: wrap; align-items: center; gap: 0 10px; min-width: 0; }
 .door-src a { display: inline-flex; align-items: center; min-height: 24px; color: var(--ink-2); }
 .door-src time, .door-number { white-space: nowrap; }
-.door-number { font-variant-numeric: tabular-nums; }
+.door-number { display: inline-flex; align-items: center; min-height: 24px; font-variant-numeric: tabular-nums; }
 .door-more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 10px; font-size: 15px; }
 .door-credit { grid-column: 1 / -1; max-width: none; margin: 0; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--ink-3); font: 14px/22px var(--sans); }
 body.door { min-height: 0; }
