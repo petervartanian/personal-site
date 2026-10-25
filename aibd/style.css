@@ -512,6 +512,7 @@ details.fold.small > summary { font-size: 0.8rem; margin: 10px 0 6px; border-bot
 .results .d { padding-top: 2px; }
 .mobile { display: block; overflow: visible; }
 .mobile .string { stroke: var(--rule); stroke-width: var(--rule-width); vector-effect: non-scaling-stroke; shape-rendering: crispEdges; }
+.mobile .mobile-fork { shape-rendering: geometricPrecision; }
 .mobile .full { fill: var(--c); stroke: var(--c); stroke-width: 1.2; stroke-linejoin: round; }
 .mobile .conf-low .full { fill: var(--paper); }
 .mobile .half { fill: var(--c); }
@@ -1095,8 +1096,16 @@ body.door .footer-inner { padding-inline: 24px; }
 .benefit-sources a { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; min-height: 24px; margin-block: -5px; vertical-align: baseline; white-space: nowrap; }
 .benefit-bundle-full { margin: 0; }
 .benefit-bundle-full .benefit-title { font: 500 20px/27px var(--serif); }
+.record-page .record-head-bundled { padding-right: 210px; }
+.money-case-mark:has(.mobile-bundled) { width: 136px; }
 .field-row.field-row-benefit-bundle { grid-template-columns: minmax(0, 1fr); gap: 0; }
 .benefit-item:target { outline: var(--rule-width) solid var(--rule); outline-offset: 6px; }
+@media (max-width: 980px) {
+  .explorer.tabular .results li:has(.mobile-bundled) { grid-template-columns: 136px minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .record-page .record-head-bundled { padding-right: 0; }
+}
 @media (max-width: 480px) {
   .benefit-item { column-gap: 12px; row-gap: 6px; }
   .benefit-text { display: contents; }
