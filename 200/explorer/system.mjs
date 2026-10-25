@@ -29,7 +29,7 @@ export function systemSelection(data, current, routeFor) {
         <a class="model-notification${active('events', 'developer-attribution') ? ' is-highlighted' : ''}" data-connection="notification" href="${routeFor('events', 'developer-attribution', undefined, 'all-connections')}"${currentAttr('events', 'developer-attribution')}><span>July 20: OpenAI notifies Hugging Face</span></a>
         <div class="model-station model-evaluation${relatedIds.has('evaluation-control') ? ' is-highlighted' : ''}">
           ${actor('evaluation-control', 'OpenAI', 'Research and security teams')}
-          <div class="model-loop">${edge('evaluation-control', 'controlAction', 'Restart criteria', 'control', 'questions', 'response-authority')}${edge('evaluation-control', 'feedback', 'Missed warning signs', 'information', 'framework', 'cause-warning-escalation')}</div>
+          <div class="model-loop">${edge('evaluation-control', 'controlAction', 'Repairs and restart', 'control', 'questions', 'response-authority')}${edge('evaluation-control', 'feedback', 'Missed warning signs', 'information', 'framework', 'cause-warning-escalation')}</div>
           ${process('evaluation-control', 'framework', 'cause-agent-motives', 'Evaluation agents')}
           ${supplementary('framework', 'capability-agent-coordination', 'Shared message board', 'model-board')}
         </div>
