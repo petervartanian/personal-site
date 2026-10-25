@@ -192,6 +192,12 @@
       "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
+      "source": null,
+      "editor": "AIBD"
     }
   ],
   "confidence": "reported",
@@ -201,7 +207,7 @@
   "profile": {
     "case_id": "AIBD-0206",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "ff0aea37a83383bd3c595a9dca088dafbf8eda9367a2aafc4e5e9a763f076a43",
+    "source_fingerprint": "7f34bca5fb89430f7594439f89d31ee3a5bdf590dac0a26ae25031315a985960",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -401,7 +407,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "GitHub closed the vulnerability within hours and patched six Enterprise Server release lines. Its investigation found that no other account had triggered the affected code path and that no customer data had been accessed, changed, or removed. The benefit is a corrected exposure, with no measured loss avoided."
+        }
       },
       "assessments[].rubric_version": {
         "state": "not_assessed",
@@ -600,7 +609,10 @@
         "state": "not_assessed",
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "Wiz reports less than 48 hours from the initial idea to a working exploit. Its comparison with months of manual analysis is an estimate, without a measured control."
+        }
       },
       "evaluations[].exposure": {
         "state": "not_assessed",
@@ -634,8 +646,7 @@
         "coverage": "partial",
         "family": "evaluations",
         "display": {
-          "answer": "went from idea to working exploit in under 48 hours",
-          "editor_note": ""
+          "answer": "Time from the initial idea to a working exploit, time to verify the report, and time to deploy a fix."
         }
       },
       "evaluations[].reproduction_materials": {
@@ -713,7 +724,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "GitHub fixed github.com on 4 March 2026 and released Enterprise Server patches from 10 March. Public disclosure followed on 28 April, with an investigation that found no exploitation beyond the researchers’ testing."
+        }
       },
       "human_oversight": {
         "state": "value_present",
@@ -758,9 +772,25 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "GitHub and organizations using GitHub Enterprise Server."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+          "record_fields": [
+            "account",
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "GitHub and organizations using GitHub Enterprise Server."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "not_assessed",
@@ -805,7 +835,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "GitHub fixed a vulnerability that allowed remote code execution after Wiz researchers reported it."
+        }
       },
       "outcomes[].distribution": {
         "state": "not_assessed",
@@ -958,6 +991,11 @@
                 "date": "2026-10-21",
                 "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
+                "editor": "AIBD"
               }
             ]
           }
@@ -1009,7 +1047,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Researchers need access to the compiled software and an environment for testing the suspected flaw. They must establish that the exploit works, report it privately, and allow time for patches. Self-hosted customers need to install the patched release."
+        }
       },
       "revision_history[]": {
         "state": "value_present",
@@ -1049,6 +1090,11 @@
               {
                 "date": "2026-10-21",
                 "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
                 "editor": "AIBD"
               }
             ]
@@ -1517,7 +1563,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "ff0aea37a83383bd3c595a9dca088dafbf8eda9367a2aafc4e5e9a763f076a43"
+            "7f34bca5fb89430f7594439f89d31ee3a5bdf590dac0a26ae25031315a985960"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1562,22 +1608,25 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Wiz researchers obtained GitHub’s compiled software that also shipped with Enterprise Server. They used AI tools to examine it and developed an exploit that they confirmed on version 3.19.1. Their report showed that remote code execution was possible. GitHub reproduced the issue within 40 minutes and fixed github.com that evening."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 34,
+      "known": 35,
       "reviewed": 0,
-      "record_mapped": 34,
-      "not_assessed": 57,
+      "record_mapped": 35,
+      "not_assessed": 56,
       "complete": false,
       "by_state": {
-        "value_present": 34,
+        "value_present": 35,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 57,
+        "not_assessed": 56,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

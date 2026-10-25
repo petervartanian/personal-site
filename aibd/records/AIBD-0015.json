@@ -12,7 +12,7 @@
   "category": "benefit created",
   "unexpected": false,
   "purpose": "Built to search program space for constructions and heuristics in mathematics and computer science. The cap set constructions were that purpose.",
-  "system": "FunSearch (LLM-guided evolutionary program search with automated evaluator)",
+  "system": "FunSearch using Codey, a PaLM 2-based code model, with an evolutionary search and automated evaluator",
   "model_version": null,
   "developer": "DeepMind",
   "deployer": "DeepMind with Jordan Ellenberg (University of Wisconsin–Madison)",
@@ -137,6 +137,12 @@
       "change": "Organization name standardized to DeepMind.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Identified the AI model, software, configuration, and human controls from the original paper, supplement, or author documentation.",
+      "source": "https://www.nature.com/articles/s41586-023-06924-6",
+      "editor": "AIBD"
     }
   ],
   "confidence": "reported",
@@ -146,7 +152,7 @@
   "profile": {
     "case_id": "AIBD-0015",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "0d174bdb3dba0b6f5b1321930cd748c0dbd6bd2ba17da40bfa5b200a1b74dad9",
+    "source_fingerprint": "d9082ec8dab0a2ec74d4645f303c6f817153ad695d1de22be39d71f9b4963950",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -847,6 +853,12 @@
                 "date": "2026-10-22",
                 "change": "Organization name standardized to DeepMind.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Identified the AI model, software, configuration, and human controls from the original paper, supplement, or author documentation.",
+                "source": "https://www.nature.com/articles/s41586-023-06924-6",
+                "editor": "AIBD"
               }
             ]
           }
@@ -930,6 +942,12 @@
                 "date": "2026-10-22",
                 "change": "Organization name standardized to DeepMind.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Identified the AI model, software, configuration, and human controls from the original paper, supplement, or author documentation.",
+                "source": "https://www.nature.com/articles/s41586-023-06924-6",
+                "editor": "AIBD"
               }
             ]
           }
@@ -967,9 +985,47 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "versions_and_access": [
+              {
+                "source_ref": "AIBD-0015-source-0001",
+                "source_url": "https://www.nature.com/articles/s41586-023-06924-6",
+                "access_url": "https://www.nature.com/articles/s41586-023-06924-6",
+                "locator": "Pretrained LLM; Specification; Evaluation",
+                "status": "Original text inspected.",
+                "version": "Source version at the stated URL.",
+                "reviewed_on": "2026-10-25"
+              },
+              {
+                "source_ref": "AIBD-0015-source-0001",
+                "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06924-6/MediaObjects/41586_2023_6924_MOESM1_ESM.pdf",
+                "access_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06924-6/MediaObjects/41586_2023_6924_MOESM1_ESM.pdf",
+                "locator": "Appendix A.2; Appendix E.1, Table E.2, p. 24",
+                "status": "Original text inspected.",
+                "version": "Source version at the stated URL.",
+                "reviewed_on": "2026-10-25"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Reviewed the original materials for AI identity and operation. Other source assessments remain unchanged.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The original article and its supplementary methods were accessible."
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1036,11 +1092,11 @@
             "AIBD-0015-source-0003",
             "AIBD-0015-source-0004"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Sources retained for this entry"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "basis": "Synchronized identifiers with the retained sources.",
           "record_fields": [],
           "source_refs": []
         },
@@ -1108,9 +1164,55 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "origins": [
+              {
+                "url": "https://www.nature.com/articles/s41586-023-06924-6",
+                "source_refs": [
+                  "AIBD-0015-source-0001"
+                ],
+                "locator": "Pretrained LLM; Specification; Evaluation",
+                "contribution": "Identifies Codey and PaLM 2 and separates code generation from execution and evaluation.",
+                "relationship": "Original research or documentation from the system’s researchers. This supports identity and methods, not independent verification of benefits."
+              },
+              {
+                "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06924-6/MediaObjects/41586_2023_6924_MOESM1_ESM.pdf",
+                "source_refs": [
+                  "AIBD-0015-source-0001"
+                ],
+                "locator": "Appendix A.2; Appendix E.1, Table E.2, p. 24",
+                "contribution": "Documents the actual sampling and execution settings. Part of the original paper, not an independent source.",
+                "relationship": "Original research or documentation from the system’s researchers. This supports identity and methods, not independent verification of benefits."
+              }
+            ],
+            "retained_source_order": [
+              "AIBD-0015-source-0001",
+              "AIBD-0015-source-0002",
+              "AIBD-0015-source-0003",
+              "AIBD-0015-source-0004"
+            ],
+            "lead_source_ref": "AIBD-0015-source-0001",
+            "review_scope": "AI identity and operation; existing benefit and source-independence assessments are retained."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Reviewed the original materials for AI identity and operation. Other source assessments remain unchanged.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The original paper and supplement identify Codey and document the search settings."
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1140,71 +1242,147 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "FunSearch generated and tested programs automatically within the researchers’ specification. A separate evaluator rejected invalid results."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper, “Pretrained LLM,” “Specification,” and “Evaluation,” and Supplementary Information, Appendix A.2 and Appendix E.1, Table E.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Codey generated candidate Python functions for constructing cap sets."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper, “Pretrained LLM,” “Specification,” and “Evaluation,” and Supplementary Information, Appendix A.2 and Appendix E.1, Table E.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The researchers used frozen model weights, temperature 1.0, and top-p 0.95. The cap-set setup used 15 samplers, 140 evaluators, and 10 populations of programs."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper, “Pretrained LLM,” “Specification,” and “Evaluation,” and Supplementary Information, Appendix A.2 and Appendix E.1, Table E.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "FunSearch used problem specifications and prior functions to generate candidate functions and evaluate their scores."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper, “Pretrained LLM,” “Specification,” and “Evaluation,” and Supplementary Information, Appendix A.2 and Appendix E.1, Table E.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Codey, built on PaLM 2."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper, “Pretrained LLM,” “Specification,” and “Evaluation,” and Supplementary Information, Appendix A.2 and Appendix E.1, Table E.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].model_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper, “Pretrained LLM,” “Specification,” and “Evaluation,” and Supplementary Information, Appendix A.2 and Appendix E.1, Table E.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "Codey’s release identifier is not given.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Codey’s release identifier is not given."
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "system": "FunSearch (LLM-guided evolutionary program search with automated evaluator)"
-          }
+          "kind": "text",
+          "text": "FunSearch."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "system"
+          "kind": "source_review",
+          "basis": "Read the original paper, “Pretrained LLM,” “Specification,” and “Evaluation,” and Supplementary Information, Appendix A.2 and Appendix E.1, Table E.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].provider": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "application_developer": "DeepMind"
-          }
+          "kind": "text",
+          "text": "Google DeepMind."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "developer"
+          "kind": "source_review",
+          "basis": "Read the original paper, “Pretrained LLM,” “Specification,” and “Evaluation,” and Supplementary Information, Appendix A.2 and Appendix E.1, Table E.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1238,7 +1416,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "0d174bdb3dba0b6f5b1321930cd748c0dbd6bd2ba17da40bfa5b200a1b74dad9"
+            "d9082ec8dab0a2ec74d4645f303c6f817153ad695d1de22be39d71f9b4963950"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1287,16 +1465,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 28,
-      "reviewed": 0,
-      "record_mapped": 28,
-      "not_assessed": 63,
+      "known": 35,
+      "reviewed": 10,
+      "record_mapped": 26,
+      "not_assessed": 55,
       "complete": false,
       "by_state": {
-        "value_present": 28,
-        "not_reported": 0,
+        "value_present": 35,
+        "not_reported": 1,
         "unresolved": 0,
-        "not_assessed": 63,
+        "not_assessed": 55,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

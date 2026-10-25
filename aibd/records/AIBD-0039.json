@@ -1,19 +1,19 @@
 {
   "id": "AIBD-0039",
-  "title": "Harvard Physical Sciences 2 randomized trial: LLM-based AI tutor (GPT-4) doubles learning gains versus in-class active learning",
-  "summary": "Harvard PS2 RCT (fall 2023, 194 students): LLM-based tutor (GPT-4) produced over double the learning gains of active-learning class in less time.",
+  "title": "A physics tutor more than doubled students’ median learning gains",
+  "summary": "Harvard students who used PS2 Pal, powered by GPT-4-0613, learned more in less time than students in an active-learning class.",
   "date_observed": "2023-09-01",
-  "date_basis": "unassessed",
-  "date_precision": "unassessed",
-  "benefit_status": null,
+  "date_basis": "event",
+  "date_precision": "year",
+  "benefit_status": "reported",
   "source_collection": null,
   "source_entry": null,
-  "account": "In autumn 2023 the course team of Harvard University's Physical Sciences 2 ran a randomized controlled crossover experiment with 194 students. It covered two topics, surface tension and fluid flow. Each student learned one topic in an in-class active-learning session and the other at home with a purpose-built AI tutor. The paper does not state outright which model the tutor ran on. Its Methods say “we avoided relying solely on GPT-4 to generate solutions for these activities”. Its Discussion lists “a large language model capable of closely following complex prompts (e.g., GPT-4)” among the factors behind the gains. The paper was published in Scientific Reports on 3 June 2025. It reports that “students learn significantly more in less time when using the AI tutor”. Median learning gains were over double those of the class session, with a median of 49 minutes on task, and higher engagement and motivation. The paper places the study in “the Fall 2023 semester” and “the ninth and tenth weeks of the course” without a calendar date. The lessons themselves came later in the term.",
+  "account": "In autumn 2023 the course team of Harvard University's Physical Sciences 2 ran a randomized controlled crossover experiment with 194 students. It covered two topics, surface tension and fluid flow. Each student learned one topic in an in-class active-learning session and the other at home with a purpose-built AI tutor. The supplement identifies the tutor as PS2 Pal, built in TeachGPT and powered by GPT-4-0613. Instructors supplied the solutions and teaching prompts. The paper was published in Scientific Reports on 3 June 2025. It reports that “students learn significantly more in less time when using the AI tutor”. Median learning gains were over double those of the class session, with a median of 49 minutes on task, and higher engagement and motivation. The paper places the study in “the Fall 2023 semester” and “the ninth and tenth weeks of the course” without a calendar date. The lessons themselves came later in the term.",
   "category": "general benefit",
   "unexpected": false,
   "purpose": "The tutor was built to teach these physics lessons with research-based pedagogy. The learning gain was that purpose.",
-  "system": "Custom AI tutor for Harvard PS2 built on a large language model with research-based pedagogical prompts",
-  "model_version": "GPT-4 (as cited in the paper)",
+  "system": "PS2 Pal, Harvard’s physics tutor built in TeachGPT using GPT-4-0613",
+  "model_version": "GPT-4-0613",
   "developer": "Harvard University (Kestin, Miller, Klales, Milbourne, Ponti)",
   "deployer": "Harvard University, Physical Sciences 2",
   "location": "Cambridge, United States",
@@ -25,13 +25,13 @@
   "ratings": [
     {
       "group": "personal",
-      "depth": null,
-      "reason": "A randomized trial reporting class-level learning gains. Students in the AI condition scored higher on a post-test for one lesson (median gains over double) in a median of 49 minutes. A small, short-term benefit per student."
+      "depth": 2,
+      "reason": "Students achieved a measurable improvement in immediate post-test scores. The trial did not establish a lasting change in their capabilities."
     },
     {
       "group": "organizational",
-      "depth": null,
-      "reason": "A randomized trial reporting class-level learning gains. The course gained evidence for a lesson format that teaches a topic in less time with higher reported engagement."
+      "depth": 2,
+      "reason": "The course demonstrated a teaching format with better post-test results. This uses the same trial evidence as the student assessment, not a separate organizational study."
     }
   ],
   "ai_role": {
@@ -78,7 +78,7 @@
     "group": "organizational",
     "basis": "Student-facing AI learning assistant: Harvard's GPT-4 tutor doubled learning gains, while LAUSD's AllHere chatbot “Ed” failed to deliver academic support, costing the district up to $6 million and leaving students without it."
   },
-  "headline": "Harvard's GPT-4 tutor more than doubles median learning gains",
+  "headline": "A physics tutor more than doubled students’ median learning gains",
   "metric": "median learning gains over double those of the class session",
   "comparator": {
     "against": "in-class active learning",
@@ -137,6 +137,12 @@
       "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Identified the AI model, software, configuration, and human controls from the original paper, supplement, or author documentation. Replaced the superseded account of the model’s identity with the supplement’s explicit identification. Added the study methods, measurements, human controls, and depth assessments from the article and supplement.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12179260/",
+      "editor": "AIBD"
     }
   ],
   "confidence": "claimed",
@@ -146,7 +152,7 @@
   "profile": {
     "case_id": "AIBD-0039",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "df410323ad946d2562754f475976afefed6c29997522ee3769c36244063d5288",
+    "source_fingerprint": "64340e67d651d0c6a5b09ba8e9fa1aca869ec703729eb976e492cbf0f3f1ba56",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -164,15 +170,49 @@
         "record_ids": []
       },
       "evaluations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "record_ids": []
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "IRB23-0797"
+          ],
+          "role": "Harvard instructional research protocol"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study design identifies Harvard ethics protocol IRB23-0797.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "One randomized crossover trial."
+        },
+        "record_ids": [
+          "IRB23-0797"
+        ]
       },
       "monetary observations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The article and supplement report learning, time, and preparation effort, but no monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "No monetary value was reported."
+        },
         "record_ids": []
       },
       "institutional decisions": {
@@ -212,24 +252,23 @@
       "ai_contribution": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ai_role": {
-              "status": "assessed",
-              "statement": "The language model delivered the instruction. The comparison was active learning taught in class. The authors credit the research-based design (prompts, scaffolding) beside the model."
-            }
-          }
+          "kind": "text",
+          "text": "PS2 Pal answered questions and gave feedback within lessons that instructors had prepared. The trial tested this entire teaching format, including videos and self-paced work."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ai_role"
+          "kind": "source_review",
+          "basis": "Methods: Study design; Discussion: Designing successful student-AI interactions; Context, limitations, and future directions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "PS2 Pal answered questions and gave feedback within lessons that instructors had prepared. The trial tested this entire teaching format, including videos and self-paced work."
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -256,19 +295,84 @@
         "coverage": "partial"
       },
       "assessments[].alternatives": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Depth 1 would omit the measured learning improvement. Depth 3 would require evidence of a lasting change."
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "AIBD depth rubric; immediate post-test design.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Depth 1 would omit the measured learning improvement. Depth 3 would require evidence of a lasting change."
+        }
       },
       "assessments[].assessor_date": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "assessor": "AIBD, AI-assisted source review",
+            "date": "2026-10-25"
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "AI-assisted review of the original paper, supplement, and authors’ repository. This does not assert that Peter personally performed the review.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD, 25 October 2026."
+        }
       },
       "assessments[].depth": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "ratings": [
+              {
+                "group": "personal",
+                "depth": 2,
+                "reason": "Students achieved a measurable improvement in immediate post-test scores. The trial did not establish a lasting change in their capabilities."
+              },
+              {
+                "group": "organizational",
+                "depth": 2,
+                "reason": "The course demonstrated a teaching format with better post-test results. This uses the same trial evidence as the student assessment, not a separate organizational study."
+              }
+            ],
+            "shared_evidence": true
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "AIBD depth rubric: a measurable improvement in a result or capability. Results: Learning gains: post-test scores. Both ratings concern the same trial.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Depth 2 for students and depth 2 for the course’s teaching capability."
+        }
       },
       "assessments[].display_confidence": {
         "state": "value_present",
@@ -278,18 +382,24 @@
             "confidence": "low",
             "evidence_word": "claimed",
             "claim_status": "The makers' claim",
-            "basis": "Sources: the makers' peer-reviewed study. The cited evidence includes no independent source and no finding by a regulator or court.",
-            "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
+            "basis": "A peer-reviewed randomized trial conducted by the tutor’s developers.",
+            "interpretation": "The outline identifies the source relationship. It does not mean that the result was an untested assertion."
           }
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Derived from the existing case display properties; not a new evidentiary judgment.",
+          "basis": "Current AIBD independence rule; Author contributions; Methods: Study design. The fill remains outlined.",
           "record_fields": [],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A peer-reviewed randomized trial by the developers."
+        }
       },
       "assessments[].rationale": {
         "state": "value_present",
@@ -299,11 +409,13 @@
             "ratings": [
               {
                 "group": "personal",
-                "reason": "A randomized trial reporting class-level learning gains. Students in the AI condition scored higher on a post-test for one lesson (median gains over double) in a median of 49 minutes. A small, short-term benefit per student."
+                "depth": 2,
+                "reason": "Students achieved a measurable improvement in immediate post-test scores. The trial did not establish a lasting change in their capabilities."
               },
               {
                 "group": "organizational",
-                "reason": "A randomized trial reporting class-level learning gains. The course gained evidence for a lesson format that teaches a topic in less time with higher reported engagement."
+                "depth": 2,
+                "reason": "The course demonstrated a teaching format with better post-test results. This uses the same trial evidence as the student assessment, not a separate organizational study."
               }
             ]
           }
@@ -320,14 +432,46 @@
         "coverage": "partial"
       },
       "assessments[].rubric_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "AIBD’s five-level depth rubric, reviewed on 25 October 2026."
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Local methodology, Depth section. No separately numbered rubric version is published.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "AIBD’s five-level depth rubric, reviewed on 25 October 2026."
+        }
       },
       "assessments[].status_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The grades describe results observed in the trial."
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Results: Learning gains: post-test scores.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The grades describe results observed in the trial."
+        }
       },
       "assessments[].target": {
         "state": "value_present",
@@ -337,11 +481,13 @@
             "ratings": [
               {
                 "group": "personal",
-                "reason": "A randomized trial reporting class-level learning gains. Students in the AI condition scored higher on a post-test for one lesson (median gains over double) in a median of 49 minutes. A small, short-term benefit per student."
+                "depth": 2,
+                "reason": "Students achieved a measurable improvement in immediate post-test scores. The trial did not establish a lasting change in their capabilities."
               },
               {
                 "group": "organizational",
-                "reason": "A randomized trial reporting class-level learning gains. The course gained evidence for a lesson format that teaches a topic in less time with higher reported engagement."
+                "depth": 2,
+                "reason": "The course demonstrated a teaching format with better post-test results. This uses the same trial evidence as the student assessment, not a separate organizational study."
               }
             ]
           }
@@ -358,9 +504,25 @@
         "coverage": "partial"
       },
       "availability": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Students used PS2 Pal through TeachGPT for the study. The supplement includes its teaching prompts. Public access to this particular tutor is not established."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study design; Supplementary Material 1: AI Tutor System and Implementation. The inspected materials establish study access, not current public availability.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Students used PS2 Pal through TeachGPT for the study. The supplement includes its teaching prompts. Public access to this particular tutor is not established."
+        }
       },
       "brief": {
         "state": "not_assessed",
@@ -368,9 +530,25 @@
         "coverage": "partial"
       },
       "case_kind": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A randomized study of two undergraduate physics lessons."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study population; Study design.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A randomized study of two undergraduate physics lessons."
+        }
       },
       "case_links[]": {
         "state": "not_assessed",
@@ -378,24 +556,114 @@
         "coverage": "partial"
       },
       "claims[].evidence_links": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "support": [
+              {
+                "proposition": "Learning gains and time spent",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12179260/",
+                "locator": "Results: Learning gains: post-test scores; Time on task; Figures 1–2."
+              },
+              {
+                "proposition": "Model, interface, and instructional prompts",
+                "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-025-97652-6/MediaObjects/41598_2025_97652_MOESM1_ESM.docx",
+                "locator": "AI Tutor System and Implementation; Figure S1."
+              }
+            ],
+            "qualifications": [
+              {
+                "proposition": "Scope and competing explanations",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12179260/",
+                "locator": "Methods: Study design; Discussion: Context, limitations, and future directions."
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original article, Results, Methods, and Discussion; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The results establish the test scores and time spent. The supplement identifies the model and teaching prompts."
+        }
       },
       "claims[].evidence_strength": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "occurrence": "The researchers describe their course experiment and publish the study data.",
+            "learning_effect": "Randomized crossover comparison with matched lesson content and baseline controls.",
+            "AI_contribution": "The entire AI-supported lesson was tested; GPT-4’s separate contribution was not isolated.",
+            "system_identity": "GPT-4-0613 is explicitly named in the supplement.",
+            "independence": "The researchers developed the tutor. Peer review does not constitute an independent replication."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study design; Additional controls; Author contributions; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A peer-reviewed randomized trial by the developers. It supports the teaching format’s effect, without isolating the model’s contribution."
+        }
       },
       "claims[].missingness": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The paper does not report lasting retention or financial returns. Its participant total and post-test counts do not fully reconcile in the text."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results: Learning gains: post-test scores; Methods: Study population; Discussion: Context, limitations, and future directions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Later retention and financial returns were not reported."
+        }
       },
       "claims[].proposition": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Students scored higher after lessons with PS2 Pal than after the corresponding classroom lessons. The supplement identifies GPT-4-0613 as the model that they used."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results: Learning gains: post-test scores; Supplementary Material 1: AI Tutor System and Implementation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Students scored higher after lessons with PS2 Pal than after the corresponding classroom lessons. The supplement identifies GPT-4-0613 as the model that they used."
+        }
       },
       "cross_border_flows[]": {
         "state": "not_assessed",
@@ -427,153 +695,557 @@
         "family": "institutional decisions"
       },
       "deployment_stage": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A classroom experiment during fall 2023."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Course setting; Study design.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A classroom experiment during fall 2023."
+        }
       },
       "economics[].amount": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The article and supplement report learning, time, and preparation effort, but no monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Not reported."
+        }
       },
       "economics[].costs[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Additional controls; Supplementary Material 1: AI Tutor System and Implementation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The sources describe preparation effort without monetary costs.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Lesson preparation took several days, after several months of platform development. Financial costs were not reported."
+        }
       },
       "economics[].counterfactual": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The article and supplement report learning, time, and preparation effort, but no monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Not reported."
+        }
       },
       "economics[].currency_price_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The article and supplement report learning, time, and preparation effort, but no monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Not reported."
+        }
       },
       "economics[].gross_net": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The article and supplement report learning, time, and preparation effort, but no monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Not reported."
+        }
       },
       "economics[].measure_type": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The article and supplement report learning, time, and preparation effort, but no monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Not reported."
+        }
       },
       "economics[].period_unit": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The article and supplement report learning, time, and preparation effort, but no monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Not reported."
+        }
       },
       "economics[].realization": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The article and supplement report learning, time, and preparation effort, but no monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Not reported."
+        }
       },
       "economics[].recipient_payer": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The article and supplement report learning, time, and preparation effort, but no monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Not reported."
+        }
       },
       "economics[].return_payback": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The article and supplement report learning, time, and preparation effort, but no monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Not reported."
+        }
       },
       "economics[].valuation_method": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "monetary observations"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The article and supplement report learning, time, and preparation effort, but no monetary valuation or financial return.",
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "family": "monetary observations",
+        "display": {
+          "answer": "Not reported."
+        }
       },
       "evaluations[].ai_uplift": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The AI lesson produced higher scores than the classroom lesson. The comparison does not separate the model’s contribution from the videos, prepared solutions, or self-paced format."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study design; Discussion: Designing successful student-AI interactions; Context, limitations, and future directions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The AI lesson produced higher scores than the classroom lesson. The comparison does not separate the model’s contribution from the videos, prepared solutions, or self-paced format."
+        }
       },
       "evaluations[].comparator": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "An active-learning class covered the same material with peer discussion and instructor feedback. The pooled pre-test median was 2.75 points."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Course setting; Study design; Results: Learning gains: post-test scores.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "An active-learning class covered the same material with peer discussion and instructor feedback. The pooled pre-test median was 2.75 points."
+        }
       },
       "evaluations[].design": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A randomized crossover trial across two lessons. Peer groups of two or three students were assigned together, then switched conditions the following week."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study design; Additional controls; Supplementary Table S3.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "A randomized crossover trial across two lessons. Peer groups of two or three students were assigned together, then switched conditions the following week."
+        }
       },
       "evaluations[].effect": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "median_post_test": {
+              "AI": 4.5,
+              "classroom": 3.5,
+              "unit": "points"
+            },
+            "learning_gain_definition": "Each condition’s median post-test score compared with the pooled pre-test median of 2.75.",
+            "reported_gain_comparison": "More than double with AI.",
+            "linear_regression_effect": {
+              "standard_deviations": 0.63,
+              "p_less_than": 1e-08
+            },
+            "rank_sum_test": {
+              "z": -5.6,
+              "p_less_than": 1e-08
+            },
+            "quantile_regression_effect_range": {
+              "minimum": 0.73,
+              "maximum": 1.3,
+              "unit": "standard deviations",
+              "interpretation": "Authors’ alternative estimates to address the ceiling effect; not a confidence interval."
+            }
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results: Learning gains: post-test scores; Learning gains: linear regression model; Supplementary Table S1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Median post-test scores were 4.5 with AI and 3.5 in class. The adjusted advantage was 0.63 standard deviations."
+        }
       },
       "evaluations[].exposure": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Each participant was assigned one AI lesson and one classroom lesson in consecutive weeks. The AI lessons took a median of 49 minutes."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study design; Results: Time on task; Supplementary Table S3.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Each participant was assigned one AI lesson and one classroom lesson in consecutive weeks. The AI lessons took a median of 49 minutes."
+        }
       },
       "evaluations[].id": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Harvard PS2 tutoring study, protocol IRB23-0797."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study design. This is the Harvard ethics protocol identifier, not a trial-registry identifier.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Harvard PS2 tutoring study, protocol IRB23-0797."
+        }
       },
       "evaluations[].measurement_method": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers used quizzes before and after each lesson, logged time with the tutor, and asked students about their experience on a five-point scale."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results: Learning gains: post-test scores; Time on task; AI tutor: students’ perceptions of learning; Supplementary Material 1: Perception of Learning Experience Questions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Researchers used quizzes before and after each lesson, logged time with the tutor, and asked students about their experience on a five-point scale."
+        }
       },
       "evaluations[].metric": {
-        "state": "not_assessed",
-        "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "metric"
-          ],
-          "source_refs": []
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "learning": {
+              "measure": "Post-test score compared with the pooled pre-test baseline",
+              "unit": "points",
+              "AI_post_test_median": 4.5,
+              "classroom_post_test_median": 3.5,
+              "pooled_pre_test_median": 2.75,
+              "pooled_pre_test_observations": 316
+            },
+            "time": {
+              "unit": "minutes",
+              "AI_median": 49,
+              "classroom_assumed_learning_time": 60,
+              "AI_proportion_under_60_minutes": 0.7
+            },
+            "experience": {
+              "scale": "Five-point agreement scale",
+              "engagement_mean": {
+                "AI": 4.1,
+                "classroom": 3.6
+              },
+              "motivation_mean": {
+                "AI": 3.4,
+                "classroom": 3.1
+              },
+              "enjoyment_and_growth_mindset": "No statistically significant difference."
+            }
+          }
         },
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results: Learning gains: post-test scores; Time on task; AI tutor: students’ perceptions of learning; Supplementary Material 1: Perception of Learning Experience Questions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
         "display": {
-          "answer": "median learning gains over double those of the class session",
-          "editor_note": ""
+          "answer": "Post-test scores, time spent learning, and students’ ratings of engagement, motivation, enjoyment, and growth mindset."
         }
       },
       "evaluations[].reproduction_materials": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "supplement_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-025-97652-6/MediaObjects/41598_2025_97652_MOESM1_ESM.docx",
+            "materials": [
+              "Assignment persona",
+              "An example question-specific prompt and worked solution",
+              "Test-validation measures",
+              "Study design",
+              "Regression coefficients"
+            ],
+            "dataset_url": "https://github.com/HarvardAItutor/Study-Data-v4",
+            "dataset_file": "Harvard_AI_Tutor_Study_Data.dta",
+            "repository_commit": "c5bf864c5369fbedd61c248743a89da95dcaa114",
+            "inventory_checked_on": "2026-10-25",
+            "data_reanalyzed": false,
+            "analysis_scripts_in_repository": false
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Data availability; Supplementary Material 1; original repository file inventory, checked on 25 October 2026. No analysis scripts appeared in that inventory.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The supplement contains teaching prompts and methods. The authors also published a Stata data file on GitHub."
+        }
       },
       "evaluations[].setting_sample": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "institution": "Harvard University",
+            "course": "Physical Sciences 2",
+            "term": "fall 2023",
+            "course_weeks": [
+              9,
+              10
+            ],
+            "enrolled": 233,
+            "eligible": 194,
+            "allocation_groups": [
+              96,
+              98
+            ],
+            "eligibility": [
+              "Consent",
+              "Participation in both teaching formats",
+              "Completion of pre-tests and post-tests"
+            ],
+            "post_test_observations": {
+              "AI": 142,
+              "classroom": 174
+            },
+            "topics": [
+              "Surface tension",
+              "Fluid flow"
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study population; Results: Learning gains: post-test scores; Supplementary Table S2A.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Harvard’s introductory physics course for life-science students. The paper reports 194 eligible students and compares 142 AI post-tests with 174 classroom post-tests.",
+          "editor_note": "Methods reports 194 eligible students. Results gives 142 AI post-tests and 174 classroom post-tests. Whether these counts describe the same analysis population is unclear."
+        }
       },
       "evaluations[].uncertainty_limitations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The study covered two lessons at one university. High scores limited the test’s ability to distinguish further gains."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study population; Results: Learning gains: post-test scores and linear regression model; Discussion: Context, limitations, and future directions. The discrepancy is preserved without inventing a reason for it.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The study covered two lessons at one university. High scores limited the test’s ability to distinguish further gains."
+        }
       },
       "external_references[]": {
         "state": "value_present",
@@ -624,9 +1296,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Instructors wrote the worked solutions and tested the prompts before use. Students then worked with the tutor on their own. A separate team member wrote the tests."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study design; Additional controls; Supplementary Material 1: AI Tutor System and Implementation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Instructors wrote the worked solutions and tested the prompts before use. Students then worked with the tutor on their own. A separate team member wrote the tests."
+        }
       },
       "id": {
         "state": "value_present",
@@ -648,19 +1336,75 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Students needed internet access to use TeachGPT with GPT-4-0613. Instructors supplied videos, questions, and worked solutions."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Discussion: Context, limitations, and future directions; Supplementary Material 1: AI Tutor System and Implementation and Figure S1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Students needed internet access to use TeachGPT with GPT-4-0613. Instructors supplied videos, questions, and worked solutions."
+        }
       },
       "outcomes[].beneficiaries": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Students in Harvard’s Physical Sciences 2 course, and the course that provided the lessons."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study population; Course setting; the organizational assessment concerns the same measured teaching result.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Students in Harvard’s Physical Sciences 2 course, and the course that provided the lessons."
+        }
       },
       "outcomes[].beneficiary_count": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "course_enrollment": 233,
+            "eligible_participants": 194,
+            "post_test_observations": {
+              "AI": 142,
+              "classroom": 174
+            },
+            "counting_note": "The study reports group results, not the number of students who individually benefited."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study population; Results: Learning gains: post-test scores.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The course enrolled 233 students, of whom 194 were eligible for the study. The paper does not count individual beneficiaries."
+        }
       },
       "outcomes[].benefit_type": {
         "state": "value_present",
@@ -684,38 +1428,100 @@
       "outcomes[].claim": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "In autumn 2023 the course team of Harvard University's Physical Sciences 2 ran a randomized controlled crossover experiment with 194 students. It covered two topics, surface tension and fluid flow. Each student learned one topic in an in-class active-learning session and the other at home with a purpose-built AI tutor. The paper does not state outright which model the tutor ran on. Its Methods say “we avoided relying solely on GPT-4 to generate solutions for these activities”. Its Discussion lists “a large language model capable of closely following complex prompts (e.g., GPT-4)” among the factors behind the gains. The paper was published in Scientific Reports on 3 June 2025. It reports that “students learn significantly more in less time when using the AI tutor”. Median learning gains were over double those of the class session, with a median of 49 minutes on task, and higher engagement and motivation. The paper places the study in “the Fall 2023 semester” and “the ninth and tenth weeks of the course” without a calendar date. The lessons themselves came later in the term.",
-            "benefit_type": "Improved Learning"
+          "kind": "text",
+          "text": "Students had higher post-test scores after the AI lesson and spent a median of 49 minutes on it."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results: Learning gains: post-test scores; Time on task.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Students had higher post-test scores after the AI lesson and spent a median of 49 minutes on it."
+        }
+      },
+      "outcomes[].distribution": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Higher post-test scores occurred among students with lower and higher prior physics scores. The at-home lesson required internet access."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study population, subgroups below and above 40% on the Force Concept Inventory; Discussion: Context, limitations, and future directions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Higher post-test scores occurred among students with lower and higher prior physics scores. The at-home lesson required internet access."
+        }
+      },
+      "outcomes[].duration": {
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Learning was tested immediately after each lesson. The study does not report later retention."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Study design; Discussion: Context, limitations, and future directions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Learning was tested immediately after each lesson. The study does not report later retention."
+        }
+      },
+      "outcomes[].id": {
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "outcomes": [
+              {
+                "id": "AIBD-0039-outcome-01",
+                "stakeholder_group": "personal",
+                "description": "Students learned the lesson material."
+              },
+              {
+                "id": "AIBD-0039-outcome-02",
+                "stakeholder_group": "organizational",
+                "description": "The course demonstrated a more effective format for these lessons."
+              }
+            ],
+            "counting_relationship": "Two beneficiary perspectives on one trial."
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "benefit_type"
+          "kind": "curatorial",
+          "basis": "AIBD assigns stable identifiers to the two existing beneficiary assessments. Both depend on the same study.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
-      },
-      "outcomes[].distribution": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "outcomes[].duration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "outcomes[].id": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Two outcomes within one study: student learning and the course’s teaching capability."
+        }
       },
       "outcomes[].stakeholder_group": {
         "state": "value_present",
@@ -725,11 +1531,13 @@
             "ratings": [
               {
                 "group": "personal",
-                "reason": "A randomized trial reporting class-level learning gains. Students in the AI condition scored higher on a post-test for one lesson (median gains over double) in a median of 49 minutes. A small, short-term benefit per student."
+                "depth": 2,
+                "reason": "Students achieved a measurable improvement in immediate post-test scores. The trial did not establish a lasting change in their capabilities."
               },
               {
                 "group": "organizational",
-                "reason": "A randomized trial reporting class-level learning gains. The course gained evidence for a lesson format that teaches a topic in less time with higher reported engagement."
+                "depth": 2,
+                "reason": "The course demonstrated a teaching format with better post-test results. This uses the same trial evidence as the student assessment, not a separate organizational study."
               }
             ]
           }
@@ -746,14 +1554,46 @@
         "coverage": "partial"
       },
       "outcomes[].status": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Observed in the trial."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Results: Learning gains: post-test scores; Time on task.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Observed in the trial."
+        }
       },
       "outcomes[].tradeoffs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Preparing each AI lesson took several days, after several months of platform development. Thirty percent of AI sessions exceeded the classroom’s assumed 60 minutes of learning."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods: Additional controls; Results: Time on task; Supplementary Material 1: AI Tutor System and Implementation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Preparing each AI lesson took several days, after several months of platform development. Thirty percent of AI sessions exceeded the classroom’s assumed 60 minutes of learning."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -821,58 +1661,38 @@
       "record_dates": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "date_observed": "2023-09-01",
-            "revisions": [
-              {
-                "date": "2026-10-20",
-                "change": "Record drafted from the cited sources.",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-20",
-                "change": "Paired with AI Incident Database incident 793 (medium confidence); severity not given by the source.",
-                "source": "https://incidentdatabase.ai/cite/793",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-20",
-                "change": "Softened the title and summary from “GPT-4-based” to “LLM-based (GPT-4)” and quoted the Methods and Discussion sentences in the account as the paper's only basis for naming GPT-4, corrected the date disclosure to say that the paper places the lessons in the ninth and tenth weeks of the Fall 2023 semester with 1 September used as a placeholder, and dropped “public” from the Nigeria echo setting because neither cited source states it.",
-                "source": "Kestin G et al. (2025) Scientific Reports, PMC12179260: https://pmc.ncbi.nlm.nih.gov/articles/PMC12179260/",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Added what the benefit is measured against from the cited sources.",
-                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12179260/",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Country of the developer and the deployer added from the organization's own site or a registry.",
-                "source": "https://en.wikipedia.org/wiki/Harvard_University; https://en.wikipedia.org/wiki/Harvard_University",
-                "editor": "AIBD"
-              },
-              {
-                "date": "2026-10-21",
-                "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
-                "editor": "AIBD"
-              }
-            ]
+          "kind": "structured",
+          "data": {
+            "occurrence": {
+              "year": 2023,
+              "season": "fall",
+              "course_weeks": [
+                9,
+                10
+              ],
+              "precision": "year"
+            },
+            "publication": {
+              "date": "2025-06-03",
+              "precision": "day"
+            },
+            "reviewed_on": "2026-10-25"
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "date_observed",
-            "revisions"
+          "kind": "source_review",
+          "basis": "Methods: Study population; Course setting; article publication metadata.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The lessons took place in weeks 9 and 10 of fall 2023. The paper was published on 3 June 2025."
+        }
       },
       "replication.attempts[]": {
         "state": "value_present",
@@ -910,45 +1730,31 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "The cited Nigerian program used Microsoft Copilot. It was a related study, not a replication of PS2 Pal."
+        }
       },
       "replication.conditions": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "replication": {
-              "produced_by": [
-                "Lesson content pre-structured by instructors into the tutor",
-                "Prompts enforcing research-based pedagogy rather than answer-giving",
-                "Students with access to the tutor at home and a pre/post test design"
-              ],
-              "must_hold": [
-                "The model follows complex pedagogical prompts",
-                "Topics are self-contained and short (two lessons tested)"
-              ],
-              "echoes": [
-                {
-                  "date": "2024-06-01",
-                  "setting": "Edo State, Nigeria: six-week after-school program (June-July 2024; first day of month used) for first-year senior secondary students in Benin City using Microsoft Copilot (GPT-4); 0.31 SD overall, 0.23 SD in English; World Bank Policy Research Working Paper 11125 (May 2025)",
-                  "model_version": "GPT-4 via Microsoft Copilot",
-                  "outcome": "recurred",
-                  "source": "ERIC record ED676624 https://eric.ed.gov/?q=source:%22World+Bank%22&id=ED676624 (quote: 'a significant improvement of 0.31 standard deviation'); World Bank blog 9 Jan 2025 https://blogs.worldbank.org/en/education/From-chalkboards-to-chatbots-Transforming-learning-in-Nigeria (quote: 'equivalent to nearly two years of typical learning in just six weeks')"
-                }
-              ]
-            }
-          }
+          "kind": "text",
+          "text": "Instructors supplied carefully tested prompts, worked solutions, and videos. Students needed internet access and time to work at their own pace. The study covered two introductory topics."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "replication"
+          "kind": "source_review",
+          "basis": "Discussion: Context, limitations, and future directions; Methods: Additional controls; Supplementary Material 1.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Instructors supplied carefully tested prompts, worked solutions, and videos. Students needed internet access and time to work at their own pace. The study covered two introductory topics."
+        }
       },
       "revision_history[]": {
         "state": "value_present",
@@ -989,6 +1795,12 @@
                 "date": "2026-10-21",
                 "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Identified the AI model, software, configuration, and human controls from the original paper, supplement, or author documentation. Replaced the superseded account of the model’s identity with the supplement’s explicit identification. Added the study methods, measurements, human controls, and depth assessments from the article and supplement.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12179260/",
+                "editor": "AIBD"
               }
             ]
           }
@@ -1026,9 +1838,56 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "versions_and_access": [
+              {
+                "source_ref": "AIBD-0039-source-0001",
+                "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12179260/",
+                "access_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12179260/fullTextXML",
+                "locator": "Results; Discussion; Methods; Data availability; Author contributions.",
+                "status": "Original text inspected.",
+                "version": "Source version at the stated URL.",
+                "reviewed_on": "2026-10-25"
+              },
+              {
+                "source_ref": "AIBD-0039-source-0001",
+                "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-025-97652-6/MediaObjects/41598_2025_97652_MOESM1_ESM.docx",
+                "access_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-025-97652-6/MediaObjects/41598_2025_97652_MOESM1_ESM.docx",
+                "locator": "Tables S1–S4; AI Tutor System and Implementation; Figure S1.",
+                "status": "Original text inspected.",
+                "version": "Source version at the stated URL.",
+                "reviewed_on": "2026-10-25"
+              },
+              {
+                "source_ref": "AIBD-0039-source-0001",
+                "source_url": "https://github.com/HarvardAItutor/Study-Data-v4",
+                "access_url": "https://api.github.com/repos/HarvardAItutor/Study-Data-v4/contents/",
+                "locator": "Repository inventory and latest commit metadata.",
+                "status": "File inventory inspected; data not reanalyzed.",
+                "version": "c5bf864c5369fbedd61c248743a89da95dcaa114",
+                "reviewed_on": "2026-10-25"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original article, publisher-hosted supplement, and authors’ repository inventory.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The paper and supplement are accessible in full. The authors’ dataset is listed on GitHub."
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1066,11 +1925,11 @@
           "identifiers": [
             "AIBD-0039-source-0001"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Sources retained for this entry"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "basis": "Synchronized identifiers with the retained sources.",
           "record_fields": [],
           "source_refs": []
         },
@@ -1078,9 +1937,25 @@
         "coverage": "complete"
       },
       "sources[].language": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "English. No translation was used."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original article and Supplementary Material 1, inspected in English.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "English. No translation was used."
+        }
       },
       "sources[].relationship": {
         "state": "value_present",
@@ -1112,9 +1987,61 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12179260/",
+                "source_refs": [
+                  "AIBD-0039-source-0001"
+                ],
+                "locator": "Results; Discussion; Methods; Data availability; Author contributions.",
+                "contribution": "Original randomized comparison, learning results, time measurements, participant counts, teaching controls, and study limitations.",
+                "relationship": "The developers’ original peer-reviewed study."
+              },
+              {
+                "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-025-97652-6/MediaObjects/41598_2025_97652_MOESM1_ESM.docx",
+                "source_refs": [
+                  "AIBD-0039-source-0001"
+                ],
+                "locator": "Tables S1–S4; Perception of Learning Experience Questions; AI Tutor System and Implementation; Figure S1.",
+                "contribution": "Original regression details, group counts, test measures, model release, worked solutions, and teaching prompts.",
+                "relationship": "Supplement to the same study, not an independent evaluation."
+              },
+              {
+                "url": "https://github.com/HarvardAItutor/Study-Data-v4",
+                "source_refs": [
+                  "AIBD-0039-source-0001"
+                ],
+                "locator": "Repository file inventory; commit c5bf864c5369fbedd61c248743a89da95dcaa114.",
+                "contribution": "Original Stata data file. Its presence was checked; the analysis was not rerun.",
+                "relationship": "Data deposit for the same study."
+              }
+            ],
+            "retained_source_order": [
+              "AIBD-0039-source-0001"
+            ],
+            "lead_source_ref": "AIBD-0039-source-0001",
+            "review_scope": "Study design, learning and time outcomes, participant counts, human oversight, AI identity, limitations, and reproduction materials."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original article and supplement, and inspected the authors’ repository inventory.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "The paper, supplement, and data deposit concern one trial conducted by the tutor’s developers."
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1127,8 +2054,8 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "summary": "Harvard PS2 RCT (fall 2023, 194 students): LLM-based tutor (GPT-4) produced over double the learning gains of active-learning class in less time.",
-            "account": "In autumn 2023 the course team of Harvard University's Physical Sciences 2 ran a randomized controlled crossover experiment with 194 students. It covered two topics, surface tension and fluid flow. Each student learned one topic in an in-class active-learning session and the other at home with a purpose-built AI tutor. The paper does not state outright which model the tutor ran on. Its Methods say “we avoided relying solely on GPT-4 to generate solutions for these activities”. Its Discussion lists “a large language model capable of closely following complex prompts (e.g., GPT-4)” among the factors behind the gains. The paper was published in Scientific Reports on 3 June 2025. It reports that “students learn significantly more in less time when using the AI tutor”. Median learning gains were over double those of the class session, with a median of 49 minutes on task, and higher engagement and motivation. The paper places the study in “the Fall 2023 semester” and “the ninth and tenth weeks of the course” without a calendar date. The lessons themselves came later in the term."
+            "summary": "Harvard students who used PS2 Pal, powered by GPT-4-0613, learned more in less time than students in an active-learning class.",
+            "account": "In autumn 2023 the course team of Harvard University's Physical Sciences 2 ran a randomized controlled crossover experiment with 194 students. It covered two topics, surface tension and fluid flow. Each student learned one topic in an in-class active-learning session and the other at home with a purpose-built AI tutor. The supplement identifies the tutor as PS2 Pal, built in TeachGPT and powered by GPT-4-0613. Instructors supplied the solutions and teaching prompts. The paper was published in Scientific Reports on 3 June 2025. It reports that “students learn significantly more in less time when using the AI tutor”. Median learning gains were over double those of the class session, with a median of 49 minutes on task, and higher engagement and motivation. The paper places the study in “the Fall 2023 semester” and “the ninth and tenth weeks of the course” without a calendar date. The lessons themselves came later in the term."
           }
         },
         "provenance": {
@@ -1144,36 +2071,75 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The tutor conversed directly with students within lessons that instructors had prepared and tested."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original article and Supplementary Material 1, “AI Tutor System and Implementation,” assignment persona, and Figure S1. The supplement explicitly identifies GPT-4-0613, PS2 Pal, and TeachGPT.com.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].component_role": {
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "The language model delivered instruction through a tutor designed for the course."
+          "text": "GPT-4 supplied explanations and feedback during physics exercises."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Restated the mechanical task already described in the existing system and AI-role fields. No new source review is claimed.",
-          "record_fields": [
-            "system",
-            "ai_role"
+          "kind": "source_review",
+          "basis": "Read the original article and Supplementary Material 1, “AI Tutor System and Implementation,” assignment persona, and Figure S1. The supplement explicitly identifies GPT-4-0613, PS2 Pal, and TeachGPT.com.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "TeachGPT presented each problem in stages. Instructors supplied teaching instructions and worked solutions in its prompts."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original article and Supplementary Material 1, “AI Tutor System and Implementation,” assignment persona, and Figure S1. The supplement explicitly identifies GPT-4-0613, PS2 Pal, and TeachGPT.com.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The tutor used students’ messages and course material to generate explanations and feedback."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original article and Supplementary Material 1, “AI Tutor System and Implementation,” assignment persona, and Figure S1. The supplement explicitly identifies GPT-4-0613, PS2 Pal, and TeachGPT.com.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].model_name": {
@@ -1183,77 +2149,69 @@
           "text": "GPT-4."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
-          "record_fields": [
-            "model_version",
-            "system",
-            "ai_role"
+          "kind": "source_review",
+          "basis": "Read the original article and Supplementary Material 1, “AI Tutor System and Implementation,” assignment persona, and Figure S1. The supplement explicitly identifies GPT-4-0613, PS2 Pal, and TeachGPT.com.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].model_version": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "model_version": "GPT-4 (as cited in the paper)"
-          }
+          "kind": "text",
+          "text": "GPT-4-0613."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "model_version"
+          "kind": "source_review",
+          "basis": "Read the original article and Supplementary Material 1, “AI Tutor System and Implementation,” assignment persona, and Figure S1. The supplement explicitly identifies GPT-4-0613, PS2 Pal, and TeachGPT.com.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial",
-        "display": {
-          "answer": "Exact release not established.",
-          "editor_note": ""
-        }
+        "review_state": "reviewed",
+        "coverage": "partial"
       },
       "systems[].product_name": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "system": "Custom AI tutor for Harvard PS2 built on a large language model with research-based pedagogical prompts"
-          }
+          "kind": "text",
+          "text": "PS2 Pal, built in TeachGPT."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "system"
+          "kind": "source_review",
+          "basis": "Read the original article and Supplementary Material 1, “AI Tutor System and Implementation,” assignment persona, and Figure S1. The supplement explicitly identifies GPT-4-0613, PS2 Pal, and TeachGPT.com.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].provider": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "application_developer": "Harvard University (Kestin, Miller, Klales, Milbourne, Ponti)"
-          }
+          "kind": "text",
+          "text": "Harvard University developed the tutor. OpenAI supplied GPT-4."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "developer"
+          "kind": "source_review",
+          "basis": "Read the original article and Supplementary Material 1, “AI Tutor System and Implementation,” assignment persona, and Figure S1. The supplement explicitly identifies GPT-4-0613, PS2 Pal, and TeachGPT.com.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1266,8 +2224,8 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "title": "Harvard Physical Sciences 2 randomized trial: LLM-based AI tutor (GPT-4) doubles learning gains versus in-class active learning",
-            "headline": "Harvard's GPT-4 tutor more than doubles median learning gains"
+            "title": "A physics tutor more than doubled students’ median learning gains",
+            "headline": "A physics tutor more than doubled students’ median learning gains"
           }
         },
         "provenance": {
@@ -1287,7 +2245,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "df410323ad946d2562754f475976afefed6c29997522ee3769c36244063d5288"
+            "64340e67d651d0c6a5b09ba8e9fa1aca869ec703729eb976e492cbf0f3f1ba56"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1303,57 +2261,38 @@
       "workflow": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "In autumn 2023 the course team of Harvard University's Physical Sciences 2 ran a randomized controlled crossover experiment with 194 students. It covered two topics, surface tension and fluid flow. Each student learned one topic in an in-class active-learning session and the other at home with a purpose-built AI tutor. The paper does not state outright which model the tutor ran on. Its Methods say “we avoided relying solely on GPT-4 to generate solutions for these activities”. Its Discussion lists “a large language model capable of closely following complex prompts (e.g., GPT-4)” among the factors behind the gains. The paper was published in Scientific Reports on 3 June 2025. It reports that “students learn significantly more in less time when using the AI tutor”. Median learning gains were over double those of the class session, with a median of 49 minutes on task, and higher engagement and motivation. The paper places the study in “the Fall 2023 semester” and “the ninth and tenth weeks of the course” without a calendar date. The lessons themselves came later in the term.",
-            "replication": {
-              "produced_by": [
-                "Lesson content pre-structured by instructors into the tutor",
-                "Prompts enforcing research-based pedagogy rather than answer-giving",
-                "Students with access to the tutor at home and a pre/post test design"
-              ],
-              "must_hold": [
-                "The model follows complex pedagogical prompts",
-                "Topics are self-contained and short (two lessons tested)"
-              ],
-              "echoes": [
-                {
-                  "date": "2024-06-01",
-                  "setting": "Edo State, Nigeria: six-week after-school program (June-July 2024; first day of month used) for first-year senior secondary students in Benin City using Microsoft Copilot (GPT-4); 0.31 SD overall, 0.23 SD in English; World Bank Policy Research Working Paper 11125 (May 2025)",
-                  "model_version": "GPT-4 via Microsoft Copilot",
-                  "outcome": "recurred",
-                  "source": "ERIC record ED676624 https://eric.ed.gov/?q=source:%22World+Bank%22&id=ED676624 (quote: 'a significant improvement of 0.31 standard deviation'); World Bank blog 9 Jan 2025 https://blogs.worldbank.org/en/education/From-chalkboards-to-chatbots-Transforming-learning-in-Nigeria (quote: 'equivalent to nearly two years of typical learning in just six weeks')"
-                }
-              ]
-            }
-          }
+          "kind": "text",
+          "text": "Students completed a quiz, studied with PS2 Pal at home or attended an active-learning class, and took another quiz. They switched formats for the second lesson."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "replication"
+          "kind": "source_review",
+          "basis": "Methods: Study design; Supplementary Table S3.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0039-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete",
+        "display": {
+          "answer": "Students completed a quiz, studied with PS2 Pal at home or attended an active-learning class, and took another quiz. They switched formats for the second lesson."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 32,
-      "reviewed": 0,
-      "record_mapped": 32,
-      "not_assessed": 59,
+      "known": 70,
+      "reviewed": 60,
+      "record_mapped": 21,
+      "not_assessed": 10,
       "complete": false,
       "by_state": {
-        "value_present": 32,
-        "not_reported": 0,
+        "value_present": 70,
+        "not_reported": 11,
         "unresolved": 0,
-        "not_assessed": 59,
+        "not_assessed": 10,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

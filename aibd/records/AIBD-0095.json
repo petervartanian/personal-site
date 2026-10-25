@@ -188,6 +188,12 @@
       "change": "Organization name standardized to Google.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
+      "source": null,
+      "editor": "AIBD"
     }
   ],
   "confidence": "reported",
@@ -197,7 +203,7 @@
   "profile": {
     "case_id": "AIBD-0095",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "784bdbb69dd577c52d843eaff19e16ac49498d66b903a449c68f915cef76c21a",
+    "source_fingerprint": "98c5275b8297241b39c99ee3714e3d5dfdb3a9236527256b7a4fc10d1caf9aed",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -227,19 +233,21 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
+            "AIBD-0095-legacy-value",
             "DIV-0017"
           ],
-          "role": "Monetary statements in Fructus with matched AIBD case links; each statement retains its own review and eligibility status"
+          "role": "Existing monetary observations and Fructus statements with matched AIBD case links; each statement retains its own review and eligibility status"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Linked to the current Fructus dataset by its validated case identifier. This link does not reassess the original case, fill the monetary questions, or establish a net benefit.",
+          "basis": "Linked to the current Fructus dataset by its validated case identifier. Eligible statements can supply unanswered monetary questions without a new source review or a finding of net benefit.",
           "record_fields": [],
           "source_refs": []
         },
         "review_state": "record_mapped",
         "coverage": "partial",
         "record_ids": [
+          "AIBD-0095-legacy-value",
           "DIV-0017"
         ]
       },
@@ -422,7 +430,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Recipients received cash, and GiveDirectly’s survey reports higher income and fewer food shortages. GiveDirectly also gained experience in sending payments after a forecast threshold was reached. It acknowledged that its recipient units were inconsistent. The investigation documents that some of the poorest residents were excluded."
+        }
       },
       "assessments[].rubric_version": {
         "state": "not_assessed",
@@ -546,25 +557,119 @@
       "economics[].amount": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "value": {
-              "amount": "$105",
-              "what": "anticipatory cash transfer per recipient before the flood peak (a second $210 transfer followed)",
-              "who": "over 4,600 flood-exposed residents of Ibaji, Kogi State",
-              "estimate": false,
-              "quote": "Once forecasted flood thresholds were met, we sent $105 to over 4,600 individuals before the flood peak.",
-              "url": "https://www.givedirectly.org/flood-forecast-ai/"
+          "kind": "structured",
+          "data": {
+            "answer": "$105 (source equivalent: NGN177,866 per recipient). Reported equivalent; later naira payments may differ.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0017",
+                "title": "Flood-triggered cash transfers in Nigeria",
+                "monetary_role": "recipient_transfer",
+                "financial_type": "recipient_transfer",
+                "amount_basis": "transfer",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$105 per recipient",
+                      "value": "105",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.givedirectly.org/flood-forecast-ai",
+                        "title": "How AI helped send cash just before floods hit in Nigeria",
+                        "quote": "we sent $105 to over 4,600 individuals",
+                        "date": "2025-06-27",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "ngn-equivalent",
+                    "relationship": "source_equivalent",
+                    "equivalent_to": "primary",
+                    "amount": {
+                      "source_text": "NGN177,866 per recipient",
+                      "value": "177866",
+                      "qualifier": "exact",
+                      "currency": "NGN",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                        "title": "Could AI save Nigerians from devastating floods?",
+                        "quote": "177,866 naira ($105)",
+                        "date": "2024-09-21",
+                        "primary": false,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "First anticipatory payment in Kogi"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "original_resolution": {
+              "state": "value_present",
+              "value": {
+                "kind": "record_fields",
+                "fields": {
+                  "value": {
+                    "amount": "$105",
+                    "what": "anticipatory cash transfer per recipient before the flood peak (a second $210 transfer followed)",
+                    "who": "over 4,600 flood-exposed residents of Ibaji, Kogi State",
+                    "estimate": false,
+                    "quote": "Once forecasted flood thresholds were met, we sent $105 to over 4,600 individuals before the flood peak.",
+                    "url": "https://www.givedirectly.org/flood-forecast-ai/"
+                  }
+                }
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+                "record_fields": [
+                  "value"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial"
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "value"
-          ],
-          "source_refs": []
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI. The Fructus audit matches the original monetary value. The original field and its provenance are retained with this answer.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+            "https://www.givedirectly.org/flood-forecast-ai"
+          ]
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -575,18 +680,285 @@
         "coverage": "partial"
       },
       "economics[].counterfactual": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "The amount is not a comparison with aid delivered without AI.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0017",
+                "title": "Flood-triggered cash transfers in Nigeria",
+                "monetary_role": "recipient_transfer",
+                "financial_type": "recipient_transfer",
+                "amount_basis": "transfer",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$105 per recipient",
+                      "value": "105",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.givedirectly.org/flood-forecast-ai",
+                        "title": "How AI helped send cash just before floods hit in Nigeria",
+                        "quote": "we sent $105 to over 4,600 individuals",
+                        "date": "2025-06-27",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "ngn-equivalent",
+                    "relationship": "source_equivalent",
+                    "equivalent_to": "primary",
+                    "amount": {
+                      "source_text": "NGN177,866 per recipient",
+                      "value": "177866",
+                      "qualifier": "exact",
+                      "currency": "NGN",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                        "title": "Could AI save Nigerians from devastating floods?",
+                        "quote": "177,866 naira ($105)",
+                        "date": "2024-09-21",
+                        "primary": false,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "First anticipatory payment in Kogi"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+            "https://www.givedirectly.org/flood-forecast-ai"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].currency_price_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "USD, identified from the source context. NGN, stated in the source. Nominal source amount; price year not separately stated.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0017",
+                "title": "Flood-triggered cash transfers in Nigeria",
+                "monetary_role": "recipient_transfer",
+                "financial_type": "recipient_transfer",
+                "amount_basis": "transfer",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$105 per recipient",
+                      "value": "105",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.givedirectly.org/flood-forecast-ai",
+                        "title": "How AI helped send cash just before floods hit in Nigeria",
+                        "quote": "we sent $105 to over 4,600 individuals",
+                        "date": "2025-06-27",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "ngn-equivalent",
+                    "relationship": "source_equivalent",
+                    "equivalent_to": "primary",
+                    "amount": {
+                      "source_text": "NGN177,866 per recipient",
+                      "value": "177866",
+                      "qualifier": "exact",
+                      "currency": "NGN",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                        "title": "Could AI save Nigerians from devastating floods?",
+                        "quote": "177,866 naira ($105)",
+                        "date": "2024-09-21",
+                        "primary": false,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "First anticipatory payment in Kogi"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+            "https://www.givedirectly.org/flood-forecast-ai"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].gross_net": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0017",
+                "title": "Flood-triggered cash transfers in Nigeria",
+                "monetary_role": "recipient_transfer",
+                "financial_type": "recipient_transfer",
+                "amount_basis": "transfer",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$105 per recipient",
+                      "value": "105",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.givedirectly.org/flood-forecast-ai",
+                        "title": "How AI helped send cash just before floods hit in Nigeria",
+                        "quote": "we sent $105 to over 4,600 individuals",
+                        "date": "2025-06-27",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "ngn-equivalent",
+                    "relationship": "source_equivalent",
+                    "equivalent_to": "primary",
+                    "amount": {
+                      "source_text": "NGN177,866 per recipient",
+                      "value": "177866",
+                      "qualifier": "exact",
+                      "currency": "NGN",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                        "title": "Could AI save Nigerians from devastating floods?",
+                        "quote": "177,866 naira ($105)",
+                        "date": "2024-09-21",
+                        "primary": false,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "First anticipatory payment in Kogi"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+            "https://www.givedirectly.org/flood-forecast-ai"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].measure_type": {
@@ -616,37 +988,309 @@
         "coverage": "partial"
       },
       "economics[].period_unit": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "August 29 to October 24, 2024, for the first transfer. Per recipient, first transfer.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0017",
+                "title": "Flood-triggered cash transfers in Nigeria",
+                "monetary_role": "recipient_transfer",
+                "financial_type": "recipient_transfer",
+                "amount_basis": "transfer",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$105 per recipient",
+                      "value": "105",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.givedirectly.org/flood-forecast-ai",
+                        "title": "How AI helped send cash just before floods hit in Nigeria",
+                        "quote": "we sent $105 to over 4,600 individuals",
+                        "date": "2025-06-27",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "ngn-equivalent",
+                    "relationship": "source_equivalent",
+                    "equivalent_to": "primary",
+                    "amount": {
+                      "source_text": "NGN177,866 per recipient",
+                      "value": "177866",
+                      "qualifier": "exact",
+                      "currency": "NGN",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                        "title": "Could AI save Nigerians from devastating floods?",
+                        "quote": "177,866 naira ($105)",
+                        "date": "2024-09-21",
+                        "primary": false,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "First anticipatory payment in Kogi"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+            "https://www.givedirectly.org/flood-forecast-ai"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].realization": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Paid.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0017",
+                "title": "Flood-triggered cash transfers in Nigeria",
+                "monetary_role": "recipient_transfer",
+                "financial_type": "recipient_transfer",
+                "amount_basis": "transfer",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$105 per recipient",
+                      "value": "105",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.givedirectly.org/flood-forecast-ai",
+                        "title": "How AI helped send cash just before floods hit in Nigeria",
+                        "quote": "we sent $105 to over 4,600 individuals",
+                        "date": "2025-06-27",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "ngn-equivalent",
+                    "relationship": "source_equivalent",
+                    "equivalent_to": "primary",
+                    "amount": {
+                      "source_text": "NGN177,866 per recipient",
+                      "value": "177866",
+                      "qualifier": "exact",
+                      "currency": "NGN",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                        "title": "Could AI save Nigerians from devastating floods?",
+                        "quote": "177,866 naira ($105)",
+                        "date": "2024-09-21",
+                        "primary": false,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "First anticipatory payment in Kogi"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+            "https://www.givedirectly.org/flood-forecast-ai"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].recipient_payer": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "value": {
-              "amount": "$105",
-              "what": "anticipatory cash transfer per recipient before the flood peak (a second $210 transfer followed)",
-              "who": "over 4,600 flood-exposed residents of Ibaji, Kogi State",
-              "estimate": false,
-              "quote": "Once forecasted flood thresholds were met, we sent $105 to over 4,600 individuals before the flood peak.",
-              "url": "https://www.givedirectly.org/flood-forecast-ai/"
+          "kind": "structured",
+          "data": {
+            "answer": "Recipient: Registered recipients in six wards of Kogi, Nigeria. Payer: GiveDirectly and its funders.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0017",
+                "title": "Flood-triggered cash transfers in Nigeria",
+                "monetary_role": "recipient_transfer",
+                "financial_type": "recipient_transfer",
+                "amount_basis": "transfer",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$105 per recipient",
+                      "value": "105",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.givedirectly.org/flood-forecast-ai",
+                        "title": "How AI helped send cash just before floods hit in Nigeria",
+                        "quote": "we sent $105 to over 4,600 individuals",
+                        "date": "2025-06-27",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "ngn-equivalent",
+                    "relationship": "source_equivalent",
+                    "equivalent_to": "primary",
+                    "amount": {
+                      "source_text": "NGN177,866 per recipient",
+                      "value": "177866",
+                      "qualifier": "exact",
+                      "currency": "NGN",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "August 29 to October 24, 2024, for the first transfer.",
+                    "unit": "Per recipient, first transfer.",
+                    "realization": "paid",
+                    "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                    "source_review_status": "source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                        "title": "Could AI save Nigerians from devastating floods?",
+                        "quote": "177,866 naira ($105)",
+                        "date": "2024-09-21",
+                        "primary": false,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "First anticipatory payment in Kogi"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "original_resolution": {
+              "state": "value_present",
+              "value": {
+                "kind": "record_fields",
+                "fields": {
+                  "value": {
+                    "amount": "$105",
+                    "what": "anticipatory cash transfer per recipient before the flood peak (a second $210 transfer followed)",
+                    "who": "over 4,600 flood-exposed residents of Ibaji, Kogi State",
+                    "estimate": false,
+                    "quote": "Once forecasted flood thresholds were met, we sent $105 to over 4,600 individuals before the flood peak.",
+                    "url": "https://www.givedirectly.org/flood-forecast-ai/"
+                  }
+                }
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+                "record_fields": [
+                  "value"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial"
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "value"
-          ],
-          "source_refs": []
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI. The Fructus audit matches the original monetary value. The original field and its provenance are retained with this answer.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+            "https://www.givedirectly.org/flood-forecast-ai"
+          ]
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -683,7 +1327,10 @@
         "state": "not_assessed",
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "GiveDirectly’s survey reported weekly income rising from ₦4,500 to ₦10,000 and food shortages falling from 97% to 7%."
+        }
       },
       "evaluations[].exposure": {
         "state": "not_assessed",
@@ -701,7 +1348,10 @@
         "state": "not_assessed",
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "GiveDirectly surveyed recipients about weekly income and food shortages."
+        }
       },
       "evaluations[].metric": {
         "state": "not_assessed",
@@ -717,8 +1367,7 @@
         "coverage": "partial",
         "family": "evaluations",
         "display": {
-          "answer": "weekly incomes rising from ₦4,500 to ₦10,000 and food shortages falling from 97% to 7%",
-          "editor_note": ""
+          "answer": "Weekly income and the share of recipients reporting food shortages."
         }
       },
       "evaluations[].reproduction_materials": {
@@ -737,7 +1386,10 @@
         "state": "not_assessed",
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "The income and food figures are self-reported and not independently verified. About 1,400 recipients were paid on 24 October 2024, after floods peaked on 21 October. A later US$210 transfer has no stated recipient count."
+        }
       },
       "external_references[]": {
         "state": "value_present",
@@ -820,14 +1472,45 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Residents of 53 communities in Ibaji, Kogi State, Nigeria."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+          "record_fields": [
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "Residents of 53 communities in Ibaji, Kogi State, Nigeria."
+        }
       },
       "outcomes[].beneficiary_count": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "GiveDirectly reports more than 4,600 recipients. It acknowledged that it had used “household” and “individual” interchangeably."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+          "record_fields": [
+            "account",
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "GiveDirectly reports more than 4,600 recipients. It acknowledged that it had used “household” and “individual” interchangeably."
+        }
       },
       "outcomes[].benefit_type": {
         "state": "value_present",
@@ -869,12 +1552,31 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "GiveDirectly paid US$105 to more than 4,600 people in flood-prone communities, with 3,250 paid before the flood peak."
+        }
       },
       "outcomes[].distribution": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Some residents were excluded because they lacked phone access or their details did not match government or bank records."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+          "record_fields": [
+            "account",
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "Some residents were excluded because they lacked phone access or their details did not match government or bank records."
+        }
       },
       "outcomes[].duration": {
         "state": "not_assessed",
@@ -927,9 +1629,25 @@
         "coverage": "partial"
       },
       "outcomes[].tradeoffs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The New Humanitarian found that verification and phone-access barriers excluded some of the most vulnerable residents."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+          "record_fields": [
+            "account",
+            "evidence"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "The New Humanitarian found that verification and phone-access barriers excluded some of the most vulnerable residents."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1044,6 +1762,11 @@
               {
                 "date": "2026-10-22",
                 "change": "Organization name standardized to Google.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
                 "editor": "AIBD"
               }
             ]
@@ -1198,6 +1921,11 @@
               {
                 "date": "2026-10-22",
                 "change": "Organization name standardized to Google.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
                 "editor": "AIBD"
               }
             ]
@@ -1490,7 +2218,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "784bdbb69dd577c52d843eaff19e16ac49498d66b903a449c68f915cef76c21a"
+            "98c5275b8297241b39c99ee3714e3d5dfdb3a9236527256b7a4fc10d1caf9aed"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1547,22 +2275,25 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "GiveDirectly and JBA used Flood Hub forecasts to identify communities where at least 20% of the area was expected to flood. GiveDirectly verified residents’ identities and bank details before sending payments."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 33,
+      "known": 42,
       "reviewed": 0,
-      "record_mapped": 33,
-      "not_assessed": 58,
+      "record_mapped": 42,
+      "not_assessed": 49,
       "complete": false,
       "by_state": {
-        "value_present": 33,
+        "value_present": 42,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 58,
+        "not_assessed": 49,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

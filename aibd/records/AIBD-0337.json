@@ -228,19 +228,21 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
+            "AIBD-0337-legacy-value",
             "DIV-0007"
           ],
-          "role": "Monetary statements in Fructus with matched AIBD case links; each statement retains its own review and eligibility status"
+          "role": "Existing monetary observations and Fructus statements with matched AIBD case links; each statement retains its own review and eligibility status"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Linked to the current Fructus dataset by its validated case identifier. This link does not reassess the original case, fill the monetary questions, or establish a net benefit.",
+          "basis": "Linked to the current Fructus dataset by its validated case identifier. Eligible statements can supply unanswered monetary questions without a new source review or a finding of net benefit.",
           "record_fields": [],
           "source_refs": []
         },
         "review_state": "record_mapped",
         "coverage": "partial",
         "record_ids": [
+          "AIBD-0337-legacy-value",
           "DIV-0007"
         ]
       },
@@ -573,18 +575,189 @@
         "coverage": "partial"
       },
       "economics[].counterfactual": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Amounts entered before versus after prompts; an untreated causal comparison is not supplied.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0007",
+                "title": "myTax prompts and estimated tax revenue",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "revenue",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_excerpt_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About A$37 million",
+                      "value": "37000000",
+                      "qualifier": "approximately",
+                      "currency": "AUD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Australian tax time 2020.",
+                    "unit": "Aggregate adjustments following myTax prompts.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated tax-revenue impact, not confirmed cash collection, net program return, or aggregate social benefit.",
+                    "source_review_status": "primary_excerpt_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36",
+                        "title": "ATO: How we use data and analytics",
+                        "quote": "These prompts caused taxpayers to make adjustments estimated to have a revenue impact of around $37 million.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "indexed_excerpt",
+                        "locator": "Helping you make better choices"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0007. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].currency_price_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "AUD, identified from the source context. Nominal source amount; price year not separately stated.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0007",
+                "title": "myTax prompts and estimated tax revenue",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "revenue",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_excerpt_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About A$37 million",
+                      "value": "37000000",
+                      "qualifier": "approximately",
+                      "currency": "AUD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Australian tax time 2020.",
+                    "unit": "Aggregate adjustments following myTax prompts.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated tax-revenue impact, not confirmed cash collection, net program return, or aggregate social benefit.",
+                    "source_review_status": "primary_excerpt_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36",
+                        "title": "ATO: How we use data and analytics",
+                        "quote": "These prompts caused taxpayers to make adjustments estimated to have a revenue impact of around $37 million.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "indexed_excerpt",
+                        "locator": "Helping you make better choices"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0007. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].gross_net": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Estimated tax-revenue impact, not confirmed cash collection, net program return, or aggregate social benefit.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0007",
+                "title": "myTax prompts and estimated tax revenue",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "revenue",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_excerpt_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About A$37 million",
+                      "value": "37000000",
+                      "qualifier": "approximately",
+                      "currency": "AUD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Australian tax time 2020.",
+                    "unit": "Aggregate adjustments following myTax prompts.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated tax-revenue impact, not confirmed cash collection, net program return, or aggregate social benefit.",
+                    "source_review_status": "primary_excerpt_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36",
+                        "title": "ATO: How we use data and analytics",
+                        "quote": "These prompts caused taxpayers to make adjustments estimated to have a revenue impact of around $37 million.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "indexed_excerpt",
+                        "locator": "Helping you make better choices"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0007. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].measure_type": {
@@ -614,37 +787,213 @@
         "coverage": "partial"
       },
       "economics[].period_unit": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Australian tax time 2020. Aggregate adjustments following myTax prompts.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0007",
+                "title": "myTax prompts and estimated tax revenue",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "revenue",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_excerpt_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About A$37 million",
+                      "value": "37000000",
+                      "qualifier": "approximately",
+                      "currency": "AUD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Australian tax time 2020.",
+                    "unit": "Aggregate adjustments following myTax prompts.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated tax-revenue impact, not confirmed cash collection, net program return, or aggregate social benefit.",
+                    "source_review_status": "primary_excerpt_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36",
+                        "title": "ATO: How we use data and analytics",
+                        "quote": "These prompts caused taxpayers to make adjustments estimated to have a revenue impact of around $37 million.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "indexed_excerpt",
+                        "locator": "Helping you make better choices"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0007. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].realization": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Retrospective estimate.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0007",
+                "title": "myTax prompts and estimated tax revenue",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "revenue",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_excerpt_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About A$37 million",
+                      "value": "37000000",
+                      "qualifier": "approximately",
+                      "currency": "AUD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Australian tax time 2020.",
+                    "unit": "Aggregate adjustments following myTax prompts.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated tax-revenue impact, not confirmed cash collection, net program return, or aggregate social benefit.",
+                    "source_review_status": "primary_excerpt_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36",
+                        "title": "ATO: How we use data and analytics",
+                        "quote": "These prompts caused taxpayers to make adjustments estimated to have a revenue impact of around $37 million.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "indexed_excerpt",
+                        "locator": "Helping you make better choices"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0007. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].recipient_payer": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "value": {
-              "amount": "$37 million",
-              "what": "revenue impact of the adjustments taxpayers made after myTax prompts at tax time 2020 (ATO's own estimate)",
-              "who": "the Australian Taxation Office (Australian Government revenue)",
-              "estimate": true,
-              "quote": "During tax time in 2020, nearly 340,000 taxpayers (around 7.5% of myTax users), received a pop-up message through myTax suggesting they review a specific label. These prompts caused taxpayers to make adjustments estimated to have a revenue impact of around $37 million.",
-              "url": "https://web.archive.org/web/20210714025448/https://www.ato.gov.au/About-ATO/Commitments-and-reporting/Information-and-privacy/How-we-use-data-and-analytics/"
+          "kind": "structured",
+          "data": {
+            "answer": "Recipient: Australian public revenue. Payer: Taxpayers adjusting their returns.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0007",
+                "title": "myTax prompts and estimated tax revenue",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "revenue",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_excerpt_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About A$37 million",
+                      "value": "37000000",
+                      "qualifier": "approximately",
+                      "currency": "AUD",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Australian tax time 2020.",
+                    "unit": "Aggregate adjustments following myTax prompts.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated tax-revenue impact, not confirmed cash collection, net program return, or aggregate social benefit.",
+                    "source_review_status": "primary_excerpt_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36",
+                        "title": "ATO: How we use data and analytics",
+                        "quote": "These prompts caused taxpayers to make adjustments estimated to have a revenue impact of around $37 million.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "indexed_excerpt",
+                        "locator": "Helping you make better choices"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "original_resolution": {
+              "state": "value_present",
+              "value": {
+                "kind": "record_fields",
+                "fields": {
+                  "value": {
+                    "amount": "$37 million",
+                    "what": "revenue impact of the adjustments taxpayers made after myTax prompts at tax time 2020 (ATO's own estimate)",
+                    "who": "the Australian Taxation Office (Australian Government revenue)",
+                    "estimate": true,
+                    "quote": "During tax time in 2020, nearly 340,000 taxpayers (around 7.5% of myTax users), received a pop-up message through myTax suggesting they review a specific label. These prompts caused taxpayers to make adjustments estimated to have a revenue impact of around $37 million.",
+                    "url": "https://web.archive.org/web/20210714025448/https://www.ato.gov.au/About-ATO/Commitments-and-reporting/Information-and-privacy/How-we-use-data-and-analytics/"
+                  }
+                }
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+                "record_fields": [
+                  "value"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial"
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "value"
-          ],
-          "source_refs": []
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0007. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI. The Fructus audit matches the original monetary value. The original field and its provenance are retained with this answer.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.ato.gov.au/api/public/content/0-55fbf5c1-cd9e-49b9-8c8a-42b607e83a36"
+          ]
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -1508,16 +1857,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 31,
+      "known": 36,
       "reviewed": 0,
-      "record_mapped": 31,
-      "not_assessed": 60,
+      "record_mapped": 36,
+      "not_assessed": 55,
       "complete": false,
       "by_state": {
-        "value_present": 31,
+        "value_present": 36,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 60,
+        "not_assessed": 55,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

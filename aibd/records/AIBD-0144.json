@@ -194,19 +194,21 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
+            "AIBD-0144-legacy-value",
             "DIV-0018"
           ],
-          "role": "Monetary statements in Fructus with matched AIBD case links; each statement retains its own review and eligibility status"
+          "role": "Existing monetary observations and Fructus statements with matched AIBD case links; each statement retains its own review and eligibility status"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Linked to the current Fructus dataset by its validated case identifier. This link does not reassess the original case, fill the monetary questions, or establish a net benefit.",
+          "basis": "Linked to the current Fructus dataset by its validated case identifier. Eligible statements can supply unanswered monetary questions without a new source review or a finding of net benefit.",
           "record_fields": [],
           "source_refs": []
         },
         "review_state": "record_mapped",
         "coverage": "partial",
         "record_ids": [
+          "AIBD-0144-legacy-value",
           "DIV-0018"
         ]
       },
@@ -487,18 +489,189 @@
         "coverage": "partial"
       },
       "economics[].counterfactual": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "About £1.5 million under traditional methods versus just under £450,000 reported cost.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0018",
+                "title": "Blackpool road-maintenance savings",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "Over £1 million",
+                      "value": "1000000",
+                      "qualifier": "more_than",
+                      "currency": "GBP",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Since summer 2019 to the council account; the endpoint is not specified in the text.",
+                    "unit": "5,145 potholes in Blackpool’s North Shore.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Reported repair-cost difference against an estimated traditional-method cost, without a fully costed AI-only comparison.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/",
+                        "title": "Artificial intelligence boosts road maintenance efficiency",
+                        "quote": "save over £1m resulting in a final cost of just under £450k.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "Council account of Project Amber’s North Shore repairs"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0018. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].currency_price_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "GBP, identified from the source context. Nominal source amount; price year not separately stated.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0018",
+                "title": "Blackpool road-maintenance savings",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "Over £1 million",
+                      "value": "1000000",
+                      "qualifier": "more_than",
+                      "currency": "GBP",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Since summer 2019 to the council account; the endpoint is not specified in the text.",
+                    "unit": "5,145 potholes in Blackpool’s North Shore.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Reported repair-cost difference against an estimated traditional-method cost, without a fully costed AI-only comparison.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/",
+                        "title": "Artificial intelligence boosts road maintenance efficiency",
+                        "quote": "save over £1m resulting in a final cost of just under £450k.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "Council account of Project Amber’s North Shore repairs"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0018. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].gross_net": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Reported repair-cost difference against an estimated traditional-method cost, without a fully costed AI-only comparison.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0018",
+                "title": "Blackpool road-maintenance savings",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "Over £1 million",
+                      "value": "1000000",
+                      "qualifier": "more_than",
+                      "currency": "GBP",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Since summer 2019 to the council account; the endpoint is not specified in the text.",
+                    "unit": "5,145 potholes in Blackpool’s North Shore.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Reported repair-cost difference against an estimated traditional-method cost, without a fully costed AI-only comparison.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/",
+                        "title": "Artificial intelligence boosts road maintenance efficiency",
+                        "quote": "save over £1m resulting in a final cost of just under £450k.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "Council account of Project Amber’s North Shore repairs"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0018. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].measure_type": {
@@ -528,37 +701,213 @@
         "coverage": "partial"
       },
       "economics[].period_unit": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Since summer 2019 to the council account; the endpoint is not specified in the text. 5,145 potholes in Blackpool’s North Shore.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0018",
+                "title": "Blackpool road-maintenance savings",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "Over £1 million",
+                      "value": "1000000",
+                      "qualifier": "more_than",
+                      "currency": "GBP",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Since summer 2019 to the council account; the endpoint is not specified in the text.",
+                    "unit": "5,145 potholes in Blackpool’s North Shore.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Reported repair-cost difference against an estimated traditional-method cost, without a fully costed AI-only comparison.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/",
+                        "title": "Artificial intelligence boosts road maintenance efficiency",
+                        "quote": "save over £1m resulting in a final cost of just under £450k.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "Council account of Project Amber’s North Shore repairs"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0018. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].realization": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Retrospective estimate.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0018",
+                "title": "Blackpool road-maintenance savings",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "Over £1 million",
+                      "value": "1000000",
+                      "qualifier": "more_than",
+                      "currency": "GBP",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Since summer 2019 to the council account; the endpoint is not specified in the text.",
+                    "unit": "5,145 potholes in Blackpool’s North Shore.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Reported repair-cost difference against an estimated traditional-method cost, without a fully costed AI-only comparison.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/",
+                        "title": "Artificial intelligence boosts road maintenance efficiency",
+                        "quote": "save over £1m resulting in a final cost of just under £450k.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "Council account of Project Amber’s North Shore repairs"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0018. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].recipient_payer": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "value": {
-              "amount": "over £1m",
-              "what": "saved on filling 5,145 potholes in North Shore, final cost just under £450k against £1.5m by traditional methods",
-              "who": "Blackpool Council",
-              "estimate": false,
-              "quote": "Blackpool Council has managed to save over £1m resulting in a final cost of just under £450k.",
-              "url": "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/"
+          "kind": "structured",
+          "data": {
+            "answer": "Recipient: Blackpool Council. Payer: Council road-maintenance budget; savings are avoided expenditure.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0018",
+                "title": "Blackpool road-maintenance savings",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "Over £1 million",
+                      "value": "1000000",
+                      "qualifier": "more_than",
+                      "currency": "GBP",
+                      "currency_basis": "context",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "Since summer 2019 to the council account; the endpoint is not specified in the text.",
+                    "unit": "5,145 potholes in Blackpool’s North Shore.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Reported repair-cost difference against an estimated traditional-method cost, without a fully costed AI-only comparison.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/",
+                        "title": "Artificial intelligence boosts road maintenance efficiency",
+                        "quote": "save over £1m resulting in a final cost of just under £450k.",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "Council account of Project Amber’s North Shore repairs"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "original_resolution": {
+              "state": "value_present",
+              "value": {
+                "kind": "record_fields",
+                "fields": {
+                  "value": {
+                    "amount": "over £1m",
+                    "what": "saved on filling 5,145 potholes in North Shore, final cost just under £450k against £1.5m by traditional methods",
+                    "who": "Blackpool Council",
+                    "estimate": false,
+                    "quote": "Blackpool Council has managed to save over £1m resulting in a final cost of just under £450k.",
+                    "url": "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/"
+                  }
+                }
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+                "record_fields": [
+                  "value"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial"
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "value"
-          ],
-          "source_refs": []
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0018. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI. The Fructus audit matches the original monetary value. The original field and its provenance are retained with this answer.",
+          "record_fields": [],
+          "source_refs": [
+            "https://blackpoolunlimited.com/artificial-intelligence-boosts-road-maintenance-efficiency/"
+          ]
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -1373,16 +1722,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 29,
+      "known": 34,
       "reviewed": 0,
-      "record_mapped": 29,
-      "not_assessed": 62,
+      "record_mapped": 34,
+      "not_assessed": 57,
       "complete": false,
       "by_state": {
-        "value_present": 29,
+        "value_present": 34,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 62,
+        "not_assessed": 57,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

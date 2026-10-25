@@ -124,6 +124,15 @@
       "date": "2026-03-30",
       "written_by": "deployer",
       "quote": "the NHC track errors are notably lower than average for major hurricanes, including Humberto and Melissa in 2025"
+    },
+    {
+      "kind": "report",
+      "citation": "Kelly, Larry A., José Álamo, and Aidan D. Mahoney. Hurricane Melissa (AL132025), 21–31 October 2025. National Hurricane Center Tropical Cyclone Report. Revised May 19, 2026, originally February 25, 2026. 16–17, Tables 5b and 6b.",
+      "title": "Hurricane Melissa (AL132025): Tropical Cyclone Report",
+      "url": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+      "date": "2026-02-25",
+      "written_by": "deployer",
+      "quote": "The NHC OFCL forecasts were comparable to GDMI through 96 h, but performed slightly better than GDMI at 120 h."
     }
   ],
   "replication": {
@@ -135,7 +144,7 @@
     "must_hold": [
       "AI ensemble output delivered on time and verified before operational use, as NHC describes",
       "Human forecasters retain the final official forecast and integrate conventional NWP guidance",
-      "Outcome verification depends on later best-track analysis. The Tropical Cyclone Report was not yet published and is not among the sources"
+      "Forecast accuracy can be assessed against the observed track and intensity. NHC’s Tropical Cyclone Report, revised 19 May 2026, provides that comparison for Melissa"
     ],
     "echoes": [
       {
@@ -239,16 +248,22 @@
       "change": "Moved two IFRC reports to background source notes because they describe storm impacts and humanitarian action, without establishing the AI forecast’s contribution to those outcomes. Preserved their citations, excerpts, and the existing account and depths. Retained NHC evidence of forecast use and verification, attributed to the deployer rather than an independent AI-benefit evaluator.",
       "source": "https://www.nhc.noaa.gov/archive/2025/al13/al132025.discus.001.shtml; https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Added NHC’s revised Hurricane Melissa report, replaced the obsolete statement that it was unpublished, and separated forecast verification from humanitarian background.",
+      "source": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+      "editor": "AIBD"
     }
   ],
   "confidence": "claimed",
   "shade": "low",
   "claim_status": "The deployer's account",
-  "claim_basis": "Sources: eight reports from the deployer and the deployer's press release. The cited evidence includes no independent source and no finding by a regulator or court.",
+  "claim_basis": "Sources: nine reports from the deployer and the deployer's press release. The cited evidence includes no independent source and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0088",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "1d834f12fc577be788cdf67e82fef8defeb4db8c16a36f5710d72387a38c12c0",
+    "source_fingerprint": "7494545dd8aeba975dc7387c52bc23ab138bc6a416517d50ebb709bf803d7efa",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -264,7 +279,8 @@
       "AIBD-0088-source-0006",
       "AIBD-0088-source-0007",
       "AIBD-0088-source-0008",
-      "AIBD-0088-source-0009"
+      "AIBD-0088-source-0009",
+      "AIBD-0088-source-0010"
     ],
     "families": {
       "strategic assessments": {
@@ -274,10 +290,30 @@
         "record_ids": []
       },
       "evaluations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "NHC-Melissa-AL132025-forecast-verification"
+          ],
+          "role": "Forecast verification for Hurricane Melissa"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0088-source-0010",
+            "AIBD-0088-source-0008",
+            "AIBD-0088-source-0009"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
-        "record_ids": []
+        "record_ids": [
+          "NHC-Melissa-AL132025-forecast-verification"
+        ]
       },
       "monetary observations": {
         "state": "not_assessed",
@@ -474,7 +510,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "GDMI and regional models increased forecasters’ confidence in predicting rapid intensification. NHC’s later review found that GDMI track forecasts performed comparably to its official forecasts through 96 hours. No study isolates the AI’s effect on protective actions or losses."
+        }
       },
       "assessments[].rubric_version": {
         "state": "not_assessed",
@@ -661,70 +700,224 @@
         "family": "monetary observations"
       },
       "evaluations[].ai_uplift": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "NHC credits GDMI and regional models jointly with increasing forecasters’ confidence at unusually long lead times. It does not isolate GDMI’s effect on the official forecast."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0088-source-0010",
+            "AIBD-0088-source-0008",
+            "AIBD-0088-source-0009"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
-        "family": "evaluations"
+        "display": {
+          "answer": "NHC credits GDMI and regional models jointly with increasing forecasters’ confidence at unusually long lead times. It does not isolate GDMI’s effect on the official forecast."
+        }
       },
       "evaluations[].comparator": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "NHC’s official forecasts, conventional model guidance, and climatology-persistence forecasts for the same storm."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0088-source-0010",
+            "AIBD-0088-source-0008",
+            "AIBD-0088-source-0009"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
-        "family": "evaluations"
+        "display": {
+          "answer": "NHC’s official forecasts, conventional model guidance, and climatology-persistence forecasts for the same storm."
+        }
       },
       "evaluations[].design": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Retrospective verification of operational forecasts against the storm’s observed track and intensity."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0088-source-0010",
+            "AIBD-0088-source-0008",
+            "AIBD-0088-source-0009"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
-        "family": "evaluations"
+        "display": {
+          "answer": "Retrospective verification of operational forecasts against the storm’s observed track and intensity."
+        }
       },
       "evaluations[].effect": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "GDMI’s track forecasts were comparable to NHC’s official forecasts through 96 hours. NHC performed slightly better at 120 hours and had lower intensity errors than every guidance model through 96 hours."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0088-source-0010",
+            "AIBD-0088-source-0008",
+            "AIBD-0088-source-0009"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
-        "family": "evaluations"
+        "display": {
+          "answer": "GDMI’s track forecasts were comparable to NHC’s official forecasts through 96 hours. NHC performed slightly better at 120 hours and had lower intensity errors than every guidance model through 96 hours."
+        }
       },
       "evaluations[].exposure": {
         "state": "not_assessed",
         "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "coverage": "partial"
       },
       "evaluations[].id": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "identifiers",
+          "identifiers": [
+            "NHC-Melissa-AL132025-forecast-verification"
+          ],
+          "role": "Forecast verification for Hurricane Melissa"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0088-source-0010",
+            "AIBD-0088-source-0008",
+            "AIBD-0088-source-0009"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
-        "family": "evaluations"
+        "display": {
+          "answer": "NHC’s forecast verification for Hurricane Melissa (AL132025)."
+        }
       },
       "evaluations[].measurement_method": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "NHC compared forecasts at matching lead times with its final estimates of the storm’s position and intensity. It compared official forecasts with model guidance on a common sample."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0088-source-0010",
+            "AIBD-0088-source-0008",
+            "AIBD-0088-source-0009"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
-        "family": "evaluations"
+        "display": {
+          "answer": "NHC compared forecasts at matching lead times with its final estimates of the storm’s position and intensity. It compared official forecasts with model guidance on a common sample."
+        }
       },
       "evaluations[].metric": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Track forecast error, intensity forecast error, and forecast lead time."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0088-source-0010",
+            "AIBD-0088-source-0008",
+            "AIBD-0088-source-0009"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
-        "family": "evaluations"
+        "display": {
+          "answer": "Track forecast error, intensity forecast error, and forecast lead time."
+        }
       },
       "evaluations[].reproduction_materials": {
         "state": "not_assessed",
         "review_state": "not_assessed",
-        "coverage": "partial",
-        "family": "evaluations"
+        "coverage": "partial"
       },
       "evaluations[].setting_sample": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Hurricane Melissa in the Atlantic, 21–31 October 2025. The report compares forecasts at lead times through 120 hours."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0088-source-0010",
+            "AIBD-0088-source-0008",
+            "AIBD-0088-source-0009"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
-        "family": "evaluations"
+        "display": {
+          "answer": "Hurricane Melissa in the Atlantic, 21–31 October 2025. The report compares forecasts at lead times through 120 hours."
+        }
       },
       "evaluations[].uncertainty_limitations": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The sources establish that forecasters used the guidance. They do not establish that it changed protective actions, reduced losses, or prevented deaths."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0088-source-0010",
+            "AIBD-0088-source-0008",
+            "AIBD-0088-source-0009"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
-        "family": "evaluations"
+        "display": {
+          "answer": "The sources establish that forecasters used the guidance. They do not establish that it changed protective actions, reduced losses, or prevented deaths."
+        }
       },
       "external_references[]": {
         "state": "value_present",
@@ -775,7 +968,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "NHC published its Tropical Cyclone Report on 25 February 2026 and revised it on 19 May. The report evaluates the forecasts against the storm’s observed track and intensity."
+        }
       },
       "human_oversight": {
         "state": "not_assessed",
@@ -807,14 +1003,33 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "National Hurricane Center forecasters. People in Melissa’s path were the intended beneficiaries of the forecasts."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+          "record_fields": [
+            "account",
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "National Hurricane Center forecasters. People in Melissa’s path were the intended beneficiaries of the forecasts."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "not_assessed",
         "review_state": "not_assessed",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "No count of people who benefited from the AI guidance is established."
+        }
       },
       "outcomes[].benefit_type": {
         "state": "value_present",
@@ -856,7 +1071,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "National Hurricane Center forecasters used Google DeepMind’s guidance in their official forecasts for Hurricane Melissa."
+        }
       },
       "outcomes[].distribution": {
         "state": "not_assessed",
@@ -1042,6 +1260,12 @@
                 "change": "Moved two IFRC reports to background source notes because they describe storm impacts and humanitarian action, without establishing the AI forecast’s contribution to those outcomes. Preserved their citations, excerpts, and the existing account and depths. Retained NHC evidence of forecast use and verification, attributed to the deployer rather than an independent AI-benefit evaluator.",
                 "source": "https://www.nhc.noaa.gov/archive/2025/al13/al132025.discus.001.shtml; https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Added NHC’s revised Hurricane Melissa report, replaced the obsolete statement that it was unpublished, and separated forecast verification from humanitarian background.",
+                "source": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                "editor": "AIBD"
               }
             ]
           }
@@ -1082,7 +1306,7 @@
               "must_hold": [
                 "AI ensemble output delivered on time and verified before operational use, as NHC describes",
                 "Human forecasters retain the final official forecast and integrate conventional NWP guidance",
-                "Outcome verification depends on later best-track analysis. The Tropical Cyclone Report was not yet published and is not among the sources"
+                "Forecast accuracy can be assessed against the observed track and intensity. NHC’s Tropical Cyclone Report, revised 19 May 2026, provides that comparison for Melissa"
               ],
               "echoes": [
                 {
@@ -1126,7 +1350,7 @@
               "must_hold": [
                 "AI ensemble output delivered on time and verified before operational use, as NHC describes",
                 "Human forecasters retain the final official forecast and integrate conventional NWP guidance",
-                "Outcome verification depends on later best-track analysis. The Tropical Cyclone Report was not yet published and is not among the sources"
+                "Forecast accuracy can be assessed against the observed track and intensity. NHC’s Tropical Cyclone Report, revised 19 May 2026, provides that comparison for Melissa"
               ],
               "echoes": [
                 {
@@ -1154,7 +1378,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Forecasters need timely model output, checks before operational use, and conventional guidance for comparison. Later observations are needed to assess forecast accuracy."
+        }
       },
       "revision_history[]": {
         "state": "value_present",
@@ -1217,6 +1444,12 @@
                 "change": "Moved two IFRC reports to background source notes because they describe storm impacts and humanitarian action, without establishing the AI forecast’s contribution to those outcomes. Preserved their citations, excerpts, and the existing account and depths. Retained NHC evidence of forecast use and verification, attributed to the deployer rather than an independent AI-benefit evaluator.",
                 "source": "https://www.nhc.noaa.gov/archive/2025/al13/al132025.discus.001.shtml; https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Added NHC’s revised Hurricane Melissa report, replaced the obsolete statement that it was unpublished, and separated forecast verification from humanitarian background.",
+                "source": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                "editor": "AIBD"
               }
             ]
           }
@@ -1265,9 +1498,55 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "versions_and_access": [
+              {
+                "url": "https://www.weather.gov/news/261102-AI-Hurricane-Forecasting",
+                "access": "Full original page read on October 25, 2026. Q&A 7 discusses Melissa, and Q&A 2 describes NHC’s development partnership with DeepMind.",
+                "metadata": {
+                  "DC.date.created": "June 24th 2026 4:15 PM"
+                },
+                "date_treatment": "Do not infer a publication date from the URL or treat creation metadata as original publication. The original March 30, 2026 verification report already links to this URL on printed p. 7. The future-date suspicion is resolved and should not appear on the website."
+              },
+              {
+                "url": "https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
+                "access": "Full original PDF downloaded successfully (HTTP 200) on October 25, 2026. Title page dated March 30, 2026. Printed p. 7 links to the NHC interview, and the report provides seasonal forecast comparisons.",
+                "supersedes_access_note": "The earlier direct-PDF 403 limitation is now resolved for this document."
+              },
+              {
+                "source_ref": "AIBD-0088-source-0010",
+                "source_url": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                "publication_date": "2026-02-25",
+                "version_reviewed_date": "2026-05-19",
+                "status": "Full original PDF downloaded successfully (HTTP 200) and relevant text read on October 25, 2026. HTTP Last-Modified: May 19, 2026.",
+                "version_note": "The May 19 title-page note says that this version revised fatality totals and damage estimates based on updated government information. Preserve February 25 as the original report date and May 19 as the reviewed revision."
+              }
+            ],
+            "limitations": [
+              "The separately cited IFRC operational review and update retain their earlier access limits. The November 2025 IFRC operational strategy was accessible."
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0088-source-0010",
+            "AIBD-0088-source-0008",
+            "AIBD-0088-source-0009"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The NHC interview, 2025 verification report, and revised Melissa report were accessible in full. Earlier access limits remain attached to the individual IFRC reports."
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1354,6 +1633,15 @@
                 "date": "2026-03-30",
                 "written_by": "deployer",
                 "quote": "the NHC track errors are notably lower than average for major hurricanes, including Humberto and Melissa in 2025"
+              },
+              {
+                "kind": "report",
+                "citation": "Kelly, Larry A., José Álamo, and Aidan D. Mahoney. Hurricane Melissa (AL132025), 21–31 October 2025. National Hurricane Center Tropical Cyclone Report. Revised May 19, 2026, originally February 25, 2026. 16–17, Tables 5b and 6b.",
+                "title": "Hurricane Melissa (AL132025): Tropical Cyclone Report",
+                "url": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                "date": "2026-02-25",
+                "written_by": "deployer",
+                "quote": "The NHC OFCL forecasts were comparable to GDMI through 96 h, but performed slightly better than GDMI at 120 h."
               }
             ]
           }
@@ -1393,27 +1681,16 @@
             "AIBD-0088-source-0006",
             "AIBD-0088-source-0007",
             "AIBD-0088-source-0008",
-            "AIBD-0088-source-0009"
+            "AIBD-0088-source-0009",
+            "AIBD-0088-source-0010"
           ],
-          "role": "Retained evidence items in reviewed source order"
+          "role": "Retained sources"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Source identifiers synchronized with the retained evidence after a source-attribution correction.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0088-source-0001",
-            "AIBD-0088-source-0002",
-            "AIBD-0088-source-0003",
-            "AIBD-0088-source-0004",
-            "AIBD-0088-source-0005",
-            "AIBD-0088-source-0006",
-            "AIBD-0088-source-0007",
-            "AIBD-0088-source-0008",
-            "AIBD-0088-source-0009"
-          ]
+          "basis": "Synchronized source identifiers.",
+          "record_fields": [],
+          "source_refs": []
         },
         "review_state": "record_mapped",
         "coverage": "complete"
@@ -1508,6 +1785,15 @@
                 "date": "2026-03-30",
                 "written_by": "deployer",
                 "quote": "the NHC track errors are notably lower than average for major hurricanes, including Humberto and Melissa in 2025"
+              },
+              {
+                "kind": "report",
+                "citation": "Kelly, Larry A., José Álamo, and Aidan D. Mahoney. Hurricane Melissa (AL132025), 21–31 October 2025. National Hurricane Center Tropical Cyclone Report. Revised May 19, 2026, originally February 25, 2026. 16–17, Tables 5b and 6b.",
+                "title": "Hurricane Melissa (AL132025): Tropical Cyclone Report",
+                "url": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                "date": "2026-02-25",
+                "written_by": "deployer",
+                "quote": "The NHC OFCL forecasts were comparable to GDMI through 96 h, but performed slightly better than GDMI at 120 h."
               }
             ]
           }
@@ -1611,6 +1897,19 @@
                 "url": "https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
                 "title": "NHC Forecast Verification Report, 2025 Hurricane Season",
                 "relationship": "Original seasonal verification by NHC and a cooperating researcher. It evaluates forecasting performance, but it is not an independent evaluation of AI-attributable humanitarian outcomes."
+              },
+              {
+                "url": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                "title": "Hurricane Melissa (AL132025): Tropical Cyclone Report",
+                "relationship": "Original retrospective verification by the agency that used the guidance. The report compares track and intensity forecasts for Melissa and explains how GDMI and regional models contributed to forecasters’ confidence. It does not isolate the AI model’s effect on humanitarian outcomes.",
+                "locator": "Printed pp. 16–17, Track Forecast and Intensity Forecast, Tables 5b and 6b.",
+                "original_publication_date": "2026-02-25",
+                "version_reviewed_date": "2026-05-19",
+                "version_note": "The May 19 title-page note says that this version revised fatality totals and damage estimates based on updated government information. Preserve February 25 as the original report date and May 19 as the reviewed revision.",
+                "access": "Full original PDF downloaded successfully (HTTP 200) and relevant text read on October 25, 2026. HTTP Last-Modified: May 19, 2026.",
+                "source_refs": [
+                  "AIBD-0088-source-0010"
+                ]
               }
             ],
             "related_material": [
@@ -1645,6 +1944,16 @@
                   "quote": "winds of nearly 300 km (185 miles) per hour"
                 },
                 "access": "The original ReliefWeb URL returned HTTP 403 during this narrow review. Existing citations and quotations are preserved; no new full-text verification is claimed."
+              },
+              {
+                "url": "https://go-api.ifrc.org/api/downloadfile/93656/MDRJM005OS",
+                "title": "Jamaica | Hurricane Melissa: Emergency Appeal Operational Strategy (MDRJM005)",
+                "date": "2025-11-11",
+                "locator": "p. 2, timeline; p. 3, situation overview; p. 10, targeting",
+                "finding": "The timeline records the CHF80,000 allocation on October 23, 2025. The targeting section attributes the estimated 1.6 million people affected to analysis of UNOSAT wind forecasts and demographic data.",
+                "relationship": "Original IFRC background on anticipatory aid and exposure. This report does not attribute those actions or the affected-population estimate to Google DeepMind.",
+                "access": "Full original PDF downloaded successfully (HTTP 200) and relevant sections read on October 25, 2026. The IFRC emergency page dates this operational strategy November 11, 2025.",
+                "recommendation": "Keep as related background rather than independent evidence of AI-created benefit. Preserve existing IFRC related material and its separate access status."
               }
             ],
             "claim_lineage": [
@@ -1658,7 +1967,7 @@
                 "claim": "GDMI performed well in NHC’s 2025 verification.",
                 "source_ref": "AIBD-0088-source-0009",
                 "locator": "Abstract and Atlantic track-verification discussion",
-                "access": "Indexed original report text read; the direct PDF request returned HTTP 403.",
+                "access": "Full original PDF inspected on 25 October 2026.",
                 "limitation": "Seasonal model accuracy is not a measure of AI-attributable lives saved or of the AI contribution to each humanitarian action."
               }
             ],
@@ -1669,17 +1978,31 @@
               },
               {
                 "url": "https://www.weather.gov/news/261102-AI-Hurricane-Forecasting",
-                "access": "Original NHC interview text read; it identifies NHC’s development partnership with Google DeepMind."
+                "access": "Full original page read on October 25, 2026. Q&A 7 discusses Melissa, and Q&A 2 describes NHC’s development partnership with DeepMind.",
+                "access_history": [
+                  {
+                    "access": "Original NHC interview text read; it identifies NHC’s development partnership with Google DeepMind.",
+                    "reviewed_on": "2026-10-24"
+                  }
+                ],
+                "reviewed_on": "2026-10-25"
               },
               {
                 "url": "https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
-                "access": "Indexed original report abstract and relevant text read; direct PDF request returned HTTP 403."
+                "access": "Full original PDF downloaded successfully (HTTP 200) on October 25, 2026. Title page dated March 30, 2026. Printed p. 7 links to the NHC interview, and the report provides seasonal forecast comparisons.",
+                "access_history": [
+                  {
+                    "access": "Indexed original report abstract and relevant text read; direct PDF request returned HTTP 403.",
+                    "reviewed_on": "2026-10-24"
+                  }
+                ],
+                "reviewed_on": "2026-10-25"
               }
             ],
             "limitations": [
-              "The two IFRC reports concern humanitarian action and storm impacts. Their independence from Google does not establish an independent evaluation of AI benefits.",
-              "The existing societal-depth rating remains an interpretation of the forecast’s importance. The record does not isolate the AI contribution to deaths, damages, or early humanitarian action.",
-              "This correction is limited to attribution and source roles. Other retained advisory text and detailed quantitative verification tables were not re-audited."
+              "NHC is the operator and a development partner, so its verification is primary but not an independent evaluation of its own use of AI.",
+              "Track and intensity comparisons do not measure lives saved, damage avoided, or whether IFRC acted earlier because of GDMI.",
+              "The seasonal comparison must not be substituted for a Melissa-only result."
             ],
             "ordering_basis": "Keep the contemporaneous NHC account of AI use first, followed by retained operational documentation and later verification. Humanitarian background remains available in the source notes.",
             "lead_source_ref": "AIBD-0088-source-0001",
@@ -1692,38 +2015,28 @@
               "AIBD-0088-source-0006",
               "AIBD-0088-source-0007",
               "AIBD-0088-source-0008",
-              "AIBD-0088-source-0009"
+              "AIBD-0088-source-0009",
+              "AIBD-0088-source-0010"
             ],
-            "scope": "Narrow review of source attribution and source roles. Case depths and unassessed study-design fields are unchanged. Access limits are stated below."
+            "scope": "Operational use and retrospective verification of forecasts, with humanitarian material retained separately as background.",
+            "reviewed_on": "2026-10-25"
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Moved two IFRC reports to background source notes because they describe storm impacts and humanitarian action, without establishing the AI forecast’s contribution to those outcomes. Preserved their citations, excerpts, and the existing account and depths. Retained NHC evidence of forecast use and verification, attributed to the deployer rather than an independent AI-benefit evaluator.",
-          "record_fields": [
-            "evidence",
-            "headline",
-            "title",
-            "summary"
-          ],
+          "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0088-source-0001",
-            "AIBD-0088-source-0002",
-            "AIBD-0088-source-0003",
-            "AIBD-0088-source-0004",
-            "AIBD-0088-source-0005",
-            "AIBD-0088-source-0006",
-            "AIBD-0088-source-0007",
+            "AIBD-0088-source-0010",
             "AIBD-0088-source-0008",
             "AIBD-0088-source-0009"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-25"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "IFRC reports document humanitarian action and storm damage. They do not evaluate Google’s AI or measure its contribution to lives saved, damage avoided, or earlier action.",
-          "editor_note": ""
+          "answer": "NHC’s operational advisories document its use of DeepMind guidance. Its later verification reports assess forecast accuracy. IFRC reports provide humanitarian context without isolating AI’s effects."
         }
       },
       "strategic_assessments[]": {
@@ -1852,7 +2165,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "1d834f12fc577be788cdf67e82fef8defeb4db8c16a36f5710d72387a38c12c0"
+            "7494545dd8aeba975dc7387c52bc23ab138bc6a416517d50ebb709bf803d7efa"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1883,7 +2196,7 @@
               "must_hold": [
                 "AI ensemble output delivered on time and verified before operational use, as NHC describes",
                 "Human forecasters retain the final official forecast and integrate conventional NWP guidance",
-                "Outcome verification depends on later best-track analysis. The Tropical Cyclone Report was not yet published and is not among the sources"
+                "Forecast accuracy can be assessed against the observed track and intensity. NHC’s Tropical Cyclone Report, revised 19 May 2026, provides that comparison for Melissa"
               ],
               "echoes": [
                 {
@@ -1912,22 +2225,25 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Forecasters received the experimental DeepMind ensemble in real time and combined it with conventional forecasts. They retained responsibility for the official track and intensity forecasts."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 31,
-      "reviewed": 1,
-      "record_mapped": 30,
-      "not_assessed": 60,
+      "known": 42,
+      "reviewed": 11,
+      "record_mapped": 31,
+      "not_assessed": 49,
       "complete": false,
       "by_state": {
-        "value_present": 31,
+        "value_present": 42,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 60,
+        "not_assessed": 49,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

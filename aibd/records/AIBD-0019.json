@@ -12,7 +12,7 @@
   "category": "benefit created",
   "unexpected": false,
   "purpose": "Built to flag candidate geoglyph locations in aerial imagery so that archaeologists could prioritize ground survey; the discoveries were that purpose.",
-  "system": "Deep-learning geoglyph candidate detector for aerial imagery (IBM Research with Yamagata University Institute of Nasca)",
+  "system": "Geoglyph classifier developed by IBM and Yamagata University: an ImageNet-pretrained ResNet50 with a two-layer classifier, applied to aerial imagery through IBM PAIRS",
   "model_version": null,
   "developer": "IBM Research (IBM T.J. Watson Research Center) with Yamagata University and DLR",
   "deployer": "Yamagata University (Institute of Nasca field team)",
@@ -157,6 +157,12 @@
       "change": "Organization name standardized to Yamagata University.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Identified the AI model, software, configuration, and human controls from the original paper, supplement, or author documentation.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11459208/",
+      "editor": "AIBD"
     }
   ],
   "confidence": "reported",
@@ -166,7 +172,7 @@
   "profile": {
     "case_id": "AIBD-0019",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "3b3f2ecbb2c77f497bded67677c00822e22e4421f7435fbc01476089c3a75832",
+    "source_fingerprint": "199358dd8dd5cf6a0df989eb1748dbbb10aca72413bdcd649ee588881e64495f",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -894,6 +900,12 @@
                 "date": "2026-10-22",
                 "change": "Organization name standardized to Yamagata University.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Identified the AI model, software, configuration, and human controls from the original paper, supplement, or author documentation.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11459208/",
+                "editor": "AIBD"
               }
             ]
           }
@@ -983,6 +995,12 @@
                 "date": "2026-10-22",
                 "change": "Organization name standardized to Yamagata University.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Identified the AI model, software, configuration, and human controls from the original paper, supplement, or author documentation.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11459208/",
+                "editor": "AIBD"
               }
             ]
           }
@@ -1020,9 +1038,47 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "versions_and_access": [
+              {
+                "source_ref": "AIBD-0019-source-0001",
+                "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11459208/",
+                "access_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11459208/fullTextXML",
+                "locator": "Results; Materials and Methods, Data Preparation",
+                "status": "Original text inspected.",
+                "version": "Source version at the stated URL.",
+                "reviewed_on": "2026-10-25"
+              },
+              {
+                "source_ref": "AIBD-0019-source-0001",
+                "source_url": "https://www.pnas.org/doi/suppl/10.1073/pnas.2407652121/suppl_file/pnas.2407652121.sapp.pdf",
+                "access_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11459208/supplementaryFiles",
+                "locator": "Details of the artificial neural network, pp. 2–3; Postprocessing, pp. 3–4",
+                "status": "Original text inspected.",
+                "version": "Source version at the stated URL.",
+                "reviewed_on": "2026-10-25"
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Reviewed the original materials for AI identity and operation. Other source assessments remain unchanged.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0019-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The original article and its supplementary methods were accessible."
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1099,11 +1155,11 @@
             "AIBD-0019-source-0004",
             "AIBD-0019-source-0005"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Sources retained for this entry"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+          "basis": "Synchronized identifiers with the retained sources.",
           "record_fields": [],
           "source_refs": []
         },
@@ -1180,9 +1236,56 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-25",
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11459208/",
+                "source_refs": [
+                  "AIBD-0019-source-0001"
+                ],
+                "locator": "Results; Materials and Methods, Data Preparation",
+                "contribution": "Describes imagery, candidate generation, human review, and field confirmation.",
+                "relationship": "Original research or documentation from the system’s researchers. This supports identity and methods, not independent verification of benefits."
+              },
+              {
+                "url": "https://www.pnas.org/doi/suppl/10.1073/pnas.2407652121/suppl_file/pnas.2407652121.sapp.pdf",
+                "source_refs": [
+                  "AIBD-0019-source-0001"
+                ],
+                "locator": "Details of the artificial neural network, pp. 2–3; Postprocessing, pp. 3–4",
+                "contribution": "Names ResNet50 and its classifier and documents threshold settings. This is the original paper’s supplement.",
+                "relationship": "Original research or documentation from the system’s researchers. This supports identity and methods, not independent verification of benefits."
+              }
+            ],
+            "retained_source_order": [
+              "AIBD-0019-source-0001",
+              "AIBD-0019-source-0002",
+              "AIBD-0019-source-0003",
+              "AIBD-0019-source-0004",
+              "AIBD-0019-source-0005"
+            ],
+            "lead_source_ref": "AIBD-0019-source-0001",
+            "review_scope": "AI identity and operation; existing benefit and source-independence assessments are retained."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Reviewed the original materials for AI identity and operation. Other source assessments remain unchanged.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0019-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The original paper and supplement describe the classifier, image processing, and archaeological fieldwork."
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1212,71 +1315,147 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Archaeologists screened the candidates and visited selected locations to confirm the geoglyphs."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0019-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The classifier estimated where relief-type geoglyphs might appear in aerial images."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0019-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The model analyzed 112 × 112-pixel images at 5-meter intervals. Candidate selection used probability threshold 0.55 and at least two adjoining image patches."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0019-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The classifier analyzed aerial photographs and returned a map of probabilities and candidate locations."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0019-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "ResNet50 with a two-layer classifier, adapted from ImageNet training."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0019-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].model_version": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0019-source-0001"
+          ],
+          "reviewed_on": "2026-10-25"
+        },
+        "reason": "The study does not give a release or checkpoint identifier.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The study does not give a release or checkpoint identifier."
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "system": "Deep-learning geoglyph candidate detector for aerial imagery (IBM Research with Yamagata University Institute of Nasca)"
-          }
+          "kind": "text",
+          "text": "The geoglyph classifier developed by IBM and Yamagata University, with IBM PAIRS for imagery."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "system"
+          "kind": "source_review",
+          "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0019-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "systems[].provider": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "application_developer": "IBM Research (IBM T.J. Watson Research Center) with Yamagata University and DLR"
-          }
+          "kind": "text",
+          "text": "IBM Research and Yamagata University, with the German Aerospace Center."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "developer"
+          "kind": "source_review",
+          "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0019-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-25"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1310,7 +1489,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "3b3f2ecbb2c77f497bded67677c00822e22e4421f7435fbc01476089c3a75832"
+            "199358dd8dd5cf6a0df989eb1748dbbb10aca72413bdcd649ee588881e64495f"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1359,16 +1538,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 28,
-      "reviewed": 0,
-      "record_mapped": 28,
-      "not_assessed": 63,
+      "known": 35,
+      "reviewed": 10,
+      "record_mapped": 26,
+      "not_assessed": 55,
       "complete": false,
       "by_state": {
-        "value_present": 28,
-        "not_reported": 0,
+        "value_present": 35,
+        "not_reported": 1,
         "unresolved": 0,
-        "not_assessed": 63,
+        "not_assessed": 55,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

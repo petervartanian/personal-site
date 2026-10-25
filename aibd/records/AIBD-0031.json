@@ -198,19 +198,21 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
+            "AIBD-0031-legacy-value",
             "DIV-0010"
           ],
-          "role": "Monetary statements in Fructus with matched AIBD case links; each statement retains its own review and eligibility status"
+          "role": "Existing monetary observations and Fructus statements with matched AIBD case links; each statement retains its own review and eligibility status"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Linked to the current Fructus dataset by its validated case identifier. This link does not reassess the original case, fill the monetary questions, or establish a net benefit.",
+          "basis": "Linked to the current Fructus dataset by its validated case identifier. Eligible statements can supply unanswered monetary questions without a new source review or a finding of net benefit.",
           "record_fields": [],
           "source_refs": []
         },
         "review_state": "record_mapped",
         "coverage": "partial",
         "record_ids": [
+          "AIBD-0031-legacy-value",
           "DIV-0010"
         ]
       },
@@ -502,18 +504,192 @@
         "coverage": "partial"
       },
       "economics[].counterfactual": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Randomized community dissemination versus control communities, both with access to the AI forecasting system.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0010",
+                "title": "Lower household medical spending after flood alerts",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About INR6,500 per household",
+                      "value": "6500",
+                      "qualifier": "approximately",
+                      "currency": "INR",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                    "unit": "Estimated difference per household in illness-treatment spending.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                        "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                        "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                        "date": "2024-04-03",
+                        "primary": true,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "PDF page 6; medical-expenditure result and Table 4"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].currency_price_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "INR, stated in the source. Nominal source amount; price year not separately stated.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0010",
+                "title": "Lower household medical spending after flood alerts",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About INR6,500 per household",
+                      "value": "6500",
+                      "qualifier": "approximately",
+                      "currency": "INR",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                    "unit": "Estimated difference per household in illness-treatment spending.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                        "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                        "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                        "date": "2024-04-03",
+                        "primary": true,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "PDF page 6; medical-expenditure result and Table 4"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].gross_net": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0010",
+                "title": "Lower household medical spending after flood alerts",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About INR6,500 per household",
+                      "value": "6500",
+                      "qualifier": "approximately",
+                      "currency": "INR",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                    "unit": "Estimated difference per household in illness-treatment spending.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                        "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                        "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                        "date": "2024-04-03",
+                        "primary": true,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "PDF page 6; medical-expenditure result and Table 4"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].measure_type": {
@@ -543,37 +719,216 @@
         "coverage": "partial"
       },
       "economics[].period_unit": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "2022–2023 flood-season study; the prose does not isolate the monetary recall window. Estimated difference per household in illness-treatment spending.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0010",
+                "title": "Lower household medical spending after flood alerts",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About INR6,500 per household",
+                      "value": "6500",
+                      "qualifier": "approximately",
+                      "currency": "INR",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                    "unit": "Estimated difference per household in illness-treatment spending.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                        "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                        "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                        "date": "2024-04-03",
+                        "primary": true,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "PDF page 6; medical-expenditure result and Table 4"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].realization": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Retrospective estimate.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0010",
+                "title": "Lower household medical spending after flood alerts",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About INR6,500 per household",
+                      "value": "6500",
+                      "qualifier": "approximately",
+                      "currency": "INR",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                    "unit": "Estimated difference per household in illness-treatment spending.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                        "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                        "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                        "date": "2024-04-03",
+                        "primary": true,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "PDF page 6; medical-expenditure result and Table 4"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].recipient_payer": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "value": {
-              "amount": "INR 6,500",
-              "what": "less spent on illness treatment per household over the flood season",
-              "who": "treatment households in the Bihar study panchayats",
-              "estimate": false,
-              "quote": "As a result, households in treatment areas incurred roughly INR 6,500 less on illness treatment (a 32.87% decrease). In fact, based on the estimated reduction in medical expenditures alone, we estimate that for every $1 spent on the program, the intervention would generate a minimum benefit of $30 during a severe flooding season.",
-              "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+          "kind": "structured",
+          "data": {
+            "answer": "Recipient: Households in treatment communities in Bihar, India. Payer: Households paying for illness treatment.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0010",
+                "title": "Lower household medical spending after flood alerts",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "cash_saving",
+                "amount_basis": "incremental_change",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "About INR6,500 per household",
+                      "value": "6500",
+                      "qualifier": "approximately",
+                      "currency": "INR",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                    "unit": "Estimated difference per household in illness-treatment spending.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                        "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                        "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                        "date": "2024-04-03",
+                        "primary": true,
+                        "written_by": "independent",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text",
+                        "locator": "PDF page 6; medical-expenditure result and Table 4"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "original_resolution": {
+              "state": "value_present",
+              "value": {
+                "kind": "record_fields",
+                "fields": {
+                  "value": {
+                    "amount": "INR 6,500",
+                    "what": "less spent on illness treatment per household over the flood season",
+                    "who": "treatment households in the Bihar study panchayats",
+                    "estimate": false,
+                    "quote": "As a result, households in treatment areas incurred roughly INR 6,500 less on illness treatment (a 32.87% decrease). In fact, based on the estimated reduction in medical expenditures alone, we estimate that for every $1 spent on the program, the intervention would generate a minimum benefit of $30 during a severe flooding season.",
+                    "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+                  }
+                }
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+                "record_fields": [
+                  "value"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial"
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "value"
-          ],
-          "source_refs": []
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI. The Fructus audit matches the original monetary value. The original field and its provenance are retained with this answer.",
+          "record_fields": [],
+          "source_refs": [
+            "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+          ]
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -1419,16 +1774,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 32,
+      "known": 37,
       "reviewed": 0,
-      "record_mapped": 32,
-      "not_assessed": 59,
+      "record_mapped": 37,
+      "not_assessed": 54,
       "complete": false,
       "by_state": {
-        "value_present": 32,
+        "value_present": 37,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 59,
+        "not_assessed": 54,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

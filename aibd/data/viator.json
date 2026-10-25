@@ -25326,19 +25326,21 @@
               "value": {
                 "kind": "identifiers",
                 "identifiers": [
+                  "AIBD-0031-legacy-value",
                   "DIV-0010"
                 ],
-                "role": "Monetary statements in Fructus with matched AIBD case links; each statement retains its own review and eligibility status"
+                "role": "Existing monetary observations and Fructus statements with matched AIBD case links; each statement retains its own review and eligibility status"
               },
               "provenance": {
                 "kind": "curatorial",
-                "basis": "Linked to the current Fructus dataset by its validated case identifier. This link does not reassess the original case, fill the monetary questions, or establish a net benefit.",
+                "basis": "Linked to the current Fructus dataset by its validated case identifier. Eligible statements can supply unanswered monetary questions without a new source review or a finding of net benefit.",
                 "record_fields": [],
                 "source_refs": []
               },
               "review_state": "record_mapped",
               "coverage": "partial",
               "record_ids": [
+                "AIBD-0031-legacy-value",
                 "DIV-0010"
               ]
             },
@@ -25630,18 +25632,192 @@
               "coverage": "partial"
             },
             "economics[].counterfactual": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "Randomized community dissemination versus control communities, both with access to the AI forecasting system.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0010",
+                      "title": "Lower household medical spending after flood alerts",
+                      "monetary_role": "outcome_amount_claim",
+                      "financial_type": "cash_saving",
+                      "amount_basis": "incremental_change",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "About INR6,500 per household",
+                            "value": "6500",
+                            "qualifier": "approximately",
+                            "currency": "INR",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                          "unit": "Estimated difference per household in illness-treatment spending.",
+                          "realization": "retrospective_estimate",
+                          "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                              "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                              "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                              "date": "2024-04-03",
+                              "primary": true,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "PDF page 6; medical-expenditure result and Table 4"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].currency_price_basis": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "INR, stated in the source. Nominal source amount; price year not separately stated.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0010",
+                      "title": "Lower household medical spending after flood alerts",
+                      "monetary_role": "outcome_amount_claim",
+                      "financial_type": "cash_saving",
+                      "amount_basis": "incremental_change",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "About INR6,500 per household",
+                            "value": "6500",
+                            "qualifier": "approximately",
+                            "currency": "INR",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                          "unit": "Estimated difference per household in illness-treatment spending.",
+                          "realization": "retrospective_estimate",
+                          "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                              "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                              "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                              "date": "2024-04-03",
+                              "primary": true,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "PDF page 6; medical-expenditure result and Table 4"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].gross_net": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0010",
+                      "title": "Lower household medical spending after flood alerts",
+                      "monetary_role": "outcome_amount_claim",
+                      "financial_type": "cash_saving",
+                      "amount_basis": "incremental_change",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "About INR6,500 per household",
+                            "value": "6500",
+                            "qualifier": "approximately",
+                            "currency": "INR",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                          "unit": "Estimated difference per household in illness-treatment spending.",
+                          "realization": "retrospective_estimate",
+                          "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                              "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                              "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                              "date": "2024-04-03",
+                              "primary": true,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "PDF page 6; medical-expenditure result and Table 4"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].measure_type": {
@@ -25671,37 +25847,216 @@
               "coverage": "partial"
             },
             "economics[].period_unit": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "2022–2023 flood-season study; the prose does not isolate the monetary recall window. Estimated difference per household in illness-treatment spending.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0010",
+                      "title": "Lower household medical spending after flood alerts",
+                      "monetary_role": "outcome_amount_claim",
+                      "financial_type": "cash_saving",
+                      "amount_basis": "incremental_change",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "About INR6,500 per household",
+                            "value": "6500",
+                            "qualifier": "approximately",
+                            "currency": "INR",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                          "unit": "Estimated difference per household in illness-treatment spending.",
+                          "realization": "retrospective_estimate",
+                          "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                              "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                              "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                              "date": "2024-04-03",
+                              "primary": true,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "PDF page 6; medical-expenditure result and Table 4"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].realization": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "Retrospective estimate.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0010",
+                      "title": "Lower household medical spending after flood alerts",
+                      "monetary_role": "outcome_amount_claim",
+                      "financial_type": "cash_saving",
+                      "amount_basis": "incremental_change",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "About INR6,500 per household",
+                            "value": "6500",
+                            "qualifier": "approximately",
+                            "currency": "INR",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                          "unit": "Estimated difference per household in illness-treatment spending.",
+                          "realization": "retrospective_estimate",
+                          "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                              "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                              "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                              "date": "2024-04-03",
+                              "primary": true,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "PDF page 6; medical-expenditure result and Table 4"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].recipient_payer": {
               "state": "value_present",
               "value": {
-                "kind": "record_fields",
-                "fields": {
-                  "value": {
-                    "amount": "INR 6,500",
-                    "what": "less spent on illness treatment per household over the flood season",
-                    "who": "treatment households in the Bihar study panchayats",
-                    "estimate": false,
-                    "quote": "As a result, households in treatment areas incurred roughly INR 6,500 less on illness treatment (a 32.87% decrease). In fact, based on the estimated reduction in medical expenditures alone, we estimate that for every $1 spent on the program, the intervention would generate a minimum benefit of $30 during a severe flooding season.",
-                    "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+                "kind": "structured",
+                "data": {
+                  "answer": "Recipient: Households in treatment communities in Bihar, India. Payer: Households paying for illness treatment.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0010",
+                      "title": "Lower household medical spending after flood alerts",
+                      "monetary_role": "outcome_amount_claim",
+                      "financial_type": "cash_saving",
+                      "amount_basis": "incremental_change",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "About INR6,500 per household",
+                            "value": "6500",
+                            "qualifier": "approximately",
+                            "currency": "INR",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "2022–2023 flood-season study; the prose does not isolate the monetary recall window.",
+                          "unit": "Estimated difference per household in illness-treatment spending.",
+                          "realization": "retrospective_estimate",
+                          "accounting_boundary": "Estimated household medical-expenditure reduction, not a full net-welfare or program-profit estimate.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf",
+                              "title": "Forecasting Fate: Experimental Evaluation of a Flood Early Warning System",
+                              "quote": "households in treatment areas incurred roughly INR 6,500 less on illness treatment",
+                              "date": "2024-04-03",
+                              "primary": true,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "PDF page 6; medical-expenditure result and Table 4"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "original_resolution": {
+                    "state": "value_present",
+                    "value": {
+                      "kind": "record_fields",
+                      "fields": {
+                        "value": {
+                          "amount": "INR 6,500",
+                          "what": "less spent on illness treatment per household over the flood season",
+                          "who": "treatment households in the Bihar study panchayats",
+                          "estimate": false,
+                          "quote": "As a result, households in treatment areas incurred roughly INR 6,500 less on illness treatment (a 32.87% decrease). In fact, based on the estimated reduction in medical expenditures alone, we estimate that for every $1 spent on the program, the intervention would generate a minimum benefit of $30 during a severe flooding season.",
+                          "url": "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+                        }
+                      }
+                    },
+                    "provenance": {
+                      "kind": "legacy_record",
+                      "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+                      "record_fields": [
+                        "value"
+                      ],
+                      "source_refs": []
+                    },
+                    "review_state": "record_mapped",
+                    "coverage": "partial"
                   }
                 }
               },
               "provenance": {
-                "kind": "legacy_record",
-                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-                "record_fields": [
-                  "value"
-                ],
-                "source_refs": []
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0010. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI. The Fructus audit matches the original monetary value. The original field and its provenance are retained with this answer.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://bpb-us-w2.wpmucdn.com/campuspress.yale.edu/dist/7/2986/files/2024/04/Google_Floods-bcdf49042e23059a.pdf"
+                ]
               },
               "review_state": "record_mapped",
               "coverage": "partial"
@@ -26547,16 +26902,16 @@
           "summary": {
             "total": 91,
             "addressed": 91,
-            "known": 32,
+            "known": 37,
             "reviewed": 0,
-            "record_mapped": 32,
-            "not_assessed": 59,
+            "record_mapped": 37,
+            "not_assessed": 54,
             "complete": false,
             "by_state": {
-              "value_present": 32,
+              "value_present": 37,
               "not_reported": 0,
               "unresolved": 0,
-              "not_assessed": 59,
+              "not_assessed": 54,
               "not_applicable": 0,
               "withheld": 0,
               "source_unavailable": 0
@@ -39240,6 +39595,12 @@
             "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
             "source": null,
             "editor": "AIBD"
+          },
+          {
+            "date": "2026-10-25",
+            "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
+            "source": null,
+            "editor": "AIBD"
           }
         ],
         "confidence": "reported",
@@ -39249,7 +39610,7 @@
         "profile": {
           "case_id": "AIBD-0134",
           "catalog_version": "1.0.0",
-          "source_fingerprint": "0af193aa1c642366d3fbea385cfc6f9d4dcca9baf1a96a4d84225ab1316ed0db",
+          "source_fingerprint": "0ceafd256de27fe7eee2f880df02c43a273967c01252679c08c75e916609ae73",
           "collection_refs": [
             {
               "collection_id": "aibd",
@@ -39438,7 +39799,10 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "Dani describes a tumor that remained undiagnosed for three years. He reports that his symptoms ended after surgery. The reports discuss episodes that could have caused serious harm, but that possibility and the recovery remain supported by his account alone."
+              }
             },
             "assessments[].rubric_version": {
               "state": "not_assessed",
@@ -39637,7 +40001,10 @@
               "state": "not_assessed",
               "review_state": "not_assessed",
               "coverage": "partial",
-              "family": "evaluations"
+              "family": "evaluations",
+              "display": {
+                "answer": "Dani reports that his symptoms ended after surgery. The comparison is with his earlier three years without a diagnosis, not a controlled assessment."
+              }
             },
             "evaluations[].exposure": {
               "state": "not_assessed",
@@ -39655,7 +40022,10 @@
               "state": "not_assessed",
               "review_state": "not_assessed",
               "coverage": "partial",
-              "family": "evaluations"
+              "family": "evaluations",
+              "display": {
+                "answer": "Dani described his symptoms, glucose readings, diagnosis, and surgery in his own video account."
+              }
             },
             "evaluations[].metric": {
               "state": "not_assessed",
@@ -39671,8 +40041,7 @@
               "coverage": "partial",
               "family": "evaluations",
               "display": {
-                "answer": "surgeons removed about two thirds of his pancreas and his symptoms went",
-                "editor_note": ""
+                "answer": "Glucose level, symptoms, and response to surgery."
               }
             },
             "evaluations[].reproduction_materials": {
@@ -39691,7 +40060,10 @@
               "state": "not_assessed",
               "review_state": "not_assessed",
               "coverage": "partial",
-              "family": "evaluations"
+              "family": "evaluations",
+              "display": {
+                "answer": "No treating clinician or medical record independently confirms the account. The reports do not establish whether the chatbot prevented death."
+              }
             },
             "external_references[]": {
               "state": "value_present",
@@ -39766,14 +40138,44 @@
               "coverage": "partial"
             },
             "outcomes[].beneficiaries": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "Dani, a 35-year-old man in Madrid."
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+                "record_fields": [
+                  "account"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial",
+              "display": {
+                "answer": "Dani, a 35-year-old man in Madrid."
+              }
             },
             "outcomes[].beneficiary_count": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "One person."
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+                "record_fields": [
+                  "account"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial",
+              "display": {
+                "answer": "One person."
+              }
             },
             "outcomes[].benefit_type": {
               "state": "value_present",
@@ -39813,7 +40215,10 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "Dani reports that a chatbot suggestion led him to seek further tests, after which doctors diagnosed and removed an insulinoma."
+              }
             },
             "outcomes[].distribution": {
               "state": "not_assessed",
@@ -39961,6 +40366,11 @@
                       "date": "2026-10-21",
                       "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-25",
+                      "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
+                      "editor": "AIBD"
                     }
                   ]
                 }
@@ -40057,7 +40467,10 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "A clinician needs to investigate the suggestion. Here, the suspected condition had a marker that the patient could measure with a glucose sensor, and doctors confirmed it with blood tests."
+              }
             },
             "revision_history[]": {
               "state": "value_present",
@@ -40092,6 +40505,11 @@
                     {
                       "date": "2026-10-21",
                       "change": "Prose pass: a rating reason, account, purpose, the replication conditions, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                      "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-25",
+                      "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
                       "editor": "AIBD"
                     }
                   ]
@@ -40448,7 +40866,7 @@
               "value": {
                 "kind": "identifiers",
                 "identifiers": [
-                  "0af193aa1c642366d3fbea385cfc6f9d4dcca9baf1a96a4d84225ab1316ed0db"
+                  "0ceafd256de27fe7eee2f880df02c43a273967c01252679c08c75e916609ae73"
                 ],
                 "role": "SHA-256 of normalized original case data"
               },
@@ -40502,22 +40920,25 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "Dani entered his symptoms, test results, and medical history into ChatGPT. He used a glucose sensor that recorded readings of 30 to 40 mg/dL, then sought emergency care. An internist confirmed the insulinoma, and a surgical team that treated him removed about two-thirds of his pancreas."
+              }
             }
           },
           "summary": {
             "total": 91,
             "addressed": 91,
-            "known": 33,
+            "known": 35,
             "reviewed": 0,
-            "record_mapped": 33,
-            "not_assessed": 58,
+            "record_mapped": 35,
+            "not_assessed": 56,
             "complete": false,
             "by_state": {
-              "value_present": 33,
+              "value_present": 35,
               "not_reported": 0,
               "unresolved": 0,
-              "not_assessed": 58,
+              "not_assessed": 56,
               "not_applicable": 0,
               "withheld": 0,
               "source_unavailable": 0
@@ -43290,7 +43711,7 @@
         "category": "benefit created",
         "unexpected": false,
         "purpose": "Built to flag candidate geoglyph locations in aerial imagery so that archaeologists could prioritize ground survey; the discoveries were that purpose.",
-        "system": "Deep-learning geoglyph candidate detector for aerial imagery (IBM Research with Yamagata University Institute of Nasca)",
+        "system": "Geoglyph classifier developed by IBM and Yamagata University: an ImageNet-pretrained ResNet50 with a two-layer classifier, applied to aerial imagery through IBM PAIRS",
         "model_version": null,
         "developer": "IBM Research (IBM T.J. Watson Research Center) with Yamagata University and DLR",
         "deployer": "Yamagata University (Institute of Nasca field team)",
@@ -43435,6 +43856,12 @@
             "change": "Organization name standardized to Yamagata University.",
             "source": null,
             "editor": "AIBD"
+          },
+          {
+            "date": "2026-10-25",
+            "change": "Identified the AI model, software, configuration, and human controls from the original paper, supplement, or author documentation.",
+            "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11459208/",
+            "editor": "AIBD"
           }
         ],
         "confidence": "reported",
@@ -43444,7 +43871,7 @@
         "profile": {
           "case_id": "AIBD-0019",
           "catalog_version": "1.0.0",
-          "source_fingerprint": "3b3f2ecbb2c77f497bded67677c00822e22e4421f7435fbc01476089c3a75832",
+          "source_fingerprint": "199358dd8dd5cf6a0df989eb1748dbbb10aca72413bdcd649ee588881e64495f",
           "collection_refs": [
             {
               "collection_id": "aibd",
@@ -44172,6 +44599,12 @@
                       "date": "2026-10-22",
                       "change": "Organization name standardized to Yamagata University.",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-25",
+                      "change": "Identified the AI model, software, configuration, and human controls from the original paper, supplement, or author documentation.",
+                      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11459208/",
+                      "editor": "AIBD"
                     }
                   ]
                 }
@@ -44261,6 +44694,12 @@
                       "date": "2026-10-22",
                       "change": "Organization name standardized to Yamagata University.",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-25",
+                      "change": "Identified the AI model, software, configuration, and human controls from the original paper, supplement, or author documentation.",
+                      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11459208/",
+                      "editor": "AIBD"
                     }
                   ]
                 }
@@ -44298,9 +44737,47 @@
               "coverage": "partial"
             },
             "sources[].access_version": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "reviewed_on": "2026-10-25",
+                  "versions_and_access": [
+                    {
+                      "source_ref": "AIBD-0019-source-0001",
+                      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11459208/",
+                      "access_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11459208/fullTextXML",
+                      "locator": "Results; Materials and Methods, Data Preparation",
+                      "status": "Original text inspected.",
+                      "version": "Source version at the stated URL.",
+                      "reviewed_on": "2026-10-25"
+                    },
+                    {
+                      "source_ref": "AIBD-0019-source-0001",
+                      "source_url": "https://www.pnas.org/doi/suppl/10.1073/pnas.2407652121/suppl_file/pnas.2407652121.sapp.pdf",
+                      "access_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11459208/supplementaryFiles",
+                      "locator": "Details of the artificial neural network, pp. 2–3; Postprocessing, pp. 3–4",
+                      "status": "Original text inspected.",
+                      "version": "Source version at the stated URL.",
+                      "reviewed_on": "2026-10-25"
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Reviewed the original materials for AI identity and operation. Other source assessments remain unchanged.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0019-source-0001"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
+              "coverage": "partial",
+              "display": {
+                "answer": "The original article and its supplementary methods were accessible."
+              }
             },
             "sources[].citation_locator": {
               "state": "value_present",
@@ -44377,11 +44854,11 @@
                   "AIBD-0019-source-0004",
                   "AIBD-0019-source-0005"
                 ],
-                "role": "Existing evidence items, in their original order"
+                "role": "Sources retained for this entry"
               },
               "provenance": {
                 "kind": "curatorial",
-                "basis": "Stable within the fingerprinted record version; no source content or source review has been added.",
+                "basis": "Synchronized identifiers with the retained sources.",
                 "record_fields": [],
                 "source_refs": []
               },
@@ -44458,9 +44935,56 @@
               "coverage": "partial"
             },
             "sources[].upstream_sources": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "reviewed_on": "2026-10-25",
+                  "origins": [
+                    {
+                      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11459208/",
+                      "source_refs": [
+                        "AIBD-0019-source-0001"
+                      ],
+                      "locator": "Results; Materials and Methods, Data Preparation",
+                      "contribution": "Describes imagery, candidate generation, human review, and field confirmation.",
+                      "relationship": "Original research or documentation from the system’s researchers. This supports identity and methods, not independent verification of benefits."
+                    },
+                    {
+                      "url": "https://www.pnas.org/doi/suppl/10.1073/pnas.2407652121/suppl_file/pnas.2407652121.sapp.pdf",
+                      "source_refs": [
+                        "AIBD-0019-source-0001"
+                      ],
+                      "locator": "Details of the artificial neural network, pp. 2–3; Postprocessing, pp. 3–4",
+                      "contribution": "Names ResNet50 and its classifier and documents threshold settings. This is the original paper’s supplement.",
+                      "relationship": "Original research or documentation from the system’s researchers. This supports identity and methods, not independent verification of benefits."
+                    }
+                  ],
+                  "retained_source_order": [
+                    "AIBD-0019-source-0001",
+                    "AIBD-0019-source-0002",
+                    "AIBD-0019-source-0003",
+                    "AIBD-0019-source-0004",
+                    "AIBD-0019-source-0005"
+                  ],
+                  "lead_source_ref": "AIBD-0019-source-0001",
+                  "review_scope": "AI identity and operation; existing benefit and source-independence assessments are retained."
+                }
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Reviewed the original materials for AI identity and operation. Other source assessments remain unchanged.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0019-source-0001"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
+              "coverage": "partial",
+              "display": {
+                "answer": "The original paper and supplement describe the classifier, image processing, and archaeological fieldwork."
+              }
             },
             "strategic_assessments[]": {
               "state": "not_assessed",
@@ -44490,71 +45014,147 @@
               "coverage": "partial"
             },
             "systems[].autonomy_permissions": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "Archaeologists screened the candidates and visited selected locations to confirm the geoglyphs."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0019-source-0001"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial"
             },
             "systems[].component_role": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "The classifier estimated where relief-type geoglyphs might appear in aerial images."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0019-source-0001"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial"
             },
             "systems[].deployment_configuration": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "The model analyzed 112 × 112-pixel images at 5-meter intervals. Candidate selection used probability threshold 0.55 and at least two adjoining image patches."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0019-source-0001"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial"
             },
             "systems[].inputs_outputs": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "The classifier analyzed aerial photographs and returned a map of probabilities and candidate locations."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0019-source-0001"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial"
             },
             "systems[].model_name": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "ResNet50 with a two-layer classifier, adapted from ImageNet training."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0019-source-0001"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial"
             },
             "systems[].model_version": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "not_reported",
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0019-source-0001"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "reason": "The study does not give a release or checkpoint identifier.",
+              "review_state": "reviewed",
+              "coverage": "partial",
+              "display": {
+                "answer": "The study does not give a release or checkpoint identifier."
+              }
             },
             "systems[].product_name": {
               "state": "value_present",
               "value": {
-                "kind": "record_fields",
-                "fields": {
-                  "system": "Deep-learning geoglyph candidate detector for aerial imagery (IBM Research with Yamagata University Institute of Nasca)"
-                }
+                "kind": "text",
+                "text": "The geoglyph classifier developed by IBM and Yamagata University, with IBM PAIRS for imagery."
               },
               "provenance": {
-                "kind": "legacy_record",
-                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-                "record_fields": [
-                  "system"
+                "kind": "source_review",
+                "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0019-source-0001"
                 ],
-                "source_refs": []
+                "reviewed_on": "2026-10-25"
               },
-              "review_state": "record_mapped",
+              "review_state": "reviewed",
               "coverage": "partial"
             },
             "systems[].provider": {
               "state": "value_present",
               "value": {
-                "kind": "structured",
-                "data": {
-                  "application_developer": "IBM Research (IBM T.J. Watson Research Center) with Yamagata University and DLR"
-                }
+                "kind": "text",
+                "text": "IBM Research and Yamagata University, with the German Aerospace Center."
               },
               "provenance": {
-                "kind": "legacy_record",
-                "basis": "Mapped from the existing case description without a new external source review.",
-                "record_fields": [
-                  "developer"
+                "kind": "source_review",
+                "basis": "Read the original paper and SI Appendix, “Details of the artificial neural network,” pp. 2–3, and “Postprocessing of the modeled probability map,” pp. 3–4.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0019-source-0001"
                 ],
-                "source_refs": []
+                "reviewed_on": "2026-10-25"
               },
-              "review_state": "record_mapped",
+              "review_state": "reviewed",
               "coverage": "partial"
             },
             "taxonomy_crosswalks[]": {
@@ -44588,7 +45188,7 @@
               "value": {
                 "kind": "identifiers",
                 "identifiers": [
-                  "3b3f2ecbb2c77f497bded67677c00822e22e4421f7435fbc01476089c3a75832"
+                  "199358dd8dd5cf6a0df989eb1748dbbb10aca72413bdcd649ee588881e64495f"
                 ],
                 "role": "SHA-256 of normalized original case data"
               },
@@ -44637,16 +45237,16 @@
           "summary": {
             "total": 91,
             "addressed": 91,
-            "known": 28,
-            "reviewed": 0,
-            "record_mapped": 28,
-            "not_assessed": 63,
+            "known": 35,
+            "reviewed": 10,
+            "record_mapped": 26,
+            "not_assessed": 55,
             "complete": false,
             "by_state": {
-              "value_present": 28,
-              "not_reported": 0,
+              "value_present": 35,
+              "not_reported": 1,
               "unresolved": 0,
-              "not_assessed": 63,
+              "not_assessed": 55,
               "not_applicable": 0,
               "withheld": 0,
               "source_unavailable": 0
@@ -69720,6 +70320,12 @@
             "change": "Organization name standardized to Google.",
             "source": null,
             "editor": "AIBD"
+          },
+          {
+            "date": "2026-10-25",
+            "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
+            "source": null,
+            "editor": "AIBD"
           }
         ],
         "confidence": "reported",
@@ -69729,7 +70335,7 @@
         "profile": {
           "case_id": "AIBD-0095",
           "catalog_version": "1.0.0",
-          "source_fingerprint": "784bdbb69dd577c52d843eaff19e16ac49498d66b903a449c68f915cef76c21a",
+          "source_fingerprint": "98c5275b8297241b39c99ee3714e3d5dfdb3a9236527256b7a4fc10d1caf9aed",
           "collection_refs": [
             {
               "collection_id": "aibd",
@@ -69759,19 +70365,21 @@
               "value": {
                 "kind": "identifiers",
                 "identifiers": [
+                  "AIBD-0095-legacy-value",
                   "DIV-0017"
                 ],
-                "role": "Monetary statements in Fructus with matched AIBD case links; each statement retains its own review and eligibility status"
+                "role": "Existing monetary observations and Fructus statements with matched AIBD case links; each statement retains its own review and eligibility status"
               },
               "provenance": {
                 "kind": "curatorial",
-                "basis": "Linked to the current Fructus dataset by its validated case identifier. This link does not reassess the original case, fill the monetary questions, or establish a net benefit.",
+                "basis": "Linked to the current Fructus dataset by its validated case identifier. Eligible statements can supply unanswered monetary questions without a new source review or a finding of net benefit.",
                 "record_fields": [],
                 "source_refs": []
               },
               "review_state": "record_mapped",
               "coverage": "partial",
               "record_ids": [
+                "AIBD-0095-legacy-value",
                 "DIV-0017"
               ]
             },
@@ -69954,7 +70562,10 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "Recipients received cash, and GiveDirectly’s survey reports higher income and fewer food shortages. GiveDirectly also gained experience in sending payments after a forecast threshold was reached. It acknowledged that its recipient units were inconsistent. The investigation documents that some of the poorest residents were excluded."
+              }
             },
             "assessments[].rubric_version": {
               "state": "not_assessed",
@@ -70078,25 +70689,119 @@
             "economics[].amount": {
               "state": "value_present",
               "value": {
-                "kind": "record_fields",
-                "fields": {
-                  "value": {
-                    "amount": "$105",
-                    "what": "anticipatory cash transfer per recipient before the flood peak (a second $210 transfer followed)",
-                    "who": "over 4,600 flood-exposed residents of Ibaji, Kogi State",
-                    "estimate": false,
-                    "quote": "Once forecasted flood thresholds were met, we sent $105 to over 4,600 individuals before the flood peak.",
-                    "url": "https://www.givedirectly.org/flood-forecast-ai/"
+                "kind": "structured",
+                "data": {
+                  "answer": "$105 (source equivalent: NGN177,866 per recipient). Reported equivalent; later naira payments may differ.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0017",
+                      "title": "Flood-triggered cash transfers in Nigeria",
+                      "monetary_role": "recipient_transfer",
+                      "financial_type": "recipient_transfer",
+                      "amount_basis": "transfer",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$105 per recipient",
+                            "value": "105",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "context",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.givedirectly.org/flood-forecast-ai",
+                              "title": "How AI helped send cash just before floods hit in Nigeria",
+                              "quote": "we sent $105 to over 4,600 individuals",
+                              "date": "2025-06-27",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ngn-equivalent",
+                          "relationship": "source_equivalent",
+                          "equivalent_to": "primary",
+                          "amount": {
+                            "source_text": "NGN177,866 per recipient",
+                            "value": "177866",
+                            "qualifier": "exact",
+                            "currency": "NGN",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                              "title": "Could AI save Nigerians from devastating floods?",
+                              "quote": "177,866 naira ($105)",
+                              "date": "2024-09-21",
+                              "primary": false,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "First anticipatory payment in Kogi"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "original_resolution": {
+                    "state": "value_present",
+                    "value": {
+                      "kind": "record_fields",
+                      "fields": {
+                        "value": {
+                          "amount": "$105",
+                          "what": "anticipatory cash transfer per recipient before the flood peak (a second $210 transfer followed)",
+                          "who": "over 4,600 flood-exposed residents of Ibaji, Kogi State",
+                          "estimate": false,
+                          "quote": "Once forecasted flood thresholds were met, we sent $105 to over 4,600 individuals before the flood peak.",
+                          "url": "https://www.givedirectly.org/flood-forecast-ai/"
+                        }
+                      }
+                    },
+                    "provenance": {
+                      "kind": "legacy_record",
+                      "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+                      "record_fields": [
+                        "value"
+                      ],
+                      "source_refs": []
+                    },
+                    "review_state": "record_mapped",
+                    "coverage": "partial"
                   }
                 }
               },
               "provenance": {
-                "kind": "legacy_record",
-                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-                "record_fields": [
-                  "value"
-                ],
-                "source_refs": []
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI. The Fructus audit matches the original monetary value. The original field and its provenance are retained with this answer.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                  "https://www.givedirectly.org/flood-forecast-ai"
+                ]
               },
               "review_state": "record_mapped",
               "coverage": "partial"
@@ -70107,18 +70812,285 @@
               "coverage": "partial"
             },
             "economics[].counterfactual": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "The amount is not a comparison with aid delivered without AI.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0017",
+                      "title": "Flood-triggered cash transfers in Nigeria",
+                      "monetary_role": "recipient_transfer",
+                      "financial_type": "recipient_transfer",
+                      "amount_basis": "transfer",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$105 per recipient",
+                            "value": "105",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "context",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.givedirectly.org/flood-forecast-ai",
+                              "title": "How AI helped send cash just before floods hit in Nigeria",
+                              "quote": "we sent $105 to over 4,600 individuals",
+                              "date": "2025-06-27",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ngn-equivalent",
+                          "relationship": "source_equivalent",
+                          "equivalent_to": "primary",
+                          "amount": {
+                            "source_text": "NGN177,866 per recipient",
+                            "value": "177866",
+                            "qualifier": "exact",
+                            "currency": "NGN",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                              "title": "Could AI save Nigerians from devastating floods?",
+                              "quote": "177,866 naira ($105)",
+                              "date": "2024-09-21",
+                              "primary": false,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "First anticipatory payment in Kogi"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                  "https://www.givedirectly.org/flood-forecast-ai"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].currency_price_basis": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "USD, identified from the source context. NGN, stated in the source. Nominal source amount; price year not separately stated.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0017",
+                      "title": "Flood-triggered cash transfers in Nigeria",
+                      "monetary_role": "recipient_transfer",
+                      "financial_type": "recipient_transfer",
+                      "amount_basis": "transfer",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$105 per recipient",
+                            "value": "105",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "context",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.givedirectly.org/flood-forecast-ai",
+                              "title": "How AI helped send cash just before floods hit in Nigeria",
+                              "quote": "we sent $105 to over 4,600 individuals",
+                              "date": "2025-06-27",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ngn-equivalent",
+                          "relationship": "source_equivalent",
+                          "equivalent_to": "primary",
+                          "amount": {
+                            "source_text": "NGN177,866 per recipient",
+                            "value": "177866",
+                            "qualifier": "exact",
+                            "currency": "NGN",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                              "title": "Could AI save Nigerians from devastating floods?",
+                              "quote": "177,866 naira ($105)",
+                              "date": "2024-09-21",
+                              "primary": false,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "First anticipatory payment in Kogi"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                  "https://www.givedirectly.org/flood-forecast-ai"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].gross_net": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0017",
+                      "title": "Flood-triggered cash transfers in Nigeria",
+                      "monetary_role": "recipient_transfer",
+                      "financial_type": "recipient_transfer",
+                      "amount_basis": "transfer",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$105 per recipient",
+                            "value": "105",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "context",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.givedirectly.org/flood-forecast-ai",
+                              "title": "How AI helped send cash just before floods hit in Nigeria",
+                              "quote": "we sent $105 to over 4,600 individuals",
+                              "date": "2025-06-27",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ngn-equivalent",
+                          "relationship": "source_equivalent",
+                          "equivalent_to": "primary",
+                          "amount": {
+                            "source_text": "NGN177,866 per recipient",
+                            "value": "177866",
+                            "qualifier": "exact",
+                            "currency": "NGN",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                              "title": "Could AI save Nigerians from devastating floods?",
+                              "quote": "177,866 naira ($105)",
+                              "date": "2024-09-21",
+                              "primary": false,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "First anticipatory payment in Kogi"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                  "https://www.givedirectly.org/flood-forecast-ai"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].measure_type": {
@@ -70148,37 +71120,309 @@
               "coverage": "partial"
             },
             "economics[].period_unit": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "August 29 to October 24, 2024, for the first transfer. Per recipient, first transfer.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0017",
+                      "title": "Flood-triggered cash transfers in Nigeria",
+                      "monetary_role": "recipient_transfer",
+                      "financial_type": "recipient_transfer",
+                      "amount_basis": "transfer",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$105 per recipient",
+                            "value": "105",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "context",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.givedirectly.org/flood-forecast-ai",
+                              "title": "How AI helped send cash just before floods hit in Nigeria",
+                              "quote": "we sent $105 to over 4,600 individuals",
+                              "date": "2025-06-27",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ngn-equivalent",
+                          "relationship": "source_equivalent",
+                          "equivalent_to": "primary",
+                          "amount": {
+                            "source_text": "NGN177,866 per recipient",
+                            "value": "177866",
+                            "qualifier": "exact",
+                            "currency": "NGN",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                              "title": "Could AI save Nigerians from devastating floods?",
+                              "quote": "177,866 naira ($105)",
+                              "date": "2024-09-21",
+                              "primary": false,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "First anticipatory payment in Kogi"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                  "https://www.givedirectly.org/flood-forecast-ai"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].realization": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "Paid.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0017",
+                      "title": "Flood-triggered cash transfers in Nigeria",
+                      "monetary_role": "recipient_transfer",
+                      "financial_type": "recipient_transfer",
+                      "amount_basis": "transfer",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$105 per recipient",
+                            "value": "105",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "context",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.givedirectly.org/flood-forecast-ai",
+                              "title": "How AI helped send cash just before floods hit in Nigeria",
+                              "quote": "we sent $105 to over 4,600 individuals",
+                              "date": "2025-06-27",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ngn-equivalent",
+                          "relationship": "source_equivalent",
+                          "equivalent_to": "primary",
+                          "amount": {
+                            "source_text": "NGN177,866 per recipient",
+                            "value": "177866",
+                            "qualifier": "exact",
+                            "currency": "NGN",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                              "title": "Could AI save Nigerians from devastating floods?",
+                              "quote": "177,866 naira ($105)",
+                              "date": "2024-09-21",
+                              "primary": false,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "First anticipatory payment in Kogi"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                  "https://www.givedirectly.org/flood-forecast-ai"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].recipient_payer": {
               "state": "value_present",
               "value": {
-                "kind": "record_fields",
-                "fields": {
-                  "value": {
-                    "amount": "$105",
-                    "what": "anticipatory cash transfer per recipient before the flood peak (a second $210 transfer followed)",
-                    "who": "over 4,600 flood-exposed residents of Ibaji, Kogi State",
-                    "estimate": false,
-                    "quote": "Once forecasted flood thresholds were met, we sent $105 to over 4,600 individuals before the flood peak.",
-                    "url": "https://www.givedirectly.org/flood-forecast-ai/"
+                "kind": "structured",
+                "data": {
+                  "answer": "Recipient: Registered recipients in six wards of Kogi, Nigeria. Payer: GiveDirectly and its funders.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0017",
+                      "title": "Flood-triggered cash transfers in Nigeria",
+                      "monetary_role": "recipient_transfer",
+                      "financial_type": "recipient_transfer",
+                      "amount_basis": "transfer",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$105 per recipient",
+                            "value": "105",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "context",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.givedirectly.org/flood-forecast-ai",
+                              "title": "How AI helped send cash just before floods hit in Nigeria",
+                              "quote": "we sent $105 to over 4,600 individuals",
+                              "date": "2025-06-27",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ngn-equivalent",
+                          "relationship": "source_equivalent",
+                          "equivalent_to": "primary",
+                          "amount": {
+                            "source_text": "NGN177,866 per recipient",
+                            "value": "177866",
+                            "qualifier": "exact",
+                            "currency": "NGN",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "August 29 to October 24, 2024, for the first transfer.",
+                          "unit": "Per recipient, first transfer.",
+                          "realization": "paid",
+                          "accounting_boundary": "Recipient cash transfer. A transfer is not a net increase in societal resources or an estimate of avoided flood loss.",
+                          "source_review_status": "source_checked",
+                          "sources": [
+                            {
+                              "url": "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                              "title": "Could AI save Nigerians from devastating floods?",
+                              "quote": "177,866 naira ($105)",
+                              "date": "2024-09-21",
+                              "primary": false,
+                              "written_by": "independent",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "First anticipatory payment in Kogi"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "original_resolution": {
+                    "state": "value_present",
+                    "value": {
+                      "kind": "record_fields",
+                      "fields": {
+                        "value": {
+                          "amount": "$105",
+                          "what": "anticipatory cash transfer per recipient before the flood peak (a second $210 transfer followed)",
+                          "who": "over 4,600 flood-exposed residents of Ibaji, Kogi State",
+                          "estimate": false,
+                          "quote": "Once forecasted flood thresholds were met, we sent $105 to over 4,600 individuals before the flood peak.",
+                          "url": "https://www.givedirectly.org/flood-forecast-ai/"
+                        }
+                      }
+                    },
+                    "provenance": {
+                      "kind": "legacy_record",
+                      "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+                      "record_fields": [
+                        "value"
+                      ],
+                      "source_refs": []
+                    },
+                    "review_state": "record_mapped",
+                    "coverage": "partial"
                   }
                 }
               },
               "provenance": {
-                "kind": "legacy_record",
-                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-                "record_fields": [
-                  "value"
-                ],
-                "source_refs": []
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0017. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI. The Fructus audit matches the original monetary value. The original field and its provenance are retained with this answer.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://www.aljazeera.com/features/2024/9/21/could-ai-save-nigerians-from-devastating-floods",
+                  "https://www.givedirectly.org/flood-forecast-ai"
+                ]
               },
               "review_state": "record_mapped",
               "coverage": "partial"
@@ -70215,7 +71459,10 @@
               "state": "not_assessed",
               "review_state": "not_assessed",
               "coverage": "partial",
-              "family": "evaluations"
+              "family": "evaluations",
+              "display": {
+                "answer": "GiveDirectly’s survey reported weekly income rising from ₦4,500 to ₦10,000 and food shortages falling from 97% to 7%."
+              }
             },
             "evaluations[].exposure": {
               "state": "not_assessed",
@@ -70233,7 +71480,10 @@
               "state": "not_assessed",
               "review_state": "not_assessed",
               "coverage": "partial",
-              "family": "evaluations"
+              "family": "evaluations",
+              "display": {
+                "answer": "GiveDirectly surveyed recipients about weekly income and food shortages."
+              }
             },
             "evaluations[].metric": {
               "state": "not_assessed",
@@ -70249,8 +71499,7 @@
               "coverage": "partial",
               "family": "evaluations",
               "display": {
-                "answer": "weekly incomes rising from ₦4,500 to ₦10,000 and food shortages falling from 97% to 7%",
-                "editor_note": ""
+                "answer": "Weekly income and the share of recipients reporting food shortages."
               }
             },
             "evaluations[].reproduction_materials": {
@@ -70269,7 +71518,10 @@
               "state": "not_assessed",
               "review_state": "not_assessed",
               "coverage": "partial",
-              "family": "evaluations"
+              "family": "evaluations",
+              "display": {
+                "answer": "The income and food figures are self-reported and not independently verified. About 1,400 recipients were paid on 24 October 2024, after floods peaked on 21 October. A later US$210 transfer has no stated recipient count."
+              }
             },
             "external_references[]": {
               "state": "value_present",
@@ -70352,14 +71604,45 @@
               "coverage": "partial"
             },
             "outcomes[].beneficiaries": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "Residents of 53 communities in Ibaji, Kogi State, Nigeria."
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+                "record_fields": [
+                  "account"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial",
+              "display": {
+                "answer": "Residents of 53 communities in Ibaji, Kogi State, Nigeria."
+              }
             },
             "outcomes[].beneficiary_count": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "GiveDirectly reports more than 4,600 recipients. It acknowledged that it had used “household” and “individual” interchangeably."
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+                "record_fields": [
+                  "account",
+                  "ratings"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial",
+              "display": {
+                "answer": "GiveDirectly reports more than 4,600 recipients. It acknowledged that it had used “household” and “individual” interchangeably."
+              }
             },
             "outcomes[].benefit_type": {
               "state": "value_present",
@@ -70401,12 +71684,31 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "GiveDirectly paid US$105 to more than 4,600 people in flood-prone communities, with 3,250 paid before the flood peak."
+              }
             },
             "outcomes[].distribution": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "Some residents were excluded because they lacked phone access or their details did not match government or bank records."
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+                "record_fields": [
+                  "account",
+                  "evidence"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial",
+              "display": {
+                "answer": "Some residents were excluded because they lacked phone access or their details did not match government or bank records."
+              }
             },
             "outcomes[].duration": {
               "state": "not_assessed",
@@ -70459,9 +71761,25 @@
               "coverage": "partial"
             },
             "outcomes[].tradeoffs": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "The New Humanitarian found that verification and phone-access barriers excluded some of the most vulnerable residents."
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+                "record_fields": [
+                  "account",
+                  "evidence"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial",
+              "display": {
+                "answer": "The New Humanitarian found that verification and phone-access barriers excluded some of the most vulnerable residents."
+              }
             },
             "outcomes[].unexpected": {
               "state": "value_present",
@@ -70576,6 +71894,11 @@
                     {
                       "date": "2026-10-22",
                       "change": "Organization name standardized to Google.",
+                      "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-25",
+                      "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
                       "editor": "AIBD"
                     }
                   ]
@@ -70730,6 +72053,11 @@
                     {
                       "date": "2026-10-22",
                       "change": "Organization name standardized to Google.",
+                      "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-25",
+                      "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
                       "editor": "AIBD"
                     }
                   ]
@@ -71022,7 +72350,7 @@
               "value": {
                 "kind": "identifiers",
                 "identifiers": [
-                  "784bdbb69dd577c52d843eaff19e16ac49498d66b903a449c68f915cef76c21a"
+                  "98c5275b8297241b39c99ee3714e3d5dfdb3a9236527256b7a4fc10d1caf9aed"
                 ],
                 "role": "SHA-256 of normalized original case data"
               },
@@ -71079,22 +72407,25 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "GiveDirectly and JBA used Flood Hub forecasts to identify communities where at least 20% of the area was expected to flood. GiveDirectly verified residents’ identities and bank details before sending payments."
+              }
             }
           },
           "summary": {
             "total": 91,
             "addressed": 91,
-            "known": 33,
+            "known": 42,
             "reviewed": 0,
-            "record_mapped": 33,
-            "not_assessed": 58,
+            "record_mapped": 42,
+            "not_assessed": 49,
             "complete": false,
             "by_state": {
-              "value_present": 33,
+              "value_present": 42,
               "not_reported": 0,
               "unresolved": 0,
-              "not_assessed": 58,
+              "not_assessed": 49,
               "not_applicable": 0,
               "withheld": 0,
               "source_unavailable": 0
@@ -106590,19 +107921,21 @@
               "value": {
                 "kind": "identifiers",
                 "identifiers": [
+                  "AIBD-0262-legacy-value",
                   "DIV-0036"
                 ],
-                "role": "Monetary statements in Fructus with matched AIBD case links; each statement retains its own review and eligibility status"
+                "role": "Existing monetary observations and Fructus statements with matched AIBD case links; each statement retains its own review and eligibility status"
               },
               "provenance": {
                 "kind": "curatorial",
-                "basis": "Linked to the current Fructus dataset by its validated case identifier. This link does not reassess the original case, fill the monetary questions, or establish a net benefit.",
+                "basis": "Linked to the current Fructus dataset by its validated case identifier. Eligible statements can supply unanswered monetary questions without a new source review or a finding of net benefit.",
                 "record_fields": [],
                 "source_refs": []
               },
               "review_state": "record_mapped",
               "coverage": "partial",
               "record_ids": [
+                "AIBD-0262-legacy-value",
                 "DIV-0036"
               ]
             },
@@ -106989,18 +108322,192 @@
               "coverage": "partial"
             },
             "economics[].counterfactual": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "No estimate of the transaction value without AI-assisted design is supplied.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0036",
+                      "title": "Payment for Nimbus’s TYK2 program",
+                      "monetary_role": "commercial_transaction",
+                      "financial_type": "commercial_receipt",
+                      "amount_basis": "transaction",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$4 billion",
+                            "value": "4000000000",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "Acquisition closed February 8, 2023; payment is reported in the fiscal-2023 annual securities report filed June 26, 2024.",
+                          "unit": "One acquisition’s upfront consideration.",
+                          "realization": "paid",
+                          "accounting_boundary": "Gross acquisition consideration, not drug revenue, seller profit, clinical benefit, or newly created societal wealth.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://assets-dam.takeda.com/image/upload/Global/Investor/ASR/Y2023/E_FY23_ASR.pdf",
+                              "title": "Takeda annual securities report for the year ended March 31, 2024",
+                              "quote": "we paid Nimbus USD 4.0 billion upfront following the closing of the transaction",
+                              "date": "2024-06-26",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "Printed page 50, material contracts"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0036. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://assets-dam.takeda.com/image/upload/Global/Investor/ASR/Y2023/E_FY23_ASR.pdf"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].currency_price_basis": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "USD, stated in the source. Nominal source amount; price year not separately stated.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0036",
+                      "title": "Payment for Nimbus’s TYK2 program",
+                      "monetary_role": "commercial_transaction",
+                      "financial_type": "commercial_receipt",
+                      "amount_basis": "transaction",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$4 billion",
+                            "value": "4000000000",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "Acquisition closed February 8, 2023; payment is reported in the fiscal-2023 annual securities report filed June 26, 2024.",
+                          "unit": "One acquisition’s upfront consideration.",
+                          "realization": "paid",
+                          "accounting_boundary": "Gross acquisition consideration, not drug revenue, seller profit, clinical benefit, or newly created societal wealth.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://assets-dam.takeda.com/image/upload/Global/Investor/ASR/Y2023/E_FY23_ASR.pdf",
+                              "title": "Takeda annual securities report for the year ended March 31, 2024",
+                              "quote": "we paid Nimbus USD 4.0 billion upfront following the closing of the transaction",
+                              "date": "2024-06-26",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "Printed page 50, material contracts"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0036. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://assets-dam.takeda.com/image/upload/Global/Investor/ASR/Y2023/E_FY23_ASR.pdf"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].gross_net": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "Gross acquisition consideration, not drug revenue, seller profit, clinical benefit, or newly created societal wealth.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0036",
+                      "title": "Payment for Nimbus’s TYK2 program",
+                      "monetary_role": "commercial_transaction",
+                      "financial_type": "commercial_receipt",
+                      "amount_basis": "transaction",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$4 billion",
+                            "value": "4000000000",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "Acquisition closed February 8, 2023; payment is reported in the fiscal-2023 annual securities report filed June 26, 2024.",
+                          "unit": "One acquisition’s upfront consideration.",
+                          "realization": "paid",
+                          "accounting_boundary": "Gross acquisition consideration, not drug revenue, seller profit, clinical benefit, or newly created societal wealth.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://assets-dam.takeda.com/image/upload/Global/Investor/ASR/Y2023/E_FY23_ASR.pdf",
+                              "title": "Takeda annual securities report for the year ended March 31, 2024",
+                              "quote": "we paid Nimbus USD 4.0 billion upfront following the closing of the transaction",
+                              "date": "2024-06-26",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "Printed page 50, material contracts"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0036. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://assets-dam.takeda.com/image/upload/Global/Investor/ASR/Y2023/E_FY23_ASR.pdf"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].measure_type": {
@@ -107039,13 +108546,129 @@
               "coverage": "partial"
             },
             "economics[].period_unit": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "Acquisition closed February 8, 2023; payment is reported in the fiscal-2023 annual securities report filed June 26, 2024. One acquisition’s upfront consideration.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0036",
+                      "title": "Payment for Nimbus’s TYK2 program",
+                      "monetary_role": "commercial_transaction",
+                      "financial_type": "commercial_receipt",
+                      "amount_basis": "transaction",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$4 billion",
+                            "value": "4000000000",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "Acquisition closed February 8, 2023; payment is reported in the fiscal-2023 annual securities report filed June 26, 2024.",
+                          "unit": "One acquisition’s upfront consideration.",
+                          "realization": "paid",
+                          "accounting_boundary": "Gross acquisition consideration, not drug revenue, seller profit, clinical benefit, or newly created societal wealth.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://assets-dam.takeda.com/image/upload/Global/Investor/ASR/Y2023/E_FY23_ASR.pdf",
+                              "title": "Takeda annual securities report for the year ended March 31, 2024",
+                              "quote": "we paid Nimbus USD 4.0 billion upfront following the closing of the transaction",
+                              "date": "2024-06-26",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "Printed page 50, material contracts"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0036. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://assets-dam.takeda.com/image/upload/Global/Investor/ASR/Y2023/E_FY23_ASR.pdf"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].realization": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "answer": "Paid.",
+                  "monetary_statements": [
+                    {
+                      "id": "DIV-0036",
+                      "title": "Payment for Nimbus’s TYK2 program",
+                      "monetary_role": "commercial_transaction",
+                      "financial_type": "commercial_receipt",
+                      "amount_basis": "transaction",
+                      "net_benefit_established": false,
+                      "source_review_status": "primary_source_checked",
+                      "curation_status": "curated",
+                      "observations": [
+                        {
+                          "id": "primary",
+                          "relationship": "primary",
+                          "amount": {
+                            "source_text": "US$4 billion",
+                            "value": "4000000000",
+                            "qualifier": "exact",
+                            "currency": "USD",
+                            "currency_basis": "explicit",
+                            "price_basis": "Nominal source amount; price year not separately stated."
+                          },
+                          "period": "Acquisition closed February 8, 2023; payment is reported in the fiscal-2023 annual securities report filed June 26, 2024.",
+                          "unit": "One acquisition’s upfront consideration.",
+                          "realization": "paid",
+                          "accounting_boundary": "Gross acquisition consideration, not drug revenue, seller profit, clinical benefit, or newly created societal wealth.",
+                          "source_review_status": "primary_source_checked",
+                          "sources": [
+                            {
+                              "url": "https://assets-dam.takeda.com/image/upload/Global/Investor/ASR/Y2023/E_FY23_ASR.pdf",
+                              "title": "Takeda annual securities report for the year ended March 31, 2024",
+                              "quote": "we paid Nimbus USD 4.0 billion upfront following the closing of the transaction",
+                              "date": "2024-06-26",
+                              "primary": true,
+                              "written_by": "deployer",
+                              "reviewed_at": "2026-10-23",
+                              "review_method": "full_text",
+                              "locator": "Printed page 50, material contracts"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "curatorial",
+                "basis": "Mapped from eligible Fructus statements DIV-0036. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+                "record_fields": [],
+                "source_refs": [
+                  "https://assets-dam.takeda.com/image/upload/Global/Investor/ASR/Y2023/E_FY23_ASR.pdf"
+                ]
+              },
+              "review_state": "record_mapped",
               "coverage": "partial"
             },
             "economics[].recipient_payer": {
@@ -108400,16 +110023,16 @@
           "summary": {
             "total": 91,
             "addressed": 91,
-            "known": 34,
+            "known": 39,
             "reviewed": 4,
-            "record_mapped": 30,
-            "not_assessed": 57,
+            "record_mapped": 35,
+            "not_assessed": 52,
             "complete": false,
             "by_state": {
-              "value_present": 34,
+              "value_present": 39,
               "not_reported": 0,
               "unresolved": 0,
-              "not_assessed": 57,
+              "not_assessed": 52,
               "not_applicable": 0,
               "withheld": 0,
               "source_unavailable": 0
@@ -108568,6 +110191,15 @@
             "date": "2026-03-30",
             "written_by": "deployer",
             "quote": "the NHC track errors are notably lower than average for major hurricanes, including Humberto and Melissa in 2025"
+          },
+          {
+            "kind": "report",
+            "citation": "Kelly, Larry A., José Álamo, and Aidan D. Mahoney. Hurricane Melissa (AL132025), 21–31 October 2025. National Hurricane Center Tropical Cyclone Report. Revised May 19, 2026, originally February 25, 2026. 16–17, Tables 5b and 6b.",
+            "title": "Hurricane Melissa (AL132025): Tropical Cyclone Report",
+            "url": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+            "date": "2026-02-25",
+            "written_by": "deployer",
+            "quote": "The NHC OFCL forecasts were comparable to GDMI through 96 h, but performed slightly better than GDMI at 120 h."
           }
         ],
         "replication": {
@@ -108579,7 +110211,7 @@
           "must_hold": [
             "AI ensemble output delivered on time and verified before operational use, as NHC describes",
             "Human forecasters retain the final official forecast and integrate conventional NWP guidance",
-            "Outcome verification depends on later best-track analysis. The Tropical Cyclone Report was not yet published and is not among the sources"
+            "Forecast accuracy can be assessed against the observed track and intensity. NHC’s Tropical Cyclone Report, revised 19 May 2026, provides that comparison for Melissa"
           ],
           "echoes": [
             {
@@ -108683,16 +110315,22 @@
             "change": "Moved two IFRC reports to background source notes because they describe storm impacts and humanitarian action, without establishing the AI forecast’s contribution to those outcomes. Preserved their citations, excerpts, and the existing account and depths. Retained NHC evidence of forecast use and verification, attributed to the deployer rather than an independent AI-benefit evaluator.",
             "source": "https://www.nhc.noaa.gov/archive/2025/al13/al132025.discus.001.shtml; https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
             "editor": "AIBD"
+          },
+          {
+            "date": "2026-10-25",
+            "change": "Added NHC’s revised Hurricane Melissa report, replaced the obsolete statement that it was unpublished, and separated forecast verification from humanitarian background.",
+            "source": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+            "editor": "AIBD"
           }
         ],
         "confidence": "claimed",
         "shade": "low",
         "claim_status": "The deployer's account",
-        "claim_basis": "Sources: eight reports from the deployer and the deployer's press release. The cited evidence includes no independent source and no finding by a regulator or court.",
+        "claim_basis": "Sources: nine reports from the deployer and the deployer's press release. The cited evidence includes no independent source and no finding by a regulator or court.",
         "profile": {
           "case_id": "AIBD-0088",
           "catalog_version": "1.0.0",
-          "source_fingerprint": "1d834f12fc577be788cdf67e82fef8defeb4db8c16a36f5710d72387a38c12c0",
+          "source_fingerprint": "7494545dd8aeba975dc7387c52bc23ab138bc6a416517d50ebb709bf803d7efa",
           "collection_refs": [
             {
               "collection_id": "aibd",
@@ -108708,7 +110346,8 @@
             "AIBD-0088-source-0006",
             "AIBD-0088-source-0007",
             "AIBD-0088-source-0008",
-            "AIBD-0088-source-0009"
+            "AIBD-0088-source-0009",
+            "AIBD-0088-source-0010"
           ],
           "families": {
             "strategic assessments": {
@@ -108718,10 +110357,30 @@
               "record_ids": []
             },
             "evaluations": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "identifiers",
+                "identifiers": [
+                  "NHC-Melissa-AL132025-forecast-verification"
+                ],
+                "role": "Forecast verification for Hurricane Melissa"
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0088-source-0010",
+                  "AIBD-0088-source-0008",
+                  "AIBD-0088-source-0009"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial",
-              "record_ids": []
+              "record_ids": [
+                "NHC-Melissa-AL132025-forecast-verification"
+              ]
             },
             "monetary observations": {
               "state": "not_assessed",
@@ -108918,7 +110577,10 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "GDMI and regional models increased forecasters’ confidence in predicting rapid intensification. NHC’s later review found that GDMI track forecasts performed comparably to its official forecasts through 96 hours. No study isolates the AI’s effect on protective actions or losses."
+              }
             },
             "assessments[].rubric_version": {
               "state": "not_assessed",
@@ -109105,70 +110767,224 @@
               "family": "monetary observations"
             },
             "evaluations[].ai_uplift": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "NHC credits GDMI and regional models jointly with increasing forecasters’ confidence at unusually long lead times. It does not isolate GDMI’s effect on the official forecast."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0088-source-0010",
+                  "AIBD-0088-source-0008",
+                  "AIBD-0088-source-0009"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial",
-              "family": "evaluations"
+              "display": {
+                "answer": "NHC credits GDMI and regional models jointly with increasing forecasters’ confidence at unusually long lead times. It does not isolate GDMI’s effect on the official forecast."
+              }
             },
             "evaluations[].comparator": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "NHC’s official forecasts, conventional model guidance, and climatology-persistence forecasts for the same storm."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0088-source-0010",
+                  "AIBD-0088-source-0008",
+                  "AIBD-0088-source-0009"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial",
-              "family": "evaluations"
+              "display": {
+                "answer": "NHC’s official forecasts, conventional model guidance, and climatology-persistence forecasts for the same storm."
+              }
             },
             "evaluations[].design": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "Retrospective verification of operational forecasts against the storm’s observed track and intensity."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0088-source-0010",
+                  "AIBD-0088-source-0008",
+                  "AIBD-0088-source-0009"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial",
-              "family": "evaluations"
+              "display": {
+                "answer": "Retrospective verification of operational forecasts against the storm’s observed track and intensity."
+              }
             },
             "evaluations[].effect": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "GDMI’s track forecasts were comparable to NHC’s official forecasts through 96 hours. NHC performed slightly better at 120 hours and had lower intensity errors than every guidance model through 96 hours."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0088-source-0010",
+                  "AIBD-0088-source-0008",
+                  "AIBD-0088-source-0009"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial",
-              "family": "evaluations"
+              "display": {
+                "answer": "GDMI’s track forecasts were comparable to NHC’s official forecasts through 96 hours. NHC performed slightly better at 120 hours and had lower intensity errors than every guidance model through 96 hours."
+              }
             },
             "evaluations[].exposure": {
               "state": "not_assessed",
               "review_state": "not_assessed",
-              "coverage": "partial",
-              "family": "evaluations"
+              "coverage": "partial"
             },
             "evaluations[].id": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "identifiers",
+                "identifiers": [
+                  "NHC-Melissa-AL132025-forecast-verification"
+                ],
+                "role": "Forecast verification for Hurricane Melissa"
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0088-source-0010",
+                  "AIBD-0088-source-0008",
+                  "AIBD-0088-source-0009"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial",
-              "family": "evaluations"
+              "display": {
+                "answer": "NHC’s forecast verification for Hurricane Melissa (AL132025)."
+              }
             },
             "evaluations[].measurement_method": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "NHC compared forecasts at matching lead times with its final estimates of the storm’s position and intensity. It compared official forecasts with model guidance on a common sample."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0088-source-0010",
+                  "AIBD-0088-source-0008",
+                  "AIBD-0088-source-0009"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial",
-              "family": "evaluations"
+              "display": {
+                "answer": "NHC compared forecasts at matching lead times with its final estimates of the storm’s position and intensity. It compared official forecasts with model guidance on a common sample."
+              }
             },
             "evaluations[].metric": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "Track forecast error, intensity forecast error, and forecast lead time."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0088-source-0010",
+                  "AIBD-0088-source-0008",
+                  "AIBD-0088-source-0009"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial",
-              "family": "evaluations"
+              "display": {
+                "answer": "Track forecast error, intensity forecast error, and forecast lead time."
+              }
             },
             "evaluations[].reproduction_materials": {
               "state": "not_assessed",
               "review_state": "not_assessed",
-              "coverage": "partial",
-              "family": "evaluations"
+              "coverage": "partial"
             },
             "evaluations[].setting_sample": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "Hurricane Melissa in the Atlantic, 21–31 October 2025. The report compares forecasts at lead times through 120 hours."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0088-source-0010",
+                  "AIBD-0088-source-0008",
+                  "AIBD-0088-source-0009"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial",
-              "family": "evaluations"
+              "display": {
+                "answer": "Hurricane Melissa in the Atlantic, 21–31 October 2025. The report compares forecasts at lead times through 120 hours."
+              }
             },
             "evaluations[].uncertainty_limitations": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "The sources establish that forecasters used the guidance. They do not establish that it changed protective actions, reduced losses, or prevented deaths."
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0088-source-0010",
+                  "AIBD-0088-source-0008",
+                  "AIBD-0088-source-0009"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
               "coverage": "partial",
-              "family": "evaluations"
+              "display": {
+                "answer": "The sources establish that forecasters used the guidance. They do not establish that it changed protective actions, reduced losses, or prevented deaths."
+              }
             },
             "external_references[]": {
               "state": "value_present",
@@ -109219,7 +111035,10 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "NHC published its Tropical Cyclone Report on 25 February 2026 and revised it on 19 May. The report evaluates the forecasts against the storm’s observed track and intensity."
+              }
             },
             "human_oversight": {
               "state": "not_assessed",
@@ -109251,14 +111070,33 @@
               "coverage": "partial"
             },
             "outcomes[].beneficiaries": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "National Hurricane Center forecasters. People in Melissa’s path were the intended beneficiaries of the forecasts."
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+                "record_fields": [
+                  "account",
+                  "ratings"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial",
+              "display": {
+                "answer": "National Hurricane Center forecasters. People in Melissa’s path were the intended beneficiaries of the forecasts."
+              }
             },
             "outcomes[].beneficiary_count": {
               "state": "not_assessed",
               "review_state": "not_assessed",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "No count of people who benefited from the AI guidance is established."
+              }
             },
             "outcomes[].benefit_type": {
               "state": "value_present",
@@ -109300,7 +111138,10 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "National Hurricane Center forecasters used Google DeepMind’s guidance in their official forecasts for Hurricane Melissa."
+              }
             },
             "outcomes[].distribution": {
               "state": "not_assessed",
@@ -109486,6 +111327,12 @@
                       "change": "Moved two IFRC reports to background source notes because they describe storm impacts and humanitarian action, without establishing the AI forecast’s contribution to those outcomes. Preserved their citations, excerpts, and the existing account and depths. Retained NHC evidence of forecast use and verification, attributed to the deployer rather than an independent AI-benefit evaluator.",
                       "source": "https://www.nhc.noaa.gov/archive/2025/al13/al132025.discus.001.shtml; https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-25",
+                      "change": "Added NHC’s revised Hurricane Melissa report, replaced the obsolete statement that it was unpublished, and separated forecast verification from humanitarian background.",
+                      "source": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                      "editor": "AIBD"
                     }
                   ]
                 }
@@ -109526,7 +111373,7 @@
                     "must_hold": [
                       "AI ensemble output delivered on time and verified before operational use, as NHC describes",
                       "Human forecasters retain the final official forecast and integrate conventional NWP guidance",
-                      "Outcome verification depends on later best-track analysis. The Tropical Cyclone Report was not yet published and is not among the sources"
+                      "Forecast accuracy can be assessed against the observed track and intensity. NHC’s Tropical Cyclone Report, revised 19 May 2026, provides that comparison for Melissa"
                     ],
                     "echoes": [
                       {
@@ -109570,7 +111417,7 @@
                     "must_hold": [
                       "AI ensemble output delivered on time and verified before operational use, as NHC describes",
                       "Human forecasters retain the final official forecast and integrate conventional NWP guidance",
-                      "Outcome verification depends on later best-track analysis. The Tropical Cyclone Report was not yet published and is not among the sources"
+                      "Forecast accuracy can be assessed against the observed track and intensity. NHC’s Tropical Cyclone Report, revised 19 May 2026, provides that comparison for Melissa"
                     ],
                     "echoes": [
                       {
@@ -109598,7 +111445,10 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "Forecasters need timely model output, checks before operational use, and conventional guidance for comparison. Later observations are needed to assess forecast accuracy."
+              }
             },
             "revision_history[]": {
               "state": "value_present",
@@ -109661,6 +111511,12 @@
                       "change": "Moved two IFRC reports to background source notes because they describe storm impacts and humanitarian action, without establishing the AI forecast’s contribution to those outcomes. Preserved their citations, excerpts, and the existing account and depths. Retained NHC evidence of forecast use and verification, attributed to the deployer rather than an independent AI-benefit evaluator.",
                       "source": "https://www.nhc.noaa.gov/archive/2025/al13/al132025.discus.001.shtml; https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-25",
+                      "change": "Added NHC’s revised Hurricane Melissa report, replaced the obsolete statement that it was unpublished, and separated forecast verification from humanitarian background.",
+                      "source": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                      "editor": "AIBD"
                     }
                   ]
                 }
@@ -109709,9 +111565,55 @@
               "coverage": "partial"
             },
             "sources[].access_version": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "reviewed_on": "2026-10-25",
+                  "versions_and_access": [
+                    {
+                      "url": "https://www.weather.gov/news/261102-AI-Hurricane-Forecasting",
+                      "access": "Full original page read on October 25, 2026. Q&A 7 discusses Melissa, and Q&A 2 describes NHC’s development partnership with DeepMind.",
+                      "metadata": {
+                        "DC.date.created": "June 24th 2026 4:15 PM"
+                      },
+                      "date_treatment": "Do not infer a publication date from the URL or treat creation metadata as original publication. The original March 30, 2026 verification report already links to this URL on printed p. 7. The future-date suspicion is resolved and should not appear on the website."
+                    },
+                    {
+                      "url": "https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
+                      "access": "Full original PDF downloaded successfully (HTTP 200) on October 25, 2026. Title page dated March 30, 2026. Printed p. 7 links to the NHC interview, and the report provides seasonal forecast comparisons.",
+                      "supersedes_access_note": "The earlier direct-PDF 403 limitation is now resolved for this document."
+                    },
+                    {
+                      "source_ref": "AIBD-0088-source-0010",
+                      "source_url": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                      "publication_date": "2026-02-25",
+                      "version_reviewed_date": "2026-05-19",
+                      "status": "Full original PDF downloaded successfully (HTTP 200) and relevant text read on October 25, 2026. HTTP Last-Modified: May 19, 2026.",
+                      "version_note": "The May 19 title-page note says that this version revised fatality totals and damage estimates based on updated government information. Preserve February 25 as the original report date and May 19 as the reviewed revision."
+                    }
+                  ],
+                  "limitations": [
+                    "The separately cited IFRC operational review and update retain their earlier access limits. The November 2025 IFRC operational strategy was accessible."
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0088-source-0010",
+                  "AIBD-0088-source-0008",
+                  "AIBD-0088-source-0009"
+                ],
+                "reviewed_on": "2026-10-25"
+              },
+              "review_state": "reviewed",
+              "coverage": "partial",
+              "display": {
+                "answer": "The NHC interview, 2025 verification report, and revised Melissa report were accessible in full. Earlier access limits remain attached to the individual IFRC reports."
+              }
             },
             "sources[].citation_locator": {
               "state": "value_present",
@@ -109798,6 +111700,15 @@
                       "date": "2026-03-30",
                       "written_by": "deployer",
                       "quote": "the NHC track errors are notably lower than average for major hurricanes, including Humberto and Melissa in 2025"
+                    },
+                    {
+                      "kind": "report",
+                      "citation": "Kelly, Larry A., José Álamo, and Aidan D. Mahoney. Hurricane Melissa (AL132025), 21–31 October 2025. National Hurricane Center Tropical Cyclone Report. Revised May 19, 2026, originally February 25, 2026. 16–17, Tables 5b and 6b.",
+                      "title": "Hurricane Melissa (AL132025): Tropical Cyclone Report",
+                      "url": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                      "date": "2026-02-25",
+                      "written_by": "deployer",
+                      "quote": "The NHC OFCL forecasts were comparable to GDMI through 96 h, but performed slightly better than GDMI at 120 h."
                     }
                   ]
                 }
@@ -109837,27 +111748,16 @@
                   "AIBD-0088-source-0006",
                   "AIBD-0088-source-0007",
                   "AIBD-0088-source-0008",
-                  "AIBD-0088-source-0009"
+                  "AIBD-0088-source-0009",
+                  "AIBD-0088-source-0010"
                 ],
-                "role": "Retained evidence items in reviewed source order"
+                "role": "Retained sources"
               },
               "provenance": {
                 "kind": "curatorial",
-                "basis": "Source identifiers synchronized with the retained evidence after a source-attribution correction.",
-                "record_fields": [
-                  "evidence"
-                ],
-                "source_refs": [
-                  "AIBD-0088-source-0001",
-                  "AIBD-0088-source-0002",
-                  "AIBD-0088-source-0003",
-                  "AIBD-0088-source-0004",
-                  "AIBD-0088-source-0005",
-                  "AIBD-0088-source-0006",
-                  "AIBD-0088-source-0007",
-                  "AIBD-0088-source-0008",
-                  "AIBD-0088-source-0009"
-                ]
+                "basis": "Synchronized source identifiers.",
+                "record_fields": [],
+                "source_refs": []
               },
               "review_state": "record_mapped",
               "coverage": "complete"
@@ -109952,6 +111852,15 @@
                       "date": "2026-03-30",
                       "written_by": "deployer",
                       "quote": "the NHC track errors are notably lower than average for major hurricanes, including Humberto and Melissa in 2025"
+                    },
+                    {
+                      "kind": "report",
+                      "citation": "Kelly, Larry A., José Álamo, and Aidan D. Mahoney. Hurricane Melissa (AL132025), 21–31 October 2025. National Hurricane Center Tropical Cyclone Report. Revised May 19, 2026, originally February 25, 2026. 16–17, Tables 5b and 6b.",
+                      "title": "Hurricane Melissa (AL132025): Tropical Cyclone Report",
+                      "url": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                      "date": "2026-02-25",
+                      "written_by": "deployer",
+                      "quote": "The NHC OFCL forecasts were comparable to GDMI through 96 h, but performed slightly better than GDMI at 120 h."
                     }
                   ]
                 }
@@ -110055,6 +111964,19 @@
                       "url": "https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
                       "title": "NHC Forecast Verification Report, 2025 Hurricane Season",
                       "relationship": "Original seasonal verification by NHC and a cooperating researcher. It evaluates forecasting performance, but it is not an independent evaluation of AI-attributable humanitarian outcomes."
+                    },
+                    {
+                      "url": "https://www.nhc.noaa.gov/data/tcr/AL132025_Melissa.pdf",
+                      "title": "Hurricane Melissa (AL132025): Tropical Cyclone Report",
+                      "relationship": "Original retrospective verification by the agency that used the guidance. The report compares track and intensity forecasts for Melissa and explains how GDMI and regional models contributed to forecasters’ confidence. It does not isolate the AI model’s effect on humanitarian outcomes.",
+                      "locator": "Printed pp. 16–17, Track Forecast and Intensity Forecast, Tables 5b and 6b.",
+                      "original_publication_date": "2026-02-25",
+                      "version_reviewed_date": "2026-05-19",
+                      "version_note": "The May 19 title-page note says that this version revised fatality totals and damage estimates based on updated government information. Preserve February 25 as the original report date and May 19 as the reviewed revision.",
+                      "access": "Full original PDF downloaded successfully (HTTP 200) and relevant text read on October 25, 2026. HTTP Last-Modified: May 19, 2026.",
+                      "source_refs": [
+                        "AIBD-0088-source-0010"
+                      ]
                     }
                   ],
                   "related_material": [
@@ -110089,6 +112011,16 @@
                         "quote": "winds of nearly 300 km (185 miles) per hour"
                       },
                       "access": "The original ReliefWeb URL returned HTTP 403 during this narrow review. Existing citations and quotations are preserved; no new full-text verification is claimed."
+                    },
+                    {
+                      "url": "https://go-api.ifrc.org/api/downloadfile/93656/MDRJM005OS",
+                      "title": "Jamaica | Hurricane Melissa: Emergency Appeal Operational Strategy (MDRJM005)",
+                      "date": "2025-11-11",
+                      "locator": "p. 2, timeline; p. 3, situation overview; p. 10, targeting",
+                      "finding": "The timeline records the CHF80,000 allocation on October 23, 2025. The targeting section attributes the estimated 1.6 million people affected to analysis of UNOSAT wind forecasts and demographic data.",
+                      "relationship": "Original IFRC background on anticipatory aid and exposure. This report does not attribute those actions or the affected-population estimate to Google DeepMind.",
+                      "access": "Full original PDF downloaded successfully (HTTP 200) and relevant sections read on October 25, 2026. The IFRC emergency page dates this operational strategy November 11, 2025.",
+                      "recommendation": "Keep as related background rather than independent evidence of AI-created benefit. Preserve existing IFRC related material and its separate access status."
                     }
                   ],
                   "claim_lineage": [
@@ -110102,7 +112034,7 @@
                       "claim": "GDMI performed well in NHC’s 2025 verification.",
                       "source_ref": "AIBD-0088-source-0009",
                       "locator": "Abstract and Atlantic track-verification discussion",
-                      "access": "Indexed original report text read; the direct PDF request returned HTTP 403.",
+                      "access": "Full original PDF inspected on 25 October 2026.",
                       "limitation": "Seasonal model accuracy is not a measure of AI-attributable lives saved or of the AI contribution to each humanitarian action."
                     }
                   ],
@@ -110113,17 +112045,31 @@
                     },
                     {
                       "url": "https://www.weather.gov/news/261102-AI-Hurricane-Forecasting",
-                      "access": "Original NHC interview text read; it identifies NHC’s development partnership with Google DeepMind."
+                      "access": "Full original page read on October 25, 2026. Q&A 7 discusses Melissa, and Q&A 2 describes NHC’s development partnership with DeepMind.",
+                      "access_history": [
+                        {
+                          "access": "Original NHC interview text read; it identifies NHC’s development partnership with Google DeepMind.",
+                          "reviewed_on": "2026-10-24"
+                        }
+                      ],
+                      "reviewed_on": "2026-10-25"
                     },
                     {
                       "url": "https://www.nhc.noaa.gov/verification/pdfs/Verification_2025.pdf",
-                      "access": "Indexed original report abstract and relevant text read; direct PDF request returned HTTP 403."
+                      "access": "Full original PDF downloaded successfully (HTTP 200) on October 25, 2026. Title page dated March 30, 2026. Printed p. 7 links to the NHC interview, and the report provides seasonal forecast comparisons.",
+                      "access_history": [
+                        {
+                          "access": "Indexed original report abstract and relevant text read; direct PDF request returned HTTP 403.",
+                          "reviewed_on": "2026-10-24"
+                        }
+                      ],
+                      "reviewed_on": "2026-10-25"
                     }
                   ],
                   "limitations": [
-                    "The two IFRC reports concern humanitarian action and storm impacts. Their independence from Google does not establish an independent evaluation of AI benefits.",
-                    "The existing societal-depth rating remains an interpretation of the forecast’s importance. The record does not isolate the AI contribution to deaths, damages, or early humanitarian action.",
-                    "This correction is limited to attribution and source roles. Other retained advisory text and detailed quantitative verification tables were not re-audited."
+                    "NHC is the operator and a development partner, so its verification is primary but not an independent evaluation of its own use of AI.",
+                    "Track and intensity comparisons do not measure lives saved, damage avoided, or whether IFRC acted earlier because of GDMI.",
+                    "The seasonal comparison must not be substituted for a Melissa-only result."
                   ],
                   "ordering_basis": "Keep the contemporaneous NHC account of AI use first, followed by retained operational documentation and later verification. Humanitarian background remains available in the source notes.",
                   "lead_source_ref": "AIBD-0088-source-0001",
@@ -110136,38 +112082,28 @@
                     "AIBD-0088-source-0006",
                     "AIBD-0088-source-0007",
                     "AIBD-0088-source-0008",
-                    "AIBD-0088-source-0009"
+                    "AIBD-0088-source-0009",
+                    "AIBD-0088-source-0010"
                   ],
-                  "scope": "Narrow review of source attribution and source roles. Case depths and unassessed study-design fields are unchanged. Access limits are stated below."
+                  "scope": "Operational use and retrospective verification of forecasts, with humanitarian material retained separately as background.",
+                  "reviewed_on": "2026-10-25"
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Moved two IFRC reports to background source notes because they describe storm impacts and humanitarian action, without establishing the AI forecast’s contribution to those outcomes. Preserved their citations, excerpts, and the existing account and depths. Retained NHC evidence of forecast use and verification, attributed to the deployer rather than an independent AI-benefit evaluator.",
-                "record_fields": [
-                  "evidence",
-                  "headline",
-                  "title",
-                  "summary"
-                ],
+                "basis": "Read the original NHC Melissa report, revised 19 May 2026, pp. 16–17 and Tables 5b/6b, together with the original NHC interview and seasonal verification report.",
+                "record_fields": [],
                 "source_refs": [
-                  "AIBD-0088-source-0001",
-                  "AIBD-0088-source-0002",
-                  "AIBD-0088-source-0003",
-                  "AIBD-0088-source-0004",
-                  "AIBD-0088-source-0005",
-                  "AIBD-0088-source-0006",
-                  "AIBD-0088-source-0007",
+                  "AIBD-0088-source-0010",
                   "AIBD-0088-source-0008",
                   "AIBD-0088-source-0009"
                 ],
-                "reviewed_on": "2026-10-24"
+                "reviewed_on": "2026-10-25"
               },
               "review_state": "reviewed",
               "coverage": "partial",
               "display": {
-                "answer": "IFRC reports document humanitarian action and storm damage. They do not evaluate Google’s AI or measure its contribution to lives saved, damage avoided, or earlier action.",
-                "editor_note": ""
+                "answer": "NHC’s operational advisories document its use of DeepMind guidance. Its later verification reports assess forecast accuracy. IFRC reports provide humanitarian context without isolating AI’s effects."
               }
             },
             "strategic_assessments[]": {
@@ -110296,7 +112232,7 @@
               "value": {
                 "kind": "identifiers",
                 "identifiers": [
-                  "1d834f12fc577be788cdf67e82fef8defeb4db8c16a36f5710d72387a38c12c0"
+                  "7494545dd8aeba975dc7387c52bc23ab138bc6a416517d50ebb709bf803d7efa"
                 ],
                 "role": "SHA-256 of normalized original case data"
               },
@@ -110327,7 +112263,7 @@
                     "must_hold": [
                       "AI ensemble output delivered on time and verified before operational use, as NHC describes",
                       "Human forecasters retain the final official forecast and integrate conventional NWP guidance",
-                      "Outcome verification depends on later best-track analysis. The Tropical Cyclone Report was not yet published and is not among the sources"
+                      "Forecast accuracy can be assessed against the observed track and intensity. NHC’s Tropical Cyclone Report, revised 19 May 2026, provides that comparison for Melissa"
                     ],
                     "echoes": [
                       {
@@ -110356,22 +112292,25 @@
                 "source_refs": []
               },
               "review_state": "record_mapped",
-              "coverage": "partial"
+              "coverage": "partial",
+              "display": {
+                "answer": "Forecasters received the experimental DeepMind ensemble in real time and combined it with conventional forecasts. They retained responsibility for the official track and intensity forecasts."
+              }
             }
           },
           "summary": {
             "total": 91,
             "addressed": 91,
-            "known": 31,
-            "reviewed": 1,
-            "record_mapped": 30,
-            "not_assessed": 60,
+            "known": 42,
+            "reviewed": 11,
+            "record_mapped": 31,
+            "not_assessed": 49,
             "complete": false,
             "by_state": {
-              "value_present": 31,
+              "value_present": 42,
               "not_reported": 0,
               "unresolved": 0,
-              "not_assessed": 60,
+              "not_assessed": 49,
               "not_applicable": 0,
               "withheld": 0,
               "source_unavailable": 0

@@ -183,6 +183,12 @@
       "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-25",
+      "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
+      "source": null,
+      "editor": "AIBD"
     }
   ],
   "confidence": "reported",
@@ -192,7 +198,7 @@
   "profile": {
     "case_id": "AIBD-0193",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "bf3d6df15db20671acc64740e0ab6c23ae2dcee18d2496fab3b189462734e563",
+    "source_fingerprint": "7a5092b62a3325fadb137449f080787adc9da3bf2ff54dec74ee80646e5f1f07",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -223,19 +229,21 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
+            "AIBD-0193-legacy-value",
             "DIV-0006"
           ],
-          "role": "Monetary statements in Fructus with matched AIBD case links; each statement retains its own review and eligibility status"
+          "role": "Existing monetary observations and Fructus statements with matched AIBD case links; each statement retains its own review and eligibility status"
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Linked to the current Fructus dataset by its validated case identifier. This link does not reassess the original case, fill the monetary questions, or establish a net benefit.",
+          "basis": "Linked to the current Fructus dataset by its validated case identifier. Eligible statements can supply unanswered monetary questions without a new source review or a finding of net benefit.",
           "record_fields": [],
           "source_refs": []
         },
         "review_state": "record_mapped",
         "coverage": "partial",
         "record_ids": [
+          "AIBD-0193-legacy-value",
           "DIV-0006"
         ]
       },
@@ -416,7 +424,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "FAO states that the campaign prevented the loss of 4 million metric tons of cereal and 800 million liters of milk. PlantVillage helped FAO process up to 2,500 reports a day, about a quarter of which were initially unusable. The campaign estimates cover many interventions, so they cannot be assigned to AI alone."
+        }
       },
       "assessments[].rubric_version": {
         "state": "not_assessed",
@@ -568,18 +579,189 @@
         "coverage": "partial"
       },
       "economics[].counterfactual": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Estimated losses without the control response; calculation details are not given in this account.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0006",
+                "title": "Avoided East African locust losses",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "avoided_loss",
+                "amount_basis": "avoided_expenditure",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$1.56 billion",
+                      "value": "1560000000",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "East African response reported May 6, 2021; the amount-specific start date is unstated.",
+                    "unit": "Cereal and milk losses avoided across the regional response.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated gross production losses avoided by the response; response costs are not deducted.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en",
+                        "title": "A high-tech response is helping countries win the battle against Desert Locusts",
+                        "quote": "avoiding USD 1.56 billion in cereal and milk losses.",
+                        "date": "2021-05-06",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0006. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].currency_price_basis": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "USD, stated in the source. Nominal source amount; price year not separately stated.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0006",
+                "title": "Avoided East African locust losses",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "avoided_loss",
+                "amount_basis": "avoided_expenditure",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$1.56 billion",
+                      "value": "1560000000",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "East African response reported May 6, 2021; the amount-specific start date is unstated.",
+                    "unit": "Cereal and milk losses avoided across the regional response.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated gross production losses avoided by the response; response costs are not deducted.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en",
+                        "title": "A high-tech response is helping countries win the battle against Desert Locusts",
+                        "quote": "avoiding USD 1.56 billion in cereal and milk losses.",
+                        "date": "2021-05-06",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0006. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].gross_net": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Estimated gross production losses avoided by the response; response costs are not deducted.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0006",
+                "title": "Avoided East African locust losses",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "avoided_loss",
+                "amount_basis": "avoided_expenditure",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$1.56 billion",
+                      "value": "1560000000",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "East African response reported May 6, 2021; the amount-specific start date is unstated.",
+                    "unit": "Cereal and milk losses avoided across the regional response.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated gross production losses avoided by the response; response costs are not deducted.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en",
+                        "title": "A high-tech response is helping countries win the battle against Desert Locusts",
+                        "quote": "avoiding USD 1.56 billion in cereal and milk losses.",
+                        "date": "2021-05-06",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0006. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].measure_type": {
@@ -609,37 +791,213 @@
         "coverage": "partial"
       },
       "economics[].period_unit": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "East African response reported May 6, 2021; the amount-specific start date is unstated. Cereal and milk losses avoided across the regional response.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0006",
+                "title": "Avoided East African locust losses",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "avoided_loss",
+                "amount_basis": "avoided_expenditure",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$1.56 billion",
+                      "value": "1560000000",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "East African response reported May 6, 2021; the amount-specific start date is unstated.",
+                    "unit": "Cereal and milk losses avoided across the regional response.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated gross production losses avoided by the response; response costs are not deducted.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en",
+                        "title": "A high-tech response is helping countries win the battle against Desert Locusts",
+                        "quote": "avoiding USD 1.56 billion in cereal and milk losses.",
+                        "date": "2021-05-06",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0006. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].realization": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "Retrospective estimate.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0006",
+                "title": "Avoided East African locust losses",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "avoided_loss",
+                "amount_basis": "avoided_expenditure",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$1.56 billion",
+                      "value": "1560000000",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "East African response reported May 6, 2021; the amount-specific start date is unstated.",
+                    "unit": "Cereal and milk losses avoided across the regional response.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated gross production losses avoided by the response; response costs are not deducted.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en",
+                        "title": "A high-tech response is helping countries win the battle against Desert Locusts",
+                        "quote": "avoiding USD 1.56 billion in cereal and milk losses.",
+                        "date": "2021-05-06",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0006. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en"
+          ]
+        },
+        "review_state": "record_mapped",
         "coverage": "partial"
       },
       "economics[].recipient_payer": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "value": {
-              "amount": "USD 1.56 billion",
-              "what": "cereal and milk losses avoided by the locust control operations in East Africa that the app and AI data cleaning fed",
-              "who": "East African farmers and herders (the food security of 36.6 million people)",
-              "estimate": true,
-              "quote": "In East Africa locust control operations have prevented the loss of 4 million tonnes of cereal and 800 million litres of milk production, while protecting the food security of 36.6 million people and avoiding USD 1.56 billion in cereal and milk losses.",
-              "url": "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en"
+          "kind": "structured",
+          "data": {
+            "answer": "Recipient: Farmers, livestock keepers, and food consumers in affected East African countries. Payer: Not applicable to avoided production losses.",
+            "monetary_statements": [
+              {
+                "id": "DIV-0006",
+                "title": "Avoided East African locust losses",
+                "monetary_role": "outcome_amount_claim",
+                "financial_type": "avoided_loss",
+                "amount_basis": "avoided_expenditure",
+                "net_benefit_established": false,
+                "source_review_status": "primary_source_checked",
+                "curation_status": "curated",
+                "observations": [
+                  {
+                    "id": "primary",
+                    "relationship": "primary",
+                    "amount": {
+                      "source_text": "US$1.56 billion",
+                      "value": "1560000000",
+                      "qualifier": "exact",
+                      "currency": "USD",
+                      "currency_basis": "explicit",
+                      "price_basis": "Nominal source amount; price year not separately stated."
+                    },
+                    "period": "East African response reported May 6, 2021; the amount-specific start date is unstated.",
+                    "unit": "Cereal and milk losses avoided across the regional response.",
+                    "realization": "retrospective_estimate",
+                    "accounting_boundary": "Estimated gross production losses avoided by the response; response costs are not deducted.",
+                    "source_review_status": "primary_source_checked",
+                    "sources": [
+                      {
+                        "url": "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en",
+                        "title": "A high-tech response is helping countries win the battle against Desert Locusts",
+                        "quote": "avoiding USD 1.56 billion in cereal and milk losses.",
+                        "date": "2021-05-06",
+                        "primary": true,
+                        "written_by": "deployer",
+                        "reviewed_at": "2026-10-23",
+                        "review_method": "full_text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "original_resolution": {
+              "state": "value_present",
+              "value": {
+                "kind": "record_fields",
+                "fields": {
+                  "value": {
+                    "amount": "USD 1.56 billion",
+                    "what": "cereal and milk losses avoided by the locust control operations in East Africa that the app and AI data cleaning fed",
+                    "who": "East African farmers and herders (the food security of 36.6 million people)",
+                    "estimate": true,
+                    "quote": "In East Africa locust control operations have prevented the loss of 4 million tonnes of cereal and 800 million litres of milk production, while protecting the food security of 36.6 million people and avoiding USD 1.56 billion in cereal and milk losses.",
+                    "url": "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en"
+                  }
+                }
+              },
+              "provenance": {
+                "kind": "legacy_record",
+                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+                "record_fields": [
+                  "value"
+                ],
+                "source_refs": []
+              },
+              "review_state": "record_mapped",
+              "coverage": "partial"
             }
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "value"
-          ],
-          "source_refs": []
+          "kind": "curatorial",
+          "basis": "Mapped from eligible Fructus statements DIV-0006. Each statement retains its source review status. The mapping performs no new source review or currency conversion and does not establish additional value from AI. The Fructus audit matches the original monetary value. The original field and its provenance are retained with this answer.",
+          "record_fields": [],
+          "source_refs": [
+            "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en"
+          ]
         },
         "review_state": "record_mapped",
         "coverage": "partial"
@@ -710,8 +1068,7 @@
         "coverage": "partial",
         "family": "evaluations",
         "display": {
-          "answer": "protected the food security of 36.6 million people and avoided USD 1.56 billion in losses",
-          "editor_note": ""
+          "answer": "Reports received and processed, crop and milk losses estimated to have been avoided, and the number of people whose food supplies were protected."
         }
       },
       "evaluations[].reproduction_materials": {
@@ -730,7 +1087,10 @@
         "state": "not_assessed",
         "review_state": "not_assessed",
         "coverage": "partial",
-        "family": "evaluations"
+        "family": "evaluations",
+        "display": {
+          "answer": "FAO’s estimates cover the entire control campaign. They do not isolate the value of AI or document an individual farmer’s outcome."
+        }
       },
       "external_references[]": {
         "state": "not_assessed",
@@ -792,14 +1152,46 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "FAO’s survey and control teams, and people whose food supplies were threatened by locusts."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+          "record_fields": [
+            "account",
+            "ratings"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "FAO’s survey and control teams, and people whose food supplies were threatened by locusts."
+        }
       },
       "outcomes[].beneficiary_count": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "FAO estimates that 36.6 million people benefited from the whole control campaign. The number attributable to AI is not established."
+        },
+        "provenance": {
+          "kind": "legacy_record",
+          "basis": "Moved the specific information already present in the entry into its applicable question. No new source review is implied.",
+          "record_fields": [
+            "ratings",
+            "account"
+          ],
+          "source_refs": []
+        },
+        "review_state": "record_mapped",
+        "coverage": "partial",
+        "display": {
+          "answer": "FAO estimates that 36.6 million people benefited from the whole control campaign. The number attributable to AI is not established."
+        }
       },
       "outcomes[].benefit_type": {
         "state": "value_present",
@@ -841,7 +1233,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "FAO estimates that the East African control campaign protected food supplies for 36.6 million people. AI helped process locust reports within that wider operation."
+        }
       },
       "outcomes[].distribution": {
         "state": "not_assessed",
@@ -1007,6 +1402,11 @@
                 "date": "2026-10-21",
                 "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
+                "editor": "AIBD"
               }
             ]
           }
@@ -1115,7 +1515,10 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Scouts need smartphones or satellite devices where networks are unavailable. FAO staff must review reports daily, and control teams and aircraft must be available to act on them."
+        }
       },
       "revision_history[]": {
         "state": "value_present",
@@ -1159,6 +1562,11 @@
               {
                 "date": "2026-10-21",
                 "change": "Prose pass: a rating reason, account, purpose, the system's part rewritten in shorter sentences with abbreviations expanded; facts, figures and quotations unchanged.",
+                "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-25",
+                "change": "Clarified the displayed field answers and placed measurements and limitations in their respective fields.",
                 "editor": "AIBD"
               }
             ]
@@ -1513,7 +1921,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "bf3d6df15db20671acc64740e0ab6c23ae2dcee18d2496fab3b189462734e563"
+            "7a5092b62a3325fadb137449f080787adc9da3bf2ff54dec74ee80646e5f1f07"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1573,22 +1981,25 @@
           "source_refs": []
         },
         "review_state": "record_mapped",
-        "coverage": "partial"
+        "coverage": "partial",
+        "display": {
+          "answer": "Scouts and residents sent locust sightings through eLocust3m. PlantVillage’s software removed unusable data. FAO used the reports to direct control teams and aircraft."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 35,
+      "known": 42,
       "reviewed": 0,
-      "record_mapped": 35,
-      "not_assessed": 56,
+      "record_mapped": 42,
+      "not_assessed": 49,
       "complete": false,
       "by_state": {
-        "value_present": 35,
+        "value_present": 42,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 56,
+        "not_assessed": 49,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

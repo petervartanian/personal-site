@@ -114,7 +114,7 @@
       <div class="field-row" data-field-key="workflow" id="field-workflow">
         <dt>Workflow</dt>
         <dd>
-          <p class="field-answer">A closed-source target that researchers could obtain and disassemble. GitHub&#39;s backend git services also ship as GitHub Enterprise Server binaries. Those binaries gave automated reverse engineering something to work on, and GHES 3.19.1 gave a place to confirm the exploit. AI-augmented tooling for reverse engineering: IDA MCP (per Wiz) driven by <i class="ai-system">Claude Code</i> (per The Register). It reconstructed internal protocols and traced where user input could influence server behavior across the pipeline. Experienced vulnerability researchers: six named Wiz authors formed the hypothesis and built and confirmed a working exploit. They wrote what GitHub called a thorough report that clearly demonstrated the impact. A beneficiary with a Bug Bounty intake and an on-call security team. GitHub reproduced the bug within 40 minutes of the report. It deployed a fix to github.com at 7:00 pm UTC the same day.</p>
+          <p class="field-answer">Wiz researchers obtained GitHub’s compiled software that also shipped with Enterprise Server. They used AI tools to examine it and developed an exploit that they confirmed on version 3.19.1. Their report showed that remote code execution was possible. GitHub reproduced the issue within 40 minutes and fixed github.com that evening.</p>
         </dd>
       </div>
       <div class="field-row" data-field-key="human_oversight" id="field-human_oversight">
@@ -149,7 +149,7 @@
       <div class="field-row" data-field-key="outcomes[].claim" id="field-outcomes-claim">
         <dt>Benefit</dt>
         <dd>
-          <p class="field-answer">went from idea to working exploit in under 48 hours</p>
+          <p class="field-answer">GitHub fixed a vulnerability that allowed remote code execution after Wiz researchers reported it.</p>
         </dd>
       </div>
       <div class="field-row" data-field-key="outcomes[].benefit_type" id="field-outcomes-benefit_type">
@@ -173,7 +173,7 @@
       <div class="field-row" data-field-key="outcomes[].beneficiaries" id="field-outcomes-beneficiaries">
         <dt>Beneficiaries</dt>
         <dd>
-          <p class="field-answer">Not assessed</p>
+          <p class="field-answer">GitHub and organizations using GitHub Enterprise Server.</p>
         </dd>
       </div>
       <div class="field-row" data-field-key="outcomes[].beneficiary_count" id="field-outcomes-beneficiary_count">
@@ -238,7 +238,7 @@
       <div class="field-row" data-field-key="evaluations[].metric" id="field-evaluations-metric">
         <dt>Measures</dt>
         <dd>
-          <p class="field-answer">went from idea to working exploit in under 48 hours</p>
+          <p class="field-answer">Time from the initial idea to a working exploit, time to verify the report, and time to deploy a fix.</p>
         </dd>
       </div>
       <div class="field-row" data-field-key="evaluations[].comparator" id="field-evaluations-comparator">
@@ -250,7 +250,7 @@
       <div class="field-row" data-field-key="evaluations[].effect" id="field-evaluations-effect">
         <dt>Results</dt>
         <dd>
-          <p class="field-answer">Assumed comparison. Reference: an impractical amount of time and manual effort (Wiz); months&#39; worth of manual analysis, per The Register&#39;s account of Wiz. Result: from idea to working exploit in less than 48 hours.</p>
+          <p class="field-answer">Wiz reports less than 48 hours from the initial idea to a working exploit. Its comparison with months of manual analysis is an estimate, without a measured control.</p>
         </dd>
       </div>
       <div class="field-row" data-field-key="evaluations[].ai_uplift" id="field-evaluations-ai_uplift">
@@ -397,7 +397,7 @@
       <div class="field-row" data-field-key="replication.conditions" id="field-replication-conditions">
         <dt>Conditions for replication</dt>
         <dd>
-          <p class="field-answer">AI output has to be confirmed by exploit, not trusted. Wiz confirmed RCE on a GHES 3.19.1 instance before reporting. That is why GitHub could validate the report in 40 minutes. The receiving organization must be able to patch its own service and ship fixes to self-hosted customers. GHES customers stayed exposed until they upgraded to the patched versions released from 10 March 2026. Disclosure must wait for the patches, here from 4 March to 28 April 2026. No exploitation had occurred, so the benefit is an exposure closed, not a loss recovered.</p>
+          <p class="field-answer">Researchers need access to the compiled software and an environment for testing the suspected flaw. They must establish that the exploit works, report it privately, and allow time for patches. Self-hosted customers need to install the patched release.</p>
         </dd>
       </div>
       <div class="field-row" data-field-key="replication.attempts[]" id="field-replication-attempts">
@@ -409,7 +409,7 @@
       <div class="field-row" data-field-key="follow_up[]" id="field-follow_up">
         <dt>Later findings</dt>
         <dd>
-          <p class="field-answer">28 April 2026. GitHub&#39;s 28 April 2026 disclosure confirmed the same-day fix, patches for all supported GitHub Enterprise Server releases, and a forensic investigation that found no exploitation beyond the researchers&#39; own testing.</p>
+          <p class="field-answer">GitHub fixed github.com on 4 March 2026 and released Enterprise Server patches from 10 March. Public disclosure followed on 28 April, with an investigation that found no exploitation beyond the researchers’ testing.</p>
         </dd>
       </div>
       <div class="field-row" data-field-key="availability" id="field-availability">
@@ -527,7 +527,7 @@
       <div class="field-row" data-field-key="assessments[].rationale" id="field-assessments-rationale">
         <dt>Reasons</dt>
         <dd>
-          <p class="field-answer">Organizations: GitHub closed a critical remote code execution hole in its git push pipeline within hours of the report. The fix reached github.com at 7:00 pm UTC on 4 March 2026. GitHub also shipped patches for six GitHub Enterprise Server release lines. Wiz earned what GitHub calls one of the highest rewards in the history of its Bug Bounty program. The loss avoided is hypothetical. GitHub&#39;s forensic investigation found that no other account had triggered the code path. No customer data was accessed, modified or exfiltrated. The benefit is an exposure closed rather than a demonstrated loss prevented.</p>
+          <p class="field-answer">GitHub closed the vulnerability within hours and patched six Enterprise Server release lines. Its investigation found that no other account had triggered the affected code path and that no customer data had been accessed, changed, or removed. The benefit is a corrected exposure, with no measured loss avoided.</p>
         </dd>
       </div>
       <div class="field-row" data-field-key="assessments[].status_basis" id="field-assessments-status_basis">
@@ -592,7 +592,7 @@
       <div class="field-row" data-field-key="record_dates" id="field-record_dates">
         <dt>Dates</dt>
         <dd>
-          <p class="field-answer">Date basis unassessed: 2026 (precision unassessed). Updated: 21 October 2026.</p>
+          <p class="field-answer">Date basis unassessed: 2026 (precision unassessed). Updated: 25 October 2026.</p>
         </dd>
       </div>
       <div class="field-row" data-field-key="deployment_stage" id="field-deployment_stage">
@@ -604,7 +604,7 @@
       <div class="field-row" data-field-key="version" id="field-version">
         <dt>Version</dt>
         <dd>
-          <p class="field-answer">SHA-256: ff0aea37a833…</p>
+          <p class="field-answer">SHA-256: 7f34bca5fb89…</p>
         </dd>
       </div>
     </dl>
@@ -633,7 +633,7 @@
       <div class="field-row" data-field-key="revision_history[]" id="field-revision_history">
         <dt>Revisions</dt>
         <dd>
-          <p class="field-answer">6 revisions. Latest: 21 October 2026.</p>
+          <p class="field-answer">7 revisions. Latest: 25 October 2026.</p>
         </dd>
       </div>
     </dl>
