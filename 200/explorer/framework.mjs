@@ -21,9 +21,8 @@ export function frameworkTopics(data, current, routeFor) {
 export function frameworkAnalysis(item, data, citationLinks, routeFor, mechanism = () => '', { current, rememberedStory } = {}) {
   const mapping = item.classification;
   const taxonomy = mapping && data.incidentTaxonomy?.categories?.[mapping.code];
-  const references = citationLinks(item);
-  const detail = `<h2 id="analysis-title" tabindex="-1">${escape(item.title)}</h2><div class="account-prose"><p>${escape(item.summary)}${item.explanation ? '' : ` <span class="inline-citations">${references}</span>`}</p>${item.explanation ? `<p>${escape(item.explanation)} <span class="inline-citations">${references}</span></p>` : ''}</div>`;
-  const alternative = item.alternative ? `<section class="alternative"><h3>Another account</h3><p>${escape(item.alternative)}</p></section>` : '';
+  const detail = `<h2 id="analysis-title" tabindex="-1">${escape(item.title)}</h2><div class="account-prose"><p data-claim="summary">${escape(item.summary)} <span class="inline-citations">${citationLinks(item, 'summary')}</span></p>${item.explanation ? `<p data-claim="explanation">${escape(item.explanation)} <span class="inline-citations">${citationLinks(item, 'explanation')}</span></p>` : ''}</div>`;
+  const alternative = item.alternative ? `<section class="alternative"><h3>Another account</h3><p>${escape(item.alternative)} ${citationLinks(item, 'alternative')}</p></section>` : '';
   const classification = taxonomy ? `<div class="classification-note"><h3>Proposed risk category</h3><p><a href="${escape(taxonomy.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escape(mapping.code)} ${escape(taxonomy.name)}<span class="visually-hidden"> (opens in a new tab)</span></a>${mapping.rationale ? `: ${escape(mapping.rationale)}` : ''}</p></div>` : '';
   if (item.type === 'overview') return detail;
   const topics = frameworkTopics(data, current || {view: 'framework', itemId: item.id}, routeFor, rememberedStory);
@@ -31,7 +30,7 @@ export function frameworkAnalysis(item, data, citationLinks, routeFor, mechanism
     const target = data[view].find(entry => entry.id === id);
     return `<a href="${routeFor(view,id)}">${escape(target.title || target.label)}</a>`;
   }).join('')}</dd></div>` : '';
-  return detail + alternative + mechanism(item) + classification + topics + `<dl class="account-links">${connections('Questions to investigate','questions',item.questionIds)}</dl>`;
+  return detail + alternative + mechanism(item) + topics + `<dl class="account-links">${connections('Findings and questions','questions',item.questionIds)}</dl>` + classification;
 
 }
 
