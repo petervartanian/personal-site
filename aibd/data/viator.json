@@ -3200,7 +3200,7 @@
               "review_state": "reviewed",
               "coverage": "complete",
               "display": {
-                "answer": "5 for people, 2 for organizations, and 4 for society."
+                "answer": "For patients: 5 for fewer deaths and 2 for faster recovery. The broader assessments remain 2 for organizations and 4 for society."
               }
             },
             "assessments[].display_confidence": {
@@ -3283,7 +3283,7 @@
               "review_state": "reviewed",
               "coverage": "complete",
               "display": {
-                "answer": "Fewer patients died. Faster recovery could free hospital beds, and wider access could prevent severe illness."
+                "answer": "Lower mortality preserves lives. Faster recovery is a measurable health improvement. Shorter hospital stays could free capacity, and wider access could extend the treatment’s benefits."
               }
             },
             "assessments[].rubric_version": {
@@ -5122,32 +5122,67 @@
             "outcomes[].claim": {
               "state": "value_present",
               "value": {
-                "kind": "record_fields",
-                "fields": {
-                  "account": "BenevolentAI researchers reported in February 2020 that their knowledge graph had helped them identify baricitinib, an arthritis drug, as a possible treatment for COVID-19. They proposed clinical testing after reviewing its effects on inflammation and proteins involved in viral entry. In ACTT-2, 1,033 hospitalized adults received remdesivir with either baricitinib or a placebo. Median recovery took 7 days with baricitinib and 8 days with the placebo.\n\nCOV-BARRIER enrolled 1,525 adults. By day 28, 8% of patients receiving baricitinib had died, compared with 13% receiving a placebo. Both groups received standard care. Mortality was a secondary outcome. The trial did not meet its primary outcome of reduced disease progression, so its mortality result was not conclusive under the planned procedure for multiple comparisons.\n\nThe subsequent RECOVERY trial enrolled 8,156 patients. Mortality, its primary outcome, was 12% with baricitinib and 14% with usual care alone.",
-                  "benefit_type": "Improved Physical Health"
+                "kind": "structured",
+                "data": {
+                  "benefits": [
+                    {
+                      "id": "AIBD-0042-benefit-mortality",
+                      "title": "Fewer deaths",
+                      "statement": "In RECOVERY, 12% of patients receiving baricitinib died within 28 days, compared with 14% receiving usual care alone.",
+                      "benefit_type": "Improved Physical Health",
+                      "status": "reported",
+                      "beneficiaries": "Patients hospitalized with COVID-19.",
+                      "source_refs": [
+                        "AIBD-0042-source-0002"
+                      ],
+                      "ratings": [
+                        {
+                          "group": "personal",
+                          "depth": 5,
+                          "reason": "RECOVERY found lower 28-day mortality with baricitinib, a life-preserving benefit."
+                        }
+                      ],
+                      "evidence_word": "studied"
+                    },
+                    {
+                      "id": "AIBD-0042-benefit-recovery",
+                      "title": "Faster recovery",
+                      "statement": "In ACTT-2, patients receiving remdesivir recovered in a median of 7 days with baricitinib, compared with 8 days with a placebo.",
+                      "benefit_type": "Improved Physical Health",
+                      "status": "reported",
+                      "beneficiaries": "Patients hospitalized with COVID-19.",
+                      "source_refs": [
+                        "AIBD-0042-source-0005"
+                      ],
+                      "ratings": [
+                        {
+                          "group": "personal",
+                          "depth": 2,
+                          "reason": "ACTT-2 found a shorter median recovery time in a randomized comparison, a measurable improvement in patients’ health."
+                        }
+                      ],
+                      "evidence_word": "studied"
+                    }
+                  ]
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Clinical results, potential capacity benefits, and international guidance are distinct outcomes.",
+                "basis": "Separated the two measured clinical benefits already documented in the record. RECOVERY supports lower mortality; ACTT-2 supports faster recovery. The trials evaluated treatment effects, not the incremental value of AI-assisted drug selection. Each benefit has its own source references and beneficiary assessment. The existing hospital and societal assessments remain in the record.",
                 "record_fields": [
                   "account",
                   "benefit_type"
                 ],
                 "source_refs": [
-                  "AIBD-0042-source-0001",
-                  "AIBD-0042-source-0005",
-                  "AIBD-0042-source-0007",
                   "AIBD-0042-source-0002",
-                  "AIBD-0042-source-0010"
+                  "AIBD-0042-source-0005"
                 ],
                 "reviewed_on": "2026-10-25"
               },
               "review_state": "reviewed",
               "coverage": "complete",
               "display": {
-                "answer": "Patients hospitalized with COVID-19 recovered faster, and fewer died."
+                "answer": "Fewer deaths: In RECOVERY, 12% of patients receiving baricitinib died within 28 days, compared with 14% receiving usual care alone. Faster recovery: In ACTT-2, patients receiving remdesivir recovered in a median of 7 days with baricitinib, compared with 8 days with a placebo."
               }
             },
             "outcomes[].distribution": {
@@ -5213,14 +5248,20 @@
               "value": {
                 "kind": "structured",
                 "data": {
-                  "personal": "AIBD-0042-outcome-personal",
-                  "organizational": "AIBD-0042-outcome-organizational",
-                  "societal": "AIBD-0042-outcome-societal"
+                  "benefit_ids": [
+                    "AIBD-0042-benefit-mortality",
+                    "AIBD-0042-benefit-recovery"
+                  ],
+                  "stakeholder_assessment_ids": {
+                    "personal": "AIBD-0042-outcome-personal",
+                    "organizational": "AIBD-0042-outcome-organizational",
+                    "societal": "AIBD-0042-outcome-societal"
+                  }
                 }
               },
               "provenance": {
                 "kind": "curatorial",
-                "basis": "Assigned stable identifiers to the existing stakeholder-specific outcomes.",
+                "basis": "Assigned separate stable identifiers to mortality and recovery while retaining the earlier stakeholder-assessment identifiers.",
                 "record_fields": [],
                 "source_refs": [],
                 "reviewed_on": "2026-10-25"
@@ -5228,7 +5269,7 @@
               "review_state": "reviewed",
               "coverage": "complete",
               "display": {
-                "answer": "AIBD-0042-outcome-personal, AIBD-0042-outcome-organizational, AIBD-0042-outcome-societal"
+                "answer": "AIBD-0042-benefit-mortality, AIBD-0042-benefit-recovery"
               }
             },
             "outcomes[].stakeholder_group": {

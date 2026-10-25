@@ -1078,3 +1078,30 @@ body.door .footer-inner { padding-inline: 24px; }
   .comparison-scroll { overflow: visible; max-height: none; }
   .comparison-scroll .compare th, .comparison-scroll .compare td { position: static; }
 }
+
+/* Distinct benefits remain together beneath the shared entry. */
+.case-heading { min-width: 0; }
+.benefit-bundle { margin: 12px 0 8px; }
+.benefit-item { display: grid; grid-template-columns: max-content minmax(0, 1fr); align-items: start; gap: 14px; scroll-margin-top: 24px; }
+.benefit-item + .benefit-item { margin-top: 12px; padding-top: 12px; border-top: var(--rule-width) solid var(--rule); }
+.benefit-mark { padding-top: 2px; }
+.benefit-mark .mobile { display: block; }
+.benefit-text { min-width: 0; }
+.benefit-bundle .benefit-title { margin: 0 0 4px; color: var(--ink); font: 500 16px/23px var(--sans); text-align: left; }
+.benefit-title a { text-decoration: none; }
+.benefit-title a:hover { text-decoration: underline; text-decoration-color: var(--rule); text-decoration-thickness: var(--rule-width); text-underline-offset: 3px; }
+.benefit-bundle .benefit-statement { max-width: 52rem; margin: 0; color: var(--ink-2); font: 15px/23px var(--sans); text-align: justify; text-align-last: left; overflow-wrap: anywhere; hyphens: auto; -webkit-hyphens: auto; }
+.benefit-sources { font: 12px/1 var(--mono); white-space: normal; }
+.benefit-sources a { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; min-height: 24px; margin-block: -5px; vertical-align: baseline; white-space: nowrap; }
+.benefit-bundle-full { margin: 0; }
+.benefit-bundle-full .benefit-title { font: 500 20px/27px var(--serif); }
+.field-row.field-row-benefit-bundle { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.benefit-item:target { outline: var(--rule-width) solid var(--rule); outline-offset: 6px; }
+@media (max-width: 480px) {
+  .benefit-item { column-gap: 12px; row-gap: 6px; }
+  .benefit-text { display: contents; }
+  .benefit-mark { grid-column: 1; grid-row: 1; align-self: center; padding-top: 0; }
+  .benefit-bundle .benefit-title { grid-column: 2; grid-row: 1; align-self: center; margin: 0; }
+  .benefit-bundle .benefit-statement { grid-column: 1 / -1; grid-row: 2; }
+  .benefit-item + .benefit-item { margin-top: 14px; padding-top: 14px; }
+}

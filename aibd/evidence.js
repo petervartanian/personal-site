@@ -43,7 +43,8 @@
         if (copy.hasAttribute('data-source-passages')) copy.hidden = false;
         body.appendChild(copy);
       });
-      var label = link.closest('.field-row')?.querySelector('dt')?.textContent.trim();
+      var label = link.closest('.benefit-item')?.querySelector('.benefit-title')?.textContent.trim()
+        || link.closest('.field-row')?.querySelector('dt')?.textContent.trim();
       dialog.querySelector('h2').textContent = label ? 'Source for ' + label.toLowerCase() : 'Source';
       reference.href = link.hash;
       link.setAttribute('aria-expanded', 'true');
