@@ -2902,7 +2902,7 @@
         "unexpected": false,
         "purpose": "Fall Detection is built to recognize a hard fall and, if the wearer stays immobile, to call emergency services and notify contacts with the location. That is what it did.",
         "system": "Apple Watch Fall Detection",
-        "model_version": "Apple Watch Series 10 (reported as 'Apple Watch 10')",
+        "model_version": null,
         "developer": "Apple",
         "deployer": null,
         "location": "Varsseveld, Gelderland, Netherlands",
@@ -3100,6 +3100,12 @@
             "change": "Shortened the homepage supporting statement to one sentence naming the system and its contribution; retained detailed outcomes and qualifications in the case account and source notes.",
             "source": "https://europepmc.org/article/PMC/PMC13543876",
             "editor": "AIBD"
+          },
+          {
+            "date": "2026-10-24",
+            "change": "Moved Apple Watch Series 10 from the AI model-version field to the documented hardware configuration. Reviewed the original clinical report, patient interviews, and Apple documentation; the deployed watchOS and classifier releases remain unreported.",
+            "source": "https://europepmc.org/article/PMC/PMC13543876",
+            "editor": "AIBD"
           }
         ],
         "confidence": "studied",
@@ -3109,7 +3115,7 @@
         "profile": {
           "case_id": "AIBD-0023",
           "catalog_version": "1.0.0",
-          "source_fingerprint": "c7f350d898d408f9d55bfe385f043104723a127f79d1da198b379ea960bcaad6",
+          "source_fingerprint": "90882c899c836ba8c431c024d091890ac7eb6dba883c96e879bb6e0d5890da6c",
           "collection_refs": [
             {
               "collection_id": "aibd",
@@ -3887,6 +3893,12 @@
                       "change": "Shortened the homepage supporting statement to one sentence naming the system and its contribution; retained detailed outcomes and qualifications in the case account and source notes.",
                       "source": "https://europepmc.org/article/PMC/PMC13543876",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "change": "Moved Apple Watch Series 10 from the AI model-version field to the documented hardware configuration. Reviewed the original clinical report, patient interviews, and Apple documentation; the deployed watchOS and classifier releases remain unreported.",
+                      "source": "https://europepmc.org/article/PMC/PMC13543876",
+                      "editor": "AIBD"
                     }
                   ]
                 }
@@ -4069,6 +4081,12 @@
                       "change": "Shortened the homepage supporting statement to one sentence naming the system and its contribution; retained detailed outcomes and qualifications in the case account and source notes.",
                       "source": "https://europepmc.org/article/PMC/PMC13543876",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "change": "Moved Apple Watch Series 10 from the AI model-version field to the documented hardware configuration. Reviewed the original clinical report, patient interviews, and Apple documentation; the deployed watchOS and classifier releases remain unreported.",
+                      "source": "https://europepmc.org/article/PMC/PMC13543876",
+                      "editor": "AIBD"
                     }
                   ]
                 }
@@ -4241,7 +4259,7 @@
               },
               "provenance": {
                 "kind": "curatorial",
-                "basis": "Updated identifiers after consolidating duplicate excerpts and reviewing original sources.",
+                "basis": "Preserved existing source identifiers and appended the material technical source where applicable.",
                 "record_fields": [
                   "evidence"
                 ],
@@ -4438,7 +4456,19 @@
                       "reason": "Second excerpt of the same Men's Health article."
                     }
                   ],
-                  "review_scope": "Traced the claims in this case through accessible original publications and relevant embedded references, tables, appendices, corrections, and supplements. The stated access limits remain unresolved."
+                  "review_scope": "Traced the claims in this case through accessible original publications and relevant embedded references, tables, appendices, corrections, and supplements. The stated access limits remain unresolved.",
+                  "system_identity_review": {
+                    "reviewed_on": "2026-10-24",
+                    "hardware_source_ref": "AIBD-0023-source-0001",
+                    "technical_source_ref": "AIBD-0023-source-0005",
+                    "locators": [
+                      "Clinical report: Case description, opening paragraph",
+                      "Clinical report: reference 5",
+                      "Apple: Here's how it works; What happens if your Apple Watch detects that you're immobile"
+                    ],
+                    "finding": "The sources establish Apple Watch Series 10 and Fall Detection. They do not establish the installed watchOS version, a separate classifier name, or its release.",
+                    "excluded_identification": "The DETECT-2 algorithm in reference 10 of the clinical report is a different experimental system and cannot identify the classifier installed on the patient's Apple Watch."
+                  }
                 }
               },
               "provenance": {
@@ -4497,9 +4527,46 @@
               "coverage": "partial"
             },
             "systems[].deployment_configuration": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "hardware": {
+                    "manufacturer": "Apple",
+                    "model": "Apple Watch Series 10",
+                    "source_wording": "Apple Watch 10",
+                    "source_ref": "AIBD-0023-source-0001",
+                    "locator": "Case description, opening paragraph"
+                  },
+                  "feature": "Fall Detection",
+                  "feature_enabled": true,
+                  "operating_system": {
+                    "name": "watchOS",
+                    "status": "not reported for this case"
+                  },
+                  "classifier_version": {
+                    "status": "not reported for this case"
+                  },
+                  "qualification": "The named patient is an inferred match between the anonymous clinical report and the interviews. No software version is inferred from the hardware or event date."
+                }
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Separated the reported watch hardware and enabled feature from the undisclosed operating-system and classifier releases.",
+                "record_fields": [
+                  "system",
+                  "model_version"
+                ],
+                "source_refs": [
+                  "AIBD-0023-source-0001",
+                  "AIBD-0023-source-0002",
+                  "AIBD-0023-source-0003",
+                  "AIBD-0023-source-0005"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "review_state": "reviewed",
+              "coverage": "complete"
             },
             "systems[].inputs_outputs": {
               "state": "not_assessed",
@@ -4507,28 +4574,41 @@
               "coverage": "partial"
             },
             "systems[].model_name": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "not_reported",
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Read the case evidence and the relevant original technical documentation; no case-specific model identity or release was disclosed.",
+                "record_fields": [],
+                "source_refs": [
+                  "AIBD-0023-source-0001",
+                  "AIBD-0023-source-0005"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "reason": "Apple names the Fall Detection feature but does not disclose a separate name for the classifier used in this case.",
+              "review_state": "reviewed",
+              "coverage": "complete"
             },
             "systems[].model_version": {
-              "state": "value_present",
-              "value": {
-                "kind": "record_fields",
-                "fields": {
-                  "model_version": "Apple Watch Series 10 (reported as 'Apple Watch 10')"
-                }
-              },
+              "state": "not_reported",
               "provenance": {
-                "kind": "legacy_record",
-                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+                "kind": "source_review",
+                "basis": "Read the case evidence and the relevant original technical documentation; no case-specific model identity or release was disclosed.",
                 "record_fields": [
                   "model_version"
                 ],
-                "source_refs": []
+                "source_refs": [
+                  "AIBD-0023-source-0001",
+                  "AIBD-0023-source-0002",
+                  "AIBD-0023-source-0003",
+                  "AIBD-0023-source-0004",
+                  "AIBD-0023-source-0005"
+                ],
+                "reviewed_on": "2026-10-24"
               },
-              "review_state": "record_mapped",
-              "coverage": "partial"
+              "reason": "The clinical report and patient interviews identify the watch hardware and Fall Detection, but they do not state the installed watchOS version or the classifier release. Apple Watch Series 10 is hardware, not an AI model version.",
+              "review_state": "reviewed",
+              "coverage": "complete"
             },
             "systems[].product_name": {
               "state": "value_present",
@@ -4539,20 +4619,43 @@
                 }
               },
               "provenance": {
-                "kind": "legacy_record",
-                "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+                "kind": "source_review",
+                "basis": "Identified the reported product or pipeline from its original case and technical sources; kept hardware, underlying model, and software release distinct.",
                 "record_fields": [
                   "system"
                 ],
-                "source_refs": []
+                "source_refs": [
+                  "AIBD-0023-source-0001",
+                  "AIBD-0023-source-0002",
+                  "AIBD-0023-source-0003",
+                  "AIBD-0023-source-0004",
+                  "AIBD-0023-source-0005"
+                ],
+                "reviewed_on": "2026-10-24"
               },
-              "review_state": "record_mapped",
-              "coverage": "partial"
+              "review_state": "reviewed",
+              "coverage": "complete"
             },
             "systems[].provider": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "value_present",
+              "value": {
+                "kind": "text",
+                "text": "Apple"
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "The case identifies an Apple Watch, and Apple documents its Fall Detection feature.",
+                "record_fields": [
+                  "developer"
+                ],
+                "source_refs": [
+                  "AIBD-0023-source-0001",
+                  "AIBD-0023-source-0005"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "review_state": "reviewed",
+              "coverage": "complete"
             },
             "taxonomy_crosswalks[]": {
               "state": "not_assessed",
@@ -4585,7 +4688,7 @@
               "value": {
                 "kind": "identifiers",
                 "identifiers": [
-                  "c7f350d898d408f9d55bfe385f043104723a127f79d1da198b379ea960bcaad6"
+                  "90882c899c836ba8c431c024d091890ac7eb6dba883c96e879bb6e0d5890da6c"
                 ],
                 "role": "SHA-256 of normalized original case data"
               },
@@ -4643,16 +4746,16 @@
           "summary": {
             "total": 91,
             "addressed": 91,
-            "known": 32,
-            "reviewed": 10,
-            "record_mapped": 22,
-            "not_assessed": 59,
+            "known": 33,
+            "reviewed": 15,
+            "record_mapped": 20,
+            "not_assessed": 56,
             "complete": false,
             "by_state": {
-              "value_present": 32,
-              "not_reported": 0,
+              "value_present": 33,
+              "not_reported": 2,
               "unresolved": 0,
-              "not_assessed": 59,
+              "not_assessed": 56,
               "not_applicable": 0,
               "withheld": 0,
               "source_unavailable": 0
@@ -12536,6 +12639,12 @@
             "change": "Revised the title and subtitle for natural phrasing, with named researchers, shorter dependencies, and less compressed terminology; preserved the system identities and evidence qualifications.",
             "source": "https://www.stirling.wa.gov.au/city-and-council/news/power-of-anti-drowning-technology-on-display-at-stirling-leisure-%E2%80%93-inglewood-in-wa%E2%80%99s-first-ai-assist",
             "editor": "AIBD"
+          },
+          {
+            "date": "2026-10-24",
+            "change": "Assessed model identity, provider, and deployment configuration from the original case sources. Distinguished the named product and known hardware roles from the unreported model and release.",
+            "source": "https://www.stirling.wa.gov.au/city-and-council/news/power-of-anti-drowning-technology-on-display-at-stirling-leisure-%E2%80%93-inglewood-in-wa%E2%80%99s-first-ai-assist",
+            "editor": "AIBD"
           }
         ],
         "confidence": "reported",
@@ -12545,7 +12654,7 @@
         "profile": {
           "case_id": "AIBD-0580",
           "catalog_version": "1.0.0",
-          "source_fingerprint": "e07de6d9d9b98893fc9ee4fc398ee97fcc665a4a9746dcf5c9bc6c813cba94fe",
+          "source_fingerprint": "d0dc88fa15cad6a7e5ac99ed563df3da48d661a82539c6c8750740a7990d9012",
           "collection_refs": [
             {
               "collection_id": "aibd",
@@ -13243,13 +13352,19 @@
                       "change": "Revised the title and subtitle for natural phrasing, with named researchers, shorter dependencies, and less compressed terminology; preserved the system identities and evidence qualifications.",
                       "source": "https://www.stirling.wa.gov.au/city-and-council/news/power-of-anti-drowning-technology-on-display-at-stirling-leisure-%E2%80%93-inglewood-in-wa%E2%80%99s-first-ai-assist",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "change": "Assessed model identity, provider, and deployment configuration from the original case sources. Distinguished the named product and known hardware roles from the unreported model and release.",
+                      "source": "https://www.stirling.wa.gov.au/city-and-council/news/power-of-anti-drowning-technology-on-display-at-stirling-leisure-%E2%80%93-inglewood-in-wa%E2%80%99s-first-ai-assist",
+                      "editor": "AIBD"
                     }
                   ]
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "date_observed",
                   "date_basis",
@@ -13340,13 +13455,19 @@
                       "change": "Revised the title and subtitle for natural phrasing, with named researchers, shorter dependencies, and less compressed terminology; preserved the system identities and evidence qualifications.",
                       "source": "https://www.stirling.wa.gov.au/city-and-council/news/power-of-anti-drowning-technology-on-display-at-stirling-leisure-%E2%80%93-inglewood-in-wa%E2%80%99s-first-ai-assist",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "change": "Assessed model identity, provider, and deployment configuration from the original case sources. Distinguished the named product and known hardware roles from the unreported model and release.",
+                      "source": "https://www.stirling.wa.gov.au/city-and-council/news/power-of-anti-drowning-technology-on-display-at-stirling-leisure-%E2%80%93-inglewood-in-wa%E2%80%99s-first-ai-assist",
+                      "editor": "AIBD"
                     }
                   ]
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated only the mapped fields affected by this source review. Other mapped content and review decisions are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "revisions"
                 ],
@@ -13484,8 +13605,8 @@
                 "role": "Retained evidence sources in reviewed order"
               },
               "provenance": {
-                "kind": "curatorial",
-                "basis": "Updated identifiers after consolidating duplicate excerpts and reviewing original sources.",
+                "kind": "source_review",
+                "basis": "Preserved existing source IDs and appended original sources that add technical detail or earlier testimony.",
                 "record_fields": [
                   "evidence"
                 ],
@@ -13684,8 +13805,35 @@
               "coverage": "partial"
             },
             "systems[].deployment_configuration": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "inputs": "Images from the pool’s existing CCTV cameras.",
+                  "outputs": "A smartwatch alert with the swimmer’s location and camera images.",
+                  "human_action": "Lifeguards and a fellow swimmer rescued the swimmer.",
+                  "unreported_details": [
+                    "Underlying model and release",
+                    "Installed software version",
+                    "Specific camera model"
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Recorded the deployment components that the original case accounts describe.",
+                "record_fields": [
+                  "system",
+                  "model_version"
+                ],
+                "source_refs": [
+                  "AIBD-0580-source-0001",
+                  "AIBD-0580-source-0002",
+                  "AIBD-0580-source-0003"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "review_state": "reviewed",
               "coverage": "partial"
             },
             "systems[].inputs_outputs": {
@@ -13694,14 +13842,44 @@
               "coverage": "partial"
             },
             "systems[].model_name": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "not_reported",
+              "provenance": {
+                "kind": "source_review",
+                "basis": "The original pool-operator account and subsequent reporting identify Lynxight, but do not name the underlying model, release, camera model, or installed software version.",
+                "record_fields": [
+                  "system",
+                  "model_version"
+                ],
+                "source_refs": [
+                  "AIBD-0580-source-0001",
+                  "AIBD-0580-source-0002",
+                  "AIBD-0580-source-0003"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "reason": "The original pool-operator account and subsequent reporting identify Lynxight, but do not name the underlying model, release, camera model, or installed software version.",
+              "review_state": "reviewed",
+              "coverage": "complete"
             },
             "systems[].model_version": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
+              "state": "not_reported",
+              "provenance": {
+                "kind": "source_review",
+                "basis": "The original pool-operator account and subsequent reporting identify Lynxight, but do not name the underlying model, release, camera model, or installed software version.",
+                "record_fields": [
+                  "system",
+                  "model_version"
+                ],
+                "source_refs": [
+                  "AIBD-0580-source-0001",
+                  "AIBD-0580-source-0002",
+                  "AIBD-0580-source-0003"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "reason": "The original pool-operator account and subsequent reporting identify Lynxight, but do not name the underlying model, release, camera model, or installed software version.",
+              "review_state": "reviewed",
+              "coverage": "complete"
             },
             "systems[].product_name": {
               "state": "value_present",
@@ -13723,8 +13901,29 @@
               "coverage": "partial"
             },
             "systems[].provider": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "application_developer": "Lynxight",
+                  "underlying_model_provider": "No separate model provider is identified."
+                }
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "The original operator or research-institution report identifies the application developer.",
+                "record_fields": [
+                  "developer",
+                  "system"
+                ],
+                "source_refs": [
+                  "AIBD-0580-source-0001",
+                  "AIBD-0580-source-0002",
+                  "AIBD-0580-source-0003"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "review_state": "reviewed",
               "coverage": "partial"
             },
             "taxonomy_crosswalks[]": {
@@ -13758,14 +13957,16 @@
               "value": {
                 "kind": "identifiers",
                 "identifiers": [
-                  "e07de6d9d9b98893fc9ee4fc398ee97fcc665a4a9746dcf5c9bc6c813cba94fe"
+                  "d0dc88fa15cad6a7e5ac99ed563df3da48d661a82539c6c8750740a7990d9012"
                 ],
                 "role": "SHA-256 of normalized original case data"
               },
               "provenance": {
                 "kind": "curatorial",
-                "basis": "Updated the fingerprint after this targeted source review.",
-                "record_fields": [],
+                "basis": "Recomputed the fingerprint after the system-identity and model-version review.",
+                "record_fields": [
+                  "revisions"
+                ],
                 "source_refs": [],
                 "reviewed_on": "2026-10-24"
               },
@@ -13806,16 +14007,16 @@
           "summary": {
             "total": 91,
             "addressed": 91,
-            "known": 29,
-            "reviewed": 8,
+            "known": 31,
+            "reviewed": 12,
             "record_mapped": 21,
-            "not_assessed": 62,
+            "not_assessed": 58,
             "complete": false,
             "by_state": {
-              "value_present": 29,
-              "not_reported": 0,
+              "value_present": 31,
+              "not_reported": 2,
               "unresolved": 0,
-              "not_assessed": 62,
+              "not_assessed": 58,
               "not_applicable": 0,
               "withheld": 0,
               "source_unavailable": 0
@@ -13831,7 +14032,7 @@
       "details": [
         {
           "label": "AI contribution",
-          "value": "Viz.ai flagged the bleeding and notified the stroke team. Clinicians treated the aneurysm. The platform attribution follows from the treating surgeon’s subsequent interview and matching published case. Its separate effect on survival was not measured."
+          "value": "AI flagged the bleeding and notified the stroke team, according to her treating surgeon. Clinicians treated the aneurysm. Viz.ai is an inferred identification from his separate interview. The sources do not isolate the software’s effect on survival."
         }
       ],
       "filters": {
@@ -13841,20 +14042,20 @@
       "record": {
         "id": "AIBD-0582",
         "title": "AI flags Julie Knichel's brain hemorrhage before aneurysm treatment and her return to nursing",
-        "summary": "Julie Knichel’s surgeon said that he used Viz.ai in a case that appears to be hers.",
+        "summary": "Julie Knichel’s surgeon said that her doctors received an alert from software that appears to have been Viz.ai.",
         "date_observed": "2024-02-02",
         "date_basis": "event",
         "date_precision": "day",
         "benefit_status": "reported",
         "source_collection": null,
         "source_entry": null,
-        "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The Viz.ai attribution is inferred from Snelling’s follow-up interview: he names Viz.ai, then describes an ICU nurse with a subarachnoid hemorrhage and points to the hospital’s earlier public account. The clinician, hospital, patient’s occupation, condition, and alert sequence match Knichel’s story. He does not name the nurse in that interview or identify a software module or version.",
+        "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The surgeon names Viz.ai in a later interview and describes an unnamed ICU nurse whose circumstances match Knichel’s. The product attribution is therefore inferred. Neither account identifies the module or release.",
         "category": "harm prevented",
         "unexpected": false,
         "purpose": "Detect brain hemorrhage and alert clinicians.",
-        "system": "Viz.ai stroke detection and care coordination",
+        "system": "Viz.ai stroke detection and care coordination (attribution inferred)",
         "model_version": null,
-        "developer": "Viz.ai",
+        "developer": "Viz.ai (inferred)",
         "deployer": "Baptist Health, Marcus Neuroscience Institute",
         "location": "Boca Raton, Florida, United States",
         "domain": "Stroke care",
@@ -13871,7 +14072,7 @@
         ],
         "ai_role": {
           "status": "assessed",
-          "statement": "Viz.ai flagged the bleeding and notified the stroke team. Clinicians treated the aneurysm. The platform attribution follows from the treating surgeon’s subsequent interview and matching published case. Its separate effect on survival was not measured."
+          "statement": "AI flagged the bleeding and notified the stroke team, according to her treating surgeon. Clinicians treated the aneurysm. Viz.ai is an inferred identification from his separate interview. The sources do not isolate the software’s effect on survival."
         },
         "evidence": [
           {
@@ -13898,6 +14099,15 @@
             "title": "Health & Harmony: Fast action, expert surgeon empower nurse’s recovery from stroke",
             "url": "https://thecoastalstar.com/profiles/blogs/fast-action-expert-surgeon-empowers-nurse-to-recover",
             "date": "2025-04-29",
+            "written_by": "independent",
+            "quote": null
+          },
+          {
+            "kind": "news report",
+            "citation": "Kara Duffy. “From caregiver to cared for: How an ICU nurse’s training saved her own life.” CBS12/WPEC, October 29, 2024.",
+            "title": "From caregiver to cared for: How an ICU nurse’s training saved her own life",
+            "url": "https://cbs12.com/news/local/from-caregiver-to-cared-for-how-an-icu-nurses-training-saved-her-own-life",
+            "date": "2024-10-29",
             "written_by": "independent",
             "quote": null
           }
@@ -13970,16 +14180,22 @@
             "change": "Placed the beneficiary’s personal name in the subtitle and kept the display headline focused on the reported benefit.",
             "source": "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
             "editor": "AIBD"
+          },
+          {
+            "date": "2026-10-24",
+            "change": "Marked Viz.ai as inferred in the system and developer fields and qualified the AI-role statement. Added earlier original CBS12 interviews, preserved the clinical testimony, and recorded the absence of a confirmed module or release.",
+            "source": "https://cbs12.com/news/local/from-caregiver-to-cared-for-how-an-icu-nurses-training-saved-her-own-life",
+            "editor": "AIBD"
           }
         ],
         "confidence": "reported",
         "shade": "medium",
         "claim_status": "Independently reported",
-        "claim_basis": "Sources: one independent news report, the deployer's report and the deployer's news report. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+        "claim_basis": "Sources: two independent news reports, the deployer's report and the deployer's news report. The cited evidence includes no independent study or report and no finding by a regulator or court.",
         "profile": {
           "case_id": "AIBD-0582",
           "catalog_version": "1.0.0",
-          "source_fingerprint": "16470817faf111f9648ec932d1232537d17388f9abe996cdcd844fac0ac621f8",
+          "source_fingerprint": "0108ff2a919ccacad3034cde16ee65165d33c63fd2f221fd909e72224bed584f",
           "collection_refs": [
             {
               "collection_id": "aibd",
@@ -13989,7 +14205,8 @@
           "source_ids": [
             "AIBD-0582-source-0001",
             "AIBD-0582-source-0002",
-            "AIBD-0582-source-0003"
+            "AIBD-0582-source-0003",
+            "AIBD-0582-source-0004"
           ],
           "families": {
             "strategic assessments": {
@@ -14023,13 +14240,13 @@
               "value": {
                 "kind": "record_fields",
                 "fields": {
-                  "developer": "Viz.ai",
+                  "developer": "Viz.ai (inferred)",
                   "deployer": "Baptist Health, Marcus Neuroscience Institute"
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "deployer",
                   "developer"
@@ -14056,13 +14273,13 @@
                 "fields": {
                   "ai_role": {
                     "status": "assessed",
-                    "statement": "Viz.ai flagged the bleeding and notified the stroke team. Clinicians treated the aneurysm. The platform attribution follows from the treating surgeon’s subsequent interview and matching published case. Its separate effect on survival was not measured."
+                    "statement": "AI flagged the bleeding and notified the stroke team, according to her treating surgeon. Clinicians treated the aneurysm. Viz.ai is an inferred identification from his separate interview. The sources do not isolate the software’s effect on survival."
                   }
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "ai_role"
                 ],
@@ -14084,13 +14301,13 @@
                   "category": "harm prevented",
                   "ai_role": {
                     "status": "assessed",
-                    "statement": "Viz.ai flagged the bleeding and notified the stroke team. Clinicians treated the aneurysm. The platform attribution follows from the treating surgeon’s subsequent interview and matching published case. Its separate effect on survival was not measured."
+                    "statement": "AI flagged the bleeding and notified the stroke team, according to her treating surgeon. Clinicians treated the aneurysm. Viz.ai is an inferred identification from his separate interview. The sources do not isolate the software’s effect on survival."
                   }
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "category",
                   "ai_role"
@@ -14148,8 +14365,9 @@
                   "confidence": "medium",
                   "evidence_word": "reported",
                   "claim_status": "Independently reported",
-                  "basis": "Sources include Baptist Health’s patient story, the treating neurosurgeon’s follow-up interview, and The Coastal Star’s separate patient and clinician interviews. No independent study measures the AI contribution, and no finding by a regulator or court is cited.",
-                  "interpretation": "Independent interviews corroborate the patient outcome and event year. The product attribution follows the treating clinician’s account and is not independently verified."
+                  "basis": "Baptist Health, CBS12/WPEC, The Coastal Star, and NeurologyLive provide patient or treating-clinician accounts. No independent study measures the AI contribution, and no finding by a regulator or court is cited.",
+                  "interpretation": "Independent interviews corroborate the patient outcome and event year. The product attribution follows the treating clinician’s account and is not independently verified.",
+                  "system_identity_review": "Additional sources clarify technical identity or chronology. They do not establish the AI contribution independently of the original investigators or witnesses."
                 }
               },
               "provenance": {
@@ -14161,7 +14379,8 @@
                 "source_refs": [
                   "AIBD-0582-source-0001",
                   "AIBD-0582-source-0002",
-                  "AIBD-0582-source-0003"
+                  "AIBD-0582-source-0003",
+                  "AIBD-0582-source-0004"
                 ],
                 "reviewed_on": "2026-10-24"
               },
@@ -14507,13 +14726,13 @@
               "value": {
                 "kind": "record_fields",
                 "fields": {
-                  "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The Viz.ai attribution is inferred from Snelling’s follow-up interview: he names Viz.ai, then describes an ICU nurse with a subarachnoid hemorrhage and points to the hospital’s earlier public account. The clinician, hospital, patient’s occupation, condition, and alert sequence match Knichel’s story. He does not name the nurse in that interview or identify a software module or version.",
+                  "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The surgeon names Viz.ai in a later interview and describes an unnamed ICU nurse whose circumstances match Knichel’s. The product attribution is therefore inferred. Neither account identifies the module or release.",
                   "benefit_type": "Improved Physical Health"
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "account",
                   "benefit_type"
@@ -14709,13 +14928,19 @@
                       "change": "Placed the beneficiary’s personal name in the subtitle and kept the display headline focused on the reported benefit.",
                       "source": "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "change": "Marked Viz.ai as inferred in the system and developer fields and qualified the AI-role statement. Added earlier original CBS12 interviews, preserved the clinical testimony, and recorded the absence of a confirmed module or release.",
+                      "source": "https://cbs12.com/news/local/from-caregiver-to-cared-for-how-an-icu-nurses-training-saved-her-own-life",
+                      "editor": "AIBD"
                     }
                   ]
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "date_observed",
                   "date_basis",
@@ -14817,13 +15042,19 @@
                       "change": "Placed the beneficiary’s personal name in the subtitle and kept the display headline focused on the reported benefit.",
                       "source": "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "change": "Marked Viz.ai as inferred in the system and developer fields and qualified the AI-role statement. Added earlier original CBS12 interviews, preserved the clinical testimony, and recorded the absence of a confirmed module or release.",
+                      "source": "https://cbs12.com/news/local/from-caregiver-to-cared-for-how-an-icu-nurses-training-saved-her-own-life",
+                      "editor": "AIBD"
                     }
                   ]
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "revisions"
                 ],
@@ -14893,10 +15124,27 @@
                       "source_ref": "AIBD-0582-source-0001",
                       "status": "Embedded hospital-video transcript and frames inspected. No product brand appears in the AI passage.",
                       "locator": "1:42–2:19."
+                    },
+                    {
+                      "source_url": "https://cbs12.com/news/local/from-caregiver-to-cared-for-how-an-icu-nurses-training-saved-her-own-life",
+                      "source_ref": "AIBD-0582-source-0004",
+                      "publication_date": "2024-10-29",
+                      "accessed_on": "2026-10-24",
+                      "status": "Original publisher text inspected.",
+                      "locator": "Opening patient account, Snelling’s first response, and the video caption."
+                    },
+                    {
+                      "source_ref": "AIBD-0582-source-0001",
+                      "source_url": "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
+                      "access_url": "https://physicianresources.baptisthealth.net/videos/ai-saves-the-day",
+                      "captions_url": "https://s7d9.scene7.com/is/content/bhsf/Transcript-English-AI%20Saves%20the%20Day",
+                      "accessed_on": "2026-10-24",
+                      "locator": "1:42–2:19",
+                      "status": "Original hospital video and publisher-supplied captions inspected. Snelling describes the AI alert in Julie’s case without naming the product. This is the same video as the embedded hospital article, not another source."
                     }
                   ],
                   "limitations": [
-                    "Viz.ai is inferred by matching Snelling’s later account to the hospital’s named patient story. The original video refers to the earlier public story, but does not repeat Knichel’s name.",
+                    "Snelling names Viz.ai as software used by the hospital, then discusses workflows and an unnamed ICU nurse whose circumstances match Knichel’s. The original video does not explicitly connect her name to the product. The attribution remains inferred.",
                     "No reviewed source identifies the exact Viz.ai module or model version, or supplies a patient-specific measured comparison of AI against manual review."
                   ]
                 }
@@ -14910,7 +15158,8 @@
                 "source_refs": [
                   "AIBD-0582-source-0001",
                   "AIBD-0582-source-0002",
-                  "AIBD-0582-source-0003"
+                  "AIBD-0582-source-0003",
+                  "AIBD-0582-source-0004"
                 ],
                 "reviewed_on": "2026-10-24"
               },
@@ -14947,20 +15196,29 @@
                       "url": "https://thecoastalstar.com/profiles/blogs/fast-action-expert-surgeon-empowers-nurse-to-recover",
                       "date": "2025-04-29",
                       "written_by": "independent"
+                    },
+                    {
+                      "kind": "news report",
+                      "citation": "Kara Duffy. “From caregiver to cared for: How an ICU nurse’s training saved her own life.” CBS12/WPEC, October 29, 2024.",
+                      "title": "From caregiver to cared for: How an ICU nurse’s training saved her own life",
+                      "url": "https://cbs12.com/news/local/from-caregiver-to-cared-for-how-an-icu-nurses-training-saved-her-own-life",
+                      "date": "2024-10-29",
+                      "written_by": "independent"
                     }
                   ]
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "evidence"
                 ],
                 "source_refs": [
                   "AIBD-0582-source-0001",
                   "AIBD-0582-source-0002",
-                  "AIBD-0582-source-0003"
+                  "AIBD-0582-source-0003",
+                  "AIBD-0582-source-0004"
                 ],
                 "reviewed_on": "2026-10-24"
               },
@@ -14974,20 +15232,22 @@
                 "identifiers": [
                   "AIBD-0582-source-0001",
                   "AIBD-0582-source-0002",
-                  "AIBD-0582-source-0003"
+                  "AIBD-0582-source-0003",
+                  "AIBD-0582-source-0004"
                 ],
                 "role": "Retained evidence sources in reviewed order"
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Appended sources that add system identity or patient chronology without changing the lead source.",
+                "basis": "Preserved existing source IDs and appended original sources that add technical detail or earlier testimony.",
                 "record_fields": [
                   "evidence"
                 ],
                 "source_refs": [
                   "AIBD-0582-source-0001",
                   "AIBD-0582-source-0002",
-                  "AIBD-0582-source-0003"
+                  "AIBD-0582-source-0003",
+                  "AIBD-0582-source-0004"
                 ],
                 "reviewed_on": "2026-10-24"
               },
@@ -15029,20 +15289,29 @@
                       "url": "https://thecoastalstar.com/profiles/blogs/fast-action-expert-surgeon-empowers-nurse-to-recover",
                       "date": "2025-04-29",
                       "written_by": "independent"
+                    },
+                    {
+                      "kind": "news report",
+                      "citation": "Kara Duffy. “From caregiver to cared for: How an ICU nurse’s training saved her own life.” CBS12/WPEC, October 29, 2024.",
+                      "title": "From caregiver to cared for: How an ICU nurse’s training saved her own life",
+                      "url": "https://cbs12.com/news/local/from-caregiver-to-cared-for-how-an-icu-nurses-training-saved-her-own-life",
+                      "date": "2024-10-29",
+                      "written_by": "independent"
                     }
                   ]
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "evidence"
                 ],
                 "source_refs": [
                   "AIBD-0582-source-0001",
                   "AIBD-0582-source-0002",
-                  "AIBD-0582-source-0003"
+                  "AIBD-0582-source-0003",
+                  "AIBD-0582-source-0004"
                 ],
                 "reviewed_on": "2026-10-24"
               },
@@ -15059,7 +15328,8 @@
                   "retained_source_order": [
                     "AIBD-0582-source-0001",
                     "AIBD-0582-source-0002",
-                    "AIBD-0582-source-0003"
+                    "AIBD-0582-source-0003",
+                    "AIBD-0582-source-0004"
                   ],
                   "origins": [
                     {
@@ -15074,9 +15344,9 @@
                     },
                     {
                       "url": "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
-                      "contribution": "Names Viz.ai and describes the matching ICU-nurse hemorrhage case, with a pointer to the earlier public patient story.",
+                      "contribution": "Snelling names Viz.ai as a hospital system and later recounts an unnamed nurse’s case that matches Knichel’s circumstances.",
                       "locator": "Original video 2:29–2:36, 5:03–5:36. The edited transcript omits the pointer to the earlier press release.",
-                      "relationship": "Treating clinician’s firsthand account. Matching the unnamed nurse to Knichel is an inference, not independent corroboration.",
+                      "relationship": "Original clinician testimony. The product attribution and matching of the unnamed patient remain inferences; the video is less explicit than the edited transcript.",
                       "source_refs": [
                         "AIBD-0582-source-0002"
                       ],
@@ -15092,15 +15362,26 @@
                         "AIBD-0582-source-0003"
                       ],
                       "display_name": "The Coastal Star"
+                    },
+                    {
+                      "url": "https://cbs12.com/news/local/from-caregiver-to-cared-for-how-an-icu-nurses-training-saved-her-own-life",
+                      "source_refs": [
+                        "AIBD-0582-source-0004"
+                      ],
+                      "locator": "Opening patient account, Snelling’s first response, and the video caption.",
+                      "display_name": "CBS12/WPEC",
+                      "contribution": "Earlier original interviews name Knichel, date the episode to February 2024, and quote Snelling’s account of AI detecting the bleed before clinicians.",
+                      "relationship": "Separate reporting from the same patient and treating surgeon. It establishes an earlier public account but supplies no brand identification, clinical record, or independent measurement of the AI contribution."
                     }
                   ],
                   "claim_chains": [
                     {
                       "claim": "AI-assisted care and recovery",
                       "path": [
-                        "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm"
+                        "https://baptisthealth.net/baptist-health-news/stroke-nurse-shares-her-experience-after-brain-aneurysm",
+                        "https://cbs12.com/news/local/from-caregiver-to-cared-for-how-an-icu-nurses-training-saved-her-own-life"
                       ],
-                      "finding": "Baptist Health is the original source of the patient story. Links lead to institutional or clinician pages, not a case study, scan record or model evaluation."
+                      "finding": "The hospital account and an earlier CBS12 interview directly report AI assistance through the treating surgeon. Neither supplies a scan record, model evaluation, or software brand."
                     },
                     {
                       "claim": "System identity",
@@ -15109,7 +15390,7 @@
                         "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
                         "https://thecoastalstar.com/profiles/blogs/fast-action-expert-surgeon-empowers-nurse-to-recover"
                       ],
-                      "finding": "Viz.ai stroke detection and care coordination"
+                      "finding": "Snelling names Viz.ai as software used by the hospital, then discusses workflows and an unnamed ICU nurse whose circumstances match Knichel’s. The original video does not explicitly connect her name to the product. The attribution remains inferred."
                     },
                     {
                       "claim": "System attribution",
@@ -15118,7 +15399,7 @@
                         "https://www.neurologylive.com/view/incorporating-ai-into-stroke-triage",
                         "https://players.brightcove.net/10203567001/wf0hzDVjW_default/index.html?videoId=6383528276112"
                       ],
-                      "finding": "Viz.ai is inferred by matching Snelling’s later account to the hospital’s named patient story. The original video refers to the earlier public story, but does not repeat Knichel’s name."
+                      "finding": "Snelling names Viz.ai as software used by the hospital, then discusses workflows and an unnamed ICU nurse whose circumstances match Knichel’s. The original video does not explicitly connect her name to the product. The attribution remains inferred."
                     },
                     {
                       "claim": "Event chronology",
@@ -15130,14 +15411,46 @@
                     }
                   ],
                   "limitations": [
-                    "Viz.ai is inferred by matching Snelling’s later account to the hospital’s named patient story. The original video refers to the earlier public story, but does not repeat Knichel’s name.",
+                    "Snelling names Viz.ai as software used by the hospital, then discusses workflows and an unnamed ICU nurse whose circumstances match Knichel’s. The original video does not explicitly connect her name to the product. The attribution remains inferred.",
                     "No reviewed source identifies the exact Viz.ai module or model version, or supplies a patient-specific measured comparison of AI against manual review."
                   ],
                   "excluded_or_consolidated_sources": [],
-                  "review_scope": "Traced the claims in this case through accessible original publications and relevant embedded references, tables, appendices, corrections, and supplements. The stated access limits remain unresolved.",
+                  "review_scope": "Reviewed the earlier CBS12 report, original hospital video and captions, NeurologyLive video, and additional patient interviews. AI involvement is directly reported by the treating surgeon; the product, module, and release remain unconfirmed for this patient.",
                   "homepage_source_refs": [
                     "AIBD-0582-source-0001",
                     "AIBD-0582-source-0002"
+                  ],
+                  "earlier_reporting": [
+                    {
+                      "url": "https://cbs12.com/news/local/from-caregiver-to-cared-for-how-an-icu-nurses-training-saved-her-own-life",
+                      "publication_date": "2024-10-29",
+                      "finding": "Original named-patient and surgeon interviews precede the retained hospital article."
+                    }
+                  ],
+                  "additional_interviews_checked": [
+                    {
+                      "url": "https://www.theeducatedpatient.com/view/hear-my-journey-from-neuro-icu-nurse-to-brain-aneurysm-survivor",
+                      "title": "Hear My Journey: From Neuro ICU Nurse to Brain Aneurysm Survivor",
+                      "author": "Lana Pine",
+                      "publication_date": "2025-08-06",
+                      "format_inspected": "Complete original interview audio, approximately 9 minutes, reviewed through a local automated transcription; the webpage is an edited account.",
+                      "finding": "The interview describes the hemorrhage, treatment, hospitalization, and return to work but does not discuss AI. It does not resolve the system identity.",
+                      "relationship": "Additional testimony from the same patient and clinician; retained as a checked source note, not a separate confirmation."
+                    },
+                    {
+                      "url": "https://www.wpbf.com/article/on-the-record-knowing-the-signs-of-a-stroke/71263276",
+                      "title": "On the Record: Knowing the signs of a stroke",
+                      "author": "Malcolm Shields",
+                      "publication_date": "2026-05-10",
+                      "format_inspected": "Complete original interview audio, approximately 20 minutes, reviewed through a local automated transcription. No publisher transcript was available.",
+                      "locators": [
+                        "1:04–1:10: Knichel dates the episode to February 2, 2024",
+                        "5:15–6:02: Snelling describes the AI alert",
+                        "8:33–8:59: return to work"
+                      ],
+                      "finding": "The patient and treating surgeon confirm the reported course and AI alert. No product, module, or release is named.",
+                      "relationship": "Follow-up testimony from the same witnesses; retained as a checked source note, not an independent evaluation."
+                    }
                   ]
                 }
               },
@@ -15151,7 +15464,8 @@
                 "source_refs": [
                   "AIBD-0582-source-0001",
                   "AIBD-0582-source-0002",
-                  "AIBD-0582-source-0003"
+                  "AIBD-0582-source-0003",
+                  "AIBD-0582-source-0004"
                 ],
                 "reviewed_on": "2026-10-24"
               },
@@ -15169,13 +15483,13 @@
               "value": {
                 "kind": "record_fields",
                 "fields": {
-                  "summary": "Julie Knichel’s surgeon said that he used Viz.ai in a case that appears to be hers.",
-                  "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The Viz.ai attribution is inferred from Snelling’s follow-up interview: he names Viz.ai, then describes an ICU nurse with a subarachnoid hemorrhage and points to the hospital’s earlier public account. The clinician, hospital, patient’s occupation, condition, and alert sequence match Knichel’s story. He does not name the nurse in that interview or identify a software module or version."
+                  "summary": "Julie Knichel’s surgeon said that her doctors received an alert from software that appears to have been Viz.ai.",
+                  "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The surgeon names Viz.ai in a later interview and describes an unnamed ICU nurse whose circumstances match Knichel’s. The product attribution is therefore inferred. Neither account identifies the module or release."
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "summary",
                   "account"
@@ -15201,8 +15515,34 @@
               "coverage": "partial"
             },
             "systems[].deployment_configuration": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "clinical_setting": "Marcus Neuroscience Institute, Baptist Health, Boca Raton.",
+                  "reported_workflow": "AI reviewed brain imaging and alerted clinicians before their own review, according to the treating surgeon.",
+                  "unreported_details": [
+                    "Confirmed product and module for this patient",
+                    "Model and software release",
+                    "Scan-specific processing record"
+                  ]
+                }
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Patient and treating-clinician accounts establish the clinical workflow but not the exact technical configuration.",
+                "record_fields": [
+                  "system",
+                  "model_version"
+                ],
+                "source_refs": [
+                  "AIBD-0582-source-0001",
+                  "AIBD-0582-source-0002",
+                  "AIBD-0582-source-0004"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "review_state": "reviewed",
               "coverage": "partial"
             },
             "systems[].inputs_outputs": {
@@ -15211,26 +15551,44 @@
               "coverage": "partial"
             },
             "systems[].model_name": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
-            },
-            "systems[].model_version": {
               "state": "not_reported",
               "provenance": {
                 "kind": "source_review",
-                "basis": "Distinguished the platform or product name from a particular release.",
+                "basis": "The named-patient accounts do not identify the software brand, module, underlying model, or release. The Viz.ai attribution relies on a separate interview and remains inferred.",
                 "record_fields": [
+                  "system",
                   "model_version"
                 ],
                 "source_refs": [
                   "AIBD-0582-source-0001",
                   "AIBD-0582-source-0002",
-                  "AIBD-0582-source-0003"
+                  "AIBD-0582-source-0003",
+                  "AIBD-0582-source-0004"
                 ],
                 "reviewed_on": "2026-10-24"
               },
-              "reason": "The reviewed sources do not establish an exact model or software release for this case.",
+              "reason": "The named-patient accounts do not identify the software brand, module, underlying model, or release. The Viz.ai attribution relies on a separate interview and remains inferred.",
+              "review_state": "reviewed",
+              "coverage": "complete"
+            },
+            "systems[].model_version": {
+              "state": "not_reported",
+              "provenance": {
+                "kind": "source_review",
+                "basis": "The named-patient accounts do not identify the software brand, module, underlying model, or release. The Viz.ai attribution relies on a separate interview and remains inferred.",
+                "record_fields": [
+                  "system",
+                  "model_version"
+                ],
+                "source_refs": [
+                  "AIBD-0582-source-0001",
+                  "AIBD-0582-source-0002",
+                  "AIBD-0582-source-0003",
+                  "AIBD-0582-source-0004"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "reason": "The named-patient accounts do not identify the software brand, module, underlying model, or release. The Viz.ai attribution relies on a separate interview and remains inferred.",
               "review_state": "reviewed",
               "coverage": "complete"
             },
@@ -15239,24 +15597,25 @@
               "value": {
                 "kind": "record_fields",
                 "fields": {
-                  "system": "Viz.ai stroke detection and care coordination"
+                  "system": "Viz.ai stroke detection and care coordination (attribution inferred)"
                 }
               },
               "provenance": {
                 "kind": "derivation",
-                "basis": "System identification follows the cited source chain and its stated historical or patient-matching qualifications.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "system"
                 ],
                 "source_refs": [
                   "AIBD-0582-source-0001",
                   "AIBD-0582-source-0002",
-                  "AIBD-0582-source-0003"
+                  "AIBD-0582-source-0003",
+                  "AIBD-0582-source-0004"
                 ],
                 "reviewed_on": "2026-10-24"
               },
               "review_state": "reviewed",
-              "coverage": "complete"
+              "coverage": "partial"
             },
             "systems[].provider": {
               "state": "value_present",
@@ -15265,24 +15624,25 @@
                 "data": {
                   "provider": "Viz.ai",
                   "attribution": "inferred",
-                  "basis": "Viz.ai is inferred by matching Snelling’s later account to the hospital’s named patient story. The original video refers to the earlier public story, but does not repeat Knichel’s name."
+                  "basis": "Snelling names Viz.ai as software used by the hospital, then discusses workflows and an unnamed ICU nurse whose circumstances match Knichel’s. The original video does not explicitly connect her name to the product. The attribution remains inferred."
                 }
               },
               "provenance": {
                 "kind": "derivation",
-                "basis": "Viz.ai is inferred by matching Snelling’s later account to the hospital’s named patient story. The original video refers to the earlier public story, but does not repeat Knichel’s name.",
+                "basis": "Snelling names Viz.ai as software used by the hospital, then discusses workflows and an unnamed ICU nurse whose circumstances match Knichel’s. The original video does not explicitly connect her name to the product. The attribution remains inferred.",
                 "record_fields": [
                   "developer",
                   "system"
                 ],
                 "source_refs": [
                   "AIBD-0582-source-0001",
-                  "AIBD-0582-source-0002"
+                  "AIBD-0582-source-0002",
+                  "AIBD-0582-source-0004"
                 ],
                 "reviewed_on": "2026-10-24"
               },
               "review_state": "reviewed",
-              "coverage": "complete"
+              "coverage": "partial"
             },
             "taxonomy_crosswalks[]": {
               "state": "not_assessed",
@@ -15315,17 +15675,21 @@
               "value": {
                 "kind": "identifiers",
                 "identifiers": [
-                  "16470817faf111f9648ec932d1232537d17388f9abe996cdcd844fac0ac621f8"
+                  "0108ff2a919ccacad3034cde16ee65165d33c63fd2f221fd909e72224bed584f"
                 ],
                 "role": "SHA-256 of normalized original case data"
               },
               "provenance": {
                 "kind": "derivation",
-                "basis": "Recomputed the fingerprint after the system-identification review.",
+                "basis": "Recomputed the fingerprint after the system-identity and model-version review.",
                 "record_fields": [
-                  "system",
+                  "account",
+                  "ai_role",
+                  "developer",
                   "evidence",
-                  "summary"
+                  "revisions",
+                  "summary",
+                  "system"
                 ],
                 "source_refs": [
                   "AIBD-0582-source-0001",
@@ -15342,7 +15706,7 @@
               "value": {
                 "kind": "record_fields",
                 "fields": {
-                  "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The Viz.ai attribution is inferred from Snelling’s follow-up interview: he names Viz.ai, then describes an ICU nurse with a subarachnoid hemorrhage and points to the hospital’s earlier public account. The clinician, hospital, patient’s occupation, condition, and alert sequence match Knichel’s story. He does not name the nurse in that interview or identify a software module or version.",
+                  "account": "Julie Knichel, a 57-year-old nurse, suffered a ruptured brain aneurysm. At Baptist Health's Marcus Neuroscience Institute, AI reviewed her scan and alerted clinicians to the bleeding. They sealed the aneurysm with coils delivered through a catheter. After about three weeks in hospital, she recovered and returned to full-time nursing. Her symptoms began on 2 February 2024. Baptist Health gives the day and month, and Jan Engoren’s subsequent interviews with Knichel and Snelling establish the year. The surgeon names Viz.ai in a later interview and describes an unnamed ICU nurse whose circumstances match Knichel’s. The product attribution is therefore inferred. Neither account identifies the module or release.",
                   "replication": {
                     "produced_by": [
                       "AI-assisted imaging and specialist treatment."
@@ -15356,7 +15720,7 @@
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "account",
                   "replication"
@@ -15375,16 +15739,16 @@
           "summary": {
             "total": 91,
             "addressed": 91,
-            "known": 30,
-            "reviewed": 17,
+            "known": 31,
+            "reviewed": 19,
             "record_mapped": 14,
-            "not_assessed": 60,
+            "not_assessed": 58,
             "complete": false,
             "by_state": {
-              "value_present": 30,
-              "not_reported": 1,
+              "value_present": 31,
+              "not_reported": 2,
               "unresolved": 0,
-              "not_assessed": 60,
+              "not_assessed": 58,
               "not_applicable": 0,
               "withheld": 0,
               "source_unavailable": 0
@@ -110461,6 +110825,12 @@
             "change": "Revised the title and subtitle for natural phrasing, with named researchers, shorter dependencies, and less compressed terminology; preserved the system identities and evidence qualifications.",
             "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
             "editor": "AIBD"
+          },
+          {
+            "date": "2026-10-24",
+            "change": "Assessed model identity, provider, and deployment configuration from the original case sources. Distinguished the named product and known hardware roles from the unreported model and release.",
+            "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
+            "editor": "AIBD"
           }
         ],
         "confidence": "reported",
@@ -110470,7 +110840,7 @@
         "profile": {
           "case_id": "AIBD-0359",
           "catalog_version": "1.0.0",
-          "source_fingerprint": "101fa32161f1dd471845568b41eae1006d86e73340ad7e4bd2f5f64facdbaee9",
+          "source_fingerprint": "1b5658b0b4e4d534db95642c8c0b4ab3bec761d8b7e2156861af3d0ec07dffbe",
           "collection_refs": [
             {
               "collection_id": "aibd",
@@ -111367,13 +111737,19 @@
                       "change": "Revised the title and subtitle for natural phrasing, with named researchers, shorter dependencies, and less compressed terminology; preserved the system identities and evidence qualifications.",
                       "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "change": "Assessed model identity, provider, and deployment configuration from the original case sources. Distinguished the named product and known hardware roles from the unreported model and release.",
+                      "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
+                      "editor": "AIBD"
                     }
                   ]
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "date_observed",
                   "revisions",
@@ -111569,13 +111945,19 @@
                       "change": "Revised the title and subtitle for natural phrasing, with named researchers, shorter dependencies, and less compressed terminology; preserved the system identities and evidence qualifications.",
                       "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
                       "editor": "AIBD"
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "change": "Assessed model identity, provider, and deployment configuration from the original case sources. Distinguished the named product and known hardware roles from the unreported model and release.",
+                      "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
+                      "editor": "AIBD"
                     }
                   ]
                 }
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+                "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
                 "record_fields": [
                   "revisions"
                 ],
@@ -111718,7 +112100,7 @@
               },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Appended sources that add system identity or patient chronology without changing the lead source.",
+                "basis": "Preserved existing source IDs and appended original sources that add technical detail or earlier testimony.",
                 "record_fields": [
                   "evidence"
                 ],
@@ -112032,26 +112414,25 @@
               "coverage": "partial"
             },
             "systems[].deployment_configuration": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
-            },
-            "systems[].inputs_outputs": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
-            },
-            "systems[].model_name": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
-              "coverage": "partial"
-            },
-            "systems[].model_version": {
-              "state": "not_reported",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "inputs": "Thermal-camera images near the Route 460 wildlife crossing.",
+                  "outputs": "Roadside warnings when animals approach.",
+                  "communications": "5G and satellite connectivity support remote monitoring.",
+                  "unreported_details": [
+                    "Underlying model and release",
+                    "Installed software version",
+                    "Specific camera model"
+                  ]
+                }
+              },
               "provenance": {
                 "kind": "source_review",
-                "basis": "Distinguished the platform or product name from a particular release.",
+                "basis": "Recorded the deployment components that the original case accounts describe.",
                 "record_fields": [
+                  "system",
                   "model_version"
                 ],
                 "source_refs": [
@@ -112062,7 +112443,53 @@
                 ],
                 "reviewed_on": "2026-10-24"
               },
-              "reason": "The reviewed sources do not establish an exact model or software release for this case.",
+              "review_state": "reviewed",
+              "coverage": "partial"
+            },
+            "systems[].inputs_outputs": {
+              "state": "not_assessed",
+              "review_state": "not_assessed",
+              "coverage": "partial"
+            },
+            "systems[].model_name": {
+              "state": "not_reported",
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Virginia Tech and VDOT identify ADDWS and Crosstek’s AI detection, but do not supply a named model, release, or checkpoint for the pilot.",
+                "record_fields": [
+                  "system",
+                  "model_version"
+                ],
+                "source_refs": [
+                  "AIBD-0359-source-0001",
+                  "AIBD-0359-source-0002",
+                  "AIBD-0359-source-0003",
+                  "AIBD-0359-source-0004"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "reason": "Virginia Tech and VDOT identify ADDWS and Crosstek’s AI detection, but do not supply a named model, release, or checkpoint for the pilot.",
+              "review_state": "reviewed",
+              "coverage": "complete"
+            },
+            "systems[].model_version": {
+              "state": "not_reported",
+              "provenance": {
+                "kind": "source_review",
+                "basis": "Virginia Tech and VDOT identify ADDWS and Crosstek’s AI detection, but do not supply a named model, release, or checkpoint for the pilot.",
+                "record_fields": [
+                  "system",
+                  "model_version"
+                ],
+                "source_refs": [
+                  "AIBD-0359-source-0001",
+                  "AIBD-0359-source-0002",
+                  "AIBD-0359-source-0003",
+                  "AIBD-0359-source-0004"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "reason": "Virginia Tech and VDOT identify ADDWS and Crosstek’s AI detection, but do not supply a named model, release, or checkpoint for the pilot.",
               "review_state": "reviewed",
               "coverage": "complete"
             },
@@ -112092,8 +112519,30 @@
               "coverage": "complete"
             },
             "systems[].provider": {
-              "state": "not_assessed",
-              "review_state": "not_assessed",
+              "state": "value_present",
+              "value": {
+                "kind": "structured",
+                "data": {
+                  "application_developer": "Crosstek",
+                  "underlying_model_provider": "No separate model provider is identified."
+                }
+              },
+              "provenance": {
+                "kind": "source_review",
+                "basis": "The original operator or research-institution report identifies the application developer.",
+                "record_fields": [
+                  "developer",
+                  "system"
+                ],
+                "source_refs": [
+                  "AIBD-0359-source-0001",
+                  "AIBD-0359-source-0002",
+                  "AIBD-0359-source-0003",
+                  "AIBD-0359-source-0004"
+                ],
+                "reviewed_on": "2026-10-24"
+              },
+              "review_state": "reviewed",
               "coverage": "partial"
             },
             "taxonomy_crosswalks[]": {
@@ -112127,17 +112576,15 @@
               "value": {
                 "kind": "identifiers",
                 "identifiers": [
-                  "101fa32161f1dd471845568b41eae1006d86e73340ad7e4bd2f5f64facdbaee9"
+                  "1b5658b0b4e4d534db95642c8c0b4ab3bec761d8b7e2156861af3d0ec07dffbe"
                 ],
                 "role": "SHA-256 of normalized original case data"
               },
               "provenance": {
                 "kind": "derivation",
-                "basis": "Recomputed the fingerprint after the system-identification review.",
+                "basis": "Recomputed the fingerprint after the system-identity and model-version review.",
                 "record_fields": [
-                  "system",
-                  "evidence",
-                  "summary"
+                  "revisions"
                 ],
                 "source_refs": [
                   "AIBD-0359-source-0001",
@@ -112208,16 +112655,16 @@
           "summary": {
             "total": 91,
             "addressed": 91,
-            "known": 33,
-            "reviewed": 16,
+            "known": 35,
+            "reviewed": 19,
             "record_mapped": 18,
-            "not_assessed": 57,
+            "not_assessed": 54,
             "complete": false,
             "by_state": {
-              "value_present": 33,
-              "not_reported": 1,
+              "value_present": 35,
+              "not_reported": 2,
               "unresolved": 0,
-              "not_assessed": 57,
+              "not_assessed": 54,
               "not_applicable": 0,
               "withheld": 0,
               "source_unavailable": 0

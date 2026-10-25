@@ -13,7 +13,7 @@
   "unexpected": false,
   "purpose": "Fall Detection is built to recognize a hard fall and, if the wearer stays immobile, to call emergency services and notify contacts with the location. That is what it did.",
   "system": "Apple Watch Fall Detection",
-  "model_version": "Apple Watch Series 10 (reported as 'Apple Watch 10')",
+  "model_version": null,
   "developer": "Apple",
   "deployer": null,
   "location": "Varsseveld, Gelderland, Netherlands",
@@ -211,6 +211,12 @@
       "change": "Shortened the homepage supporting statement to one sentence naming the system and its contribution; retained detailed outcomes and qualifications in the case account and source notes.",
       "source": "https://europepmc.org/article/PMC/PMC13543876",
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-24",
+      "change": "Moved Apple Watch Series 10 from the AI model-version field to the documented hardware configuration. Reviewed the original clinical report, patient interviews, and Apple documentation; the deployed watchOS and classifier releases remain unreported.",
+      "source": "https://europepmc.org/article/PMC/PMC13543876",
+      "editor": "AIBD"
     }
   ],
   "confidence": "studied",
@@ -220,7 +226,7 @@
   "profile": {
     "case_id": "AIBD-0023",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "c7f350d898d408f9d55bfe385f043104723a127f79d1da198b379ea960bcaad6",
+    "source_fingerprint": "90882c899c836ba8c431c024d091890ac7eb6dba883c96e879bb6e0d5890da6c",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -998,6 +1004,12 @@
                 "change": "Shortened the homepage supporting statement to one sentence naming the system and its contribution; retained detailed outcomes and qualifications in the case account and source notes.",
                 "source": "https://europepmc.org/article/PMC/PMC13543876",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Moved Apple Watch Series 10 from the AI model-version field to the documented hardware configuration. Reviewed the original clinical report, patient interviews, and Apple documentation; the deployed watchOS and classifier releases remain unreported.",
+                "source": "https://europepmc.org/article/PMC/PMC13543876",
+                "editor": "AIBD"
               }
             ]
           }
@@ -1180,6 +1192,12 @@
                 "change": "Shortened the homepage supporting statement to one sentence naming the system and its contribution; retained detailed outcomes and qualifications in the case account and source notes.",
                 "source": "https://europepmc.org/article/PMC/PMC13543876",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Moved Apple Watch Series 10 from the AI model-version field to the documented hardware configuration. Reviewed the original clinical report, patient interviews, and Apple documentation; the deployed watchOS and classifier releases remain unreported.",
+                "source": "https://europepmc.org/article/PMC/PMC13543876",
+                "editor": "AIBD"
               }
             ]
           }
@@ -1352,7 +1370,7 @@
         },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Updated identifiers after consolidating duplicate excerpts and reviewing original sources.",
+          "basis": "Preserved existing source identifiers and appended the material technical source where applicable.",
           "record_fields": [
             "evidence"
           ],
@@ -1549,7 +1567,19 @@
                 "reason": "Second excerpt of the same Men's Health article."
               }
             ],
-            "review_scope": "Traced the claims in this case through accessible original publications and relevant embedded references, tables, appendices, corrections, and supplements. The stated access limits remain unresolved."
+            "review_scope": "Traced the claims in this case through accessible original publications and relevant embedded references, tables, appendices, corrections, and supplements. The stated access limits remain unresolved.",
+            "system_identity_review": {
+              "reviewed_on": "2026-10-24",
+              "hardware_source_ref": "AIBD-0023-source-0001",
+              "technical_source_ref": "AIBD-0023-source-0005",
+              "locators": [
+                "Clinical report: Case description, opening paragraph",
+                "Clinical report: reference 5",
+                "Apple: Here's how it works; What happens if your Apple Watch detects that you're immobile"
+              ],
+              "finding": "The sources establish Apple Watch Series 10 and Fall Detection. They do not establish the installed watchOS version, a separate classifier name, or its release.",
+              "excluded_identification": "The DETECT-2 algorithm in reference 10 of the clinical report is a different experimental system and cannot identify the classifier installed on the patient's Apple Watch."
+            }
           }
         },
         "provenance": {
@@ -1608,9 +1638,46 @@
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "hardware": {
+              "manufacturer": "Apple",
+              "model": "Apple Watch Series 10",
+              "source_wording": "Apple Watch 10",
+              "source_ref": "AIBD-0023-source-0001",
+              "locator": "Case description, opening paragraph"
+            },
+            "feature": "Fall Detection",
+            "feature_enabled": true,
+            "operating_system": {
+              "name": "watchOS",
+              "status": "not reported for this case"
+            },
+            "classifier_version": {
+              "status": "not reported for this case"
+            },
+            "qualification": "The named patient is an inferred match between the anonymous clinical report and the interviews. No software version is inferred from the hardware or event date."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Separated the reported watch hardware and enabled feature from the undisclosed operating-system and classifier releases.",
+          "record_fields": [
+            "system",
+            "model_version"
+          ],
+          "source_refs": [
+            "AIBD-0023-source-0001",
+            "AIBD-0023-source-0002",
+            "AIBD-0023-source-0003",
+            "AIBD-0023-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "systems[].inputs_outputs": {
         "state": "not_assessed",
@@ -1618,28 +1685,41 @@
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the case evidence and the relevant original technical documentation; no case-specific model identity or release was disclosed.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0023-source-0001",
+            "AIBD-0023-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "reason": "Apple names the Fall Detection feature but does not disclose a separate name for the classifier used in this case.",
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "systems[].model_version": {
-        "state": "value_present",
-        "value": {
-          "kind": "record_fields",
-          "fields": {
-            "model_version": "Apple Watch Series 10 (reported as 'Apple Watch 10')"
-          }
-        },
+        "state": "not_reported",
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Read the case evidence and the relevant original technical documentation; no case-specific model identity or release was disclosed.",
           "record_fields": [
             "model_version"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0023-source-0001",
+            "AIBD-0023-source-0002",
+            "AIBD-0023-source-0003",
+            "AIBD-0023-source-0004",
+            "AIBD-0023-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "reason": "The clinical report and patient interviews identify the watch hardware and Fall Detection, but they do not state the installed watchOS version or the classifier release. Apple Watch Series 10 is hardware, not an AI model version.",
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -1650,20 +1730,43 @@
           }
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
+          "kind": "source_review",
+          "basis": "Identified the reported product or pipeline from its original case and technical sources; kept hardware, underlying model, and software release distinct.",
           "record_fields": [
             "system"
           ],
-          "source_refs": []
+          "source_refs": [
+            "AIBD-0023-source-0001",
+            "AIBD-0023-source-0002",
+            "AIBD-0023-source-0003",
+            "AIBD-0023-source-0004",
+            "AIBD-0023-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Apple"
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "The case identifies an Apple Watch, and Apple documents its Fall Detection feature.",
+          "record_fields": [
+            "developer"
+          ],
+          "source_refs": [
+            "AIBD-0023-source-0001",
+            "AIBD-0023-source-0005"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "review_state": "reviewed",
+        "coverage": "complete"
       },
       "taxonomy_crosswalks[]": {
         "state": "not_assessed",
@@ -1696,7 +1799,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "c7f350d898d408f9d55bfe385f043104723a127f79d1da198b379ea960bcaad6"
+            "90882c899c836ba8c431c024d091890ac7eb6dba883c96e879bb6e0d5890da6c"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1754,16 +1857,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 32,
-      "reviewed": 10,
-      "record_mapped": 22,
-      "not_assessed": 59,
+      "known": 33,
+      "reviewed": 15,
+      "record_mapped": 20,
+      "not_assessed": 56,
       "complete": false,
       "by_state": {
-        "value_present": 32,
-        "not_reported": 0,
+        "value_present": 33,
+        "not_reported": 2,
         "unresolved": 0,
-        "not_assessed": 59,
+        "not_assessed": 56,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

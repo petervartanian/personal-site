@@ -226,6 +226,12 @@
       "change": "Revised the title and subtitle for natural phrasing, with named researchers, shorter dependencies, and less compressed terminology; preserved the system identities and evidence qualifications.",
       "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-24",
+      "change": "Assessed model identity, provider, and deployment configuration from the original case sources. Distinguished the named product and known hardware roles from the unreported model and release.",
+      "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
+      "editor": "AIBD"
     }
   ],
   "confidence": "reported",
@@ -235,7 +241,7 @@
   "profile": {
     "case_id": "AIBD-0359",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "101fa32161f1dd471845568b41eae1006d86e73340ad7e4bd2f5f64facdbaee9",
+    "source_fingerprint": "1b5658b0b4e4d534db95642c8c0b4ab3bec761d8b7e2156861af3d0ec07dffbe",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -1132,13 +1138,19 @@
                 "change": "Revised the title and subtitle for natural phrasing, with named researchers, shorter dependencies, and less compressed terminology; preserved the system identities and evidence qualifications.",
                 "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Assessed model identity, provider, and deployment configuration from the original case sources. Distinguished the named product and known hardware roles from the unreported model and release.",
+                "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+          "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
           "record_fields": [
             "date_observed",
             "revisions",
@@ -1334,13 +1346,19 @@
                 "change": "Revised the title and subtitle for natural phrasing, with named researchers, shorter dependencies, and less compressed terminology; preserved the system identities and evidence qualifications.",
                 "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-24",
+                "change": "Assessed model identity, provider, and deployment configuration from the original case sources. Distinguished the named product and known hardware roles from the unreported model and release.",
+                "source": "https://news.vt.edu/articles/2026/10/vtti-elk-live-driver-warning-detection-virginia.html",
+                "editor": "AIBD"
               }
             ]
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Updated the fields affected by the system-identification review. Existing benefit-depth ratings and unrelated assessments are preserved.",
+          "basis": "Updated the mapped values after reviewing system identity and distinguishing product, hardware, and model versions.",
           "record_fields": [
             "revisions"
           ],
@@ -1483,7 +1501,7 @@
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Appended sources that add system identity or patient chronology without changing the lead source.",
+          "basis": "Preserved existing source IDs and appended original sources that add technical detail or earlier testimony.",
           "record_fields": [
             "evidence"
           ],
@@ -1797,26 +1815,25 @@
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "systems[].inputs_outputs": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "systems[].model_name": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
-      },
-      "systems[].model_version": {
-        "state": "not_reported",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "inputs": "Thermal-camera images near the Route 460 wildlife crossing.",
+            "outputs": "Roadside warnings when animals approach.",
+            "communications": "5G and satellite connectivity support remote monitoring.",
+            "unreported_details": [
+              "Underlying model and release",
+              "Installed software version",
+              "Specific camera model"
+            ]
+          }
+        },
         "provenance": {
           "kind": "source_review",
-          "basis": "Distinguished the platform or product name from a particular release.",
+          "basis": "Recorded the deployment components that the original case accounts describe.",
           "record_fields": [
+            "system",
             "model_version"
           ],
           "source_refs": [
@@ -1827,7 +1844,53 @@
           ],
           "reviewed_on": "2026-10-24"
         },
-        "reason": "The reviewed sources do not establish an exact model or software release for this case.",
+        "review_state": "reviewed",
+        "coverage": "partial"
+      },
+      "systems[].inputs_outputs": {
+        "state": "not_assessed",
+        "review_state": "not_assessed",
+        "coverage": "partial"
+      },
+      "systems[].model_name": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Virginia Tech and VDOT identify ADDWS and Crosstek’s AI detection, but do not supply a named model, release, or checkpoint for the pilot.",
+          "record_fields": [
+            "system",
+            "model_version"
+          ],
+          "source_refs": [
+            "AIBD-0359-source-0001",
+            "AIBD-0359-source-0002",
+            "AIBD-0359-source-0003",
+            "AIBD-0359-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "reason": "Virginia Tech and VDOT identify ADDWS and Crosstek’s AI detection, but do not supply a named model, release, or checkpoint for the pilot.",
+        "review_state": "reviewed",
+        "coverage": "complete"
+      },
+      "systems[].model_version": {
+        "state": "not_reported",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Virginia Tech and VDOT identify ADDWS and Crosstek’s AI detection, but do not supply a named model, release, or checkpoint for the pilot.",
+          "record_fields": [
+            "system",
+            "model_version"
+          ],
+          "source_refs": [
+            "AIBD-0359-source-0001",
+            "AIBD-0359-source-0002",
+            "AIBD-0359-source-0003",
+            "AIBD-0359-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "reason": "Virginia Tech and VDOT identify ADDWS and Crosstek’s AI detection, but do not supply a named model, release, or checkpoint for the pilot.",
         "review_state": "reviewed",
         "coverage": "complete"
       },
@@ -1857,8 +1920,30 @@
         "coverage": "complete"
       },
       "systems[].provider": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "application_developer": "Crosstek",
+            "underlying_model_provider": "No separate model provider is identified."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "The original operator or research-institution report identifies the application developer.",
+          "record_fields": [
+            "developer",
+            "system"
+          ],
+          "source_refs": [
+            "AIBD-0359-source-0001",
+            "AIBD-0359-source-0002",
+            "AIBD-0359-source-0003",
+            "AIBD-0359-source-0004"
+          ],
+          "reviewed_on": "2026-10-24"
+        },
+        "review_state": "reviewed",
         "coverage": "partial"
       },
       "taxonomy_crosswalks[]": {
@@ -1892,17 +1977,15 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "101fa32161f1dd471845568b41eae1006d86e73340ad7e4bd2f5f64facdbaee9"
+            "1b5658b0b4e4d534db95642c8c0b4ab3bec761d8b7e2156861af3d0ec07dffbe"
           ],
           "role": "SHA-256 of normalized original case data"
         },
         "provenance": {
           "kind": "derivation",
-          "basis": "Recomputed the fingerprint after the system-identification review.",
+          "basis": "Recomputed the fingerprint after the system-identity and model-version review.",
           "record_fields": [
-            "system",
-            "evidence",
-            "summary"
+            "revisions"
           ],
           "source_refs": [
             "AIBD-0359-source-0001",
@@ -1973,16 +2056,16 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 33,
-      "reviewed": 16,
+      "known": 35,
+      "reviewed": 19,
       "record_mapped": 18,
-      "not_assessed": 57,
+      "not_assessed": 54,
       "complete": false,
       "by_state": {
-        "value_present": 33,
-        "not_reported": 1,
+        "value_present": 35,
+        "not_reported": 2,
         "unresolved": 0,
-        "not_assessed": 57,
+        "not_assessed": 54,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0
