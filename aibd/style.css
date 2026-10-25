@@ -826,6 +826,7 @@ section.door .lede { max-width: none; margin: 0 0 16px; font-size: clamp(28px, 2
 .door-key-group h3 { margin: 0 0 6px; color: var(--ink); font: 20px/28px var(--serif); }
 .door-key-content p { margin: 0; }
 .door-key-content .door-key-label { margin-bottom: 14px; color: var(--ink-3); }
+.door-key-content .door-key-gray { margin-top: 14px; color: var(--ink-3); }
 .door-key-depths, .door-key-symbols { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .door-key-depths li { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 10px; align-items: start; }
 .door-key-symbols li { display: grid; grid-template-columns: 24px minmax(0, 1fr); column-gap: 10px; align-items: start; }
@@ -843,14 +844,17 @@ section.door .lede { max-width: none; margin: 0 0 16px; font-size: clamp(28px, 2
 }
 .door-deep { list-style: none; margin: 0; padding: 0; }
 .door-deep li { border-bottom: 1px solid var(--rule); }
-.door-feature { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 12px; padding: 14px 0; min-height: 56px; text-decoration: none; }
+.door-feature { display: block; padding: 14px 0; min-height: 56px; text-decoration: none; }
 .door-story { display: block; text-decoration: none; }
 .door-story:hover .door-title, .door-story:focus-visible .door-title, .door-story:hover .door-case, .door-story:focus-visible .door-case { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
-.door-deep .d, .door-deep .d > span { display: flex; align-items: center; gap: 6px; height: 28px; font: 14px/24px var(--mono); color: var(--ink-2); }
-.door-deep .d svg { display: block; width: 18px; height: 18px; flex: none; }
+.door-grades { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin: 0 0 6px; color: var(--ink-2); }
+.door-grade { display: inline-flex; align-items: center; gap: 6px; min-height: 24px; }
+.door-grade .mk { display: block; width: 18px; height: 18px; flex: none; }
+.door-grade .num { font: 14px/24px var(--mono); }
+.door-grade-unassessed { color: var(--ink-3); font: 13px/24px var(--sans); }
 .door-title { display: block; font: 20px/28px var(--serif); }
 .door-benefit { display: block; margin: 6px 0 0; color: var(--ink-2); font: 15px/23px var(--sans); }
-.door-item { margin: 0; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.door-item { margin: 0; padding: 14px 0; border-bottom: 1px solid var(--rule); }
 .door-case { margin: 0; font: 20px/28px var(--serif); letter-spacing: 0; }
 .door-src { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: 0 10px; margin: 10px 0 0; color: var(--ink-3); font-size: 14px; line-height: 22px; overflow-wrap: anywhere; }
 .door-references { display: grid; min-width: 0; gap: 2px; }
@@ -874,9 +878,7 @@ body.door .masthead .find { display: none; }
 @media (max-width: 600px) {
   section.door { padding-top: 24px; }
   .door-h { font-size: 24px; line-height: 30px; }
-  .door-feature { grid-template-columns: 38px minmax(0, 1fr); gap: 8px; }
   .door-title, .door-case { font-size: 19px; line-height: 27px; }
-  .door-deep .d, .door-deep .d > span { height: 27px; }
 }
 
 /* Organization logos: small square marks beside names. */
