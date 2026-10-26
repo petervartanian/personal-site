@@ -10,6 +10,8 @@ export const views = Object.freeze([
 
 export const navigationViews = Object.freeze(views.filter(v => !v.navigationId));
 
+export const casePageIds = Object.freeze(['brief', 'gaps', 'method']);
+
 export function navigationIdFor(route) {
   if (route.view === 'framework' && route.itemId === 'account-overview') return 'events';
   const definition = views.find(v => v.id === route.view);
@@ -79,6 +81,7 @@ export function readLocation(hash, catalog) {
   }
   if (parts[0] === 'cases') {
     if (!catalog.some(d => d.case.id === parts[1])) return { screen: 'home' };
+    if (casePageIds.includes(parts[2]) && parts.length === 3) return { screen: 'case', caseId: parts[1], page: parts[2], hash: '#/' };
     return { screen: 'case', caseId: parts[1], hash: '#/' + parts.slice(2).map(encodeURIComponent).join('/') + (query ? '?' + query : '') };
   }
   if (views.some(v => v.id === parts[0]) && catalog.some(d => d.case.id === 'hugging-face-1604')) return { screen: 'case', caseId: 'hugging-face-1604', hash };

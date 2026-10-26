@@ -1,10 +1,24 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor } from './state.mjs?v=20261025-branching';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261025-branching';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261025-branching';
-import { frameworkAnalysis, frameworkTopics } from './framework.mjs?v=20261025-branching';
-import { findingsSelection, findingsAnalysis } from './findings.mjs?v=20261025-branching';
-import { sourceMarkup } from './sources.mjs?v=20261025-branching';
-import { reportingInventoryMarkup, comparisonForReference } from './reporting.mjs?v=20261025-branching';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor } from './state.mjs?v=20261026-brief';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261026-brief';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261026-brief';
+import { frameworkAnalysis, frameworkTopics } from './framework.mjs?v=20261026-brief';
+import { findingsSelection, findingsAnalysis } from './findings.mjs?v=20261026-brief';
+import { sourceMarkup } from './sources.mjs?v=20261026-brief';
+import { reportingInventoryMarkup, comparisonForReference } from './reporting.mjs?v=20261026-brief';
+import { casePages, pageRoute, briefMarkup, gapsMarkup, methodMarkup, pageText, bindGapFilters, explorerVersion } from './pages.mjs?v=20261026-brief';
+
+const feedbackAddress = 'peter.vartanian@icloud.com';
+function updateFooter() {
+  const link = document.getElementById('feedback-link');
+  if (link) link.href = `mailto:${feedbackAddress}?subject=${encodeURIComponent(`AI Incident Explorer ${explorerVersion.number}: feedback on ${document.title.split(' | ')[0]}`)}&body=${encodeURIComponent(`View: ${location.href}\n\nComment:\n`)}`;
+  const method = document.getElementById('method-link');
+  if (method) {
+    method.hidden = !data;
+    if (data) method.href = pageRoute(data.case.id, 'method');
+  }
+  const version = document.getElementById('explorer-version');
+  if (version) version.textContent = `Version ${explorerVersion.number}, ${explorerVersion.date}`;
+}
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const $ = id => document.getElementById(id);
@@ -19,6 +33,7 @@ let screen;
 let keyboardNavigation = false;
 let clickedLink = false;
 let loadNotice = '';
+let lastPage = null;
 
 const isOverview = () => current?.view === 'framework' && current.itemId === 'account-overview';
 const itemFor = route => data[route.view]?.find(item => item.id === route.itemId);
@@ -124,6 +139,64 @@ function defaultSelection(view) {
   return {view, itemId: view === 'framework' ? 'all-connections' : data[view][0].id};
 }
 
+function setCaseHeader() {
+  $('case-title').textContent = data.case.title;
+  document.querySelector('.case-switcher>a').textContent = catalog.length === 1 ? 'Overview' : 'All incidents';
+  document.querySelector('.case-context').textContent = data.case.dateLabel || data.case.dateRange;
+  document.querySelector('.case-summary').textContent = data.case.catalogSummary || data.case.summary;
+  const number = document.querySelector('.incident-number');
+  number.hidden = !data.case.incidentId;
+  number.textContent = '#' + data.case.incidentId;
+  number.href = 'https://incidentdatabase.ai/cite/' + data.case.incidentId;
+  number.setAttribute('aria-label', 'Incident ' + data.case.incidentId + ' in the AI Incident Database');
+  $('case-picker').hidden = catalog.length < 2;
+  document.querySelector('label[for="case-picker"]').hidden = catalog.length < 2;
+  $('case-picker').innerHTML = catalog.map(entry => `<option value="${escape(entry.case.id)}" ${entry.case.id === data.case.id ? 'selected' : ''}>${escape(entry.case.title)}</option>`).join('');
+}
+
+const availablePages = () => casePages.filter(page => page.id !== 'gaps' || data.reporting?.fields?.length);
+
+function navigationMarkup(remembered, active) {
+  const pageLink = page => `<a data-view="${page.id}" class="page-tab" href="${pageRoute(data.case.id, page.id)}" ${page.id === active ? 'aria-current="page"' : ''}>${page.label}</a>`;
+  const pages = availablePages().filter(page => page.tab);
+  const viewLinks = navigationViews.filter(view => data[view.id]?.length).map(view => {
+    const selected = remembered.navigation[view.id] || defaultSelection(view.id);
+    let target = caseRouteFor(data.case.id, selected.view, selected.itemId, selected.sourceId, selected.reportingFieldId || selected.storyId);
+    const query = new URLSearchParams();
+    if (selected.claim) query.set('claim', selected.claim);
+    if (selected.compare) query.set('compare', '1');
+    if (query.size) target += '?' + query;
+    return `<a data-view="${view.id}" href="${target}" ${view.id === active ? 'aria-current="page"' : ''}>${view.label}</a>`;
+  }).join('');
+  return pages.filter(page => page.id === 'brief').map(pageLink).join('') + viewLinks + pages.filter(page => page.id !== 'brief').map(pageLink).join('');
+}
+
+function revealActiveTab() {
+  const nav = $('question-navigation');
+  const tab = nav.querySelector('[aria-current="page"]');
+  if (!tab || nav.scrollWidth <= nav.clientWidth + 2) return;
+  const left = tab.offsetLeft - nav.offsetLeft;
+  if (left < nav.scrollLeft || left + tab.offsetWidth > nav.scrollLeft + nav.clientWidth) nav.scrollLeft = left - 8;
+}
+
+function renderCasePage(page, {remembered, focus, firstView}) {
+  const definition = availablePages().find(entry => entry.id === page) || casePages[0];
+  document.body.dataset.view = definition.id;
+  document.body.dataset.navigation = definition.id;
+  $('investigation').hidden = true;
+  $('case-page').hidden = false;
+  $('question-navigation').innerHTML = navigationMarkup(remembered, definition.id);
+  revealActiveTab();
+  $('case-page').innerHTML = definition.id === 'gaps' ? gapsMarkup(data) : definition.id === 'method' ? methodMarkup(data) : briefMarkup(data);
+  document.title = `${definition.title} | ${data.case.title} | AI Incident Explorer`;
+  $('status').textContent = definition.title;
+  for (const id of ['selection', 'analysis', 'sources']) $(id).innerHTML = '';
+  if (focus) (document.querySelector(`[data-view="${definition.id}"]`) || $('page-title'))?.focus({preventScroll: true});
+  if (firstView || lastPage !== definition.id) window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+  lastPage = definition.id;
+  previous = null;
+}
+
 function render({focus = false, restoreHistory = false} = {}) {
   const viewport = {left: window.scrollX, top: window.scrollY};
   if (previous && screen === 'case') positions.set(positionKey(previous), viewport);
@@ -162,40 +235,30 @@ function render({focus = false, restoreHistory = false} = {}) {
     if (oldEventScroll !== undefined) remembered.eventScroll = oldEventScroll;
     if (oldFindingScroll !== undefined) remembered.findingScroll = oldFindingScroll;
   }
+  const firstView = switchedCase || lastScreen !== 'case';
+  if (firstView) setCaseHeader();
+  if (locationState.page) {
+    renderCasePage(locationState.page, {remembered, focus, firstView});
+    return;
+  }
+  const leavingPage = Boolean(lastPage);
+  lastPage = null;
+  $('investigation').hidden = false;
+  $('case-page').hidden = true;
+  $('case-page').innerHTML = '';
   current = readRoute(locationState.hash, data, remembered);
   if (current.view === 'questions' && data.findings?.some(item => item.id === current.itemId)) current.view = 'findings';
   const nav = navigationIdFor(current);
   const item = itemFor(current);
   if (!item.sourceIds.includes(current.sourceId)) current.sourceId = item.sourceIds[0];
-  if (switchedCase || lastScreen !== 'case') {
-    $('case-title').textContent = data.case.title;
-    document.querySelector('.case-switcher>a').textContent = catalog.length === 1 ? 'Overview' : 'All incidents';
-    document.querySelector('.case-context').textContent = data.case.dateLabel || data.case.dateRange;
-    document.querySelector('.case-summary').textContent = data.case.catalogSummary || data.case.summary;
-    const number = document.querySelector('.incident-number');
-    number.hidden = !data.case.incidentId;
-    number.textContent = '#' + data.case.incidentId;
-    number.href = 'https://incidentdatabase.ai/cite/' + data.case.incidentId;
-    number.setAttribute('aria-label', 'Incident ' + data.case.incidentId + ' in the AI Incident Database');
-    $('case-picker').hidden = catalog.length < 2;
-    document.querySelector('label[for="case-picker"]').hidden = catalog.length < 2;
-    $('case-picker').innerHTML = catalog.map(entry => `<option value="${escape(entry.case.id)}" ${entry.case.id === data.case.id ? 'selected' : ''}>${escape(entry.case.title)}</option>`).join('');
-  }
   remembered[current.view] = current.itemId;
   remembered.navigation[nav] = {...current};
   document.body.dataset.view = isOverview() ? 'overview' : current.view;
   document.body.dataset.navigation = nav;
   const stableHash = routeFor(current.view, current.itemId, current.sourceId, current.reportingFieldId || current.storyId);
   if (location.hash !== stableHash) history.replaceState(null, '', stableHash);
-  $('question-navigation').innerHTML = navigationViews.filter(view => data[view.id]?.length).map(view => {
-    const selected = remembered.navigation[view.id] || defaultSelection(view.id);
-    let target = caseRouteFor(data.case.id, selected.view, selected.itemId, selected.sourceId, selected.reportingFieldId || selected.storyId);
-    const query = new URLSearchParams();
-    if (selected.claim) query.set('claim', selected.claim);
-    if (selected.compare) query.set('compare', '1');
-    if (query.size) target += '?' + query;
-    return `<a data-view="${view.id}" href="${target}" ${view.id === nav ? 'aria-current="page"' : ''}>${view.label}</a>`;
-  }).join('');
+  $('question-navigation').innerHTML = navigationMarkup(remembered, nav);
+  revealActiveTab();
   renderSelection();
   renderAnalysis(item);
   const timeline = document.querySelector('.event-list');
@@ -229,12 +292,13 @@ function render({focus = false, restoreHistory = false} = {}) {
   }
   const changedView = previous && navigationIdFor(previous) !== nav;
   const saved = restoreHistory ? positions.get(positionKey(current)) : changedView ? remembered.scrolls[nav] : null;
-  const target = switchedCase || lastScreen !== 'case' ? {top: 0, left: 0} : saved || viewport;
+  const target = firstView || (leavingPage && !saved) ? {top: 0, left: 0} : saved || viewport;
   window.scrollTo({...target, behavior: 'instant'});
   previous = {...current};
 }
 
 history.scrollRestoration = 'manual';
+bindGapFilters($('case-page'));
 new ResizeObserver(updateChronologyControls).observe($('investigation'));
 document.addEventListener('keydown', event => {keyboardNavigation = event.key === 'Enter' || event.key === ' ';});
 document.addEventListener('pointerdown', () => {keyboardNavigation = false;});
@@ -250,6 +314,24 @@ document.addEventListener('click', event => {
     location.hash = routeFor(current.view, current.itemId, current.sourceId, undefined, {compare: Boolean(event.target.closest('[data-source-compare]'))});
     return;
   }
+  const copyButton = event.target.closest('[data-page-copy]');
+  if (copyButton) {
+    const status = copyButton.parentElement.querySelector('.page-action-status');
+    const text = pageText[copyButton.dataset.pageCopy]?.(data) || '';
+    const done = message => { if (status) status.textContent = message; };
+    Promise.resolve().then(() => navigator.clipboard.writeText(text)).then(() => done('Copied.'), () => {
+      const area = Object.assign(document.createElement('textarea'), {value: text, readOnly: true});
+      area.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+      document.body.append(area);
+      area.select();
+      let copied = false;
+      try { copied = document.execCommand('copy'); } catch { copied = false; }
+      area.remove();
+      done(copied ? 'Copied.' : 'Copying is blocked in this browser. Use Print or save as PDF instead.');
+    });
+    return;
+  }
+  if (event.target.closest('[data-page-print]')) { window.print(); return; }
   if (event.target.closest('[data-reload-cases]')) location.reload();
   if (event.target.closest('[data-clear-comparison]')) {
     selectedCases.clear();
@@ -260,7 +342,7 @@ document.addEventListener('click', event => {
   if (anchor && !event.metaKey && !event.ctrlKey && !event.shiftKey) clickedLink = anchor.hash !== location.hash;
 });
 window.addEventListener('hashchange', () => {
-  if (catalog.length && !['#main','#investigation'].includes(location.hash)) render({focus: keyboardNavigation, restoreHistory: !clickedLink});
+  if (catalog.length && !['#main','#investigation'].includes(location.hash)) { render({focus: keyboardNavigation, restoreHistory: !clickedLink}); updateFooter(); }
   clickedLink = false;
   keyboardNavigation = false;
 });
@@ -298,6 +380,7 @@ try {
   if (!catalog.length) throw new Error('No incident accounts could be loaded');
   if (catalog.length < results.length) loadNotice = '<p class="load-notice" role="alert">One investigation could not be loaded. <button type="button" data-reload-cases>Retry</button></p>';
   render();
+  updateFooter();
 } catch (error) {
   $('case-library').innerHTML = '<p class="error">The incidents could not be loaded. Please reload the page.</p>';
   console.error(error);
