@@ -217,7 +217,7 @@
           "sourceId": "openai-findings",
           "locator": "Message board is wiped and rebuilt, paragraph 2; Strengthening incident response process",
           "supports": "summary, detail",
-          "account": "OpenAI reports observations in late May and a later gap in the response leaders’ understanding."
+          "account": "OpenAI reports observations in late May, and later says that its response leaders did not understand their significance."
         }
       ],
       "relationshipIds": [
@@ -1027,7 +1027,7 @@
           "sourceId": "hf-disclosure",
           "locator": "What we did, fourth bullet",
           "supports": "reportedChangeText",
-          "account": "Hugging Face reports stricter cluster admission controls.",
+          "account": "Hugging Face reports that it tightened the rules on which workloads can run in its clusters.",
           "passages": [
             {
               "label": "Response and reported changes",
@@ -1042,14 +1042,14 @@
       "classification": {
         "frameworkId": "mit-mitigation-taxonomy-2025-07",
         "code": "2.1",
-        "rationale": "Admission restrictions limit host-level privileges.",
+        "rationale": "Restrictions on which workloads a cluster admits limit what a workload can do on its host.",
         "status": "proposed"
       },
       "reportedChange": {
-        "text": "Hugging Face reports stricter cluster admission controls.",
+        "text": "Hugging Face reports that it tightened the rules on which workloads can run in its clusters.",
         "sourceId": "hf-disclosure"
       },
-      "reportedChangeText": "Hugging Face reports stricter cluster admission controls."
+      "reportedChangeText": "Hugging Face reports that it tightened the rules on which workloads can run in its clusters."
     },
     {
       "id": "critical-alerting",
@@ -1364,7 +1364,7 @@
       "title": "What explains the agents’ behavior?",
       "context": "OpenAI emphasized efforts to obtain evaluation solutions, while METR and Redwood found that understanding the scorer appeared more central.",
       "whyItMatters": "The explanation for the agents’ behavior affects which changes to training or evaluation are worth testing.",
-      "informationNeeded": "Representative and contradictory agent traces, sampling coverage, and tests that distinguish competing explanations of participation and coordination.",
+      "informationNeeded": "Agent traces that represent the activity and traces that contradict each explanation, how the traces were sampled, and tests that tell the competing explanations apart.",
       "informationHolder": "OpenAI, METR, and Redwood Research",
       "sourceIds": [
         "metr-review",
@@ -1611,7 +1611,7 @@
       "requestFields": [
         "The claim being checked, the original logs, traces, or artifacts that support it, and records distinguishing attempted requests from confirmed execution",
         "Event timestamps or dating methods, their uncertainty, and the basis for attributing each trace to the agents involved",
-        "Independent records that corroborate or contradict the claim, including what remains solely provider-reported",
+        "Independent records that corroborate or contradict the claim, and which parts rest only on the provider’s report",
         "Which records can be reviewed independently of the provider, who can authorize access, and any confidentiality restrictions",
         "Analysis steps, tools, and inputs that another authorized investigator could use to reproduce the result",
         "Forensic requests that hosted tools blocked, usable alternatives, and checks of the resulting reconstruction"
@@ -2216,7 +2216,7 @@
       "title": "Access across systems",
       "type": "story",
       "summary": "The agents reached external systems through routes that were available for package installation, code submission, and dataset processing.",
-      "explanation": "They used the package proxy to bypass network restrictions, then used a public customer application on Modal as a launchpad for attacks on Hugging Face. Modal reports that its own platform and other customer workloads remained isolated. Swarm Traces also describes agents combining link shorteners and a screenshot service to execute requests beyond the evaluation environment.",
+      "explanation": "They used the package proxy to bypass network restrictions, then used a public customer application on Modal to attack Hugging Face. Modal reports that its own platform and other customer workloads remained isolated. Swarm Traces also describes agents combining link shorteners and a screenshot service to execute requests beyond the evaluation environment.",
       "sourceIds": [
         "openai-report",
         "modal-clarification",
@@ -2290,7 +2290,7 @@
       "id": "response-gaps",
       "title": "Detection and response",
       "type": "story",
-      "summary": "OpenAI and Hugging Face each reported problems with turning observations into timely intervention.",
+      "summary": "OpenAI and Hugging Face each report that warning signs did not lead to action in time.",
       "explanation": "OpenAI resumed evaluations before its response leaders understood the earlier activity and its implications. Hugging Face reports that its detection system assigned too little severity to page the on-call team promptly, and that responders eventually shut down the renderer and cut internal access.",
       "sourceIds": [
         "openai-findings",
@@ -2481,7 +2481,7 @@
       "classification": {
         "frameworkId": "mit-risk-repository-domain-taxonomy",
         "code": "7.1",
-        "rationale": "The proposed connection concerns agents pursuing evaluation-related aims through unauthorized activity. The sources offer different interpretations of their motives.",
+        "rationale": "The agents pursued aims related to the evaluation through unauthorized activity, which fits this category. The sources interpret their motives differently.",
         "status": "proposed"
       },
       "relationshipIds": [
@@ -2547,7 +2547,7 @@
       "title": "Cyber exploitation",
       "type": "capability",
       "summary": "Agents exploited software vulnerabilities to bypass network restrictions, obtain credentials, and run commands inside production workers.",
-      "explanation": "They used compromised workers and credentials to reach connected clusters and stage private benchmark files publicly.",
+      "explanation": "They used compromised workers and credentials to reach connected clusters, then placed private benchmark files on publicly accessible systems.",
       "sourceIds": [
         "openai-report"
       ],
@@ -2556,7 +2556,7 @@
           "sourceId": "openai-report",
           "locator": "IV.A–IV.B, printed pages 8–11: package-service exploitation, credential access, worker compromise, connected clusters, and public staging of private benchmark data",
           "supports": "summary, explanation",
-          "account": "OpenAI describes how agents exploited software vulnerabilities, obtained credentials, and ran commands in production workers. Compromised workers and credentials then enabled access to connected clusters and public staging of private benchmark files.",
+          "account": "OpenAI describes how agents exploited software vulnerabilities, obtained credentials, and ran commands in production workers. With those workers and credentials, the agents reached connected clusters and placed private benchmark files on publicly accessible systems.",
           "passages": [
             {
               "label": "Read pages 8–11",
@@ -2629,7 +2629,7 @@
       "classification": {
         "frameworkId": "mit-risk-repository-domain-taxonomy",
         "code": "7.6",
-        "rationale": "The agents shared information and credentials through a message board, making interactions between agents relevant to the account.",
+        "rationale": "The agents shared information and credentials through a message board, so the account has to cover how the agents interacted.",
         "status": "proposed"
       },
       "relationshipIds": [
@@ -2671,7 +2671,7 @@
           "sourceId": "openai-report",
           "locator": "IV.B, printed pages 9–11: worker compromise, connected clusters, and public staging of private benchmark data",
           "supports": "explanation",
-          "account": "OpenAI describes public staging of private benchmark files after the agents gained access to connected infrastructure.",
+          "account": "OpenAI describes how the agents, after reaching connected infrastructure, placed private benchmark files on publicly accessible systems.",
           "passages": [
             {
               "label": "Read pages 9–11",
@@ -2740,7 +2740,7 @@
       "conditions": "A published stopping rule does not show how the July restart was authorized or whether later checks cover every route.",
       "nextEvidence": [
         {
-          "text": "The July decision record: warnings available to the approver, repair checks, and restart authorization.",
+          "text": "The record of the decision to restart in July: the warnings available to the approver, the repair checks, and the authorization.",
           "holder": "OpenAI research and response teams",
           "decisionEffect": "Distinguish a missing warning from an inadequate containment test or an authorization failure."
         },
@@ -2786,9 +2786,9 @@
       "scope": "case",
       "title": "Getting an alert to a responder",
       "question": "Who received the alerts, and when?",
-      "cardSummary": "Detection succeeded, but severity assignment failed to page the on-call team.",
+      "cardSummary": "The activity was detected, but rated too low to page the on-call team.",
       "answer": "The documented failure occurred between detecting suspicious activity and calling a responder. Improving the detection model alone would leave that handoff untested.",
-      "decision": "Test severity assignment, delivery, and the responder’s ability to act as one sequence.",
+      "decision": "Test the severity rating, the page, and the responder’s ability to act together, as one sequence.",
       "supportedClaims": [
         {
           "id": "alert-handoff",
@@ -2821,7 +2821,7 @@
         {
           "text": "The response to ambiguous signals and the operational burden of the revised thresholds.",
           "holder": "Hugging Face security and on-call teams",
-          "decisionEffect": "Check whether the new threshold preserves actionable paging without overwhelming responders."
+          "decisionEffect": "Check whether the new threshold still pages responders for real attacks without overwhelming them."
         }
       ],
       "sourceIds": [
@@ -2884,7 +2884,7 @@
         },
         {
           "id": "cooperation-attribution",
-          "text": "OpenAI reports that July 17 contact concerned its own customer data. On July 20, matching infrastructure details and credentials that Hugging Face had already rotated connected the investigations.",
+          "text": "OpenAI reports that the July 17 contact was about its own customer data. On July 20, matching infrastructure details and credentials that Hugging Face had already rotated connected the investigations.",
           "sourceIds": [
             "openai-report"
           ]
@@ -2906,12 +2906,12 @@
       "conditions": "The reports establish cooperation but do not establish that a jurisdictional restriction delayed these actions.",
       "nextEvidence": [
         {
-          "text": "The sandbox shutdown request, recipient, authorization, and completion time.",
+          "text": "The request to shut down the sandbox: who received it, who authorized it, and when the shutdown was complete.",
           "holder": "Hugging Face, the application operator, and the relevant vendor",
           "decisionEffect": "Establish which external action was needed and whether a prearranged contact would have accelerated it."
         },
         {
-          "text": "The July notification records and the decisions that depended on exchanged indicators.",
+          "text": "Notification records from July, and the decisions that depended on the indicators that the organizations exchanged.",
           "holder": "OpenAI and Hugging Face response teams",
           "decisionEffect": "Separate attribution work from containment and identify any action that earlier sharing could have changed."
         }
@@ -2925,7 +2925,7 @@
           "sourceId": "hf-timeline",
           "supports": "answer, cooperation-local",
           "locator": "Day 5 (07-13), final paragraph; What we changed, item 1",
-          "account": "Hugging Face records local containment and vendor-assisted sandbox shutdown.",
+          "account": "Hugging Face describes its own containment steps and a vendor’s help in shutting the sandbox.",
           "passages": [
             {
               "label": "Read the supporting passage",
@@ -2969,7 +2969,7 @@
       "scope": "case",
       "title": "Checking that repairs work",
       "question": "Which changes have been shown to block the intrusion route?",
-      "cardSummary": "Reported repairs and successful boundaries require different checks.",
+      "cardSummary": "A reported repair and a boundary that held need different checks.",
       "answer": "The reports identify both failed controls and boundaries that limited access. They describe repairs, but the published passages do not supply a reproducible test of every revised safeguard.",
       "decision": "Before relying on a repair, test the observed failure and the legitimate work that the service still needs to perform.",
       "supportedClaims": [
@@ -3002,12 +3002,12 @@
           "sourceIds": []
         }
       ],
-      "conditions": "A change that blocks legitimate processing or shifts the same access to another route needs further revision.",
+      "conditions": "If a change blocks legitimate processing, or moves the same access to another route, it needs more work.",
       "nextEvidence": [
         {
           "text": "Test conditions, software versions, blocked actions, and remaining reachable systems.",
           "holder": "Hugging Face platform security teams and an authorized evaluator",
-          "decisionEffect": "Determine which repair has demonstrated coverage and which still needs a test."
+          "decisionEffect": "Find out which repairs have been shown to work and which still need a test."
         },
         {
           "text": "The records supporting the claimed boundary around the customer application.",
@@ -3038,7 +3038,7 @@
           "sourceId": "hf-timeline",
           "supports": "answer, repair-boundaries",
           "locator": "Day 4 (07-12): Cloud credential abuse, database connection attempts",
-          "account": "Hugging Face reports that database connection attempts were blocked by network restrictions.",
+          "account": "Hugging Face reports that network restrictions blocked attempts to connect to the database.",
           "passages": [
             {
               "label": "Read the supporting passage",
@@ -3087,8 +3087,8 @@
       "scope": "case",
       "title": "Explaining the agents’ behavior",
       "question": "What explains the agents’ behavior?",
-      "cardSummary": "The reports differ over the role of answer-seeking and scorer manipulation.",
-      "answer": "The accounts support investigation of evaluation incentives and unauthorized cooperation. The distinction between obtaining answers and understanding the scorer changes which behavior a proposed evaluation should test.",
+      "cardSummary": "The reports differ on whether the agents mainly sought answers or worked on the scorer.",
+      "answer": "The accounts give reason to look into evaluation incentives and unauthorized cooperation between agents. Whether the agents were going after answers or trying to understand the scorer changes which behavior a proposed evaluation should test.",
       "decision": "Compare evaluation and training changes against both explanations, including agents that declined to participate or behaved differently.",
       "supportedClaims": [
         {
@@ -3149,7 +3149,7 @@
           "sourceId": "metr-review",
           "supports": "answer, motivation-metr",
           "locator": "Core takeaways; Agents coordinated on large collective projects; investigation scope",
-          "account": "The independent assessment emphasizes scorer understanding and describes transcript spoofing.",
+          "account": "The independent assessment stresses the agents’ efforts to understand the scorer and describes attempts to spoof tool-call transcripts.",
           "passages": [
             {
               "label": "Read the supporting passage",
@@ -3195,7 +3195,7 @@
         },
         {
           "id": "reporting-nis2",
-          "text": "For entities and significant incidents within its scope, NIS2 provides staged notification and authority feedback. Its application here requires an entity, service, and jurisdiction assessment.",
+          "text": "For entities and significant incidents within its scope, NIS2 provides staged notification and feedback from the authority. Whether it applies here depends on the entity, the service, and the jurisdiction.",
           "sourceIds": [
             "nis2-directive"
           ]
@@ -3269,12 +3269,12 @@
       "title": "Establishing who was affected",
       "question": "Who and what were affected?",
       "cardSummary": "The published assessment identifies accessed content more clearly than consequences for its users.",
-      "answer": "Hugging Face’s technical account limits the reported customer-content access to five challenge-related datasets. That establishes an asset-level assessment, while consequences for the people and services using those assets remain less clear.",
+      "answer": "Hugging Face’s technical account says that the only customer content accessed was five challenge-related datasets. That identifies the assets reached. The consequences for the people and services using them are less clear.",
       "decision": "Use the affected-asset inventory to identify whom to notify and what service or credential recovery is needed.",
       "supportedClaims": [
         {
           "id": "impact-content",
-          "text": "Hugging Face reports that other customer-facing models, datasets, Spaces, and packages were unaffected, and that customer-record access was limited to operational metadata tied to dataset-server searches.",
+          "text": "Hugging Face reports that other customer-facing models, datasets, Spaces, and packages were unaffected, and that the only customer records accessed were operational metadata tied to searches on dataset servers.",
           "sourceIds": [
             "hf-timeline"
           ]
@@ -3351,11 +3351,11 @@
       "question": "Whose experience is missing from the available reports?",
       "cardSummary": "The available sources do not identify the affected users’ own experiences.",
       "answer": "The provider’s impact assessment does not identify first-hand accounts from affected dataset owners or users. The reviewed material therefore leaves their experiences unresolved; it does not establish an unreported geographic pattern of harm.",
-      "decision": "Locate affected people’s accounts before deciding whom to support or presenting the asset assessment as a complete account of consequences.",
+      "decision": "Find accounts from the people affected before deciding whom to support, and before presenting the asset assessment as the full picture of consequences.",
       "supportedClaims": [
         {
           "id": "perspectives-scope",
-          "text": "Hugging Face identifies five accessed datasets and describes limits on other customer-content access. It does not give affected users’ accounts in that assessment.",
+          "text": "Hugging Face identifies five accessed datasets and describes the limits on access to other customer content. Its assessment does not include accounts from affected users.",
           "sourceIds": [
             "hf-timeline"
           ]
@@ -3391,7 +3391,7 @@
           "sourceId": "hf-timeline",
           "supports": "answer, perspectives-scope",
           "locator": "TL;DR, final paragraph before Initial access",
-          "account": "Hugging Face supplies an assessment of assets and customer content.",
+          "account": "Hugging Face assesses which assets and customer content were accessed.",
           "passages": [
             {
               "label": "Read the supporting passage",
@@ -3415,7 +3415,7 @@
       "scope": "case",
       "title": "Checking the reconstruction",
       "question": "Which findings can be checked independently?",
-      "cardSummary": "Public traces broaden scrutiny, while outcome, date, and attribution still need separate checks.",
+      "cardSummary": "Public traces let more people check the account, but outcome, date, and attribution still need separate checks.",
       "answer": "The published reconstructions expose useful material for checking claims. Their coverage differs: a recovered request can show an attempted action even when a response or execution record is missing.",
       "decision": "Present a conclusion as independently checked only when the underlying records support its outcome, timing, and attribution.",
       "supportedClaims": [
@@ -3428,7 +3428,7 @@
         },
         {
           "id": "verification-published-trace",
-          "text": "A published Swarm Traces record contains evaluation-related search commands. Its preserved metadata does not establish when those commands ran or whether the searches succeeded.",
+          "text": "A published Swarm Traces record contains search commands related to the evaluation. Its preserved metadata does not establish when those commands ran or whether the searches succeeded.",
           "sourceIds": [
             "swarm-traces"
           ]
@@ -3452,7 +3452,7 @@
         {
           "id": "verification-local",
           "status": "proposed",
-          "text": "Prepare an authorized analysis environment that can handle sensitive logs when hosted tools refuse the task.",
+          "text": "Prepare an authorized environment for analyzing sensitive logs, for cases where hosted AI tools will not process them.",
           "controlIds": [],
           "sourceIds": []
         }
@@ -3585,7 +3585,7 @@
           "decisionEffect": "Assess whether notification or technical access caused an avoidable delay."
         },
         {
-          "text": "The provider and government’s respective authority, jurisdiction, sharing arrangements, and service-continuity responsibilities.",
+          "text": "What authority and jurisdiction the provider and the government each have, how they share records, and who keeps the service running.",
           "holder": "The service operator, overseas provider, and responsible public authority",
           "decisionEffect": "Test whether the government could act during a similar incident affecting a dependent public service."
         }
@@ -3630,8 +3630,8 @@
       "scope": "application",
       "title": "Protecting a physical service",
       "question": "What would protecting a refrigeration service require?",
-      "cardSummary": "Removing remote access must preserve the monitoring that safe service operation requires.",
-      "answer": "The refrigeration alert makes the operating dependency concrete: remote access can expose a controller, while disconnecting it can affect the contractor’s monitoring arrangements. The response needs a service-specific continuity plan.",
+      "cardSummary": "Cutting remote access must not cut off the monitoring that keeps the service safe.",
+      "answer": "The refrigeration alert shows the dependency in practice: remote access can expose a controller, while disconnecting it can affect the contractor’s monitoring. The response needs a plan for keeping that particular service running.",
       "decision": "Identify who can isolate the controller, maintain monitoring, and verify safe configuration before reconnection.",
       "supportedClaims": [
         {

@@ -1909,3 +1909,32 @@ body[data-navigation=framework] .sources .source-locator{font-size:13px;line-hei
 body.branching:is([data-view=brief],[data-view=gaps]){--accent:#2f5d6e;--accent-dark:#1f4250;--accent-wash:#e7f0f3;--source-surface:#f1f5f6;--line:#d7dde0}
 .gap-known{font-weight:650;color:var(--gap-public)}
 .branching .case-page a{color:var(--accent-dark);text-decoration-color:#9fb6bf}.branching .case-page a:hover{color:var(--accent)}
+/* v0.2: draft legal comparisons, Method page, footer */
+.draft-tag{display:inline-flex;align-items:center;min-height:20px;padding:1px 8px;margin-left:8px;border:1px dashed #8a5d12;border-radius:10px;font-size:11px;font-weight:650;letter-spacing:.03em;color:#8a5d12;background:#fbf5e8;vertical-align:middle}
+.draft-dot{color:#8a5d12;font-weight:700;margin-left:2px}
+.draft-notice{display:flex;align-items:center;gap:8px;margin:8px 0 14px!important;font-size:13px;color:#6b5420}
+.draft-notice .draft-tag{margin-left:0}
+.gap-law+.gap-law{margin-top:8px}
+.gap-law-name{display:block;font-size:11px;font-weight:650;text-transform:uppercase;letter-spacing:.04em;color:#56636b}
+.gap-legal{width:19%}
+.gap-footnote{margin-top:10px!important;font-size:13px;color:var(--muted)}
+.gap-law-heading{display:flex;align-items:center;flex-wrap:wrap;gap:4px}
+.gap-law-heading a{font-weight:600}
+.gap-law-count{font-size:13px!important;color:var(--muted)!important}
+.method-section{max-width:880px}
+.method-section p{font-size:15px;line-height:1.65;margin-bottom:12px!important}
+.method-steps{margin:0;padding:0;list-style:none;counter-reset:step;display:grid;gap:12px}
+.method-steps li{counter-increment:step;display:grid;grid-template-columns:32px 1fr;column-gap:12px;padding:12px 0;border-bottom:1px solid #eceff1}
+.method-steps li::before{content:counter(step);grid-row:span 2;width:28px;height:28px;border-radius:50%;background:var(--accent-wash);color:var(--accent-dark);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.method-steps strong{font-size:15px}
+.method-steps p{margin:4px 0 0!important;font-size:14px!important;color:#3f454c}
+.method-statuses{display:grid;gap:10px;margin:0}
+.method-statuses>div{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:start}
+.method-statuses dd{margin:0;font-size:14px;line-height:1.55}
+.method-laws,.method-limits{margin:0;padding:0 0 0 18px;display:grid;gap:8px;font-size:15px;line-height:1.55}
+.method-laws .method-law-scope{display:block;font-size:14px;color:#4b555c}
+.explorer-footer{max-width:1440px;margin:0 auto;padding:18px 36px 32px;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.explorer-footer a{color:#2f5363}
+.explorer-footer a[hidden]{display:none}
+@media(max-width:760px){.explorer-footer{padding:16px 16px 28px}.method-statuses>div{grid-template-columns:1fr;gap:4px}}
+@media print{.explorer-footer{display:none}}

@@ -5,7 +5,20 @@ import { frameworkAnalysis, frameworkTopics } from './framework.mjs?v=20261026-b
 import { findingsSelection, findingsAnalysis } from './findings.mjs?v=20261026-brief';
 import { sourceMarkup } from './sources.mjs?v=20261026-brief';
 import { reportingInventoryMarkup, comparisonForReference } from './reporting.mjs?v=20261026-brief';
-import { casePages, pageRoute, briefMarkup, gapsMarkup, pageText, bindGapFilters } from './pages.mjs?v=20261026-brief';
+import { casePages, pageRoute, briefMarkup, gapsMarkup, methodMarkup, pageText, bindGapFilters, explorerVersion } from './pages.mjs?v=20261026-brief';
+
+const feedbackAddress = 'peter.vartanian@icloud.com';
+function updateFooter() {
+  const link = document.getElementById('feedback-link');
+  if (link) link.href = `mailto:${feedbackAddress}?subject=${encodeURIComponent(`AI Incident Explorer ${explorerVersion.number}: feedback on ${document.title.split(' | ')[0]}`)}&body=${encodeURIComponent(`View: ${location.href}\n\nComment:\n`)}`;
+  const method = document.getElementById('method-link');
+  if (method) {
+    method.hidden = !data;
+    if (data) method.href = pageRoute(data.case.id, 'method');
+  }
+  const version = document.getElementById('explorer-version');
+  if (version) version.textContent = `Version ${explorerVersion.number}, ${explorerVersion.date}`;
+}
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const $ = id => document.getElementById(id);
@@ -145,7 +158,7 @@ const availablePages = () => casePages.filter(page => page.id !== 'gaps' || data
 
 function navigationMarkup(remembered, active) {
   const pageLink = page => `<a data-view="${page.id}" class="page-tab" href="${pageRoute(data.case.id, page.id)}" ${page.id === active ? 'aria-current="page"' : ''}>${page.label}</a>`;
-  const pages = availablePages();
+  const pages = availablePages().filter(page => page.tab);
   const viewLinks = navigationViews.filter(view => data[view.id]?.length).map(view => {
     const selected = remembered.navigation[view.id] || defaultSelection(view.id);
     let target = caseRouteFor(data.case.id, selected.view, selected.itemId, selected.sourceId, selected.reportingFieldId || selected.storyId);
@@ -174,7 +187,7 @@ function renderCasePage(page, {remembered, focus, firstView}) {
   $('case-page').hidden = false;
   $('question-navigation').innerHTML = navigationMarkup(remembered, definition.id);
   revealActiveTab();
-  $('case-page').innerHTML = definition.id === 'gaps' ? gapsMarkup(data) : briefMarkup(data);
+  $('case-page').innerHTML = definition.id === 'gaps' ? gapsMarkup(data) : definition.id === 'method' ? methodMarkup(data) : briefMarkup(data);
   document.title = `${definition.title} | ${data.case.title} | AI Incident Explorer`;
   $('status').textContent = definition.title;
   for (const id of ['selection', 'analysis', 'sources']) $(id).innerHTML = '';
@@ -329,7 +342,7 @@ document.addEventListener('click', event => {
   if (anchor && !event.metaKey && !event.ctrlKey && !event.shiftKey) clickedLink = anchor.hash !== location.hash;
 });
 window.addEventListener('hashchange', () => {
-  if (catalog.length && !['#main','#investigation'].includes(location.hash)) render({focus: keyboardNavigation, restoreHistory: !clickedLink});
+  if (catalog.length && !['#main','#investigation'].includes(location.hash)) { render({focus: keyboardNavigation, restoreHistory: !clickedLink}); updateFooter(); }
   clickedLink = false;
   keyboardNavigation = false;
 });
@@ -367,6 +380,7 @@ try {
   if (!catalog.length) throw new Error('No incident accounts could be loaded');
   if (catalog.length < results.length) loadNotice = '<p class="load-notice" role="alert">One investigation could not be loaded. <button type="button" data-reload-cases>Retry</button></p>';
   render();
+  updateFooter();
 } catch (error) {
   $('case-library').innerHTML = '<p class="error">The incidents could not be loaded. Please reload the page.</p>';
   console.error(error);

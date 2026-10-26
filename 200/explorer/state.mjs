@@ -10,7 +10,7 @@ export const views = Object.freeze([
 
 export const navigationViews = Object.freeze(views.filter(v => !v.navigationId));
 
-export const casePageIds = Object.freeze(['brief', 'gaps']);
+export const casePageIds = Object.freeze(['brief', 'gaps', 'method']);
 
 export function navigationIdFor(route) {
   if (route.view === 'framework' && route.itemId === 'account-overview') return 'events';
