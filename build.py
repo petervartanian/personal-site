@@ -225,7 +225,7 @@ mobile += '</g></g></g></svg></div></figure>'
 
 home = f'''<div class="introduction">
   <p>I am a pertinacious thinker-and-doer who hails from <a href="https://mapcarta.com/N1938447213">Weng</a>, a hamlet in the Tyrolean Alps of Austria.</p>
-  <p>I studied diplomacy and world affairs alongside literature and culture at Occidental College in Los Angeles, with additional coursework at Caltech. My work has taken me to the world’s highest deliberative fora.</p>
+  <p>I studied diplomacy and world affairs alongside literature and culture at Occidental College in Los Angeles, with additional coursework at Caltech. My work has taken me to international policy fora, including the UN, the OECD, and the European Forum Alpbach.</p>
   <p class="home-current">I now live in Cambridge, Massachusetts: At <a href="https://airisk.mit.edu/">MIT’s AI Risk Initiative</a>, I lead the <a href="https://airisk.mit.edu/blog/preliminary-findings-on-how-ai-incident-databases-are-used">first ecosystem-wide study of how people interact with AI-incident data(bases)</a>. I also advise an exciting venture operating in <span class="stealth-word">stealth.<sup><a id="stealth-ref" class="stealth-ref" href="#stealth-note" aria-label="More to come soon!">*</a></sup></span><span id="stealth-note" class="stealth-note" role="note" tabindex="-1">More to come soon!</span></p>
   <p><em>For more, see my (i)&nbsp;<a href="/portfolio/">writing</a>, (ii)&nbsp;<a href="/artifacts/">artifacts</a>, (iii)&nbsp;<a href="/cv/">CV</a>, and (iv)&nbsp;<a href="/contact/">contact</a>.</em></p>
   {mobile}
