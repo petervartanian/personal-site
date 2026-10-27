@@ -1,6 +1,6 @@
 /* AIBD. Typography, rules, and white space establish the hierarchy.
-   The wordmark reveals the page artwork. Case colors indicate benefit depth or,
-   on paired incidents, the harm scale. No gradients, no shadows, no radius. */
+   The wordmark reveals color and grayscale gradients. Case colors indicate
+   benefit depth or, on paired incidents, the harm scale. No shadows or radius. */
 
 @font-face { font-family: "AIBD Serif"; src: url("fonts/optimized/AIBDSerif-Regular-Latin.woff2?v=46857d2d20") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; unicode-range: U+20-7E,U+A0-FF,U+131,U+152-153,U+2010,U+2013-2014,U+2018-2019,U+201C-201E,U+2026,U+20A6,U+20AC,U+20B9,U+2122,U+2212; }
 @font-face { font-family: "AIBD Serif"; src: url("fonts/optimized/AIBDSerif-Regular-Extended.woff2?v=651f288aa2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; unicode-range: U+100-130,U+134-148,U+14A-151,U+154-17E,U+1A1,U+1B0,U+1EA1,U+1EA3,U+1EA5,U+1EA7,U+1EA9,U+1EAD,U+1EAF,U+1EB1,U+1EB7,U+1EBB,U+1EBF,U+1EC1,U+1EC3,U+1EC5,U+1EC7,U+1EC9,U+1ECB,U+1ECD,U+1ED1,U+1ED3,U+1ED5,U+1ED7,U+1ED9,U+1EDB,U+1EDD,U+1EDF,U+1EE3,U+1EE5,U+1EE7-1EE9,U+1EEB,U+1EED,U+1EEF,U+1EF1,U+1EF5,U+1EF9,U+2264-2265; }
@@ -1190,9 +1190,9 @@ body.door .footer-inner { padding-inline: 24px; }
 .page::before { left: max(1px, calc((100vw - 1320px) / 2)); }
 .page::after { right: max(1px, calc((100vw - 1320px) / 2)); background-position: right center; }
 @supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
-  body:not(.collection-page):not(.money-page) .masthead::after {
+  .masthead::after {
     content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
-    background: url("wordmark-art.svg") center var(--wordmark-top) / var(--wordmark-width) auto no-repeat;
+    background: url("wordmark-art.svg?v=d99f9be17f") center var(--wordmark-top) / var(--wordmark-width) auto no-repeat;
   }
 }
 @media (max-width: 760px) {
