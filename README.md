@@ -18,9 +18,9 @@ Each personal page has its own quiet color palette in `assets/css/personal.css`.
 
 The homepage has an interactive SVG mobile with varied colored shapes and a suspension thread that winds around the introduction. It supports dragging and keyboard input, rests between interactions, and respects reduced-motion preferences. Without JavaScript it remains a static illustration.
 
-`/portfolio/` retains all published writing. `/writing/` is an alias. The old placeholder collection at `/artifacts/` redirects to `/portfolio/`.
+`/portfolio/` retains all published writing. `/writing/` is an alias. `/artifacts/` presents the public working databases and tools listed in `content/site.json`. Its navigation label preserves the usual type size, with a small “working” above it inside the existing link box. The page has its own pale blue palette and matching share image.
 
-The build produces the personal and scholarly pages and `/omphalos/` when its verified browser artifact is installed. These canonical public pages are listed in the XML sitemap. `content/public-pages.json` lists reviewed public project pages and is currently empty. The seven research tools at `/200/` open without a password and remain outside public navigation, the sitemap, and `llms.txt`.
+The build produces the personal and scholarly pages and `/omphalos/` when its verified browser artifact is installed. These canonical public pages are listed in the XML sitemap. `content/public-pages.json` lists reviewed public project pages, including AIBD and chygraph. The seven research tools at `/200/` open without a password and remain outside public navigation, the sitemap, and `llms.txt`.
 
 ## omphalOS browser edition
 
@@ -42,7 +42,18 @@ Installation verifies every file against `build-manifest.json`, rejects unlisted
 
 The two approved editorial asides on Writing use `data-nosnippet`: the affiliation correction and the credit complaint heading. Their visible text is unchanged. The publication records, abstracts, and contribution descriptions remain available for normal search excerpts.
 
-Shared links use four 1200 × 630 preview images with backgrounds matching their pages. The preview artwork can be regenerated with `scripts/preview_cards.py` (Pillow) and `scripts/render_preview_cards.cjs` (Sharp); these optional tools are not needed to build the site. Approved PNGs live in `assets/img/social-*.png`.
+Shared links use five 1200 × 630 preview images with backgrounds matching their pages. The preview artwork can be regenerated with `scripts/preview_cards.py` (Pillow) and `scripts/render_preview_cards.cjs` (Sharp); these optional tools are not needed to build the site. Both scripts accept a page key such as `artifacts` to regenerate one card. Approved PNGs live in `assets/img/social-*.png`.
+
+## Public working artifacts
+
+`/artifacts/` links to the AI Benefits Database, the public chygraph graph, and
+omphalOS. Chygraph's public edition contains its sourced graph, evidence register,
+and JSON download. The repository catalog that requires a local service remains
+outside this static edition. Publish only the reviewed runtime files listed in
+`content/public-files.json`.
+
+Writing includes The Suprastructure's native signup embed, with a direct
+publication link and lazy loading. It does not automatically subscribe visitors.
 
 ## Unlisted research tools
 
@@ -56,4 +67,4 @@ The former `/x-oscope/` and `/auspex/` applications and their redirect pages rem
 
 Run `node --test scripts/test-200.mjs scripts/test-correlator.mjs scripts/test-public-snapshot.mjs` to verify browser migration, tool entry pages, search exclusions, and the deployment allowlist.
 
-Search-engine notifications use IndexNow only after a verified successful Pages deployment. The sitemap is the public URL allowlist and all unlisted tool routes are independently excluded. A missing checkpoint stops automatic submission; the first manual `initialize=true` announces the reviewed public pages in the sitemap, and a saved checkpoint prevents unchanged pages from being submitted again.
+Search-engine notifications use IndexNow only after a verified successful Pages deployment. The root sitemap and AIBD sitemap jointly define the public URL allowlist, and all unlisted tool routes are independently excluded. Both live sitemaps must match the deployed commit before a notification is sent. Changes to public navigation links also count as meaningful updates. A missing checkpoint stops automatic submission; the first manual `initialize=true` announces the reviewed public pages in the sitemap, and a saved checkpoint prevents unchanged pages from being submitted again.

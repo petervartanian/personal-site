@@ -34,7 +34,13 @@ DEPLOYMENT_NAMES = {"pages build and deployment", "pages-build-deployment"}
 ARTIFACT = "indexnow-public-state"
 FORBIDDEN = {
     "200", "agency-costs", "backdrive", "correlator", "haruspex", "monitor",
-    "arcolens", "arco-lens", "artifacts", "assets", "scripts", "content",
+    "arcolens", "arco-lens", "explorer", "x-oscope", "auspex",
+    "assets", "scripts", "content", "data", "src", "source",
+}
+SITEMAP_FILES = ("sitemap.xml", "aibd/sitemap.xml")
+AIBD_PAGES = {
+    "", "cases.html", "all-cases.html", "about.html", "fields.html",
+    "fructus.html", "querist.html", "viator.html", "adyt.html", "chanticleer.html",
 }
 MAX_BYTES = 2_000_000
 
@@ -43,15 +49,23 @@ def public_url(url):
     """Fail closed on noncanonical URLs and explicitly private routes/assets."""
     parsed = urlsplit(url)
     if (parsed.scheme != "https" or parsed.netloc != HOST or parsed.query
-            or parsed.fragment or not re.fullmatch(r"/(?:[a-z0-9-]+/)*", parsed.path)):
+            or parsed.fragment):
+        raise ValueError(f"Not a canonical public page URL: {url}")
+    if parsed.path.startswith("/aibd/"):
+        suffix = parsed.path.removeprefix("/aibd/")
+        if suffix not in AIBD_PAGES and not re.fullmatch(r"records/AIBD-[0-9]{4,}\.html", suffix):
+            raise ValueError(f"Not a public AIBD page URL: {url}")
+    elif not re.fullmatch(r"/(?:[a-z0-9-]+/)*", parsed.path):
         raise ValueError(f"Not a canonical public page URL: {url}")
     parts = set(parsed.path.strip("/").split("/"))
+    if "artifacts" in parts and parsed.path != "/artifacts/":
+        raise ValueError(f"Only the public Artifacts landing page is allowed: {url}")
     if parts & FORBIDDEN or any("arcolens" in part for part in parts):
         raise ValueError(f"Private/asset URL is prohibited: {url}")
     return url
 
 
-def sitemap_urls(data):
+def sitemap_urls(data, prefix=None):
     root = ET.fromstring(data)
     ns = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
     if root.tag != ns + "urlset":
@@ -59,7 +73,14 @@ def sitemap_urls(data):
     urls = [public_url(node.text or "") for node in root.findall(ns + "url/" + ns + "loc")]
     if not urls or len(urls) > 10_000 or len(set(urls)) != len(urls):
         raise ValueError("Sitemap is empty, duplicated, or too large")
+    if prefix and any(not url.startswith(ORIGIN + prefix) for url in urls):
+        raise ValueError("A collection sitemap contains a URL outside its public path")
     return urls
+
+
+def page_file(url):
+    path = urlsplit(public_url(url)).path.lstrip("/")
+    return path + "index.html" if not path or path.endswith("/") else path
 
 
 class Page(HTMLParser):
@@ -68,6 +89,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.main = False
         self.title = False
+        self.navigation_depth = 0
         self.skip = 0
         self.tokens = []
         self.canonicals = []
@@ -80,6 +102,8 @@ class Page(HTMLParser):
             self.main = True
         if tag == "title" and not self.main:
             self.title = True
+        if tag in {"header", "footer"}:
+            self.navigation_depth += 1
         if tag in {"script", "style"}:
             self.skip += 1
         if tag == "link" and attrs.get("rel") == "canonical":
@@ -97,12 +121,16 @@ class Page(HTMLParser):
             for name in ("href", "alt", "datetime"):
                 if name in attrs:
                     self.tokens.append((name, attrs[name]))
+        elif tag == "a" and self.navigation_depth and not self.skip and "href" in attrs:
+            self.tokens.append(("navigation_href", attrs["href"]))
 
     def handle_endtag(self, tag):
         if tag == "main":
             self.main = False
         if tag == "title":
             self.title = False
+        if tag in {"header", "footer"}:
+            self.navigation_depth = max(0, self.navigation_depth - 1)
         if tag in {"script", "style"}:
             self.skip = max(0, self.skip - 1)
 
@@ -123,13 +151,24 @@ def git(*args):
 
 
 def snapshot(ref):
-    sitemap = git("show", f"{ref}:sitemap.xml")
+    # Only these reviewed sitemap paths are read. Never follow arbitrary sitemap
+    # references or discover URLs by walking the repository's file allowlist.
+    sitemaps = {}
     pages = {}
-    for url in sitemap_urls(sitemap):
-        file = urlsplit(url).path.lstrip("/") + "index.html"
-        data = git("show", f"{ref}:{file}")
-        pages[url] = {"digest": Page(data).fingerprint(url), "body": data}
-    return sitemap, pages
+    for path in SITEMAP_FILES:
+        if path != "sitemap.xml" and not git("ls-tree", "--name-only", ref, "--", path).strip():
+            continue
+        sitemap = git("show", f"{ref}:{path}")
+        sitemaps[path] = sitemap
+        prefix = "/aibd/" if path == "aibd/sitemap.xml" else None
+        for url in sitemap_urls(sitemap, prefix=prefix):
+            if url in pages:
+                continue
+            data = git("show", f"{ref}:{page_file(url)}")
+            pages[url] = {"digest": Page(data).fingerprint(url), "body": data}
+    if len(pages) > 10_000:
+        raise ValueError("Combined public sitemaps are too large")
+    return sitemaps, pages
 
 
 def changed_urls(current, previous):
@@ -216,7 +255,7 @@ def main():
     if args.state_input and not args.dry_run:
         parser.error("--state-input is allowed only with --dry-run")
     sha = git("rev-parse", "HEAD").decode().strip()
-    sitemap, pages = snapshot(sha)
+    sitemaps, pages = snapshot(sha)
     if args.dry_run:
         state = json.loads(args.state_input.read_text()) if args.state_input else None
     else:
@@ -235,10 +274,14 @@ def main():
         # contain newly withdrawn private routes, which must not become candidates.
         previous = {}
         for url in pages:
-            file = urlsplit(url).path.lstrip("/") + "index.html"
-            old = subprocess.run(["git", "show", f"{sha}^:{file}"], cwd=ROOT, capture_output=True)
+            old = subprocess.run(["git", "show", f"{sha}^:{page_file(url)}"], cwd=ROOT, capture_output=True)
             if old.returncode == 0:
-                previous[url] = Page(old.stdout).fingerprint(url)
+                try:
+                    previous[url] = Page(old.stdout).fingerprint(url)
+                except ValueError:
+                    # A newly authorized public page can replace a redirect or
+                    # a noindex page. Only its current reviewed version is sent.
+                    pass
     else:
         previous = state["pages"]
     urls = changed_urls(pages, previous)
@@ -247,8 +290,9 @@ def main():
         return
     if git("show", f"{sha}:{KEY_FILE}").decode().strip() != KEY:
         raise ValueError("Local ownership key does not match")
-    if fetch_live(f"{ORIGIN}/sitemap.xml") != sitemap:
-        raise ValueError("Live sitemap differs from the deployed commit; nothing submitted")
+    for path, sitemap in sitemaps.items():
+        if fetch_live(f"{ORIGIN}/{path}") != sitemap:
+            raise ValueError(f"Live sitemap differs from the deployed commit: {path}; nothing submitted")
     if fetch_live(f"{ORIGIN}/{KEY_FILE}").decode().strip() != KEY:
         raise ValueError("Live ownership key is unavailable; nothing submitted")
     for url in urls:

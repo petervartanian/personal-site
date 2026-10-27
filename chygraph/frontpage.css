@@ -1,0 +1,145 @@
+:root {
+  color-scheme: light;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  --serif: 'Iowan Old Style', 'Baskerville', 'Palatino Linotype', Georgia, serif;
+  --capital: #F2CC0C;
+  --substrate: #237A3C;
+  --hardware: #00BDD6;
+  --platform: #D32F2F;
+  --experience: #E885AD;
+  --model: #8A2BAF;
+  --system: #EB6B12;
+  --integration: #FFFFFF;
+  --governance: #242323;
+  --column-gap: clamp(40px, 6vw, 80px);
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: #ffffff; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible { outline: 2px solid #000000; outline-offset: 6px; }
+.page { max-width: 1328px; margin: auto; padding: 36px 64px 56px; }
+.masthead { display: flex; align-items: center; justify-content: space-between; gap: 36px; padding-bottom: 18px; border-bottom: 1px solid #000000; }
+.wordmark { display: block; width: 188px; height: auto; margin-left: -8px; }
+.credit { max-width: 285px; margin: 0; font-size: 12px; line-height: 1.7; text-wrap: pretty; }
+.credit span { display: block; }
+.credit-author { margin-bottom: 5px; font: normal 20px/1.25 var(--serif); letter-spacing: -.015em; }
+a { color: #000000; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+a:hover { text-underline-offset: 6px; }
+.introduction { padding: 45px 0 50px; }
+h1 { margin: 0; font: normal clamp(62px, 7.5vw, 94px)/1.03 var(--serif); letter-spacing: -.045em; }
+.introduction-grid, .application { display: grid; grid-template-columns: .93fr 1.07fr; gap: var(--column-gap); }
+.introduction-grid { border-top: 1px solid #000000; padding-top: 29px; }
+.introduction-grid > section, .application > * { min-width: 0; }
+h2 { margin: 0 0 28px; font: normal 27px/1.2 var(--serif); letter-spacing: -.025em; }
+.stack-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+.stack-list li { display: grid; grid-template-columns: 25px minmax(0, 1fr); align-items: center; gap: 12px; min-height: 64px; padding: 15px 19px; border: 1px solid transparent; border-radius: 1px; }
+.layer-number { font-size: 10px; font-variant-numeric: tabular-nums; letter-spacing: .045em; }
+.layer-name { font: normal 24px/1.12 var(--serif); letter-spacing: -.015em; }
+.capital { background: var(--capital); }
+.substrate { background: var(--substrate); color: #ffffff; }
+.hardware { background: var(--hardware); }
+.platform { background: var(--platform); color: #ffffff; }
+.experience { background: var(--experience); }
+.model { background: var(--model); color: #ffffff; }
+.system { background: var(--system); }
+.stack-list .integration { background: var(--integration); border-color: #000000; }
+.governance { background: var(--governance); color: #ffffff; }
+.layer-link { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: inherit; text-decoration: none; }
+.layer-link span { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 18px; }
+.layer-link:focus-visible { outline-color: #ffffff; }
+.layer-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+.derivation { padding-top: 1px; }
+.structure-progression { list-style: none; margin: 0; padding: 0; }
+.structure-progression li { display: grid; grid-template-columns: 25px minmax(0, 1fr); gap: 14px; padding: 23px 0; border-bottom: 1px solid #00000026; }
+.structure-progression li:first-child { padding-top: 0; }
+.structure-progression li:last-child { padding-bottom: 0; border-bottom: 0; }
+.step-number { padding-top: 9px; font: normal 12px/1.4 var(--serif); }
+.stage-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.stage-name { margin: 0; padding-top: 3px; }
+.stage-term { font: italic 31px/1.15 var(--serif); letter-spacing: -.025em; }
+.name-note { display: block; margin-top: 8px; font-size: 11px; line-height: 1.6; text-wrap: pretty; }
+.stage-glyph { display: block; flex: 0 0 82px; width: 82px; height: auto; fill: none; stroke: #000000; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.stage-glyph circle { fill: #000000; stroke: none; }
+.stage-glyph .glyph-relationship { fill: #ffffff; }
+.stage-definition { display: grid; grid-template-columns: 13px minmax(0, 1fr); gap: 8px; margin: 9px 0 0; font-size: 14px; line-height: 1.6; text-wrap: pretty; }
+.definition-equals { font-family: var(--serif); font-size: 17px; line-height: 1.3; }
+.derivation-conclusion { display: grid; grid-template-columns: 25px minmax(0, 1fr); gap: 13px 14px; margin: 30px 0 0; padding-top: 25px; border-top: 1px solid #000000; }
+.therefore { padding-top: 2px; font: normal 26px/1 var(--serif); }
+.derivation-conclusion p { max-width: 30ch; margin: 0; font: italic 27px/1.25 var(--serif); letter-spacing: -.02em; text-wrap: pretty; }
+.qed { grid-column: 2; justify-self: end; font: normal 10px/1.5 var(--serif); letter-spacing: .11em; }
+.qed span { margin-left: 6px; font-size: 9px; }
+.application { margin-top: 54px; padding-top: 35px; border-top: 1px solid #000000; align-items: start; }
+.application h2 { margin-bottom: 22px; }
+.example-caption { max-width: 34ch; margin: 0 0 20px; font: normal 21px/1.45 var(--serif); letter-spacing: -.015em; text-wrap: pretty; }
+.example-toggle { display: inline-flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 44px; margin: 0 0 29px; padding: 9px 0; border: 0; border-bottom: 1px solid #000000; border-radius: 0; background: #ffffff; color: #000000; font: inherit; font-size: 13px; cursor: pointer; }
+.example-toggle:hover { border-bottom-width: 2px; padding-bottom: 8px; }
+.example { margin: 0; }
+.example svg { display: block; width: 100%; height: auto; overflow: visible; }
+.example svg text { fill: #000000; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+.compound-frame { fill: #ffffff; stroke: #000000; stroke-width: 1; rx: 2px; }
+.example-compound { fill: #ffffff; stroke: #000000; stroke-width: 1.5; rx: 2px; }
+.example-atom { fill: #000000; }
+.incidence { fill: none; stroke: #000000; stroke-width: 1.1; }
+.relationship { fill: #ffffff; stroke: #000000; stroke-width: 1.1; }
+.diagram-title { font-size: 16px; letter-spacing: .02em; }
+.example svg .object-label { font-family: var(--serif); font-size: 24px; }
+.relationship-label { font-size: 18px; }
+.diagram-key { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px 20px; margin-top: 15px; font-size: 11px; line-height: 1.6; }
+.colophon { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px 32px; margin-top: 42px; padding-top: 20px; border-top: 1px solid #000000; font-size: 11px; line-height: 1.7; }
+.colophon p { margin: 0; }
+@media (max-width: 1100px) {
+  :root { --column-gap: 44px; }
+  .page { padding: 30px 40px 44px; }
+  .stack-list li { grid-template-columns: 20px minmax(0, 1fr); gap: 3px 12px; min-height: 66px; padding: 9px 15px; }
+  .layer-name { font-size: 24px; }
+  .stage-glyph { flex-basis: 64px; width: 64px; }
+  .stage-heading { gap: 10px; }
+  .name-note { font-size: 11px; }
+  .derivation-conclusion p { font-size: 25px; }
+}
+@media (max-width: 760px) {
+  .page { padding: 24px 24px 36px; }
+  .masthead { gap: 22px; padding-bottom: 18px; }
+  .wordmark { width: 160px; margin-left: -7px; }
+  .credit { max-width: 160px; font-size: 10px; }
+  .credit-author { font-size: 17px; }
+  .introduction { padding: 34px 0 38px; }
+  h1 { font-size: clamp(56px, 11vw, 76px); }
+  h2 { font-size: 28px; margin-bottom: 24px; }
+  .introduction-grid, .application { grid-template-columns: minmax(0, 1fr); gap: 38px; }
+  .introduction-grid { padding-top: 25px; }
+  .stack-list li { grid-template-columns: 22px minmax(0, 1fr); gap: 10px; padding: 13px 15px; min-height: 61px; }
+  .layer-name { font-size: 25px; }
+  .explanation { border-top: 1px solid #000000; padding-top: 27px; }
+  .stage-glyph { flex-basis: 82px; width: 82px; }
+  .name-note { font-size: 11px; }
+  .derivation-conclusion p { font-size: 27px; }
+  .application { margin-top: 38px; padding-top: 27px; gap: 27px; }
+  .example-caption { max-width: 34ch; }
+  .example-toggle { margin-bottom: 23px; }
+  .colophon { margin-top: 32px; gap: 12px; }
+  .example svg .object-label { font-size: 26px; }
+  .relationship-label { font-size: 22px; }
+  .diagram-title { font-size: 19px; }
+}
+@media (max-width: 430px) {
+  .page { padding-inline: 22px; }
+  .wordmark { width: 142px; margin-left: -6px; }
+  .credit { max-width: 144px; }
+  .stack-list li { grid-template-columns: 20px minmax(0, 1fr); gap: 3px 11px; min-height: 64px; padding: 10px 14px; }
+  .stage-glyph { flex-basis: 66px; width: 66px; }
+  .stage-term { font-size: 30px; }
+  .stage-definition { font-size: 14px; }
+  .name-note { font-size: 11px; }
+}
+@media print {
+  .page { padding: 0; }
+  .stack-list li { print-color-adjust: exact; }
+  .example-toggle { display: none; }
+  .stack, .derivation, .application { break-inside: avoid; }
+}

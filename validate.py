@@ -17,6 +17,7 @@ PAGES = (
     [
         "index.html",
         "portfolio/index.html",
+        "artifacts/index.html",
         "cv/index.html",
         "contact/index.html",
         "site-index/index.html",
@@ -115,7 +116,8 @@ for name, p in pages.items():
     check(p.h1 == 1 and p.main and p.lang, f"{name}: missing accessible page structure")
     check(p.canonical and p.og, f"{name}: missing share metadata")
     check(len(set(p.ids)) == len(p.ids), f"{name}: duplicate IDs")
-    check("/artifacts/" not in p.refs, f"{name}: empty collection still in navigation")
+    if name in {"index.html", "portfolio/index.html", "artifacts/index.html", "cv/index.html", "contact/index.html", "site-index/index.html", "404.html"} or name.startswith("publications/"):
+        check("/artifacts/" in p.refs, f"{name}: working artifacts missing from navigation")
     for url in p.refs:
         parts = urlsplit(url)
         if parts.scheme or parts.netloc:
@@ -212,6 +214,8 @@ check(
     "Affiliation correction is missing its snippet exclusion",
 )
 check("Peter’s Memos" in archive, "Missing memo section")
+check("https://thesuprastructure.substack.com/" in pages["portfolio/index.html"].refs, "Missing Suprastructure publication link")
+check('src="https://thesuprastructure.substack.com/embed"' in writing_html and 'title="Subscribe to The Suprastructure"' in writing_html, "Missing accessible Suprastructure signup embed")
 check("brunellaism" not in writing_html, "Removed post must not be linked")
 check(
     "<ol" not in (ROOT / "cv/index.html").read_text(),
@@ -282,24 +286,22 @@ check(
     len(feed.findall("atom:entry", atom)) == len(data["writings"]),
     "Writing feed omits a publication",
 )
-check(
-    "artifacts" not in (ROOT / "sitemap.xml").read_text(),
-    "Placeholder route remains in sitemap",
-)
-check(
-    "url=/portfolio/" in (ROOT / "artifacts/index.html").read_text(),
-    "Old artifacts bookmarks do not redirect",
-)
+artifacts_html = (ROOT / "artifacts/index.html").read_text()
+check('http-equiv="refresh"' not in artifacts_html, "Artifacts must be a substantive page, not a redirect")
+for artifact in data["artifacts"]:
+    check(artifact["title"] in " ".join(pages["artifacts/index.html"].text), f'Missing artifact: {artifact["title"]}')
+    check(artifact["url"] in pages["artifacts/index.html"].refs, f'Missing artifact link: {artifact["title"]}')
+    check(artifact["description"] in " ".join(pages["artifacts/index.html"].text), f'Missing artifact description: {artifact["title"]}')
 public_projects = json.loads((ROOT / "content/public-pages.json").read_text())
 public_paths = (
-    ["/", "/portfolio/", "/cv/", "/contact/", "/site-index/"]
+    ["/", "/portfolio/", "/artifacts/", "/cv/", "/contact/", "/site-index/"]
     + [item["path"] for item in SCHOLARLY_PUBLICATIONS]
     + [item["path"] for item in public_projects]
     + ([OMPHALOS_PAGE["path"]] if OMPHALOS_PAGE else [])
 )
 check(
     len(public_paths)
-    == 5
+    == 6
     + len(SCHOLARLY_PUBLICATIONS)
     + len(public_projects)
     + bool(OMPHALOS_PAGE),
