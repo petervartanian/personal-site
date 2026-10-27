@@ -1192,7 +1192,7 @@ body.door .footer-inner { padding-inline: 24px; }
 @supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
   .masthead::after {
     content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
-    background: url("wordmark-art.svg?v=0eaebabfc0") center var(--wordmark-top) / var(--wordmark-width) auto no-repeat;
+    background: url("wordmark-art.svg?v=d99f9be17f") center var(--wordmark-top) / var(--wordmark-width) auto no-repeat;
   }
 }
 @media (max-width: 760px) {
@@ -1229,6 +1229,14 @@ body:not(.collection-page):not(.money-page)::before {
   background: var(--paper);
 }
 body.door main.stack, body.door section.door, body.door .footer { background: transparent; }
+.review-coverage-note { margin: 12px 0 22px; max-width: 70ch; color: var(--ink-3); font-size: 14px; line-height: 1.6; }
+.record-review-coverage { grid-column: 1 / -1; margin: 0; max-width: 80ch; color: var(--ink-3); font-size: 14px; line-height: 1.6; }
+.review-coverage-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: .9rem; }
+.review-coverage-table caption { text-align: left; margin-bottom: 10px; font-weight: 600; }
+.review-coverage-table th, .review-coverage-table td { padding: 10px 8px; border-bottom: var(--rule-width) solid var(--rule); text-align: right; vertical-align: top; }
+.review-coverage-table th:first-child { padding-left: 0; text-align: left; font-weight: 400; }
+.review-coverage-table td { font-variant-numeric: tabular-nums; }
+.review-coverage-table tfoot th, .review-coverage-table tfoot td { font-weight: 600; }
 @media print, (forced-colors: active) {
   body::before { display: none; }
   body.door main.stack, body.door section.door { background: var(--paper); }

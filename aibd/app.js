@@ -391,7 +391,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       b.setAttribute('aria-label', label + (/\b(benefit|case)\b/i.test(label) ? '' : ' benefit') + ' № ' + id.replace('AIBD-', '') + (b.closest('[data-compare]') ? ' from comparison' : ''));
     });
     document.querySelectorAll('[data-shelf-count]').forEach(function (s) { s.textContent = String(n); });
-    document.querySelectorAll('[data-shelf-words]').forEach(function (s) { s.textContent = n ? n + (n === 1 ? ' benefit selected' : ' benefits selected') : 'Nothing selected yet'; });
+    document.querySelectorAll('[data-shelf-words]').forEach(function (s) { s.textContent = n ? n + (n === 1 ? ' case selected' : ' cases selected') : 'Nothing selected yet'; });
     document.querySelectorAll('[data-compare-open]').forEach(function (b) { b.hidden = false; });
   }
   document.addEventListener('click', function (e) {
@@ -939,7 +939,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       });
       if (hiddenFocus && q) q.focus({ preventScroll: true });
       var datedCount = ex.querySelector('[data-timeline-count]');
-      if (datedCount) datedCount.textContent = 'Dates are available for ' + dated + ' of ' + matchedRows.length + ' benefits.';
+      if (datedCount) datedCount.textContent = 'Dates are available for ' + dated + ' of ' + matchedRows.length + ' cases.';
       var unassessedCount = ex.querySelector('[data-timeline-unassessed]');
       if (unassessedCount) { unassessedCount.textContent = 'depth unassessed, ' + unassessed + ' records'; unassessedCount.toggleAttribute('hidden', !unassessed); }
       return;
@@ -1195,7 +1195,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     ];
     var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]; }); };
     var cases = ids.filter(function (id) { return compareData[id]; });
-    var html = '<table class="compare"><caption class="visually-hidden">Comparison of selected benefits</caption><thead><tr><th class="f" scope="col">Field</th>' + cases.map(function (id) { return '<th scope="col"><a href="records/' + id + '.html">' + esc(compareData[id].h) + '</a><small>№ ' + esc(id.replace('AIBD-', '')) + '</small><button type="button" class="textbtn" data-keep="' + esc(id) + '" data-keep-label="Add" data-kept-label="Remove" aria-label="Remove benefit ' + esc(id.replace('AIBD-', '')) + ' from comparison" aria-pressed="true">Remove</button></th>'; }).join('') + '</tr></thead><tbody>';
+    var html = '<table class="compare"><caption class="visually-hidden">Comparison of selected cases</caption><thead><tr><th class="f" scope="col">Field</th>' + cases.map(function (id) { return '<th scope="col"><a href="records/' + id + '.html">' + esc(compareData[id].h) + '</a><small>№ ' + esc(id.replace('AIBD-', '')) + '</small><button type="button" class="textbtn" data-keep="' + esc(id) + '" data-keep-label="Add" data-kept-label="Remove" aria-label="Remove case ' + esc(id.replace('AIBD-', '')) + ' from comparison" aria-pressed="true">Remove</button></th>'; }).join('') + '</tr></thead><tbody>';
     fields.filter(function (field) { return selectedComparisonFields.indexOf(field[0]) !== -1; }).forEach(function (f) { html += '<tr data-comparison-field="' + f[0] + '"><th class="f" scope="row">' + f[1] + '</th>' + cases.map(function (id) { return '<td>' + esc(f[2](compareData[id])) + '</td>'; }).join('') + '</tr>'; });
     box.innerHTML = html + '</tbody></table>';
   };
