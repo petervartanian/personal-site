@@ -55,6 +55,10 @@ body[data-page=home] .introduction { max-width: 712px; }
 .stealth-note { position: absolute; top: 50%; left: calc(100% + 12px); transform: translateY(-50%); writing-mode: vertical-rl; text-orientation: mixed; color: var(--quiet); font-size: 11px; font-style: italic; line-height: 1.25; white-space: nowrap; }
 .stealth-note:target { color: var(--link); }
 .stealth-note:focus-visible { outline: 1px dotted var(--link); outline-offset: 3px; }
+@media (min-width: 831px) {
+  .home-current { letter-spacing: -.1px; }
+  .home-current .stealth-note { left: calc(100% + 24px); letter-spacing: normal; }
+}
 @media (max-width: 830px) {
   .stealth-note { position: static; display: block; transform: none; writing-mode: horizontal-tb; margin-top: 6px; text-align: right; line-height: 1.4; white-space: normal; }
 }
