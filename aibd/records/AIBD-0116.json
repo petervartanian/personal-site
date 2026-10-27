@@ -2134,7 +2134,7 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. The news reports concern one appeal and rely substantially on the student's account. The original letter and council decision are not retained as separately inspectable evidence, and the outlets were not reopened.",
+          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. The news reports concern one appeal and rely substantially on the student's account. The original letter and council decision are not retained as separately inspectable evidence, and the outlets were not reopened. Additional inspection for the October 27, 2026 editorial reconstruction: Read ITV’s March 31, 2023 interview with Houlton and OpenAI’s March 14 and August 3, 2023 release-note entries. The interview establishes ChatGPT use but not the model or subscription. The release notes establish the default and paid alternative. BBC access was blocked. Read ITV’s March 31, 2023 firsthand interview, paragraphs describing the prompt and entered details. This identifies the text interaction, not the device, client, account tier, model, or runtime settings.",
           "record_fields": [
             "account",
             "ai_role",
@@ -2144,16 +2144,17 @@
             "AIBD-0116-source-0001",
             "AIBD-0116-source-0002",
             "AIBD-0116-source-0003",
-            "AIBD-0116-source-0004"
+            "AIBD-0116-source-0004",
+            "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
           ],
           "reviewed_on": "2026-10-27",
           "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
         },
-        "reason": "The news reports concern one appeal and rely substantially on the student's account. The original letter and council decision are not retained as separately inspectable evidence, and the outlets were not reopened.",
+        "reason": "ITV directly interviewed Houlton. The original letter, council decision, and chat have not been inspected as separate records. OpenAI’s release notes constrain the possible models but do not identify her session. BBC access was blocked, and the other retained articles were not rechecked.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The news reports concern one appeal and rely substantially on the student's account. The original letter and council decision are not retained as separately inspectable evidence, and the outlets were not reopened."
+          "answer": "ITV directly interviewed Houlton. The original letter, council decision, and chat have not been inspected as separate records. OpenAI’s release notes constrain the possible models but do not identify her session. BBC access was blocked, and the other retained articles were not rechecked."
         }
       },
       "strategic_assessments[]": {
@@ -2230,19 +2231,26 @@
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Millie Houlton, 22, asked ChatGPT to draft an appeal against a wrongly issued £60 parking fine; York City Council withdrew it.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "An event-specific configuration is needed, with the relevant hardware, interface, adaptation, tools, access mode, and settings."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Houlton entered the parking location, ticket reference, and circumstances into ChatGPT, then used its generated text for her appeal."
         },
-        "reason": "The configuration used for ChatGPT in this case is not separately established. The relevant hardware, interface, adaptation, tools, runtime settings, and deployment date need documentation; a generic product description is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read ITV’s March 31, 2023 firsthand interview, paragraphs describing the prompt and entered details. This identifies the text interaction, not the device, client, account tier, model, or runtime settings.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0116-source-0002"
+          ],
+          "reviewed_on": "2026-10-27",
+          "follow_up": "Obtain the original conversation to establish the client, account, complete prompt, edits, and selected model."
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Houlton entered the parking location, ticket reference, and circumstances into ChatGPT, then used its generated text for her appeal."
+        }
       },
       "systems[].inputs_outputs": {
         "state": "unresolved",
@@ -2263,16 +2271,22 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Millie Houlton, 22, asked ChatGPT to draft an appeal against a wrongly issued £60 parking fine; York City Council withdrew it.",
-          "record_fields": [
-            "summary"
+          "basis": "Read ITV’s March 31, 2023 interview with Houlton and OpenAI’s March 14 and August 3, 2023 release-note entries. The interview establishes ChatGPT use but not the model or subscription. The release notes establish the default and paid alternative. BBC access was blocked.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0116-source-0002",
+            "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
           ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+          "reviewed_on": "2026-10-27",
+          "follow_up": "An original chat export, screenshot, or participant confirmation could identify the selected model."
         },
-        "reason": "The record identifies ChatGPT, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The displayed reconstruction is an editorial inference. The case-specific identity or configuration remains unconfirmed.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "GPT-3.5 is the most likely model, although GPT-4 cannot be ruled out.",
+          "editor_note": "GPT-3.5 was ChatGPT’s default during the possible period. GPT-4 became available to Plus subscribers on March 14, before the report; it remains an alternative if her session occurred after that release. Her session date, subscription, and model selection are unknown."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -2421,18 +2435,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 41,
-      "reviewed": 3,
+      "known": 42,
+      "reviewed": 5,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 5,
       "record_mapped": 39,
-      "review_not_assessed": 49,
+      "review_not_assessed": 47,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 41,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 50,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

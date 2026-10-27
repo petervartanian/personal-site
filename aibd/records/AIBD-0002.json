@@ -1548,34 +1548,62 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Four 64-electrode arrays plus RNN decoder let Casey Harrell (ALS) converse at 97.5% accuracy; later 1.96 million words at home",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "The reported direct beneficiary is the 45-year-old participant with ALS in the BrainGate2 speech trial.",
+            "assignment_type": "direct_extraction",
+            "scope": "Only the case and period described; no broader beneficiary population or deployment practice is inferred."
+          }
         },
-        "reason": "The record has personal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods > Study participant; Results > Conversation Mode, Figure 3 and associated text. Paper passages about the single participant, communication, and interface inspected on October 27, 2026.",
+          "record_fields": [
+            "account",
+            "ai_role"
+          ],
+          "source_refs": [
+            "AIBD-0002-source-0001"
+          ],
+          "reviewed_on": "2026-10-27",
+          "follow_up": "Confirm any remaining limits in the field answer before marking coverage complete."
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The reported direct beneficiary is the 45-year-old participant with ALS in the BrainGate2 speech trial."
+        }
       },
       "outcomes[].beneficiary_count": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Four 64-electrode arrays plus RNN decoder let Casey Harrell (ALS) converse at 97.5% accuracy; later 1.96 million words at home",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "The numerator, denominator, unit, observation period, and overlap need confirmation; study exposure or audience reach cannot be assumed to count beneficiaries."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "answer": "One participant reportedly gained conversational speech through the system. The account does not establish a beneficiary count for family members or a wider population.",
+            "assignment_type": "direct_extraction",
+            "scope": "Only the case and period described; no broader beneficiary population or deployment practice is inferred."
+          }
         },
-        "reason": "A beneficiary count is not separately established. Any number in the account must be distinguished as actually benefiting, exposed, eligible, or intended, with its unit, period, and overlap limits. The retained metric is: 97.5% sustained accuracy over 248 hours of self-paced conversation",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Methods > Study participant; Results > Conversation Mode, Figure 3 and associated text. Paper passages about the single participant, communication, and interface inspected on October 27, 2026.",
+          "record_fields": [
+            "account",
+            "ai_role"
+          ],
+          "source_refs": [
+            "AIBD-0002-source-0001"
+          ],
+          "reviewed_on": "2026-10-27",
+          "follow_up": "Confirm any remaining limits in the field answer before marking coverage complete."
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "One participant reportedly gained conversational speech through the system. The account does not establish a beneficiary count for family members or a wider population."
+        }
       },
       "outcomes[].benefit_type": {
         "state": "value_present",
@@ -2229,12 +2257,22 @@
             ],
             "limitations": "The study reports communication performance in one participant. Surgery, electrodes, calibration, and language models jointly enabled the result; this does not establish broad clinical effectiveness, and the later home-use paper was not rechecked. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0002-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "additional_inspections": [
+              {
+                "inspected_on": "2026-10-27",
+                "inspected_source_refs": [
+                  "AIBD-0002-source-0001"
+                ],
+                "method": "Read the original public page through the web tool.",
+                "scope": "Methods > Study participant; Results > Conversation Mode, Figure 3 and associated text. Paper passages about the single participant, communication, and interface inspected on October 27, 2026."
+              }
+            ]
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at NEJM article, abstract Methods, Results, and Conclusions. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Codex reviewed the retrieved source passages at NEJM article, abstract Methods, Results, and Conclusions. This is a partial review of the benefit/status claim and its limits, not a complete source audit. Additional inspection for the October 27, 2026 editorial reconstruction: Methods > Study participant; Results > Conversation Mode, Figure 3 and associated text. Paper passages about the single participant, communication, and interface inspected on October 27, 2026.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0002-source-0001"
@@ -2552,18 +2590,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 46,
-      "reviewed": 3,
+      "known": 48,
+      "reviewed": 5,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 5,
       "record_mapped": 43,
-      "review_not_assessed": 45,
+      "review_not_assessed": 43,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 46,
+        "value_present": 48,
         "not_reported": 0,
-        "unresolved": 45,
+        "unresolved": 43,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

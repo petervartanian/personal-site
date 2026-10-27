@@ -1762,22 +1762,47 @@
             "unreviewed_source_refs": [],
             "limitations": "The results rely heavily on user feedback and lack a randomized comparison or reported response denominator. Valuing two to four hours against license cost does not establish cash savings or net ROI after support, checking, and implementation costs. Returned licenses and acknowledged usage-dashboard inaccuracies qualify the positive reports. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0560-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "answer": "The LGA page presents the deploying council’s account. Microsoft’s documentation supports reconstruction of the product and model context; it does not verify the council’s reported benefits. Underlying usage logs and outcome measurements remain uninspected.",
+            "additional_inspections": [
+              {
+                "inspected_on": "2026-10-27",
+                "inspected_source_refs": [
+                  "AIBD-0560-source-0001",
+                  "https://blogs.microsoft.com/blog/2023/03/16/introducing-microsoft-365-copilot-your-copilot-for-work/",
+                  "https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/",
+                  "https://techcommunity.microsoft.com/event/microsoft-copilot-events/microsoft-365-copilot-wave-2-ama/4235928/comments/4250278"
+                ],
+                "scope": "Read the council’s original LGA account, Overview or Early adoption, which dates the pilot to November 2023. Microsoft’s March 16, 2023 architecture description names GPT-4. Its September 16, 2024 announcement names GPT-4o, and its September 19 technical response explains feature-dependent model routing.",
+                "method": "Read the original public pages through the web tool."
+              },
+              {
+                "inspected_on": "2026-10-27",
+                "inspected_source_refs": [
+                  "AIBD-0560-source-0001"
+                ],
+                "scope": "Read the original LGA case study, Overview. The account identifies the pilot and license allocation but not the exact runtime configuration for each task.",
+                "method": "Read the original public pages through the web tool."
+              }
+            ]
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at LGA Somerset case study: “Early benefits and return on investment” and “Challenges and limitations”. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Codex reviewed the retrieved source passages at LGA Somerset case study: “Early benefits and return on investment” and “Challenges and limitations”. This is a partial review of the benefit/status claim and its limits, not a complete source audit. Additional inspection for the October 27, 2026 editorial reconstruction: Read the council’s original LGA account, Overview or Early adoption, which dates the pilot to November 2023. Microsoft’s March 16, 2023 architecture description names GPT-4. Its September 16, 2024 announcement names GPT-4o, and its September 19 technical response explains feature-dependent model routing. Read the original LGA case study, Overview. The account identifies the pilot and license allocation but not the exact runtime configuration for each task.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0560-source-0001"
+            "AIBD-0560-source-0001",
+            "https://blogs.microsoft.com/blog/2023/03/16/introducing-microsoft-365-copilot-your-copilot-for-work/",
+            "https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/",
+            "https://techcommunity.microsoft.com/event/microsoft-copilot-events/microsoft-365-copilot-wave-2-ama/4235928/comments/4250278"
           ],
           "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The LGA case study presents the council’s account of its own project. The underlying evaluation files, calculation worksheets, and independent replication were not reviewed."
+          "answer": "The LGA page presents the deploying council’s account. Microsoft’s documentation supports reconstruction of the product and model context; it does not verify the council’s reported benefits. Underlying usage logs and outcome measurements remain uninspected."
         }
       },
       "strategic_assessments[]": {
@@ -1851,19 +1876,26 @@
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Somerset reports two to four hours saved weekly per Copilot user, with 75% reporting better focus and 53% finding work more enjoyable.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "An event-specific configuration is needed, with the relevant hardware, interface, adaptation, tools, access mode, and settings."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The pilot began in November 2023 and provided 300 Copilot licenses to staff volunteers for their everyday work."
         },
-        "reason": "The configuration used for Microsoft Copilot in this case is not separately established. The relevant hardware, interface, adaptation, tools, runtime settings, and deployment date need documentation; a generic product description is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Read the original LGA case study, Overview. The account identifies the pilot and license allocation but not the exact runtime configuration for each task.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0560-source-0001"
+          ],
+          "reviewed_on": "2026-10-27",
+          "follow_up": "Obtain the enabled applications, tenant controls, and dates and settings for the measured tasks."
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The pilot began in November 2023 and provided 300 Copilot licenses to staff volunteers for their everyday work."
+        }
       },
       "systems[].inputs_outputs": {
         "state": "unresolved",
@@ -1884,16 +1916,24 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Somerset reports two to four hours saved weekly per Copilot user, with 75% reporting better focus and 53% finding work more enjoyable.",
-          "record_fields": [
-            "summary"
+          "basis": "Read the council’s original LGA account, Overview or Early adoption, which dates the pilot to November 2023. Microsoft’s March 16, 2023 architecture description names GPT-4. Its September 16, 2024 announcement names GPT-4o, and its September 19 technical response explains feature-dependent model routing.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0560-source-0001",
+            "https://blogs.microsoft.com/blog/2023/03/16/introducing-microsoft-365-copilot-your-copilot-for-work/",
+            "https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/",
+            "https://techcommunity.microsoft.com/event/microsoft-copilot-events/microsoft-365-copilot-wave-2-ama/4235928/comments/4250278"
           ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+          "reviewed_on": "2026-10-27",
+          "follow_up": "Obtain dated session or tenant records that identify the model used for the specific reported tasks."
         },
-        "reason": "The record identifies Microsoft Copilot, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The displayed reconstruction is an editorial inference. The case-specific identity or configuration remains unconfirmed.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "GPT-4 is the most plausible base model for the initial 2023 pilot. Later use may have involved updated models.",
+          "editor_note": "The pilot began in November 2023, when Microsoft documented GPT-4 within Copilot. That makes GPT-4 the leading candidate for the initial period, but it does not identify every feature’s model or checkpoint. Later results may span model updates, including GPT-4o."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -2040,18 +2080,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 3,
+      "known": 38,
+      "reviewed": 5,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 5,
       "record_mapped": 34,
-      "review_not_assessed": 54,
+      "review_not_assessed": 52,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 38,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 53,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

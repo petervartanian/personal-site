@@ -1745,15 +1745,40 @@
             "unreviewed_source_refs": [],
             "limitations": "The 63% task accuracy should be compared with the reported 95% alternative, while 96% general task understanding measures something else. Processing took up to 1.5 hours per output, so future time savings remain speculative. Inconsistent model labels and absent sample details limit reproducibility, and neither classification method establishes that residents obtained healthier food. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0577-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "additional_inspections": [
+              {
+                "inspected_on": "2026-10-27",
+                "scope": "Original council account inspected: Overview and Challenges and learnings.",
+                "source_refs": [
+                  "AIBD-0577-source-0001"
+                ]
+              },
+              {
+                "inspected_on": "2026-10-27",
+                "scope": "Council account: Challenges and learnings. Meta’s original Llama 2 model card: Variations. Both inspected on the review date.",
+                "source_refs": [
+                  "AIBD-0577-source-0001",
+                  "https://github.com/meta-llama/llama/blob/llama_v2/MODEL_CARD.md"
+                ]
+              },
+              {
+                "inspected_on": "2026-10-27",
+                "scope": "Original council account inspected: Overview, proof-of-concept results, and Challenges and learnings.",
+                "source_refs": [
+                  "AIBD-0577-source-0001"
+                ]
+              }
+            ]
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at LGA Warwickshire case study: proof-of-concept results and “Challenges and learnings”. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Codex reviewed the retrieved source passages at LGA Warwickshire case study: proof-of-concept results and “Challenges and learnings”. This is a partial review of the benefit/status claim and its limits, not a complete source audit. Additional inspection for the October 27, 2026 editorial reconstruction: Original council account inspected: Overview and Challenges and learnings. Council account: Challenges and learnings. Meta’s original Llama 2 model card: Variations. Both inspected on the review date. Original council account inspected: Overview, proof-of-concept results, and Challenges and learnings.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0577-source-0001"
+            "AIBD-0577-source-0001",
+            "https://github.com/meta-llama/llama/blob/llama_v2/MODEL_CARD.md"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -1834,19 +1859,26 @@
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Warwickshire’s LLM achieved 63% classification accuracy versus 95% for a simpler method. Faster food-access mapping remains intended; improved food access is not established.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "An event-specific configuration is needed, with the relevant hardware, interface, adaptation, tools, access mode, and settings."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The council ran a downloaded, quantized model on an available local laptop and used prompt engineering. Its hardware specifications, runtime, and quantization format remain unspecified."
         },
-        "reason": "The configuration used for Locally hosted Llama 2 business-classification proof of concept in this case is not separately established. The relevant hardware, interface, adaptation, tools, runtime settings, and deployment date need documentation; a generic product description is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original council account inspected: Overview, proof-of-concept results, and Challenges and learnings.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0577-source-0001"
+          ],
+          "reviewed_on": "2026-10-27",
+          "follow_up": "Obtain the laptop specifications, inference software, model file, and quantization parameters."
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The council ran a downloaded, quantized model on an available local laptop and used prompt engineering. Its hardware specifications, runtime, and quantization format remain unspecified."
+        }
       },
       "systems[].inputs_outputs": {
         "state": "unresolved",
@@ -1864,34 +1896,47 @@
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Warwickshire’s LLM achieved 63% classification accuracy versus 95% for a simpler method. Faster food-access mapping remains intended; improved food access is not established.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Llama 2. The exact variant remains uncertain."
         },
-        "reason": "The record identifies Locally hosted Llama 2 business-classification proof of concept, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Original council account inspected: Overview and Challenges and learnings.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0577-source-0001"
+          ],
+          "reviewed_on": "2026-10-27",
+          "follow_up": "Confirm the variant from the downloaded model identifier or local configuration."
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Llama 2. The exact variant remains uncertain."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Warwickshire’s LLM achieved 63% classification accuracy versus 95% for a simpler method. Faster food-access mapping remains intended; improved food access is not established.",
-          "record_fields": [
-            "summary"
+          "basis": "Council account: Challenges and learnings. Meta’s original Llama 2 model card: Variations. Both inspected on the review date.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0577-source-0001",
+            "https://github.com/meta-llama/llama/blob/llama_v2/MODEL_CARD.md"
           ],
-          "source_refs": [],
-          "follow_up": "An event-specific deployment log, archived interface, methods section, or checkpoint identifier is needed; hardware and paper revisions are insufficient."
+          "reviewed_on": "2026-10-27",
+          "follow_up": "Inspect the model filename, model card, or configuration used in the pilot before treating 13B or a particular Chat checkpoint as established."
         },
-        "reason": "No confirmed AI model release for Locally hosted Llama 2 business-classification proof of concept is assigned here. A deployment log, archived interface record, methods section, or other dated evidence is needed; a hardware generation or current product release cannot substitute.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The proposed reconstruction is plausible, but the complete configuration or exact model identity has not been confirmed.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A quantized Llama 2 13B variant is the most plausible reconstruction, but its checkpoint is unconfirmed.",
+          "editor_note": "The council’s label is “Llama2-12b.” Meta released 7B, 13B, and 70B variants, so 13B is the closest plausible correction if that label is a typo. The base-versus-Chat variant is also unknown."
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -2022,18 +2067,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 36,
-      "reviewed": 3,
+      "known": 38,
+      "reviewed": 6,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 6,
       "record_mapped": 33,
-      "review_not_assessed": 55,
+      "review_not_assessed": 52,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 36,
+        "value_present": 38,
         "not_reported": 0,
-        "unresolved": 55,
+        "unresolved": 53,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

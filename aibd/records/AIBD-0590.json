@@ -2126,16 +2126,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Northeastern’s library connected Claude to scholarly collections and reported better discovery in early use; learning gains have not been measured.",
-          "record_fields": [
-            "summary"
+          "basis": "Original account inspected: paragraphs describing the MCP server, secondary linking server, and replaceable model connection. The screenshot does not identify the client or model version.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0590-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "An event-specific configuration is needed, with the relevant hardware, interface, adaptation, tools, access mode, and settings."
+          "reviewed_on": "2026-10-27",
+          "follow_up": "Inspect the connector configuration and client metadata, including any system prompt, model adaptation, and permissions."
         },
-        "reason": "The configuration used for Northeastern University Library MCP server and Claude plugin in this case is not separately established. The relevant hardware, interface, adaptation, tools, runtime settings, and deployment date need documentation; a generic product description is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The proposed reconstruction is plausible, but the complete configuration or exact model identity has not been confirmed.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Most likely a standard Claude chat interface connected to separate library retrieval services, without a library-specific model retraining step. The client, model release, and runtime settings remain unconfirmed.",
+          "editor_note": "Cohen describes separate library servers and says that another model could replace Claude. That modular design supports this reconstruction, but it does not reveal every implementation detail."
+        }
       },
       "systems[].inputs_outputs": {
         "state": "unresolved",
@@ -2153,19 +2158,26 @@
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Northeastern’s library connected Claude to scholarly collections and reported better discovery in early use; learning gains have not been measured.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Claude, connected to Northeastern’s library services. The particular Claude model is not identified."
         },
-        "reason": "The record identifies Northeastern University Library MCP server and Claude plugin, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Dan Cohen’s original October 10, 2025 account inspected: paragraphs describing NUL + Claude and the library server. Its embedded demonstration image was also inspected and shows no model selector.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0590-source-0001"
+          ],
+          "reviewed_on": "2026-10-27",
+          "follow_up": "Obtain the demonstration’s model selector or conversation metadata before identifying a Sonnet, Opus, or Haiku release."
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Claude, connected to Northeastern’s library services. The particular Claude model is not identified."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -2312,18 +2324,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 39,
-      "reviewed": 19,
+      "known": 40,
+      "reviewed": 21,
       "reviewed_complete": 18,
-      "reviewed_partial": 1,
+      "reviewed_partial": 3,
       "record_mapped": 20,
-      "review_not_assessed": 52,
+      "review_not_assessed": 50,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 39,
+        "value_present": 40,
         "not_reported": 0,
-        "unresolved": 52,
+        "unresolved": 51,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,
