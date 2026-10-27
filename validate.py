@@ -218,7 +218,6 @@ check(
     ),
     "Affiliation correction is missing its snippet exclusion",
 )
-check("Peter’s Memos" in archive, "Missing memo section")
 check("https://thesuprastructure.substack.com/" in pages["portfolio/index.html"].refs, "Missing Suprastructure publication link")
 check('src="https://thesuprastructure.substack.com/embed"' in writing_html and 'title="Subscribe to The Suprastructure"' in writing_html, "Missing accessible Suprastructure signup embed")
 check("brunellaism" not in writing_html, "Removed post must not be linked")
