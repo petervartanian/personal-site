@@ -372,9 +372,25 @@
         "coverage": "partial"
       },
       "claims[].missingness": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The results rely heavily on user feedback and lack a randomized comparison or reported response denominator. Valuing two to four hours against license cost does not establish cash savings or net ROI after support, checking, and implementation costs. Returned licenses and acknowledged usage-dashboard inaccuracies qualify the positive reports."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Codex reviewed the retrieved source passages at LGA Somerset case study: “Early benefits and return on investment” and “Challenges and limitations”. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0560-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The results rely heavily on user feedback and lack a randomized comparison or reported response denominator. Valuing two to four hours against license cost does not establish cash savings or net ROI after support, checking, and implementation costs. Returned licenses and acknowledged usage-dashboard inaccuracies qualify the positive reports."
+        }
       },
       "claims[].proposition": {
         "state": "not_assessed",
@@ -700,21 +716,23 @@
       "outcomes[].status": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "benefit_status": "reported"
-          }
+          "kind": "text",
+          "text": "Somerset reports perceived productivity gains and task-time reductions in a voluntary Copilot pilot."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "benefit_status"
+          "kind": "source_review",
+          "basis": "Codex reviewed the retrieved source passages at LGA Somerset case study: “Early benefits and return on investment” and “Challenges and limitations”. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0560-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Somerset reports perceived productivity gains and task-time reductions in a voluntary Copilot pilot."
+        }
       },
       "outcomes[].tradeoffs": {
         "state": "not_assessed",
@@ -975,9 +993,46 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "reviewer": "Codex",
+            "scope": "Partial review of the retrieved passages only.",
+            "origins": [
+              {
+                "url": "https://www.local.gov.uk/case-studies/somerset-council-using-microsoft-copilot-improve-productivity",
+                "source_refs": [
+                  "AIBD-0560-source-0001"
+                ],
+                "locator": "LGA Somerset case study: “Early benefits and return on investment” and “Challenges and limitations”",
+                "contribution": "The LGA case study presents the council’s account of its own project. The underlying evaluation files, calculation worksheets, and independent replication were not reviewed."
+              }
+            ],
+            "retained_source_order": [
+              "AIBD-0560-source-0001"
+            ],
+            "unreviewed_source_refs": [],
+            "limitations": "The results rely heavily on user feedback and lack a randomized comparison or reported response denominator. Valuing two to four hours against license cost does not establish cash savings or net ROI after support, checking, and implementation costs. Returned licenses and acknowledged usage-dashboard inaccuracies qualify the positive reports. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
+            "lead_source_ref": "AIBD-0560-source-0001",
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+          }
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Codex reviewed the retrieved source passages at LGA Somerset case study: “Early benefits and return on investment” and “Challenges and limitations”. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0560-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The LGA case study presents the council’s account of its own project. The underlying evaluation files, calculation worksheets, and independent replication were not reviewed."
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1152,19 +1207,19 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 30,
-      "reviewed": 0,
+      "known": 32,
+      "reviewed": 3,
       "reviewed_complete": 0,
-      "reviewed_partial": 0,
-      "record_mapped": 30,
-      "review_not_assessed": 61,
-      "not_assessed": 61,
+      "reviewed_partial": 3,
+      "record_mapped": 29,
+      "review_not_assessed": 59,
+      "not_assessed": 59,
       "complete": false,
       "by_state": {
-        "value_present": 30,
+        "value_present": 32,
         "not_reported": 0,
         "unresolved": 0,
-        "not_assessed": 61,
+        "not_assessed": 59,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0

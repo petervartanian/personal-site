@@ -8,7 +8,7 @@
   "benefit_status": null,
   "source_collection": null,
   "source_entry": null,
-  "account": "The Government of Togo launched the Novissi emergency cash program on 8 April 2020. On 2 November 2020 it extended it to rural areas using a machine-learning pipeline built with UC Berkeley and IPA researchers. Satellite imagery produced poverty estimates for every canton to rank the poorest. Within eligible cantons a model trained on mobile-phone metadata predicted each subscriber's consumption to decide who was paid. Beneficiaries self-registered by USSD and received mobile-money installments of 8,170 CFA (women) or 7,000 CFA (men). The World Bank and Government of Togo report 138,531 rural beneficiaries from November 2020 to August 2021, funded by GiveDirectly (US$10 million). The Nature evaluation found phone-based targeting reduced exclusion errors by 4–21% relative to geographic alternatives.",
+  "account": "The Government of Togo launched the Novissi emergency cash program on 8 April 2020. On 2 November 2020 it extended it to rural areas using a machine-learning pipeline built with UC Berkeley and IPA researchers. Satellite imagery produced poverty estimates for every canton to rank the poorest. Within eligible cantons a model trained on mobile-phone metadata predicted each subscriber's consumption to decide who was paid. Beneficiaries self-registered by USSD and received mobile-money installments of 8,170 CFA (women) or 7,000 CFA (men). The World Bank and Government of Togo report 138,531 rural beneficiaries from November 2020 to August 2021, funded by GiveDirectly (US$10 million). The Nature evaluation found that phone-based targeting reduced exclusion errors by 4–21% relative to geographic alternatives. In a hypothetical comparison with methods requiring a comprehensive social registry, which Togo did not have, phone-based targeting increased exclusion errors by 9–35%.",
   "category": "benefit created",
   "unexpected": false,
   "purpose": "Prioritize the poorest cantons and the poorest mobile subscribers within them for COVID-19 emergency cash transfers in the absence of a social registry.",
@@ -169,6 +169,12 @@
       "change": "Organization name standardized to Innovations for Poverty Action.",
       "source": null,
       "editor": "AIBD"
+    },
+    {
+      "date": "2026-10-27",
+      "change": "Added the unfavorable hypothetical social-registry comparison alongside the favorable geographic comparison in the original evaluation.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8967719/",
+      "editor": "Codex-assisted review"
     }
   ],
   "confidence": "claimed",
@@ -178,7 +184,7 @@
   "profile": {
     "case_id": "AIBD-0093",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "77448671472da44e0b4790a875da6f9da6fe878d11942d8dda8a6b9513fc8e36",
+    "source_fingerprint": "fb002abf54bfb35d77add9ebf3d99fbe5caa3eb9ab7f4da3e7967a2e303af825",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -499,9 +505,31 @@
         "coverage": "partial"
       },
       "claims[].missingness": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The targeting advantage depends on the comparator. The original abstract reports fewer exclusion errors than geographic targeting but more than a hypothetical comprehensive social registry. Subscriber coverage and registration rules also limit who can receive aid. Better targeting is not itself a measured improvement in recipients' health or long-term income."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Codex individually compared the retained account, AI-role statement, source descriptions, and available quoted passages for this case on 2026-10-27. The retrieved abstract explicitly reports both the favorable geographic comparison and the unfavorable hypothetical-registry comparison. External access in this pass: Read the first 4,000 extracted characters, including the abstract and opening discussion; complete methods and program records were not read.",
+          "record_fields": [
+            "account",
+            "ai_role",
+            "evidence"
+          ],
+          "source_refs": [
+            "AIBD-0093-source-0001"
+          ],
+          "reviewed_on": "2026-10-27",
+          "attempted_on": "2026-10-27",
+          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The targeting advantage depends on the comparator. The original abstract reports fewer exclusion errors than geographic targeting but more than a hypothetical comprehensive social registry. Subscriber coverage and registration rules also limit who can receive aid. Better targeting is not itself a measured improvement in recipients' health or long-term income."
+        }
       },
       "claims[].proposition": {
         "state": "not_assessed",
@@ -782,7 +810,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "The Government of Togo launched the Novissi emergency cash program on 8 April 2020. On 2 November 2020 it extended it to rural areas using a machine-learning pipeline built with UC Berkeley and IPA researchers. Satellite imagery produced poverty estimates for every canton to rank the poorest. Within eligible cantons a model trained on mobile-phone metadata predicted each subscriber's consumption to decide who was paid. Beneficiaries self-registered by USSD and received mobile-money installments of 8,170 CFA (women) or 7,000 CFA (men). The World Bank and Government of Togo report 138,531 rural beneficiaries from November 2020 to August 2021, funded by GiveDirectly (US$10 million). The Nature evaluation found phone-based targeting reduced exclusion errors by 4–21% relative to geographic alternatives.",
+            "account": "The Government of Togo launched the Novissi emergency cash program on 8 April 2020. On 2 November 2020 it extended it to rural areas using a machine-learning pipeline built with UC Berkeley and IPA researchers. Satellite imagery produced poverty estimates for every canton to rank the poorest. Within eligible cantons a model trained on mobile-phone metadata predicted each subscriber's consumption to decide who was paid. Beneficiaries self-registered by USSD and received mobile-money installments of 8,170 CFA (women) or 7,000 CFA (men). The World Bank and Government of Togo report 138,531 rural beneficiaries from November 2020 to August 2021, funded by GiveDirectly (US$10 million). The Nature evaluation found that phone-based targeting reduced exclusion errors by 4–21% relative to geographic alternatives. In a hypothetical comparison with methods requiring a comprehensive social registry, which Togo did not have, phone-based targeting increased exclusion errors by 9–35%.",
             "benefit_type": "Increased Scalability"
           }
         },
@@ -849,9 +877,31 @@
         "coverage": "partial"
       },
       "outcomes[].status": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Cash transfers were implemented using machine-learning targeting. The study reports a comparator-dependent targeting advantage rather than universal superiority."
+        },
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Codex individually compared the retained account, AI-role statement, source descriptions, and available quoted passages for this case on 2026-10-27. The retrieved abstract explicitly reports both the favorable geographic comparison and the unfavorable hypothetical-registry comparison. External access in this pass: Read the first 4,000 extracted characters, including the abstract and opening discussion; complete methods and program records were not read.",
+          "record_fields": [
+            "account",
+            "ai_role",
+            "evidence"
+          ],
+          "source_refs": [
+            "AIBD-0093-source-0001"
+          ],
+          "reviewed_on": "2026-10-27",
+          "attempted_on": "2026-10-27",
+          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Cash transfers were implemented using machine-learning targeting. The study reports a comparator-dependent targeting advantage rather than universal superiority."
+        }
       },
       "outcomes[].tradeoffs": {
         "state": "not_assessed",
@@ -972,6 +1022,12 @@
                 "date": "2026-10-22",
                 "change": "Organization name standardized to Innovations for Poverty Action.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-27",
+                "change": "Added the unfavorable hypothetical social-registry comparison alongside the favorable geographic comparison in the original evaluation.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8967719/",
+                "editor": "Codex-assisted review"
               }
             ]
           }
@@ -1118,6 +1174,12 @@
                 "date": "2026-10-22",
                 "change": "Organization name standardized to Innovations for Poverty Action.",
                 "editor": "AIBD"
+              },
+              {
+                "date": "2026-10-27",
+                "change": "Added the unfavorable hypothetical social-registry comparison alongside the favorable geographic comparison in the original evaluation.",
+                "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8967719/",
+                "editor": "Codex-assisted review"
               }
             ]
           }
@@ -1279,9 +1341,30 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "not_assessed",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "state": "unresolved",
+        "provenance": {
+          "kind": "curatorial",
+          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. The Nature study supplies the targeting evaluation; government/World Bank and GiveDirectly accounts supply implementation and reach. The Nature abstract was read, but recipient counts, transfer records, and the full fairness analysis were not checked.",
+          "record_fields": [
+            "account",
+            "ai_role",
+            "evidence"
+          ],
+          "source_refs": [
+            "AIBD-0093-source-0001",
+            "AIBD-0093-source-0002",
+            "AIBD-0093-source-0003"
+          ],
+          "reviewed_on": "2026-10-27",
+          "attempted_on": "2026-10-27",
+          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+        },
+        "reason": "The Nature study supplies the targeting evaluation; government/World Bank and GiveDirectly accounts supply implementation and reach. The Nature abstract was read, but recipient counts, transfer records, and the full fairness analysis were not checked.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The Nature study supplies the targeting evaluation; government/World Bank and GiveDirectly accounts supply implementation and reach. The Nature abstract was read, but recipient counts, transfer records, and the full fairness analysis were not checked."
+        }
       },
       "strategic_assessments[]": {
         "state": "not_assessed",
@@ -1295,7 +1378,7 @@
           "kind": "record_fields",
           "fields": {
             "summary": "ML on satellite imagery and phone metadata set eligibility for Novissi rural cash; 138,531 beneficiaries paid, Nov 2020 to Aug 2021",
-            "account": "The Government of Togo launched the Novissi emergency cash program on 8 April 2020. On 2 November 2020 it extended it to rural areas using a machine-learning pipeline built with UC Berkeley and IPA researchers. Satellite imagery produced poverty estimates for every canton to rank the poorest. Within eligible cantons a model trained on mobile-phone metadata predicted each subscriber's consumption to decide who was paid. Beneficiaries self-registered by USSD and received mobile-money installments of 8,170 CFA (women) or 7,000 CFA (men). The World Bank and Government of Togo report 138,531 rural beneficiaries from November 2020 to August 2021, funded by GiveDirectly (US$10 million). The Nature evaluation found phone-based targeting reduced exclusion errors by 4–21% relative to geographic alternatives."
+            "account": "The Government of Togo launched the Novissi emergency cash program on 8 April 2020. On 2 November 2020 it extended it to rural areas using a machine-learning pipeline built with UC Berkeley and IPA researchers. Satellite imagery produced poverty estimates for every canton to rank the poorest. Within eligible cantons a model trained on mobile-phone metadata predicted each subscriber's consumption to decide who was paid. Beneficiaries self-registered by USSD and received mobile-money installments of 8,170 CFA (women) or 7,000 CFA (men). The World Bank and Government of Togo report 138,531 rural beneficiaries from November 2020 to August 2021, funded by GiveDirectly (US$10 million). The Nature evaluation found that phone-based targeting reduced exclusion errors by 4–21% relative to geographic alternatives. In a hypothetical comparison with methods requiring a comprehensive social registry, which Togo did not have, phone-based targeting increased exclusion errors by 9–35%."
           }
         },
         "provenance": {
@@ -1468,7 +1551,7 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "77448671472da44e0b4790a875da6f9da6fe878d11942d8dda8a6b9513fc8e36"
+            "fb002abf54bfb35d77add9ebf3d99fbe5caa3eb9ab7f4da3e7967a2e303af825"
           ],
           "role": "SHA-256 of normalized original case data"
         },
@@ -1486,7 +1569,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "The Government of Togo launched the Novissi emergency cash program on 8 April 2020. On 2 November 2020 it extended it to rural areas using a machine-learning pipeline built with UC Berkeley and IPA researchers. Satellite imagery produced poverty estimates for every canton to rank the poorest. Within eligible cantons a model trained on mobile-phone metadata predicted each subscriber's consumption to decide who was paid. Beneficiaries self-registered by USSD and received mobile-money installments of 8,170 CFA (women) or 7,000 CFA (men). The World Bank and Government of Togo report 138,531 rural beneficiaries from November 2020 to August 2021, funded by GiveDirectly (US$10 million). The Nature evaluation found phone-based targeting reduced exclusion errors by 4–21% relative to geographic alternatives.",
+            "account": "The Government of Togo launched the Novissi emergency cash program on 8 April 2020. On 2 November 2020 it extended it to rural areas using a machine-learning pipeline built with UC Berkeley and IPA researchers. Satellite imagery produced poverty estimates for every canton to rank the poorest. Within eligible cantons a model trained on mobile-phone metadata predicted each subscriber's consumption to decide who was paid. Beneficiaries self-registered by USSD and received mobile-money installments of 8,170 CFA (women) or 7,000 CFA (men). The World Bank and Government of Togo report 138,531 rural beneficiaries from November 2020 to August 2021, funded by GiveDirectly (US$10 million). The Nature evaluation found that phone-based targeting reduced exclusion errors by 4–21% relative to geographic alternatives. In a hypothetical comparison with methods requiring a comprehensive social registry, which Togo did not have, phone-based targeting increased exclusion errors by 9–35%.",
             "replication": {
               "produced_by": [
                 "Satellite-imagery poverty map ranking cantons",
@@ -1527,19 +1610,19 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 34,
-      "reviewed": 0,
+      "known": 36,
+      "reviewed": 3,
       "reviewed_complete": 0,
-      "reviewed_partial": 0,
+      "reviewed_partial": 3,
       "record_mapped": 34,
-      "review_not_assessed": 57,
-      "not_assessed": 57,
+      "review_not_assessed": 54,
+      "not_assessed": 54,
       "complete": false,
       "by_state": {
-        "value_present": 34,
+        "value_present": 36,
         "not_reported": 0,
-        "unresolved": 0,
-        "not_assessed": 57,
+        "unresolved": 1,
+        "not_assessed": 54,
         "not_applicable": 0,
         "withheld": 0,
         "source_unavailable": 0
