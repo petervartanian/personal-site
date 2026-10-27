@@ -14,8 +14,8 @@ DATA = json.loads((ROOT / 'content/site.json').read_text())
 PUBLIC_PROJECTS = json.loads((ROOT / 'content/public-pages.json').read_text())
 SCHOLARLY_PUBLICATIONS = load_publications(ROOT)
 OMPHALOS_PAGE = browser_page(ROOT)
-NAV = [('home', 'Home', '/'), ('writing', 'Writing', '/portfolio/'), ('cv', 'CV', '/cv/'), ('contact', 'Contact', '/contact/')]
-COLORS = {'home': '#ffffff', 'writing': '#faf8fd', 'publication': '#faf8fd', 'cv': '#fffaf5', 'contact': '#f7fbf8', 'site-index': '#ffffff'}
+NAV = [('home', 'Home', '/'), ('writing', 'Writing', '/portfolio/'), ('artifacts', 'Artifacts', '/artifacts/'), ('cv', 'CV', '/cv/'), ('contact', 'Contact', '/contact/')]
+COLORS = {'home': '#ffffff', 'writing': '#faf8fd', 'publication': '#faf8fd', 'artifacts': '#f5f9fc', 'cv': '#fffaf5', 'contact': '#f7fbf8', 'site-index': '#ffffff'}
 PERSONAL_PAGES = [{'title': label, 'path': path} for _, label, path in NAV]
 PROJECT_PAGES = PUBLIC_PROJECTS + ([OMPHALOS_PAGE] if OMPHALOS_PAGE else [])
 SITE_INDEX_PAGES = PERSONAL_PAGES + PROJECT_PAGES
@@ -42,7 +42,7 @@ def structured_data(key, title, description, path):
         'url': SITE_URL + '/', 'publisher': {'@id': person['@id']},
     }
     page_data = {
-        '@type': {'home': 'ProfilePage', 'writing': 'CollectionPage',
+        '@type': {'home': 'ProfilePage', 'writing': 'CollectionPage', 'artifacts': 'CollectionPage',
                   'publication': 'WebPage', 'cv': 'ProfilePage', 'contact': 'ContactPage', 'site-index': 'CollectionPage'}[key],
         '@id': SITE_URL + path + '#webpage', 'url': SITE_URL + path,
         'name': title, 'description': description, 'inLanguage': 'en-US',
@@ -58,6 +58,18 @@ def structured_data(key, title, description, path):
             'itemListElement': [
                 {'@type': 'ListItem', 'position': i, 'name': work['title'], 'url': work['url']}
                 for i, work in enumerate(DATA['writings'], 1)
+            ],
+        }
+    if key == 'artifacts':
+        page_data['mainEntity'] = {
+            '@type': 'ItemList', 'numberOfItems': len(DATA['artifacts']),
+            'itemListElement': [
+                {
+                    '@type': 'ListItem', 'position': i,
+                    'name': artifact['title'], 'description': artifact['description'],
+                    'url': SITE_URL + artifact['url'] if artifact['url'].startswith('/') else artifact['url'],
+                }
+                for i, artifact in enumerate(DATA['artifacts'], 1)
             ],
         }
     if key == 'site-index':
@@ -89,7 +101,9 @@ def page(key, title, description, body, path, *, search_title=None, indexable=Tr
     for i, (k, label, url) in enumerate(NAV):
         if i:
             nav_parts.append('<span class="nav-divider" aria-hidden="true"></span>')
-        nav_parts.append(f'<a href="{url}"'+(' aria-current="page"' if key == k else '')+f'>{label}</a>')
+        nav_class = ' class="nav-artifacts" aria-label="Working artifacts"' if k == 'artifacts' else ''
+        nav_label = '<span class="nav-kicker">working</span>' + label if k == 'artifacts' else label
+        nav_parts.append(f'<a href="{url}"{nav_class}'+(' aria-current="page"' if key == k else '')+f'>{nav_label}</a>')
     nav = '\n'.join(nav_parts)
     name_tag = 'h1' if key == 'home' and path == '/' else 'div'
     name = 'Peter H<span class="name-anchor">.<span class="name-baseline" aria-hidden="true"></span></span> Vartanian' if key == 'home' else 'Peter H. Vartanian'
@@ -100,7 +114,7 @@ def page(key, title, description, body, path, *, search_title=None, indexable=Tr
     search_title = search_title or f'{title} — {SITE_NAME}'
     robots = 'index, follow, max-image-preview:large' if indexable else 'noindex, follow'
     schema = structured_data(key, search_title, description, path) if indexable else ''
-    footer_links = ''
+    footer_links = ' / <a href="/site-index/">Site index</a>' if key != 'site-index' else ''
     if key == 'home' and path == '/':
         if OMPHALOS_PAGE:
             footer_links += ' / <a href="/omphalos/">omphalOS</a>'
@@ -291,7 +305,24 @@ writing += '''<section class="memos"><h2><a href="https://substack.com/@petersme
 <ul class="memo-outline" role="list"><li><span class="memo-mark" aria-hidden="true">¶</span><p>In Kevin Roose’s <a href="https://us.macmillan.com/books/9780374618766/theagichronicles/"><em>The AGI Chronicles</em></a>, researchers and founders circulate memos to develop ideas and submit them to scrutiny.</p>
 <ul role="list"><li><span class="memo-mark" aria-hidden="true">↳</span><p>My Substack, <a href="https://substack.com/@petersmemos">Peter’s Memos</a>, borrows that form to keep my penchant for long-form writing from yielding a <em>Nachlass</em> of unfinished drafts.</p></li></ul>
 </li></ul></section>'''
+writing += '''<section class="substack-publication" aria-labelledby="suprastructure-title">
+<h2 id="suprastructure-title"><a href="https://thesuprastructure.substack.com/">The Suprastructure</a></h2>
+<p>How infrastructures make a world together... and what that world makes of us.</p>
+<iframe src="https://thesuprastructure.substack.com/embed" title="Subscribe to The Suprastructure" width="480" height="320" loading="lazy"></iframe>
+</section>'''
 page('writing', 'Writing', 'Writing by Peter H. Vartanian on AI, international security, critical minerals, energy policy, and law, with links to publications and Peter’s Memos.', writing, '/portfolio/', search_title='Writing on AI, Security & Policy | Peter H. Vartanian')
+
+artifacts = '''<h1 class="artifact-heading"><span>working</span>Artifacts</h1>
+<p class="artifact-intro">Working databases and tools, with public versions that you can explore.</p>
+<ul class="artifact-list">'''
+for artifact in DATA['artifacts']:
+    artifacts += f'''<li class="artifact-entry">
+  <p class="artifact-kind">{e(artifact['kind'])}</p>
+  <div><h2><a href="{e(artifact['url'])}">{e(artifact['title'])}</a></h2>
+  <p>{e(artifact['description'])}</p></div>
+</li>'''
+artifacts += '</ul>'
+page('artifacts', 'Working artifacts', 'Databases, interactive maps, and research tools by Peter H. Vartanian, with links to the AI Benefits Database, chygraph, and omphalOS.', artifacts, '/artifacts/', search_title='Working Artifacts & Research Tools | Peter H. Vartanian')
 
 for work in SCHOLARLY_PUBLICATIONS:
     page('publication', work['title'], work['description'], publication_body(work), work['path'], extra_head=publication_head(work, SITE_URL))
@@ -454,8 +485,8 @@ page(
     '/site-index/',
 )
 
-# Preserve old bookmarks, without publishing an empty collection.
-for old, destination in [('artifacts', '/portfolio/'), ('writing', '/portfolio/')]:
+# Preserve the former writing address.
+for old, destination in [('writing', '/portfolio/')]:
     directory = ROOT / old
     directory.mkdir(exist_ok=True)
     (directory / 'index.html').write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url={destination}"><link rel="canonical" href="https://petervartanian.xyz{destination}"><meta name="robots" content="noindex"><title>Page moved</title></head><body><p>This page has moved. <a href="{destination}">Continue to writing.</a></p></body></html>')
@@ -477,4 +508,4 @@ manifest = json.loads((ROOT / 'site.webmanifest').read_text())
 manifest.update(description='Research and writing by Peter H. Vartanian.', background_color=COLORS['home'], theme_color=COLORS['home'])
 manifest.pop('screenshots', None)
 (ROOT / 'site.webmanifest').write_text(json.dumps(manifest, indent=2) + '\n')
-print(f'Built four personal pages, {len(SCHOLARLY_PUBLICATIONS)} scholarly publication page(s), site index, redirects, 404, and site metadata.')
+print(f'Built {len(NAV)} personal pages, {len(SCHOLARLY_PUBLICATIONS)} scholarly publication page(s), site index, redirects, 404, and site metadata.')

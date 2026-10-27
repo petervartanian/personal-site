@@ -1,4 +1,4 @@
-import ast, json
+import ast, json, sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 root=Path(__file__).resolve().parents[1]
@@ -9,7 +9,8 @@ parts=next(ast.literal_eval(n.value) for n in tree.body if isinstance(n,ast.Assi
 scales=next(ast.literal_eval(n.value) for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='piece_scales' for t in n.targets))
 fontpath=str(root/'assets/fonts/SortsMillGoudy-Regular.ttf')
 S=2
-palettes={'home':('#ffffff','#3f3544','#755276'),'writing':('#faf8fd','#483639','#884d5a'),'cv':('#fffaf5','#303d4e','#46698a'),'contact':('#f7fbf8','#473b50','#785987')}
+palettes={'home':('#ffffff','#3f3544','#755276'),'writing':('#faf8fd','#483639','#884d5a'),'artifacts':('#f5f9fc','#334653','#376d83'),'cv':('#fffaf5','#303d4e','#46698a'),'contact':('#f7fbf8','#473b50','#785987')}
+selected=sys.argv[1:] or list(palettes)
 
 def smallcaps(draw,text,pos,size,fill):
  x,y=pos
@@ -25,6 +26,7 @@ def shape(i,x,y,scale=1,rotate=0):
  return f'<g transform="translate({x} {y}) rotate({rotate}) scale({s})">{svg}</g>'
 
 for key,(paper,ink,accent) in palettes.items():
+ if key not in selected: continue
  canvas=Image.new('RGB',(1200*S,630*S),paper)
  # Center the visible glyph bounds, rather than the font's line box.
  name_layer=Image.new('RGBA',(1200*S,150*S))
@@ -32,7 +34,7 @@ for key,(paper,ink,accent) in palettes.items():
  name_layer=name_layer.crop(name_layer.getbbox())
  layers=[name_layer]
  if key!='home':
-  label={'writing':'Writing','cv':'Curriculum Vitæ','contact':'Contact'}[key]
+  label={'writing':'Writing','artifacts':'Working artifacts','cv':'Curriculum Vitæ','contact':'Contact'}[key]
   label_layer=Image.new('RGBA',(1200*S,120*S))
   ImageDraw.Draw(label_layer).text((0,75*S),label,font=ImageFont.truetype(fontpath,44*S),fill=accent,anchor='ls')
   layers.append(label_layer.crop(label_layer.getbbox()))
@@ -58,6 +60,7 @@ for key,(paper,ink,accent) in palettes.items():
   # Each companion card quotes a different fragment of the same mobile.
   positions={
    'writing':[(0,991,189,1.9,8),(8,813,394,1.1,-12),(13,1050,505,1.7,8),(9,720,476,1.15,-9)],
+   'artifacts':[(5,1012,284,1.85,-12),(11,798,424,1.65,6),(14,1096,480,1.8,12),(6,890,548,1.1,-5)],
    'cv':[(2,987,306,2.05,-9),(6,826,459,1.6,0),(10,795,188,1.25,6),(11,1121,482,1.5,0)],
    'contact':[(1,1020,280,1.95,-10),(4,788,428,1.2,8),(14,1102,464,1.45,-7),(12,889,550,1.1,7)]
   }[key]
@@ -71,7 +74,7 @@ for key,(paper,ink,accent) in palettes.items():
   art.append('</g>')
   art += [shape(i,x,y,s,r) for i,x,y,s,r in positions]
  if key!='home':
-  corner={'writing':'translate(480 -90) scale(.6)','cv':'translate(720 630) scale(-.6 -.6)','contact':'translate(1620 630) scale(-.6 -.6)'}[key]
+  corner={'writing':'translate(480 -90) scale(.6)','artifacts':'translate(480 -85) scale(.6)','cv':'translate(720 630) scale(-.6 -.6)','contact':'translate(1620 630) scale(-.6 -.6)'}[key]
   art=['<g transform="'+corner+'">']+art+['</g>']
  svg='<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">'+''.join(art)+'</svg>'
  (out/f'{key}-art.svg').write_text(svg)
