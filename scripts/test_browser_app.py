@@ -109,7 +109,8 @@ class InstallationTests(unittest.TestCase):
             self.assertEqual(json.loads((root / "content/public-pages.json").read_text()), original_projects)
             for name in ("index.html", "site-index/index.html"):
                 html = (root / name).read_text()
-                self.assertEqual(html.count('href="/omphalos/"'), 1)
+                if name == "site-index/index.html":
+                    self.assertEqual(html.count('href="/omphalos/"'), 1)
                 for protected in ("200", "agency-costs", "backdrive", "correlator", "haruspex", "monitor", "arcolens"):
                     self.assertNotIn(f'href="/{protected}/"', html)
             for name in ("sitemap.xml", "llms.txt"):

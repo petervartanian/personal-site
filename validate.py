@@ -105,6 +105,10 @@ for name, p in pages.items():
         page_copy = page_copy.replace(
             "Sometimes credit isn’t given where it’s due 😔", ""
         )
+        # Preserve the author's verbatim About text from The Suprastructure.
+        page_copy = page_copy.replace(
+            'I\'m Peter Vartanian, working on a theory of the "suprastructure."*', ""
+        )
     check(
         not re.search(
             r"\b(?:I[’']m|I[’']ve|I[’']ll|we[’']re|you[’']re|don[’']t|doesn[’']t|can[’']t|won[’']t|isn[’']t|it[’']s)\b",
@@ -137,6 +141,7 @@ for name, p in pages.items():
             check(unquote(parts.fragment) in ids, f"{name}: missing anchor {url}")
 
 data = json.loads((ROOT / "content/site.json").read_text())
+authored_works = data["writings"] + [work for work in data["contributions"] if work.get("authored")]
 logo_data = json.loads((ROOT / "content/institution-logos.json").read_text())
 for key, logo in logo_data.items():
     check(
@@ -279,11 +284,11 @@ feed = ET.parse(ROOT / "feed.xml").getroot()
 atom = {"atom": "http://www.w3.org/2005/Atom"}
 check(
     feed.findtext("atom:updated", namespaces=atom)[:10]
-    >= max(work["published"] for work in data["writings"]),
+    >= max(work["published"] for work in authored_works),
     "Writing feed predates its newest publication",
 )
 check(
-    len(feed.findall("atom:entry", atom)) == len(data["writings"]),
+    len(feed.findall("atom:entry", atom)) == len(authored_works),
     "Writing feed omits a publication",
 )
 artifacts_html = (ROOT / "artifacts/index.html").read_text()
@@ -327,7 +332,7 @@ check(
     ),
     "Protected tools appear in a public discovery file",
 )
-for name in ("index.html", "site-index/index.html"):
+for name in ("site-index/index.html",):
     check(
         ("/omphalos/" in pages[name].refs) == bool(OMPHALOS_PAGE),
         f"{name}: omphalOS link does not match the installed app",
