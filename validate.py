@@ -105,10 +105,6 @@ for name, p in pages.items():
         page_copy = page_copy.replace(
             "Sometimes credit isn’t given where it’s due 😔", ""
         )
-        # Preserve the author's verbatim About text from The Suprastructure.
-        page_copy = page_copy.replace(
-            'I\'m Peter Vartanian, working on a theory of the "suprastructure."*', ""
-        )
     check(
         not re.search(
             r"\b(?:I[’']m|I[’']ve|I[’']ll|we[’']re|you[’']re|don[’']t|doesn[’']t|can[’']t|won[’']t|isn[’']t|it[’']s)\b",
