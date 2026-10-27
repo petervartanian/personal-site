@@ -309,7 +309,7 @@ writing += '<li class="contribution-group"><h3 id="uncredited-editing-title"><sp
 writing += '''<section class="substack-publication" aria-labelledby="suprastructure-title">
 <h2 id="suprastructure-title"><a href="https://thesuprastructure.substack.com/"><img class="suprastructure-masthead" src="/assets/suprastructure/masthead.svg" width="2688" height="320" alt="The Suprastructure" loading="lazy"></a></h2>
 <div class="substack-about">
-<p>I'm Peter Vartanian, working on a theory of the "suprastructure."*</p>
+<p>I am working on a theory of the "suprastructure."*</p>
 <p>I write about how infrastructures (AI, energy, logistics, finance, law, SEZs, etc.) make a world together... and what that world makes of us.</p>
 <p>*For now, my working definition is the infrastructure of infrastructures. But, that may just be my geopolitical instincts talking. So, join me as I develop the theory by putting it to work!</p>
 </div>
