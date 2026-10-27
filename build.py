@@ -307,8 +307,10 @@ uncredited_editing = [work for work in DATA['contributions'] if work.get('has_un
 writing += '<section class="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">Other contributions</h2><ul class="contribution-list">' + ''.join(contribution_row(work) for work in credited_contributions)
 writing += '<li class="contribution-group"><h3 id="uncredited-editing-title"><span data-nosnippet>Sometimes credit isn’t given where it’s due 😔</span></h3><ul class="contribution-sublist" aria-labelledby="uncredited-editing-title">' + ''.join(contribution_row(work) for work in uncredited_editing) + '</ul></li></ul></section>'
 writing += '''<hr class="writing-divider">
+<section class="substack-section" aria-labelledby="substack-title">
+<h2 id="substack-title">Substack</h2>
 <section class="substack-publication" aria-labelledby="suprastructure-title">
-<h2 id="suprastructure-title"><a href="https://thesuprastructure.substack.com/"><img class="suprastructure-masthead" src="/assets/suprastructure/masthead.svg" width="2688" height="320" alt="The Suprastructure" loading="lazy"></a></h2>
+<h3 id="suprastructure-title"><a href="https://thesuprastructure.substack.com/"><img class="suprastructure-masthead" src="/assets/suprastructure/masthead.svg" width="2688" height="320" alt="The Suprastructure" loading="lazy"></a></h3>
 <div class="substack-about">
 <p>I am working on a theory of the "suprastructure."*</p>
 <p>I write about how infrastructures (AI, energy, logistics, finance, law, SEZs, etc.) make a world together... and what that world makes of us.</p>
@@ -316,6 +318,7 @@ writing += '''<hr class="writing-divider">
 </div>
 <iframe src="https://thesuprastructure.substack.com/embed" title="Subscribe to The Suprastructure" width="480" height="320" loading="lazy"></iframe>
 <p class="substack-visit"><a href="https://thesuprastructure.substack.com/">Read The Suprastructure <span aria-hidden="true">↗</span></a></p>
+</section>
 </section>'''
 page('writing', 'Writing', 'Writing by Peter H. Vartanian on AI, international security, critical minerals, energy policy, and law, with links to publications and The Suprastructure.', writing, '/portfolio/', search_title='Writing on AI, Security & Policy | Peter H. Vartanian')
 
