@@ -42,7 +42,7 @@ body.money-page::before {
 /* END GENERATED IMAGE VARIANTS */
 
 /* Fructus: a monetary register beside the case that gives each amount meaning. */
-.money-page { --collection-ink: #5d463c; --money-ink: #584a34; --money-amount: #64434f; }
+.money-page { --collection-ink: #5d463c; --money-ink: #584a34; --money-amount: #64434f; --money-pad: clamp(20px, 3vw, 40px); }
 .money-collection { min-width: 0; }
 .money-opening { display: grid; grid-template-columns: minmax(0, 55%) minmax(0, 1fr); min-height: 350px; margin: 16px 0; padding-top: 48px; }
 .money-head { align-self: end; padding: 34px 42px 31px; }
@@ -54,17 +54,17 @@ body.money-page::before {
 .money-description { max-width: 22rem; margin: 0; font: 22px/29px var(--serif); }
 .money-opening-count { display: flex; flex-wrap: wrap; gap: 5px 21px; margin: 26px 0 0; color: var(--ink-3); font: 12px/20px var(--mono); }
 .money-window { min-width: 0; min-height: 250px; }
-.money-register { padding: 34px 42px 38px; }
-.money-filters { display: flex; align-items: baseline; flex-wrap: wrap; gap: 14px 27px; padding: 0 0 17px; border-bottom: var(--rule-width) solid var(--rule); font: 14px/22px var(--sans); }
-.money-filters label { display: inline-flex; align-items: baseline; gap: 9px; color: var(--ink-2); min-width: 0; }
+.money-register { padding: 32px var(--money-pad); }
+.money-filters { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; padding: 0 0 16px; border-bottom: var(--rule-width) solid var(--rule); font: 14px/22px var(--sans); }
+.money-filters label { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-2); min-width: 0; }
 .money-filters .money-search { flex: 1 1 300px; }
-.money-search input { width: 100%; }
-.money-filters select { max-width: 230px; }
+.money-search input { width: 100%; min-width: 0; min-height: 44px; font-size: 16px; }
+.money-filters select { min-width: 0; max-width: min(100%, 230px); min-height: 44px; font-size: 16px; }
 .money-filter-more { color: var(--ink-2); }
-.money-filter-more > summary { cursor: pointer; width: fit-content; padding: 8px 0; }
+.money-filter-more > summary { cursor: pointer; width: fit-content; min-height: 44px; padding: 10px 0; }
 .money-filter-more[open] { flex-basis: 100%; }
-.money-filter-more > div { display: flex; flex-wrap: wrap; gap: 14px 27px; padding: 5px 0 1px; }
-.money-currencies { flex-basis: 100%; min-width: 0; margin: 3px 0 0; padding: 0; border: 0; }
+.money-filter-more > div { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 16px 24px; padding: 12px 0 0; }
+.money-currencies { grid-column: 1 / -1; flex-basis: 100%; min-width: 0; margin: 0; padding: 0; border: 0; }
 .money-currencies legend { margin-bottom: 8px; padding: 0; }
 .money-currency-options { display: flex; flex-wrap: wrap; gap: 5px 22px; }
 .money-currency-options label { align-items: center; min-height: 36px; cursor: pointer; }
@@ -72,8 +72,8 @@ body.money-page::before {
 .money-currency-count { color: var(--ink-3); }
 .money-currencies p { margin: 7px 0 0; font: 12px/20px var(--sans); color: var(--ink-3); }
 .money-currencies .textbtn { margin-left: 8px; }
-.money-list-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; margin: 15px 0 14px; font: 12px/20px var(--sans); }
-.money-list-head > label { display: inline-flex; gap: 9px; color: var(--ink-2); align-items: baseline; }
+.money-list-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; margin: 16px 0; font: 14px/22px var(--sans); }
+.money-list-head > label { display: inline-flex; min-width: 0; gap: 8px; color: var(--ink-2); align-items: center; }
 .money-list-head .money-order { margin-left: auto; }
 .money-list-head .money-usd { align-items: center; min-height: 36px; cursor: pointer; }
 .money-usd input { appearance: none; flex: 0 0 auto; width: 31px; height: 18px; padding: 0; margin: 0; border: var(--rule-width) solid var(--rule); border-radius: 10px; background: var(--paper); position: relative; cursor: pointer; }
@@ -81,7 +81,7 @@ body.money-page::before {
 .money-usd input:checked { background: #eef1e8; border-color: var(--rule); }
 .money-usd input:checked::before { left: 16px; background: #536143; }
 .money-usd-basis { margin: -3px 0 18px; font: 12px/20px var(--sans); color: var(--ink-3); }
-.money-list-head select { font-size: inherit; }
+.money-list-head select { min-width: 0; max-width: 100%; min-height: 44px; font-size: 16px; }
 .money-section { scroll-margin-top: 20px; }
 .money-section + .money-section { margin-top: 42px; }
 .money-section > h2, .money-category-head h2 { font: 400 30px/36px var(--serif); color: var(--money-ink); }
@@ -94,7 +94,7 @@ body.money-page::before {
 .money-results > li:target { outline: var(--rule-width) solid var(--rule); outline-offset: 7px; }
 .money-row-body, .money-claim-head, .money-case-identity { min-width: 0; }
 .money-claim-head { margin-bottom: 23px; }
-.money-claim-head h3 { max-width: 50rem; font: 400 26px/33px var(--serif); }
+.money-claim-head h3 { max-width: 50rem; font: 400 26px/34px var(--serif); text-wrap: balance; overflow-wrap: break-word; }
 .money-claim-head h3 a { text-decoration: none; }
 .money-claim-head h3 a:hover { text-decoration: underline; text-decoration-color: var(--rule); text-decoration-thickness: var(--rule-width); }
 .money-claim-head > .collection-date { margin: 0 0 8px; font: 12px/20px var(--sans); color: var(--ink-3); }
@@ -146,7 +146,7 @@ body.money-page::before {
   .money-head { padding: 30px 34px; }
   .money-head h1 { font-size: 72px; }
   .money-cornucopia { width: 84px; height: 58px; }
-  .money-register { padding: 29px 32px 32px; }
+  .money-register { padding: 28px var(--money-pad) 32px; }
   .money-entry-grid { grid-template-columns: minmax(0, 34%) minmax(0, 1fr); gap: 25px; }
   .money-ledger { padding-right: 20px; }
   .money-amount .metric { font-size: 34px; }
@@ -155,13 +155,13 @@ body.money-page::before {
 @media (max-width: 700px) {
   body.money-page::before { background-position: 26% center; }
   .money-opening { display: flex; flex-direction: column; min-height: 0; margin: 12px 0; padding-top: 0; }
-  .money-head { align-self: stretch; order: 2; margin-top: 0; padding: 27px 24px 25px; }
+  .money-head { align-self: stretch; order: 2; margin-top: 0; padding: 24px var(--money-pad); }
   .money-window { order: 1; min-height: 138px; }
   .money-head h1 { margin: 10px 0 13px; font-size: clamp(55px, 13.5vw, 76px); gap: 12px; }
   .money-cornucopia { width: 76px; height: 53px; }
   .money-description { font-size: 21px; line-height: 28px; max-width: 18rem; }
   .money-opening-count { margin-top: 22px; gap: 4px 17px; }
-  .money-register { padding: 25px 24px 28px; }
+  .money-register { padding: 24px var(--money-pad) 28px; }
   .money-filters { gap: 8px 24px; }
   .money-filters .money-search { flex-basis: 100%; }
   .money-filters label { max-width: 100%; }
@@ -190,7 +190,7 @@ body.money-page::before {
   .money-facts > div { grid-template-columns: 1fr; gap: 3px; }
 }
 @media (max-width: 380px) {
-  .money-head, .money-register { padding-left: 18px; padding-right: 18px; }
+  .money-head, .money-register { padding-left: var(--money-pad); padding-right: var(--money-pad); }
   .money-head h1 { font-size: 55px; }
   .money-cornucopia { width: 64px; height: 44px; }
   .money-window { min-height: 113px; }
@@ -214,4 +214,23 @@ body.money-page::before {
 .money-case-foot .case-select { margin-left: auto; }
 @media (max-width: 700px) {
   .money-case-foot .case-select { margin-left: 0; }
+}
+
+/* Clear type and aligned controls keep the monetary register continuous. */
+.money-description, .money-detail-body p, .money-data p { text-wrap: pretty; }
+.money-head h1 { letter-spacing: -.025em; }
+.money-filter-more > div > label { display: grid; align-content: start; gap: 4px; }
+.money-filter-more > div > label select { width: 100%; max-width: none; }
+.money-filter-more summary:hover, .money-detail summary:hover, .money-data summary:hover { color: var(--ink); }
+.money-filter-more summary:focus-visible, .money-detail summary:focus-visible, .money-data summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.money-opening-count, .money-currencies p, .money-usd-basis, .money-claim-head > .collection-date, .money-amount .meta, .money-conversion, .money-claim-sources, .money-reviewed, .money-source .meta, .money-detail-body .money-identifier, .money-data .money-art-credit { font-size: 13px; line-height: 20px; }
+.money-list-head [data-dv-count] { margin-right: auto; font-size: 13px; }
+.money-section-note, .money-case, .money-case-evidence { font-size: 14px; line-height: 22px; }
+.money-detail > summary, .money-data > summary { min-height: 44px; padding: 10px 0; font-size: 14px; line-height: 22px; }
+@media (max-width: 700px) {
+  .money-list-head [data-dv-count] { flex-basis: 100%; }
+  .money-list-head .money-usd { margin-left: 0; }
+  .money-filter-more > div { grid-template-columns: minmax(0, 1fr); }
+  .money-claim-head { margin-bottom: 20px; }
+  .money-entry-grid { gap: 24px; }
 }

@@ -57,42 +57,74 @@
   .profile-values .profile-values{padding-left:10px}
 }
 
-/* Short answers remain in the record, with qualifications beside the answer. */
-.record-fields-page .record-head{padding-top:16px;padding-bottom:24px}
-.record-fields-page .record-head h1{font-size:clamp(30px,3vw,40px);max-width:32ch}
-.record-fields-page .record-head .sum{font-size:18px;line-height:26px}
-.record-fields-body{min-width:0}
-.embedded-fields{scroll-margin-top:24px}
-.field-group{padding:22px 0;border-bottom:var(--rule-width) solid var(--rule)}
-.field-group h2,.record-references h2{font:500 23px/30px var(--serif);margin:0 0 14px}
-.field-rows{margin:0}
-.field-row{display:grid;grid-template-columns:190px minmax(0,1fr);gap:24px;padding:7px 0;scroll-margin-top:24px}
-.field-row dt{font:500 13px/21px var(--sans);color:var(--ink-2)}
-.field-row dd{margin:0;min-width:0}
-.field-answer{font-size:15px;line-height:22px;overflow-wrap:anywhere}
-.field-row p{max-width:none;margin:0;text-align:justify;text-align-last:left;hyphens:auto;-webkit-hyphens:auto}
-.field-row .field-editor-note{margin-top:4px;font-size:13px;line-height:20px;color:var(--ink-2)}
-.field-editor-note em{font-style:italic}
-.field-source-links{font-size:11px;line-height:1;vertical-align:super;white-space:normal}
-.field-source-links a{white-space:nowrap}
-.field-row .field-related-link{margin-top:4px;font-size:13px;line-height:20px}
-.field-identity{display:inline-flex;align-items:center;gap:6px;max-width:100%;vertical-align:middle;line-height:22px;text-align:left}
-.field-identity img{display:block;flex:none;object-fit:contain;margin:0}
-.field-identity>span{min-width:0}
-.record-references{padding-top:24px}
-.compact-sources{margin:0;padding-left:25px;font-size:13px;line-height:20px}
-.compact-sources li{padding:0 0 10px 5px}
-.compact-sources p{margin:0;max-width:none;overflow-wrap:anywhere}
-.compact-sources .source-note{margin-top:3px;color:var(--ink-2)}
-.compact-sources li::marker{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
-.record-related{font-size:13px;line-height:20px;margin:14px 0 0}
-.record-downloads{display:flex;flex-wrap:wrap;gap:10px 24px;border-top:var(--rule-width) solid var(--rule);padding-top:18px;margin-top:18px;font-size:13px}
-@media(max-width:600px){
- .record-fields-page .record-head{padding-top:12px;padding-bottom:20px}
- .record-fields-page .record-head h1{font-size:30px}
- .field-group{padding-block:20px}
- .field-group h2,.record-references h2{font-size:22px;line-height:28px}
- .field-row{grid-template-columns:1fr;gap:2px;padding:9px 0}
- .field-row dt{font-size:12px;line-height:18px}
- .field-answer{font-size:15px;line-height:22px}
+/* The outcome and evidence precede the complete field profile. */
+.record-fields-page .record-head { display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:32px; row-gap:16px; padding:24px 0 28px; }
+.record-fields-page .record-head h1 { grid-column:1; max-width:30ch; margin:0; font-size:clamp(30px,3vw,42px); line-height:1.16; text-wrap:balance; overflow-wrap:break-word; }
+.record-fields-page .record-head .sum { grid-column:1; max-width:66ch; margin:0; font-size:19px; line-height:1.5; text-wrap:pretty; hyphenate-limit-chars:7 3 3; }
+.record-fields-page .record-head .record-grades { position:static; grid-column:2; grid-row:1 / span 2; align-self:start; gap:12px; margin:0; padding-top:4px; }
+.record-overview { grid-column:1 / -1; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px 28px; margin:8px 0 0; padding-top:20px; border-top:var(--rule-width) solid var(--rule); }
+.record-overview>div { min-width:0; }
+.record-overview dt { margin-bottom:4px; color:var(--ink-2); font:13px/20px var(--sans); }
+.record-overview dd { margin:0; color:var(--ink); font:15px/22px var(--sans); overflow-wrap:break-word; }
+.record-overview a { display:inline-block; padding-block:2px; }
+.record-fields-body { min-width:0; }
+.embedded-fields { scroll-margin-top:24px; }
+.field-group { padding:28px 0; border-bottom:var(--rule-width) solid var(--rule); }
+.field-group h2,.record-references h2 { margin:0 0 18px; font:500 24px/32px var(--serif); }
+.field-rows { margin:0; }
+.field-row { display:grid; grid-template-columns:minmax(130px,11.5rem) minmax(0,1fr); gap:24px; padding:9px 0; scroll-margin-top:24px; }
+.field-row dt { color:var(--ink-2); font:500 14px/23px var(--sans); overflow-wrap:break-word; }
+.field-row dd { min-width:0; margin:0; }
+.field-answer { font:15px/24px var(--sans); overflow-wrap:break-word; }
+.field-row p { max-width:72ch; margin:0; text-align:justify; text-align-last:left; text-wrap:pretty; hyphens:auto; -webkit-hyphens:auto; hyphenate-limit-chars:7 3 3; }
+.field-row-unassessed { padding-block:4px; }
+.field-row-unassessed dt,.field-row-unassessed .field-answer { color:var(--ink-3); font-size:13px; line-height:21px; }
+.field-row:not(.field-row-unassessed)+.field-row-unassessed { margin-top:10px; }
+.field-row .field-editor-note { margin-top:6px; color:var(--ink-2); font-size:13px; line-height:21px; }
+.field-editor-note em { font-style:italic; }
+.field-source-links { font-size:11px; line-height:1; vertical-align:super; white-space:normal; }
+.field-source-links a { white-space:nowrap; }
+.field-row .field-related-link { margin-top:6px; font-size:14px; line-height:22px; overflow-wrap:anywhere; }
+.field-identity { display:inline-flex; align-items:center; gap:8px; max-width:100%; vertical-align:middle; line-height:24px; text-align:left; }
+.field-identity img { display:block; flex:none; object-fit:contain; margin:0; }
+.field-identity>span { min-width:0; }
+.record-references { padding-top:28px; }
+.compact-sources { margin:0; padding-left:26px; font-size:14px; line-height:23px; }
+.compact-sources li { padding:0 0 18px 8px; scroll-margin-top:24px; }
+.compact-sources p { max-width:78ch; margin:0; overflow-wrap:anywhere; text-wrap:pretty; }
+.compact-sources .source-note { margin-top:6px; color:var(--ink-2); }
+.compact-sources li::marker { color:var(--ink-3); font:12px/23px var(--mono); }
+.record-related { max-width:72ch; margin:16px 0 0; font-size:14px; line-height:22px; }
+.record-downloads { display:flex; flex-wrap:wrap; align-items:center; gap:4px 24px; margin-top:20px; padding-top:14px; border-top:var(--rule-width) solid var(--rule); font:14px/22px var(--sans); }
+.record-downloads a,.record-downloads button { display:inline-flex; align-items:center; min-height:44px; }
+@media(max-width:800px) {
+ .record-fields-page .record-head { column-gap:20px; }
+ .record-overview { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .field-row { grid-template-columns:minmax(120px,9rem) minmax(0,1fr); gap:20px; }
+}
+@media(max-width:600px) {
+ .record-fields-page .record-head { grid-template-columns:minmax(0,1fr); row-gap:16px; padding:16px 0 24px; }
+ .record-fields-page .record-head h1 { max-width:30ch; font-size:clamp(28px,7.4vw,34px); line-height:1.18; }
+ .record-fields-page .record-head .sum { max-width:60ch; font-size:clamp(1rem,4.35vw,1.125rem); line-height:1.55; text-align:justify; text-align-last:left; hyphens:auto; -webkit-hyphens:auto; hyphenate-limit-chars:6 2 3; -webkit-hyphenate-limit-before:2; -webkit-hyphenate-limit-after:3; }
+ .record-fields-page .record-head .record-grades { grid-column:1; grid-row:auto; justify-content:flex-start; padding:0; }
+ .record-overview { grid-row:3; gap:16px 20px; margin:0; padding-top:18px; }
+ .record-overview dt { font-size:12px; line-height:18px; }
+ .record-overview dd { font-size:14px; line-height:21px; }
+ .field-group { padding-block:24px; }
+ .field-group h2,.record-references h2 { margin-bottom:14px; font-size:22px; line-height:29px; }
+ .field-row { grid-template-columns:minmax(0,1fr); gap:4px; padding:10px 0; }
+ .field-row dt { font-size:13px; line-height:20px; }
+ .field-answer { font-size:15px; line-height:24px; }
+ .field-row-unassessed { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px; padding-block:4px; }
+ .field-row-unassessed .field-answer { text-align:left; }
+ .record-references { padding-top:24px; }
+ .compact-sources { padding-left:21px; }
+ .compact-sources li { padding-left:5px; }
+}
+@media print {
+ .record-fields-page .record-head { display:block; padding-bottom:20px; }
+ .record-overview { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:18px; }
+ .record-fields-page .record-head .record-grades { display:none; }
+ .field-row,.record-overview>div { break-inside:avoid; }
+ .field-group h2,.record-references h2 { break-after:avoid; }
 }

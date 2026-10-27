@@ -455,6 +455,28 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var viewSelect = ex.querySelector('[data-case-view]');
   var sortSelect = ex.querySelector('[data-case-sort]');
   var roleSelect = ex.querySelector('[data-case-role]');
+  var options = ex.querySelector('[data-case-options]');
+  var optionsState = ex.querySelector('[data-case-options-state]');
+  function paintOptionsState() {
+    if (!optionsState) return;
+    var labels = [viewSelect, roleSelect].filter(function (select) { return select && select.value; }).map(function (select) {
+      return select.options[select.selectedIndex].textContent;
+    });
+    optionsState.textContent = labels.join(', ');
+    optionsState.hidden = !labels.length;
+  }
+  function focusControl(target) {
+    if (!target) return;
+    var disclosure = target.closest('[data-case-options]');
+    if (disclosure && !disclosure.open) target = disclosure.querySelector('summary');
+    if (target) target.focus({ preventScroll: true });
+  }
+  if (options) options.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape' || !options.open) return;
+    options.open = false;
+    focusControl(options.querySelector('summary'));
+    event.preventDefault();
+  });
   var entityLogoObserver = null;
   var observedEntityLogos = new WeakSet();
   function loadEntityLogo(image) {
@@ -522,6 +544,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       if (k === 'table' || k === 'shelf') { if (on || (openTool !== 'table' && openTool !== 'shelf')) { ex.classList.toggle('tabular', on); var th = ex.querySelector('[data-table-head]'); if (th) th.hidden = !on; } }
     });
     if (viewSelect) viewSelect.value = VIEWS.indexOf(openTool) !== -1 ? openTool : '';
+    paintOptionsState();
     ex.querySelectorAll('[data-open-tool]').forEach(function (b) {
       var on = (b.getAttribute('data-open-tool') || null) === openTool;
       b.classList.toggle('on', on);
@@ -539,7 +562,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       openTool = null; applyTools(); apply(true);
       var target = previousTool === 'lists' ? ex.querySelector('[data-open-tool="lists"]') : previousTool === 'shelf' ? ex.querySelector('[data-compare-open]:not([hidden])') : previousTool === 'roles' ? roleSelect : null;
       target = target || viewSelect;
-      if (target) target.focus({ preventScroll: true });
+      focusControl(target);
       var top = controls || ex.querySelector('.lede') || ex;
       top.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
       return;
@@ -803,11 +826,12 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   if (compareRetry) compareRetry.addEventListener('click', function () {
     compareFailed = false; loadCompare();
     var target = openTool === 'shelf' ? ex.querySelector('[data-compare-open]') : roleSelect;
-    if (target) target.focus({ preventScroll: true });
+    focusControl(target);
   });
   function setRole(r) {
     role = r || '';
     if (roleSelect) roleSelect.value = role;
+    paintOptionsState();
     if (role) ex.setAttribute('data-role', role); else ex.removeAttribute('data-role');
     if (role) loadCompare();
     paintRole();
