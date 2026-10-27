@@ -24,12 +24,12 @@
 <link rel="alternate" type="application/atom+xml" title="New additions and updates" href="feed.xml">
 <link rel="stylesheet" href="style.css?v=d4929ba5e6">
 <style>
-.about { --about-note-width: 15rem; --about-note-gap: 3rem; max-width: 38rem; margin: 0 auto; padding: 24px 0 12px; }
+.about { --about-note-width: 17rem; --about-note-gap: 3rem; position: relative; max-width: 38rem; margin: 0 auto; padding: 24px 0 12px; }
 .about h1 { font-size: var(--t-h1); line-height: var(--l-h1); margin-bottom: 24px; }
 .about-purpose { font-family: var(--serif); font-size: var(--t-lede); line-height: var(--l-lede); color: var(--ink); }
 .about-description { margin-bottom: 32px; color: var(--ink-2); }
 .about-claims { position: relative; margin: 0; padding-left: 1.2em; }
-.about-claims li { padding-top: var(--about-note-clearance, 0px); padding-left: 0.25em; margin-bottom: 28px; color: var(--ink-2); }
+.about-claims li { padding-left: 0.25em; margin-bottom: 20px; color: var(--ink-2); }
 .about-claims li:last-child { margin-bottom: 0; }
 .about-claim, .about-note { min-width: 0; }
 .about-claims strong { color: var(--ink); font-weight: 500; }
@@ -46,7 +46,7 @@
 .about-note-toggle { display: none; }
 .about[data-note-layout="inline"] .about-note-link { display: none; }
 .about[data-note-layout="inline"] .about-note-toggle { display: inline-flex; }
-.about-note { box-sizing: border-box; position: relative; margin: 20px 0 4px; padding: 8px 10px; border: var(--rule-width) solid var(--rule); border-radius: 8px 22px 16px 8px; background: var(--paper); color: var(--ink-2); font: 0.75rem/1.45 var(--serif); scroll-margin-block: 24px; }
+.about-note { box-sizing: border-box; position: relative; margin: 18px 0 4px; padding: 6px 8px; border: var(--rule-width) solid var(--rule); border-radius: 8px 22px 16px 8px; background: var(--paper); color: var(--ink-2); font: 0.71875rem/1.35 var(--serif); scroll-margin-block: 24px; }
 .about-note::before { content: ""; position: absolute; left: var(--about-note-inline-x, 1.5rem); top: calc(-8px - var(--about-note-stem-height, 12px)); height: var(--about-note-stem-height, 12px); border-left: var(--rule-width) solid var(--rule); pointer-events: none; }
 .about-note::after { content: ""; box-sizing: border-box; position: absolute; left: calc(var(--about-note-inline-x, 1.5rem) - 0.35rem); top: -0.35rem; width: 0.7rem; height: 0.7rem; border-left: var(--rule-width) solid var(--rule); border-bottom: var(--rule-width) solid var(--rule); background: var(--paper); transform: rotate(135deg); pointer-events: none; }
 .about-note-body { display: grid; grid-template-columns: 1rem minmax(0, 1fr); gap: 0.5rem; }
@@ -59,11 +59,13 @@
 .about[data-note-shapes="sculpted"] .about-note::after { display: none; }
 .about-note-outline { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: -1; }
 .about-note-outline path { fill: var(--paper); stroke: var(--rule); stroke-width: var(--rule-width); vector-effect: non-scaling-stroke; }
+.about-note-leaders { display: none; position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.about-note-leaders path { fill: none; stroke: var(--rule); stroke-width: var(--rule-width); vector-effect: non-scaling-stroke; }
 .about-note p { margin: 0; }
 .about-note p + p { margin-top: 8px; }
 .about-note a { overflow-wrap: anywhere; }
 @media (min-width: 1000px) {
-  .about { max-width: 56rem; }
+  .about { max-width: 58rem; }
   .about-intro { max-width: 38rem; }
   .about-claims { width: calc(100% - var(--about-note-width) - var(--about-note-gap)); }
   .about-claim-row { display: grid; grid-template-columns: minmax(0, 1fr) var(--about-note-width); column-gap: var(--about-note-gap); align-items: start; width: calc(100% + var(--about-note-width) + var(--about-note-gap)); }
@@ -73,6 +75,8 @@
   .about[data-note-layout="margin"] .about-claims { padding-bottom: var(--about-note-overflow, 0px); }
   .about[data-note-layout="margin"] .about-claim-row { display: block; width: auto; }
   .about[data-note-layout="margin"] .about-note { position: absolute; left: calc(100% + var(--about-note-gap)); width: var(--about-note-width); }
+  .about[data-note-layout="margin"] .about-note::before { display: none; }
+  .about[data-note-layout="margin"] .about-note-leaders { display: block; }
 }
 @media (max-width: 700px) { .about { padding: 8px 0 4px; } }
 @media print {
@@ -84,7 +88,7 @@
   .about .about-note-toggle { display: none !important; }
   .about .about-note { display: block !important; position: static !important; width: auto !important; margin: 12px 0 0; padding: 0; border: 0; background: transparent; font-size: 10pt; }
   .about .about-note::before, .about .about-note::after { display: none; }
-  .about-note-outline { display: none; }
+  .about-note-outline, .about .about-note-leaders { display: none; }
 }
 </style>
 <script src="app.js?v=0c4f7c184c" defer></script>
@@ -99,6 +103,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttonFor = (note) => article.querySelector(`.about-note-toggle[aria-controls="${note.id}"]`);
   const linkFor = (note) => article.querySelector(`.about-note-link[href="#${note.id}"]`);
   let positionFrame;
+  const leaderSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  leaderSvg.classList.add('about-note-leaders');
+  leaderSvg.setAttribute('aria-hidden', 'true');
+  leaderSvg.setAttribute('focusable', 'false');
+  const leaderPaths = new Map(notes.map((note) => {
+    const path = document.createElementNS(leaderSvg.namespaceURI, 'path');
+    path.dataset.note = note.id;
+    leaderSvg.append(path);
+    return [note, path];
+  }));
+  article.prepend(leaderSvg);
   const outlinePaths = new Map(notes.map((note) => {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.classList.add('about-note-outline');
@@ -137,8 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     list.style.removeProperty('--about-note-overflow');
-    notes.forEach((note) => note.closest('li').style.removeProperty('--about-note-clearance'));
     const listBox = list.getBoundingClientRect();
+    const articleBox = article.getBoundingClientRect();
     let nextTop = 0;
     let lastBottom = 0;
     notes.forEach((note) => {
@@ -146,19 +161,27 @@ document.addEventListener('DOMContentLoaded', () => {
       const marker = note.querySelector('.about-note-marker').getBoundingClientRect();
       const markerOffset = marker.top + marker.height / 2 - note.getBoundingClientRect().top;
       const target = Math.round(reference.top + reference.height / 2 - markerOffset - listBox.top);
-      const clearance = Math.max(0, Math.ceil(nextTop - target));
-      if (clearance) note.closest('li').style.setProperty('--about-note-clearance', `${clearance}px`);
-      const shiftedReference = linkFor(note).getBoundingClientRect();
-      const top = Math.round(shiftedReference.top + shiftedReference.height / 2 - markerOffset - listBox.top);
+      const top = Math.max(target, nextTop);
       note.style.top = `${top}px`;
       const markerBox = linkFor(note).getBoundingClientRect();
       const noteBox = note.getBoundingClientRect();
       const leaderGap = parseFloat(getComputedStyle(document.documentElement).fontSize) / 2;
-      note.style.setProperty('--about-note-leader-width', `${Math.max(0, noteBox.left - markerBox.right - 2 * leaderGap)}px`);
-      note.style.setProperty('--about-note-leader-top', `${markerBox.top + markerBox.height / 2 - noteBox.top}px`);
+      const noteMarker = note.querySelector('.about-note-marker').getBoundingClientRect();
+      const noteStyle = getComputedStyle(note);
+      const borderLeft = parseFloat(noteStyle.borderLeftWidth);
+      const borderTop = parseFloat(noteStyle.borderTopWidth);
+      const localTipY = noteMarker.top + noteMarker.height / 2 - noteBox.top - borderTop;
+      note.style.setProperty('--about-note-leader-top', `${localTipY}px`);
       sculptNote(note);
+      const startX = markerBox.right + leaderGap - articleBox.left;
+      const startY = markerBox.top + markerBox.height / 2 - articleBox.top;
+      const bendX = Math.max(startX, listBox.right + leaderGap - articleBox.left);
+      const endX = noteBox.left + borderLeft - 8 - articleBox.left;
+      const endY = noteBox.top + borderTop + localTipY - articleBox.top;
+      const bend = Math.max(0, (endX - bendX) / 2);
+      leaderPaths.get(note).setAttribute('d', `M ${startX} ${startY} H ${bendX} C ${bendX + bend} ${startY} ${endX - bend} ${endY} ${endX} ${endY}`);
       lastBottom = top + noteBox.height;
-      nextTop = lastBottom + 18;
+      nextTop = lastBottom + 14;
     });
     const contentHeight = list.getBoundingClientRect().height;
     list.style.setProperty('--about-note-overflow', `${Math.max(0, Math.ceil(lastBottom - contentHeight))}px`);
