@@ -102,7 +102,11 @@ def page(key, title, description, body, path, *, search_title=None, indexable=Tr
         if i:
             nav_parts.append('<span class="nav-divider" aria-hidden="true"></span>')
         nav_class = ' class="nav-artifacts" aria-label="Working artifacts"' if k == 'artifacts' else ''
-        nav_label = '<span class="nav-kicker">working</span>' + label if k == 'artifacts' else label
+        nav_label = (
+            '<span class="nav-kicker" aria-hidden="true">'
+            + ''.join(f'<span>{letter}</span>' for letter in 'working')
+            + '</span>' + label
+        ) if k == 'artifacts' else label
         nav_parts.append(f'<a href="{url}"{nav_class}'+(' aria-current="page"' if key == k else '')+f'>{nav_label}</a>')
     nav = '\n'.join(nav_parts)
     name_tag = 'h1' if key == 'home' and path == '/' else 'div'
