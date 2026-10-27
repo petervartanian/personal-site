@@ -306,10 +306,6 @@ credited_contributions = [work for work in DATA['contributions'] if not work.get
 uncredited_editing = [work for work in DATA['contributions'] if work.get('has_uncredited_editing')]
 writing += '<section class="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">Other contributions</h2><ul class="contribution-list">' + ''.join(contribution_row(work) for work in credited_contributions)
 writing += '<li class="contribution-group"><h3 id="uncredited-editing-title"><span data-nosnippet>Sometimes credit isn’t given where it’s due 😔</span></h3><ul class="contribution-sublist" aria-labelledby="uncredited-editing-title">' + ''.join(contribution_row(work) for work in uncredited_editing) + '</ul></li></ul></section>'
-writing += '''<section class="memos"><h2><a href="https://substack.com/@petersmemos">Peter’s Memos</a></h2>
-<ul class="memo-outline" role="list"><li><span class="memo-mark" aria-hidden="true">¶</span><p>In Kevin Roose’s <a href="https://us.macmillan.com/books/9780374618766/theagichronicles/"><em>The AGI Chronicles</em></a>, researchers and founders circulate memos to develop ideas and submit them to scrutiny.</p>
-<ul role="list"><li><span class="memo-mark" aria-hidden="true">↳</span><p>My Substack, <a href="https://substack.com/@petersmemos">Peter’s Memos</a>, borrows that form to keep my penchant for long-form writing from yielding a <em>Nachlass</em> of unfinished drafts.</p></li></ul>
-</li></ul></section>'''
 writing += '''<section class="substack-publication" aria-labelledby="suprastructure-title">
 <h2 id="suprastructure-title"><a href="https://thesuprastructure.substack.com/"><img class="suprastructure-masthead" src="/assets/suprastructure/masthead.svg" width="2688" height="320" alt="The Suprastructure" loading="lazy"></a></h2>
 <div class="substack-about">
@@ -320,7 +316,7 @@ writing += '''<section class="substack-publication" aria-labelledby="suprastruct
 <iframe src="https://thesuprastructure.substack.com/embed" title="Subscribe to The Suprastructure" width="480" height="320" loading="lazy"></iframe>
 <p class="substack-visit"><a href="https://thesuprastructure.substack.com/">Read The Suprastructure <span aria-hidden="true">↗</span></a></p>
 </section>'''
-page('writing', 'Writing', 'Writing by Peter H. Vartanian on AI, international security, critical minerals, energy policy, and law, with links to publications and Peter’s Memos.', writing, '/portfolio/', search_title='Writing on AI, Security & Policy | Peter H. Vartanian')
+page('writing', 'Writing', 'Writing by Peter H. Vartanian on AI, international security, critical minerals, energy policy, and law, with links to publications and The Suprastructure.', writing, '/portfolio/', search_title='Writing on AI, Security & Policy | Peter H. Vartanian')
 
 artifacts = '''<h1 class="artifact-heading"><span>working</span>Artifacts</h1>
 <p class="artifact-intro">Working databases and tools, with public versions that you can explore.</p>
