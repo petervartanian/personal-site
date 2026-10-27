@@ -33,7 +33,7 @@ h1 { font-family: 'Sorts Mill Goudy', Georgia, serif; font-size: 28px; font-styl
 h2 { font-size: 18px; line-height: 1.4; }
 h3 { font-size: 16px; line-height: 1.5; }
 .page { width: min(640px, calc(100% - 48px)); margin: 0 auto; }
-body[data-page=home] .page { position: relative; display: flex; flex-direction: column; min-height: 100vh; min-height: 100svh; }
+body[data-page=home] .page { position: relative; display: flex; flex-direction: column; width: min(782px, calc(100% - 48px)); min-height: 100vh; min-height: 100svh; }
 .name-thread { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; color: #8b7b8e; }
 .name-thread path { fill: none; stroke: currentColor; stroke-width: .85px; stroke-linecap: round; }
 .name-thread .thread-taper { fill: url(#thread-taper-color); stroke: none; }
@@ -47,6 +47,7 @@ header nav a[aria-current], header nav a:hover { color: var(--link); text-decora
 .nav-artifacts .nav-kicker { position: absolute; top: -2.5px; left: 0; right: 0; display: flex; justify-content: space-between; font-size: 8.5px; line-height: 1; letter-spacing: 0; text-transform: none; }
 main { margin-top: 48px; }
 .introduction { max-width: 570px; margin: 0 auto; }
+body[data-page=home] .introduction { max-width: 712px; }
 .home-current { position: relative; }
 .stealth-word { white-space: nowrap; }
 .stealth-ref { position: relative; display: inline-block; padding: 0 1px; text-decoration: none; }
@@ -54,7 +55,7 @@ main { margin-top: 48px; }
 .stealth-note { position: absolute; top: 50%; left: calc(100% + 12px); transform: translateY(-50%); writing-mode: vertical-rl; text-orientation: mixed; color: var(--quiet); font-size: 11px; font-style: italic; line-height: 1.25; white-space: nowrap; }
 .stealth-note:target { color: var(--link); }
 .stealth-note:focus-visible { outline: 1px dotted var(--link); outline-offset: 3px; }
-@media (max-width: 700px) {
+@media (max-width: 830px) {
   .stealth-note { position: static; display: block; transform: none; writing-mode: horizontal-tb; margin-top: 6px; text-align: right; line-height: 1.4; white-space: normal; }
 }
 .home-links { margin-top: 30px; font-size: 14px; text-align: center; }
@@ -249,7 +250,7 @@ a.note-badge:hover, .note-ref:hover { background: var(--note-hover, var(--link))
   .experience-table.experience-table td { display: block; width: auto; padding: 4px 0 0 var(--mark-text-inset); text-align: left; }
   .experience-award-row { margin-top: -8px; }
   .experience-table td { width: 108px; }
-  .page { width: calc(100% - 44px); }
+  .page, body[data-page=home] .page { width: calc(100% - 44px); }
   header { padding-top: 43px; }
   .site-name { font-size: 31px; }
   header nav { margin-top: 20px; gap: 0; font-size: 13px; }
@@ -292,7 +293,7 @@ header nav a::after, .download-button::after { min-width: 44px; min-height: 44px
   .experience-table td { width: 94px; padding-left: 10px; }
 }
 @media print {
-  body[data-page=home] .page { display: block; min-height: 0; }
+  body[data-page=home] .page { display: block; width: 100%; min-height: 0; }
   .name-thread { display: none; }
   body { background: white !important; color: #111 !important; }
   .page { width: 100%; }
