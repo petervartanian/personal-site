@@ -306,7 +306,8 @@ credited_contributions = [work for work in DATA['contributions'] if not work.get
 uncredited_editing = [work for work in DATA['contributions'] if work.get('has_uncredited_editing')]
 writing += '<section class="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">Other contributions</h2><ul class="contribution-list">' + ''.join(contribution_row(work) for work in credited_contributions)
 writing += '<li class="contribution-group"><h3 id="uncredited-editing-title"><span data-nosnippet>Sometimes credit isn’t given where it’s due 😔</span></h3><ul class="contribution-sublist" aria-labelledby="uncredited-editing-title">' + ''.join(contribution_row(work) for work in uncredited_editing) + '</ul></li></ul></section>'
-writing += '''<section class="substack-publication" aria-labelledby="suprastructure-title">
+writing += '''<hr class="writing-divider">
+<section class="substack-publication" aria-labelledby="suprastructure-title">
 <h2 id="suprastructure-title"><a href="https://thesuprastructure.substack.com/"><img class="suprastructure-masthead" src="/assets/suprastructure/masthead.svg" width="2688" height="320" alt="The Suprastructure" loading="lazy"></a></h2>
 <div class="substack-about">
 <p>I am working on a theory of the "suprastructure."*</p>
