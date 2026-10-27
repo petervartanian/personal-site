@@ -11,6 +11,10 @@ from browser_app import browser_page
 
 ROOT = Path(__file__).parent
 DATA = json.loads((ROOT / 'content/site.json').read_text())
+AUTHORED_WORKS = sorted(
+    DATA['writings'] + [work for work in DATA['contributions'] if work.get('authored')],
+    key=lambda work: work['published'], reverse=True,
+)
 PUBLIC_PROJECTS = json.loads((ROOT / 'content/public-pages.json').read_text())
 SCHOLARLY_PUBLICATIONS = load_publications(ROOT)
 OMPHALOS_PAGE = browser_page(ROOT)
@@ -54,10 +58,10 @@ def structured_data(key, title, description, path):
         page_data['mainEntity'] = {'@id': SITE_URL + path + '#article'}
     if key == 'writing':
         page_data['mainEntity'] = {
-            '@type': 'ItemList', 'numberOfItems': len(DATA['writings']),
+            '@type': 'ItemList', 'numberOfItems': len(AUTHORED_WORKS),
             'itemListElement': [
                 {'@type': 'ListItem', 'position': i, 'name': work['title'], 'url': work['url']}
-                for i, work in enumerate(DATA['writings'], 1)
+                for i, work in enumerate(AUTHORED_WORKS, 1)
             ],
         }
     if key == 'artifacts':
@@ -118,10 +122,6 @@ def page(key, title, description, body, path, *, search_title=None, indexable=Tr
     search_title = search_title or f'{title} — {SITE_NAME}'
     robots = 'index, follow, max-image-preview:large' if indexable else 'noindex, follow'
     schema = structured_data(key, search_title, description, path) if indexable else ''
-    footer_links = ' / <a href="/site-index/">Site index</a>' if key != 'site-index' else ''
-    if key == 'home' and path == '/':
-        if OMPHALOS_PAGE:
-            footer_links += ' / <a href="/omphalos/">omphalOS</a>'
     html = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -166,7 +166,7 @@ def page(key, title, description, body, path, *, search_title=None, indexable=Tr
       <nav aria-label="Main navigation">{nav}</nav>
     </header>
     <main id="main">{body}</main>
-    <footer>© 2026 Peter H. Vartanian{footer_links}</footer>
+    <footer>© 2026 Peter H. Vartanian</footer>
   </div>
 </body>
 </html>
@@ -311,9 +311,14 @@ writing += '''<section class="memos"><h2><a href="https://substack.com/@petersme
 <ul role="list"><li><span class="memo-mark" aria-hidden="true">↳</span><p>My Substack, <a href="https://substack.com/@petersmemos">Peter’s Memos</a>, borrows that form to keep my penchant for long-form writing from yielding a <em>Nachlass</em> of unfinished drafts.</p></li></ul>
 </li></ul></section>'''
 writing += '''<section class="substack-publication" aria-labelledby="suprastructure-title">
-<h2 id="suprastructure-title"><a href="https://thesuprastructure.substack.com/">The Suprastructure</a></h2>
-<p>How infrastructures make a world together... and what that world makes of us.</p>
+<h2 id="suprastructure-title"><a href="https://thesuprastructure.substack.com/"><img class="suprastructure-masthead" src="/assets/suprastructure/masthead.svg" width="2688" height="320" alt="The Suprastructure" loading="lazy"></a></h2>
+<div class="substack-about">
+<p>I'm Peter Vartanian, working on a theory of the "suprastructure."*</p>
+<p>I write about how infrastructures (AI, energy, logistics, finance, law, SEZs, etc.) make a world together... and what that world makes of us.</p>
+<p>*For now, my working definition is the infrastructure of infrastructures. But, that may just be my geopolitical instincts talking. So, join me as I develop the theory by putting it to work!</p>
+</div>
 <iframe src="https://thesuprastructure.substack.com/embed" title="Subscribe to The Suprastructure" width="480" height="320" loading="lazy"></iframe>
+<p class="substack-visit"><a href="https://thesuprastructure.substack.com/">Read The Suprastructure <span aria-hidden="true">↗</span></a></p>
 </section>'''
 page('writing', 'Writing', 'Writing by Peter H. Vartanian on AI, international security, critical minerals, energy policy, and law, with links to publications and Peter’s Memos.', writing, '/portfolio/', search_title='Writing on AI, Security & Policy | Peter H. Vartanian')
 
@@ -506,7 +511,7 @@ paths = [item['path'] for item in INDEX_PAGES] + ['/site-index/']
 (ROOT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{SITE_URL}{p}</loc><lastmod>{e(modified[p])}</lastmod></url>\n' for p in paths) + '</urlset>\n')
 (ROOT / 'llms.txt').write_text('# Peter H. Vartanian\n\nResearch and writing in international security, AI governance, law, and resources.\n\n' + ''.join(f'- [{item["title"]}]({SITE_URL}{item["path"]})\n' for item in INDEX_PAGES) + f'- [Site index]({SITE_URL}/site-index/)\n')
 (ROOT / 'humans.txt').write_text('Name: Peter H. Vartanian\nSite: https://petervartanian.xyz/\nTypography: Georgia; Sorts Mill Goudy by Barry Schwartz (name and titles)\n')
-entries = ''.join(f'<entry><title>{e(w["title"])}</title><id>{e(w["url"])}</id><link href="{e(w["url"])}"/><published>{w["published"]}T12:00:00Z</published><updated>{w["published"]}T12:00:00Z</updated><summary>{e(w["venue"]+" · "+w["credit"])}</summary></entry>' for w in DATA['writings'])
+entries = ''.join(f'<entry><title>{e(w["title"])}</title><id>{e(w["url"])}</id><link href="{e(w["url"])}"/><published>{w["published"]}T12:00:00Z</published><updated>{w["published"]}T12:00:00Z</updated><summary>{e(w["venue"]+" · "+w["credit"])}</summary></entry>' for w in AUTHORED_WORKS)
 feed_updated = DATA['page_modified']['/portfolio/'] + 'T00:00:00Z'
 (ROOT / 'feed.xml').write_text('<?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title>Peter H. Vartanian — Writing</title><id>https://petervartanian.xyz/</id><link href="https://petervartanian.xyz/feed.xml" rel="self"/><link href="https://petervartanian.xyz/portfolio/"/><updated>' + feed_updated + '</updated><author><name>Peter H. Vartanian</name></author>' + entries + '</feed>\n')
 manifest = json.loads((ROOT / 'site.webmanifest').read_text())
