@@ -286,13 +286,13 @@ def contribution_row(item):
     return f'''<li class="contribution"><a class="contribution-title" href="{e(item['url'])}">{title}</a><p class="venue"><em>{e(item['venue'])}</em></p><p class="credit">{credit}</p>{role_rows}</li>'''
 
 
-writing = '<h1>Writing</h1>\n'
+writing = '<h1>Writing</h1>\n<section class="publications-section" aria-labelledby="publications-title">\n<h2 id="publications-title">Publications</h2>\n'
 year = None
 for work in DATA['writings']:
     next_year = work['published'][:4]
     if next_year != year:
         if year is not None: writing += '</ul></section>\n'
-        writing += f'<section class="writing-year"><h2>{next_year}</h2><ul role="list" class="publication-list">\n'
+        writing += f'<section class="writing-year"><h3>{next_year}</h3><ul role="list" class="publication-list">\n'
         year = next_year
     writing += writing_row(work)
 writing += '</ul></section>\n'
@@ -301,7 +301,8 @@ publication_notes = [
     '“Geo-legality” was cited and discussed by Hakkı Öcal in <em>Daily Sabah</em> on January 26, 2026.',
     'An illicit-procurement investigation system in Python/Rust/Go whose SHA-256-verified case files preserve the computational evidence needed for another investigator to reproduce the analysis independently of its author.'
 ]
-writing += '<section id="publication-notes" class="publication-notes"><h2>Notes</h2>' + ''.join(f'<p id="publication-note-{index}"><span class="note-badge">{PUBLICATION_NOTE_LABELS[index]}</span><span>{note}</span></p>' for index, note in zip([1, 2, 4], publication_notes)) + '</section>'
+writing += '<section id="publication-notes" class="publication-notes"><h3>Notes</h3>' + ''.join(f'<p id="publication-note-{index}"><span class="note-badge">{PUBLICATION_NOTE_LABELS[index]}</span><span>{note}</span></p>' for index, note in zip([1, 2, 4], publication_notes)) + '</section>'
+writing += '</section>\n'
 credited_contributions = [work for work in DATA['contributions'] if not work.get('has_uncredited_editing')]
 uncredited_editing = [work for work in DATA['contributions'] if work.get('has_uncredited_editing')]
 writing += '<section class="contributions" aria-labelledby="contributions-title"><h2 id="contributions-title">Other contributions</h2><ul class="contribution-list">' + ''.join(contribution_row(work) for work in credited_contributions)
