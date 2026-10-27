@@ -102,11 +102,7 @@ def page(key, title, description, body, path, *, search_title=None, indexable=Tr
         if i:
             nav_parts.append('<span class="nav-divider" aria-hidden="true"></span>')
         nav_class = ' class="nav-artifacts" aria-label="Working artifacts"' if k == 'artifacts' else ''
-        nav_label = (
-            '<span class="nav-kicker" aria-hidden="true">'
-            + ''.join(f'<span>{letter}</span>' for letter in 'working')
-            + f'</span><span class="nav-word">{label}</span>'
-        ) if k == 'artifacts' else label
+        nav_label = '<span class="nav-kicker">working</span>' + label if k == 'artifacts' else label
         nav_parts.append(f'<a href="{url}"{nav_class}'+(' aria-current="page"' if key == k else '')+f'>{nav_label}</a>')
     nav = '\n'.join(nav_parts)
     name_tag = 'h1' if key == 'home' and path == '/' else 'div'
@@ -223,11 +219,12 @@ for row, (pivot, path, indices) in enumerate(mobile_rows):
         mobile += f'<g class="mobile-piece" data-piece="{i}" data-name="{name}" data-home="{x},{y}" data-mount="{mx},{my}" data-attachment="{ax},{ay}" transform="translate({x} {y})">{shape}</g>'
 mobile += '</g></g></g></svg></div></figure>'
 
+working_letters = ''.join(f'<span>{letter}</span>' for letter in 'working')
 home = f'''<div class="introduction">
   <p>I am a pertinacious thinker-and-doer who hails from <a href="https://mapcarta.com/N1938447213">Weng</a>, a hamlet in the Tyrolean Alps of Austria.</p>
   <p>I studied diplomacy and world affairs alongside literature and culture at Occidental College in Los Angeles, with additional coursework at Caltech. My work has taken me to the world’s highest deliberative fora, <em>incl.</em> the UN.</p>
   <p>I now live in Cambridge, Massachusetts: At <a href="https://airisk.mit.edu/">MIT’s AI Risk Initiative</a>, I lead the <a href="https://airisk.mit.edu/blog/preliminary-findings-on-how-ai-incident-databases-are-used">first ecosystem-wide study of how people interact with AI-incident data(bases)</a>. I also advise an exciting venture operating in stealth... more to come soon!</p>
-  <p><em>For more, see my (i) <a href="/portfolio/">writing</a>, (ii) <a href="/cv/">CV</a>, and (iii) <a href="/contact/">contact</a>.</em></p>
+  <p><em>For more, see my (i)&nbsp;<a href="/portfolio/">writing</a>, (ii)&nbsp;<a href="/artifacts/" class="inline-artifacts" aria-label="working artifacts"><span class="inline-kicker" aria-hidden="true">{working_letters}</span> artifacts</a>, (iii)&nbsp;<a href="/cv/">CV</a>, and (iv)&nbsp;<a href="/contact/">contact</a>.</em></p>
   {mobile}
 </div>'''
 page('home', 'Home', 'Peter H. Vartanian researches AI risk and incident databases at MIT’s AI Risk Initiative. Explore his writing, publications, and experience.', home, '/', search_title='Peter H. Vartanian | AI Risk & International Affairs')
