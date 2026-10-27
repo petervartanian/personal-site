@@ -24,193 +24,148 @@
 <link rel="alternate" type="application/atom+xml" title="New additions and updates" href="feed.xml">
 <link rel="stylesheet" href="style.css?v=d4929ba5e6">
 <style>
-.about { max-width: 44rem; margin: 0 auto; padding: 24px 0 12px; }
+.about { --about-note-width: 15rem; --about-note-gap: 3rem; max-width: 38rem; margin: 0 auto; padding: 24px 0 12px; }
 .about h1 { font-size: var(--t-h1); line-height: var(--l-h1); margin-bottom: 24px; }
 .about-purpose { font-family: var(--serif); font-size: var(--t-lede); line-height: var(--l-lede); color: var(--ink); }
 .about-description { margin-bottom: 32px; color: var(--ink-2); }
-.about-claims { margin: 0; padding-left: 1.2em; }
-.about-claims li { padding-left: 0.25em; margin-bottom: 22px; color: var(--ink-2); }
+.about-claims { position: relative; margin: 0; padding-left: 1.2em; }
+.about-claims li { padding-top: var(--about-note-clearance, 0px); padding-left: 0.25em; margin-bottom: 28px; color: var(--ink-2); }
+.about-claims li:last-child { margin-bottom: 0; }
 .about-claim, .about-note { min-width: 0; }
 .about-claims strong { color: var(--ink); font-weight: 500; }
 .about-note-anchor { white-space: nowrap; }
-.about-note-ref { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-left: 4px; padding: 0; border: var(--rule-width) solid var(--rule); border-radius: 0; color: var(--ink-3); font: italic 11px/1 var(--serif); vertical-align: 0.2em; text-decoration: none; }
-.about-note-ref > span { transform: translateY(1px); }
-.about-note-ref::after { content: ""; position: absolute; inset: -6px; }
-.about-note-ref:hover, .about-note-ref[aria-expanded="true"] { color: var(--ink); border-color: var(--rule); background: var(--paper-2); }
-.about-note-toggle, .about[data-note-popovers] .about-note-link { display: none; }
-.about[data-note-popovers] .about-note-toggle { display: inline-flex; }
-.about-note { margin-top: 16px; color: var(--ink-2); font-size: var(--t-small); line-height: var(--l-small); scroll-margin-block: 24px; }
-.about-note-body { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 8px; }
-.about-note-letter { color: var(--ink-3); font-family: var(--serif); font-style: italic; }
+.about-note-ref { position: relative; display: inline-block; min-width: 0.65em; margin-left: 0.18em; padding: 0; border: 0; background: transparent; color: var(--ink); font: italic 0.78em/1 var(--serif); vertical-align: super; text-decoration: none; }
+.about-note-ref::after { content: ""; position: absolute; inset: -10px; }
+.about-note-ref:hover, .about-note-ref[aria-expanded="true"] { text-decoration: underline; text-decoration-color: var(--rule); text-decoration-thickness: var(--rule-width); text-underline-offset: 3px; }
+.about-note-ref:focus-visible { outline-offset: 5px; }
+.about-note-toggle { display: none; }
+.about[data-note-layout="inline"] .about-note-link { display: none; }
+.about[data-note-layout="inline"] .about-note-toggle { display: inline-block; }
+.about-note { margin: 16px 0 4px; color: var(--ink-2); font: 0.875rem/1.45 var(--serif); scroll-margin-block: 24px; }
+.about-note-body { display: grid; grid-template-columns: 0.6rem minmax(0, 1fr); gap: 0.5rem; }
+.about-note-letter { color: var(--ink-2); font-style: italic; }
 .about-note p { margin: 0; }
-.about-note p + p { margin-top: 12px; }
+.about-note p + p { margin-top: 8px; }
 .about-note a { overflow-wrap: anywhere; }
-.about-note-close { display: none; }
-.about-note[popover] { position: fixed; inset: 0; width: min(32rem, calc(100vw - 24px)); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); margin: auto; padding: 0; overflow: hidden; border: var(--rule-width) solid var(--rule); background: var(--paper); }
-.about-note[popover]:popover-open { display: flex; flex-direction: column; }
-.about-note[popover] .about-note-body { display: block; min-height: 0; padding: 24px 44px 24px 24px; overflow: auto; overscroll-behavior: contain; }
-.about-note[popover] .about-note-letter { display: none; }
-.about-note[popover] .about-note-close { position: absolute; top: 4px; right: 4px; display: grid; place-items: center; width: 32px; height: 32px; color: var(--ink-3); font: 24px/1 var(--sans); }
-.about-note-close:hover { color: var(--ink); }
-@media (min-width: 1100px) {
-  .about { max-width: 66rem; }
-  .about-intro { max-width: calc(100% - 22rem); }
-  .about-claim-row { display: grid; grid-template-columns: minmax(0, 1fr) 19rem; gap: 3rem; align-items: start; }
-  .about-claims li { margin-bottom: 32px; }
-  .about-note { margin-top: 0; font-size: var(--t-cap); }
+@media (min-width: 1000px) {
+  .about { max-width: 56rem; }
+  .about-intro { max-width: 38rem; }
+  .about-claims { width: calc(100% - var(--about-note-width) - var(--about-note-gap)); }
+  .about-claim-row { display: grid; grid-template-columns: minmax(0, 1fr) var(--about-note-width); column-gap: var(--about-note-gap); align-items: start; width: calc(100% + var(--about-note-width) + var(--about-note-gap)); }
+  .about-note { margin: 0; }
+  .about[data-note-layout="margin"] .about-claims { padding-bottom: var(--about-note-overflow, 0px); }
+  .about[data-note-layout="margin"] .about-claim-row { display: block; width: auto; }
+  .about[data-note-layout="margin"] .about-note { position: absolute; left: calc(100% + var(--about-note-gap)); width: var(--about-note-width); }
 }
 @media (max-width: 700px) { .about { padding: 8px 0 4px; } }
 @media print {
-  .about { max-width: none; padding: 0; }
-  .about-intro { max-width: none; }
-  .about-claim-row { display: block; }
-  .about-claims li { break-inside: avoid; }
-  .about .about-note-link { display: inline-flex; }
-  .about .about-note-toggle, .about .about-note-close { display: none; }
-  .about .about-note { display: block !important; position: static; inset: auto !important; width: auto !important; max-height: none !important; margin: 12px 0 0 !important; padding: 0; border: 0; overflow: visible; }
-  .about .about-note-body { display: grid; padding: 0; overflow: visible; }
-  .about .about-note-letter { display: block; }
+  .about, .about-intro { max-width: none; padding: 0; }
+  .about .about-claims { width: auto; padding-bottom: 0 !important; }
+  .about .about-claim-row { display: block; width: auto; }
+  .about-claims li { break-inside: avoid; padding-top: 0 !important; }
+  .about .about-note-link { display: inline-block !important; }
+  .about .about-note-toggle { display: none !important; }
+  .about .about-note { display: block !important; position: static !important; width: auto !important; margin: 12px 0 0; font-size: 10pt; }
+  .about-note a::after { content: " (" attr(href) ")"; overflow-wrap: anywhere; }
 }
 </style>
 <script src="app.js?v=0c4f7c184c" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  if (!('showPopover' in HTMLElement.prototype)) return;
   const article = document.querySelector('.about');
-  const notes = [...document.querySelectorAll('.about-note')];
-  const wideScreen = window.matchMedia('(min-width: 1100px)');
+  const list = article.querySelector('.about-claims');
+  const notes = [...article.querySelectorAll('.about-note')];
+  const wideScreen = window.matchMedia('(min-width: 1000px)');
   const printMedia = window.matchMedia('print');
-  let printing = false;
-  let usePopovers;
-  const buttonFor = (note) => article.querySelector(`.about-note-toggle[popovertarget="${note.id}"]`);
+  const expandedNotes = new Set();
+  const buttonFor = (note) => article.querySelector(`.about-note-toggle[aria-controls="${note.id}"]`);
   const linkFor = (note) => article.querySelector(`.about-note-link[href="#${note.id}"]`);
-  const syncNoteMode = () => {
-    const nextMode = !wideScreen.matches && !printMedia.matches && !printing;
-    if (nextMode === usePopovers) return;
+  let positionFrame;
+
+  const positionNotes = () => {
+    if (!wideScreen.matches || printMedia.matches) return;
+    list.style.removeProperty('--about-note-overflow');
+    notes.forEach((note) => note.closest('li').style.removeProperty('--about-note-clearance'));
+    const listBox = list.getBoundingClientRect();
+    let nextTop = 0;
+    let lastBottom = 0;
+    notes.forEach((note) => {
+      const reference = linkFor(note).getBoundingClientRect();
+      const target = Math.round(reference.top - listBox.top);
+      const clearance = Math.max(0, Math.ceil(nextTop - target));
+      if (clearance) note.closest('li').style.setProperty('--about-note-clearance', `${clearance}px`);
+      const top = Math.round(linkFor(note).getBoundingClientRect().top - listBox.top);
+      note.style.top = `${top}px`;
+      lastBottom = top + note.getBoundingClientRect().height;
+      nextTop = lastBottom + 18;
+    });
+    const contentHeight = list.getBoundingClientRect().height;
+    list.style.setProperty('--about-note-overflow', `${Math.max(0, Math.ceil(lastBottom - contentHeight))}px`);
+  };
+  const queuePosition = () => {
+    cancelAnimationFrame(positionFrame);
+    positionFrame = requestAnimationFrame(positionNotes);
+  };
+  const syncNote = (note) => {
+    const expanded = expandedNotes.has(note.id);
+    const button = buttonFor(note);
+    note.hidden = !wideScreen.matches && !expanded;
+    button.setAttribute('aria-expanded', String(expanded));
+    button.setAttribute('aria-label', `${expanded ? 'Hide' : 'Show'} ${note.getAttribute('aria-label').toLowerCase()}`);
+  };
+  const syncLayout = () => {
     const active = document.activeElement;
-    let nextFocus;
+    article.dataset.noteLayout = wideScreen.matches ? 'margin' : 'inline';
+    list.style.removeProperty('--about-note-overflow');
     notes.forEach((note) => {
       const button = buttonFor(note);
       const link = linkFor(note);
-      if (nextMode && (active === link || note.contains(active))) nextFocus = button;
-      if (!nextMode && (active === button || note.contains(active))) nextFocus = link;
-      if (note.matches(':popover-open')) note.hidePopover();
-      note.removeAttribute('style');
-      if (nextMode) note.setAttribute('popover', 'auto');
-      else note.removeAttribute('popover');
-      button.setAttribute('aria-expanded', 'false');
+      note.style.removeProperty('top');
+      note.closest('li').style.removeProperty('--about-note-clearance');
+      if (!wideScreen.matches && note.contains(active)) expandedNotes.add(note.id);
+      syncNote(note);
+      if (wideScreen.matches && active === button) link.focus({ preventScroll: true });
+      if (!wideScreen.matches && active === link) button.focus({ preventScroll: true });
     });
-    usePopovers = nextMode;
-    article.toggleAttribute('data-note-popovers', usePopovers);
-    nextFocus?.focus({ preventScroll: true });
-  };
-  const placeNote = (note) => {
-    if (!usePopovers || !note.matches(':popover-open')) return;
-    const button = buttonFor(note);
-    const anchor = button.getBoundingClientRect();
-    const claim = button.closest('li').getBoundingClientRect();
-    const column = button.closest('.about').getBoundingClientRect();
-    const viewport = window.visualViewport;
-    const gutter = 12;
-    const gap = 8;
-    const viewLeft = viewport?.offsetLeft || 0;
-    const viewTop = viewport?.offsetTop || 0;
-    const viewWidth = viewport?.width || document.documentElement.clientWidth;
-    const viewHeight = viewport?.height || window.innerHeight;
-    if (anchor.bottom <= viewTop || anchor.top >= viewTop + viewHeight || anchor.right <= viewLeft || anchor.left >= viewLeft + viewWidth) {
-      note.hidePopover();
-      return;
-    }
-    const screenLeft = viewLeft + gutter;
-    const screenRight = viewLeft + viewWidth - gutter;
-    const screenTop = viewTop + gutter;
-    const screenBottom = viewTop + viewHeight - gutter;
-    const preferredWidth = 32 * parseFloat(getComputedStyle(document.documentElement).fontSize);
-    const width = Math.min(preferredWidth, screenRight - screenLeft);
-    const columnLeft = Math.max(screenLeft, column.left);
-    const columnRight = Math.min(screenRight, column.right);
-    const columnFits = columnRight - columnLeft >= width;
-    const leftLimit = columnFits ? columnLeft : screenLeft;
-    const rightLimit = columnFits ? columnRight : screenRight;
-    note.style.inset = 'auto';
-    note.style.margin = '0';
-    note.style.width = `${width}px`;
-    note.style.maxHeight = 'none';
-    const box = note.getBoundingClientRect();
-    let belowStart = claim.bottom + gap;
-    let aboveEnd = claim.top - gap;
-    let below = Math.max(0, screenBottom - belowStart);
-    let above = Math.max(0, aboveEnd - screenTop);
-    if (Math.max(below, above) < Math.min(box.height, 160)) {
-      belowStart = anchor.bottom + gap;
-      aboveEnd = anchor.top - gap;
-      below = Math.max(0, screenBottom - belowStart);
-      above = Math.max(0, aboveEnd - screenTop);
-    }
-    const useBelow = box.height <= below || (box.height > above && below >= above);
-    const height = Math.min(box.height, useBelow ? below : above);
-    const left = Math.max(leftLimit, Math.min((anchor.left + anchor.right - box.width) / 2, rightLimit - box.width));
-    const top = useBelow ? belowStart : aboveEnd - height;
-    note.style.maxHeight = `${height}px`;
-    note.style.left = `${left}px`;
-    note.style.top = `${top}px`;
+    queuePosition();
   };
   notes.forEach((note) => {
     const button = buttonFor(note);
-    const closeNote = () => {
-      note.hidePopover();
-      button.focus({ preventScroll: true });
-    };
+    button.addEventListener('click', () => {
+      if (expandedNotes.has(note.id)) expandedNotes.delete(note.id);
+      else expandedNotes.add(note.id);
+      syncNote(note);
+    });
     note.addEventListener('keydown', (event) => {
-      if (event.key !== 'Escape' || !note.matches(':popover-open')) return;
+      if (event.key !== 'Escape' || wideScreen.matches) return;
       event.preventDefault();
-      closeNote();
+      expandedNotes.delete(note.id);
+      syncNote(note);
+      button.focus({ preventScroll: true });
     });
-    note.querySelector('.about-note-close').addEventListener('click', (event) => {
-      event.preventDefault();
-      closeNote();
-    });
-    note.addEventListener('beforetoggle', (event) => {
-      if (event.newState === 'open') requestAnimationFrame(() => placeNote(note));
-    });
-    note.addEventListener('toggle', () => {
-      button.setAttribute('aria-expanded', String(note.matches(':popover-open')));
-    });
-  });
-  let positionFrame;
-  const reposition = () => {
-    cancelAnimationFrame(positionFrame);
-    positionFrame = requestAnimationFrame(() => notes.forEach(placeNote));
-  };
-  window.addEventListener('resize', reposition, { passive: true });
-  window.addEventListener('scroll', reposition, { passive: true });
-  window.visualViewport?.addEventListener('resize', reposition, { passive: true });
-  window.visualViewport?.addEventListener('scroll', reposition, { passive: true });
-  document.fonts.ready.then(reposition);
-  wideScreen.addEventListener('change', syncNoteMode);
-  printMedia.addEventListener('change', syncNoteMode);
-  window.addEventListener('beforeprint', () => {
-    printing = true;
-    syncNoteMode();
-  });
-  window.addEventListener('afterprint', () => {
-    printing = false;
-    syncNoteMode();
   });
   const openLinkedNote = () => {
     const note = notes.find((item) => `#${item.id}` === window.location.hash);
     if (!note) return;
-    if (usePopovers) {
-      buttonFor(note).scrollIntoView({ block: 'center' });
-      note.showPopover();
-      placeNote(note);
-    } else {
+    expandedNotes.add(note.id);
+    syncNote(note);
+    queuePosition();
+    requestAnimationFrame(() => {
       note.scrollIntoView({ block: 'nearest' });
       note.focus({ preventScroll: true });
-    }
+    });
   };
+  wideScreen.addEventListener('change', syncLayout);
+  printMedia.addEventListener('change', queuePosition);
+  window.addEventListener('afterprint', queuePosition);
+  window.addEventListener('resize', queuePosition, { passive: true });
   window.addEventListener('hashchange', openLinkedNote);
-  syncNoteMode();
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(queuePosition);
+    article.querySelectorAll('.about-claim, .about-note-body').forEach((item) => observer.observe(item));
+  }
+  document.fonts.ready.then(queuePosition);
+  syncLayout();
   openLinkedNote();
 });
 </script>
@@ -251,52 +206,48 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
   <ol class="about-claims">
     <li><div class="about-claim-row">
-      <div class="about-claim"><strong>In 2024, AI-governance researchers Airlie Hilliard, Emre Kazim, and Stephan Ledain</strong> wrote in <em>AI and Ethics</em> that “there is a lack of an equivalent for positive outcomes” to the databases that document AI <span class="about-note-anchor">harms.<a class="about-note-ref about-note-link" href="#endnote-i" aria-label="Sidenote a"><span>a</span></a><button type="button" class="about-note-ref about-note-toggle" popovertarget="endnote-i" aria-label="Sidenote a" aria-controls="endnote-i" aria-expanded="false"><span>a</span></button></span></div>
+      <div class="about-claim"><strong>In 2024, AI-governance researchers Airlie Hilliard, Emre Kazim, and Stephan Ledain</strong> wrote in <em>AI and Ethics</em> that “there is a lack of an equivalent for positive outcomes” to the databases that document AI <span class="about-note-anchor">harms.<a class="about-note-ref about-note-link" href="#endnote-i" aria-label="Sidenote a"><span>a</span></a><button type="button" class="about-note-ref about-note-toggle" aria-label="Show sidenote a" aria-controls="endnote-i" aria-expanded="false"><span>a</span></button></span></div>
       <aside id="endnote-i" class="about-note" role="note" aria-label="Sidenote a" tabindex="-1">
         <div class="about-note-body">
         <span class="about-note-letter" aria-hidden="true">a</span>
         <div class="about-note-text">
-        <p>Airlie Hilliard et al., “Are the Robots Taking Over? On AI and Perceived Existential Risk,” <em>AI and Ethics</em> 5, no. 3 (June 2025): 2937, §&nbsp;4, <a href="https://doi.org/10.1007/s43681-024-00600-9" tabindex="0">https://doi.org/10.1007/s43681-024-00600-9</a>.</p>
+        <p>Airlie Hilliard et al., “Are the Robots Taking Over? On AI and Perceived Existential Risk,” <em>AI and Ethics</em> 5, no. 3 (June 2025): 2937, §&nbsp;4, <a href="https://doi.org/10.1007/s43681-024-00600-9" tabindex="0">DOI</a>.</p>
         </div>
         </div>
-        <button type="button" class="about-note-close" popovertarget="endnote-i" popovertargetaction="hide" aria-label="Close sidenote a">×</button>
       </aside>
     </div></li>
     <li><div class="about-claim-row">
-      <div class="about-claim"><strong>Following a joint workshop in 2024, Amazon Web Services and Minerva Technology Policy Advisors</strong> recommended establishing a centralized “AI Success Database” to “document and share positive case studies of AI adoption in the public <span class="about-note-anchor">sector.”<a class="about-note-ref about-note-link" href="#endnote-ii" aria-label="Sidenote b"><span>b</span></a><button type="button" class="about-note-ref about-note-toggle" popovertarget="endnote-ii" aria-label="Sidenote b" aria-controls="endnote-ii" aria-expanded="false"><span>b</span></button></span></div>
+      <div class="about-claim"><strong>Following a joint workshop in 2024, Amazon Web Services and Minerva Technology Policy Advisors</strong> recommended establishing a centralized “AI Success Database” to “document and share positive case studies of AI adoption in the public <span class="about-note-anchor">sector.”<a class="about-note-ref about-note-link" href="#endnote-ii" aria-label="Sidenote b"><span>b</span></a><button type="button" class="about-note-ref about-note-toggle" aria-label="Show sidenote b" aria-controls="endnote-ii" aria-expanded="false"><span>b</span></button></span></div>
       <aside id="endnote-ii" class="about-note" role="note" aria-label="Sidenote b" tabindex="-1">
         <div class="about-note-body">
         <span class="about-note-letter" aria-hidden="true">b</span>
         <div class="about-note-text">
-        <p>Amazon Web Services and Minerva Technology Policy Advisors, <em>AI, Everywhere, All at Once: A New Policy Agenda for AI Success through Faster Adoption</em> (workshop report, n.d.), 12, §&nbsp;9.2, <a href="https://adopt-ai.org/wp-content/uploads/2025/10/AIAI_0325_AI-Everywhere-All-At-Once_Updated-Final.pdf#page=36" tabindex="0">https://adopt-ai.org/wp-content/uploads/2025/10/AIAI_0325_AI-Everywhere-All-At-Once_Updated-Final.pdf</a>.</p>
+        <p>Amazon Web Services and Minerva Technology Policy Advisors, <em>AI, Everywhere, All at Once: A New Policy Agenda for AI Success through Faster Adoption</em> (workshop report, n.d.), 12, §&nbsp;9.2, <a href="https://adopt-ai.org/wp-content/uploads/2025/10/AIAI_0325_AI-Everywhere-All-At-Once_Updated-Final.pdf#page=36" tabindex="0">Workshop report</a>.</p>
         </div>
         </div>
-        <button type="button" class="about-note-close" popovertarget="endnote-ii" popovertargetaction="hide" aria-label="Close sidenote b">×</button>
       </aside>
     </div></li>
     <li><div class="about-claim-row">
-      <div class="about-claim"><strong>In 2026, Valerie Wirtschafter, a fellow at the Brookings Institution,</strong> called for “documenting and sharing AI success stories and lessons learned” in her assessment of federal AI <span class="about-note-anchor">adoption.<a class="about-note-ref about-note-link" href="#endnote-iii" aria-label="Sidenote c"><span>c</span></a><button type="button" class="about-note-ref about-note-toggle" popovertarget="endnote-iii" aria-label="Sidenote c" aria-controls="endnote-iii" aria-expanded="false"><span>c</span></button></span></div>
+      <div class="about-claim"><strong>In 2026, Valerie Wirtschafter, a fellow at the Brookings Institution,</strong> called for “documenting and sharing AI success stories and lessons learned” in her assessment of federal AI <span class="about-note-anchor">adoption.<a class="about-note-ref about-note-link" href="#endnote-iii" aria-label="Sidenote c"><span>c</span></a><button type="button" class="about-note-ref about-note-toggle" aria-label="Show sidenote c" aria-controls="endnote-iii" aria-expanded="false"><span>c</span></button></span></div>
       <aside id="endnote-iii" class="about-note" role="note" aria-label="Sidenote c" tabindex="-1">
         <div class="about-note-body">
         <span class="about-note-letter" aria-hidden="true">c</span>
         <div class="about-note-text">
-        <p>Valerie Wirtschafter, “Assessing the State of AI Adoption across the Federal Government,” Brookings Institution, April 15, 2026, 21, ¶&nbsp;1, <a href="https://www.brookings.edu/articles/assessing-the-state-of-ai-adoption-across-the-federal-government/" tabindex="0">https://www.brookings.edu/articles/assessing-the-state-of-ai-adoption-across-the-federal-government/</a>.</p>
+        <p>Valerie Wirtschafter, “Assessing the State of AI Adoption across the Federal Government,” Brookings Institution, April 15, 2026, 21, ¶&nbsp;1, <a href="https://www.brookings.edu/articles/assessing-the-state-of-ai-adoption-across-the-federal-government/" tabindex="0">Brookings</a>.</p>
         <p><em>See esp.</em> her proposal for a public repository on AI.gov showing how federal agencies use AI to benefit the public.</p>
         </div>
         </div>
-        <button type="button" class="about-note-close" popovertarget="endnote-iii" popovertargetaction="hide" aria-label="Close sidenote c">×</button>
       </aside>
     </div></li>
     <li><div class="about-claim-row">
-      <div class="about-claim"><strong>In 2026, Ruben Laukkonen et al.</strong> argued that AI alignment should actively support human and ecological flourishing as well as prevent <span class="about-note-anchor">harm.<a class="about-note-ref about-note-link" href="#endnote-iv" aria-label="Sidenote d"><span>d</span></a><button type="button" class="about-note-ref about-note-toggle" popovertarget="endnote-iv" aria-label="Sidenote d" aria-controls="endnote-iv" aria-expanded="false"><span>d</span></button></span></div>
+      <div class="about-claim"><strong>In 2026, Ruben Laukkonen et al.</strong> argued that preventing harm alone is insufficient, calling for AI to actively support both human and ecological <span class="about-note-anchor">flourishing.<a class="about-note-ref about-note-link" href="#endnote-iv" aria-label="Sidenote d"><span>d</span></a><button type="button" class="about-note-ref about-note-toggle" aria-label="Show sidenote d" aria-controls="endnote-iv" aria-expanded="false"><span>d</span></button></span></div>
       <aside id="endnote-iv" class="about-note" role="note" aria-label="Sidenote d" tabindex="-1">
         <div class="about-note-body">
         <span class="about-note-letter" aria-hidden="true">d</span>
         <div class="about-note-text">
-        <p>Ruben Laukkonen et al., “Positive Alignment: Artificial Intelligence for Human Flourishing,” arXiv:2605.10310v3, revised June 19, 2026, abstract and §&nbsp;1.2, <a href="https://arxiv.org/abs/2605.10310v3" tabindex="0">https://arxiv.org/abs/2605.10310v3</a>.</p>
+        <p>Ruben Laukkonen et al., “Positive Alignment: Artificial Intelligence for Human Flourishing,” arXiv:2605.10310v3, revised June 19, 2026, abstract and §&nbsp;1.2, <a href="https://arxiv.org/abs/2605.10310v3" tabindex="0">arXiv version 3</a>.</p>
         </div>
         </div>
-        <button type="button" class="about-note-close" popovertarget="endnote-iv" popovertargetaction="hide" aria-label="Close sidenote d">×</button>
       </aside>
     </div></li>
   </ol>
