@@ -89,6 +89,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.main = False
         self.title = False
+        self.navigation_depth = 0
         self.skip = 0
         self.tokens = []
         self.canonicals = []
@@ -101,6 +102,8 @@ class Page(HTMLParser):
             self.main = True
         if tag == "title" and not self.main:
             self.title = True
+        if tag in {"header", "footer"}:
+            self.navigation_depth += 1
         if tag in {"script", "style"}:
             self.skip += 1
         if tag == "link" and attrs.get("rel") == "canonical":
@@ -118,12 +121,16 @@ class Page(HTMLParser):
             for name in ("href", "alt", "datetime"):
                 if name in attrs:
                     self.tokens.append((name, attrs[name]))
+        elif tag == "a" and self.navigation_depth and not self.skip and "href" in attrs:
+            self.tokens.append(("navigation_href", attrs["href"]))
 
     def handle_endtag(self, tag):
         if tag == "main":
             self.main = False
         if tag == "title":
             self.title = False
+        if tag in {"header", "footer"}:
+            self.navigation_depth = max(0, self.navigation_depth - 1)
         if tag in {"script", "style"}:
             self.skip = max(0, self.skip - 1)
 

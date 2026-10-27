@@ -102,6 +102,25 @@ class IndexNowSafetyTests(unittest.TestCase):
         for text in ("New research", 'Research <a href="https://example.com/two">paper</a>'):
             self.assertNotEqual(before, Page(html(text)).fingerprint(url))
 
+    def test_header_and_footer_links_notify_without_cosmetic_attributes(self):
+        url = ORIGIN + "/portfolio/"
+        original = html()
+        for region in ("header", "footer"):
+            with self.subTest(region=region):
+                def navigation(links):
+                    block = f"<{region}>{links}</{region}>".encode()
+                    return original.replace(b"<body>", b"<body>" + block)
+
+                link = '<a href="/artifacts/">Artifacts</a>'
+                before = Page(navigation("")).fingerprint(url)
+                added = Page(navigation(link)).fingerprint(url)
+                self.assertNotEqual(before, added)
+                self.assertNotEqual(
+                    added, Page(navigation(link.replace("/artifacts/", "/site-index/"))).fingerprint(url)
+                )
+                styled = link.replace('<a ', '<a class="muted" style="color: blue" ')
+                self.assertEqual(added, Page(navigation(styled)).fingerprint(url))
+
     def test_noindex_and_wrong_canonicals_block_submission(self):
         for data in (html(extra='<meta name="robots" content="noindex,follow">'),
                      html(extra='<meta name="bingbot" content="none">'),

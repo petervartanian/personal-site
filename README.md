@@ -44,6 +44,17 @@ The two approved editorial asides on Writing use `data-nosnippet`: the affiliati
 
 Shared links use five 1200 × 630 preview images with backgrounds matching their pages. The preview artwork can be regenerated with `scripts/preview_cards.py` (Pillow) and `scripts/render_preview_cards.cjs` (Sharp); these optional tools are not needed to build the site. Both scripts accept a page key such as `artifacts` to regenerate one card. Approved PNGs live in `assets/img/social-*.png`.
 
+## Public working artifacts
+
+`/artifacts/` links to the AI Benefits Database, the public chygraph graph, and
+omphalOS. Chygraph's public edition contains its sourced graph, evidence register,
+and JSON download. The repository catalog that requires a local service remains
+outside this static edition. Publish only the reviewed runtime files listed in
+`content/public-files.json`.
+
+Writing includes The Suprastructure's native signup embed, with a direct
+publication link and lazy loading. It does not automatically subscribe visitors.
+
 ## Unlisted research tools
 
 Agency Costs, BackDrive, AI Risk Correlator, AI Incident Explorer, Haruspex, AI Control Monitor, and Arcolens open directly beneath `/200/`. The catalog is `/200/`; Arcolens also has a directory alias for its `OPEN_REVIEW.html` entry. Preserve these paths, queries, and fragments when publishing updates. Deploy the complete reviewed static build, including its data and assets, and add its exact file paths to `content/public-files.json`. The personal-page build does not regenerate these tools.
@@ -56,4 +67,4 @@ The former `/x-oscope/` and `/auspex/` applications and their redirect pages rem
 
 Run `node --test scripts/test-200.mjs scripts/test-correlator.mjs scripts/test-public-snapshot.mjs` to verify browser migration, tool entry pages, search exclusions, and the deployment allowlist.
 
-Search-engine notifications use IndexNow only after a verified successful Pages deployment. The sitemap is the public URL allowlist and all unlisted tool routes are independently excluded. A missing checkpoint stops automatic submission; the first manual `initialize=true` announces the reviewed public pages in the sitemap, and a saved checkpoint prevents unchanged pages from being submitted again.
+Search-engine notifications use IndexNow only after a verified successful Pages deployment. The root sitemap and AIBD sitemap jointly define the public URL allowlist, and all unlisted tool routes are independently excluded. Both live sitemaps must match the deployed commit before a notification is sent. Changes to public navigation links also count as meaningful updates. A missing checkpoint stops automatic submission; the first manual `initialize=true` announces the reviewed public pages in the sitemap, and a saved checkpoint prevents unchanged pages from being submitted again.
