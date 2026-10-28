@@ -2345,19 +2345,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The wearer decided to attend the emergency department. Clinicians confirmed atrial fibrillation on an ECG and chose the medication changes."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Apple Watch heart-rate alarms led to an ECG-confirmed AF diagnosis and anticoagulation (UK, 2019); 16 echoes from 15 published case reports to 2026.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: emergency attendance, confirmatory ECG, bisoprolol and anticoagulation, and stopping clopidogrel.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0021-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Apple Watch heart-rate notifications, Irregular Rhythm Notification and ECG app in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The wearer decided to attend the emergency department. Clinicians confirmed atrial fibrillation on an ECG and chose the medication changes."
+        }
       },
       "id": {
         "state": "value_present",
@@ -2564,16 +2570,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Apple Watch heart-rate alarms led to an ECG-confirmed AF diagnosis and anticoagulation (UK, 2019); 16 echoes from 15 published case reports to 2026.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: alarms triggered attendance; clinicians diagnosed and treated the arrhythmia.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0021-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The report links attendance to repeated overnight pulse alarms. A clinical ECG, not the alert itself, established atrial fibrillation and guided treatment.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The main contribution was probably overcoming a delay in seeking care for an otherwise unnoticed rhythm problem, rather than providing a definitive diagnosis on the wrist.",
+          "editor_note": "The report links attendance to repeated overnight pulse alarms. A clinical ECG, not the alert itself, established atrial fibrillation and guided treatment."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -3068,39 +3078,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0021-source-0001",
-            "AIBD-0021-source-0002",
-            "AIBD-0021-source-0003",
-            "AIBD-0021-source-0004",
-            "AIBD-0021-source-0005",
-            "AIBD-0021-source-0006",
-            "AIBD-0021-source-0007",
-            "AIBD-0021-source-0008",
-            "AIBD-0021-source-0009",
-            "AIBD-0021-source-0010",
-            "AIBD-0021-source-0011",
-            "AIBD-0021-source-0012",
-            "AIBD-0021-source-0013",
-            "AIBD-0021-source-0014",
-            "AIBD-0021-source-0015",
-            "AIBD-0021-source-0016",
-            "AIBD-0021-source-0017"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6440268/",
+                "source_refs": [
+                  "AIBD-0021-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "An asymptomatic patient sought help after repeated tachycardia alarms; the Series 2 had no specific arrhythmia-diagnosis features; clinical ECG confirmed AF.",
+                "locator": "Case report and Discussion",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The many later case reports were not re-evaluated; these proposals concern the lead patient."
+          }
         },
-        "reason": "The 17 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0021-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 17 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The many later case reports were not re-evaluated; these proposals concern the lead patient."
         }
       },
       "sources[].citation_locator": {
@@ -3520,27 +3531,80 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0021-source-0001",
-            "AIBD-0021-source-0002"
-          ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6440268/",
+                "source_refs": [
+                  "AIBD-0021-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "An asymptomatic patient sought help after repeated tachycardia alarms; the Series 2 had no specific arrhythmia-diagnosis features; clinical ECG confirmed AF.",
+                "locator": "Case report and Discussion",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6440268/",
+                  "source_refs": [
+                    "AIBD-0021-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "An asymptomatic patient sought help after repeated tachycardia alarms; the Series 2 had no specific arrhythmia-diagnosis features; clinical ECG confirmed AF.",
+                  "locator": "Case report and Discussion",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The many later case reports were not re-evaluated; these proposals concern the lead patient.",
+              "origin_chain": "Retained citation to the original report or research article."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0021-source-0001",
+            "retained_source_order": [
+              "AIBD-0021-source-0001",
+              "AIBD-0021-source-0002",
+              "AIBD-0021-source-0003",
+              "AIBD-0021-source-0004",
+              "AIBD-0021-source-0005",
+              "AIBD-0021-source-0006",
+              "AIBD-0021-source-0007",
+              "AIBD-0021-source-0008",
+              "AIBD-0021-source-0009",
+              "AIBD-0021-source-0010",
+              "AIBD-0021-source-0011",
+              "AIBD-0021-source-0012",
+              "AIBD-0021-source-0013",
+              "AIBD-0021-source-0014",
+              "AIBD-0021-source-0015",
+              "AIBD-0021-source-0016",
+              "AIBD-0021-source-0017"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "The retained source trail for Apple Watch heart-rate, irregular-rhythm and ECG alerts leading to arrhythmia diagnosis and treatment has not been fully verified. The references support this editorial screening only.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight outcomes[].tradeoffs",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0021-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The retained references have not been fully traced to their original evidence."
+          "answer": "An asymptomatic patient sought help after repeated tachycardia alarms; the Series 2 had no specific arrhythmia-diagnosis features; clinical ECG confirmed AF."
         }
       },
       "strategic_assessments[]": {
@@ -3652,19 +3716,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The Series 2 watch measured the woman's pulse and generated repeated alerts when it exceeded 120 beats per minute while she was inactive."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Apple Watch heart-rate alarms led to an ECG-confirmed AF diagnosis and anticoagulation (UK, 2019); 16 echoes from 15 published case reports to 2026.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and source 1: overnight high-pulse alarms on Apple Watch Series 2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0021-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Apple Watch heart-rate notifications, Irregular Rhythm Notification and ECG app have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The Series 2 watch measured the woman's pulse and generated repeated alerts when it exceeded 120 beats per minute while she was inactive."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -3950,18 +4020,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 43,
-      "reviewed": 3,
+      "known": 47,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 41,
-      "review_not_assessed": 47,
+      "review_not_assessed": 43,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 43,
+        "value_present": 47,
         "not_reported": 0,
-        "unresolved": 48,
+        "unresolved": 44,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

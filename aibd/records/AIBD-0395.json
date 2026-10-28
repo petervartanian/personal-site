@@ -1175,19 +1175,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Pathologists supplied and checked the reference annotations. The proposed output would support their slide assessment, with broader clinical validation still required."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: IIIT Bangalore presents a computational-pathology pipeline for necrosis detection, with clinical decision support as its intended application.",
-          "record_fields": [
-            "summary"
+          "basis": "ITU original submission, objectives and future work.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0395-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of IIIT Bangalore necrosis-detection pipeline in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Pathologists supplied and checked the reference annotations. The proposed output would support their slide assessment, with broader clinical validation still required."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1209,19 +1215,25 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The research used a Leica SCN400 scanner at nominal 20× magnification, OpenSlide image handling, and university servers. Data and code were private."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: IIIT Bangalore presents a computational-pathology pipeline for necrosis detection, with clinical decision support as its intended application.",
-          "record_fields": [
-            "summary"
+          "basis": "ITU original submission, summary and preprocessing.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0395-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for IIIT Bangalore necrosis-detection pipeline has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The research used a Leica SCN400 scanner at nominal 20× magnification, OpenSlide image handling, and university servers. Data and code were private."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1391,16 +1403,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: IIIT Bangalore presents a computational-pathology pipeline for necrosis detection, with clinical decision support as its intended application.",
-          "record_fields": [
-            "summary"
+          "basis": "ITU original submission, objectives and future work.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0395-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The source limits the task to one pathology feature and explicitly calls for larger, diverse validation.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Validation on limited annotated data does not establish performance across scanners or patient populations. Detecting necrosis alone does not determine the complete tumor diagnosis.",
+          "editor_note": "The source limits the task to one pathology feature and explicitly calls for larger, diverse validation."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1582,23 +1598,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/dms_pub/itu-t/opb/ai4g/T-AI4G-AI4GOOD-2025-5-PDF-E.pdf",
+                "source_refs": [
+                  "AIBD-0395-source-0001"
+                ],
+                "title": "Original project-submitted chapter",
+                "relationship": "Original project-submitted chapter",
+                "contribution": "Uses 20×scanned slides,256 pixel tiles, handcrafted features and classical/boosting models; logistic regression and AdaBoost are named.",
+                "locator": "Use Case 11, printed pages 64–68",
+                "access_status": "Downloaded original PDF and read chapter"
+              }
+            ],
+            "latest_limitations": "Limited data and no cross-scanner clinical validation; original presentation inaccessible."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0395-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Limited data and no cross-scanner clinical validation; original presentation inaccessible."
         }
       },
       "sources[].citation_locator": {
@@ -1711,6 +1744,17 @@
                 "contribution": "The original ITU publication contains the contributor’s description, with information stated as current to June 2025. Its publication by ITU does not independently validate the outcomes. The cited underlying studies and project records were not separately reopened.",
                 "retrieval_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en",
                 "content_locator": "_idParaDest-73"
+              },
+              {
+                "url": "https://www.itu.int/dms_pub/itu-t/opb/ai4g/T-AI4G-AI4GOOD-2025-5-PDF-E.pdf",
+                "source_refs": [
+                  "AIBD-0395-source-0001"
+                ],
+                "title": "Original project-submitted chapter",
+                "relationship": "Original project-submitted chapter",
+                "contribution": "Uses 20×scanned slides,256 pixel tiles, handcrafted features and classical/boosting models; logistic regression and AdaBoost are named.",
+                "locator": "Use Case 11, printed pages 64–68",
+                "access_status": "Downloaded original PDF and read chapter"
               }
             ],
             "retained_source_order": [
@@ -1719,12 +1763,31 @@
             "unreviewed_source_refs": [],
             "limitations": "The authors describe limited datasets and labels and call for larger validation across scanners and demographics. Comparisons among algorithms do not show reduced pathology workload or better treatment decisions. Hosting on university servers does not establish use in patient care. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0395-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/dms_pub/itu-t/opb/ai4g/T-AI4G-AI4GOOD-2025-5-PDF-E.pdf",
+                  "source_refs": [
+                    "AIBD-0395-source-0001"
+                  ],
+                  "title": "Original project-submitted chapter",
+                  "relationship": "Original project-submitted chapter",
+                  "contribution": "Uses 20×scanned slides,256 pixel tiles, handcrafted features and classical/boosting models; logistic regression and AdaBoost are named.",
+                  "locator": "Use Case 11, printed pages 64–68",
+                  "access_status": "Downloaded original PDF and read chapter"
+                }
+              ],
+              "limitations": "Limited data and no cross-scanner clinical validation; original presentation inaccessible.",
+              "origin_chain": "IIIT Bangalore/NIMHANS original submission → Mukherjee 2019 winter-school presentation; search did not locate the original presentation."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at ITU AI for Good: Innovate for Impact, anchor _idParaDest-73, summary table and sections 2.1–2.3. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0395-source-0001"
@@ -1823,34 +1886,46 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Scanned biopsy slides were divided into small image tiles. Color, texture, and shape features were used to classify regions for necrosis."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: IIIT Bangalore presents a computational-pathology pipeline for necrosis detection, with clinical decision support as its intended application.",
-          "record_fields": [
-            "summary"
+          "basis": "ITU original submission, technological approach.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0395-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of IIIT Bangalore necrosis-detection pipeline have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Scanned biopsy slides were divided into small image tiles. Color, texture, and shape features were used to classify regions for necrosis."
+        }
       },
       "systems[].model_name": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The pipeline compared classical classifiers and boosting ensembles using handcrafted image features. The authors favored logistic regression among classical methods and AdaBoost among boosting methods."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: IIIT Bangalore presents a computational-pathology pipeline for necrosis detection, with clinical decision support as its intended application.",
-          "record_fields": [
-            "summary"
+          "basis": "ITU original IIIT Bangalore submission, pages 64–68.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0395-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record identifies IIIT Bangalore necrosis-detection pipeline, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The pipeline compared classical classifiers and boosting ensembles using handcrafted image features. The authors favored logistic regression among classical methods and AdaBoost among boosting methods."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -1992,18 +2067,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 32,
-      "reviewed": 3,
+      "known": 37,
+      "reviewed": 9,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 9,
       "record_mapped": 29,
-      "review_not_assessed": 59,
+      "review_not_assessed": 53,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 32,
+        "value_present": 37,
         "not_reported": 0,
-        "unresolved": 59,
+        "unresolved": 54,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

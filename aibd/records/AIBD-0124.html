@@ -63,8 +63,8 @@
     <div><dt>Source published</dt><dd><time datetime="2024-11-01">1 November 2024</time></dd></div>
     <div><dt>Sources</dt><dd><a href="#sources">6 publications</a></dd></div>
   </dl>
-  <p class="record-review-coverage"><a href="../fields.html#assignment-coverage">Field assignment</a>: 91 of 91 questions have an answer or an explicit disposition. 53 remain unresolved.</p>
-  <p class="record-review-coverage"><a href="../fields.html#review-coverage">Field review</a>: 0 of 91 questions fully reviewed, 3 partly reviewed. 36 contain mapped information awaiting review and 52 have no recorded field review.</p>
+  <p class="record-review-coverage"><a href="../fields.html#assignment-coverage">Field assignment</a>: 91 of 91 questions have an answer or an explicit disposition. 48 remain unresolved.</p>
+  <p class="record-review-coverage"><a href="../fields.html#review-coverage">Field review</a>: 0 of 91 questions fully reviewed, 8 partly reviewed. 36 contain mapped information awaiting review and 47 have no recorded field review.</p>
 </header>
 <article class="record-fields-body">
 <div class="embedded-fields" id="field-profile">
@@ -195,12 +195,13 @@
       <div class="field-row" data-field-key="outcomes[].tradeoffs" id="field-outcomes-tradeoffs">
         <dt>Costs and harms</dt>
         <dd>
-          <p class="field-answer">Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.</p>
-          <details class="field-review">
-            <summary>Review pending: unresolved<span class="visually-hidden">: Costs and harms</span></summary>
+          <p class="field-answer">Finding and repairing the defect reduced a potential security weakness. The record does not show that an attack or loss was prevented.</p>
+<p class="field-editor-note"><em>Editor’s note.</em> The merged fix establishes a software improvement, while the vendor&#39;s discussion of unusual exploit conditions limits the stronger claim of avoided harm.</p>          <details class="field-review">
+            <summary>Review partial: unresolved<span class="visually-hidden">: Costs and harms</span></summary>
             <div class="field-review-details">
-              <p>The recorded information has not completed field review.</p>
-<p><span class="field-review-label">Basis: Editorial judgment.</span> Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Spark, an AI fuzz-test agent, found a heap use-after-free in wolfSSL in late Oct 2024; fixed in PR 8139 and shipped in 5.7.6 on 31 December 2024.</p><p>Follow-up: Case-specific adverse effects and resource costs need assessment, including who bears them and when.</p>            </div>
+              <p>The available information does not settle this question.</p>
+<p><span class="field-review-label">Basis: Editorial judgment.</span> Account, PR 8139, and vendor explanation of the failure conditions.</p><p>Review date: 27 October 2026.</p><p class="field-review-sources">Sources:
+<a href="#source-1" data-source-preview aria-label="Source 1 for the review of Costs and harms">[1]</a> <a href="#source-3" data-source-preview aria-label="Source 3 for the review of Costs and harms">[3]</a>               </p>            </div>
           </details>
         </dd>
       </div>
@@ -284,12 +285,13 @@
       <div class="field-row" data-field-key="systems[].inputs_outputs" id="field-systems-inputs_outputs">
         <dt>Inputs and outputs</dt>
         <dd>
-          <p class="field-answer">The inputs and outputs of Spark, AI test agent in Code Intelligence&#39;s CI Fuzz (invoked as &#39;cifuzz spark&#39;) have not been specified.</p>
+          <p class="field-answer">Spark generated and ran fuzz tests for wolfSSL and produced a crash that exposed an invalid memory read.</p>
           <details class="field-review">
-            <summary>Review pending: unresolved<span class="visually-hidden">: Inputs and outputs</span></summary>
+            <summary>Review partial<span class="visually-hidden">: Inputs and outputs</span></summary>
             <div class="field-review-details">
-              <p>The recorded information has not completed field review.</p>
-<p><span class="field-review-label">Basis: Editorial judgment.</span> Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Spark, an AI fuzz-test agent, found a heap use-after-free in wolfSSL in late Oct 2024; fixed in PR 8139 and shipped in 5.7.6 on 31 December 2024.</p><p>Follow-up: A description is needed that traces the data through the deployed system.</p>            </div>
+              <p>A value is recorded with its source or basis. Its review status is stated separately.</p>
+<p><span class="field-review-label">Basis: Editorial judgment.</span> Vendor account of Spark&#39;s workflow and wolfSSL PR 8139 describing the invalid read.</p><p>Review date: 27 October 2026.</p><p class="field-review-sources">Sources:
+<a href="#source-1" data-source-preview aria-label="Source 1 for the review of Inputs and outputs">[1]</a> <a href="#source-3" data-source-preview aria-label="Source 3 for the review of Inputs and outputs">[3]</a>               </p>            </div>
           </details>
         </dd>
       </div>
@@ -320,12 +322,13 @@
       <div class="field-row" data-field-key="human_oversight" id="field-human_oversight">
         <dt>Human oversight</dt>
         <dd>
-          <p class="field-answer">Human oversight of Spark, AI test agent in Code Intelligence&#39;s CI Fuzz (invoked as &#39;cifuzz spark&#39;) in this case remains unassessed.</p>
+          <p class="field-answer">Engineers evaluated the crash, and wolfSSL maintainers reviewed and merged the repair.</p>
           <details class="field-review">
-            <summary>Review pending: unresolved<span class="visually-hidden">: Human oversight</span></summary>
+            <summary>Review partial<span class="visually-hidden">: Human oversight</span></summary>
             <div class="field-review-details">
-              <p>The recorded information has not completed field review.</p>
-<p><span class="field-review-label">Basis: Editorial judgment.</span> Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Spark, an AI fuzz-test agent, found a heap use-after-free in wolfSSL in late Oct 2024; fixed in PR 8139 and shipped in 5.7.6 on 31 December 2024.</p><p>Follow-up: Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient.</p>            </div>
+              <p>A value is recorded with its source or basis. Its review status is stated separately.</p>
+<p><span class="field-review-label">Basis: Editorial judgment.</span> Vendor account discusses exploitability review; PR 8139 records the merged repair.</p><p>Review date: 27 October 2026.</p><p class="field-review-sources">Sources:
+<a href="#source-1" data-source-preview aria-label="Source 1 for the review of Human oversight">[1]</a> <a href="#source-3" data-source-preview aria-label="Source 3 for the review of Human oversight">[3]</a>               </p>            </div>
           </details>
         </dd>
       </div>
@@ -772,12 +775,13 @@
       <div class="field-row" data-field-key="availability" id="field-availability">
         <dt>Availability</dt>
         <dd>
-          <p class="field-answer">Access to Spark, AI test agent in Code Intelligence&#39;s CI Fuzz (invoked as &#39;cifuzz spark&#39;) has not been established for a stated date. A published demonstration does not establish public availability.</p>
+          <p class="field-answer">Users received the fix in wolfSSL 5.7.6.</p>
           <details class="field-review">
-            <summary>Review pending: unresolved<span class="visually-hidden">: Availability</span></summary>
+            <summary>Review partial<span class="visually-hidden">: Availability</span></summary>
             <div class="field-review-details">
-              <p>The recorded information has not completed field review.</p>
-<p><span class="field-review-label">Basis: Editorial judgment.</span> Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Spark, an AI fuzz-test agent, found a heap use-after-free in wolfSSL in late Oct 2024; fixed in PR 8139 and shipped in 5.7.6 on 31 December 2024.</p><p>Follow-up: A dated source establishing the terms of access is needed.</p>            </div>
+              <p>A value is recorded with its source or basis. Its review status is stated separately.</p>
+<p><span class="field-review-label">Basis: Editorial judgment.</span> Retained release and vendor account identify version 5.7.6 as the fixed release.</p><p>Review date: 27 October 2026.</p><p class="field-review-sources">Sources:
+<a href="#source-2" data-source-preview aria-label="Source 2 for the review of Availability">[2]</a> <a href="#source-3" data-source-preview aria-label="Source 3 for the review of Availability">[3]</a>               </p>            </div>
           </details>
         </dd>
       </div>
@@ -890,26 +894,26 @@
       <div class="field-row" data-field-key="sources[].upstream_sources" id="field-sources-upstream_sources">
         <dt>Original evidence</dt>
         <dd>
-          <p class="field-answer">The wolfSSL pull request and release notes document the same fix. The Code Intelligence posts originate the AI-discovery claim, while the news reports repeat it rather than independently reproducing the agent’s work. The source chain has not been independently checked in this pass.</p>
+          <p class="field-answer">Invalid read repair merged November 1, 2024; PR does not itself credit AI.<span class="field-source-links"> <a href="#source-1" data-source-preview aria-label="Source 1 for Original evidence">[1]</a> <a href="#source-2" data-source-preview aria-label="Source 2 for Original evidence">[2]</a> <a href="#source-3" data-source-preview aria-label="Source 3 for Original evidence">[3]</a></span></p>
           <details class="field-review">
-            <summary>Review partial: unresolved<span class="visually-hidden">: Original evidence</span></summary>
+            <summary>Review partial<span class="visually-hidden">: Original evidence</span></summary>
             <div class="field-review-details">
-              <p>The available information does not settle this question.</p>
-<p><span class="field-review-label">Basis: Editorial judgment.</span> Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.</p><p>Review date: 27 October 2026.</p><p class="field-review-sources">Sources:
-<a href="#source-1" data-source-preview aria-label="Source 1 for the review of Original evidence">[1]</a> <a href="#source-2" data-source-preview aria-label="Source 2 for the review of Original evidence">[2]</a> <a href="#source-3" data-source-preview aria-label="Source 3 for the review of Original evidence">[3]</a> <a href="#source-4" data-source-preview aria-label="Source 4 for the review of Original evidence">[4]</a> <a href="#source-5" data-source-preview aria-label="Source 5 for the review of Original evidence">[5]</a> <a href="#source-6" data-source-preview aria-label="Source 6 for the review of Original evidence">[6]</a>               </p>            </div>
+              <p>A value is recorded with its source or basis. Its review status is stated separately.</p>
+<p><span class="field-review-label">Basis: Source review.</span> Case-specific public-source inspection. Fuzzing workflow, engineering oversight, fixed version, and limitation to potential security benefit survive.</p><p>Review date: 27 October 2026.</p><p class="field-review-sources">Sources:
+<a href="#source-1" data-source-preview aria-label="Source 1 for the review of Original evidence">[1]</a> <a href="#source-2" data-source-preview aria-label="Source 2 for the review of Original evidence">[2]</a> <a href="#source-3" data-source-preview aria-label="Source 3 for the review of Original evidence">[3]</a>               </p>            </div>
           </details>
         </dd>
       </div>
       <div class="field-row" data-field-key="sources[].access_version" id="field-sources-access_version">
         <dt>Access and versions</dt>
         <dd>
-          <p class="field-answer">The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.</p>
+          <p class="field-answer">Vendor discovery account is accessible through indexed content; exploit prevention was not observed.<span class="field-source-links"> <a href="#source-1" data-source-preview aria-label="Source 1 for Access and versions">[1]</a> <a href="#source-2" data-source-preview aria-label="Source 2 for Access and versions">[2]</a> <a href="#source-3" data-source-preview aria-label="Source 3 for Access and versions">[3]</a></span></p>
           <details class="field-review">
-            <summary>Review pending: unresolved<span class="visually-hidden">: Access and versions</span></summary>
+            <summary>Review partial<span class="visually-hidden">: Access and versions</span></summary>
             <div class="field-review-details">
-              <p>The recorded information has not completed field review.</p>
-<p><span class="field-review-label">Basis: Editorial judgment.</span> This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.</p><p>Follow-up: Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event.</p><p class="field-review-sources">Sources:
-<a href="#source-1" data-source-preview aria-label="Source 1 for the review of Access and versions">[1]</a> <a href="#source-2" data-source-preview aria-label="Source 2 for the review of Access and versions">[2]</a> <a href="#source-3" data-source-preview aria-label="Source 3 for the review of Access and versions">[3]</a> <a href="#source-4" data-source-preview aria-label="Source 4 for the review of Access and versions">[4]</a> <a href="#source-5" data-source-preview aria-label="Source 5 for the review of Access and versions">[5]</a> <a href="#source-6" data-source-preview aria-label="Source 6 for the review of Access and versions">[6]</a>               </p>            </div>
+              <p>A value is recorded with its source or basis. Its review status is stated separately.</p>
+<p><span class="field-review-label">Basis: Source review.</span> Access results recorded for the specific sources and passages listed in the lineage assessment.</p><p>Review date: 27 October 2026.</p><p class="field-review-sources">Sources:
+<a href="#source-1" data-source-preview aria-label="Source 1 for the review of Access and versions">[1]</a> <a href="#source-2" data-source-preview aria-label="Source 2 for the review of Access and versions">[2]</a> <a href="#source-3" data-source-preview aria-label="Source 3 for the review of Access and versions">[3]</a>               </p>            </div>
           </details>
         </dd>
       </div>
@@ -1151,7 +1155,7 @@
       <div class="field-row" data-field-key="version" id="field-version">
         <dt>Version</dt>
         <dd>
-          <p class="field-answer">SHA-256: 9122c22a0a22…</p>
+          <p class="field-answer">SHA-256: 8ec3e1fae038…</p>
           <details class="field-review">
             <summary>Recorded; review pending<span class="visually-hidden">: Version</span></summary>
             <div class="field-review-details">
@@ -1223,18 +1227,21 @@ The maintainer’s patch corroborates a software defect, but it does not identif
     <h2 id="sources">Sources</h2>
     <ol class="compact-sources">
 <li id="source-1">
-<p class="source-role">News report <span>Independent author</span></p>  <p>Willems, M. (2025). <a href="https://qa-financial.com/german-startup-to-launch-worlds-first-ai-test-agent/" rel="noopener">German startup to launch world&#39;s first AI test agent</a>. QA Financial, 13 January 2025.</p>
-<div class="source-passages" data-source-passages hidden><blockquote>Brueggemann claimed his firm shared the bug with WolfSSL’s team, which went on to issue a warning and update in December of last year.</blockquote></div></li><li id="source-2">
-<p class="source-role">News report <span>Independent author</span></p>  <p>French, L. (2025). <a href="https://www.scworld.com/feature/how-ai-can-revolutionize-vulnerability-research" rel="noopener">How AI can revolutionize vulnerability research</a>. SC Media, 3 February 2025.</p>
-<div class="source-passages" data-source-passages hidden><blockquote>Code Intelligence’s Spark autonomously discovering a heap-based user-after-free vulnerability in popular open-source wolfSSL library during its beta testing in October 2024.</blockquote></div></li><li id="source-3">
+<p class="source-role">Other <span>Beneficiary</span></p>  <p><a href="https://github.com/wolfSSL/wolfssl/pull/8139" rel="noopener">douzzer (2024). 20241031-fixes. wolfSSL/wolfssl pull request 8139, GitHub, opened and merged 1 November 2024; commit b41ce042 changes src/pk.c.</a></p>
+  <p class="source-note">Invalid read repair merged November 1, 2024; PR does not itself credit AI. <span class="source-locator">PR body and merge metadata</span></p>
+<p class="source-relationship">Original maintainer repair record</p><div class="source-passages" data-source-passages hidden><blockquote>src/pk.c: in pem_read_bio_key(), fix invalid read (ZD#18875).</blockquote></div></li><li id="source-2">
+<p class="source-role">Other <span>Beneficiary</span></p>  <p>wolfSSL (2024). <a href="https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable" rel="noopener">wolfSSL Release 5.7.6 (Dec 31, 2024)</a>, release notes, Bug Fixes. GitHub, wolfSSL/wolfssl, tag v5.7.6-stable, published 31 December 2024.</p>
+  <p class="source-note"><a href="https://www.code-intelligence.com/blog/ai-generated-fuzz-test-wolfssl-vulnerability" rel="noopener">Original developer explanation</a>. Spark generated fuzz tests; engineers assessed the resulting failure and unusual exploit conditions. <span class="source-locator">Workflow and vulnerability explanation</span></p>
+<p class="source-relationship">Original developer explanation</p><div class="source-passages" data-source-passages hidden><blockquote>Fix for potential heap use after free with wolfSSL_PEM_read_bio_PrivateKey. Thanks to Peter for the issue reported. (PR 8139)</blockquote></div></li><li id="source-3">
 <p class="source-role">Press release <span>Developer</span></p>  <p>Samarin, P. (2025). <a href="https://web.archive.org/web/20250109141038/https://www.code-intelligence.com/blog/ai-generated-fuzz-test-wolfssl-vulnerability" rel="noopener">How AI-generated fuzz test uncovered a vulnerability in wolfSSL</a>. Code Intelligence blog, 3 January 2025; Wayback Machine capture of 9 January 2025 (the live domain did not resolve on 20 October 2026).</p>
-<div class="source-passages" data-source-passages hidden><blockquote>The vulnerability was identified in wolfSSL, an open-source cryptography library widely used in developing embedded devices and IoT systems, during the final week of October 2024.</blockquote></div></li><li id="source-4">
+  <p class="source-note">No separate archive text read. <span class="source-locator">None</span></p>
+<p class="source-relationship">Archived original route</p><div class="source-passages" data-source-passages hidden><blockquote>The vulnerability was identified in wolfSSL, an open-source cryptography library widely used in developing embedded devices and IoT systems, during the final week of October 2024.</blockquote></div></li><li id="source-4">
 <p class="source-role">Press release <span>Developer</span></p>  <p>Code Intelligence (2025). <a href="https://www.prnewswire.com/news-releases/code-intelligence-launches-spark-its-ai-test-agent-that-autonomously-uncovers-vulnerabilities-without-human-interaction-302345548.html" rel="noopener">Code Intelligence Launches Spark, Its AI Test Agent That Autonomously Uncovers Vulnerabilities Without Human Interaction</a>. PR Newswire, Bonn, 9 January 2025.</p>
 <div class="source-passages" data-source-passages hidden><blockquote>The only human involvement was launching a single command to run the AI Test Agent; analyzing the code, generating a relevant test case, and running it was done autonomously.</blockquote></div></li><li id="source-5">
-<p class="source-role">Other <span>Beneficiary</span></p>  <p>wolfSSL (2024). <a href="https://github.com/wolfSSL/wolfssl/releases/tag/v5.7.6-stable" rel="noopener">wolfSSL Release 5.7.6 (Dec 31, 2024)</a>, release notes, Bug Fixes. GitHub, wolfSSL/wolfssl, tag v5.7.6-stable, published 31 December 2024.</p>
-<div class="source-passages" data-source-passages hidden><blockquote>Fix for potential heap use after free with wolfSSL_PEM_read_bio_PrivateKey. Thanks to Peter for the issue reported. (PR 8139)</blockquote></div></li><li id="source-6">
-<p class="source-role">Other <span>Beneficiary</span></p>  <p><a href="https://github.com/wolfSSL/wolfssl/pull/8139" rel="noopener">douzzer (2024). 20241031-fixes. wolfSSL/wolfssl pull request 8139, GitHub, opened and merged 1 November 2024; commit b41ce042 changes src/pk.c.</a></p>
-<div class="source-passages" data-source-passages hidden><blockquote>src/pk.c: in pem_read_bio_key(), fix invalid read (ZD#18875).</blockquote></div></li>    </ol>
+<p class="source-role">News report <span>Independent author</span></p>  <p>Willems, M. (2025). <a href="https://qa-financial.com/german-startup-to-launch-worlds-first-ai-test-agent/" rel="noopener">German startup to launch world&#39;s first AI test agent</a>. QA Financial, 13 January 2025.</p>
+<div class="source-passages" data-source-passages hidden><blockquote>Brueggemann claimed his firm shared the bug with WolfSSL’s team, which went on to issue a warning and update in December of last year.</blockquote></div></li><li id="source-6">
+<p class="source-role">News report <span>Independent author</span></p>  <p>French, L. (2025). <a href="https://www.scworld.com/feature/how-ai-can-revolutionize-vulnerability-research" rel="noopener">How AI can revolutionize vulnerability research</a>. SC Media, 3 February 2025.</p>
+<div class="source-passages" data-source-passages hidden><blockquote>Code Intelligence’s Spark autonomously discovering a heap-based user-after-free vulnerability in popular open-source wolfSSL library during its beta testing in October 2024.</blockquote></div></li>    </ol>
   </section>
 <p class="record-related">Collections: <a href="../chanticleer.html">Security and threat-watching</a>.</p>  <footer class="record-downloads">
     <a href="AIBD-0124.json">Full data and source notes</a>

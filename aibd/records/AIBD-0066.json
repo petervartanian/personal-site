@@ -1313,20 +1313,19 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
+          "basis": "Account: monitored and analyzed populations.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0066-source-0001",
-            "AIBD-0066-source-0002"
+            "AIBD-0066-source-0001"
           ],
-          "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign setting and sample without inventing a related entity."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The structured profile does not identify an established evaluations record for this case. Applicability of setting and sample remains unresolved.",
+        "reason": "The system monitored 590,736 patients across five hospitals, but the outcome analysis concerned 6,877 patients with sepsis alerted before antibiotics.",
         "review_state": "not_assessed",
         "coverage": "partial",
         "family": "evaluations",
         "display": {
-          "answer": "The structured profile does not identify an established evaluations record for this case. Applicability of setting and sample remains unresolved."
+          "answer": "The system monitored 590,736 patients across five hospitals, but the outcome analysis concerned 6,877 patients with sepsis alerted before antibiotics."
         }
       },
       "evaluations[].uncertainty_limitations": {
@@ -1398,19 +1397,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Providers assessed the warning and decided on sepsis care. The study grouped patients according to whether a provider confirmed the alert within three hours."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Prospective five-hospital study: sepsis alerts confirmed within 3 h had 3.3% absolute lower in-hospital mortality (CI 1.7–5.1).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: early confirmation comparison and antibiotics not yet started at alert.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0066-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of TREWS (Targeted Real-time Early Warning System) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Providers assessed the warning and decided on sepsis care. The study grouped patients according to whether a provider confirmed the alert within three hours."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1621,16 +1626,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Prospective five-hospital study: sepsis alerts confirmed within 3 h had 3.3% absolute lower in-hospital mortality (CI 1.7–5.1).",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: adjusted early-versus-late/no-confirmation cohort design.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0066-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The comparison was observational and conditioned on a clinician response rather than random assignment. Adjustment helps but cannot remove every difference associated with response timing.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The observed mortality difference probably reflects both the alert pathway and how quickly clinicians recognized and treated particular patients; prompt confirmation may also identify patients with clearer presentations.",
+          "editor_note": "The comparison was observational and conditioned on a clinician response rather than random assignment. Adjustment helps but cannot remove every difference associated with response timing."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1907,24 +1916,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0066-source-0001",
-            "AIBD-0066-source-0002"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pubmed.ncbi.nlm.nih.gov/35864252/",
+                "source_refs": [
+                  "AIBD-0066-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "A prospective observational cohort compared provider confirmation within three hours with later or absent confirmation among 6,877 sepsis patients, after monitoring 590,736.",
+                "locator": "Original study abstract",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The full article’s adjustment model and subgroup tables were not available through the inspected abstract."
+          }
         },
-        "reason": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0066-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The full article’s adjustment model and subgroup tables were not available through the inspected abstract."
         }
       },
       "sources[].citation_locator": {
@@ -2044,28 +2069,65 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. Both entries are quotations from one developer-associated observational study. The abstract retrieval timed out, and the critique mentioned in the account is not retained as a separate evidence item. Full adjustment methods, exclusions, and competing interests remain unchecked.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0066-source-0001",
-            "AIBD-0066-source-0002"
-          ],
-          "reviewed_on": "2026-10-27",
-          "attempted_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://pubmed.ncbi.nlm.nih.gov/35864252/",
+                "source_refs": [
+                  "AIBD-0066-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "A prospective observational cohort compared provider confirmation within three hours with later or absent confirmation among 6,877 sepsis patients, after monitoring 590,736.",
+                "locator": "Original study abstract",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://pubmed.ncbi.nlm.nih.gov/35864252/",
+                  "source_refs": [
+                    "AIBD-0066-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "A prospective observational cohort compared provider confirmation within three hours with later or absent confirmation among 6,877 sepsis patients, after monitoring 590,736.",
+                  "locator": "Original study abstract",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The full article’s adjustment model and subgroup tables were not available through the inspected abstract.",
+              "origin_chain": "Retained citation to the original report or research article."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0066-source-0001",
+            "retained_source_order": [
+              "AIBD-0066-source-0001",
+              "AIBD-0066-source-0002"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "Both entries are quotations from one developer-associated observational study. The abstract retrieval timed out, and the critique mentioned in the account is not retained as a separate evidence item. Full adjustment methods, exclusions, and competing interests remain unchecked.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight outcomes[].tradeoffs evaluations[].setting_sample",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0066-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "Both entries are quotations from one developer-associated observational study. The abstract retrieval timed out, and the critique mentioned in the account is not retained as a separate evidence item. Full adjustment methods, exclusions, and competing interests remain unchecked."
+          "answer": "A prospective observational cohort compared provider confirmation within three hours with later or absent confirmation among 6,877 sepsis patients, after monitoring 590,736."
         }
       },
       "strategic_assessments[]": {
@@ -2155,19 +2217,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "TREWS analyzed information in the electronic health record and presented a sepsis warning for bedside providers to evaluate and confirm."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Prospective five-hospital study: sepsis alerts confirmed within 3 h had 3.3% absolute lower in-hospital mortality (CI 1.7–5.1).",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: EHR deployment and provider-confirmation workflow.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0066-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of TREWS (Targeted Real-time Early Warning System) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "TREWS analyzed information in the electronic health record and presented a sepsis warning for bedside providers to evaluate and confirm."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2330,18 +2398,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 38,
-      "reviewed": 3,
+      "known": 42,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 36,
-      "review_not_assessed": 52,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 38,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 53,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

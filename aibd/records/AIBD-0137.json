@@ -1852,19 +1852,23 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "Clinicians ordered the imaging and decided that surgery was needed."
+          "text": "A physician referred him to hospital, where clinicians ordered CT imaging and operated. Grok's contribution was advice that the patient could raise with them."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "ai_role",
-            "account"
+          "kind": "curatorial",
+          "basis": "account and later patient comments distinguish the local physician referral from the simplified initial post.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0137-source-0001",
+            "AIBD-0137-source-0002"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A physician referred him to hospital, where clinicians ordered CT imaging and operated. Grok's contribution was advice that the patient could raise with them."
+        }
       },
       "id": {
         "state": "value_present",
@@ -2074,16 +2078,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Grok told a 49-year-old Norwegian sent home with an acid blocker to demand a CT; it found an appendix near rupture, removed 3 December 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "ai_role and account: differential order and later clinical referral.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0137-source-0001",
+            "AIBD-0137-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Editor's assessment: the shared account lists perforated ulcer before appendicitis, and the hospital's clinical reasoning is unavailable.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely benefit was encouraging renewed medical attention after an inconclusive visit. The story does not show that the first-ranked diagnosis was right or that imaging depended on the chatbot's wording.",
+          "editor_note": "Editor's assessment: the shared account lists perforated ulcer before appendicitis, and the hospital's clinical reasoning is unavailable."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2328,32 +2337,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.reddit.com/r/grok/comments/1pdzrk1/how_a_latenight_conversation_with_grok_got_me_to/",
+                "source_refs": [
+                  "AIBD-0137-source-0001"
+                ],
+                "title": "beneficiary original",
+                "relationship": "beneficiary original",
+                "contribution": "Post reports Somac, renewed request for imaging and surgery.",
+                "locator": "Opening post and recovery comments",
+                "access_status": "Post and relevant comments read"
+              },
+              {
+                "url": "https://x.com/i/grok/share/RNHdX8qbyao4I4oNl6TEcmuNr",
+                "source_refs": [
+                  "AIBD-0137-source-0002"
+                ],
+                "title": "original chat transcript",
+                "relationship": "original chat transcript",
+                "contribution": "Transcript not reread in this pass.",
+                "locator": "Public share link",
+                "access_status": "403Forbidden"
+              }
+            ],
+            "latest_limitations": "Patient narrative, no clinician confirmation; simplified post differs from retained later comments."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0137-source-0001",
-            "AIBD-0137-source-0002",
-            "AIBD-0137-source-0003",
-            "AIBD-0137-source-0004",
-            "AIBD-0137-source-0005",
-            "AIBD-0137-source-0006",
-            "AIBD-0137-source-0007",
-            "AIBD-0137-source-0008",
-            "AIBD-0137-source-0009",
-            "AIBD-0137-source-0010"
+            "AIBD-0137-source-0002"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 10 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 10 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Patient narrative, no clinician confirmation; simplified post differs from retained later comments."
         }
       },
       "sources[].citation_locator": {
@@ -2631,30 +2660,96 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.reddit.com/r/grok/comments/1pdzrk1/how_a_latenight_conversation_with_grok_got_me_to/",
+                "source_refs": [
+                  "AIBD-0137-source-0001"
+                ],
+                "title": "beneficiary original",
+                "relationship": "beneficiary original",
+                "contribution": "Post reports Somac, renewed request for imaging and surgery.",
+                "locator": "Opening post and recovery comments",
+                "access_status": "Post and relevant comments read"
+              },
+              {
+                "url": "https://x.com/i/grok/share/RNHdX8qbyao4I4oNl6TEcmuNr",
+                "source_refs": [
+                  "AIBD-0137-source-0002"
+                ],
+                "title": "original chat transcript",
+                "relationship": "original chat transcript",
+                "contribution": "Transcript not reread in this pass.",
+                "locator": "Public share link",
+                "access_status": "403Forbidden"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.reddit.com/r/grok/comments/1pdzrk1/how_a_latenight_conversation_with_grok_got_me_to/",
+                  "source_refs": [
+                    "AIBD-0137-source-0001"
+                  ],
+                  "title": "beneficiary original",
+                  "relationship": "beneficiary original",
+                  "contribution": "Post reports Somac, renewed request for imaging and surgery.",
+                  "locator": "Opening post and recovery comments",
+                  "access_status": "Post and relevant comments read"
+                },
+                {
+                  "url": "https://x.com/i/grok/share/RNHdX8qbyao4I4oNl6TEcmuNr",
+                  "source_refs": [
+                    "AIBD-0137-source-0002"
+                  ],
+                  "title": "original chat transcript",
+                  "relationship": "original chat transcript",
+                  "contribution": "Transcript not reread in this pass.",
+                  "locator": "Public share link",
+                  "access_status": "403Forbidden"
+                }
+              ],
+              "limitations": "Patient narrative, no clinician confirmation; simplified post differs from retained later comments.",
+              "origin_chain": "Reddit original -> public Grok transcript attempted."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0137-source-0001",
+            "retained_source_order": [
+              "AIBD-0137-source-0001",
+              "AIBD-0137-source-0002",
+              "AIBD-0137-source-0003",
+              "AIBD-0137-source-0004",
+              "AIBD-0137-source-0005",
+              "AIBD-0137-source-0006",
+              "AIBD-0137-source-0007",
+              "AIBD-0137-source-0008",
+              "AIBD-0137-source-0009",
+              "AIBD-0137-source-0010"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals retain renewed-assessment mechanism and clinician decisions, with transcript-dependent details explicitly limited.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0137-source-0001",
-            "AIBD-0137-source-0002",
-            "AIBD-0137-source-0003",
-            "AIBD-0137-source-0004",
-            "AIBD-0137-source-0005",
-            "AIBD-0137-source-0006",
-            "AIBD-0137-source-0007",
-            "AIBD-0137-source-0008",
-            "AIBD-0137-source-0009",
-            "AIBD-0137-source-0010"
+            "AIBD-0137-source-0002"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "The Reddit account and shared chat are the underlying sources for repeated coverage. Vendor amplification and articles based on that account are not independent medical corroboration. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The Reddit account and shared chat are the underlying sources for repeated coverage. Vendor amplification and articles based on that account are not independent medical corroboration. The source chain has not been independently checked in this pass."
+          "answer": "Post reports Somac, renewed request for imaging and surgery."
         }
       },
       "strategic_assessments[]": {
@@ -2759,19 +2854,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The patient described persistent abdominal pain and his earlier examination. Grok proposed serious causes and helped him formulate a request for imaging and further assessment."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Grok told a 49-year-old Norwegian sent home with an acid blocker to demand a CT; it found an appendix near rupture, removed 3 December 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "account and original Reddit post: symptoms,Somac, differential and CT request.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0137-source-0001",
+            "AIBD-0137-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Grok (xAI conversational assistant), used in the browser have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The patient described persistent abdominal pain and his earlier examination. Grok proposed serious causes and helped him formulate a request for imaging and further assessment."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2944,18 +3046,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 41,
-      "reviewed": 3,
+      "known": 44,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 39,
-      "review_not_assessed": 49,
+      "reviewed_partial": 7,
+      "record_mapped": 38,
+      "review_not_assessed": 46,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 41,
+        "value_present": 44,
         "not_reported": 0,
-        "unresolved": 50,
+        "unresolved": 47,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

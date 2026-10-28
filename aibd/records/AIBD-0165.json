@@ -1528,19 +1528,26 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Replication required past discharge data, real-time plasma reconstruction, and controllable beam-power and shape actuators."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: An RL controller trained on a tearing-likelihood model kept DIII-D plasmas below the instability threshold; before RL control all but one shot disrupted, after it only two did (Nature, 21 Feb 2024).",
-          "record_fields": [
-            "summary"
+          "basis": "replication.produced_by and must_hold: training database, reconstruction, and effective actuators.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0165-source-0001",
+            "AIBD-0165-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for Deep reinforcement learning tearing-avoidance controller with a DNN tearability predictor (Keras model converted to real-time C) has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Replication required past discharge data, real-time plasma reconstruction, and controllable beam-power and shape actuators."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1713,16 +1720,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: An RL controller trained on a tearing-likelihood model kept DIII-D plasmas below the instability threshold; before RL control all but one shot disrupted, after it only two did (Nature, 21 Feb 2024).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: simultaneous stability and H-mode goals.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0165-source-0001",
+            "AIBD-0165-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Its objective kept estimated tearability below a threshold while retaining H-mode, including low-torque and low-safety-factor conditions.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The controller probably balanced instability avoidance against maintaining plasma performance, rather than reducing risk simply by abandoning the high-performance operating regime.",
+          "editor_note": "Its objective kept estimated tearability below a threshold while retaining H-mode, including low-torque and low-safety-factor conditions."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1983,26 +1995,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0165-source-0001",
-            "AIBD-0165-source-0002",
-            "AIBD-0165-source-0003",
-            "AIBD-0165-source-0004"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.nature.com/articles/s41586-024-07024-9",
+                "source_refs": [
+                  "AIBD-0165-source-0001"
+                ],
+                "title": "original controlled fusion experiments",
+                "relationship": "original controlled fusion experiments",
+                "contribution": "The controller changes beam power and triangularity to balance normalized plasma pressure against predicted tearability. Two controlled shots disrupted; one involved unintended plasma-current control loss unrelated to the AI command.",
+                "locator": "Reward equation, actuator choices, 193277/193282 discussion",
+                "access_status": "Full paper retrieved; control design, Figures 3–4, shot summary and Methods read; saved 012-165.txt"
+              }
+            ],
+            "latest_limitations": "These were experimental discharges, not electricity production or a demonstrated commercial-reactor safety system."
+          }
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0165-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "These were experimental discharges, not electricity production or a demonstrated commercial-reactor safety system."
         }
       },
       "sources[].citation_locator": {
@@ -2176,7 +2202,14 @@
                   "AIBD-0165-source-0001"
                 ],
                 "locator": "Nature article abstract and opening discussion: DIII-D control, low safety factor and torque, and maintained H-mode operation",
-                "contribution": "The original experimental paper reports the plasma-control result. This partial review does not reproduce the experiment or review every controlled discharge."
+                "contribution": "The original experimental paper reports the plasma-control result. This partial review does not reproduce the experiment or review every controlled discharge.",
+                "latest_inspection": {
+                  "title": "original controlled fusion experiments",
+                  "relationship": "original controlled fusion experiments",
+                  "contribution": "The controller changes beam power and triangularity to balance normalized plasma pressure against predicted tearability. Two controlled shots disrupted; one involved unintended plasma-current control loss unrelated to the AI command.",
+                  "locator": "Reward equation, actuator choices, 193277/193282 discussion",
+                  "access_status": "Full paper retrieved; control design, Figures 3–4, shot summary and Methods read; saved 012-165.txt"
+                }
               }
             ],
             "retained_source_order": [
@@ -2192,12 +2225,31 @@
             ],
             "limitations": "This is a demonstrated experimental control capability, not electricity delivered to users or established commercial fusion performance. The abstract supports instability prevention under specified conditions, while the detailed discharge counts and 300-millisecond claim were not independently reanalyzed. Generalization to ITER remains prospective. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0165-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.nature.com/articles/s41586-024-07024-9",
+                  "source_refs": [
+                    "AIBD-0165-source-0001"
+                  ],
+                  "title": "original controlled fusion experiments",
+                  "relationship": "original controlled fusion experiments",
+                  "contribution": "The controller changes beam power and triangularity to balance normalized plasma pressure against predicted tearability. Two controlled shots disrupted; one involved unintended plasma-current control loss unrelated to the AI command.",
+                  "locator": "Reward equation, actuator choices, 193277/193282 discussion",
+                  "access_status": "Full paper retrieved; control design, Figures 3–4, shot summary and Methods read; saved 012-165.txt"
+                }
+              ],
+              "limitations": "These were experimental discharges, not electricity production or a demonstrated commercial-reactor safety system.",
+              "origin_chain": "Nature research paper rather than OECD or university summaries."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at Nature article abstract and opening discussion: DIII-D control, low safety factor and torque, and maintained H-mode operation. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. All four proposals survive.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0165-source-0001"
@@ -2254,19 +2306,26 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The reinforcement-learning controller adjusted beam power and plasma shape, and the plasma-control system executed those commands during DIII-D experiments."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: An RL controller trained on a tearing-likelihood model kept DIII-D plasmas below the instability threshold; before RL control all but one shot disrupted, after it only two did (Nature, 21 Feb 2024).",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: high-level commands and actuators.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0165-source-0001",
+            "AIBD-0165-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Deep reinforcement learning tearing-avoidance controller with a DNN tearability predictor (Keras model converted to real-time C) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The reinforcement-learning controller adjusted beam power and plasma shape, and the plasma-control system executed those commands during DIII-D experiments."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2299,19 +2358,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A learned dynamic model estimated near-future tearing risk from plasma measurements and supplied the risk signal for the control policy."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: An RL controller trained on a tearing-likelihood model kept DIII-D plasmas below the instability threshold; before RL control all but one shot disrupted, after it only two did (Nature, 21 Feb 2024).",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: tearability predictor, real-time reconstruction, and prediction horizon.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0165-source-0001",
+            "AIBD-0165-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Deep reinforcement learning tearing-avoidance controller with a DNN tearability predictor (Keras model converted to real-time C) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A learned dynamic model estimated near-future tearing risk from plasma measurements and supplied the risk signal for the control policy."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2483,18 +2549,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 40,
-      "reviewed": 3,
+      "known": 44,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 37,
-      "review_not_assessed": 51,
+      "review_not_assessed": 46,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 40,
+        "value_present": 44,
         "not_reported": 0,
-        "unresolved": 51,
+        "unresolved": 47,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

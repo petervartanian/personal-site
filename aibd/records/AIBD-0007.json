@@ -1787,19 +1787,25 @@
         "coverage": "partial"
       },
       "outcomes[].duration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The alert was recorded at2:33a.m. on6July, and crews extinguished the fire before it exceeded a 30-by-30-foot area."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AI camera alert at 2:33 a.m. on 6 July 2024 sent Cal Fire engines to a fire near Auburn before any 911 call; held to a 30 x 30 ft area",
-          "record_fields": [
-            "summary"
+          "basis": "Original syndicated report, Auburn paragraph; the year remains inferred from surrounding 2024 statistics.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0007-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Dated observation of the same outcome and population is needed to establish persistence or recurrence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The duration of the claimed benefit is not separately established. Dated follow-up on the same outcome is needed to distinguish a one-time result from recurring or sustained benefit; later work on another system or population does not establish persistence here. The recorded follow-up says: By October 2026 the network had grown to nearly 1,300 cameras, with AI spotting most fires before a 911 call and the program director planning 1,800 cameras.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The alert was recorded at2:33a.m. on6July, and crews extinguished the fire before it exceeded a 30-by-30-foot area."
+        }
       },
       "outcomes[].id": {
         "state": "unresolved",
@@ -1871,16 +1877,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AI camera alert at 2:33 a.m. on 6 July 2024 sent Cal Fire engines to a fire near Auburn before any 911 call; held to a 30 x 30 ft area",
-          "record_fields": [
-            "summary"
+          "basis": "Original syndicated report, Auburn event and verification paragraphs.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0007-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The report explicitly says that nobody had called 911 before the Auburn alert and describes verification before dispatch. It also identifies false smoke detections.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely gain was discovering a small nighttime fire before a passer-by reported it, while human verification protected against dispatching on dust or clouds.",
+          "editor_note": "The report explicitly says that nobody had called 911 before the Auburn alert and describes verification before dispatch. It also identifies false smoke detections."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2195,28 +2205,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0007-source-0001",
-            "AIBD-0007-source-0002",
-            "AIBD-0007-source-0003",
-            "AIBD-0007-source-0004",
-            "AIBD-0007-source-0005",
-            "AIBD-0007-source-0006"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.firerescue1.com/artificial-intelligence/over-1-000-ai-cameras-help-spot-calif-wildfires-before-the-first-911-call",
+                "source_refs": [
+                  "AIBD-0007-source-0001"
+                ],
+                "title": "original report or originating institutional account",
+                "relationship": "original report or originating institutional account",
+                "contribution": "Paul Rogers's syndicated report says that no911 call preceded the Auburn alert and that dispatchers verified it. The2024 year remains contextual.",
+                "locator": "Article lines151–160 and188–194",
+                "access_status": "Substantive article sections retrieved and inspected."
+              }
+            ],
+            "latest_limitations": "No incident log or separate primary dispatch record linked."
+          }
         },
-        "reason": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0007-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No incident log or separate primary dispatch record linked."
         }
       },
       "sources[].citation_locator": {
@@ -2430,7 +2452,14 @@
                   "AIBD-0007-source-0001"
                 ],
                 "locator": "FireRescue1 report, paragraphs beginning “The cameras do not dispatch” and “In one such case on July 6”",
-                "contribution": "The article records Cal Fire’s account of the Auburn incident; original dispatch logs were not inspected."
+                "contribution": "The article records Cal Fire’s account of the Auburn incident; original dispatch logs were not inspected.",
+                "latest_inspection": {
+                  "title": "original report or originating institutional account",
+                  "relationship": "original report or originating institutional account",
+                  "contribution": "Paul Rogers's syndicated report says that no911 call preceded the Auburn alert and that dispatchers verified it. The2024 year remains contextual.",
+                  "locator": "Article lines151–160 and188–194",
+                  "access_status": "Substantive article sections retrieved and inspected."
+                }
               }
             ],
             "retained_source_order": [
@@ -2450,12 +2479,31 @@
             ],
             "limitations": "The report attributes the alert and dispatch sequence to Cal Fire. It does not measure how large the fire would have become without AI, and humans verified the alert and extinguished the fire. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0007-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.firerescue1.com/artificial-intelligence/over-1-000-ai-cameras-help-spot-calif-wildfires-before-the-first-911-call",
+                  "source_refs": [
+                    "AIBD-0007-source-0001"
+                  ],
+                  "title": "original report or originating institutional account",
+                  "relationship": "original report or originating institutional account",
+                  "contribution": "Paul Rogers's syndicated report says that no911 call preceded the Auburn alert and that dispatchers verified it. The2024 year remains contextual.",
+                  "locator": "Article lines151–160 and188–194",
+                  "access_status": "Substantive article sections retrieved and inspected."
+                }
+              ],
+              "limitations": "No incident log or separate primary dispatch record linked.",
+              "origin_chain": "https://www.firerescue1.com/artificial-intelligence/over-1-000-ai-cameras-help-spot-calif-wildfires-before-the-first-911-call"
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at FireRescue1 report, paragraphs beginning “The cameras do not dispatch” and “In one such case on July 6”. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Human verification and limited fire size supported; no exact prevented-loss inference.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0007-source-0001"
@@ -2514,19 +2562,25 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The camera sent a smoke alert to dispatchers. The command center verified it before sending engines."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AI camera alert at 2:33 a.m. on 6 July 2024 sent Cal Fire engines to a fire near Auburn before any 911 call; held to a 30 x 30 ft area",
-          "record_fields": [
-            "summary"
+          "basis": "Inspected Rogers/TNS article, paragraphs on dispatch and Auburn event.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0007-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by ALERTCalifornia camera network with DigitalPath AI smoke detection remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The camera sent a smoke alert to dispatchers. The command center verified it before sending engines."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2746,18 +2800,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 41,
-      "reviewed": 3,
+      "known": 44,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 38,
-      "review_not_assessed": 50,
+      "review_not_assessed": 46,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 41,
+        "value_present": 44,
         "not_reported": 0,
-        "unresolved": 50,
+        "unresolved": 47,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

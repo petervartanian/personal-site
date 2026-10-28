@@ -1,7 +1,7 @@
 {
   "id": "AIBD-0253",
-  "title": "RFI's seismic early-warning system on the Rome-Naples high-speed line, operational since 3 May 2025, stops trains preventively during a magnitude 4.4 earthquake",
-  "summary": "euronews (15 Jul 2025): about 20 accelerometric stations over 200 km feed software that analyzes P-waves and automatically slows or stops trains; in the weeks after activation a magnitude 4.4 quake...",
+  "title": "RFI’s AlpEW seismic-warning system reportedly stops Rome–Naples trains during a magnitude 4.4 earthquake",
+  "summary": "RFI’s AlpEW imposes train restrictions from seismic signals. News reports a stop during a magnitude 4.4 earthquake; the technical paper verifies neither that episode nor a learned AI model.",
   "date_observed": "2025-07-14",
   "date_basis": "unassessed",
   "date_precision": "unassessed",
@@ -12,7 +12,7 @@
   "category": "protective response",
   "unexpected": false,
   "purpose": "The system is built to detect the first seismic waves and automatically slow or stop high-speed trains before stronger shaking arrives.",
-  "system": "RFI seismic early-warning system (Early Warning Sismico) on the Rome-Naples high-speed line",
+  "system": "AlpEW (Array lineare per Early Warning), RFI’s seismic early-warning platform for the Rome–Naples high-speed railway.",
   "model_version": null,
   "developer": "Rete Ferroviaria Italiana with the Physics Department of the University of Naples Federico II and JR RTRI",
   "deployer": "Rete Ferroviaria Italiana (Gruppo FS)",
@@ -41,7 +41,7 @@
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The software evaluated the seismic signals and triggered the stop protocol without human intervention, per euronews. The sources are two Italian news reports of the company's announcement. No RFI document is among the sources and the algorithm is not described."
+    "statement": "The original developer study describes AlpEW as signal processing with empirical ground-motion prediction and probabilistic alert thresholds. Filter Picker detects transients, Train Marker distinguishes train vibration from seismic signals, and railway controls impose restrictions automatically. The authors discuss machine learning as a possible alternative, but do not establish a learned AI model in the deployed system. The study’s operational observations cover March 2020–January 2022 and do not verify the M 4.4 stop reported in 2025 news coverage."
   },
   "evidence": [
     {
@@ -70,6 +70,16 @@
       "date": "2025-07-14",
       "written_by": "independent",
       "quote": "Using real-time sensor data and advanced software, the system automatically slows or stops trains during earthquakes, directly preventing potential harm to passengers and infrastructure."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Natural Hazards and Earth System Sciences. The first Earthquake Early Warning System for the high-speed railway in Italy: enhancing rapidness and operational efficiency during seismic events. 2026-01-20",
+      "title": "The first Earthquake Early Warning System for the high-speed railway in Italy: enhancing rapidness and operational efficiency during seismic events",
+      "url": "https://nhess.copernicus.org/articles/26/299/2026/",
+      "date": "2026-01-20",
+      "written_by": "makers",
+      "quote": null,
+      "supports_benefit": false
     }
   ],
   "replication": {
@@ -85,7 +95,7 @@
     "echoes": []
   },
   "paired_incident": null,
-  "headline": "RFI seismic warning stops Rome-Naples trains in a 4.4 quake",
+  "headline": "AlpEW reportedly stops Rome–Naples trains during an earthquake",
   "metric": "a magnitude 4.4 earthquake, during which trains on the Rome-Naples line were stopped",
   "comparator": null,
   "later": {
@@ -136,11 +146,11 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: two independent news reports and a registry entry. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "claim_basis": "Sources: two independent news reports, a registry entry and the makers' peer-reviewed study. For the benefit itself, the cited sources include no independent study or report and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0253",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "5dafae3949425c37c97777bbf0eb7d827cc3884207ee4992eaa1b11d78e01dfb",
+    "source_fingerprint": "e83987d5f65eaf07f29cf6d12b6e1477acfea8997d36221ddf5d92600280e16b",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -162,7 +172,8 @@
     "source_ids": [
       "AIBD-0253-source-0001",
       "AIBD-0253-source-0002",
-      "AIBD-0253-source-0003"
+      "AIBD-0253-source-0003",
+      "AIBD-0253-source-0004"
     ],
     "families": {
       "strategic assessments": {
@@ -278,24 +289,23 @@
       "ai_contribution": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ai_role": {
-              "status": "assessed",
-              "statement": "The software evaluated the seismic signals and triggered the stop protocol without human intervention, per euronews. The sources are two Italian news reports of the company's announcement. No RFI document is among the sources and the algorithm is not described."
-            }
-          }
+          "kind": "text",
+          "text": "The original developer study describes AlpEW as signal processing with empirical ground-motion prediction and probabilistic alert thresholds. Filter Picker detects transients, Train Marker distinguishes train vibration from seismic signals, and railway controls impose restrictions automatically. The authors discuss machine learning as a possible alternative, but do not establish a learned AI model in the deployed system. The study’s operational observations cover March 2020–January 2022 and do not verify the M 4.4 stop reported in 2025 news coverage."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ai_role"
+          "kind": "source_review",
+          "basis": "The original technical source is now available. It supports automation and specific algorithms, while limiting the AI attribution and the later earthquake-outcome claim. Sections 2.1–2.6, 3.2 and Appendix A–B",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0253-source-0004"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The original developer study describes AlpEW as signal processing with empirical ground-motion prediction and probabilistic alert thresholds. Filter Picker detects transients, Train Marker distinguishes train vibration from seismic signals, and railway controls impose restrictions automatically. The authors discuss machine learning as a possible alternative, but do not establish a learned AI model in the deployed system. The study’s operational observations cover March 2020–January 2022 and do not verify the M 4.4 stop reported in 2025 news coverage."
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -305,7 +315,7 @@
             "category": "protective response",
             "ai_role": {
               "status": "assessed",
-              "statement": "The software evaluated the seismic signals and triggered the stop protocol without human intervention, per euronews. The sources are two Italian news reports of the company's announcement. No RFI document is among the sources and the algorithm is not described."
+              "statement": "The original developer study describes AlpEW as signal processing with empirical ground-motion prediction and probabilistic alert thresholds. Filter Picker detects transients, Train Marker distinguishes train vibration from seismic signals, and railway controls impose restrictions automatically. The authors discuss machine learning as a possible alternative, but do not establish a learned AI model in the deployed system. The study’s operational observations cover March 2020–January 2022 and do not verify the M 4.4 stop reported in 2025 news coverage."
             }
           }
         },
@@ -435,7 +445,7 @@
             "confidence": "medium",
             "evidence_word": "reported",
             "claim_status": "Independently reported",
-            "basis": "Sources: two independent news reports and a registry entry. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "basis": "Sources: two independent news reports, a registry entry and the makers' peer-reviewed study. For the benefit itself, the cited sources include no independent study or report and no finding by a regulator or court.",
             "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
           }
         },
@@ -578,34 +588,22 @@
       "brief": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "answer": "euronews (15 Jul 2025): about 20 accelerometric stations over 200 km feed software that analyzes P-waves and automatically slows or stops trains; in the weeks after activation a magnitude 4.4 quake...\n\nA precautionary train stop is reported, but the underlying earthquake date and algorithm are unidentified. Stopping trains does not establish that an accident would otherwise have occurred. The registry's harm-prevention wording is stronger than the observed operational response.",
-            "source_refs": [
-              "AIBD-0253-source-0001",
-              "AIBD-0253-source-0002",
-              "AIBD-0253-source-0003"
-            ],
-            "scope": "A presentation of the retained summary and available qualifications, not new evidence review or a complete synthesis of every claim."
-          }
+          "kind": "text",
+          "text": "RFI’s AlpEW imposes train restrictions from seismic signals. News reports a stop during a magnitude 4.4 earthquake; the technical paper verifies neither that episode nor a learned AI model."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Curatorial presentation of the retained case summary and existing qualifications. No external source was opened and no new evidentiary judgment was made for this brief.",
-          "record_fields": [
-            "summary",
-            "title"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Section 2.1 and Figure 2",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0253-source-0001",
-            "AIBD-0253-source-0002",
-            "AIBD-0253-source-0003"
-          ]
+            "AIBD-0253-source-0004"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "euronews (15 Jul 2025): about 20 accelerometric stations over 200 km feed software that analyzes P-waves and automatically slows or stops trains; in the weeks after activation a magnitude 4.4 quake...\n\nA precautionary train stop is reported, but the underlying earthquake date and algorithm are unidentified. Stopping trains does not establish that an accident would otherwise have occurred. The registry's harm-prevention wording is stronger than the observed operational response."
+          "answer": "RFI’s AlpEW imposes train restrictions from seismic signals. News reports a stop during a magnitude 4.4 earthquake; the technical paper verifies neither that episode nor a learned AI model."
         }
       },
       "case_kind": {
@@ -729,78 +727,42 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "A precautionary train stop is reported, but the underlying earthquake date and algorithm are unidentified. Stopping trains does not establish that an accident would otherwise have occurred. The registry's harm-prevention wording is stronger than the observed operational response."
+          "text": "The original technical study identifies AlpEW and its signal-processing methods. It does not verify the magnitude 4.4 stop described in later news coverage, identify a learned AI model or establish an accident prevented."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually compared the retained account, AI-role statement, source descriptions, and available quoted passages for this case on 2026-10-27. The review assesses support and limitations in the retained material; it does not verify the external originals.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Section 2.1 and Figure 2",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0253-source-0001",
-            "AIBD-0253-source-0002",
-            "AIBD-0253-source-0003"
+            "AIBD-0253-source-0004"
           ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "A precautionary train stop is reported, but the underlying earthquake date and algorithm are unidentified. Stopping trains does not establish that an accident would otherwise have occurred. The registry's harm-prevention wording is stronger than the observed operational response."
+          "answer": "The original technical study identifies AlpEW and its signal-processing methods. It does not verify the magnitude 4.4 stop described in later news coverage, identify a learned AI model or establish an accident prevented."
         }
       },
       "claims[].proposition": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "retained_case_account": "ANSA reported on 14 Jul 2025 that Ferrovie dello Stato's infrastructure company Rete Ferroviaria Italiana had activated Italy's first seismic early-warning system. It is on the Rome-Naples high-speed line. It was developed with the Physics Department of the University of Naples Federico II. Technical support came from the Railway Technical Research Institute of the Japanese railways. A network of latest-generation sensors detects the earliest seismic waves. Within seconds it automatically activates safety protocols to slow or stop trains. euronews (15 Jul 2025) added that the system comprises about 20 seismic stations along 200 km, on the surface and in deep boreholes. They are linked by an SDH fiber network. An advanced software intelligence instantly analyzes the data and assesses the quake's danger, per euronews. The system had been operational since 3 May 2025. In the following weeks it was tested by a magnitude 4.4 earthquake. During it, trains on the Rome-Naples line were stopped preventively. Neither article gives the date of that earthquake. ANSA does not mention artificial intelligence. The OECD AI Incidents Monitor lists the system as AI-powered and a protective response.",
-            "retained_ai_contribution_statement": {
-              "status": "assessed",
-              "statement": "The software evaluated the seismic signals and triggered the stop protocol without human intervention, per euronews. The sources are two Italian news reports of the company's announcement. No RFI document is among the sources and the algorithm is not described."
-            },
-            "retained_source_statements": [
-              {
-                "source_ref": "AIBD-0253-source-0001",
-                "statement": "nelle settimane a seguire, è stato testato da un terremoto di magnitudo 4.4: i convogli sulla Roma–Napoli sono stati fermati preventivamente",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0253-source-0002",
-                "statement": "attiva automaticamente protocolli di sicurezza per rallentare o fermare i treni",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0253-source-0003",
-                "statement": "Using real-time sensor data and advanced software, the system automatically slows or stops trains during earthquakes, directly preventing potential harm to passengers and infrastructure.",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              }
-            ],
-            "scope": "Existing assertions are preserved as a case-level bundle. They have not been separated into atomic claims or independently verified by this assignment."
-          }
+          "kind": "text",
+          "text": "RFI’s AlpEW imposes train restrictions from seismic signals. News reports a stop during a magnitude 4.4 earthquake; the technical paper verifies neither that episode nor a learned AI model."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the retained case or existing profile metadata. This assignment performs no new source review or evidentiary assessment.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Section 2.1 and Figure 2",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0253-source-0001",
-            "AIBD-0253-source-0002",
-            "AIBD-0253-source-0003"
-          ]
+            "AIBD-0253-source-0004"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "euronews (15 Jul 2025): about 20 accelerometric stations over 200 km feed software that analyzes P-waves and automatically slows or stops trains; in the weeks after activation a magnitude 4.4 quake..."
+          "answer": "RFI’s AlpEW imposes train restrictions from seismic signals. News reports a stop during a magnitude 4.4 earthquake; the technical paper verifies neither that episode nor a learned AI model."
         }
       },
       "cross_border_flows[]": {
@@ -1442,19 +1404,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system imposed emergency restrictions automatically. Maintenance staff checked the line, and the traffic controller authorized reopening."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: euronews (15 Jul 2025): about 20 accelerometric stations over 200 km feed software that analyzes P-waves and automatically slows or stops trains; in the weeks after activation a magnitude 4.4 quake...",
-          "record_fields": [
-            "summary"
+          "basis": "RFI release as reproduced in Informatore Navale; Ferrovie.it, May 29, 2025; original technical study, Section 2.6.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0253-source-0001",
+            "AIBD-0253-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of RFI seismic early-warning system (Early Warning Sismico) on the Rome-Naples high-speed line in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The system imposed emergency restrictions automatically. Maintenance staff checked the line, and the traffic controller authorized reopening."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1476,19 +1445,25 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The deployment required surface and borehole seismic stations, an SDH fiber network and integration with railway safety controls."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: euronews (15 Jul 2025): about 20 accelerometric stations over 200 km feed software that analyzes P-waves and automatically slows or stops trains; in the weeks after activation a magnitude 4.4 quake...",
-          "record_fields": [
-            "summary"
+          "basis": "Account: system architecture.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0253-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for RFI seismic early-warning system (Early Warning Sismico) on the Rome-Naples high-speed line has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The deployment required surface and borehole seismic stations, an SDH fiber network and integration with railway safety controls."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1672,16 +1647,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: euronews (15 Jul 2025): about 20 accelerometric stations over 200 km feed software that analyzes P-waves and automatically slows or stops trains; in the weeks after activation a magnitude 4.4 quake...",
-          "record_fields": [
-            "summary"
+          "basis": "Account: magnitude 4.4 event and automatic stop.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0253-source-0001",
+            "AIBD-0253-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The recorded response was a preventive stop, and the conditions identify early-wave lead time and false-trigger tolerance as central.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely protection came from reducing train speed before stronger shaking, at the cost of precautionary interruptions when an alert did not precede damaging motion.",
+          "editor_note": "The recorded response was a preventive stop, and the conditions identify early-wave lead time and false-trigger tolerance as central."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1914,25 +1894,101 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://it.euronews.com/viaggi/2025/07/15/treni-che-si-fermano-da-soli-litalia-inaugura-lallerta-sismica-automatica-in-ferrovia",
+                "source_refs": [
+                  "AIBD-0253-source-0001"
+                ],
+                "title": "Retained intermediary",
+                "relationship": "Retained intermediary",
+                "contribution": "Euronews attributes the May operation and M 4.4 preventive stop to RailTech. Its AI terminology is not a technical specification.",
+                "locator": "System operation and partnership sections",
+                "access_status": "Full relevant article read"
+              },
+              {
+                "url": "https://agenparl.eu/2025/07/14/comunicato-stampa-gruppo-fs-rete-ferroviaria-italiana-attiva-il-primo-sistema-di-early-warning-sismico-sulla-linea-av-roma-napoli/",
+                "source_refs": [
+                  "AIBD-0253-source-0001"
+                ],
+                "title": "Public reproduction of FS press release",
+                "relationship": "Public reproduction of FS press release",
+                "contribution": "FS announced automatic restrictions based on early seismic waves. The retrieved body contains only the short opening.",
+                "locator": "14 July 2025 release opening",
+                "access_status": "Available opening read"
+              },
+              {
+                "url": "https://www.informatorenavale.it/news/gruppo-fs-rete-ferroviaria-italiana-attiva-il-primo-sistema-di-early-warning-sismico-sulla-linea-av-roma-napoli/",
+                "source_refs": [
+                  "AIBD-0253-source-0001"
+                ],
+                "title": "Fuller public reproduction of FS press release",
+                "relationship": "Fuller public reproduction of FS press release",
+                "contribution": "The company describes sensor data, fiber, railway signaling and staff-controlled restoration of service.",
+                "locator": "14 July 2025 technical paragraphs",
+                "access_status": "Full reproduced release read"
+              },
+              {
+                "url": "https://www.ferrovie.it/portale/articoli/16527",
+                "source_refs": [
+                  "AIBD-0253-source-0001"
+                ],
+                "title": "Contemporaneous technical reporting",
+                "relationship": "Contemporaneous technical reporting",
+                "contribution": "Reports activation at midnight on 3 May, 20 stations and the maintenance clearance required before a traffic controller reopens the affected section.",
+                "locator": "29 May 2025, opening and infrastructure list",
+                "access_status": "Full article read"
+              },
+              {
+                "url": "https://egusphere.copernicus.org/preprints/2025/egusphere-2025-2668/",
+                "source_refs": [
+                  "AIBD-0253-source-0001"
+                ],
+                "title": "Original preprint and version lineage",
+                "relationship": "Original preprint and version lineage",
+                "contribution": "Identifies the developer-authored technical study and its final revised publication.",
+                "locator": "4 July 2025 preprint; link to final article",
+                "access_status": "Abstract and public review read"
+              },
+              {
+                "url": "https://nhess.copernicus.org/articles/26/299/2026/",
+                "source_refs": [
+                  "AIBD-0253-source-0004",
+                  "AIBD-0253-source-0001",
+                  "AIBD-0253-source-0002",
+                  "AIBD-0253-source-0003"
+                ],
+                "title": "Original peer-reviewed technical study",
+                "relationship": "Original peer-reviewed technical study",
+                "contribution": "The platform is AlpEW, hosted on servers at Naples Central Station. Filter Picker, Train Marker, empirical motion equations and probability thresholds drive alerts. Evaluation used offline records plus a 2020–2022 operational test; this does not verify the May 2025 M 4.4 episode. ML is discussed as a possible alternative, not identified as the implemented method.",
+                "locator": "Sections 2.1–2.6, 3.1–3.2 and Appendix A–B",
+                "access_status": "System methods, performance evaluation and appendices read"
+              }
+            ],
+            "latest_limitations": "The technical source establishes configuration but does not confirm the later reported earthquake stop or a learned AI model. The original logs for that stop were not located. Its 3–10-second and greater-than-90% performance figures come from the study’s evaluation, not a measured passenger-protection outcome."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0253-source-0001",
+            "AIBD-0253-source-0004",
             "AIBD-0253-source-0002",
             "AIBD-0253-source-0003"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The technical source establishes configuration but does not confirm the later reported earthquake stop or a learned AI model. The original logs for that stop were not located. Its 3–10-second and greater-than-90% performance figures come from the study’s evaluation, not a measured passenger-protection outcome."
         }
       },
       "sources[].citation_locator": {
@@ -1967,6 +2023,15 @@
                 "date": "2025-07-14",
                 "written_by": "independent",
                 "quote": "Using real-time sensor data and advanced software, the system automatically slows or stops trains during earthquakes, directly preventing potential harm to passengers and infrastructure."
+              },
+              {
+                "kind": "peer-reviewed study",
+                "citation": "Natural Hazards and Earth System Sciences. The first Earthquake Early Warning System for the high-speed railway in Italy: enhancing rapidness and operational efficiency during seismic events. 2026-01-20",
+                "title": "The first Earthquake Early Warning System for the high-speed railway in Italy: enhancing rapidness and operational efficiency during seismic events",
+                "url": "https://nhess.copernicus.org/articles/26/299/2026/",
+                "date": "2026-01-20",
+                "written_by": "makers",
+                "supports_benefit": false
               }
             ]
           }
@@ -1989,9 +2054,10 @@
           "identifiers": [
             "AIBD-0253-source-0001",
             "AIBD-0253-source-0002",
-            "AIBD-0253-source-0003"
+            "AIBD-0253-source-0003",
+            "AIBD-0253-source-0004"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained evidence in reviewed order"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2056,6 +2122,15 @@
                 "date": "2025-07-14",
                 "written_by": "independent",
                 "quote": "Using real-time sensor data and advanced software, the system automatically slows or stops trains during earthquakes, directly preventing potential harm to passengers and infrastructure."
+              },
+              {
+                "kind": "peer-reviewed study",
+                "citation": "Natural Hazards and Earth System Sciences. The first Earthquake Early Warning System for the high-speed railway in Italy: enhancing rapidness and operational efficiency during seismic events. 2026-01-20",
+                "title": "The first Earthquake Early Warning System for the high-speed railway in Italy: enhancing rapidness and operational efficiency during seismic events",
+                "url": "https://nhess.copernicus.org/articles/26/299/2026/",
+                "date": "2026-01-20",
+                "written_by": "makers",
+                "supports_benefit": false
               }
             ]
           }
@@ -2072,28 +2147,186 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://it.euronews.com/viaggi/2025/07/15/treni-che-si-fermano-da-soli-litalia-inaugura-lallerta-sismica-automatica-in-ferrovia",
+                "source_refs": [
+                  "AIBD-0253-source-0001"
+                ],
+                "title": "Retained intermediary",
+                "relationship": "Retained intermediary",
+                "contribution": "Euronews attributes the May operation and M 4.4 preventive stop to RailTech. Its AI terminology is not a technical specification.",
+                "locator": "System operation and partnership sections",
+                "access_status": "Full relevant article read"
+              },
+              {
+                "url": "https://agenparl.eu/2025/07/14/comunicato-stampa-gruppo-fs-rete-ferroviaria-italiana-attiva-il-primo-sistema-di-early-warning-sismico-sulla-linea-av-roma-napoli/",
+                "source_refs": [
+                  "AIBD-0253-source-0001"
+                ],
+                "title": "Public reproduction of FS press release",
+                "relationship": "Public reproduction of FS press release",
+                "contribution": "FS announced automatic restrictions based on early seismic waves. The retrieved body contains only the short opening.",
+                "locator": "14 July 2025 release opening",
+                "access_status": "Available opening read"
+              },
+              {
+                "url": "https://www.informatorenavale.it/news/gruppo-fs-rete-ferroviaria-italiana-attiva-il-primo-sistema-di-early-warning-sismico-sulla-linea-av-roma-napoli/",
+                "source_refs": [
+                  "AIBD-0253-source-0001"
+                ],
+                "title": "Fuller public reproduction of FS press release",
+                "relationship": "Fuller public reproduction of FS press release",
+                "contribution": "The company describes sensor data, fiber, railway signaling and staff-controlled restoration of service.",
+                "locator": "14 July 2025 technical paragraphs",
+                "access_status": "Full reproduced release read"
+              },
+              {
+                "url": "https://www.ferrovie.it/portale/articoli/16527",
+                "source_refs": [
+                  "AIBD-0253-source-0001"
+                ],
+                "title": "Contemporaneous technical reporting",
+                "relationship": "Contemporaneous technical reporting",
+                "contribution": "Reports activation at midnight on 3 May, 20 stations and the maintenance clearance required before a traffic controller reopens the affected section.",
+                "locator": "29 May 2025, opening and infrastructure list",
+                "access_status": "Full article read"
+              },
+              {
+                "url": "https://egusphere.copernicus.org/preprints/2025/egusphere-2025-2668/",
+                "source_refs": [
+                  "AIBD-0253-source-0001"
+                ],
+                "title": "Original preprint and version lineage",
+                "relationship": "Original preprint and version lineage",
+                "contribution": "Identifies the developer-authored technical study and its final revised publication.",
+                "locator": "4 July 2025 preprint; link to final article",
+                "access_status": "Abstract and public review read"
+              },
+              {
+                "url": "https://nhess.copernicus.org/articles/26/299/2026/",
+                "source_refs": [
+                  "AIBD-0253-source-0004",
+                  "AIBD-0253-source-0001",
+                  "AIBD-0253-source-0002",
+                  "AIBD-0253-source-0003"
+                ],
+                "title": "Original peer-reviewed technical study",
+                "relationship": "Original peer-reviewed technical study",
+                "contribution": "The platform is AlpEW, hosted on servers at Naples Central Station. Filter Picker, Train Marker, empirical motion equations and probability thresholds drive alerts. Evaluation used offline records plus a 2020–2022 operational test; this does not verify the May 2025 M 4.4 episode. ML is discussed as a possible alternative, not identified as the implemented method.",
+                "locator": "Sections 2.1–2.6, 3.1–3.2 and Appendix A–B",
+                "access_status": "System methods, performance evaluation and appendices read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://it.euronews.com/viaggi/2025/07/15/treni-che-si-fermano-da-soli-litalia-inaugura-lallerta-sismica-automatica-in-ferrovia",
+                  "source_refs": [
+                    "AIBD-0253-source-0001"
+                  ],
+                  "title": "Retained intermediary",
+                  "relationship": "Retained intermediary",
+                  "contribution": "Euronews attributes the May operation and M 4.4 preventive stop to RailTech. Its AI terminology is not a technical specification.",
+                  "locator": "System operation and partnership sections",
+                  "access_status": "Full relevant article read"
+                },
+                {
+                  "url": "https://agenparl.eu/2025/07/14/comunicato-stampa-gruppo-fs-rete-ferroviaria-italiana-attiva-il-primo-sistema-di-early-warning-sismico-sulla-linea-av-roma-napoli/",
+                  "source_refs": [
+                    "AIBD-0253-source-0001"
+                  ],
+                  "title": "Public reproduction of FS press release",
+                  "relationship": "Public reproduction of FS press release",
+                  "contribution": "FS announced automatic restrictions based on early seismic waves. The retrieved body contains only the short opening.",
+                  "locator": "14 July 2025 release opening",
+                  "access_status": "Available opening read"
+                },
+                {
+                  "url": "https://www.informatorenavale.it/news/gruppo-fs-rete-ferroviaria-italiana-attiva-il-primo-sistema-di-early-warning-sismico-sulla-linea-av-roma-napoli/",
+                  "source_refs": [
+                    "AIBD-0253-source-0001"
+                  ],
+                  "title": "Fuller public reproduction of FS press release",
+                  "relationship": "Fuller public reproduction of FS press release",
+                  "contribution": "The company describes sensor data, fiber, railway signaling and staff-controlled restoration of service.",
+                  "locator": "14 July 2025 technical paragraphs",
+                  "access_status": "Full reproduced release read"
+                },
+                {
+                  "url": "https://www.ferrovie.it/portale/articoli/16527",
+                  "source_refs": [
+                    "AIBD-0253-source-0001"
+                  ],
+                  "title": "Contemporaneous technical reporting",
+                  "relationship": "Contemporaneous technical reporting",
+                  "contribution": "Reports activation at midnight on 3 May, 20 stations and the maintenance clearance required before a traffic controller reopens the affected section.",
+                  "locator": "29 May 2025, opening and infrastructure list",
+                  "access_status": "Full article read"
+                },
+                {
+                  "url": "https://egusphere.copernicus.org/preprints/2025/egusphere-2025-2668/",
+                  "source_refs": [
+                    "AIBD-0253-source-0001"
+                  ],
+                  "title": "Original preprint and version lineage",
+                  "relationship": "Original preprint and version lineage",
+                  "contribution": "Identifies the developer-authored technical study and its final revised publication.",
+                  "locator": "4 July 2025 preprint; link to final article",
+                  "access_status": "Abstract and public review read"
+                },
+                {
+                  "url": "https://nhess.copernicus.org/articles/26/299/2026/",
+                  "source_refs": [
+                    "AIBD-0253-source-0004",
+                    "AIBD-0253-source-0001",
+                    "AIBD-0253-source-0002",
+                    "AIBD-0253-source-0003"
+                  ],
+                  "title": "Original peer-reviewed technical study",
+                  "relationship": "Original peer-reviewed technical study",
+                  "contribution": "The platform is AlpEW, hosted on servers at Naples Central Station. Filter Picker, Train Marker, empirical motion equations and probability thresholds drive alerts. Evaluation used offline records plus a 2020–2022 operational test; this does not verify the May 2025 M 4.4 episode. ML is discussed as a possible alternative, not identified as the implemented method.",
+                  "locator": "Sections 2.1–2.6, 3.1–3.2 and Appendix A–B",
+                  "access_status": "System methods, performance evaluation and appendices read"
+                }
+              ],
+              "limitations": "The technical source establishes configuration but does not confirm the later reported earthquake stop or a learned AI model. The original logs for that stop were not located. Its 3–10-second and greater-than-90% performance figures come from the study’s evaluation, not a measured passenger-protection outcome.",
+              "origin_chain": "ANSA and Euronews trace to FS’s July release, publicly reproduced by Agenparl and Informatore Navale. The May activation has earlier Ferrovie.it reporting. A targeted search found the original developer study via its preprint and final version. Euronews’s RailTech source for the M 4.4 event could not be resolved to a specific original report."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0253-source-0001",
+            "retained_source_order": [
+              "AIBD-0253-source-0001",
+              "AIBD-0253-source-0002",
+              "AIBD-0253-source-0003",
+              "AIBD-0253-source-0004"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. ANSA and euronews relay the railway company's announcement; OECD summarizes it. The original RFI incident and technical records were not inspected, so algorithm classification and causal protection remain unresolved.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0253-source-0001",
+            "AIBD-0253-source-0004",
             "AIBD-0253-source-0002",
             "AIBD-0253-source-0003"
           ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "ANSA and euronews relay the railway company's announcement; OECD summarizes it. The original RFI incident and technical records were not inspected, so algorithm classification and causal protection remain unresolved.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "ANSA and euronews relay the railway company's announcement; OECD summarizes it. The original RFI incident and technical records were not inspected, so algorithm classification and causal protection remain unresolved."
+          "answer": "ANSA and Euronews trace to FS’s July release, publicly reproduced by Agenparl and Informatore Navale. The May activation has earlier Ferrovie.it reporting. A targeted search found the original developer study via its preprint and final version. Euronews’s RailTech source for the M 4.4 event could not be resolved to a specific original report. The technical source establishes configuration but does not confirm the later reported earthquake stop or a learned AI model. The original logs for that stop were not located. Its 3–10-second and greater-than-90% performance figures come from the study’s evaluation, not a measured passenger-protection outcome."
         }
       },
       "strategic_assessments[]": {
@@ -2122,7 +2355,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "summary": "euronews (15 Jul 2025): about 20 accelerometric stations over 200 km feed software that analyzes P-waves and automatically slows or stops trains; in the weeks after activation a magnitude 4.4 quake...",
+            "summary": "RFI’s AlpEW imposes train restrictions from seismic signals. News reports a stop during a magnitude 4.4 earthquake; the technical paper verifies neither that episode nor a learned AI model.",
             "account": "ANSA reported on 14 Jul 2025 that Ferrovie dello Stato's infrastructure company Rete Ferroviaria Italiana had activated Italy's first seismic early-warning system. It is on the Rome-Naples high-speed line. It was developed with the Physics Department of the University of Naples Federico II. Technical support came from the Railway Technical Research Institute of the Japanese railways. A network of latest-generation sensors detects the earliest seismic waves. Within seconds it automatically activates safety protocols to slow or stop trains. euronews (15 Jul 2025) added that the system comprises about 20 seismic stations along 200 km, on the surface and in deep boreholes. They are linked by an SDH fiber network. An advanced software intelligence instantly analyzes the data and assesses the quake's danger, per euronews. The system had been operational since 3 May 2025. In the following weeks it was tested by a magnitude 4.4 earthquake. During it, trains on the Rome-Naples line were stopped preventively. Neither article gives the date of that earthquake. ANSA does not mention artificial intelligence. The OECD AI Incidents Monitor lists the system as AI-powered and a protective response."
           }
         },
@@ -2139,19 +2372,25 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system automatically initiated protocols to slow or stop trains within seconds."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: euronews (15 Jul 2025): about 20 accelerometric stations over 200 km feed software that analyzes P-waves and automatically slows or stops trains; in the weeks after activation a magnitude 4.4 quake...",
-          "record_fields": [
-            "summary"
+          "basis": "Account and AI-role assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0253-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by RFI seismic early-warning system (Early Warning Sismico) on the Rome-Naples high-speed line remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The system automatically initiated protocols to slow or stop trains within seconds."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2184,34 +2423,48 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Seismic sensors detected early waves and sent measurements over fiber for software to assess earthquake danger."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: euronews (15 Jul 2025): about 20 accelerometric stations over 200 km feed software that analyzes P-waves and automatically slows or stops trains; in the weeks after activation a magnitude 4.4 quake...",
-          "record_fields": [
-            "summary"
+          "basis": "Account: about 20 stations over 200 km.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0253-source-0001",
+            "AIBD-0253-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of RFI seismic early-warning system (Early Warning Sismico) on the Rome-Naples high-speed line have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Seismic sensors detected early waves and sent measurements over fiber for software to assess earthquake danger."
+        }
       },
       "systems[].model_name": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The platform was AlpEW. It combined Filter Picker and Train Marker signal processing with empirical ground-motion equations and probability thresholds; a learned AI model is not established."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: euronews (15 Jul 2025): about 20 accelerometric stations over 200 km feed software that analyzes P-waves and automatically slows or stops trains; in the weeks after activation a magnitude 4.4 quake...",
-          "record_fields": [
-            "summary"
+          "basis": "Colombelli et al., final original study, Sections 2.1–2.4 and Appendix A–B. This resolves the technical source behind the retained system account.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0253-source-0001",
+            "AIBD-0253-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record identifies RFI seismic early-warning system (Early Warning Sismico) on the Rome-Naples high-speed line, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The platform was AlpEW. It combined Filter Picker and Train Marker signal processing with empirical ground-motion equations and probability thresholds; a learned AI model is not established."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -2233,7 +2486,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "system": "RFI seismic early-warning system (Early Warning Sismico) on the Rome-Naples high-speed line"
+            "system": "AlpEW (Array lineare per Early Warning), RFI’s seismic early-warning platform for the Rome–Naples high-speed railway."
           }
         },
         "provenance": {
@@ -2290,8 +2543,8 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "title": "RFI's seismic early-warning system on the Rome-Naples high-speed line, operational since 3 May 2025, stops trains preventively during a magnitude 4.4 earthquake",
-            "headline": "RFI seismic warning stops Rome-Naples trains in a 4.4 quake"
+            "title": "RFI’s AlpEW seismic-warning system reportedly stops Rome–Naples trains during a magnitude 4.4 earthquake",
+            "headline": "AlpEW reportedly stops Rome–Naples trains during an earthquake"
           }
         },
         "provenance": {
@@ -2311,9 +2564,9 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "5dafae3949425c37c97777bbf0eb7d827cc3884207ee4992eaa1b11d78e01dfb"
+            "e83987d5f65eaf07f29cf6d12b6e1477acfea8997d36221ddf5d92600280e16b"
           ],
-          "role": "SHA-256 of normalized original case data"
+          "role": "SHA-256 of normalized case data"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2360,18 +2613,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 3,
+      "known": 44,
+      "reviewed": 13,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 35,
-      "review_not_assessed": 53,
+      "reviewed_partial": 13,
+      "record_mapped": 32,
+      "review_not_assessed": 46,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 44,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 47,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

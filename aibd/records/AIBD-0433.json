@@ -1414,16 +1414,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: PECIP describes AI-assisted polar analysis and microalgae cultivation, including a claimed 30% carbon-absorption gain without a specified experimental baseline.",
-          "record_fields": [
-            "summary"
+          "basis": "Reviewed missingness: claimed 30% absorption gain without experiment or baseline; energy, permanence, and lifecycle accounting absent.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0433-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The reported absorption claim describes gross biological uptake. Net removal also depends on operating energy and the fate of biomass, which the retained account does not measure.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Faster microalgae carbon uptake could still yield little durable climate benefit if cultivation consumes substantial energy or the captured carbon is quickly released.",
+          "editor_note": "The reported absorption claim describes gross biological uptake. Net removal also depends on operating energy and the fate of biomass, which the retained account does not measure."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1609,23 +1613,41 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-302",
+                "source_refs": [
+                  "AIBD-0433-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "OPEA, PyTorch, Llama or DeepSeek, and RAG are specified for the laboratory platform.",
+                "locator": "_idParaDest-302; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_limitations": "The30% absorption result lacks a linked project experiment."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0433-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The30% absorption result lacks a linked project experiment."
         }
       },
       "sources[].citation_locator": {
@@ -1721,27 +1743,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-302",
+                "source_refs": [
+                  "AIBD-0433-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "OPEA, PyTorch, Llama or DeepSeek, and RAG are specified for the laboratory platform.",
+                "locator": "_idParaDest-302; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-302",
+                  "source_refs": [
+                    "AIBD-0433-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "OPEA, PyTorch, Llama or DeepSeek, and RAG are specified for the laboratory platform.",
+                  "locator": "_idParaDest-302; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
+              ],
+              "limitations": "The30% absorption result lacks a linked project experiment.",
+              "origin_chain": "PECIP submission -> OPEA documentation, polar/algal background, and researcher profile."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0433-source-0001",
+            "retained_source_order": [
+              "AIBD-0433-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. The PECIP submission names the Education University of Hong Kong, Polar Research Institute, and Intel. Those affiliations do not independently validate the experimental or conservation claims. Underlying studies, datasets, and lifecycle calculations were not inspected.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].component_role outcomes[].tradeoffs systems[].deployment_configuration",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0433-source-0001"
           ],
-          "reviewed_on": "2026-10-27",
-          "attempted_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The PECIP submission names the Education University of Hong Kong, Polar Research Institute, and Intel. Those affiliations do not independently validate the experimental or conservation claims. Underlying studies, datasets, and lifecycle calculations were not inspected.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The PECIP submission names the Education University of Hong Kong, Polar Research Institute, and Intel. Those affiliations do not independently validate the experimental or conservation claims. Underlying studies, datasets, and lifecycle calculations were not inspected."
+          "answer": "OPEA, PyTorch, Llama or DeepSeek, and RAG are specified for the laboratory platform."
         }
       },
       "strategic_assessments[]": {
@@ -1800,34 +1861,46 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "PECIP combines adapted language models and retrieval with environmental models for polar analysis and microalgae research."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: PECIP describes AI-assisted polar analysis and microalgae cultivation, including a claimed 30% carbon-absorption gain without a specified experimental baseline.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: fine-tuned LLMs, retrieval, environmental models, laboratory-stage microalgae cultivation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0433-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation is needed that explains each component’s role."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The role of each component in Polar Eco-Carbon Intelligence Platform remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "PECIP combines adapted language models and retrieval with environmental models for polar analysis and microalgae research."
+        }
       },
       "systems[].deployment_configuration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The laboratory design uses OPEA and PyTorch with adapted open-source Llama or DeepSeek models and retrieval for current environmental information."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: PECIP describes AI-assisted polar analysis and microalgae cultivation, including a claimed 30% carbon-absorption gain without a specified experimental baseline.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-302: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0433-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the configuration used in this case is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The configuration of Polar Eco-Carbon Intelligence Platform used in this case remains unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The laboratory design uses OPEA and PyTorch with adapted open-source Llama or DeepSeek models and retrieval for current environmental information."
+        }
       },
       "systems[].inputs_outputs": {
         "state": "unresolved",
@@ -1999,18 +2072,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 33,
-      "reviewed": 3,
+      "known": 37,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 31,
-      "review_not_assessed": 57,
+      "review_not_assessed": 53,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 33,
+        "value_present": 37,
         "not_reported": 0,
-        "unresolved": 58,
+        "unresolved": 54,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

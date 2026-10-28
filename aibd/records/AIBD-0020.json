@@ -1356,19 +1356,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The resulting schemes were checked algebraically over the stated field. Independent researchers then used the published 5-by-5 scheme as a starting point for an improvement."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AlphaTensor found a 47-multiplication 4x4 scheme over GF(2) and a 96 for 5x5; Kauers and Moosbauer improved the latter to 95.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: exact schemes over the two-element field and Kauers–Moosbauer extension.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0020-source-0001",
+            "AIBD-0020-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of AlphaTensor (AlphaZero-derived reinforcement learning for tensor decomposition) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The resulting schemes were checked algebraically over the stated field. Independent researchers then used the published 5-by-5 scheme as a starting point for an improvement."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1575,16 +1582,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AlphaTensor found a 47-multiplication 4x4 scheme over GF(2) and a 96 for 5x5; Kauers and Moosbauer improved the latter to 95.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: 47 multiplications for 4-by-4 matrices and 96 for 5-by-5 over the two-element field.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0020-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The highlighted result counts multiplications over a specific finite field. That mathematical cost measure is narrower than end-to-end execution time for arbitrary numerical workloads.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Fewer algebraic multiplications probably do not guarantee the same speedup on every computer, because execution also depends on additions, memory movement, and the arithmetic field.",
+          "editor_note": "The highlighted result counts multiplications over a specific finite field. That mathematical cost measure is narrower than end-to-end execution time for arbitrary numerical workloads."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1845,24 +1856,51 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0020-source-0001",
-            "AIBD-0020-source-0002"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.nature.com/articles/s41586-022-05172-4",
+                "source_refs": [
+                  "AIBD-0020-source-0001"
+                ],
+                "title": "original AlphaTensor paper",
+                "relationship": "original AlphaTensor paper",
+                "contribution": "The 47-multiplication result applies to characteristic-two arithmetic; separate experiments optimize runtime on specified hardware.",
+                "locator": "matrix-size results and hardware optimization",
+                "access_status": "Full body retrieved and relevant results read; saved 009-020.txt"
+              },
+              {
+                "url": "https://arxiv.org/html/2210.04045v3",
+                "source_refs": [
+                  "AIBD-0020-source-0001"
+                ],
+                "title": "original independent follow-up",
+                "relationship": "original independent follow-up",
+                "contribution": "Kauers and Moosbauer transform the published 96-multiplication scheme to eliminate one multiplication.",
+                "locator": "Introduction and multiplication schemes",
+                "access_status": "Introduction and construction read"
+              }
+            ],
+            "latest_limitations": "No algebraic recomputation or hardware benchmark rerun."
+          }
         },
-        "reason": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0020-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No algebraic recomputation or hardware benchmark rerun."
         }
       },
       "sources[].citation_locator": {
@@ -1982,28 +2020,87 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. Nature is the original developer study. Kauers and Moosbauer contribute a distinct extension rather than a republication. The Nature abstract and introduction were read, but the decompositions, runtime experiments, and independent preprint were not checked in full.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0020-source-0001",
-            "AIBD-0020-source-0002"
-          ],
-          "reviewed_on": "2026-10-27",
-          "attempted_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.nature.com/articles/s41586-022-05172-4",
+                "source_refs": [
+                  "AIBD-0020-source-0001"
+                ],
+                "title": "original AlphaTensor paper",
+                "relationship": "original AlphaTensor paper",
+                "contribution": "The 47-multiplication result applies to characteristic-two arithmetic; separate experiments optimize runtime on specified hardware.",
+                "locator": "matrix-size results and hardware optimization",
+                "access_status": "Full body retrieved and relevant results read; saved 009-020.txt"
+              },
+              {
+                "url": "https://arxiv.org/html/2210.04045v3",
+                "source_refs": [
+                  "AIBD-0020-source-0001"
+                ],
+                "title": "original independent follow-up",
+                "relationship": "original independent follow-up",
+                "contribution": "Kauers and Moosbauer transform the published 96-multiplication scheme to eliminate one multiplication.",
+                "locator": "Introduction and multiplication schemes",
+                "access_status": "Introduction and construction read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.nature.com/articles/s41586-022-05172-4",
+                  "source_refs": [
+                    "AIBD-0020-source-0001"
+                  ],
+                  "title": "original AlphaTensor paper",
+                  "relationship": "original AlphaTensor paper",
+                  "contribution": "The 47-multiplication result applies to characteristic-two arithmetic; separate experiments optimize runtime on specified hardware.",
+                  "locator": "matrix-size results and hardware optimization",
+                  "access_status": "Full body retrieved and relevant results read; saved 009-020.txt"
+                },
+                {
+                  "url": "https://arxiv.org/html/2210.04045v3",
+                  "source_refs": [
+                    "AIBD-0020-source-0001"
+                  ],
+                  "title": "original independent follow-up",
+                  "relationship": "original independent follow-up",
+                  "contribution": "Kauers and Moosbauer transform the published 96-multiplication scheme to eliminate one multiplication.",
+                  "locator": "Introduction and multiplication schemes",
+                  "access_status": "Introduction and construction read"
+                }
+              ],
+              "limitations": "No algebraic recomputation or hardware benchmark rerun.",
+              "origin_chain": "Original Nature research and independent original arXiv follow-up inspected."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0020-source-0001",
+            "retained_source_order": [
+              "AIBD-0020-source-0001",
+              "AIBD-0020-source-0002"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "Nature is the original developer study. Kauers and Moosbauer contribute a distinct extension rather than a republication. The Nature abstract and introduction were read, but the decompositions, runtime experiments, and independent preprint were not checked in full.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. All three proposals survive; algebraic operation counts remain distinct from universal runtime gains.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0020-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "Nature is the original developer study. Kauers and Moosbauer contribute a distinct extension rather than a republication. The Nature abstract and introduction were read, but the decompositions, runtime experiments, and independent preprint were not checked in full."
+          "answer": "The 47-multiplication result applies to characteristic-two arithmetic; separate experiments optimize runtime on specified hardware."
         }
       },
       "strategic_assessments[]": {
@@ -2093,19 +2190,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "AlphaTensor searched tensor decompositions representing matrix-multiplication algorithms and returned explicit multiplication schemes."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AlphaTensor found a 47-multiplication 4x4 scheme over GF(2) and a 96 for 5x5; Kauers and Moosbauer improved the latter to 95.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: TensorGame and published decompositions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0020-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of AlphaTensor (AlphaZero-derived reinforcement learning for tensor decomposition) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "AlphaTensor searched tensor decompositions representing matrix-multiplication algorithms and returned explicit multiplication schemes."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2277,18 +2380,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 39,
-      "reviewed": 3,
+      "known": 43,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 37,
-      "review_not_assessed": 51,
+      "review_not_assessed": 47,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 39,
+        "value_present": 43,
         "not_reported": 0,
-        "unresolved": 52,
+        "unresolved": 48,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

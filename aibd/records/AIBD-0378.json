@@ -1,14 +1,14 @@
 {
   "id": "AIBD-0378",
   "title": "CA-GPT, a DeepSeek-based model on an AI-OCT system led by Tangdu Hospital, agrees with expert PCI plans more than ChatGPT-5 and junior physicians in a 96-patient single-center preprint",
-  "summary": "arXiv preprint (11 December 2025): CA-GPT on an AI-OCT system agreed with expert PCI records more than ChatGPT-5 and junior physicians across 96 patients; stent diameter 90.3% vs 72.2% for juniors.",
+  "summary": "In a 96-patient preprint, CA-GPT matched expert stent plans more often. It processed raw OCT images, while ChatGPT-5 received extracted measurements, limiting the model comparison.",
   "date_observed": "2025-12-11",
   "date_basis": "unassessed",
   "date_precision": "unassessed",
   "benefit_status": "intended",
   "source_collection": null,
   "source_entry": null,
-  "account": "An arXiv preprint of 11 December 2025 (Fang et al., last author Yan Li) reports the single-center COMPARE study. It compared CA-GPT, “a novel large model deployed on an AI-OCT system”, with ChatGPT-5 and junior physicians. This was in optical coherence tomography (OCT)-guided percutaneous coronary intervention (PCI). Decisions for 96 patients were scored against an expert-derived record. In pre-PCI planning CA-GPT's median agreement was 5 against 3 for ChatGPT-5 and 4 for junior physicians. It “showed superior performance to junior physicians in stent diameter (90.3% vs. 72.2%, P<0.05) and length selection (80.6% vs. 52.8%, P<0.01)”. Machine Heart (Sina, 16 December 2025) says Li Yan's team at Tangdu Hospital and Zhu Rui's at Shenzhen Tsinghua University Research Institute built it. They used open-source DeepSeek with retrieval over a million cardiovascular papers, on a Vivolight OCT platform. The Monitor pairs this study with a Xinhua report (13 December 2025) on the “Titian” ablation robot at Shaoxing People's Hospital. It describes teleoperation and no AI function.",
+  "account": "An arXiv preprint of 11 December 2025 (Fang et al., last author Yan Li) reports the single-center COMPARE study. It compared CA-GPT, “a novel large model deployed on an AI-OCT system”, with ChatGPT-5 and junior physicians. This was in optical coherence tomography (OCT)-guided percutaneous coronary intervention (PCI). Decisions for 96 patients were scored against an expert-derived record. In pre-PCI planning CA-GPT's median agreement was 5 against 3 for ChatGPT-5 and 4 for junior physicians. It “showed superior performance to junior physicians in stent diameter (90.3% vs. 72.2%, P<0.05) and length selection (80.6% vs. 52.8%, P<0.01)”. Machine Heart (Sina, 16 December 2025) says Li Yan's team at Tangdu Hospital and Zhu Rui's at Shenzhen Tsinghua University Research Institute built it. They used open-source DeepSeek with retrieval over a million cardiovascular papers, on a Vivolight OCT platform. The Monitor pairs this study with a Xinhua report (13 December 2025) on the “Titian” ablation robot at Shaoxing People's Hospital. It describes teleoperation and no AI function. The original Methods describe retrieval from more than 100,000 annotated PCI cases and clinical guidance. That description differs from the press account’s claim of a million cardiovascular papers. CA-GPT received raw OCT images through its integrated pipeline, whereas ChatGPT-5 received manually extracted measurements. The comparison therefore combines differences in models, retrieval, and input processing.",
   "category": "general benefit",
   "unexpected": false,
   "purpose": "CA-GPT was built to interpret intravascular OCT images and generate PCI planning and assessment decisions as expert-level support. The reported agreement with expert records is that purpose.",
@@ -71,6 +71,26 @@
       "date": "2025-12-13",
       "written_by": "independent",
       "quote": "the CA-GPT AI outperformed ChatGPT-5 and junior doctors in interpreting OCT images for PCI procedures"
+    },
+    {
+      "kind": "report",
+      "citation": "DeepSeek-AI. DeepSeek-R1 model documentation",
+      "title": "DeepSeek-R1 model documentation",
+      "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+      "date": null,
+      "written_by": "makers",
+      "quote": null,
+      "supports_benefit": false
+    },
+    {
+      "kind": "dataset",
+      "citation": "DeepSeek-AI. DeepSeek-R1-Distill-Qwen-14B repository metadata. 2025-01-20",
+      "title": "DeepSeek-R1-Distill-Qwen-14B repository metadata",
+      "url": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+      "date": "2025-01-20",
+      "written_by": "makers",
+      "quote": null,
+      "supports_benefit": false
     }
   ],
   "replication": {
@@ -88,7 +108,7 @@
     "echoes": []
   },
   "paired_incident": null,
-  "headline": "An OCT-reading model beats ChatGPT-5 at planning coronary stents",
+  "headline": "CA-GPT matches expert stent plans more often with different inputs",
   "metric": "stent diameter (90.3% vs. 72.2%, P<0.05) and length selection (80.6% vs. 52.8%, P<0.01)",
   "comparator": null,
   "later": null,
@@ -127,11 +147,11 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: two independent news reports, a registry entry and the makers' preprint. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "claim_basis": "Sources: two independent news reports, a registry entry, the makers' report, the makers' preprint and the makers' dataset. For the benefit itself, the cited sources include no independent study or report and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0378",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "eb4f80679832654a94378b00689aa1cf452b74a967a8e006042e615ccc971644",
+    "source_fingerprint": "aeff6cd0df32cc431273a3f2d1169118d9a7ecaf1a6487b5a3aea378db292525",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -146,7 +166,9 @@
       "AIBD-0378-source-0001",
       "AIBD-0378-source-0002",
       "AIBD-0378-source-0003",
-      "AIBD-0378-source-0004"
+      "AIBD-0378-source-0004",
+      "AIBD-0378-source-0005",
+      "AIBD-0378-source-0006"
     ],
     "families": {
       "strategic assessments": {
@@ -408,7 +430,7 @@
             "confidence": "medium",
             "evidence_word": "reported",
             "claim_status": "Independently reported",
-            "basis": "Sources: two independent news reports, a registry entry and the makers' preprint. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "basis": "Sources: two independent news reports, a registry entry, the makers' report, the makers' preprint and the makers' dataset. For the benefit itself, the cited sources include no independent study or report and no finding by a regulator or court.",
             "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
           }
         },
@@ -531,36 +553,22 @@
       "brief": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "answer": "arXiv preprint (11 December 2025): CA-GPT on an AI-OCT system agreed with expert PCI records more than ChatGPT-5 and junior physicians across 96 patients; stent diameter 90.3% vs 72.2% for juniors.\n\nThe decisions were scored rather than used to treat the 96 patients. Agreement with an expert-derived reference does not establish improved clinical outcomes. The developer-led preprint and unrelated teleoperation report should not be combined as corroboration.",
-            "source_refs": [
-              "AIBD-0378-source-0001",
-              "AIBD-0378-source-0002",
-              "AIBD-0378-source-0003",
-              "AIBD-0378-source-0004"
-            ],
-            "scope": "A presentation of the retained summary and available qualifications, not new evidence review or a complete synthesis of every claim."
-          }
+          "kind": "text",
+          "text": "In a 96-patient preprint, CA-GPT matched expert stent plans more often. It processed raw OCT images, while ChatGPT-5 received extracted measurements, limiting the model comparison."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Curatorial presentation of the retained case summary and existing qualifications. No external source was opened and no new evidentiary judgment was made for this brief.",
-          "record_fields": [
-            "summary",
-            "title"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Methods, AI-OCT system description",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0378-source-0001",
-            "AIBD-0378-source-0002",
-            "AIBD-0378-source-0003",
-            "AIBD-0378-source-0004"
-          ]
+            "https://arxiv.org/pdf/2512.10702"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "arXiv preprint (11 December 2025): CA-GPT on an AI-OCT system agreed with expert PCI records more than ChatGPT-5 and junior physicians across 96 patients; stent diameter 90.3% vs 72.2% for juniors.\n\nThe decisions were scored rather than used to treat the 96 patients. Agreement with an expert-derived reference does not establish improved clinical outcomes. The developer-led preprint and unrelated teleoperation report should not be combined as corroboration."
+          "answer": "In a 96-patient preprint, CA-GPT matched expert stent plans more often. It processed raw OCT images, while ChatGPT-5 received extracted measurements, limiting the model comparison."
         }
       },
       "case_kind": {
@@ -685,82 +693,42 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "The decisions were scored rather than used to treat the 96 patients. Agreement with an expert-derived reference does not establish improved clinical outcomes. The developer-led preprint and unrelated teleoperation report should not be combined as corroboration."
+          "text": "The comparison combines different models, retrieval and input processing, because CA-GPT received raw OCT images while ChatGPT-5 received extracted measurements. It does not establish improved clinical outcomes, and the claimed DeepSeek checkpoint chronology remains inconsistent."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Methods, AI-OCT system description",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0378-source-0001"
+            "https://arxiv.org/pdf/2512.10702"
           ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The decisions were scored rather than used to treat the 96 patients. Agreement with an expert-derived reference does not establish improved clinical outcomes. The developer-led preprint and unrelated teleoperation report should not be combined as corroboration."
+          "answer": "The comparison combines different models, retrieval and input processing, because CA-GPT received raw OCT images while ChatGPT-5 received extracted measurements. It does not establish improved clinical outcomes, and the claimed DeepSeek checkpoint chronology remains inconsistent."
         }
       },
       "claims[].proposition": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "retained_case_account": "An arXiv preprint of 11 December 2025 (Fang et al., last author Yan Li) reports the single-center COMPARE study. It compared CA-GPT, “a novel large model deployed on an AI-OCT system”, with ChatGPT-5 and junior physicians. This was in optical coherence tomography (OCT)-guided percutaneous coronary intervention (PCI). Decisions for 96 patients were scored against an expert-derived record. In pre-PCI planning CA-GPT's median agreement was 5 against 3 for ChatGPT-5 and 4 for junior physicians. It “showed superior performance to junior physicians in stent diameter (90.3% vs. 72.2%, P<0.05) and length selection (80.6% vs. 52.8%, P<0.01)”. Machine Heart (Sina, 16 December 2025) says Li Yan's team at Tangdu Hospital and Zhu Rui's at Shenzhen Tsinghua University Research Institute built it. They used open-source DeepSeek with retrieval over a million cardiovascular papers, on a Vivolight OCT platform. The Monitor pairs this study with a Xinhua report (13 December 2025) on the “Titian” ablation robot at Shaoxing People's Hospital. It describes teleoperation and no AI function.",
-            "retained_ai_contribution_statement": {
-              "status": "assessed",
-              "statement": "CA-GPT is the system under test: a large model on an AI-OCT platform producing pre- and post-PCI decisions that were scored against an expert record. Its reported advantage over ChatGPT-5 and junior physicians is the authors' own measurement in a preprint that has not been peer reviewed. The decisions were not acted on for the 96 patients."
-            },
-            "retained_source_statements": [
-              {
-                "source_ref": "AIBD-0378-source-0001",
-                "statement": "showed superior performance to junior physicians in stent diameter (90.3% vs. 72.2%, P<0.05) and length selection (80.6% vs. 52.8%, P<0.01)",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0378-source-0002",
-                "statement": "一项由空军军医大学唐都医院李妍教授团队牵头，与深圳清华大学研究院朱锐团队联合完成的 COMPARE 研究",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0378-source-0003",
-                "statement": "操作台上的旋钮控制鞘管和导管，医生操作旋钮实现导管的毫米级移动，双机械臂的稳定性让消融靶点定位非常精确",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0378-source-0004",
-                "statement": "the CA-GPT AI outperformed ChatGPT-5 and junior doctors in interpreting OCT images for PCI procedures",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              }
-            ],
-            "scope": "Existing assertions are preserved as a case-level bundle. They have not been separated into atomic claims or independently verified by this assignment."
-          }
+          "kind": "text",
+          "text": "In a 96-patient preprint, CA-GPT matched expert stent plans more often. It processed raw OCT images, while ChatGPT-5 received extracted measurements, limiting the model comparison."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the retained case or existing profile metadata. This assignment performs no new source review or evidentiary assessment.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Methods, AI-OCT system description",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0378-source-0001",
-            "AIBD-0378-source-0002",
-            "AIBD-0378-source-0003",
-            "AIBD-0378-source-0004"
-          ]
+            "https://arxiv.org/pdf/2512.10702"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "arXiv preprint (11 December 2025): CA-GPT on an AI-OCT system agreed with expert PCI records more than ChatGPT-5 and junior physicians across 96 patients; stent diameter 90.3% vs 72.2% for juniors."
+          "answer": "In a 96-patient preprint, CA-GPT matched expert stent plans more often. It processed raw OCT images, while ChatGPT-5 received extracted measurements, limiting the model comparison."
         }
       },
       "cross_border_flows[]": {
@@ -1509,7 +1477,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "An arXiv preprint of 11 December 2025 (Fang et al., last author Yan Li) reports the single-center COMPARE study. It compared CA-GPT, “a novel large model deployed on an AI-OCT system”, with ChatGPT-5 and junior physicians. This was in optical coherence tomography (OCT)-guided percutaneous coronary intervention (PCI). Decisions for 96 patients were scored against an expert-derived record. In pre-PCI planning CA-GPT's median agreement was 5 against 3 for ChatGPT-5 and 4 for junior physicians. It “showed superior performance to junior physicians in stent diameter (90.3% vs. 72.2%, P<0.05) and length selection (80.6% vs. 52.8%, P<0.01)”. Machine Heart (Sina, 16 December 2025) says Li Yan's team at Tangdu Hospital and Zhu Rui's at Shenzhen Tsinghua University Research Institute built it. They used open-source DeepSeek with retrieval over a million cardiovascular papers, on a Vivolight OCT platform. The Monitor pairs this study with a Xinhua report (13 December 2025) on the “Titian” ablation robot at Shaoxing People's Hospital. It describes teleoperation and no AI function.",
+            "account": "An arXiv preprint of 11 December 2025 (Fang et al., last author Yan Li) reports the single-center COMPARE study. It compared CA-GPT, “a novel large model deployed on an AI-OCT system”, with ChatGPT-5 and junior physicians. This was in optical coherence tomography (OCT)-guided percutaneous coronary intervention (PCI). Decisions for 96 patients were scored against an expert-derived record. In pre-PCI planning CA-GPT's median agreement was 5 against 3 for ChatGPT-5 and 4 for junior physicians. It “showed superior performance to junior physicians in stent diameter (90.3% vs. 72.2%, P<0.05) and length selection (80.6% vs. 52.8%, P<0.01)”. Machine Heart (Sina, 16 December 2025) says Li Yan's team at Tangdu Hospital and Zhu Rui's at Shenzhen Tsinghua University Research Institute built it. They used open-source DeepSeek with retrieval over a million cardiovascular papers, on a Vivolight OCT platform. The Monitor pairs this study with a Xinhua report (13 December 2025) on the “Titian” ablation robot at Shaoxing People's Hospital. It describes teleoperation and no AI function. The original Methods describe retrieval from more than 100,000 annotated PCI cases and clinical guidance. That description differs from the press account’s claim of a million cardiovascular papers. CA-GPT received raw OCT images through its integrated pipeline, whereas ChatGPT-5 received manually extracted measurements. The comparison therefore combines differences in models, retrieval, and input processing.",
             "benefit_type": "Improved Task Accuracy"
           }
         },
@@ -1624,16 +1592,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: arXiv preprint (11 December 2025): CA-GPT on an AI-OCT system agreed with expert PCI records more than ChatGPT-5 and junior physicians across 96 patients; stent diameter 90.3% vs 72.2% for juniors.",
-          "record_fields": [
-            "summary"
+          "basis": "Original preprint, Data Processing and Input.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0378-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "CA-GPT processed images through its integrated pipeline, while ChatGPT-5 received extracted parameters.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The comparison combines differences in model specialization, retrieval and input processing, so it does not isolate a base-model advantage.",
+          "editor_note": "CA-GPT processed images through its integrated pipeline, while ChatGPT-5 received extracted parameters."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1863,26 +1835,91 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://arxiv.org/pdf/2512.10702",
+                "source_refs": [
+                  "AIBD-0378-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Paper says DeepSeek-R1 14B, temperature 0.7, repetition penalty 1.1, guidelines plus 100,000 annotated PCI cases; CA-GPT received raw images, comparator received extracted measurements.",
+                "locator": "Methods: AI-OCT system description; Data Processing and Input",
+                "access_status": "Original abstract and full preprint PDF retrieved; architecture, methods and input sections inspected."
+              },
+              {
+                "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+                "source_refs": [
+                  "AIBD-0378-source-0005",
+                  "AIBD-0378-source-0001",
+                  "AIBD-0378-source-0002"
+                ],
+                "title": "Official developer model documentation",
+                "relationship": "Official developer model documentation",
+                "contribution": "The full R1 has 671 billion parameters. The official 14B checkpoint is DeepSeek-R1-Distill-Qwen-14B, derived from Qwen2.5-14B; this is the likely match for the paper’s loosely specified 14B model, not confirmed case identification.",
+                "locator": "README sections 1–3; DeepSeek-R1-Distill Models table",
+                "access_status": "README Introduction and Model Downloads tables read through web retrieval."
+              },
+              {
+                "url": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+                "source_refs": [
+                  "AIBD-0378-source-0006",
+                  "AIBD-0378-source-0001",
+                  "AIBD-0378-source-0002"
+                ],
+                "title": "Official developer checkpoint metadata",
+                "relationship": "Official developer checkpoint metadata",
+                "contribution": "The developer-owned 14B model repository was created on January 20, 2025 and identifies Qwen2ForCausalLM. This does not support the COMPARE paper’s claimed November 2023 release.",
+                "locator": "id, author, config.architectures and createdAt fields",
+                "access_status": "Public model repository metadata read through web retrieval."
+              },
+              {
+                "url": "https://arxiv.org/abs/2501.12948",
+                "source_refs": [
+                  "AIBD-0378-source-0001"
+                ],
+                "title": "Original developer paper chronology",
+                "relationship": "Original developer paper chronology",
+                "contribution": "The original DeepSeek-R1 paper was first submitted in January 2025, which reinforces the inconsistency in COMPARE’s chronology.",
+                "locator": "Submission history, v1 January 22, 2025",
+                "access_status": "Abstract and submission history read; full paper not read for this chronology check."
+              },
+              {
+                "url": "https://api-docs.deepseek.com/news/news250120",
+                "source_refs": [
+                  "AIBD-0378-source-0001"
+                ],
+                "title": "Attempted original release announcement",
+                "relationship": "Attempted original release announcement",
+                "contribution": "No original release-announcement content was obtained.",
+                "locator": "Retrieved page heading: Your First API Call",
+                "access_status": "URL now resolves to the general API guide rather than the dated announcement."
+              }
+            ],
+            "latest_limitations": "The preprint’s claimed November 2023 release and October 2023 knowledge cutoff are inconsistent with the identified R1 family. DeepSeek-R1-Distill-Qwen-14B is the likely checkpoint given the 14B parameter count, but the COMPARE authors provide no unambiguous repository or checkpoint identifier. The former DeepSeek release-announcement URL now returns the general API guide; that announcement was not read."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0378-source-0001",
+            "AIBD-0378-source-0005",
             "AIBD-0378-source-0002",
-            "AIBD-0378-source-0003",
-            "AIBD-0378-source-0004"
+            "AIBD-0378-source-0006"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The preprint’s claimed November 2023 release and October 2023 knowledge cutoff are inconsistent with the identified R1 family. DeepSeek-R1-Distill-Qwen-14B is the likely checkpoint given the 14B parameter count, but the COMPARE authors provide no unambiguous repository or checkpoint identifier. The former DeepSeek release-announcement URL now returns the general API guide; that announcement was not read."
         }
       },
       "sources[].citation_locator": {
@@ -1926,6 +1963,23 @@
                 "date": "2025-12-13",
                 "written_by": "independent",
                 "quote": "the CA-GPT AI outperformed ChatGPT-5 and junior doctors in interpreting OCT images for PCI procedures"
+              },
+              {
+                "kind": "report",
+                "citation": "DeepSeek-AI. DeepSeek-R1 model documentation",
+                "title": "DeepSeek-R1 model documentation",
+                "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+                "written_by": "makers",
+                "supports_benefit": false
+              },
+              {
+                "kind": "dataset",
+                "citation": "DeepSeek-AI. DeepSeek-R1-Distill-Qwen-14B repository metadata. 2025-01-20",
+                "title": "DeepSeek-R1-Distill-Qwen-14B repository metadata",
+                "url": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+                "date": "2025-01-20",
+                "written_by": "makers",
+                "supports_benefit": false
               }
             ]
           }
@@ -1949,9 +2003,11 @@
             "AIBD-0378-source-0001",
             "AIBD-0378-source-0002",
             "AIBD-0378-source-0003",
-            "AIBD-0378-source-0004"
+            "AIBD-0378-source-0004",
+            "AIBD-0378-source-0005",
+            "AIBD-0378-source-0006"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained evidence in reviewed order"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2026,6 +2082,23 @@
                 "date": "2025-12-13",
                 "written_by": "independent",
                 "quote": "the CA-GPT AI outperformed ChatGPT-5 and junior doctors in interpreting OCT images for PCI procedures"
+              },
+              {
+                "kind": "report",
+                "citation": "DeepSeek-AI. DeepSeek-R1 model documentation",
+                "title": "DeepSeek-R1 model documentation",
+                "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+                "written_by": "makers",
+                "supports_benefit": false
+              },
+              {
+                "kind": "dataset",
+                "citation": "DeepSeek-AI. DeepSeek-R1-Distill-Qwen-14B repository metadata. 2025-01-20",
+                "title": "DeepSeek-R1-Distill-Qwen-14B repository metadata",
+                "url": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+                "date": "2025-01-20",
+                "written_by": "makers",
+                "supports_benefit": false
               }
             ]
           }
@@ -2042,26 +2115,168 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0378-source-0001"
-          ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://arxiv.org/pdf/2512.10702",
+                "source_refs": [
+                  "AIBD-0378-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Paper says DeepSeek-R1 14B, temperature 0.7, repetition penalty 1.1, guidelines plus 100,000 annotated PCI cases; CA-GPT received raw images, comparator received extracted measurements.",
+                "locator": "Methods: AI-OCT system description; Data Processing and Input",
+                "access_status": "Original abstract and full preprint PDF retrieved; architecture, methods and input sections inspected."
+              },
+              {
+                "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+                "source_refs": [
+                  "AIBD-0378-source-0005",
+                  "AIBD-0378-source-0001",
+                  "AIBD-0378-source-0002"
+                ],
+                "title": "Official developer model documentation",
+                "relationship": "Official developer model documentation",
+                "contribution": "The full R1 has 671 billion parameters. The official 14B checkpoint is DeepSeek-R1-Distill-Qwen-14B, derived from Qwen2.5-14B; this is the likely match for the paper’s loosely specified 14B model, not confirmed case identification.",
+                "locator": "README sections 1–3; DeepSeek-R1-Distill Models table",
+                "access_status": "README Introduction and Model Downloads tables read through web retrieval."
+              },
+              {
+                "url": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+                "source_refs": [
+                  "AIBD-0378-source-0006",
+                  "AIBD-0378-source-0001",
+                  "AIBD-0378-source-0002"
+                ],
+                "title": "Official developer checkpoint metadata",
+                "relationship": "Official developer checkpoint metadata",
+                "contribution": "The developer-owned 14B model repository was created on January 20, 2025 and identifies Qwen2ForCausalLM. This does not support the COMPARE paper’s claimed November 2023 release.",
+                "locator": "id, author, config.architectures and createdAt fields",
+                "access_status": "Public model repository metadata read through web retrieval."
+              },
+              {
+                "url": "https://arxiv.org/abs/2501.12948",
+                "source_refs": [
+                  "AIBD-0378-source-0001"
+                ],
+                "title": "Original developer paper chronology",
+                "relationship": "Original developer paper chronology",
+                "contribution": "The original DeepSeek-R1 paper was first submitted in January 2025, which reinforces the inconsistency in COMPARE’s chronology.",
+                "locator": "Submission history, v1 January 22, 2025",
+                "access_status": "Abstract and submission history read; full paper not read for this chronology check."
+              },
+              {
+                "url": "https://api-docs.deepseek.com/news/news250120",
+                "source_refs": [
+                  "AIBD-0378-source-0001"
+                ],
+                "title": "Attempted original release announcement",
+                "relationship": "Attempted original release announcement",
+                "contribution": "No original release-announcement content was obtained.",
+                "locator": "Retrieved page heading: Your First API Call",
+                "access_status": "URL now resolves to the general API guide rather than the dated announcement."
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://arxiv.org/pdf/2512.10702",
+                  "source_refs": [
+                    "AIBD-0378-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Paper says DeepSeek-R1 14B, temperature 0.7, repetition penalty 1.1, guidelines plus 100,000 annotated PCI cases; CA-GPT received raw images, comparator received extracted measurements.",
+                  "locator": "Methods: AI-OCT system description; Data Processing and Input",
+                  "access_status": "Original abstract and full preprint PDF retrieved; architecture, methods and input sections inspected."
+                },
+                {
+                  "url": "https://github.com/deepseek-ai/DeepSeek-R1",
+                  "source_refs": [
+                    "AIBD-0378-source-0005",
+                    "AIBD-0378-source-0001",
+                    "AIBD-0378-source-0002"
+                  ],
+                  "title": "Official developer model documentation",
+                  "relationship": "Official developer model documentation",
+                  "contribution": "The full R1 has 671 billion parameters. The official 14B checkpoint is DeepSeek-R1-Distill-Qwen-14B, derived from Qwen2.5-14B; this is the likely match for the paper’s loosely specified 14B model, not confirmed case identification.",
+                  "locator": "README sections 1–3; DeepSeek-R1-Distill Models table",
+                  "access_status": "README Introduction and Model Downloads tables read through web retrieval."
+                },
+                {
+                  "url": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+                  "source_refs": [
+                    "AIBD-0378-source-0006",
+                    "AIBD-0378-source-0001",
+                    "AIBD-0378-source-0002"
+                  ],
+                  "title": "Official developer checkpoint metadata",
+                  "relationship": "Official developer checkpoint metadata",
+                  "contribution": "The developer-owned 14B model repository was created on January 20, 2025 and identifies Qwen2ForCausalLM. This does not support the COMPARE paper’s claimed November 2023 release.",
+                  "locator": "id, author, config.architectures and createdAt fields",
+                  "access_status": "Public model repository metadata read through web retrieval."
+                },
+                {
+                  "url": "https://arxiv.org/abs/2501.12948",
+                  "source_refs": [
+                    "AIBD-0378-source-0001"
+                  ],
+                  "title": "Original developer paper chronology",
+                  "relationship": "Original developer paper chronology",
+                  "contribution": "The original DeepSeek-R1 paper was first submitted in January 2025, which reinforces the inconsistency in COMPARE’s chronology.",
+                  "locator": "Submission history, v1 January 22, 2025",
+                  "access_status": "Abstract and submission history read; full paper not read for this chronology check."
+                },
+                {
+                  "url": "https://api-docs.deepseek.com/news/news250120",
+                  "source_refs": [
+                    "AIBD-0378-source-0001"
+                  ],
+                  "title": "Attempted original release announcement",
+                  "relationship": "Attempted original release announcement",
+                  "contribution": "No original release-announcement content was obtained.",
+                  "locator": "Retrieved page heading: Your First API Call",
+                  "access_status": "URL now resolves to the general API guide rather than the dated announcement."
+                }
+              ],
+              "limitations": "The preprint’s claimed November 2023 release and October 2023 knowledge cutoff are inconsistent with the identified R1 family. DeepSeek-R1-Distill-Qwen-14B is the likely checkpoint given the 14B parameter count, but the COMPARE authors provide no unambiguous repository or checkpoint identifier. The former DeepSeek release-announcement URL now returns the general API guide; that announcement was not read.",
+              "origin_chain": "COMPARE authors’ original arXiv preprint, reached from the retained abstract URL; checkpoint description checked against DeepSeek’s official model table and developer-owned repository metadata. The developer paper’s submission history supplies additional chronology."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0378-source-0001",
+            "retained_source_order": [
+              "AIBD-0378-source-0001",
+              "AIBD-0378-source-0002",
+              "AIBD-0378-source-0003",
+              "AIBD-0378-source-0004",
+              "AIBD-0378-source-0005",
+              "AIBD-0378-source-0006"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "The retained source trail for CA-GPT, a DeepSeek-based model on an AI-OCT system led by Tangdu Hospital, agrees with expert PCI plans more than ChatGPT-5 and junior physicians in a 96-patient single-center preprint has not been fully verified. The references support this editorial screening only.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Model identification narrowed to a qualified likely checkpoint after original developer documentation was read. Other method and input-asymmetry proposals survive.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0378-source-0001",
+            "AIBD-0378-source-0005",
+            "AIBD-0378-source-0002",
+            "AIBD-0378-source-0006"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The retained references have not been fully traced to their original evidence."
+          "answer": "COMPARE authors’ original arXiv preprint, reached from the retained abstract URL; checkpoint description checked against DeepSeek’s official model table and developer-owned repository metadata. The developer paper’s submission history supplies additional chronology. The preprint’s claimed November 2023 release and October 2023 knowledge cutoff are inconsistent with the identified R1 family. DeepSeek-R1-Distill-Qwen-14B is the likely checkpoint given the 14B parameter count, but the COMPARE authors provide no unambiguous repository or checkpoint identifier. The former DeepSeek release-announcement URL now returns the general API guide; that announcement was not read."
         }
       },
       "strategic_assessments[]": {
@@ -2091,8 +2306,8 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "summary": "arXiv preprint (11 December 2025): CA-GPT on an AI-OCT system agreed with expert PCI records more than ChatGPT-5 and junior physicians across 96 patients; stent diameter 90.3% vs 72.2% for juniors.",
-            "account": "An arXiv preprint of 11 December 2025 (Fang et al., last author Yan Li) reports the single-center COMPARE study. It compared CA-GPT, “a novel large model deployed on an AI-OCT system”, with ChatGPT-5 and junior physicians. This was in optical coherence tomography (OCT)-guided percutaneous coronary intervention (PCI). Decisions for 96 patients were scored against an expert-derived record. In pre-PCI planning CA-GPT's median agreement was 5 against 3 for ChatGPT-5 and 4 for junior physicians. It “showed superior performance to junior physicians in stent diameter (90.3% vs. 72.2%, P<0.05) and length selection (80.6% vs. 52.8%, P<0.01)”. Machine Heart (Sina, 16 December 2025) says Li Yan's team at Tangdu Hospital and Zhu Rui's at Shenzhen Tsinghua University Research Institute built it. They used open-source DeepSeek with retrieval over a million cardiovascular papers, on a Vivolight OCT platform. The Monitor pairs this study with a Xinhua report (13 December 2025) on the “Titian” ablation robot at Shaoxing People's Hospital. It describes teleoperation and no AI function."
+            "summary": "In a 96-patient preprint, CA-GPT matched expert stent plans more often. It processed raw OCT images, while ChatGPT-5 received extracted measurements, limiting the model comparison.",
+            "account": "An arXiv preprint of 11 December 2025 (Fang et al., last author Yan Li) reports the single-center COMPARE study. It compared CA-GPT, “a novel large model deployed on an AI-OCT system”, with ChatGPT-5 and junior physicians. This was in optical coherence tomography (OCT)-guided percutaneous coronary intervention (PCI). Decisions for 96 patients were scored against an expert-derived record. In pre-PCI planning CA-GPT's median agreement was 5 against 3 for ChatGPT-5 and 4 for junior physicians. It “showed superior performance to junior physicians in stent diameter (90.3% vs. 72.2%, P<0.05) and length selection (80.6% vs. 52.8%, P<0.01)”. Machine Heart (Sina, 16 December 2025) says Li Yan's team at Tangdu Hospital and Zhu Rui's at Shenzhen Tsinghua University Research Institute built it. They used open-source DeepSeek with retrieval over a million cardiovascular papers, on a Vivolight OCT platform. The Monitor pairs this study with a Xinhua report (13 December 2025) on the “Titian” ablation robot at Shaoxing People's Hospital. It describes teleoperation and no AI function. The original Methods describe retrieval from more than 100,000 annotated PCI cases and clinical guidance. That description differs from the press account’s claim of a million cardiovascular papers. CA-GPT received raw OCT images through its integrated pipeline, whereas ChatGPT-5 received manually extracted measurements. The comparison therefore combines differences in models, retrieval, and input processing."
           }
         },
         "provenance": {
@@ -2108,19 +2323,25 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The systems’ proposed decisions were scored retrospectively against expert procedural records, without determining treatment for the 96 patients."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: arXiv preprint (11 December 2025): CA-GPT on an AI-OCT system agreed with expert PCI records more than ChatGPT-5 and junior physicians across 96 patients; stent diameter 90.3% vs 72.2% for juniors.",
-          "record_fields": [
-            "summary"
+          "basis": "Original preprint, Methods.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0378-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by CA-GPT large model on an AI-OCT system (COMPARE study) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The systems’ proposed decisions were scored retrospectively against expert procedural records, without determining treatment for the 96 patients."
+        }
       },
       "systems[].component_role": {
         "state": "value_present",
@@ -2144,59 +2365,64 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "Machine Heart reports that CA-GPT combined an open-source DeepSeek model with retrieval from more than one million cardiovascular papers and guidelines."
+          "text": "CA-GPT combined automated OCT analysis with retrieval, using temperature 0.7 and repetition penalty 1.1 in the reported configuration."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
-          "record_fields": [
-            "model_version",
-            "system",
-            "ai_role"
+          "kind": "curatorial",
+          "basis": "Original preprint, system architecture and settings.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0378-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "CA-GPT combined automated OCT analysis with retrieval, using temperature 0.7 and repetition penalty 1.1 in the reported configuration."
+        }
       },
       "systems[].inputs_outputs": {
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "The system retrieved cardiovascular literature and proposed decisions before and after coronary intervention."
+          "text": "CA-GPT received raw OCT images, while ChatGPT-5 received manually extracted measurements and prompts for short procedural recommendations."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
-          "record_fields": [
-            "system",
-            "ai_role",
-            "replication",
-            "account"
+          "kind": "curatorial",
+          "basis": "Original preprint, Data Processing and Input.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0378-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "CA-GPT received raw OCT images, while ChatGPT-5 received manually extracted measurements and prompts for short procedural recommendations."
+        }
       },
       "systems[].model_name": {
-        "state": "value_present",
-        "value": {
-          "kind": "text",
-          "text": "A DeepSeek model within CA-GPT, according to Machine Heart."
-        },
+        "state": "unresolved",
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
-          "record_fields": [
-            "model_version",
-            "system",
-            "ai_role"
+          "kind": "curatorial",
+          "basis": "The official model table identifies only the Qwen2.5-based distilled checkpoint at 14B parameters. Its developer-owned repository dates to January 2025, so the paper’s November 2023 release and October 2023 cutoff claims remain inconsistent. Preserve the authors’ wording as an attributed claim and display this identification as an editorial inference; the source audit contains the exact official URLs. Methods, AI-OCT system description",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0378-source-0001",
+            "AIBD-0378-source-0005",
+            "AIBD-0378-source-0006"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "reason": "The official model table identifies only the Qwen2.5-based distilled checkpoint at 14B parameters. Its developer-owned repository dates to January 2025, so the paper’s November 2023 release and October 2023 cutoff claims remain inconsistent.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The authors call CA-GPT’s language layer a 14B DeepSeek-R1 model. DeepSeek-R1-Distill-Qwen-14B is the most likely checkpoint, but its identity is unconfirmed.",
+          "editor_note": "The official model table identifies only the Qwen2.5-based distilled checkpoint at 14B parameters. Its developer-owned repository dates to January 2025, so the paper’s November 2023 release and October 2023 cutoff claims remain inconsistent."
+        }
       },
       "systems[].model_version": {
         "state": "value_present",
@@ -2284,7 +2510,7 @@
           "kind": "record_fields",
           "fields": {
             "title": "CA-GPT, a DeepSeek-based model on an AI-OCT system led by Tangdu Hospital, agrees with expert PCI plans more than ChatGPT-5 and junior physicians in a 96-patient single-center preprint",
-            "headline": "An OCT-reading model beats ChatGPT-5 at planning coronary stents"
+            "headline": "CA-GPT matches expert stent plans more often with different inputs"
           }
         },
         "provenance": {
@@ -2304,9 +2530,9 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "eb4f80679832654a94378b00689aa1cf452b74a967a8e006042e615ccc971644"
+            "aeff6cd0df32cc431273a3f2d1169118d9a7ecaf1a6487b5a3aea378db292525"
           ],
-          "role": "SHA-256 of normalized original case data"
+          "role": "SHA-256 of normalized case data"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2322,7 +2548,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "An arXiv preprint of 11 December 2025 (Fang et al., last author Yan Li) reports the single-center COMPARE study. It compared CA-GPT, “a novel large model deployed on an AI-OCT system”, with ChatGPT-5 and junior physicians. This was in optical coherence tomography (OCT)-guided percutaneous coronary intervention (PCI). Decisions for 96 patients were scored against an expert-derived record. In pre-PCI planning CA-GPT's median agreement was 5 against 3 for ChatGPT-5 and 4 for junior physicians. It “showed superior performance to junior physicians in stent diameter (90.3% vs. 72.2%, P<0.05) and length selection (80.6% vs. 52.8%, P<0.01)”. Machine Heart (Sina, 16 December 2025) says Li Yan's team at Tangdu Hospital and Zhu Rui's at Shenzhen Tsinghua University Research Institute built it. They used open-source DeepSeek with retrieval over a million cardiovascular papers, on a Vivolight OCT platform. The Monitor pairs this study with a Xinhua report (13 December 2025) on the “Titian” ablation robot at Shaoxing People's Hospital. It describes teleoperation and no AI function.",
+            "account": "An arXiv preprint of 11 December 2025 (Fang et al., last author Yan Li) reports the single-center COMPARE study. It compared CA-GPT, “a novel large model deployed on an AI-OCT system”, with ChatGPT-5 and junior physicians. This was in optical coherence tomography (OCT)-guided percutaneous coronary intervention (PCI). Decisions for 96 patients were scored against an expert-derived record. In pre-PCI planning CA-GPT's median agreement was 5 against 3 for ChatGPT-5 and 4 for junior physicians. It “showed superior performance to junior physicians in stent diameter (90.3% vs. 72.2%, P<0.05) and length selection (80.6% vs. 52.8%, P<0.01)”. Machine Heart (Sina, 16 December 2025) says Li Yan's team at Tangdu Hospital and Zhu Rui's at Shenzhen Tsinghua University Research Institute built it. They used open-source DeepSeek with retrieval over a million cardiovascular papers, on a Vivolight OCT platform. The Monitor pairs this study with a Xinhua report (13 December 2025) on the “Titian” ablation robot at Shaoxing People's Hospital. It describes teleoperation and no AI function. The original Methods describe retrieval from more than 100,000 annotated PCI cases and clinical guidance. That description differs from the press account’s claim of a million cardiovascular papers. CA-GPT received raw OCT images through its integrated pipeline, whereas ChatGPT-5 received manually extracted measurements. The comparison therefore combines differences in models, retrieval, and input processing.",
             "replication": {
               "produced_by": [
                 "A domain model built on DeepSeek with retrieval over cardiovascular literature and guidelines",
@@ -2355,18 +2581,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 41,
-      "reviewed": 3,
+      "known": 43,
+      "reviewed": 11,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 39,
-      "review_not_assessed": 49,
+      "reviewed_partial": 11,
+      "record_mapped": 34,
+      "review_not_assessed": 46,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 41,
+        "value_present": 43,
         "not_reported": 0,
-        "unresolved": 50,
+        "unresolved": 48,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

@@ -1621,16 +1621,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Double-blind retrodiction of 1,637 Chicago inspections (Sept-Oct 2014): the model would have found 69% of critical-violation sites in the first half of the work versus 55%, 7.5 days earlier.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: inspector assigned was a predictor. The measured label was a critical violation recorded during inspection.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0190-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Inspector identity was an explicit predictor. That feature can capture differences in enforcement as well as differences in restaurant safety; the retained evidence does not separate those mechanisms.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Using inspector identity probably improved predictions partly by learning differences in inspectors' detection or citation practices, which could make inspection priorities depend on who was assigned.",
+          "editor_note": "Inspector identity was an explicit predictor. That feature can capture differences in enforcement as well as differences in restaurant safety; the retained evidence does not separate those mechanisms."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1867,25 +1871,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://chicago.github.io/food-inspections-evaluation/",
+                "source_refs": [
+                  "AIBD-0190-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Lists inspector identity among predictors and explicitly says that normal-order inspections preceded the model simulation.",
+                "locator": "Forecasting Critical Violations; Evaluating the effectiveness of the model",
+                "access_status": "content inspected"
+              },
+              {
+                "url": "https://arxiv.org/abs/1910.04906",
+                "source_refs": [
+                  "AIBD-0190-source-0003"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Independent analysis reports operational deployment in 2015, after the 2014 retrodiction.",
+                "locator": "Abstract",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "Only the later independent paper’s abstract was inspected."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0190-source-0001",
-            "AIBD-0190-source-0002",
             "AIBD-0190-source-0003"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Only the later independent paper’s abstract was inspected."
         }
       },
       "sources[].citation_locator": {
@@ -2021,23 +2052,89 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://chicago.github.io/food-inspections-evaluation/",
+                "source_refs": [
+                  "AIBD-0190-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Lists inspector identity among predictors and explicitly says that normal-order inspections preceded the model simulation.",
+                "locator": "Forecasting Critical Violations; Evaluating the effectiveness of the model",
+                "access_status": "content inspected"
+              },
+              {
+                "url": "https://arxiv.org/abs/1910.04906",
+                "source_refs": [
+                  "AIBD-0190-source-0003"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Independent analysis reports operational deployment in 2015, after the 2014 retrodiction.",
+                "locator": "Abstract",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://chicago.github.io/food-inspections-evaluation/",
+                  "source_refs": [
+                    "AIBD-0190-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Lists inspector identity among predictors and explicitly says that normal-order inspections preceded the model simulation.",
+                  "locator": "Forecasting Critical Violations; Evaluating the effectiveness of the model",
+                  "access_status": "content inspected"
+                },
+                {
+                  "url": "https://arxiv.org/abs/1910.04906",
+                  "source_refs": [
+                    "AIBD-0190-source-0003"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Independent analysis reports operational deployment in 2015, after the 2014 retrodiction.",
+                  "locator": "Abstract",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "Only the later independent paper’s abstract was inspected.",
+              "origin_chain": "Retained citation to the original report or research article."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0190-source-0001",
+            "retained_source_order": [
+              "AIBD-0190-source-0001",
+              "AIBD-0190-source-0002",
+              "AIBD-0190-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs systems[].autonomy_permissions outcomes[].tradeoffs",
           "record_fields": [],
           "source_refs": [
             "AIBD-0190-source-0001",
-            "AIBD-0190-source-0002",
             "AIBD-0190-source-0003"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "Chicago’s pilot material is the origin of the retrodiction. The Harvard write-up summarizes it, while the later hindsight paper provides separate analysis of the deployed model. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "Chicago’s pilot material is the origin of the retrodiction. The Harvard write-up summarizes it, while the later hindsight paper provides separate analysis of the deployed model. The source chain has not been independently checked in this pass."
+          "answer": "Lists inspector identity among predictors and explicitly says that normal-order inspections preceded the model simulation."
         }
       },
       "strategic_assessments[]": {
@@ -2083,19 +2180,25 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "In this pilot, the model only reordered completed inspections in a simulation. It did not direct inspectors or change the actual order of their visits."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Double-blind retrodiction of 1,637 Chicago inspections (Sept-Oct 2014): the model would have found 69% of critical-violation sites in the first half of the work versus 55%, 7.5 days earlier.",
-          "record_fields": [
-            "summary"
+          "basis": "The account and ai_role describe double-blind retrodiction of September–October 2014 inspections.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0190-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Food Inspection Forecasting (predictive analytics model, open-sourced in R) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "In this pilot, the model only reordered completed inspections in a simulation. It did not direct inspectors or change the actual order of their visits."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2128,19 +2231,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The model combined previous violations, weather, nearby complaints and crime, establishment characteristics, inspection timing, and inspector identity to assign each establishment a probability of a critical violation."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Double-blind retrodiction of 1,637 Chicago inspections (Sept-Oct 2014): the model would have found 69% of critical-violation sites in the first half of the work versus 55%, 7.5 days earlier.",
-          "record_fields": [
-            "summary"
+          "basis": "The account enumerates the predictors and identifies the probability that the model assigned.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0190-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Food Inspection Forecasting (predictive analytics model, open-sourced in R) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The model combined previous violations, weather, nearby complaints and crime, establishment characteristics, inspection timing, and inspector identity to assign each establishment a probability of a critical violation."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2304,18 +2413,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 36,
-      "reviewed": 3,
+      "known": 40,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 34,
-      "review_not_assessed": 54,
+      "review_not_assessed": 50,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 36,
+        "value_present": 40,
         "not_reported": 0,
-        "unresolved": 55,
+        "unresolved": 51,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

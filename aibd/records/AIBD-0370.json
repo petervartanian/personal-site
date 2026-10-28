@@ -71,6 +71,15 @@
       "date": "2024-04-19",
       "written_by": "independent",
       "quote": "The AI system enabled early identification and removal of a cancerous polyp in a patient"
+    },
+    {
+      "kind": "case report",
+      "citation": "St. Martin De Porres Hospital. 聖馬爾定醫院採用AI內視鏡檢查 大腸癌無所遁形",
+      "title": "聖馬爾定醫院採用AI內視鏡檢查 大腸癌無所遁形",
+      "url": "https://www.stm.org.tw/health/list_detail.aspx?TypeID=87&ids=958",
+      "date": null,
+      "written_by": "deployer",
+      "quote": null
     }
   ],
   "replication": {
@@ -126,11 +135,11 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: three independent news reports and a registry entry. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "claim_basis": "Sources: three independent news reports, a registry entry and the deployer's case report. The cited evidence includes no independent study or report and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0370",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "1a0fef631f231c56343af632083312536ea9e6985f0adfe88a15674d689c2ab2",
+    "source_fingerprint": "da863b82854069b21b04163dc5a110d4ba324885f8f6ba3d8d0b49f861a93f8f",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -149,7 +158,8 @@
       "AIBD-0370-source-0001",
       "AIBD-0370-source-0002",
       "AIBD-0370-source-0003",
-      "AIBD-0370-source-0004"
+      "AIBD-0370-source-0004",
+      "AIBD-0370-source-0005"
     ],
     "families": {
       "strategic assessments": {
@@ -412,7 +422,7 @@
             "confidence": "medium",
             "evidence_word": "reported",
             "claim_status": "Independently reported",
-            "basis": "Sources: three independent news reports and a registry entry. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "basis": "Sources: three independent news reports, a registry entry and the deployer's case report. The cited evidence includes no independent study or report and no finding by a regulator or court.",
             "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
           }
         },
@@ -1621,16 +1631,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: After a positive fecal occult blood test, Fujifilm AI endoscopy at St. Martin De Porres Hospital, Chiayi, marked a 1 to 1.5 cm adenoma; pathology: stage I colorectal cancer, removed endoscopically.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and AI-role assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0370-source-0001",
+            "AIBD-0370-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The account attributes marking to the system but does not establish that the clinician would otherwise have missed the 1–1.5 cm lesion.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The most defensible added benefit is a second visual cue during colonoscopy, since the patient was already referred after a positive stool test and the lesion may have been visible without AI.",
+          "editor_note": "The account attributes marking to the system but does not establish that the clinician would otherwise have missed the 1–1.5 cm lesion."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1859,26 +1874,59 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://health.ltn.com.tw/article/breakingnews/4646402",
+                "source_refs": [
+                  "AIBD-0370-source-0001"
+                ],
+                "title": "intermediary hospital reporting",
+                "relationship": "intermediary hospital reporting",
+                "contribution": "The reporter relays the hospital’s positive stool test, AI marking and pathology account.",
+                "locator": "Clinical anecdote and equipment paragraphs",
+                "access_status": "Full article read"
+              },
+              {
+                "url": "https://www.stm.org.tw/health/list_detail.aspx?TypeID=87&ids=958",
+                "source_refs": [
+                  "AIBD-0370-source-0005",
+                  "AIBD-0370-source-0001",
+                  "AIBD-0370-source-0002",
+                  "AIBD-0370-source-0003",
+                  "AIBD-0370-source-0004"
+                ],
+                "title": "original hospital patient account",
+                "relationship": "original hospital patient account",
+                "contribution": "The hospital reports a 1–1.5 cmlesion, colored marking and sound, stageIpathology and endoscopic removal; it calls the equipment Fujifilm 7000 plus AI.",
+                "locator": "即時偵測揪出可疑瘜肉",
+                "access_status": "Full hospital account read through Exa after web timeout"
+              }
+            ],
+            "latest_limitations": "The hospital still does not name the AI product or exact model."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0370-source-0001",
+            "AIBD-0370-source-0005",
             "AIBD-0370-source-0002",
             "AIBD-0370-source-0003",
             "AIBD-0370-source-0004"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The hospital still does not name the AI product or exact model."
         }
       },
       "sources[].citation_locator": {
@@ -1922,6 +1970,13 @@
                 "date": "2024-04-19",
                 "written_by": "independent",
                 "quote": "The AI system enabled early identification and removal of a cancerous polyp in a patient"
+              },
+              {
+                "kind": "case report",
+                "citation": "St. Martin De Porres Hospital. 聖馬爾定醫院採用AI內視鏡檢查 大腸癌無所遁形",
+                "title": "聖馬爾定醫院採用AI內視鏡檢查 大腸癌無所遁形",
+                "url": "https://www.stm.org.tw/health/list_detail.aspx?TypeID=87&ids=958",
+                "written_by": "deployer"
               }
             ]
           }
@@ -1945,9 +2000,10 @@
             "AIBD-0370-source-0001",
             "AIBD-0370-source-0002",
             "AIBD-0370-source-0003",
-            "AIBD-0370-source-0004"
+            "AIBD-0370-source-0004",
+            "AIBD-0370-source-0005"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained evidence in reviewed order"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2022,6 +2078,13 @@
                 "date": "2024-04-19",
                 "written_by": "independent",
                 "quote": "The AI system enabled early identification and removal of a cancerous polyp in a patient"
+              },
+              {
+                "kind": "case report",
+                "citation": "St. Martin De Porres Hospital. 聖馬爾定醫院採用AI內視鏡檢查 大腸癌無所遁形",
+                "title": "聖馬爾定醫院採用AI內視鏡檢查 大腸癌無所遁形",
+                "url": "https://www.stm.org.tw/health/list_detail.aspx?TypeID=87&ids=958",
+                "written_by": "deployer"
               }
             ]
           }
@@ -2052,14 +2115,37 @@
                   "AIBD-0370-source-0001"
                 ],
                 "locator": "Liberty Times health report April 19, 2024: positive stool test, colored-frame alert, biopsy, and removal",
-                "contribution": "The report quotes the treating gastroenterologist and uses hospital-provided material. The pathology record and other outlets’ repetitions were not independently checked."
+                "contribution": "The report quotes the treating gastroenterologist and uses hospital-provided material. The pathology record and other outlets’ repetitions were not independently checked.",
+                "latest_inspection": {
+                  "title": "intermediary hospital reporting",
+                  "relationship": "intermediary hospital reporting",
+                  "contribution": "The reporter relays the hospital’s positive stool test, AI marking and pathology account.",
+                  "locator": "Clinical anecdote and equipment paragraphs",
+                  "access_status": "Full article read"
+                }
+              },
+              {
+                "url": "https://www.stm.org.tw/health/list_detail.aspx?TypeID=87&ids=958",
+                "source_refs": [
+                  "AIBD-0370-source-0005",
+                  "AIBD-0370-source-0001",
+                  "AIBD-0370-source-0002",
+                  "AIBD-0370-source-0003",
+                  "AIBD-0370-source-0004"
+                ],
+                "title": "original hospital patient account",
+                "relationship": "original hospital patient account",
+                "contribution": "The hospital reports a 1–1.5 cmlesion, colored marking and sound, stageIpathology and endoscopic removal; it calls the equipment Fujifilm 7000 plus AI.",
+                "locator": "即時偵測揪出可疑瘜肉",
+                "access_status": "Full hospital account read through Exa after web timeout"
               }
             ],
             "retained_source_order": [
               "AIBD-0370-source-0001",
               "AIBD-0370-source-0002",
               "AIBD-0370-source-0003",
-              "AIBD-0370-source-0004"
+              "AIBD-0370-source-0004",
+              "AIBD-0370-source-0005"
             ],
             "unreviewed_source_refs": [
               "AIBD-0370-source-0002",
@@ -2068,15 +2154,53 @@
             ],
             "limitations": "A positive stool test had already prompted examination, and pathology established cancer. The case does not show that the endoscopist would otherwise have missed the lesion or that more invasive treatment was certainly avoided. Long-term recurrence, survival, and net detection performance are not established by this single report. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0370-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://health.ltn.com.tw/article/breakingnews/4646402",
+                  "source_refs": [
+                    "AIBD-0370-source-0001"
+                  ],
+                  "title": "intermediary hospital reporting",
+                  "relationship": "intermediary hospital reporting",
+                  "contribution": "The reporter relays the hospital’s positive stool test, AI marking and pathology account.",
+                  "locator": "Clinical anecdote and equipment paragraphs",
+                  "access_status": "Full article read"
+                },
+                {
+                  "url": "https://www.stm.org.tw/health/list_detail.aspx?TypeID=87&ids=958",
+                  "source_refs": [
+                    "AIBD-0370-source-0005",
+                    "AIBD-0370-source-0001",
+                    "AIBD-0370-source-0002",
+                    "AIBD-0370-source-0003",
+                    "AIBD-0370-source-0004"
+                  ],
+                  "title": "original hospital patient account",
+                  "relationship": "original hospital patient account",
+                  "contribution": "The hospital reports a 1–1.5 cmlesion, colored marking and sound, stageIpathology and endoscopic removal; it calls the equipment Fujifilm 7000 plus AI.",
+                  "locator": "即時偵測揪出可疑瘜肉",
+                  "access_status": "Full hospital account read through Exa after web timeout"
+                }
+              ],
+              "limitations": "The hospital still does not name the AI product or exact model.",
+              "origin_chain": "The Taiwanese news reports trace to this hospital account. It establishes the reported episode but is not an independent detection comparison."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at Liberty Times health report April 19, 2024: positive stool test, colored-frame alert, biopsy, and removal. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0370-source-0001"
+            "AIBD-0370-source-0001",
+            "AIBD-0370-source-0005",
+            "AIBD-0370-source-0002",
+            "AIBD-0370-source-0003",
+            "AIBD-0370-source-0004"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2130,19 +2254,27 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The endoscopist inspected and removed the lesion, while pathology established the cancer diagnosis."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: After a positive fecal occult blood test, Fujifilm AI endoscopy at St. Martin De Porres Hospital, Chiayi, marked a 1 to 1.5 cm adenoma; pathology: stage I colorectal cancer, removed endoscopically.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: marked lesion, removal and pathology.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0370-source-0001",
+            "AIBD-0370-source-0002",
+            "AIBD-0370-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Fujifilm AI endoscopy system on a Fujifilm 7000-series gastrointestinal endoscope (product name not given in the sources) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The endoscopist inspected and removed the lesion, while pathology established the cancer diagnosis."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2175,34 +2307,46 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Colonoscopy video produced a colored frame and audible warning around a suspicious polyp."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: After a positive fecal occult blood test, Fujifilm AI endoscopy at St. Martin De Porres Hospital, Chiayi, marked a 1 to 1.5 cm adenoma; pathology: stage I colorectal cancer, removed endoscopically.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: alert during examination.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0370-source-0001",
+            "AIBD-0370-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Fujifilm AI endoscopy system on a Fujifilm 7000-series gastrointestinal endoscope (product name not given in the sources) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Colonoscopy video produced a colored frame and audible warning around a suspicious polyp."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: After a positive fecal occult blood test, Fujifilm AI endoscopy at St. Martin De Porres Hospital, Chiayi, marked a 1 to 1.5 cm adenoma; pathology: stage I colorectal cancer, removed endoscopically.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: hardware series and colored-frame alert.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0370-source-0001",
+            "AIBD-0370-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record identifies Fujifilm AI endoscopy system on a Fujifilm 7000-series gastrointestinal endoscope (product name not given in the sources), but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The visible function was real-time localization and alerting, which supports a detection component rather than autonomous cancer staging.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely product was a Fujifilm computer-aided polyp-detection feature used with the 7000-series endoscope; an exact product name or release is not established.",
+          "editor_note": "The visible function was real-time localization and alerting, which supports a detection component rather than autonomous cancer staging."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -2302,9 +2446,9 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "1a0fef631f231c56343af632083312536ea9e6985f0adfe88a15674d689c2ab2"
+            "da863b82854069b21b04163dc5a110d4ba324885f8f6ba3d8d0b49f861a93f8f"
           ],
-          "role": "SHA-256 of normalized original case data"
+          "role": "SHA-256 of normalized case data"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2352,18 +2496,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 38,
-      "reviewed": 3,
+      "known": 41,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 35,
-      "review_not_assessed": 53,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 38,
+        "value_present": 41,
         "not_reported": 0,
-        "unresolved": 53,
+        "unresolved": 50,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

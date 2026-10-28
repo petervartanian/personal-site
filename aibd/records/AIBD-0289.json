@@ -1544,19 +1544,25 @@
         "coverage": "partial"
       },
       "outcomes[].duration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The heart rate returned to 60–70 beats per minute by the day after ciprofloxacin was replaced."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: A smartwatch alert for a heart rate under 40 bpm two days after discharge on ciprofloxacin led to an ED visit; telemetry showed 30–50 bpm, the antibiotic was switched and the rate normalized.",
-          "record_fields": [
-            "summary"
+          "basis": "A sustained pulse below 40 prompted assessment. Clinicians replaced ciprofloxacin and observed heart-rate recovery the next day. The medication attribution rests on exclusion of alternatives and improvement after withdrawal. The report does not identify a machine-learning component. Original case report: Case and Discussion.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0289-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Dated observation of the same outcome and population is needed to establish persistence or recurrence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The duration of the claimed benefit is not separately established. Dated follow-up on the same outcome is needed to distinguish a one-time result from recurring or sustained benefit; later work on another system or population does not establish persistence here. The recorded follow-up says: Nothing after discharge on cefpodoxime and metronidazole was found.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The heart rate returned to 60–70 beats per minute by the day after ciprofloxacin was replaced."
+        }
       },
       "outcomes[].id": {
         "state": "unresolved",
@@ -1853,25 +1859,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0289-source-0001",
-            "AIBD-0289-source-0002",
-            "AIBD-0289-source-0003"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8793425/",
+                "source_refs": [
+                  "AIBD-0289-source-0001"
+                ],
+                "title": "Inspected retained source",
+                "relationship": "Inspected retained source",
+                "contribution": "A sustained pulse below 40 prompted assessment. Clinicians replaced ciprofloxacin and observed heart-rate recovery the next day.",
+                "locator": "Original case report: Case and Discussion.",
+                "access_status": "Relevant original passages read, as specified by the locator."
+              }
+            ],
+            "latest_limitations": "The medication attribution rests on exclusion of alternatives and improvement after withdrawal. The report does not identify a machine-learning component."
+          }
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0289-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The medication attribution rests on exclusion of alternatives and improvement after withdrawal. The report does not identify a machine-learning component."
         }
       },
       "sources[].citation_locator": {
@@ -2025,7 +2046,14 @@
                   "AIBD-0289-source-0001"
                 ],
                 "locator": "Original case report, “Case”: less-than-40 bpm alert, telemetry, antibiotic substitution, and next-day recovery",
-                "contribution": "The treating team’s case report supplies the patient chronology. Device identity, alert implementation, and a counterfactual outcome remain unresolved."
+                "contribution": "The treating team’s case report supplies the patient chronology. Device identity, alert implementation, and a counterfactual outcome remain unresolved.",
+                "latest_inspection": {
+                  "title": "Inspected retained source",
+                  "relationship": "Inspected retained source",
+                  "contribution": "A sustained pulse below 40 prompted assessment. Clinicians replaced ciprofloxacin and observed heart-rate recovery the next day.",
+                  "locator": "Original case report: Case and Discussion.",
+                  "access_status": "Relevant original passages read, as specified by the locator."
+                }
               }
             ],
             "retained_source_order": [
@@ -2039,12 +2067,31 @@
             ],
             "limitations": "The alert was a sustained-rate threshold, and the report does not establish that a learned AI model produced it. Clinical exclusion of alternatives and improvement after withdrawal support the suspected medication cause, not a controlled causal test. A severe adverse event prevented remains hypothetical. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0289-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8793425/",
+                  "source_refs": [
+                    "AIBD-0289-source-0001"
+                  ],
+                  "title": "Inspected retained source",
+                  "relationship": "Inspected retained source",
+                  "contribution": "A sustained pulse below 40 prompted assessment. Clinicians replaced ciprofloxacin and observed heart-rate recovery the next day.",
+                  "locator": "Original case report: Case and Discussion.",
+                  "access_status": "Relevant original passages read, as specified by the locator."
+                }
+              ],
+              "limitations": "The medication attribution rests on exclusion of alternatives and improvement after withdrawal. The report does not identify a machine-learning component.",
+              "origin_chain": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8793425/"
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at Original case report, “Case”: less-than-40 bpm alert, telemetry, antibiotic substitution, and next-day recovery. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Each retained proposal was compared with the inspected passages. Fields outside this scope retain their prior review status.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0289-source-0001"
@@ -2100,19 +2147,25 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The watch flagged a low pulse; clinicians identified the likely drug reaction through testing and withdrawal of ciprofloxacin."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: A smartwatch alert for a heart rate under 40 bpm two days after discharge on ciprofloxacin led to an ED visit; telemetry showed 30–50 bpm, the antibiotic was switched and the rate normalized.",
-          "record_fields": [
-            "summary"
+          "basis": "A sustained pulse below 40 prompted assessment. Clinicians replaced ciprofloxacin and observed heart-rate recovery the next day. The medication attribution rests on exclusion of alternatives and improvement after withdrawal. The report does not identify a machine-learning component. Original case report: Case and Discussion.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0289-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Smartwatch low-heart-rate alert (brand and model not stated) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The watch flagged a low pulse; clinicians identified the likely drug reaction through testing and withdrawal of ciprofloxacin."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2145,19 +2198,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A sustained heart-rate reading below 40 beats per minute produced the smartwatch warning."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: A smartwatch alert for a heart rate under 40 bpm two days after discharge on ciprofloxacin led to an ED visit; telemetry showed 30–50 bpm, the antibiotic was switched and the rate normalized.",
-          "record_fields": [
-            "summary"
+          "basis": "A sustained pulse below 40 prompted assessment. Clinicians replaced ciprofloxacin and observed heart-rate recovery the next day. The medication attribution rests on exclusion of alternatives and improvement after withdrawal. The report does not identify a machine-learning component. Original case report: Case and Discussion.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0289-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Smartwatch low-heart-rate alert (brand and model not stated) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A sustained heart-rate reading below 40 beats per minute produced the smartwatch warning."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2288,51 +2347,40 @@
       "workflow": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "Cordova Sanchez, Chohan, Olatunde and White of SUNY Upstate Medical University, Syracuse, reported a case in the Journal of Investigative Medicine High Impact Case Reports. It was published 24 January 2022; the event date is not given. A 32-year-old woman was seen two days after discharge from a hospital stay for cholangitis, during which she had an ERCP. She was sent home on ciprofloxacin and metronidazole. She developed dizziness on minimal exertion, and her smartwatch triggered an alert for a sustained heart rate below 40 beats per minute. She attended an outside emergency department, where telemetry confirmed 30–50 bpm. She was transferred to the authors' hospital for cardiology review. Her electrocardiogram (ECG) showed sinus bradycardia at 51 bpm, against 66 bpm before the antibiotics. The procedural drugs given two days earlier have short half-lives. Other work-up (blood tests, thyroid function, Lyme serology, drug screen, echocardiogram) was unremarkable. Ciprofloxacin was replaced with ceftriaxone; by the next day her heart rate was 60–70 bpm. She was discharged on cefpodoxime and metronidazole. The authors conclude ciprofloxacin was the likely cause and early recognition of the bradycardia prevented a potential adverse event. The watch's brand and model are not stated; the authors describe wearable heart-rate detection generically as photoplethysmography.",
-            "replication": {
-              "produced_by": [
-                "A wearer on a newly prescribed drug whose smartwatch has a low-heart-rate alert enabled",
-                "Symptoms vague enough that the alert, not the symptoms alone, prompted presentation",
-                "Clinicians who excluded other causes and withdrew the suspected drug"
-              ],
-              "must_hold": [
-                "The bradycardia is sustained long enough to trip the watch's threshold",
-                "The wearer treats the alert as a reason to seek care"
-              ],
-              "echoes": []
-            }
-          }
+          "kind": "text",
+          "text": "The warning and dizziness prompted emergency assessment; clinicians confirmed bradycardia and replaced ciprofloxacin, after which the heart rate rose."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "replication"
+          "kind": "curatorial",
+          "basis": "A sustained pulse below 40 prompted assessment. Clinicians replaced ciprofloxacin and observed heart-rate recovery the next day. The medication attribution rests on exclusion of alternatives and improvement after withdrawal. The report does not identify a machine-learning component. Original case report: Case and Discussion.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0289-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The warning and dizziness prompted emergency assessment; clinicians confirmed bradycardia and replaced ciprofloxacin, after which the heart rate rose."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 39,
-      "reviewed": 3,
+      "known": 43,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 36,
-      "review_not_assessed": 52,
+      "reviewed_partial": 8,
+      "record_mapped": 35,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 39,
+        "value_present": 43,
         "not_reported": 0,
-        "unresolved": 52,
+        "unresolved": 48,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

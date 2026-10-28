@@ -1208,16 +1208,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: SK Telecom reports recording time falling from three hours to five minutes and 76.5% fewer self-harm incidents. Its supplied reference does not identify the claimed intervention study.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed missingness: intervention study claim, AI monitoring combined with professional care.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0523-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of CareVia in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The reported self-harm reduction follows a broader intervention, and the account explicitly states that monitoring is only one part of care. No autonomous clinical treatment is identified.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Care professionals probably use the recorded patterns to plan or adjust behavioral support, with AI serving as an observation aid.",
+          "editor_note": "The reported self-harm reduction follows a broader intervention, and the account explicitly states that monitoring is only one part of care. No autonomous clinical treatment is identified."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1423,16 +1427,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: SK Telecom reports recording time falling from three hours to five minutes and 76.5% fewer self-harm incidents. Its supplied reference does not identify the claimed intervention study.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: recording time reportedly falls from three hours to five minutes; behavior monitoring in care centers.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0523-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The claimed time saving comes from automated recording. The privacy implications depend on what is captured, who can review it, and retention practices that the retained account does not describe.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Continuous behavioral recording may reduce documentation work while increasing the amount of sensitive information retained about care recipients.",
+          "editor_note": "The claimed time saving comes from automated recording. The privacy implications depend on what is captured, who can review it, and retention practices that the retained account does not describe."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1619,23 +1627,63 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-854",
+                "source_refs": [
+                  "AIBD-0523-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read edge behavior recognition, image/keypoint/video fusion, professional labels, and care-center reporting. The CVPR repository’s indexed abstract for VL2Lite was read; direct HTML and PDF opens returned 403.",
+                "locator": "_idParaDest-854; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Jang_VL2Lite_Task-Specific_Knowledge_Distillation_from_Large_Vision-Language_Models_to_Lightweight_CVPR_2025_paper.html",
+                "source_refs": [
+                  "AIBD-0523-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "Describes image-classification distillation, not a CareVia clinical evaluation.",
+                "locator": "VL2Lite abstract",
+                "access_status": "Indexed original abstract read; direct open 403"
+              },
+              {
+                "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Jang_VL2Lite_Task-Specific_Knowledge_Distillation_from_Large_Vision-Language_Models_to_Lightweight_CVPR_2025_paper.pdf",
+                "source_refs": [
+                  "AIBD-0523-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "No full paper read.",
+                "locator": "Original paper access attempt",
+                "access_status": "403"
+              }
+            ],
+            "latest_limitations": "VL2Lite evaluates image classification and does not establish clinical improvement from CareVia. The nonstandard care-center portal was not used to access patient information."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0523-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "VL2Lite evaluates image classification and does not establish clinical improvement from CareVia. The nonstandard care-center portal was not used to access patient information."
         }
       },
       "sources[].citation_locator": {
@@ -1747,7 +1795,37 @@
                 "locator": "ITU AI for Good: Innovate for Impact, anchor _idParaDest-854, summary table and sections 2.1–2.3",
                 "contribution": "The original ITU publication contains the contributor’s description, with information stated as current to June 2025. Its publication by ITU does not independently validate the outcomes. The cited underlying studies and project records were not separately reopened.",
                 "retrieval_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en",
-                "content_locator": "_idParaDest-854"
+                "content_locator": "_idParaDest-854",
+                "latest_inspection": {
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Read edge behavior recognition, image/keypoint/video fusion, professional labels, and care-center reporting. The CVPR repository’s indexed abstract for VL2Lite was read; direct HTML and PDF opens returned 403.",
+                  "locator": "_idParaDest-854; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
+              },
+              {
+                "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Jang_VL2Lite_Task-Specific_Knowledge_Distillation_from_Large_Vision-Language_Models_to_Lightweight_CVPR_2025_paper.html",
+                "source_refs": [
+                  "AIBD-0523-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "Describes image-classification distillation, not a CareVia clinical evaluation.",
+                "locator": "VL2Lite abstract",
+                "access_status": "Indexed original abstract read; direct open 403"
+              },
+              {
+                "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Jang_VL2Lite_Task-Specific_Knowledge_Distillation_from_Large_Vision-Language_Models_to_Lightweight_CVPR_2025_paper.pdf",
+                "source_refs": [
+                  "AIBD-0523-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "No full paper read.",
+                "locator": "Original paper access attempt",
+                "access_status": "403"
               }
             ],
             "retained_source_order": [
@@ -1756,12 +1834,54 @@
             "unreviewed_source_refs": [],
             "limitations": "The contributor combines observed-outcome and expected-impact language without participant counts, follow-up, or a comparison design. AI monitoring is only one part of professional behavioral care. The retained record notes that the supplied citation does not identify the clinical study, so the reduction cannot yet be treated as independently verified or caused by AI alone. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0523-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-854",
+                  "source_refs": [
+                    "AIBD-0523-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Read edge behavior recognition, image/keypoint/video fusion, professional labels, and care-center reporting. The CVPR repository’s indexed abstract for VL2Lite was read; direct HTML and PDF opens returned 403.",
+                  "locator": "_idParaDest-854; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                },
+                {
+                  "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Jang_VL2Lite_Task-Specific_Knowledge_Distillation_from_Large_Vision-Language_Models_to_Lightweight_CVPR_2025_paper.html",
+                  "source_refs": [
+                    "AIBD-0523-source-0001"
+                  ],
+                  "title": "Cited upstream original or public access route",
+                  "relationship": "Cited upstream original or public access route",
+                  "contribution": "Describes image-classification distillation, not a CareVia clinical evaluation.",
+                  "locator": "VL2Lite abstract",
+                  "access_status": "Indexed original abstract read; direct open 403"
+                },
+                {
+                  "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Jang_VL2Lite_Task-Specific_Knowledge_Distillation_from_Large_Vision-Language_Models_to_Lightweight_CVPR_2025_paper.pdf",
+                  "source_refs": [
+                    "AIBD-0523-source-0001"
+                  ],
+                  "title": "Cited upstream original or public access route",
+                  "relationship": "Cited upstream original or public access route",
+                  "contribution": "No full paper read.",
+                  "locator": "Original paper access attempt",
+                  "access_status": "403"
+                }
+              ],
+              "limitations": "VL2Lite evaluates image classification and does not establish clinical improvement from CareVia. The nonstandard care-center portal was not used to access patient information.",
+              "origin_chain": "SK Telecom submission → ITU → https://openaccess.thecvf.com/content/CVPR2025/html/Jang_VL2Lite_Task-Specific_Knowledge_Distillation_from_Large_Vision-Language_Models_to_Lightweight_CVPR_2025_paper.html (indexed abstract; direct access blocked)."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at ITU AI for Good: Innovate for Impact, anchor _idParaDest-854, summary table and sections 2.1–2.3. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. systems[].component_role human_oversight outcomes[].tradeoffs systems[].inputs_outputs",
           "record_fields": [],
           "source_refs": [
             "AIBD-0523-source-0001"
@@ -1830,19 +1950,25 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "CareVia recognizes and records behavior to support professional care for people with developmental disabilities."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: SK Telecom reports recording time falling from three hours to five minutes and 76.5% fewer self-harm incidents. Its supplied reference does not identify the claimed intervention study.",
-          "record_fields": [
-            "summary"
+          "basis": "Title, account, and reviewed missingness: behavior recognition, recording time, professional behavioral intervention.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0523-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation is needed that explains each component’s role."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The role of each component in CareVia remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "CareVia recognizes and records behavior to support professional care for people with developmental disabilities."
+        }
       },
       "systems[].deployment_configuration": {
         "state": "unresolved",
@@ -1860,19 +1986,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "CareVia combines video frames, body keypoints, and time and location information to recognize behavior, identify the person involved, and produce records for intervention planning."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: SK Telecom reports recording time falling from three hours to five minutes and 76.5% fewer self-harm incidents. Its supplied reference does not identify the claimed intervention study.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-854: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0523-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of CareVia have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "CareVia combines video frames, body keypoints, and time and location information to recognize behavior, identify the person involved, and produce records for intervention planning."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2034,18 +2166,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 36,
-      "reviewed": 3,
+      "known": 39,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 33,
-      "review_not_assessed": 55,
+      "review_not_assessed": 50,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 36,
+        "value_present": 39,
         "not_reported": 0,
-        "unresolved": 55,
+        "unresolved": 52,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

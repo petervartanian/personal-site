@@ -1470,19 +1470,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Court staff reviewed proposed groups, and the justices decided whether a question warranted general-repercussion treatment and how to rule."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VitorIA identified at least 247 similar appeals in the controversy behind Tema 1.261; STF Plenary found no general repercussion on 22 August 2023 (final 23 September 2023)",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: staff screening, judicial decisions, and no AI determination of the outcome.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0085-source-0001",
+            "AIBD-0085-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of VitorIA (STF), textual-similarity clustering tool that groups appeals raising similar legal questions; in development in 2022 and operational in 2023 per the STF in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Court staff reviewed proposed groups, and the justices decided whether a question warranted general-repercussion treatment and how to rule."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1507,16 +1514,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VitorIA identified at least 247 similar appeals in the controversy behind Tema 1.261; STF Plenary found no general repercussion on 22 August 2023 (final 23 September 2023)",
-          "record_fields": [
-            "summary"
+          "basis": "replication.produced_by: machine-readable text dependency and unconfirmed link to Victor.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0085-source-0001",
+            "AIBD-0085-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for VitorIA (STF), textual-similarity clustering tool that groups appeals raising similar legal questions; in development in 2022 and operational in 2023 per the STF has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Content comparison requires accessible text. The source describes court OCR infrastructure separately without explicitly connecting that system to VitorIA.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Machine-readable appeal text was probably essential to VitorIA's comparison, but the retained evidence does not establish that it used the earlier Victor project's OCR pipeline.",
+          "editor_note": "Content comparison requires accessible text. The source describes court OCR infrastructure separately without explicitly connecting that system to VitorIA."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1986,25 +1998,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0085-source-0001",
-            "AIBD-0085-source-0002",
-            "AIBD-0085-source-0003"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://noticias.stf.jus.br/postsnoticias/inteligencia-artificial-ajuda-stf-a-identificar-processos-que-discutem-questoes-semelhantes/",
+                "source_refs": [
+                  "AIBD-0085-source-0001"
+                ],
+                "title": "original court operational account",
+                "relationship": "original court operational account",
+                "contribution": "VitorIA identified at least 247 similar appeals. Judges then considered the controversy and decided that it lacked general repercussion; the model did not make the legal ruling.",
+                "locator": "VitorIA clustering and Tema 1261 example",
+                "access_status": "Full substantive body read"
+              }
+            ],
+            "latest_limitations": "A similarity count is not a measured reduction in judicial labor or a legal-accuracy score."
+          }
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0085-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "A similarity count is not a measured reduction in judicial labor or a legal-accuracy score."
         }
       },
       "sources[].citation_locator": {
@@ -2156,7 +2183,14 @@
                   "AIBD-0085-source-0001"
                 ],
                 "locator": "STF release: 247 appeals in Tema 1261 and discussion of the time that grouping may save",
-                "contribution": "The court’s own release describes its use of VitorIA. This partial review checks the operational claim, not underlying case files or independent measures of judicial benefit."
+                "contribution": "The court’s own release describes its use of VitorIA. This partial review checks the operational claim, not underlying case files or independent measures of judicial benefit.",
+                "latest_inspection": {
+                  "title": "original court operational account",
+                  "relationship": "original court operational account",
+                  "contribution": "VitorIA identified at least 247 similar appeals. Judges then considered the controversy and decided that it lacked general repercussion; the model did not make the legal ruling.",
+                  "locator": "VitorIA clustering and Tema 1261 example",
+                  "access_status": "Full substantive body read"
+                }
               }
             ],
             "retained_source_order": [
@@ -2170,12 +2204,31 @@
             ],
             "limitations": "The number of grouped appeals measures an operational output. The court’s account does not quantify time saved or show that AI improved legal correctness, access to justice, or fairness. Judges made the jurisdictional decision, and the published account explicitly says that the associated time gain cannot be calculated. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0085-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://noticias.stf.jus.br/postsnoticias/inteligencia-artificial-ajuda-stf-a-identificar-processos-que-discutem-questoes-semelhantes/",
+                  "source_refs": [
+                    "AIBD-0085-source-0001"
+                  ],
+                  "title": "original court operational account",
+                  "relationship": "original court operational account",
+                  "contribution": "VitorIA identified at least 247 similar appeals. Judges then considered the controversy and decided that it lacked general repercussion; the model did not make the legal ruling.",
+                  "locator": "VitorIA clustering and Tema 1261 example",
+                  "access_status": "Full substantive body read"
+                }
+              ],
+              "limitations": "A similarity count is not a measured reduction in judicial labor or a legal-accuracy score.",
+              "origin_chain": "STF's account of its own clustering system and judicial use."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at STF release: 247 appeals in Tema 1261 and discussion of the time that grouping may save. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. All three proposals survive.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0085-source-0001"
@@ -2276,19 +2329,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "VitorIA compared the content of incoming appeals and grouped those raising similar legal questions for staff review."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VitorIA identified at least 247 similar appeals in the controversy behind Tema 1.261; STF Plenary found no general repercussion on 22 August 2023 (final 23 September 2023)",
-          "record_fields": [
-            "summary"
+          "basis": "Account: content-similarity clusters and at least 247 related appeals.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0085-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of VitorIA (STF), textual-similarity clustering tool that groups appeals raising similar legal questions; in development in 2022 and operational in 2023 per the STF have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "VitorIA compared the content of incoming appeals and grouped those raising similar legal questions for staff review."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2466,18 +2525,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 41,
-      "reviewed": 3,
+      "known": 44,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 38,
-      "review_not_assessed": 50,
+      "review_not_assessed": 46,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 41,
+        "value_present": 44,
         "not_reported": 0,
-        "unresolved": 50,
+        "unresolved": 47,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

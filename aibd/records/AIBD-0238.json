@@ -547,19 +547,25 @@
         "coverage": "partial"
       },
       "availability": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Four of the seven finalist systems were released as open source."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: At DEF CON 33 (8 August 2025) DARPA reported seven teams' systems found 54 synthetic vulnerabilities, patched 43, and found 18 real bugs for disclosure; Team Atlanta won $4 million.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: release count.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0238-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A dated source establishing the terms of access is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Access to AIxCC finalist cyber reasoning systems (Team Atlanta, Trail of Bits, Theori and four others) has not been established for a stated date. A published demonstration does not establish public availability.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Four of the seven finalist systems were released as open source."
+        }
       },
       "brief": {
         "state": "value_present",
@@ -1650,16 +1656,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: At DEF CON 33 (8 August 2025) DARPA reported seven teams' systems found 54 synthetic vulnerabilities, patched 43, and found 18 real bugs for disclosure; Team Atlanta won $4 million.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: challenge results and maintainer review.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0238-source-0001",
+            "AIBD-0238-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Stenberg’s critique concerns the curl tasks that he inspected. DARPA separately reports 18 non-synthetic vulnerabilities; neither observation establishes performance across all production software.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The curl results probably overstate performance on deeply hidden production flaws, but the competition also produced real-bug findings beyond its injected tests.",
+          "editor_note": "Stenberg’s critique concerns the curl tasks that he inspected. DARPA separately reports 18 non-synthetic vulnerabilities; neither observation establishes performance across all production software."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1893,25 +1904,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.darpa.mil/news/2025/aixcc-results",
+                "source_refs": [
+                  "AIBD-0238-source-0001"
+                ],
+                "title": "Original competition organizer’s results",
+                "relationship": "Original competition organizer’s results",
+                "contribution": "The corrected challenge total is 63; systems found 54 and patched 43, plus 18 real flaws and 11 real-flaw patches. Four systems were released at announcement. The $152 figure is per competition task.",
+                "locator": "Deep Dive and editor’s correction",
+                "access_status": "Full results and correction note read"
+              },
+              {
+                "url": "https://daniel.haxx.se/blog/2025/10/22/aixcc-curl-details/",
+                "source_refs": [
+                  "AIBD-0238-source-0003"
+                ],
+                "title": "Original independent review by curl’s maintainer",
+                "relationship": "Original independent review by curl’s maintainer",
+                "contribution": "Stenberg describes simple injected null dereferences, a buffer overflow and related flaws. He explicitly limits his inspection to curl and says that other projects may have been harder.",
+                "locator": "Five curl tasks and “Modern tools find these”",
+                "access_status": "Full substantive post read"
+              }
+            ],
+            "latest_limitations": "The competition does not establish maintainer acceptance of every real-bug patch or general production effectiveness. Stenberg’s difficulty criticism should not be generalized to all projects."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0238-source-0001",
-            "AIBD-0238-source-0002",
             "AIBD-0238-source-0003"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The competition does not establish maintainer acceptance of every real-bug patch or general production effectiveness. Stenberg’s difficulty criticism should not be generalized to all projects."
         }
       },
       "sources[].citation_locator": {
@@ -2051,23 +2089,89 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.darpa.mil/news/2025/aixcc-results",
+                "source_refs": [
+                  "AIBD-0238-source-0001"
+                ],
+                "title": "Original competition organizer’s results",
+                "relationship": "Original competition organizer’s results",
+                "contribution": "The corrected challenge total is 63; systems found 54 and patched 43, plus 18 real flaws and 11 real-flaw patches. Four systems were released at announcement. The $152 figure is per competition task.",
+                "locator": "Deep Dive and editor’s correction",
+                "access_status": "Full results and correction note read"
+              },
+              {
+                "url": "https://daniel.haxx.se/blog/2025/10/22/aixcc-curl-details/",
+                "source_refs": [
+                  "AIBD-0238-source-0003"
+                ],
+                "title": "Original independent review by curl’s maintainer",
+                "relationship": "Original independent review by curl’s maintainer",
+                "contribution": "Stenberg describes simple injected null dereferences, a buffer overflow and related flaws. He explicitly limits his inspection to curl and says that other projects may have been harder.",
+                "locator": "Five curl tasks and “Modern tools find these”",
+                "access_status": "Full substantive post read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.darpa.mil/news/2025/aixcc-results",
+                  "source_refs": [
+                    "AIBD-0238-source-0001"
+                  ],
+                  "title": "Original competition organizer’s results",
+                  "relationship": "Original competition organizer’s results",
+                  "contribution": "The corrected challenge total is 63; systems found 54 and patched 43, plus 18 real flaws and 11 real-flaw patches. Four systems were released at announcement. The $152 figure is per competition task.",
+                  "locator": "Deep Dive and editor’s correction",
+                  "access_status": "Full results and correction note read"
+                },
+                {
+                  "url": "https://daniel.haxx.se/blog/2025/10/22/aixcc-curl-details/",
+                  "source_refs": [
+                    "AIBD-0238-source-0003"
+                  ],
+                  "title": "Original independent review by curl’s maintainer",
+                  "relationship": "Original independent review by curl’s maintainer",
+                  "contribution": "Stenberg describes simple injected null dereferences, a buffer overflow and related flaws. He explicitly limits his inspection to curl and says that other projects may have been harder.",
+                  "locator": "Five curl tasks and “Modern tools find these”",
+                  "access_status": "Full substantive post read"
+                }
+              ],
+              "limitations": "The competition does not establish maintainer acceptance of every real-bug patch or general production effectiveness. Stenberg’s difficulty criticism should not be generalized to all projects.",
+              "origin_chain": "The Record reports DARPA’s event; the organizer is the origin of aggregate results. Stenberg independently examines the curl tasks and bounds their difficulty. These sources support different claims."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0238-source-0001",
+            "retained_source_order": [
+              "AIBD-0238-source-0001",
+              "AIBD-0238-source-0002",
+              "AIBD-0238-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0238-source-0001",
-            "AIBD-0238-source-0002",
             "AIBD-0238-source-0003"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "DARPA supplies competition totals that The Record repeats. Stenberg independently examines the curl tasks and limits their difficulty; that assessment covers a subset, not all vulnerabilities. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "DARPA supplies competition totals that The Record repeats. Stenberg independently examines the curl tasks and limits their difficulty; that assessment covers a subset, not all vulnerabilities. The source chain has not been independently checked in this pass."
+          "answer": "The corrected challenge total is 63; systems found 54 and patched 43, plus 18 real flaws and 11 real-flaw patches. Four systems were released at announcement. The $152 figure is per competition task."
         }
       },
       "strategic_assessments[]": {
@@ -2113,19 +2217,26 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The finalist systems autonomously searched for vulnerabilities and generated patches during the competition; maintainers still controlled adoption outside it."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: At DEF CON 33 (8 August 2025) DARPA reported seven teams' systems found 54 synthetic vulnerabilities, patched 43, and found 18 real bugs for disclosure; Team Atlanta won $4 million.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: cyber reasoning systems and responsible disclosure.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0238-source-0001",
+            "AIBD-0238-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by AIxCC finalist cyber reasoning systems (Team Atlanta, Trail of Bits, Theori and four others) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The finalist systems autonomously searched for vulnerabilities and generated patches during the competition; maintainers still controlled adoption outside it."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2333,18 +2444,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 39,
-      "reviewed": 3,
+      "known": 43,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 37,
-      "review_not_assessed": 51,
+      "review_not_assessed": 47,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 39,
+        "value_present": 43,
         "not_reported": 0,
-        "unresolved": 52,
+        "unresolved": 48,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

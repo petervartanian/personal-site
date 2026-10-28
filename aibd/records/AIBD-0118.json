@@ -588,19 +588,25 @@
         "coverage": "partial"
       },
       "availability": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "This was an early-feasibility research system whose measured gains required laboratory support."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Keith Thomas, paralyzed since 2020, regained arm movement and touch after a 15-hour brain-implant operation in Manhasset, New York.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: NCT03680872 and supervised laboratory work.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0118-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A dated source establishing the terms of access is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Access to Double neural bypass (Bidirectional Neural Bypass System): intracortical brain-computer interface with an LSTM decoder and deep reinforcement-learning agent, patterned spinal cord stimulation and intracortical microstimulation has not been established for a stated date. A published demonstration does not establish public availability.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "This was an early-feasibility research system whose measured gains required laboratory support."
+        }
       },
       "brief": {
         "state": "value_present",
@@ -1600,19 +1606,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Neurosurgical, engineering, and rehabilitation teams supported implantation, calibration, and the supervised laboratory sessions."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Keith Thomas, paralyzed since 2020, regained arm movement and touch after a 15-hour brain-implant operation in Manhasset, New York.",
-          "record_fields": [
-            "summary"
+          "basis": "replication: mapped implantation and 35 weeks of supervised sessions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0118-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Double neural bypass (Bidirectional Neural Bypass System): intracortical brain-computer interface with an LSTM decoder and deep reinforcement-learning agent, patterned spinal cord stimulation and intracortical microstimulation in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Neurosurgical, engineering, and rehabilitation teams supported implantation, calibration, and the supervised laboratory sessions."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1838,16 +1850,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Keith Thomas, paralyzed since 2020, regained arm movement and touch after a 15-hour brain-implant operation in Manhasset, New York.",
-          "record_fields": [
-            "summary"
+          "basis": "ai_role: separate timing of arm-strength gains and figure 4c grasp-force comparison.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0118-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The original paper separates the 87% versus 27% grasp-task result from strength gains achieved before the hand neuroprosthesis. Combining them would exaggerate the evidence for one AI component.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The hand-control comparison supports a specific gain from the reinforcement-learning agent, while the earlier arm-strength improvements should remain attributed to stimulation and training as a combined intervention.",
+          "editor_note": "The original paper separates the 87% versus 27% grasp-task result from strength gains achieved before the hand neuroprosthesis. Combining them would exaggerate the evidence for one AI component."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2122,28 +2138,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0118-source-0001",
-            "AIBD-0118-source-0002",
-            "AIBD-0118-source-0003",
-            "AIBD-0118-source-0004",
-            "AIBD-0118-source-0005",
-            "AIBD-0118-source-0006"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.nature.com/articles/s41591-026-04498-0",
+                "source_refs": [
+                  "AIBD-0118-source-0001"
+                ],
+                "title": "original clinical experiment",
+                "relationship": "original clinical experiment",
+                "contribution": "Recurrent decoding and reinforcement learning controlled hand tasks. Grasp-force success was 87% with the agent versus 27% without it. Earlier strength gains occurred with spinal stimulation and activity-based training before the hand neuroprosthesis.",
+                "locator": "Overview, Figure 2, Figure 4c, Methods, data availability",
+                "access_status": "Web reader redirected; public HTTP full text retrieved and read, with Europe PMC copy; saved 010-118.txt and 010-118-paper.txt"
+              }
+            ],
+            "latest_limitations": "One participant and highly supported experimental sessions limit generalization; identifiable data are restricted and code is available on request."
+          }
         },
-        "reason": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0118-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "One participant and highly supported experimental sessions limit generalization; identifiable data are restricted and code is available on request."
         }
       },
       "sources[].citation_locator": {
@@ -2401,6 +2429,17 @@
                 ],
                 "url": "https://clinicaltrials.gov/study/NCT03680872",
                 "relationship": "Sponsor-investigator registration accessed through the ClinicalTrials.gov API. Establishes protocol and planned enrollment, not regulatory confirmation or independent benefit evidence."
+              },
+              {
+                "url": "https://www.nature.com/articles/s41591-026-04498-0",
+                "source_refs": [
+                  "AIBD-0118-source-0001"
+                ],
+                "title": "original clinical experiment",
+                "relationship": "original clinical experiment",
+                "contribution": "Recurrent decoding and reinforcement learning controlled hand tasks. Grasp-force success was 87% with the agent versus 27% without it. Earlier strength gains occurred with spinal stimulation and activity-based training before the hand neuroprosthesis.",
+                "locator": "Overview, Figure 2, Figure 4c, Methods, data availability",
+                "access_status": "Web reader redirected; public HTTP full text retrieved and read, with Europe PMC copy; saved 010-118.txt and 010-118-paper.txt"
               }
             ],
             "excluded_republications": [
@@ -2442,24 +2481,38 @@
               "AIBD-0118-source-0004",
               "AIBD-0118-source-0005",
               "AIBD-0118-source-0006"
-            ]
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.nature.com/articles/s41591-026-04498-0",
+                  "source_refs": [
+                    "AIBD-0118-source-0001"
+                  ],
+                  "title": "original clinical experiment",
+                  "relationship": "original clinical experiment",
+                  "contribution": "Recurrent decoding and reinforcement learning controlled hand tasks. Grasp-force success was 87% with the agent versus 27% without it. Earlier strength gains occurred with spinal stimulation and activity-based training before the hand neuroprosthesis.",
+                  "locator": "Overview, Figure 2, Figure 4c, Methods, data availability",
+                  "access_status": "Web reader redirected; public HTTP full text retrieved and read, with Europe PMC copy; saved 010-118.txt and 010-118-paper.txt"
+                }
+              ],
+              "limitations": "One participant and highly supported experimental sessions limit generalization; identifiable data are restricted and code is available on request.",
+              "origin_chain": "Retained Nature DOI to the publisher full text and identical Europe PMC article PMC13375563."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Reviewed the original source, embedded references, supplements and related firsthand accounts to the extent documented in the access notes.",
-          "record_fields": [
-            "evidence"
-          ],
+          "basis": "Case-specific public-source inspection. All four proposals survive, including the separation of strength and AI-controlled grasp outcomes.",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0118-source-0001",
-            "AIBD-0118-source-0002",
-            "AIBD-0118-source-0003",
-            "AIBD-0118-source-0004",
-            "AIBD-0118-source-0005",
-            "AIBD-0118-source-0006"
+            "AIBD-0118-source-0001"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "complete",
@@ -2566,19 +2619,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Cortical decoders translated intended hand movements into control commands, while reinforcement learning regulated grasp force and stimulation supplied movement and touch feedback."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Keith Thomas, paralyzed since 2020, regained arm movement and touch after a 15-hour brain-implant operation in Manhasset, New York.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: recurrent decoder, grasp-force agent, spinal and cortical stimulation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0118-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Double neural bypass (Bidirectional Neural Bypass System): intracortical brain-computer interface with an LSTM decoder and deep reinforcement-learning agent, patterned spinal cord stimulation and intracortical microstimulation have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Cortical decoders translated intended hand movements into control commands, while reinforcement learning regulated grasp force and stimulation supplied movement and touch feedback."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2751,18 +2810,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 2,
+      "known": 41,
+      "reviewed": 7,
       "reviewed_complete": 1,
-      "reviewed_partial": 1,
+      "reviewed_partial": 6,
       "record_mapped": 35,
-      "review_not_assessed": 54,
+      "review_not_assessed": 49,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 41,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 50,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

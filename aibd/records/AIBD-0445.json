@@ -1403,16 +1403,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: IIT Gandhinagar proposes learned traffic forecasts and GNN/DRL policies to support adaptive routing, alongside conventional network optimization.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: traffic prediction and adaptive routing; no measured energy savings or operational evaluation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0445-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Forecast-informed routing can consolidate activity, but forecast errors and demand spikes can make aggressive resource reductions degrade service. Simulation and live testing remain planned.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely operational tradeoff is between conserving network resources and maintaining enough capacity for unexpected traffic.",
+          "editor_note": "Forecast-informed routing can consolidate activity, but forecast errors and demand spikes can make aggressive resource reductions degrade service. Simulation and live testing remain planned."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1594,23 +1598,41 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-375",
+                "source_refs": [
+                  "AIBD-0445-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Traffic prediction, controller feedback, and intended SDN control of routes and power are described; framework-to-simulation transition is future work.",
+                "locator": "_idParaDest-375; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_limitations": "Cited background energy figures are not this system’s savings."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0445-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Cited background energy figures are not this system’s savings."
         }
       },
       "sources[].citation_locator": {
@@ -1706,27 +1728,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-375",
+                "source_refs": [
+                  "AIBD-0445-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Traffic prediction, controller feedback, and intended SDN control of routes and power are described; framework-to-simulation transition is future work.",
+                "locator": "_idParaDest-375; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-375",
+                  "source_refs": [
+                    "AIBD-0445-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Traffic prediction, controller feedback, and intended SDN control of routes and power are described; framework-to-simulation transition is future work.",
+                  "locator": "_idParaDest-375; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
+              ],
+              "limitations": "Cited background energy figures are not this system’s savings.",
+              "origin_chain": "IIT submission -> separate SDN and routing papers."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0445-source-0001",
+            "retained_source_order": [
+              "AIBD-0445-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. IIT Gandhinagar reports internal R&D with no current external partner. Simulation and live-test results are planned rather than supported by inspected evidence. Proposed future collaborations are not independent validation.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].component_role outcomes[].tradeoffs",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0445-source-0001"
           ],
-          "reviewed_on": "2026-10-27",
-          "attempted_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "IIT Gandhinagar reports internal R&D with no current external partner. Simulation and live-test results are planned rather than supported by inspected evidence. Proposed future collaborations are not independent validation.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "IIT Gandhinagar reports internal R&D with no current external partner. Simulation and live-test results are planned rather than supported by inspected evidence. Proposed future collaborations are not independent validation."
+          "answer": "Traffic prediction, controller feedback, and intended SDN control of routes and power are described; framework-to-simulation transition is future work."
         }
       },
       "strategic_assessments[]": {
@@ -1785,19 +1846,25 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Learned traffic forecasts anticipate demand, and a proposed graph-neural-network and reinforcement-learning policy supports routing alongside classical optimization."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: IIT Gandhinagar proposes learned traffic forecasts and GNN/DRL policies to support adaptive routing, alongside conventional network optimization.",
-          "record_fields": [
-            "summary"
+          "basis": "Account explicitly separates learned forecasts and GNN/DRL policies from classical routing.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0445-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation is needed that explains each component’s role."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The role of each component in AI-Assisted Smart and Efficient Radio Access Networks remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Learned traffic forecasts anticipate demand, and a proposed graph-neural-network and reinforcement-learning policy supports routing alongside classical optimization."
+        }
       },
       "systems[].deployment_configuration": {
         "state": "unresolved",
@@ -1984,18 +2051,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 31,
-      "reviewed": 3,
+      "known": 34,
+      "reviewed": 6,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 6,
       "record_mapped": 29,
-      "review_not_assessed": 59,
+      "review_not_assessed": 56,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 31,
+        "value_present": 34,
         "not_reported": 0,
-        "unresolved": 60,
+        "unresolved": 57,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

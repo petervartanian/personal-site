@@ -1182,16 +1182,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MUST is developing image and sensor models for concrete cracks and moisture. Field maintenance, safety, and material-saving benefits remain intended.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: concrete condition models; engineering ground truth and field maintenance unestablished.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0483-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of AI concrete-health and moisture-assessment system in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Crack appearance and moisture are indicators rather than a complete structural assessment. The account reports no maintenance action or avoided failure, so the model’s credible role is screening and assessment support.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Engineers would probably interpret the measurements together with other structural information before ordering maintenance or declaring a structure unsafe.",
+          "editor_note": "Crack appearance and moisture are indicators rather than a complete structural assessment. The account reports no maintenance action or avoided failure, so the model’s credible role is screening and assessment support."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1586,23 +1590,41 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-610",
+                "source_refs": [
+                  "AIBD-0483-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read crack-image CNNs, regression on sensor logs, edge health estimates, and cloud/mobile presentation. Field pilots remain future work.",
+                "locator": "_idParaDest-610; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_limitations": "No field calibration or structural-safety validation inspected."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0483-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No field calibration or structural-safety validation inspected."
         }
       },
       "sources[].citation_locator": {
@@ -1714,7 +1736,15 @@
                 "locator": "ITU AI for Good: Innovate for Impact, anchor _idParaDest-610, summary table and sections 2.1–2.3",
                 "contribution": "The original ITU publication contains the contributor’s description, with information stated as current to June 2025. Its publication by ITU does not independently validate the outcomes. The cited underlying studies and project records were not separately reopened.",
                 "retrieval_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en",
-                "content_locator": "_idParaDest-610"
+                "content_locator": "_idParaDest-610",
+                "latest_inspection": {
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Read crack-image CNNs, regression on sensor logs, edge health estimates, and cloud/mobile presentation. Field pilots remain future work.",
+                  "locator": "_idParaDest-610; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
               }
             ],
             "retained_source_order": [
@@ -1723,12 +1753,32 @@
             "unreviewed_source_refs": [],
             "limitations": "No field maintenance action, avoided structural failure, or measured material saving is reported. Crack classification and moisture regression need validation against engineering ground truth across sites. Planned construction-firm pilots cannot establish longer infrastructure life or public safety benefits. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0483-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-610",
+                  "source_refs": [
+                    "AIBD-0483-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Read crack-image CNNs, regression on sensor logs, edge health estimates, and cloud/mobile presentation. Field pilots remain future work.",
+                  "locator": "_idParaDest-610; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
+              ],
+              "limitations": "No field calibration or structural-safety validation inspected.",
+              "origin_chain": "Project submission → ITU."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at ITU AI for Good: Innovate for Impact, anchor _idParaDest-610, summary table and sections 2.1–2.3. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight",
           "record_fields": [],
           "source_refs": [
             "AIBD-0483-source-0001"
@@ -1827,19 +1877,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The developing system uses images and sensor measurements to classify concrete cracks and estimate moisture."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MUST is developing image and sensor models for concrete cracks and moisture. Field maintenance, safety, and material-saving benefits remain intended.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed missingness: image and sensor models, crack classification and moisture regression.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0483-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of AI concrete-health and moisture-assessment system have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The developing system uses images and sensor measurements to classify concrete cracks and estimate moisture."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -1996,18 +2052,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 32,
-      "reviewed": 3,
+      "known": 34,
+      "reviewed": 6,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 6,
       "record_mapped": 29,
-      "review_not_assessed": 59,
+      "review_not_assessed": 56,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 32,
+        "value_present": 34,
         "not_reported": 0,
-        "unresolved": 59,
+        "unresolved": 57,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

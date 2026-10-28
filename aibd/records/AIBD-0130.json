@@ -1984,16 +1984,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Android users in Crete and the Dodecanese got Google's quake alert seconds before the M6.0 (Greek press 6.1) Kasos quake of 14 May 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and Newsbomb report give seconds of notice without named recipients or action logs.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0130-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "A warning creates time to act only if it arrives early enough and the recipient responds effectively. Neither the lead time nor protective behavior was measured for this event.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The reports support a warning before felt shaking, but they do not establish that anyone avoided injury.",
+          "editor_note": "A warning creates time to act only if it arrives early enough and the recipient responds effectively. Neither the lead time nor protective behavior was measured for this event."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2248,30 +2252,51 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0130-source-0001",
-            "AIBD-0130-source-0002",
-            "AIBD-0130-source-0003",
-            "AIBD-0130-source-0004",
-            "AIBD-0130-source-0005",
-            "AIBD-0130-source-0006",
-            "AIBD-0130-source-0007",
-            "AIBD-0130-source-0008"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://blog.google/products-and-platforms/platforms/android/earthquake-detection-and-alerts/",
+                "source_refs": [
+                  "AIBD-0130-source-0001"
+                ],
+                "title": "Original developer explanation",
+                "relationship": "Original developer explanation",
+                "contribution": "Phones send motion signals and coarse locations; server combines triggers.",
+                "locator": "Building the world's largest earthquake detection network",
+                "access_status": "Server detection paragraphs read"
+              },
+              {
+                "url": "https://www.newsbomb.gr/technologia/story/1649410/seismos-tora-pos-na-energopoiisete-ti-nea-efarmogi-tis-google-pou-enimeronei-gia-seismoys",
+                "source_refs": [
+                  "AIBD-0130-source-0001"
+                ],
+                "title": "Contemporaneous event report",
+                "relationship": "Contemporaneous event report",
+                "contribution": "Article says users received messages and sounds seconds before felt shaking, without named recipients.",
+                "locator": "May 14 report, paragraphs89–105",
+                "access_status": "Event and operation paragraphs read"
+              }
+            ],
+            "latest_limitations": "No alert log, named recipient, or protective action confirms event-level benefit. The news report's date wording is inconsistent with the retained USGS event date."
+          }
         },
-        "reason": "The 8 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0130-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 8 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No alert log, named recipient, or protective action confirms event-level benefit. The news report's date wording is inconsistent with the retained USGS event date."
         }
       },
       "sources[].citation_locator": {
@@ -2509,33 +2534,93 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. The Greek reports summarize the same event, USGS supplies seismology, and Google and Science describe the broader system. Per-event Google confirmation and independently timed recipient evidence remain absent from the retained material and were not newly sought.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0130-source-0001",
-            "AIBD-0130-source-0002",
-            "AIBD-0130-source-0003",
-            "AIBD-0130-source-0004",
-            "AIBD-0130-source-0005",
-            "AIBD-0130-source-0006",
-            "AIBD-0130-source-0007",
-            "AIBD-0130-source-0008"
-          ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://blog.google/products-and-platforms/platforms/android/earthquake-detection-and-alerts/",
+                "source_refs": [
+                  "AIBD-0130-source-0001"
+                ],
+                "title": "Original developer explanation",
+                "relationship": "Original developer explanation",
+                "contribution": "Phones send motion signals and coarse locations; server combines triggers.",
+                "locator": "Building the world's largest earthquake detection network",
+                "access_status": "Server detection paragraphs read"
+              },
+              {
+                "url": "https://www.newsbomb.gr/technologia/story/1649410/seismos-tora-pos-na-energopoiisete-ti-nea-efarmogi-tis-google-pou-enimeronei-gia-seismoys",
+                "source_refs": [
+                  "AIBD-0130-source-0001"
+                ],
+                "title": "Contemporaneous event report",
+                "relationship": "Contemporaneous event report",
+                "contribution": "Article says users received messages and sounds seconds before felt shaking, without named recipients.",
+                "locator": "May 14 report, paragraphs89–105",
+                "access_status": "Event and operation paragraphs read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://blog.google/products-and-platforms/platforms/android/earthquake-detection-and-alerts/",
+                  "source_refs": [
+                    "AIBD-0130-source-0001"
+                  ],
+                  "title": "Original developer explanation",
+                  "relationship": "Original developer explanation",
+                  "contribution": "Phones send motion signals and coarse locations; server combines triggers.",
+                  "locator": "Building the world's largest earthquake detection network",
+                  "access_status": "Server detection paragraphs read"
+                },
+                {
+                  "url": "https://www.newsbomb.gr/technologia/story/1649410/seismos-tora-pos-na-energopoiisete-ti-nea-efarmogi-tis-google-pou-enimeronei-gia-seismoys",
+                  "source_refs": [
+                    "AIBD-0130-source-0001"
+                  ],
+                  "title": "Contemporaneous event report",
+                  "relationship": "Contemporaneous event report",
+                  "contribution": "Article says users received messages and sounds seconds before felt shaking, without named recipients.",
+                  "locator": "May 14 report, paragraphs89–105",
+                  "access_status": "Event and operation paragraphs read"
+                }
+              ],
+              "limitations": "No alert log, named recipient, or protective action confirms event-level benefit. The news report's date wording is inconsistent with the retained USGS event date.",
+              "origin_chain": "Google establishes architecture; local event assertion remains unattributed reporting. Targeted search did not find Google per-event confirmation."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0130-source-0001",
+            "retained_source_order": [
+              "AIBD-0130-source-0001",
+              "AIBD-0130-source-0002",
+              "AIBD-0130-source-0003",
+              "AIBD-0130-source-0004",
+              "AIBD-0130-source-0005",
+              "AIBD-0130-source-0006",
+              "AIBD-0130-source-0007",
+              "AIBD-0130-source-0008"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "The Greek reports summarize the same event, USGS supplies seismology, and Google and Science describe the broader system. Per-event Google confirmation and independently timed recipient evidence remain absent from the retained material and were not newly sought.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Architecture and automatic-alert inference survive; injury prevention remains unestablished.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0130-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The Greek reports summarize the same event, USGS supplies seismology, and Google and Science describe the broader system. Per-event Google confirmation and independently timed recipient evidence remain absent from the retained material and were not newly sought."
+          "answer": "Phones send motion signals and coarse locations; server combines triggers."
         }
       },
       "strategic_assessments[]": {
@@ -2589,16 +2674,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Android users in Crete and the Dodecanese got Google's quake alert seconds before the M6.0 (Greek press 6.1) Kasos quake of 14 May 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "Google technical description and case account of written and audible warnings.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0130-source-0001",
+            "AIBD-0130-source-0006"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Android Earthquake Alerts System (crowdsourced phone-accelerometer detection; alerts for magnitude 4.5 and above) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The server-based detection and push-alert design imply that no operator approved each warning. The Greek reports do not document individual protective actions.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Detection and alert delivery were automatic. Recipients decided how to respond.",
+          "editor_note": "The server-based detection and push-alert design imply that no operator approved each warning. The Greek reports do not document individual protective actions."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2631,19 +2721,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system combined motion signals and approximate locations from Android phones, then sent alerts to nearby users."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Android users in Crete and the Dodecanese got Google's quake alert seconds before the M6.0 (Greek press 6.1) Kasos quake of 14 May 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "Google's original technical description, phone signals sent to the server and combined across devices.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0130-source-0006"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Android Earthquake Alerts System (crowdsourced phone-accelerometer detection; alerts for magnitude 4.5 and above) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The system combined motion signals and approximate locations from Android phones, then sent alerts to nearby users."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2808,18 +2904,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 38,
-      "reviewed": 3,
+      "known": 41,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 36,
-      "review_not_assessed": 52,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 38,
+        "value_present": 41,
         "not_reported": 0,
-        "unresolved": 53,
+        "unresolved": 50,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

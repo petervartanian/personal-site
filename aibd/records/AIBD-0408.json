@@ -1165,16 +1165,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VIT reports EEG-model development using data from ten people and plans hospital testing of a brain-controlled wheelchair.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-151: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0408-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Brain-wave driven wheelchair for paralysis patients using EEG and ML in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Emergency-stop and proximity-warning features are listed as future work. This supports a need for supervision, but it does not establish that a working emergency stop or supervision procedure already exists.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The prototype probably needs supervised testing before a rider relies on it for independent travel.",
+          "editor_note": "Emergency-stop and proximity-warning features are listed as future work. This supports a need for supervision, but it does not establish that a working emergency stop or supervision procedure already exists."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1565,23 +1569,41 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-151",
+                "source_refs": [
+                  "AIBD-0408-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "The source names an RBF support-vector classifier and five-fold tuning, training data from ten people, and future emergency-stop/proximity safety features.",
+                "locator": "_idParaDest-151; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_limitations": "No held-out patient mobility result or implemented emergency-stop procedure established."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0408-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No held-out patient mobility result or implemented emergency-stop procedure established."
         }
       },
       "sources[].citation_locator": {
@@ -1677,21 +1699,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-151",
+                "source_refs": [
+                  "AIBD-0408-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "The source names an RBF support-vector classifier and five-fold tuning, training data from ten people, and future emergency-stop/proximity safety features.",
+                "locator": "_idParaDest-151; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-151",
+                  "source_refs": [
+                    "AIBD-0408-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "The source names an RBF support-vector classifier and five-fold tuning, training data from ten people, and future emergency-stop/proximity safety features.",
+                  "locator": "_idParaDest-151; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
+              ],
+              "limitations": "No held-out patient mobility result or implemented emergency-stop procedure established.",
+              "origin_chain": "VIT submission -> EEG and wheelchair literature, separate from this prototype."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0408-source-0001",
+            "retained_source_order": [
+              "AIBD-0408-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight systems[].model_name",
           "record_fields": [],
           "source_refs": [
             "AIBD-0408-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "ITU’s Use Case 24 supplies the researchers’ account. Hospital agreements are prospective support rather than outcome evidence, and no original experimental report or patient follow-up is retained. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "ITU’s Use Case 24 supplies the researchers’ account. Hospital agreements are prospective support rather than outcome evidence, and no original experimental report or patient follow-up is retained. The source chain has not been independently checked in this pass."
+          "answer": "The source names an RBF support-vector classifier and five-fold tuning, training data from ten people, and future emergency-stop/proximity safety features."
         }
       },
       "strategic_assessments[]": {
@@ -1780,34 +1847,46 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The models interpret EEG signals to generate commands for wheelchair control."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VIT reports EEG-model development using data from ten people and plans hospital testing of a brain-controlled wheelchair.",
-          "record_fields": [
-            "summary"
+          "basis": "Account, system name, and purpose: EEG-model training and brain-signal wheelchair control.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0408-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Brain-wave driven wheelchair for paralysis patients using EEG and ML have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The models interpret EEG signals to generate commands for wheelchair control."
+        }
       },
       "systems[].model_name": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The EEG classifier is a support-vector classifier with a radial-basis-function kernel, tuned through five-fold cross-validation."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VIT reports EEG-model development using data from ten people and plans hospital testing of a brain-controlled wheelchair.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-151: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0408-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record identifies Brain-wave driven wheelchair for paralysis patients using EEG and ML, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The EEG classifier is a support-vector classifier with a radial-basis-function kernel, tuned through five-fold cross-validation."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -1949,18 +2028,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 31,
-      "reviewed": 3,
+      "known": 35,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 29,
-      "review_not_assessed": 59,
+      "review_not_assessed": 55,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 31,
+        "value_present": 35,
         "not_reported": 0,
-        "unresolved": 60,
+        "unresolved": 56,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

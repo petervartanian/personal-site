@@ -1417,19 +1417,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Trained HALO personnel had to inspect model results and resolve false positives and missed objects before using them in survey decisions."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: HALO announced a US$4m AWS package (25 June 2024) to trial AI on drone imagery of Ukrainian minefields; Reuters (30 April 2026) reports about 70% accuracy; no cleared land or found mine attributed.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and conditions: continuing vetting.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0315-source-0001",
+            "AIBD-0315-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of HALO Trust AI and machine-learning analysis of drone imagery for explosive remnants of war (hosted on AWS; SageMaker used for satellite-imagery damage detection) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Trained HALO personnel had to inspect model results and resolve false positives and missed objects before using them in survey decisions."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1451,19 +1458,26 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The pilot required drone imagery, labeled examples, AWS resources and experienced explosive-ordnance survey staff."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: HALO announced a US$4m AWS package (25 June 2024) to trial AI on drone imagery of Ukrainian minefields; Reuters (30 April 2026) reports about 70% accuracy; no cleared land or found mine attributed.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: 11 terabytes from 542 flights and support package.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0315-source-0001",
+            "AIBD-0315-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for HALO Trust AI and machine-learning analysis of drone imagery for explosive remnants of war (hosted on AWS; SageMaker used for satellite-imagery damage detection) has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The pilot required drone imagery, labeled examples, AWS resources and experienced explosive-ordnance survey staff."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1635,16 +1649,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: HALO announced a US$4m AWS package (25 June 2024) to trial AI on drone imagery of Ukrainian minefields; Reuters (30 April 2026) reports about 70% accuracy; no cleared land or found mine attributed.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: analyst workload and unsupported accuracy basis.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0315-source-0002",
+            "AIBD-0315-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Manual review reportedly took three to five days per minefield, but no measured time saving or cleared area was attributed to the model.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The most plausible initial benefit was reducing the imagery that analysts needed to inspect closely, while the reported 70% accuracy was too loosely defined to establish safer clearance.",
+          "editor_note": "Manual review reportedly took three to five days per minefield, but no measured time saving or cleared area was attributed to the model."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1920,25 +1939,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.halotrust.org/news/artificial-intelligence-to-help-accelerate-landmine-clearance/",
+                "source_refs": [
+                  "AIBD-0315-source-0001"
+                ],
+                "title": "original operator pilot announcement",
+                "relationship": "original operator pilot announcement",
+                "contribution": "Manual labeling, staff vetting and offline-to-cloud uploads are explicit; SageMaker is named for satellite building-damage analysis.",
+                "locator": "Training and AWS support paragraphs",
+                "access_status": "Full live page read"
+              },
+              {
+                "url": "https://www.halotrust.org/news/using-drones-and-ai-to-eradicate-landmines/",
+                "source_refs": [
+                  "AIBD-0315-source-0002"
+                ],
+                "title": "original operator interview",
+                "relationship": "original operator interview",
+                "contribution": "Analysts could spend three to five days reviewing a minefield; the interview describes intended assistance, not measured mine clearance.",
+                "locator": "Image-analysis bottleneck; constrained budgets",
+                "access_status": "Full article read"
+              }
+            ],
+            "latest_limitations": "The 70% figure has no disclosed denominator in the retained Reuters account and was not newly verified."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0315-source-0001",
-            "AIBD-0315-source-0002",
-            "AIBD-0315-source-0003"
+            "AIBD-0315-source-0002"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The 70% figure has no disclosed denominator in the retained Reuters account and was not newly verified."
         }
       },
       "sources[].citation_locator": {
@@ -2093,6 +2139,28 @@
                 ],
                 "locator": "HALO/AWS announcement: future pilot trials, imagery volumes, labeling, and ongoing expert validation",
                 "contribution": "The archived HALO announcement establishes the planned pilot and its validation requirements. The later Reuters report is a separate retained account and was not freshly checked."
+              },
+              {
+                "url": "https://www.halotrust.org/news/artificial-intelligence-to-help-accelerate-landmine-clearance/",
+                "source_refs": [
+                  "AIBD-0315-source-0001"
+                ],
+                "title": "original operator pilot announcement",
+                "relationship": "original operator pilot announcement",
+                "contribution": "Manual labeling, staff vetting and offline-to-cloud uploads are explicit; SageMaker is named for satellite building-damage analysis.",
+                "locator": "Training and AWS support paragraphs",
+                "access_status": "Full live page read"
+              },
+              {
+                "url": "https://www.halotrust.org/news/using-drones-and-ai-to-eradicate-landmines/",
+                "source_refs": [
+                  "AIBD-0315-source-0002"
+                ],
+                "title": "original operator interview",
+                "relationship": "original operator interview",
+                "contribution": "Analysts could spend three to five days reviewing a minefield; the interview describes intended assistance, not measured mine clearance.",
+                "locator": "Image-analysis bottleneck; constrained budgets",
+                "access_status": "Full article read"
               }
             ],
             "retained_source_order": [
@@ -2106,15 +2174,46 @@
             ],
             "limitations": "The 542 flights and 11 terabytes describe data collection before the AI trial. The later roughly 70% accuracy claim was not reopened and has no reviewed denominator or error definition. Image identification alone is not safe mine clearance, and the source stresses ongoing expert checks for false negatives and positives. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0315-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.halotrust.org/news/artificial-intelligence-to-help-accelerate-landmine-clearance/",
+                  "source_refs": [
+                    "AIBD-0315-source-0001"
+                  ],
+                  "title": "original operator pilot announcement",
+                  "relationship": "original operator pilot announcement",
+                  "contribution": "Manual labeling, staff vetting and offline-to-cloud uploads are explicit; SageMaker is named for satellite building-damage analysis.",
+                  "locator": "Training and AWS support paragraphs",
+                  "access_status": "Full live page read"
+                },
+                {
+                  "url": "https://www.halotrust.org/news/using-drones-and-ai-to-eradicate-landmines/",
+                  "source_refs": [
+                    "AIBD-0315-source-0002"
+                  ],
+                  "title": "original operator interview",
+                  "relationship": "original operator interview",
+                  "contribution": "Analysts could spend three to five days reviewing a minefield; the interview describes intended assistance, not measured mine clearance.",
+                  "locator": "Image-analysis bottleneck; constrained budgets",
+                  "access_status": "Full article read"
+                }
+              ],
+              "limitations": "The 70% figure has no disclosed denominator in the retained Reuters account and was not newly verified.",
+              "origin_chain": "The live HALO page restores the archived source. The later Reuters accuracy claim is distinct reporting and does not establish the pilot’s clearance outcome."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at HALO/AWS announcement: future pilot trials, imagery volumes, labeling, and ongoing expert validation. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0315-source-0001"
+            "AIBD-0315-source-0001",
+            "AIBD-0315-source-0002"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2212,19 +2311,27 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "High-resolution drone images were analyzed for possible mines and other explosive remnants, with staff labeling training examples and checking outputs."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: HALO announced a US$4m AWS package (25 June 2024) to trial AI on drone imagery of Ukrainian minefields; Reuters (30 April 2026) reports about 70% accuracy; no cleared land or found mine attributed.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: HALO imagery workflow.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0315-source-0001",
+            "AIBD-0315-source-0002",
+            "AIBD-0315-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of HALO Trust AI and machine-learning analysis of drone imagery for explosive remnants of war (hosted on AWS; SageMaker used for satellite-imagery damage detection) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "High-resolution drone images were analyzed for possible mines and other explosive remnants, with staff labeling training examples and checking outputs."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2387,18 +2494,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 3,
+      "known": 41,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 34,
-      "review_not_assessed": 54,
+      "review_not_assessed": 49,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 41,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 50,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

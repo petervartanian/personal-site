@@ -1736,16 +1736,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Independent evaluation: subscriptions to GLAD Landsat alerts (bagged decision trees) cut deforestation probability in Africa by 18%.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: subscription effect, stronger protected-area and concession effects. replication: responsive managers with enforcement authority.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0105-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of GLAD (Global Land Analysis and Discovery) Landsat deforestation alerts on Global Forest Watch in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The evaluation found little effect where alerts existed without subscribers and stronger effects in managed areas. That pattern supports response capacity as the likely link between detection and reduced deforestation.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Subscribers probably converted detections into inspections, enforcement, or management responses; the classifier itself could not stop clearing.",
+          "editor_note": "The evaluation found little effect where alerts existed without subscribers and stronger effects in managed areas. That pattern supports response capacity as the likely link between detection and reduced deforestation."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1852,19 +1856,25 @@
         "coverage": "partial"
       },
       "outcomes[].distribution": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The measured reduction was concentrated in Africa and was stronger in protected areas and concessions. No detectable effect was reported on other continents."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Independent evaluation: subscriptions to GLAD Landsat alerts (bagged decision trees) cut deforestation probability in Africa by 18%.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: continent-specific and land-management-specific results.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0105-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Subgroup outcome or access evidence is needed; geographical presence alone does not establish distributional benefit."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The distribution of the personal, organizational, societal benefits has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The measured reduction was concentrated in Africa and was stronger in protected areas and concessions. No detectable effect was reported on other continents."
+        }
       },
       "outcomes[].duration": {
         "state": "unresolved",
@@ -2221,25 +2231,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.nature.com/articles/s41558-020-00956-w",
+                "source_refs": [
+                  "AIBD-0105-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Subscription effect is concentrated in Africa and stronger in protected areas and concessions, supporting an enforcement-capacity mechanism.",
+                "locator": "Abstract",
+                "access_status": "content inspected"
+              },
+              {
+                "url": "https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008",
+                "source_refs": [
+                  "AIBD-0105-source-0002"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Three bagged trees output pixel loss probabilities; repeated detections distinguish possible from confirmed alerts.",
+                "locator": "Methods; Figure 1 explanation",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The impact article’s full text was behind subscription access, while the original alert-method paper was accessible."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0105-source-0001",
-            "AIBD-0105-source-0002",
-            "AIBD-0105-source-0003"
+            "AIBD-0105-source-0002"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The impact article’s full text was behind subscription access, while the original alert-method paper was accessible."
         }
       },
       "sources[].citation_locator": {
@@ -2391,7 +2428,25 @@
                   "AIBD-0105-source-0001"
                 ],
                 "locator": "Nature Climate Change abstract: subscriptions across 22 countries, Africa-specific effect, null effects elsewhere, and estimated carbon value",
-                "contribution": "The original research abstract reports the estimated conservation effect. Full subscription methods, data, and code were not reanalyzed."
+                "contribution": "The original research abstract reports the estimated conservation effect. Full subscription methods, data, and code were not reanalyzed.",
+                "latest_inspection": {
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Subscription effect is concentrated in Africa and stronger in protected areas and concessions, supporting an enforcement-capacity mechanism.",
+                  "locator": "Abstract",
+                  "access_status": "content inspected"
+                }
+              },
+              {
+                "url": "https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008",
+                "source_refs": [
+                  "AIBD-0105-source-0002"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Three bagged trees output pixel loss probabilities; repeated detections distinguish possible from confirmed alerts.",
+                "locator": "Methods; Figure 1 explanation",
+                "access_status": "content inspected"
               }
             ],
             "retained_source_order": [
@@ -2405,15 +2460,46 @@
             ],
             "limitations": "The effect applies to subscribed areas in Africa, not to all countries or mere alert availability. The US$149–696 million figure monetizes modeled avoided emissions using the social cost of carbon; it is not realized cash income. Only the accessible abstract was checked, so identification assumptions and full robustness analyses remain outside this review. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0105-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.nature.com/articles/s41558-020-00956-w",
+                  "source_refs": [
+                    "AIBD-0105-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Subscription effect is concentrated in Africa and stronger in protected areas and concessions, supporting an enforcement-capacity mechanism.",
+                  "locator": "Abstract",
+                  "access_status": "content inspected"
+                },
+                {
+                  "url": "https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008",
+                  "source_refs": [
+                    "AIBD-0105-source-0002"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Three bagged trees output pixel loss probabilities; repeated detections distinguish possible from confirmed alerts.",
+                  "locator": "Methods; Figure 1 explanation",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The impact article’s full text was behind subscription access, while the original alert-method paper was accessible.",
+              "origin_chain": "Impact study cites Hansen et al. 2016 for the detection system; that original method was followed and inspected."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at Nature Climate Change abstract: subscriptions across 22 countries, Africa-specific effect, null effects elsewhere, and estimated carbon value. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight outcomes[].distribution",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0105-source-0001"
+            "AIBD-0105-source-0001",
+            "AIBD-0105-source-0002"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2511,19 +2597,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Bagged decision trees estimated forest loss from Landsat imagery and supplied alerts through Global Forest Watch subscriptions."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Independent evaluation: subscriptions to GLAD Landsat alerts (bagged decision trees) cut deforestation probability in Africa by 18%.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: per-pixel forest-loss estimates and alert subscriptions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0105-source-0001",
+            "AIBD-0105-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of GLAD (Global Land Analysis and Discovery) Landsat deforestation alerts on Global Forest Watch have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Bagged decision trees estimated forest loss from Landsat imagery and supplied alerts through Global Forest Watch subscriptions."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2695,18 +2788,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 48,
-      "reviewed": 3,
+      "known": 51,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 45,
-      "review_not_assessed": 43,
+      "review_not_assessed": 39,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 48,
+        "value_present": 51,
         "not_reported": 0,
-        "unresolved": 43,
+        "unresolved": 40,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

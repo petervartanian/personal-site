@@ -1763,19 +1763,27 @@
         "coverage": "partial"
       },
       "outcomes[].duration": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VA-authored triple-difference cohort study (173,313 veterans): REACH VET inclusion linked to more completed visits and safety plans and fewer admissions, ED visits and attempts; no mortality effect.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "Dated observation of the same outcome and population is needed to establish persistence or recurrence."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The principal evaluation covered March 2017 through December 2018. A later cohort analysis found no statistically detectable mortality reduction through 24 months."
         },
-        "reason": "The duration of the claimed benefit is not separately established. Dated follow-up on the same outcome is needed to distinguish a one-time result from recurring or sustained benefit; later work on another system or population does not establish persistence here. The recorded follow-up says: Nextgov reported in July 2025 that REACH VET still scans records monthly with the 61-variable model and that VA is updating it to a 2.0 model; a VA cohort study published 8 July 2025 found no association between REACH VET inclusion and suicide or all-cause mortality, in line with the 2021 evaluation's mortality subanalyses.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "REACH VET prompted clinician outreach for a risk-ranked group. The later mortality study found no statistically detectable mortality reduction through 24 months. A VA spokesperson described planned model revisions. The mortality confidence intervals permit benefits or harms. The reported model revision was a plan, not confirmation of deployment. Original effectiveness study: Methods; mortality follow-up: Methods and Results; October 2024 Nextgov interview with VA.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0310-source-0001",
+            "AIBD-0310-source-0002",
+            "AIBD-0310-source-0006"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The principal evaluation covered March 2017 through December 2018. A later cohort analysis found no statistically detectable mortality reduction through 24 months."
+        }
       },
       "outcomes[].id": {
         "state": "unresolved",
@@ -1849,16 +1857,22 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VA-authored triple-difference cohort study (173,313 veterans): REACH VET inclusion linked to more completed visits and safety plans and fewer admissions, ED visits and attempts; no mortality effect.",
-          "record_fields": [
-            "summary"
+          "basis": "REACH VET prompted clinician outreach for a risk-ranked group. The later mortality study found no statistically detectable mortality reduction through 24 months. A VA spokesperson described planned model revisions. The mortality confidence intervals permit benefits or harms. The reported model revision was a plan, not confirmation of deployment. Original effectiveness study: Methods; mortality follow-up: Methods and Results; October 2024 Nextgov interview with VA.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0310-source-0001",
+            "AIBD-0310-source-0002",
+            "AIBD-0310-source-0006"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The original model omitted military sexual trauma, and the later revision sought to reach more women. A ranking cutoff converts those modeling differences into access differences.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A fixed top-0.1% cutoff probably concentrated limited outreach capacity but risked overlooking patients whose risk factors were poorly represented.",
+          "editor_note": "The original model omitted military sexual trauma, and the later revision sought to reach more women. A ranking cutoff converts those modeling differences into access differences."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2145,28 +2159,64 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8524305/",
+                "source_refs": [
+                  "AIBD-0310-source-0001"
+                ],
+                "title": "Original REACH VET effectiveness evaluation",
+                "relationship": "Original REACH VET effectiveness evaluation",
+                "contribution": "The study describes monthly scoring of VHA records to identify each facility’s top 0.1% risk tier. Coordinators use a dashboard to contact clinicians, who reassess treatment and conduct outreach. Its mortality evaluation covers six months, not the later 24-month follow-up.",
+                "locator": "McCarthy et al. effectiveness study, Introduction and Methods, especially Data Sources and Measures.",
+                "access_status": "The specified study passages were read in the saved full-text extraction retrieved through the Europe PMC public XML endpoint."
+              },
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12238888/",
+                "source_refs": [
+                  "AIBD-0310-source-0002"
+                ],
+                "title": "Original mortality follow-up study",
+                "relationship": "Original mortality follow-up study",
+                "contribution": "The follow-up evaluates mortality at 6, 12, and 24 months and finds no statistically detectable association between REACH VET inclusion and suicide, external-cause, or all-cause mortality. The authors note limited power for small effects on rare outcomes and possible residual differences between groups.",
+                "locator": "Mortality follow-up, Methods, Results, mortality table, and Discussion.",
+                "access_status": "The specified study passages were read in the saved full-text extraction retrieved through the Europe PMC public XML endpoint."
+              },
+              {
+                "url": "https://www.nextgov.com/artificial-intelligence/2024/10/va-updating-its-ai-suicide-risk-model-reach-more-women/400377/",
+                "source_refs": [
+                  "AIBD-0310-source-0006"
+                ],
+                "title": "Original interview reporting about planned changes",
+                "relationship": "Original interview reporting about planned changes",
+                "contribution": "A VA official says that the department is updating the algorithm to consider additional variables relevant to women, including military sexual trauma and intimate partner violence. The official says that performance and bias will be evaluated before deployment and gives early 2025 as a target. The article does not confirm that the revised model was deployed.",
+                "locator": "Nextgov/FCW article of October 18, 2024, the VA official’s statements about additional variables and evaluation before deployment.",
+                "access_status": "The specified passages were read in saved public-source text."
+              }
+            ],
+            "latest_limitations": "The mortality confidence intervals permit benefits or harms. The reported model revision was a plan, not confirmation of deployment."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0310-source-0001",
             "AIBD-0310-source-0002",
-            "AIBD-0310-source-0003",
-            "AIBD-0310-source-0004",
-            "AIBD-0310-source-0005",
             "AIBD-0310-source-0006"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The mortality confidence intervals permit benefits or harms. The reported model revision was a plan, not confirmation of deployment."
         }
       },
       "sources[].citation_locator": {
@@ -2380,7 +2430,36 @@
                   "AIBD-0310-source-0001"
                 ],
                 "locator": "JAMA Network Open 2021 abstract: triple-difference design, clinician interventions, engagement, utilization, and documented attempts",
-                "contribution": "The program-affiliated authors report an observational evaluation. Full mortality analyses, the 2025 follow-up, and underlying records were not reanalyzed."
+                "contribution": "The program-affiliated authors report an observational evaluation. Full mortality analyses, the 2025 follow-up, and underlying records were not reanalyzed.",
+                "latest_inspection": {
+                  "title": "Original REACH VET effectiveness evaluation",
+                  "relationship": "Original REACH VET effectiveness evaluation",
+                  "contribution": "The study describes monthly scoring of VHA records to identify each facility’s top 0.1% risk tier. Coordinators use a dashboard to contact clinicians, who reassess treatment and conduct outreach. Its mortality evaluation covers six months, not the later 24-month follow-up.",
+                  "locator": "McCarthy et al. effectiveness study, Introduction and Methods, especially Data Sources and Measures.",
+                  "access_status": "The specified study passages were read in the saved full-text extraction retrieved through the Europe PMC public XML endpoint."
+                }
+              },
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12238888/",
+                "source_refs": [
+                  "AIBD-0310-source-0002"
+                ],
+                "title": "Original mortality follow-up study",
+                "relationship": "Original mortality follow-up study",
+                "contribution": "The follow-up evaluates mortality at 6, 12, and 24 months and finds no statistically detectable association between REACH VET inclusion and suicide, external-cause, or all-cause mortality. The authors note limited power for small effects on rare outcomes and possible residual differences between groups.",
+                "locator": "Mortality follow-up, Methods, Results, mortality table, and Discussion.",
+                "access_status": "The specified study passages were read in the saved full-text extraction retrieved through the Europe PMC public XML endpoint."
+              },
+              {
+                "url": "https://www.nextgov.com/artificial-intelligence/2024/10/va-updating-its-ai-suicide-risk-model-reach-more-women/400377/",
+                "source_refs": [
+                  "AIBD-0310-source-0006"
+                ],
+                "title": "Original interview reporting about planned changes",
+                "relationship": "Original interview reporting about planned changes",
+                "contribution": "A VA official says that the department is updating the algorithm to consider additional variables relevant to women, including military sexual trauma and intimate partner violence. The official says that performance and bias will be evaluated before deployment and gives early 2025 as a target. The article does not confirm that the revised model was deployed.",
+                "locator": "Nextgov/FCW article of October 18, 2024, the VA official’s statements about additional variables and evaluation before deployment.",
+                "access_status": "The specified passages were read in saved public-source text."
               }
             ],
             "retained_source_order": [
@@ -2400,15 +2479,58 @@
             ],
             "limitations": "The model triggered a package of clinician outreach and enhanced care, so the observed association is not an isolated effect of prediction. Historical and subthreshold comparisons require assumptions about trends and confounding. The retained null mortality findings must not be converted into a claim that deaths were prevented. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0310-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8524305/",
+                  "source_refs": [
+                    "AIBD-0310-source-0001"
+                  ],
+                  "title": "Original REACH VET effectiveness evaluation",
+                  "relationship": "Original REACH VET effectiveness evaluation",
+                  "contribution": "The study describes monthly scoring of VHA records to identify each facility’s top 0.1% risk tier. Coordinators use a dashboard to contact clinicians, who reassess treatment and conduct outreach. Its mortality evaluation covers six months, not the later 24-month follow-up.",
+                  "locator": "McCarthy et al. effectiveness study, Introduction and Methods, especially Data Sources and Measures.",
+                  "access_status": "The specified study passages were read in the saved full-text extraction retrieved through the Europe PMC public XML endpoint."
+                },
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12238888/",
+                  "source_refs": [
+                    "AIBD-0310-source-0002"
+                  ],
+                  "title": "Original mortality follow-up study",
+                  "relationship": "Original mortality follow-up study",
+                  "contribution": "The follow-up evaluates mortality at 6, 12, and 24 months and finds no statistically detectable association between REACH VET inclusion and suicide, external-cause, or all-cause mortality. The authors note limited power for small effects on rare outcomes and possible residual differences between groups.",
+                  "locator": "Mortality follow-up, Methods, Results, mortality table, and Discussion.",
+                  "access_status": "The specified study passages were read in the saved full-text extraction retrieved through the Europe PMC public XML endpoint."
+                },
+                {
+                  "url": "https://www.nextgov.com/artificial-intelligence/2024/10/va-updating-its-ai-suicide-risk-model-reach-more-women/400377/",
+                  "source_refs": [
+                    "AIBD-0310-source-0006"
+                  ],
+                  "title": "Original interview reporting about planned changes",
+                  "relationship": "Original interview reporting about planned changes",
+                  "contribution": "A VA official says that the department is updating the algorithm to consider additional variables relevant to women, including military sexual trauma and intimate partner violence. The official says that performance and bias will be evaluated before deployment and gives early 2025 as a target. The article does not confirm that the revised model was deployed.",
+                  "locator": "Nextgov/FCW article of October 18, 2024, the VA official’s statements about additional variables and evaluation before deployment.",
+                  "access_status": "The specified passages were read in saved public-source text."
+                }
+              ],
+              "limitations": "The mortality confidence intervals permit benefits or harms. The reported model revision was a plan, not confirmation of deployment.",
+              "origin_chain": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8524305/; https://pmc.ncbi.nlm.nih.gov/articles/PMC12238888/; https://www.nextgov.com/artificial-intelligence/2024/10/va-updating-its-ai-suicide-risk-model-reach-more-women/400377/"
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at JAMA Network Open 2021 abstract: triple-difference design, clinician interventions, engagement, utilization, and documented attempts. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Each retained proposal was compared with the inspected passages. Fields outside this scope retain their prior review status.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0310-source-0001"
+            "AIBD-0310-source-0001",
+            "AIBD-0310-source-0002",
+            "AIBD-0310-source-0006"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2464,19 +2586,27 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The model selected patients for attention; clinicians decided whether and how to enhance their care."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VA-authored triple-difference cohort study (173,313 veterans): REACH VET inclusion linked to more completed visits and safety plans and fewer admissions, ED visits and attempts; no mortality effect.",
-          "record_fields": [
-            "summary"
+          "basis": "REACH VET prompted clinician outreach for a risk-ranked group. The later mortality study found no statistically detectable mortality reduction through 24 months. A VA spokesperson described planned model revisions. The mortality confidence intervals permit benefits or harms. The reported model revision was a plan, not confirmation of deployment. Original effectiveness study: Methods; mortality follow-up: Methods and Results; October 2024 Nextgov interview with VA.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0310-source-0001",
+            "AIBD-0310-source-0002",
+            "AIBD-0310-source-0006"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by REACH VET (Recovery Engagement and Coordination for Health - Veterans Enhanced Treatment) suicide-risk predictive model and care-enhancement program remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The model selected patients for attention; clinicians decided whether and how to enhance their care."
+        }
       },
       "systems[].component_role": {
         "state": "value_present",
@@ -2671,67 +2801,42 @@
       "workflow": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "The Department of Veterans Affairs (VA) announced REACH VET (Recovery Engagement and Coordination for Health - Veterans Enhanced Treatment) on 3 April 2017. It had begun as a pilot the previous October and was fully implemented across VA. It uses a predictive model on veterans' health records to identify those at statistically elevated risk of suicide and other adverse outcomes. Once a veteran is identified, a VA mental health or primary care provider reaches out. The provider reviews the condition and treatment plan and decides if enhanced care is needed. Nextgov/FCW (17 July 2025) says the model scans records monthly for the top 0.1% risk tier. It says the variable set was cut from 381 to 61 and about 30,000 veterans were identified in the first year. Nextgov (18 October 2024) gives about 6,700 veterans a month. McCarthy and colleagues published the evaluation in JAMA Network Open on 18 October 2021. They are at the VA Office of Mental Health and Suicide Prevention, which built and runs the program. It covered 173,313 individuals, 40,816 of them in the top 0.1% tier during REACH VET (March 2017 to December 2018). The pre-period (March 2014 to December 2015) had 36,604. Triple-difference analyses found REACH VET associated with more completed outpatient appointments (adjusted triple difference 0.31; 95% CI 0.06 to 0.55). The proportion with new safety plans rose (0.08; 0.06 to 0.10). Mental health admissions (-0.08; -0.10 to -0.05), emergency department (ED) visits (-0.03; -0.06 to -0.01) and documented suicide attempts (-0.05; -0.06 to -0.03) fell. Subcohort analyses found no difference in suicide or all-cause mortality. Care evaluations of identified veterans rose from 46.1% to 87.5% over the period. A 2022 Psychiatric Services paper reports that by October 2020, 98% of identified veterans (N=6,579) were contacted and had care evaluated. Dent, Cooper and McCarthy (JAMA Network Open, 8 July 2025; 266,246 observations) again found no association with suicide, external-cause or all-cause mortality. The 6-month suicide hazard ratio was 1.18 (95% CI 0.83–1.69). Nextgov (2024) reports research finding the model “considered being a white man more of an indicator of potential self-harm than other factors”. The model omitted military sexual trauma; a REACH VET 2.0 adding such factors was planned for early 2025. The program's benefit is a cohort-level association over 2017–2018, not a dated event.",
-            "replication": {
-              "produced_by": [
-                "A predictive model run monthly on VHA electronic health records to rank patients and select the top 0.1% risk tier",
-                "Facility REACH VET coordinators and providers who acknowledge the list, evaluate care, document safety plans and attempt outreach",
-                "A national health system with the data, dashboards and metrics to implement the program at every facility"
-              ],
-              "must_hold": [
-                "Providers act on the list: care evaluations rose from 46.1% to 87.5% of identified veterans between March 2017 and December 2018",
-                "The model's variables fit the population; the original model under-weighted factors relevant to women veterans, per Nextgov",
-                "Outcome ascertainment is comparable across periods; the authors note that closer attention may increase recorded attempts"
-              ],
-              "echoes": [
-                {
-                  "date": "2025-07-08",
-                  "setting": "VA-authored cohort study of 266,246 observations testing suicide, external-cause and all-cause mortality after REACH VET inclusion; found no association at 6, 12 or 24 months (a different endpoint from the 2021 benefit)",
-                  "model_version": "Original REACH VET model",
-                  "outcome": "unknown",
-                  "source": "Dent KR, Cooper S, McCarthy JF (2025) JAMA Netw Open, https://pmc.ncbi.nlm.nih.gov/articles/PMC12238888/"
-                },
-                {
-                  "date": "2025-01-01",
-                  "setting": "REACH VET 2.0 adding military sexual trauma and intimate partner violence as risk factors, planned for early 2025 deployment per Nextgov (date is the start of the planned window); no outcome reported",
-                  "model_version": "REACH VET 2.0",
-                  "outcome": "unknown",
-                  "source": "Nextgov/FCW, 18 October 2024 and 17 July 2025"
-                }
-              ]
-            }
-          }
+          "kind": "text",
+          "text": "The monthly risk list prompted VA providers to contact selected veterans, reassess treatment and add care or safety planning when needed."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "replication"
+          "kind": "curatorial",
+          "basis": "REACH VET prompted clinician outreach for a risk-ranked group. The later mortality study found no statistically detectable mortality reduction through 24 months. A VA spokesperson described planned model revisions. The mortality confidence intervals permit benefits or harms. The reported model revision was a plan, not confirmation of deployment. Original effectiveness study: Methods; mortality follow-up: Methods and Results; October 2024 Nextgov interview with VA.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0310-source-0001",
+            "AIBD-0310-source-0002",
+            "AIBD-0310-source-0006"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The monthly risk list prompted VA providers to contact selected veterans, reassess treatment and add care or safety planning when needed."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 43,
-      "reviewed": 3,
+      "known": 46,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 40,
-      "review_not_assessed": 48,
+      "reviewed_partial": 8,
+      "record_mapped": 39,
+      "review_not_assessed": 44,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 43,
+        "value_present": 46,
         "not_reported": 0,
-        "unresolved": 48,
+        "unresolved": 45,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

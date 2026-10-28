@@ -1,14 +1,14 @@
 {
   "id": "AIBD-0180",
   "title": "RBI Innovation Hub's MuleHunter.AI adopted by 23 banks; RBI declines to disclose mule accounts found",
-  "summary": "MediaNama's RTI (December 2025) found 23 banks had implemented RBIH's MuleHunter.AI, which analyzes transaction patterns to spot mule accounts; the RBI refused to release detection figures, citing ...",
+  "summary": "By December 2025, 23 banks had adopted MuleHunter.AI to flag potential mule accounts. RBI withheld detection totals, so adoption does not establish fraud losses avoided.",
   "date_observed": "2025-12-30",
   "date_basis": "unassessed",
   "date_precision": "unassessed",
   "benefit_status": "intended",
   "source_collection": null,
   "source_entry": null,
-  "account": "MediaNama (Prabhanu Kumar Das) reported on 30 December 2025 on a Right to Information response. It showed 23 banks had implemented MuleHunter.AI as of 10 December 2025. That was up from at least 15 in August and nearly 20 in November 2025. The report named Canara Bank, Punjab National Bank, Bank of India, Bank of Baroda, AU Small Finance Bank and Federal Bank. The tool was developed by the Reserve Bank Innovation Hub (RBIH). It analyzes transaction and account activity patterns across banks to identify accounts likely used as mules in financial fraud. The Reserve Bank of India (RBI) said that it cannot provide data on the number of mule accounts identified or acted upon through MuleHunter.AI. The reason given was that it holds such information in a fiduciary capacity with banks and disclosure could harm competitive interests. RBI Governor Sanjay Malhotra is reported as saying that the tool is showing a good success rate, without figures. RBIH's own project page was not available. News headlines from May to September 2026 describe an I4C-RBIH memorandum and deployment across 31 banks. The articles behind those headlines are not among the sources.",
+  "account": "MediaNama (Prabhanu Kumar Das) reported on 30 December 2025 on a Right to Information response. It showed 23 banks had implemented MuleHunter.AI as of 10 December 2025. That was up from at least 15 in August and nearly 20 in November 2025. The report named Canara Bank, Punjab National Bank, Bank of India, Bank of Baroda, AU Small Finance Bank and Federal Bank. The tool was developed by the Reserve Bank Innovation Hub (RBIH). It analyzes transaction and account patterns within each participating bank’s infrastructure to identify likely mule accounts. RBIH’s technical documentation says that personally identifiable information is not exchanged with the hub. The Reserve Bank of India (RBI) said that it cannot provide data on the number of mule accounts identified or acted upon through MuleHunter.AI. The reason given was that it holds such information in a fiduciary capacity with banks and disclosure could harm competitive interests. RBI Governor Sanjay Malhotra is reported as saying that the tool is showing a good success rate, without figures. An official May 12, 2026 release confirms an I4C-RBIH memorandum to use suspect identifiers and mule-account intelligence for model improvement. A later 31-bank deployment count remains unverified here.",
   "category": "general benefit",
   "unexpected": false,
   "purpose": "Identify bank accounts likely used as money mules in financial fraud.",
@@ -36,7 +36,7 @@
   ],
   "ai_role": {
     "status": "unassessed",
-    "statement": "The tool is described as AI-based pattern analysis across banks. No detection result is available to assess its contribution. RBIH, a central-bank subsidiary, developed it. Commercial and public-sector banks deploy it."
+    "statement": "MuleHunter.AI uses supervised analysis of account and transaction patterns within participating banks. RBIH develops the system, while banks operate it and decide what action to take. Public account-level detection and action totals remain unavailable."
   },
   "evidence": [
     {
@@ -56,15 +56,25 @@
       "date": "2026-05-12",
       "written_by": "makers",
       "quote": null
+    },
+    {
+      "kind": "descriptive report",
+      "citation": "RBIH MuleHunter.AI technical documentation",
+      "title": "RBIH MuleHunter.AI technical documentation",
+      "url": "https://docs.rbihub.in/mule-hunter",
+      "date": null,
+      "written_by": "makers",
+      "quote": null,
+      "supports_benefit": false
     }
   ],
   "replication": {
     "produced_by": [
-      "Cross-bank transaction and account-activity pattern analysis run by a central-bank-owned hub"
+      "Supervised analysis of account and transaction patterns within each participating bank’s infrastructure"
     ],
     "must_hold": [
-      "Bank adoption and data sharing with the hub",
-      "Public disclosure of detection outcomes, without which no evaluation is possible"
+      "Bank adoption and integration with its own transaction and account data",
+      "Public disclosure of detection and action outcomes is needed to assess effectiveness"
     ],
     "echoes": [
       {
@@ -134,11 +144,11 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: one independent news report and the makers' press release. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "claim_basis": "Sources: one independent news report, the makers' descriptive report and the makers' press release. For the benefit itself, the cited sources include no independent study or report and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0180",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "d5386eae1d035e65a01f37f3b52537159eb427726768225cb89f725438eaeb4b",
+    "source_fingerprint": "7a3c80fdeda1be37d83d947bca5497ddcf4570e2c853755eb976f792df2fb0ca",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -155,7 +165,8 @@
     ],
     "source_ids": [
       "AIBD-0180-source-0001",
-      "AIBD-0180-source-0002"
+      "AIBD-0180-source-0002",
+      "AIBD-0180-source-0003"
     ],
     "families": {
       "strategic assessments": {
@@ -265,19 +276,25 @@
         "coverage": "partial"
       },
       "ai_contribution": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MediaNama's RTI (December 2025) found 23 banks had implemented RBIH's MuleHunter.AI, which analyzes transaction patterns to spot mule accounts; the RBI refused to release detection figures, citing ...",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "A causal or process account is needed that separates the AI contribution from human work, conventional software, and concurrent changes."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "MuleHunter.AI uses supervised analysis of account and transaction patterns within participating banks. RBIH develops the system, while banks operate it and decide what action to take. Public account-level detection and action totals remain unavailable."
         },
-        "reason": "The tool is described as AI-based pattern analysis across banks. No detection result is available to assess its contribution. RBIH, a central-bank subsidiary, developed it. Commercial and public-sector banks deploy it. The separate contribution of AI remains unassessed; comparison with human work, ordinary software, and simultaneous changes is needed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Correct the centralized cross-bank implication while preserving the outcome limitation. Deployment and data-handling documentation, substantive indexed text",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0180-source-0003"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "MuleHunter.AI uses supervised analysis of account and transaction patterns within participating banks. RBIH develops the system, while banks operate it and decide what action to take. Public account-level detection and action totals remain unavailable."
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -287,7 +304,7 @@
             "category": "general benefit",
             "ai_role": {
               "status": "unassessed",
-              "statement": "The tool is described as AI-based pattern analysis across banks. No detection result is available to assess its contribution. RBIH, a central-bank subsidiary, developed it. Commercial and public-sector banks deploy it."
+              "statement": "MuleHunter.AI uses supervised analysis of account and transaction patterns within participating banks. RBIH develops the system, while banks operate it and decide what action to take. Public account-level detection and action totals remain unavailable."
             }
           }
         },
@@ -400,7 +417,7 @@
             "confidence": "medium",
             "evidence_word": "reported",
             "claim_status": "Independently reported",
-            "basis": "Sources: one independent news report and the makers' press release. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "basis": "Sources: one independent news report, the makers' descriptive report and the makers' press release. For the benefit itself, the cited sources include no independent study or report and no finding by a regulator or court.",
             "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
           }
         },
@@ -531,33 +548,22 @@
       "brief": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "answer": "MediaNama's RTI (December 2025) found 23 banks had implemented RBIH's MuleHunter.AI, which analyzes transaction patterns to spot mule accounts; the RBI refused to release detection figures, citing ...\n\nBank adoption is not a count of confirmed mule accounts, losses avoided, or customers protected. RBI declined to disclose the relevant outcome counts, and an unquantified “good success rate” cannot replace them. False flags and consequences for legitimate customers also remain unassessed.\n\nThe tool is described as AI-based pattern analysis across banks. No detection result is available to assess its contribution. RBIH, a central-bank subsidiary, developed it. Commercial and public-sector banks deploy it.",
-            "source_refs": [
-              "AIBD-0180-source-0001",
-              "AIBD-0180-source-0002"
-            ],
-            "scope": "A presentation of the retained summary and available qualifications, not new evidence review or a complete synthesis of every claim."
-          }
+          "kind": "text",
+          "text": "By December 2025, 23 banks had adopted MuleHunter.AI to flag potential mule accounts. RBI withheld detection totals, so adoption does not establish fraud losses avoided."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Curatorial presentation of the retained case summary and existing qualifications. No external source was opened and no new evidentiary judgment was made for this brief.",
-          "record_fields": [
-            "summary",
-            "title",
-            "ai_role"
-          ],
+          "kind": "source_review",
+          "basis": "The brief retains the former cross-bank analysis description instead of the corrected bank-local processing mechanism. Deployment and data-handling documentation, substantive indexed text",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0180-source-0001",
-            "AIBD-0180-source-0002"
-          ]
+            "AIBD-0180-source-0003"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "MediaNama's RTI (December 2025) found 23 banks had implemented RBIH's MuleHunter.AI, which analyzes transaction patterns to spot mule accounts; the RBI refused to release detection figures, citing ...\n\nBank adoption is not a count of confirmed mule accounts, losses avoided, or customers protected. RBI declined to disclose the relevant outcome counts, and an unquantified “good success rate” cannot replace them. False flags and consequences for legitimate customers also remain unassessed.\n\nThe tool is described as AI-based pattern analysis across banks. No detection result is available to assess its contribution. RBIH, a central-bank subsidiary, developed it. Commercial and public-sector banks deploy it."
+          "answer": "By December 2025, 23 banks had adopted MuleHunter.AI to flag potential mule accounts. RBI withheld detection totals, so adoption does not establish fraud losses avoided."
         }
       },
       "case_kind": {
@@ -682,40 +688,22 @@
       "claims[].proposition": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "retained_case_account": "MediaNama (Prabhanu Kumar Das) reported on 30 December 2025 on a Right to Information response. It showed 23 banks had implemented MuleHunter.AI as of 10 December 2025. That was up from at least 15 in August and nearly 20 in November 2025. The report named Canara Bank, Punjab National Bank, Bank of India, Bank of Baroda, AU Small Finance Bank and Federal Bank. The tool was developed by the Reserve Bank Innovation Hub (RBIH). It analyzes transaction and account activity patterns across banks to identify accounts likely used as mules in financial fraud. The Reserve Bank of India (RBI) said that it cannot provide data on the number of mule accounts identified or acted upon through MuleHunter.AI. The reason given was that it holds such information in a fiduciary capacity with banks and disclosure could harm competitive interests. RBI Governor Sanjay Malhotra is reported as saying that the tool is showing a good success rate, without figures. RBIH's own project page was not available. News headlines from May to September 2026 describe an I4C-RBIH memorandum and deployment across 31 banks. The articles behind those headlines are not among the sources.",
-            "retained_ai_contribution_statement": {
-              "status": "unassessed",
-              "statement": "The tool is described as AI-based pattern analysis across banks. No detection result is available to assess its contribution. RBIH, a central-bank subsidiary, developed it. Commercial and public-sector banks deploy it."
-            },
-            "retained_source_statements": [
-              {
-                "source_ref": "AIBD-0180-source-0001",
-                "statement": "cannot provide data on the number of mule accounts identified or acted upon through MuleHunter.AI",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              }
-            ],
-            "scope": "Existing assertions are preserved as a case-level bundle. They have not been separated into atomic claims or independently verified by this assignment."
-          }
+          "kind": "text",
+          "text": "By December 2025, 23 banks had adopted MuleHunter.AI to flag potential mule accounts. RBI withheld detection totals, so adoption does not establish fraud losses avoided."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the retained case or existing profile metadata. This assignment performs no new source review or evidentiary assessment.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "The brief retains the former cross-bank analysis description instead of the corrected bank-local processing mechanism. Deployment and data-handling documentation, substantive indexed text",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0180-source-0001",
-            "AIBD-0180-source-0002"
-          ]
+            "AIBD-0180-source-0003"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "MediaNama's RTI (December 2025) found 23 banks had implemented RBIH's MuleHunter.AI, which analyzes transaction patterns to spot mule accounts; the RBI refused to release detection figures, citing ..."
+          "answer": "By December 2025, 23 banks had adopted MuleHunter.AI to flag potential mule accounts. RBI withheld detection totals, so adoption does not establish fraud losses avoided."
         }
       },
       "cross_border_flows[]": {
@@ -1335,16 +1323,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MediaNama's RTI (December 2025) found 23 banks had implemented RBIH's MuleHunter.AI, which analyzes transaction patterns to spot mule accounts; the RBI refused to release detection figures, citing ...",
-          "record_fields": [
-            "summary"
+          "basis": "account; RTI wording on accounts identified or acted upon.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0180-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of MuleHunter.AI in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "A bank-facing detection tool supplies leads, while the RTI distinguishes accounts identified from accounts acted upon. No automatic enforcement authority is described.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Bank fraud teams probably review the flagged accounts and decide what action to take. The reported deployment does not establish that the model independently freezes accounts.",
+          "editor_note": "A bank-facing detection tool supplies leads, while the RTI distinguishes accounts identified from accounts acted upon. No automatic enforcement authority is described."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1436,7 +1428,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "MediaNama (Prabhanu Kumar Das) reported on 30 December 2025 on a Right to Information response. It showed 23 banks had implemented MuleHunter.AI as of 10 December 2025. That was up from at least 15 in August and nearly 20 in November 2025. The report named Canara Bank, Punjab National Bank, Bank of India, Bank of Baroda, AU Small Finance Bank and Federal Bank. The tool was developed by the Reserve Bank Innovation Hub (RBIH). It analyzes transaction and account activity patterns across banks to identify accounts likely used as mules in financial fraud. The Reserve Bank of India (RBI) said that it cannot provide data on the number of mule accounts identified or acted upon through MuleHunter.AI. The reason given was that it holds such information in a fiduciary capacity with banks and disclosure could harm competitive interests. RBI Governor Sanjay Malhotra is reported as saying that the tool is showing a good success rate, without figures. RBIH's own project page was not available. News headlines from May to September 2026 describe an I4C-RBIH memorandum and deployment across 31 banks. The articles behind those headlines are not among the sources.",
+            "account": "MediaNama (Prabhanu Kumar Das) reported on 30 December 2025 on a Right to Information response. It showed 23 banks had implemented MuleHunter.AI as of 10 December 2025. That was up from at least 15 in August and nearly 20 in November 2025. The report named Canara Bank, Punjab National Bank, Bank of India, Bank of Baroda, AU Small Finance Bank and Federal Bank. The tool was developed by the Reserve Bank Innovation Hub (RBIH). It analyzes transaction and account patterns within each participating bank’s infrastructure to identify likely mule accounts. RBIH’s technical documentation says that personally identifiable information is not exchanged with the hub. The Reserve Bank of India (RBI) said that it cannot provide data on the number of mule accounts identified or acted upon through MuleHunter.AI. The reason given was that it holds such information in a fiduciary capacity with banks and disclosure could harm competitive interests. RBI Governor Sanjay Malhotra is reported as saying that the tool is showing a good success rate, without figures. An official May 12, 2026 release confirms an I4C-RBIH memorandum to use suspect identifiers and mule-account intelligence for model improvement. A later 31-bank deployment count remains unverified here.",
             "benefit_type": "Reduced Risk"
           }
         },
@@ -1468,19 +1460,26 @@
         "coverage": "partial"
       },
       "outcomes[].duration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Twenty-three banks had implemented the tool by December 10, 2025. The May 2026 I4C agreement concerns a later expansion of information sharing and should be dated separately."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MediaNama's RTI (December 2025) found 23 banks had implemented RBIH's MuleHunter.AI, which analyzes transaction patterns to spot mule accounts; the RBI refused to release detection figures, citing ...",
-          "record_fields": [
-            "summary"
+          "basis": "account and PIB release of May 12, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0180-source-0001",
+            "AIBD-0180-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Dated observation of the same outcome and population is needed to establish persistence or recurrence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The duration of the claimed benefit is not separately established. Dated follow-up on the same outcome is needed to distinguish a one-time result from recurring or sustained benefit; later work on another system or population does not establish persistence here. The recorded follow-up says: I4C and RBIH signed an MoU to feed suspect identifiers from I4C's Suspect Registry into MuleHunter.ai and to use the data to retrain it.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Twenty-three banks had implemented the tool by December 10, 2025. The May 2026 I4C agreement concerns a later expansion of information sharing and should be dated separately."
+        }
       },
       "outcomes[].id": {
         "state": "unresolved",
@@ -1550,16 +1549,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MediaNama's RTI (December 2025) found 23 banks had implemented RBIH's MuleHunter.AI, which analyzes transaction patterns to spot mule accounts; the RBI refused to release detection figures, citing ...",
-          "record_fields": [
-            "summary"
+          "basis": "account and ai_role; adoption without disclosed detection or action counts.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0180-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Pattern-based detection can flag both fraud and unusual legitimate transactions, and the RTI withholds the account-level results needed to assess that balance.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The main unresolved tradeoff is how many genuine mule accounts the banks identify against legitimate accounts that they flag incorrectly. The adoption count cannot answer that question.",
+          "editor_note": "Pattern-based detection can flag both fraud and unusual legitimate transactions, and the RTI withholds the account-level results needed to assess that balance."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1684,11 +1687,11 @@
           "fields": {
             "replication": {
               "produced_by": [
-                "Cross-bank transaction and account-activity pattern analysis run by a central-bank-owned hub"
+                "Supervised analysis of account and transaction patterns within each participating bank’s infrastructure"
               ],
               "must_hold": [
-                "Bank adoption and data sharing with the hub",
-                "Public disclosure of detection outcomes, without which no evaluation is possible"
+                "Bank adoption and integration with its own transaction and account data",
+                "Public disclosure of detection and action outcomes is needed to assess effectiveness"
               ],
               "echoes": [
                 {
@@ -1719,11 +1722,11 @@
           "fields": {
             "replication": {
               "produced_by": [
-                "Cross-bank transaction and account-activity pattern analysis run by a central-bank-owned hub"
+                "Supervised analysis of account and transaction patterns within each participating bank’s infrastructure"
               ],
               "must_hold": [
-                "Bank adoption and data sharing with the hub",
-                "Public disclosure of detection outcomes, without which no evaluation is possible"
+                "Bank adoption and integration with its own transaction and account data",
+                "Public disclosure of detection and action outcomes is needed to assess effectiveness"
               ],
               "echoes": [
                 {
@@ -1822,24 +1825,66 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.medianama.com/2025/12/223-rti-23-banks-mulehunter-mule-accounts/",
+                "source_refs": [
+                  "AIBD-0180-source-0001"
+                ],
+                "title": "original RTI reporting",
+                "relationship": "original RTI reporting",
+                "contribution": "RBI reported 23 banks as of December 10, 2025, but declined to release account detection or action counts.",
+                "locator": "RTI response and implementation count",
+                "access_status": "Full article retrieved publicly and read; saved 019-180-rti.txt"
+              },
+              {
+                "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260277",
+                "source_refs": [
+                  "AIBD-0180-source-0002"
+                ],
+                "title": "official later announcement",
+                "relationship": "official later announcement",
+                "contribution": "The memorandum supports use of I4C's Suspect Registry to improve detection and training; it is a later event.",
+                "locator": "May 12, 2026 I4C-RBIH memorandum",
+                "access_status": "Full substantive release read"
+              },
+              {
+                "url": "https://docs.rbihub.in/mule-hunter",
+                "source_refs": [
+                  "AIBD-0180-source-0003",
+                  "AIBD-0180-source-0001",
+                  "AIBD-0180-source-0002"
+                ],
+                "title": "original technical documentation",
+                "relationship": "original technical documentation",
+                "contribution": "RBIH describes supervised learning inside each bank's infrastructure, no exchange of PII with RBIH, and anonymized MIS extracts for monitoring.",
+                "locator": "data handling and deployment",
+                "access_status": "Substantive indexed text read; direct extraction returned only the page title"
+              }
+            ],
+            "latest_limitations": "The RTI response attachment and full technical page were not obtained. Detection performance remains undisclosed."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0180-source-0001",
-            "AIBD-0180-source-0002"
+            "AIBD-0180-source-0002",
+            "AIBD-0180-source-0003"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The RTI response attachment and full technical page were not obtained. Detection performance remains undisclosed."
         }
       },
       "sources[].citation_locator": {
@@ -1864,6 +1909,14 @@
                 "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260277",
                 "date": "2026-05-12",
                 "written_by": "makers"
+              },
+              {
+                "kind": "descriptive report",
+                "citation": "RBIH MuleHunter.AI technical documentation",
+                "title": "RBIH MuleHunter.AI technical documentation",
+                "url": "https://docs.rbihub.in/mule-hunter",
+                "written_by": "makers",
+                "supports_benefit": false
               }
             ]
           }
@@ -1885,9 +1938,10 @@
           "kind": "identifiers",
           "identifiers": [
             "AIBD-0180-source-0001",
-            "AIBD-0180-source-0002"
+            "AIBD-0180-source-0002",
+            "AIBD-0180-source-0003"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained evidence in reviewed order"
         },
         "provenance": {
           "kind": "curatorial",
@@ -1941,6 +1995,14 @@
                 "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260277",
                 "date": "2026-05-12",
                 "written_by": "makers"
+              },
+              {
+                "kind": "descriptive report",
+                "citation": "RBIH MuleHunter.AI technical documentation",
+                "title": "RBIH MuleHunter.AI technical documentation",
+                "url": "https://docs.rbihub.in/mule-hunter",
+                "written_by": "makers",
+                "supports_benefit": false
               }
             ]
           }
@@ -1971,27 +2033,104 @@
                   "AIBD-0180-source-0001"
                 ],
                 "locator": "MediaNama December 30, 2025 report: RTI response on 23 banks and the refusal to disclose identified or actioned accounts",
-                "contribution": "MediaNama reports its own RTI response. The response document and underlying bank data were not independently obtained in this pass."
+                "contribution": "MediaNama reports its own RTI response. The response document and underlying bank data were not independently obtained in this pass.",
+                "latest_inspection": {
+                  "title": "original RTI reporting",
+                  "relationship": "original RTI reporting",
+                  "contribution": "RBI reported 23 banks as of December 10, 2025, but declined to release account detection or action counts.",
+                  "locator": "RTI response and implementation count",
+                  "access_status": "Full article retrieved publicly and read; saved 019-180-rti.txt"
+                }
+              },
+              {
+                "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260277",
+                "source_refs": [
+                  "AIBD-0180-source-0002"
+                ],
+                "title": "official later announcement",
+                "relationship": "official later announcement",
+                "contribution": "The memorandum supports use of I4C's Suspect Registry to improve detection and training; it is a later event.",
+                "locator": "May 12, 2026 I4C-RBIH memorandum",
+                "access_status": "Full substantive release read"
+              },
+              {
+                "url": "https://docs.rbihub.in/mule-hunter",
+                "source_refs": [
+                  "AIBD-0180-source-0003",
+                  "AIBD-0180-source-0001",
+                  "AIBD-0180-source-0002"
+                ],
+                "title": "original technical documentation",
+                "relationship": "original technical documentation",
+                "contribution": "RBIH describes supervised learning inside each bank's infrastructure, no exchange of PII with RBIH, and anonymized MIS extracts for monitoring.",
+                "locator": "data handling and deployment",
+                "access_status": "Substantive indexed text read; direct extraction returned only the page title"
               }
             ],
             "retained_source_order": [
               "AIBD-0180-source-0001",
-              "AIBD-0180-source-0002"
+              "AIBD-0180-source-0002",
+              "AIBD-0180-source-0003"
             ],
             "unreviewed_source_refs": [
               "AIBD-0180-source-0002"
             ],
             "limitations": "Bank adoption is not a count of confirmed mule accounts, losses avoided, or customers protected. RBI declined to disclose the relevant outcome counts, and an unquantified “good success rate” cannot replace them. False flags and consequences for legitimate customers also remain unassessed. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0180-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.medianama.com/2025/12/223-rti-23-banks-mulehunter-mule-accounts/",
+                  "source_refs": [
+                    "AIBD-0180-source-0001"
+                  ],
+                  "title": "original RTI reporting",
+                  "relationship": "original RTI reporting",
+                  "contribution": "RBI reported 23 banks as of December 10, 2025, but declined to release account detection or action counts.",
+                  "locator": "RTI response and implementation count",
+                  "access_status": "Full article retrieved publicly and read; saved 019-180-rti.txt"
+                },
+                {
+                  "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260277",
+                  "source_refs": [
+                    "AIBD-0180-source-0002"
+                  ],
+                  "title": "official later announcement",
+                  "relationship": "official later announcement",
+                  "contribution": "The memorandum supports use of I4C's Suspect Registry to improve detection and training; it is a later event.",
+                  "locator": "May 12, 2026 I4C-RBIH memorandum",
+                  "access_status": "Full substantive release read"
+                },
+                {
+                  "url": "https://docs.rbihub.in/mule-hunter",
+                  "source_refs": [
+                    "AIBD-0180-source-0003",
+                    "AIBD-0180-source-0001",
+                    "AIBD-0180-source-0002"
+                  ],
+                  "title": "original technical documentation",
+                  "relationship": "original technical documentation",
+                  "contribution": "RBIH describes supervised learning inside each bank's infrastructure, no exchange of PII with RBIH, and anonymized MIS extracts for monitoring.",
+                  "locator": "data handling and deployment",
+                  "access_status": "Substantive indexed text read; direct extraction returned only the page title"
+                }
+              ],
+              "limitations": "The RTI response attachment and full technical page were not obtained. Detection performance remains undisclosed.",
+              "origin_chain": "MediaNama's RTI reporting; later primary PIB announcement; RBIH technical documentation located and partially read."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at MediaNama December 30, 2025 report: RTI response on 23 banks and the refusal to disclose identified or actioned accounts. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Four proposals survive. Any claim that transaction-level personal data are centrally pooled across banks requires correction.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0180-source-0001"
+            "AIBD-0180-source-0001",
+            "AIBD-0180-source-0002",
+            "AIBD-0180-source-0003"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2026,8 +2165,8 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "summary": "MediaNama's RTI (December 2025) found 23 banks had implemented RBIH's MuleHunter.AI, which analyzes transaction patterns to spot mule accounts; the RBI refused to release detection figures, citing ...",
-            "account": "MediaNama (Prabhanu Kumar Das) reported on 30 December 2025 on a Right to Information response. It showed 23 banks had implemented MuleHunter.AI as of 10 December 2025. That was up from at least 15 in August and nearly 20 in November 2025. The report named Canara Bank, Punjab National Bank, Bank of India, Bank of Baroda, AU Small Finance Bank and Federal Bank. The tool was developed by the Reserve Bank Innovation Hub (RBIH). It analyzes transaction and account activity patterns across banks to identify accounts likely used as mules in financial fraud. The Reserve Bank of India (RBI) said that it cannot provide data on the number of mule accounts identified or acted upon through MuleHunter.AI. The reason given was that it holds such information in a fiduciary capacity with banks and disclosure could harm competitive interests. RBI Governor Sanjay Malhotra is reported as saying that the tool is showing a good success rate, without figures. RBIH's own project page was not available. News headlines from May to September 2026 describe an I4C-RBIH memorandum and deployment across 31 banks. The articles behind those headlines are not among the sources."
+            "summary": "By December 2025, 23 banks had adopted MuleHunter.AI to flag potential mule accounts. RBI withheld detection totals, so adoption does not establish fraud losses avoided.",
+            "account": "MediaNama (Prabhanu Kumar Das) reported on 30 December 2025 on a Right to Information response. It showed 23 banks had implemented MuleHunter.AI as of 10 December 2025. That was up from at least 15 in August and nearly 20 in November 2025. The report named Canara Bank, Punjab National Bank, Bank of India, Bank of Baroda, AU Small Finance Bank and Federal Bank. The tool was developed by the Reserve Bank Innovation Hub (RBIH). It analyzes transaction and account patterns within each participating bank’s infrastructure to identify likely mule accounts. RBIH’s technical documentation says that personally identifiable information is not exchanged with the hub. The Reserve Bank of India (RBI) said that it cannot provide data on the number of mule accounts identified or acted upon through MuleHunter.AI. The reason given was that it holds such information in a fiduciary capacity with banks and disclosure could harm competitive interests. RBI Governor Sanjay Malhotra is reported as saying that the tool is showing a good success rate, without figures. An official May 12, 2026 release confirms an I4C-RBIH memorandum to use suspect identifiers and mule-account intelligence for model improvement. A later 31-bank deployment count remains unverified here."
           }
         },
         "provenance": {
@@ -2058,19 +2197,25 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "MuleHunter.AI identifies suspicious account behavior for banks to investigate. Adoption by 23 banks establishes deployment, but the available RTI response does not establish how many mule accounts it detected or stopped."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MediaNama's RTI (December 2025) found 23 banks had implemented RBIH's MuleHunter.AI, which analyzes transaction patterns to spot mule accounts; the RBI refused to release detection figures, citing ...",
-          "record_fields": [
-            "summary"
+          "basis": "account and MediaNama's original RTI reporting.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0180-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation is needed that explains each component’s role."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The role of each component in MuleHunter.AI remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "MuleHunter.AI identifies suspicious account behavior for banks to investigate. Adoption by 23 banks establishes deployment, but the available RTI response does not establish how many mule accounts it detected or stopped."
+        }
       },
       "systems[].deployment_configuration": {
         "state": "unresolved",
@@ -2215,9 +2360,9 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "d5386eae1d035e65a01f37f3b52537159eb427726768225cb89f725438eaeb4b"
+            "7a3c80fdeda1be37d83d947bca5497ddcf4570e2c853755eb976f792df2fb0ca"
           ],
-          "role": "SHA-256 of normalized original case data"
+          "role": "SHA-256 of normalized case data"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2233,14 +2378,14 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "MediaNama (Prabhanu Kumar Das) reported on 30 December 2025 on a Right to Information response. It showed 23 banks had implemented MuleHunter.AI as of 10 December 2025. That was up from at least 15 in August and nearly 20 in November 2025. The report named Canara Bank, Punjab National Bank, Bank of India, Bank of Baroda, AU Small Finance Bank and Federal Bank. The tool was developed by the Reserve Bank Innovation Hub (RBIH). It analyzes transaction and account activity patterns across banks to identify accounts likely used as mules in financial fraud. The Reserve Bank of India (RBI) said that it cannot provide data on the number of mule accounts identified or acted upon through MuleHunter.AI. The reason given was that it holds such information in a fiduciary capacity with banks and disclosure could harm competitive interests. RBI Governor Sanjay Malhotra is reported as saying that the tool is showing a good success rate, without figures. RBIH's own project page was not available. News headlines from May to September 2026 describe an I4C-RBIH memorandum and deployment across 31 banks. The articles behind those headlines are not among the sources.",
+            "account": "MediaNama (Prabhanu Kumar Das) reported on 30 December 2025 on a Right to Information response. It showed 23 banks had implemented MuleHunter.AI as of 10 December 2025. That was up from at least 15 in August and nearly 20 in November 2025. The report named Canara Bank, Punjab National Bank, Bank of India, Bank of Baroda, AU Small Finance Bank and Federal Bank. The tool was developed by the Reserve Bank Innovation Hub (RBIH). It analyzes transaction and account patterns within each participating bank’s infrastructure to identify likely mule accounts. RBIH’s technical documentation says that personally identifiable information is not exchanged with the hub. The Reserve Bank of India (RBI) said that it cannot provide data on the number of mule accounts identified or acted upon through MuleHunter.AI. The reason given was that it holds such information in a fiduciary capacity with banks and disclosure could harm competitive interests. RBI Governor Sanjay Malhotra is reported as saying that the tool is showing a good success rate, without figures. An official May 12, 2026 release confirms an I4C-RBIH memorandum to use suspect identifiers and mule-account intelligence for model improvement. A later 31-bank deployment count remains unverified here.",
             "replication": {
               "produced_by": [
-                "Cross-bank transaction and account-activity pattern analysis run by a central-bank-owned hub"
+                "Supervised analysis of account and transaction patterns within each participating bank’s infrastructure"
               ],
               "must_hold": [
-                "Bank adoption and data sharing with the hub",
-                "Public disclosure of detection outcomes, without which no evaluation is possible"
+                "Bank adoption and integration with its own transaction and account data",
+                "Public disclosure of detection and action outcomes is needed to assess effectiveness"
               ],
               "echoes": [
                 {
@@ -2269,18 +2414,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 3,
+      "known": 41,
+      "reviewed": 11,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 34,
-      "review_not_assessed": 54,
+      "reviewed_partial": 11,
+      "record_mapped": 32,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 41,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 50,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

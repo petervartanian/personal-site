@@ -1860,19 +1860,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Papyrologists reviewed and interpreted the recovered passages, while virtual-unwrapping specialists preserved the spatial order of the scroll layers."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: ML ink detection let contestants read 2,000+ characters of a sealed Herculaneum scroll; papyrologists confirmed the text (Feb 2024).",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: named papyrologists and accurate segmentation requirement.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0013-source-0001",
+            "AIBD-0013-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Vesuvius Challenge grand-prize ink-detection models (TimeSformer-based ensemble) applied to virtually unwrapped CT segments in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Papyrologists reviewed and interpreted the recovered passages, while virtual-unwrapping specialists preserved the spatial order of the scroll layers."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1894,19 +1901,26 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The project depended on synchrotron CT, accurate virtual unwrapping, labeled ink texture, and expert reading of the output."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: ML ink detection let contestants read 2,000+ characters of a sealed Herculaneum scroll; papyrologists confirmed the text (Feb 2024).",
-          "record_fields": [
-            "summary"
+          "basis": "replication.produced_by: imaging, segmentation, training labels, and papyrological review.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0013-source-0001",
+            "AIBD-0013-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for Vesuvius Challenge grand-prize ink-detection models (TimeSformer-based ensemble) applied to virtually unwrapped CT segments has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The project depended on synchrotron CT, accurate virtual unwrapping, labeled ink texture, and expert reading of the output."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -2087,16 +2101,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: ML ink detection let contestants read 2,000+ characters of a sealed Herculaneum scroll; papyrologists confirmed the text (Feb 2024).",
-          "record_fields": [
-            "summary"
+          "basis": "ai_role and replication.must_hold: invisible raw ink signal and accurate segmentation for letter order.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0013-source-0001",
+            "AIBD-0013-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The system inferred ink from subtle scan texture after flattening. The retained requirements distinguish successful ink detection from preservation of the manuscript's geometry.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The model probably made otherwise unreadable ink texture visible, but incorrect layer segmentation could still assemble plausible-looking letters in the wrong order.",
+          "editor_note": "The system inferred ink from subtle scan texture after flattening. The retained requirements distinguish successful ink detection from preservation of the manuscript's geometry."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2367,27 +2386,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0013-source-0001",
-            "AIBD-0013-source-0002",
-            "AIBD-0013-source-0003",
-            "AIBD-0013-source-0004",
-            "AIBD-0013-source-0005"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://scrollprize.org/grandprize",
+                "source_refs": [
+                  "AIBD-0013-source-0001"
+                ],
+                "title": "original contest result and methods account",
+                "relationship": "original contest result and methods account",
+                "contribution": "Organizers describe 15 columns and over 2,000 characters, independent blinded reading of submissions, and code reproduction. The machine-learning output is an ink image rather than an automatic Greek interpretation.",
+                "locator": "Grand Prize, TimeSformer submission, segmentation and papyrologist review",
+                "access_status": "Full body retrieved; methods and judging sections read; saved 012-013.txt"
+              }
+            ],
+            "latest_limitations": "The specific scroll's attribution remains tentative, and most of it was unread at the announcement. The code was described but not rerun in this audit."
+          }
         },
-        "reason": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0013-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The specific scroll's attribution remains tentative, and most of it was unread at the announcement. The code was described but not rerun in this audit."
         }
       },
       "sources[].citation_locator": {
@@ -2565,25 +2597,68 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://scrollprize.org/grandprize",
+                "source_refs": [
+                  "AIBD-0013-source-0001"
+                ],
+                "title": "original contest result and methods account",
+                "relationship": "original contest result and methods account",
+                "contribution": "Organizers describe 15 columns and over 2,000 characters, independent blinded reading of submissions, and code reproduction. The machine-learning output is an ink image rather than an automatic Greek interpretation.",
+                "locator": "Grand Prize, TimeSformer submission, segmentation and papyrologist review",
+                "access_status": "Full body retrieved; methods and judging sections read; saved 012-013.txt"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://scrollprize.org/grandprize",
+                  "source_refs": [
+                    "AIBD-0013-source-0001"
+                  ],
+                  "title": "original contest result and methods account",
+                  "relationship": "original contest result and methods account",
+                  "contribution": "Organizers describe 15 columns and over 2,000 characters, independent blinded reading of submissions, and code reproduction. The machine-learning output is an ink image rather than an automatic Greek interpretation.",
+                  "locator": "Grand Prize, TimeSformer submission, segmentation and papyrologist review",
+                  "access_status": "Full body retrieved; methods and judging sections read; saved 012-013.txt"
+                }
+              ],
+              "limitations": "The specific scroll's attribution remains tentative, and most of it was unread at the announcement. The code was described but not rerun in this audit.",
+              "origin_chain": "Organizer's result announcement and technical description of the winning submission."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0013-source-0001",
+            "retained_source_order": [
+              "AIBD-0013-source-0001",
+              "AIBD-0013-source-0002",
+              "AIBD-0013-source-0003",
+              "AIBD-0013-source-0004",
+              "AIBD-0013-source-0005"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. All four proposals survive.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0013-source-0001",
-            "AIBD-0013-source-0002",
-            "AIBD-0013-source-0003",
-            "AIBD-0013-source-0004",
-            "AIBD-0013-source-0005"
+            "AIBD-0013-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "The contest’s grand-prize and first-word announcements are originating project accounts. The university and news coverage should be traced to their underlying scans, outputs, and papyrological assessments rather than counted as separate experiments. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The contest’s grand-prize and first-word announcements are originating project accounts. The university and news coverage should be traced to their underlying scans, outputs, and papyrological assessments rather than counted as separate experiments. The source chain has not been independently checked in this pass."
+          "answer": "Organizers describe 15 columns and over 2,000 characters, independent blinded reading of submissions, and code reproduction. The machine-learning output is an ink image rather than an automatic Greek interpretation."
         }
       },
       "strategic_assessments[]": {
@@ -2683,19 +2758,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Ink-detection models processed flattened CT segments of the carbonized scroll and generated images from which Greek letters could be read."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: ML ink detection let contestants read 2,000+ characters of a sealed Herculaneum scroll; papyrologists confirmed the text (Feb 2024).",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: CT texture, virtual unwrapping, and ink-image output.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0013-source-0001",
+            "AIBD-0013-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Vesuvius Challenge grand-prize ink-detection models (TimeSformer-based ensemble) applied to virtually unwrapped CT segments have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Ink-detection models processed flattened CT segments of the carbonized scroll and generated images from which Greek letters could be read."
+        }
       },
       "systems[].model_name": {
         "state": "value_present",
@@ -2886,18 +2968,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 50,
-      "reviewed": 3,
+      "known": 55,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 48,
-      "review_not_assessed": 40,
+      "review_not_assessed": 35,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 50,
+        "value_present": 55,
         "not_reported": 0,
-        "unresolved": 41,
+        "unresolved": 36,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

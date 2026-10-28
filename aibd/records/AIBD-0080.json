@@ -1434,19 +1434,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Clinicians pursued CT or PET-CT and biopsy after the flags, then selected treatment after confirming cancer."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: qXR flagged nodules on X-rays done for other reasons; CT/biopsy confirmed early-stage lung cancer in five adults; four had surgery.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: follow-up imaging, tissue confirmation, and treatment choices.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0080-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of qXR in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Clinicians pursued CT or PET-CT and biopsy after the flags, then selected treatment after confirming cancer."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1483,19 +1489,25 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The report concerns five patients with confirmed early-stage lung cancer: four underwent surgery, and one chose chemotherapy alone."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: qXR flagged nodules on X-rays done for other reasons; CT/biopsy confirmed early-stage lung cancer in five adults; four had surgery.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: five patient histories and treatment outcomes.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0080-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has personal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The report concerns five patients with confirmed early-stage lung cancer: four underwent surgery, and one chose chemotherapy alone."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1653,16 +1665,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: qXR flagged nodules on X-rays done for other reasons; CT/biopsy confirmed early-stage lung cancer in five adults; four had surgery.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: selected cancer cases without radiologist comparison or false-positive denominator.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0080-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Only confirmed cancer cases are described, and the original radiology findings are not reported. That selection supports individual pathways but not the service's net detection yield.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely value was prompting attention to unsuspected lung findings during unrelated care, but the series cannot show how many additional scans or benign biopsies the same routine screening generated.",
+          "editor_note": "Only confirmed cancer cases are described, and the original radiology findings are not reported. That selection supports individual pathways but not the service's net detection yield."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1918,25 +1934,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0080-source-0001",
-            "AIBD-0080-source-0002",
-            "AIBD-0080-source-0003"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13058629/fullTextXML",
+                "source_refs": [
+                  "AIBD-0080-source-0001"
+                ],
+                "title": "original case series",
+                "relationship": "original case series",
+                "contribution": "Consecutive chest X-rays passed through qXR, with radiologist and pulmonologist review leading to CT/PET and biopsy. Four patients had surgery; one refused surgery and received chemotherapy.",
+                "locator": "Methods, five case reports, Table 1",
+                "access_status": "Full text retrieved and read; saved 010-080.txt"
+              }
+            ],
+            "latest_limitations": "A selected five-case series cannot establish an incremental detection rate or prove that the original radiologists missed every nodule."
+          }
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0080-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "A selected five-case series cannot establish an incremental detection rate or prove that the original radiologists missed every nodule."
         }
       },
       "sources[].citation_locator": {
@@ -2076,27 +2107,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0080-source-0001",
-            "AIBD-0080-source-0002"
-          ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13058629/fullTextXML",
+                "source_refs": [
+                  "AIBD-0080-source-0001"
+                ],
+                "title": "original case series",
+                "relationship": "original case series",
+                "contribution": "Consecutive chest X-rays passed through qXR, with radiologist and pulmonologist review leading to CT/PET and biopsy. Four patients had surgery; one refused surgery and received chemotherapy.",
+                "locator": "Methods, five case reports, Table 1",
+                "access_status": "Full text retrieved and read; saved 010-080.txt"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13058629/fullTextXML",
+                  "source_refs": [
+                    "AIBD-0080-source-0001"
+                  ],
+                  "title": "original case series",
+                  "relationship": "original case series",
+                  "contribution": "Consecutive chest X-rays passed through qXR, with radiologist and pulmonologist review leading to CT/PET and biopsy. Four patients had surgery; one refused surgery and received chemotherapy.",
+                  "locator": "Methods, five case reports, Table 1",
+                  "access_status": "Full text retrieved and read; saved 010-080.txt"
+                }
+              ],
+              "limitations": "A selected five-case series cannot establish an incremental detection rate or prove that the original radiologists missed every nodule.",
+              "origin_chain": "Journal article to full author text in Europe PMC."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0080-source-0001",
+            "retained_source_order": [
+              "AIBD-0080-source-0001",
+              "AIBD-0080-source-0002",
+              "AIBD-0080-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "The retained source trail for qXR flags suspicious nodules on chest X-rays taken for non-respiratory reasons; five adults without respiratory symptoms diagnosed with early-stage lung cancer has not been fully verified. The references support this editorial screening only.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. All four proposals survive; they preserve clinical confirmation and treatment decisions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0080-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The retained references have not been fully traced to their original evidence."
+          "answer": "Consecutive chest X-rays passed through qXR, with radiologist and pulmonologist review leading to CT/PET and biopsy. Four patients had surgery; one refused surgery and received chemotherapy."
         }
       },
       "strategic_assessments[]": {
@@ -2187,19 +2257,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "qXR screened routine chest radiographs for nodules and flagged suspicious findings on films obtained for non-respiratory reasons."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: qXR flagged nodules on X-rays done for other reasons; CT/biopsy confirmed early-stage lung cancer in five adults; four had surgery.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: routine deployment and five incidental nodule cases.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0080-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of qXR have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "qXR screened routine chest radiographs for nodules and flagged suspicious findings on films obtained for non-respiratory reasons."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2362,18 +2438,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 39,
-      "reviewed": 3,
+      "known": 44,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 37,
-      "review_not_assessed": 51,
+      "review_not_assessed": 46,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 39,
+        "value_present": 44,
         "not_reported": 0,
-        "unresolved": 52,
+        "unresolved": 47,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

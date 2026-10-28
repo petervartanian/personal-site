@@ -487,19 +487,26 @@
         "coverage": "partial"
       },
       "availability": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Cambium offers conversations with synthetic personas to help teams explore prices, messages, and product ideas; research accuracy and business benefits remain unverified.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "A dated source establishing the terms of access is needed."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Cambium announced the persona-chat feature in January 2026."
         },
-        "reason": "Access to Cambium Chat with Personas; synthetic populations and an LLM interface has not been established for a stated date. A published demonstration does not establish public availability.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Cambium’s January launch post offers conversations with synthetic personas. Its earlier market-validation example is hypothetical and recommends real interviews. January 8, 2026 launch post and September 23, 2025 market-validation article.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0585-source-0001",
+            "AIBD-0585-source-0002"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Cambium announced the persona-chat feature in January 2026."
+        }
       },
       "brief": {
         "state": "value_present",
@@ -1524,16 +1531,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Cambium offers conversations with synthetic personas to help teams explore prices, messages, and product ideas; research accuracy and business benefits remain unverified.",
-          "record_fields": [
-            "summary"
+          "basis": "Cambium’s January launch post offers conversations with synthetic personas. Its earlier market-validation example is hypothetical and recommends real interviews. January 8, 2026 launch post and September 23, 2025 market-validation article.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0585-source-0001",
+            "AIBD-0585-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The personas generate plausible reactions, but the sources do not show that those reactions predict purchases.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A convincing simulated customer could give a founder false confidence in demand.",
+          "editor_note": "The personas generate plausible reactions, but the sources do not show that those reactions predict purchases."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1748,12 +1760,38 @@
               "title": "Introducing Chat with Personas",
               "date": "2026-01-08",
               "qualification": "The original public account establishes chronology; it does not establish a realized benefit."
-            }
+            },
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://blog.cambium.ai/introducing-chat-with-personas",
+                "source_refs": [
+                  "AIBD-0585-source-0001"
+                ],
+                "title": "Developer’s feature launch announcement",
+                "relationship": "Developer’s feature launch announcement",
+                "contribution": "Cambium announces chat with synthetic personas generated from public datasets. Its workflow analyzes a business website, generates audience profiles, and lets the user question a selected persona. The announcement does not validate those responses against purchasing behavior.",
+                "locator": "Cambium post of January 8, 2026, How it Works and Get Started for Free.",
+                "access_status": "The specified passages were read in saved public-source text."
+              },
+              {
+                "url": "https://blog.cambium.ai/market-validation-with-synthetic-personas",
+                "source_refs": [
+                  "AIBD-0585-source-0002"
+                ],
+                "title": "Developer’s methodological guidance",
+                "relationship": "Developer’s methodological guidance",
+                "contribution": "Cambium describes synthetic personas as demographic composites and recommends treating their responses as hypotheses, followed by real customer interviews. This guidance does not constitute a measured customer outcome.",
+                "locator": "Cambium post of September 23, 2025, Key takeaways and best-practice guidance.",
+                "access_status": "The specified passages were read in saved public-source text."
+              }
+            ],
+            "latest_limitations": "No validation establishes that generated personas predict actual purchasing decisions."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Recorded the inspected source versions and access limitations; this does not imply access to unavailable upstream evidence.",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0585-source-0001",
@@ -1762,7 +1800,10 @@
           "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
-        "coverage": "complete"
+        "coverage": "complete",
+        "display": {
+          "answer": "No validation establishes that generated personas predict actual purchasing decisions."
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1903,7 +1944,14 @@
                 "display_name": "Introducing Chat with Personas",
                 "contribution": "Company announcement, workflow, intended applications, and reported beta use.",
                 "locator": "Introducing Chat with Personas; How it Works; 3 Ways to Use Chat with Personas Today.",
-                "relationship": "Original maker announcement of the feature and reported early use."
+                "relationship": "Original maker announcement of the feature and reported early use.",
+                "latest_inspection": {
+                  "title": "Developer’s feature launch announcement",
+                  "relationship": "Developer’s feature launch announcement",
+                  "contribution": "Cambium announces chat with synthetic personas generated from public datasets. Its workflow analyzes a business website, generates audience profiles, and lets the user question a selected persona. The announcement does not validate those responses against purchasing behavior.",
+                  "locator": "Cambium post of January 8, 2026, How it Works and Get Started for Free.",
+                  "access_status": "The specified passages were read in saved public-source text."
+                }
               },
               {
                 "url": "https://blog.cambium.ai/market-validation-with-synthetic-personas",
@@ -1913,7 +1961,14 @@
                 "display_name": "How to validate a market with synthetic personas in 2026",
                 "contribution": "Company guide treats simulated feedback as hypothesis development and recommends real customer validation.",
                 "locator": "Key takeaways, especially the recommendation to validate simulated responses through real customer interviews.",
-                "relationship": "Same maker's methodological guidance adds a material validation limitation; it is not independent corroboration."
+                "relationship": "Same maker's methodological guidance adds a material validation limitation; it is not independent corroboration.",
+                "latest_inspection": {
+                  "title": "Developer’s methodological guidance",
+                  "relationship": "Developer’s methodological guidance",
+                  "contribution": "Cambium describes synthetic personas as demographic composites and recommends treating their responses as hypotheses, followed by real customer interviews. This guidance does not constitute a measured customer outcome.",
+                  "locator": "Cambium post of September 23, 2025, Key takeaways and best-practice guidance.",
+                  "access_status": "The specified passages were read in saved public-source text."
+                }
               }
             ],
             "lead_source_ref": "AIBD-0585-source-0001",
@@ -1955,17 +2010,48 @@
                 "locator": "Issuer and Cambridge, U.K. dateline.",
                 "contribution": "The company release supports developer geography; it is not independent benefit evidence."
               }
-            ]
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://blog.cambium.ai/introducing-chat-with-personas",
+                  "source_refs": [
+                    "AIBD-0585-source-0001"
+                  ],
+                  "title": "Developer’s feature launch announcement",
+                  "relationship": "Developer’s feature launch announcement",
+                  "contribution": "Cambium announces chat with synthetic personas generated from public datasets. Its workflow analyzes a business website, generates audience profiles, and lets the user question a selected persona. The announcement does not validate those responses against purchasing behavior.",
+                  "locator": "Cambium post of January 8, 2026, How it Works and Get Started for Free.",
+                  "access_status": "The specified passages were read in saved public-source text."
+                },
+                {
+                  "url": "https://blog.cambium.ai/market-validation-with-synthetic-personas",
+                  "source_refs": [
+                    "AIBD-0585-source-0002"
+                  ],
+                  "title": "Developer’s methodological guidance",
+                  "relationship": "Developer’s methodological guidance",
+                  "contribution": "Cambium describes synthetic personas as demographic composites and recommends treating their responses as hypotheses, followed by real customer interviews. This guidance does not constitute a measured customer outcome.",
+                  "locator": "Cambium post of September 23, 2025, Key takeaways and best-practice guidance.",
+                  "access_status": "The specified passages were read in saved public-source text."
+                }
+              ],
+              "limitations": "No validation establishes that generated personas predict actual purchasing decisions.",
+              "origin_chain": "https://blog.cambium.ai/introducing-chat-with-personas; https://blog.cambium.ai/market-validation-with-synthetic-personas"
+            },
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Traced the retained evidence to the reviewed original accounts and preserved shared origins, chronology, and access limits.",
+          "basis": "Case-specific public-source inspection. The proposed answers were checked against the inspected original passages.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0585-source-0001",
-            "AIBD-0585-source-0002",
-            "https://www.prlog.org/13114586-cambium-ai-launches-25-brands-unwrapped-daily-audit-of-brands-using-synthetic-data.html"
+            "AIBD-0585-source-0002"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2232,18 +2318,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 40,
-      "reviewed": 20,
+      "known": 41,
+      "reviewed": 22,
       "reviewed_complete": 19,
-      "reviewed_partial": 1,
+      "reviewed_partial": 3,
       "record_mapped": 20,
-      "review_not_assessed": 51,
+      "review_not_assessed": 49,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 40,
+        "value_present": 41,
         "not_reported": 0,
-        "unresolved": 51,
+        "unresolved": 50,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

@@ -1678,16 +1678,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: NRW Interior Ministry, 28 Oct 2022: Palantir-based DAR resolved an amok-threat email against Siegen's city administration in seconds and identified 51 of about 100 people at a Duisburg clan shooting.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: rapid email identification and opposition criticism.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0367-source-0001",
+            "AIBD-0367-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The reported speed gains came from linking existing records, and the same arrangement drew data-protection objections.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Cross-register search probably saved repeated manual queries, while expanding the amount of personal information that an investigator could assemble quickly.",
+          "editor_note": "The reported speed gains came from linking existing records, and the same arrangement drew data-protection objections."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1944,26 +1949,51 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0367-source-0001",
-            "AIBD-0367-source-0002",
-            "AIBD-0367-source-0003",
-            "AIBD-0367-source-0004"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.welt.de/regionales/nrw/article241830977/Ministerium-Palantir-klaerte-unter-anderem-Amokdrohung-auf.html",
+                "source_refs": [
+                  "AIBD-0367-source-0001"
+                ],
+                "title": "original agency reporting republished",
+                "relationship": "original agency reporting republished",
+                "contribution": "Email-based identification in Siegen and linked records in Duisburg are attributed to officials; cross-register search is the described function.",
+                "locator": "Dpa report, ministry and police quotations",
+                "access_status": "Original content inspected in the saved public-source retrieval."
+              },
+              {
+                "url": "https://www.landtag.nrw.de/portal/WWW/dokumentenarchiv/Dokument/MMA18-49.pdf",
+                "source_refs": [
+                  "AIBD-0367-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "The committee discussed the DAR system, its costs, training and rights implications. Direct PDF extraction failed after the indexed excerpt was inspected.",
+                "locator": "Official committee record, indexed excerpt on printed p. 33",
+                "access_status": "indexed original excerpt inspected; complete relevant pages unavailable"
+              }
+            ],
+            "latest_limitations": "The incident accounts remain direct official claims reported by dpa. Exa returned CRAWL_UNKNOWN_ERROR for the parliamentary PDF; web retrieval subsequently returned 502 and direct download was reset."
+          }
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0367-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The incident accounts remain direct official claims reported by dpa. Exa returned CRAWL_UNKNOWN_ERROR for the parliamentary PDF; web retrieval subsequently returned 502 and direct download was reset."
         }
       },
       "sources[].citation_locator": {
@@ -2121,24 +2151,89 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.welt.de/regionales/nrw/article241830977/Ministerium-Palantir-klaerte-unter-anderem-Amokdrohung-auf.html",
+                "source_refs": [
+                  "AIBD-0367-source-0001"
+                ],
+                "title": "original agency reporting republished",
+                "relationship": "original agency reporting republished",
+                "contribution": "Email-based identification in Siegen and linked records in Duisburg are attributed to officials; cross-register search is the described function.",
+                "locator": "Dpa report, ministry and police quotations",
+                "access_status": "Original content inspected in the saved public-source retrieval."
+              },
+              {
+                "url": "https://www.landtag.nrw.de/portal/WWW/dokumentenarchiv/Dokument/MMA18-49.pdf",
+                "source_refs": [
+                  "AIBD-0367-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "The committee discussed the DAR system, its costs, training and rights implications. Direct PDF extraction failed after the indexed excerpt was inspected.",
+                "locator": "Official committee record, indexed excerpt on printed p. 33",
+                "access_status": "indexed original excerpt inspected; complete relevant pages unavailable"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.welt.de/regionales/nrw/article241830977/Ministerium-Palantir-klaerte-unter-anderem-Amokdrohung-auf.html",
+                  "source_refs": [
+                    "AIBD-0367-source-0001"
+                  ],
+                  "title": "original agency reporting republished",
+                  "relationship": "original agency reporting republished",
+                  "contribution": "Email-based identification in Siegen and linked records in Duisburg are attributed to officials; cross-register search is the described function.",
+                  "locator": "Dpa report, ministry and police quotations",
+                  "access_status": "Original content inspected in the saved public-source retrieval."
+                },
+                {
+                  "url": "https://www.landtag.nrw.de/portal/WWW/dokumentenarchiv/Dokument/MMA18-49.pdf",
+                  "source_refs": [
+                    "AIBD-0367-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "The committee discussed the DAR system, its costs, training and rights implications. Direct PDF extraction failed after the indexed excerpt was inspected.",
+                  "locator": "Official committee record, indexed excerpt on printed p. 33",
+                  "access_status": "indexed original excerpt inspected; complete relevant pages unavailable"
+                }
+              ],
+              "limitations": "The incident accounts remain direct official claims reported by dpa. Exa returned CRAWL_UNKNOWN_ERROR for the parliamentary PDF; web retrieval subsequently returned 502 and direct download was reset.",
+              "origin_chain": "Retained Welt and RP reports are republications of one dpa report; the cited October 27 committee proceedings were located and partially accessible."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0367-source-0001",
+            "retained_source_order": [
+              "AIBD-0367-source-0001",
+              "AIBD-0367-source-0002",
+              "AIBD-0367-source-0003",
+              "AIBD-0367-source-0004"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs systems[].autonomy_permissions outcomes[].tradeoffs",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0367-source-0001",
-            "AIBD-0367-source-0002",
-            "AIBD-0367-source-0003",
-            "AIBD-0367-source-0004"
+            "AIBD-0367-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "WELT and RP Online relay the deploying ministry and an investigator; the local report supplies threat context. OECD’s AI label is secondary classification, not technical evidence. The ministry is an interested operator despite the outlets’ independence. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "WELT and RP Online relay the deploying ministry and an investigator; the local report supplies threat context. OECD’s AI label is secondary classification, not technical evidence. The ministry is an interested operator despite the outlets’ independence. The source chain has not been independently checked in this pass."
+          "answer": "Email-based identification in Siegen and linked records in Duisburg are attributed to officials; cross-register search is the described function."
         }
       },
       "strategic_assessments[]": {
@@ -2185,19 +2280,26 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Investigators used returned links to identify and assess suspects; the described software did not independently establish guilt or make arrests."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: NRW Interior Ministry, 28 Oct 2022: Palantir-based DAR resolved an amok-threat email against Siegen's city administration in seconds and identified 51 of about 100 people at a Duisburg clan shooting.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and AI-role assessment: record linking for police investigations.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0367-source-0001",
+            "AIBD-0367-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by DAR (Datenbankübergreifende Recherche und Analyse), Palantir software used by North Rhine-Westphalia police remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Investigators used returned links to identify and assess suspects; the described software did not independently establish guilt or make arrests."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2230,19 +2332,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "DAR linked an email address and other identifiers across police cases, weapons records, residents’ records and wanted-person records."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: NRW Interior Ministry, 28 Oct 2022: Palantir-based DAR resolved an amok-threat email against Siegen's city administration in seconds and identified 51 of about 100 people at a Duisburg clan shooting.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: linked registers and Siegen email search.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0367-source-0001",
+            "AIBD-0367-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of DAR (Datenbankübergreifende Recherche und Analyse), Palantir software used by North Rhine-Westphalia police have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "DAR linked an email address and other identifiers across police cases, weapons records, residents’ records and wanted-person records."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2417,18 +2526,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 38,
-      "reviewed": 3,
+      "known": 42,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 36,
-      "review_not_assessed": 52,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 38,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 53,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

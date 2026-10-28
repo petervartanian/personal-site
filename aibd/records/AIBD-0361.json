@@ -1381,19 +1381,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Scientists and reef managers interpreted the classifications and decided how to use them in monitoring or management. The pages do not identify an automatic management intervention."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AIMS states ReefScan uses machine learning for real-time object classification and ReefCloud automates benthic image analysis; no reef management decision attributed to the AI was found.",
-          "record_fields": [
-            "summary"
+          "basis": "AIMS original ReefCloud description.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0361-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of AIMS ReefScan (machine-learning object identification on imaging and robotic platforms) and ReefCloud (automated benthic image analysis platform) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Scientists and reef managers interpreted the classifications and decided how to use them in monitoring or management. The pages do not identify an automatic management intervention."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1415,19 +1421,26 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "ReefScan combined imaging equipment and, in some configurations, robotic vehicles with cloud processing. ReefCloud depended on uploaded survey imagery and a shared online analysis environment."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AIMS states ReefScan uses machine learning for real-time object classification and ReefCloud automates benthic image analysis; no reef management decision attributed to the AI was found.",
-          "record_fields": [
-            "summary"
+          "basis": "AIMS original technology descriptions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0361-source-0001",
+            "AIBD-0361-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for AIMS ReefScan (machine-learning object identification on imaging and robotic platforms) and ReefCloud (automated benthic image analysis platform) has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "ReefScan combined imaging equipment and, in some configurations, robotic vehicles with cloud processing. ReefCloud depended on uploaded survey imagery and a shared online analysis environment."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1601,16 +1614,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AIMS states ReefScan uses machine learning for real-time object classification and ReefCloud automates benthic image analysis; no reef management decision attributed to the AI was found.",
-          "record_fields": [
-            "summary"
+          "basis": "AIMS ReefCloud description of standardization and long-term monitoring.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0361-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The platform combines imagery from different programs and field methods, making consistency a necessary condition for interpreting change.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Automation can reduce routine image-labeling work, but comparable monitoring still depends on consistent surveys and trustworthy classifications across reef conditions.",
+          "editor_note": "The platform combines imagery from different programs and field methods, making consistency a necessary condition for interpreting change."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1848,25 +1865,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.aims.gov.au/research/technology/reefscan",
+                "source_refs": [
+                  "AIBD-0361-source-0001"
+                ],
+                "title": "Original developer description",
+                "relationship": "Original developer description",
+                "contribution": "Modular manually operated and robotic imaging systems use machine-learning classification and cloud workflows.",
+                "locator": "How ReefScan works",
+                "access_status": "Full page read"
+              },
+              {
+                "url": "https://www.aims.gov.au/research/technology/reefcloud",
+                "source_refs": [
+                  "AIBD-0361-source-0002"
+                ],
+                "title": "Original developer description",
+                "relationship": "Original developer description",
+                "contribution": "Users upload reef imagery for automated benthic analysis; the claimed gain is reduced processing work.",
+                "locator": "Platform description and collaborators",
+                "access_status": "Full page read"
+              }
+            ],
+            "latest_limitations": "No source-level evaluation for the advertised 90% accuracy or timing claim was newly located."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0361-source-0001",
-            "AIBD-0361-source-0002",
-            "AIBD-0361-source-0003"
+            "AIBD-0361-source-0002"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No source-level evaluation for the advertised 90% accuracy or timing claim was newly located."
         }
       },
       "sources[].citation_locator": {
@@ -2014,7 +2058,25 @@
                   "AIBD-0361-source-0001"
                 ],
                 "locator": "AIMS ReefScan page: “How ReefScan works” and “Empowering new groups” sections",
-                "contribution": "The developer’s page describes capabilities and intended research support. A controlled processing-time study or downstream conservation evaluation was not reviewed."
+                "contribution": "The developer’s page describes capabilities and intended research support. A controlled processing-time study or downstream conservation evaluation was not reviewed.",
+                "latest_inspection": {
+                  "title": "Original developer description",
+                  "relationship": "Original developer description",
+                  "contribution": "Modular manually operated and robotic imaging systems use machine-learning classification and cloud workflows.",
+                  "locator": "How ReefScan works",
+                  "access_status": "Full page read"
+                }
+              },
+              {
+                "url": "https://www.aims.gov.au/research/technology/reefcloud",
+                "source_refs": [
+                  "AIBD-0361-source-0002"
+                ],
+                "title": "Original developer description",
+                "relationship": "Original developer description",
+                "contribution": "Users upload reef imagery for automated benthic analysis; the claimed gain is reduced processing work.",
+                "locator": "Platform description and collaborators",
+                "access_status": "Full page read"
               }
             ],
             "retained_source_order": [
@@ -2028,15 +2090,46 @@
             ],
             "limitations": "The product description does not report a measured management action, restored coral area, or avoided ecological damage. ReefScan and ReefCloud are related but distinct products, and the latter’s “weeks in hours” claim cannot be assigned to ReefScan without validation. Awards and tool availability do not establish ecological benefit. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0361-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.aims.gov.au/research/technology/reefscan",
+                  "source_refs": [
+                    "AIBD-0361-source-0001"
+                  ],
+                  "title": "Original developer description",
+                  "relationship": "Original developer description",
+                  "contribution": "Modular manually operated and robotic imaging systems use machine-learning classification and cloud workflows.",
+                  "locator": "How ReefScan works",
+                  "access_status": "Full page read"
+                },
+                {
+                  "url": "https://www.aims.gov.au/research/technology/reefcloud",
+                  "source_refs": [
+                    "AIBD-0361-source-0002"
+                  ],
+                  "title": "Original developer description",
+                  "relationship": "Original developer description",
+                  "contribution": "Users upload reef imagery for automated benthic analysis; the claimed gain is reduced processing work.",
+                  "locator": "Platform description and collaborators",
+                  "access_status": "Full page read"
+                }
+              ],
+              "limitations": "No source-level evaluation for the advertised 90% accuracy or timing claim was newly located.",
+              "origin_chain": "AIMS original product descriptions; broad management benefits are not a dated management intervention."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at AIMS ReefScan page: “How ReefScan works” and “Empowering new groups” sections. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0361-source-0001"
+            "AIBD-0361-source-0001",
+            "AIBD-0361-source-0002"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2134,19 +2227,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "ReefScan collected marine imagery and classified objects. ReefCloud accepted survey images and produced standardized classifications of the seafloor for monitoring and comparison."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AIMS states ReefScan uses machine learning for real-time object classification and ReefCloud automates benthic image analysis; no reef management decision attributed to the AI was found.",
-          "record_fields": [
-            "summary"
+          "basis": "AIMS original ReefScan and ReefCloud pages.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0361-source-0001",
+            "AIBD-0361-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of AIMS ReefScan (machine-learning object identification on imaging and robotic platforms) and ReefCloud (automated benthic image analysis platform) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "ReefScan collected marine imagery and classified objects. ReefCloud accepted survey images and produced standardized classifications of the seafloor for monitoring and comparison."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2313,18 +2413,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 35,
-      "reviewed": 3,
+      "known": 39,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 32,
-      "review_not_assessed": 56,
+      "review_not_assessed": 51,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 35,
+        "value_present": 39,
         "not_reported": 0,
-        "unresolved": 56,
+        "unresolved": 52,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

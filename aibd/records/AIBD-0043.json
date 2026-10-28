@@ -1435,19 +1435,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers fitted predicted protein structures to electron-microscopy maps and checked them against existing and newly measured experimental structures."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Researchers combined AI predictions with electron-microscopy maps to model more than 90% of the human nuclear pore scaffold.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: integrative fitting and experimental benchmarking.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0001",
+            "AIBD-0043-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of AlphaFold and RoseTTAfold for protein structures, with ColabFold for protein complexes in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Researchers fitted predicted protein structures to electron-microscopy maps and checked them against existing and newly measured experimental structures."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1469,19 +1476,26 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The work required protein sequences, usable cryo-electron tomography maps, and experimental reference structures as well as the prediction software."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Researchers combined AI predictions with electron-microscopy maps to model more than 90% of the human nuclear pore scaffold.",
-          "record_fields": [
-            "summary"
+          "basis": "replication: sequences, sufficient map resolution, and independent structures for benchmarking.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0001",
+            "AIBD-0043-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for AlphaFold and RoseTTAfold for protein structures, with ColabFold for protein complexes has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The work required protein sequences, usable cryo-electron tomography maps, and experimental reference structures as well as the prediction software."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1661,16 +1675,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Researchers combined AI predictions with electron-microscopy maps to model more than 90% of the human nuclear pore scaffold.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: roughly doubled scaffold coverage; ai_role and replication: fitting and benchmarking.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0043-source-0001",
+            "AIBD-0043-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Coverage increased to over 90% after predictions were fitted to maps and benchmarked. The method therefore gained completeness through integration rather than replacing experimental constraints.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The predictions probably filled regions that experimental maps alone could not resolve confidently, but their value depended on compatibility with the measured larger assembly.",
+          "editor_note": "Coverage increased to over 90% after predictions were fitted to maps and benchmarked. The method therefore gained completeness through integration rather than replacing experimental constraints."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1925,7 +1944,7 @@
         "value": {
           "kind": "structured",
           "data": {
-            "reviewed_on": "2026-10-25",
+            "reviewed_on": "2026-10-27",
             "versions_and_access": [
               {
                 "source_ref": "AIBD-0043-source-0001",
@@ -1957,25 +1976,36 @@
             ],
             "limitations": [
               "Exact executable builds and the final paper’s supplementary methods remain unverified."
-            ]
+            ],
+            "latest_inspections": [
+              {
+                "url": "https://www.biorxiv.org/content/10.1101/2021.10.26.465776v1.full",
+                "source_refs": [
+                  "AIBD-0043-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "AlphaFold and ColabFold predictions were fitted to cryo-ET maps and compared with unreleased X-ray structures that were excluded from model input. Coverage rose from 46% to over 90% of the scaffold.",
+                "locator": "A near-complete model of the human NPC scaffold",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The 2021 preprint was read; changes in the 2022 journal version were not independently compared."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Read the authors’ original manuscript through its ResearchGate copy, version posted 2 November 2021. Read the original AlphaFold timeline and RoseTTAFold release record for provider attribution. Direct Science, bioRxiv, and the Max Planck final-paper PDF were inaccessible.",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0043-source-0002",
-            "AIBD-0043-source-0001",
-            "AIBD-0043-source-0003",
-            "AIBD-0043-source-0004"
+            "AIBD-0043-source-0001"
           ],
-          "reviewed_on": "2026-10-25"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "An author-posted copy of the November 2021 preprint was accessible. The final Science article and its supplementary methods were unavailable."
+          "answer": "The 2021 preprint was read; changes in the 2022 journal version were not independently compared."
         }
       },
       "sources[].citation_locator": {
@@ -2131,7 +2161,7 @@
         "value": {
           "kind": "structured",
           "data": {
-            "reviewed_on": "2026-10-25",
+            "reviewed_on": "2026-10-27",
             "lead_source_ref": "AIBD-0043-source-0001",
             "retained_source_order": [
               "AIBD-0043-source-0001",
@@ -2149,7 +2179,14 @@
                 "display_name": "bioRxiv",
                 "contribution": "Original manuscript identifies the structure-prediction tools and the coverage of the nuclear pore scaffold.",
                 "locator": "Introduction; Results, “A near-complete model of the human NPC scaffold.”",
-                "relationship": "Original manuscript from the same study as the published Science article. The inspected access copy is the version posted November 2, 2021."
+                "relationship": "Original manuscript from the same study as the published Science article. The inspected access copy is the version posted November 2, 2021.",
+                "latest_inspection": {
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "AlphaFold and ColabFold predictions were fitted to cryo-ET maps and compared with unreleased X-ray structures that were excluded from model input. Coverage rose from 46% to over 90% of the scaffold.",
+                  "locator": "A near-complete model of the human NPC scaffold",
+                  "access_status": "content inspected"
+                }
               },
               {
                 "url": "https://doi.org/10.1126/science.abm9506",
@@ -2211,20 +2248,38 @@
                 ],
                 "relationship": "Published paper and preprint from one study; not independent corroboration."
               }
-            ]
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.biorxiv.org/content/10.1101/2021.10.26.465776v1.full",
+                  "source_refs": [
+                    "AIBD-0043-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "AlphaFold and ColabFold predictions were fitted to cryo-ET maps and compared with unreleased X-ray structures that were excluded from model input. Coverage rose from 46% to over 90% of the scaffold.",
+                  "locator": "A near-complete model of the human NPC scaffold",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The 2021 preprint was read; changes in the 2022 journal version were not independently compared.",
+              "origin_chain": "Retained citation to the original report or research article."
+            },
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Read the authors’ original manuscript through its ResearchGate copy, version posted 2 November 2021. Read the original AlphaFold timeline and RoseTTAFold release record for provider attribution. Direct Science, bioRxiv, and the Max Planck final-paper PDF were inaccessible.",
+          "basis": "Case-specific public-source inspection. human_oversight infrastructure_dependencies[] outcomes[].tradeoffs",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0043-source-0002",
-            "AIBD-0043-source-0001",
-            "AIBD-0043-source-0003",
-            "AIBD-0043-source-0004"
+            "AIBD-0043-source-0001"
           ],
-          "reviewed_on": "2026-10-25"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
@@ -2521,18 +2576,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 42,
-      "reviewed": 11,
+      "known": 44,
+      "reviewed": 14,
       "reviewed_complete": 0,
-      "reviewed_partial": 11,
+      "reviewed_partial": 14,
       "record_mapped": 32,
-      "review_not_assessed": 48,
+      "review_not_assessed": 45,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 42,
+        "value_present": 44,
         "not_reported": 0,
-        "unresolved": 49,
+        "unresolved": 47,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

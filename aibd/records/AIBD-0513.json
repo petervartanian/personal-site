@@ -1188,16 +1188,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: China Telecom describes an interactive museum guide with contextual explanations and personalized routes. Visitor and institutional outcomes remain unmeasured.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed source notes: contextual museum explanations, no factual-accuracy audit.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0513-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Yi Jiang Jie in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The system presents cultural and historical information, where a fluent answer can be inaccurate. The retained account names partner institutions but provides no factual-accuracy audit.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Museum staff would probably need to curate the source material and review generated explanations before relying on the guide for interpretation.",
+          "editor_note": "The system presents cultural and historical information, where a fluent answer can be inaccurate. The retained account names partner institutions but provides no factual-accuracy audit."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1598,23 +1602,41 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-793",
+                "source_refs": [
+                  "AIBD-0513-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read domain-specific LLM/RAG use, museum content, and a pilot table that itself uses tentative language.",
+                "locator": "_idParaDest-793; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_limitations": "Named museums do not establish a completed measured pilot."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0513-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Named museums do not establish a completed measured pilot."
         }
       },
       "sources[].citation_locator": {
@@ -1710,27 +1732,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-793",
+                "source_refs": [
+                  "AIBD-0513-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read domain-specific LLM/RAG use, museum content, and a pilot table that itself uses tentative language.",
+                "locator": "_idParaDest-793; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-793",
+                  "source_refs": [
+                    "AIBD-0513-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Read domain-specific LLM/RAG use, museum content, and a pilot table that itself uses tentative language.",
+                  "locator": "_idParaDest-793; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
+              ],
+              "limitations": "Named museums do not establish a completed measured pilot.",
+              "origin_chain": "China Telecom submission → ITU; museum catalog links are content sources."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0513-source-0001",
+            "retained_source_order": [
+              "AIBD-0513-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. China Telecom's submission names museum and heritage partners. Visitor studies, institutional outcomes, and factual-accuracy audits were not inspected. Partner names do not independently verify the broad impact claims.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0513-source-0001"
           ],
-          "reviewed_on": "2026-10-27",
-          "attempted_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "China Telecom's submission names museum and heritage partners. Visitor studies, institutional outcomes, and factual-accuracy audits were not inspected. Partner names do not independently verify the broad impact claims.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "China Telecom's submission names museum and heritage partners. Visitor studies, institutional outcomes, and factual-accuracy audits were not inspected. Partner names do not independently verify the broad impact claims."
+          "answer": "Read domain-specific LLM/RAG use, museum content, and a pilot table that itself uses tentative language."
         }
       },
       "strategic_assessments[]": {
@@ -1819,19 +1880,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Yi Jiang Jie is intended to respond to visitors with contextual museum explanations and personalized routes."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: China Telecom describes an interactive museum guide with contextual explanations and personalized routes. Visitor and institutional outcomes remain unmeasured.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: interactive guide, explanations, route personalization, development ongoing.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0513-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Yi Jiang Jie have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Yi Jiang Jie is intended to respond to visitors with contextual museum explanations and personalized routes."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -1988,18 +2055,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 30,
-      "reviewed": 3,
+      "known": 33,
+      "reviewed": 6,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 6,
       "record_mapped": 28,
-      "review_not_assessed": 60,
+      "review_not_assessed": 57,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 30,
+        "value_present": 33,
         "not_reported": 0,
-        "unresolved": 61,
+        "unresolved": 58,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

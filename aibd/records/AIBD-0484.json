@@ -1201,16 +1201,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Next Step Fusion reports that reinforcement learning controlled plasma parameters at DIII-D during 2023–24 and improved controller training. Energy benefits remain future-facing.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed missingness: DIII-D research, controlled-shot comparisons and stability limits absent.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0484-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Next Step Fusion reinforcement-learning plasma controller in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The retained account places control within a national fusion research program, not a self-directed energy plant. The permissible parameters, shutdown safeguards, and stability limits remain unspecified.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Researchers probably set the experimental objectives and operating limits and supervise the controller during plasma shots.",
+          "editor_note": "The retained account places control within a national fusion research program, not a self-directed energy plant. The permissible parameters, shutdown safeguards, and stability limits remain unspecified."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1232,34 +1236,44 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system depends on a plasma simulator for training and a real-time C/C++ interface to the tokamak’s plasma control system for experimental operation."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Next Step Fusion reports that reinforcement learning controlled plasma parameters at DIII-D during 2023–24 and improved controller training. Energy benefits remain future-facing.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-616: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0484-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for Next Step Fusion reinforcement-learning plasma controller has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The system depends on a plasma simulator for training and a real-time C/C++ interface to the tokamak’s plasma control system for experimental operation."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Next Step Fusion reports that reinforcement learning controlled plasma parameters at DIII-D during 2023–24 and improved controller training. Energy benefits remain future-facing.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed missingness: research results versus usable energy.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0484-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has organizational, societal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The reported results concern experimental control and training, with no net energy production or commercial plant outcome.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The immediate beneficiaries are fusion researchers developing plasma-control methods; electricity consumers remain prospective beneficiaries.",
+          "editor_note": "The reported results concern experimental control and training, with no net energy production or commercial plant outcome."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1611,23 +1625,63 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-616",
+                "source_refs": [
+                  "AIBD-0484-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read Soft Actor-Critic, privileged training observations, simulator-to-control-system integration, and the cited DIII-D research. Read the experimental paper abstract and the simulator paper abstract/introduction.",
+                "locator": "_idParaDest-616; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://arxiv.org/abs/2506.13267",
+                "source_refs": [
+                  "AIBD-0484-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "The paper reports DIII-D control from the first discharge without tuning, not electricity production.",
+                "locator": "Experimental-controller abstract",
+                "access_status": "Read"
+              },
+              {
+                "url": "https://arxiv.org/html/2412.03786v1",
+                "source_refs": [
+                  "AIBD-0484-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "Five plasma shapes are compared with magnetic data and established simulators.",
+                "locator": "Simulator validation",
+                "access_status": "Abstract and introduction read"
+              }
+            ],
+            "latest_limitations": "The first paper abstract supports control from the first discharge without tuning; the simulator paper compares five plasma shapes. Neither establishes commercial electricity benefits. Full papers were not fully read."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0484-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The first paper abstract supports control from the first discharge without tuning; the simulator paper compares five plasma shapes. Neither establishes commercial electricity benefits. Full papers were not fully read."
         }
       },
       "sources[].citation_locator": {
@@ -1723,21 +1777,110 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-616",
+                "source_refs": [
+                  "AIBD-0484-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read Soft Actor-Critic, privileged training observations, simulator-to-control-system integration, and the cited DIII-D research. Read the experimental paper abstract and the simulator paper abstract/introduction.",
+                "locator": "_idParaDest-616; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://arxiv.org/abs/2506.13267",
+                "source_refs": [
+                  "AIBD-0484-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "The paper reports DIII-D control from the first discharge without tuning, not electricity production.",
+                "locator": "Experimental-controller abstract",
+                "access_status": "Read"
+              },
+              {
+                "url": "https://arxiv.org/html/2412.03786v1",
+                "source_refs": [
+                  "AIBD-0484-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "Five plasma shapes are compared with magnetic data and established simulators.",
+                "locator": "Simulator validation",
+                "access_status": "Abstract and introduction read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-616",
+                  "source_refs": [
+                    "AIBD-0484-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Read Soft Actor-Critic, privileged training observations, simulator-to-control-system integration, and the cited DIII-D research. Read the experimental paper abstract and the simulator paper abstract/introduction.",
+                  "locator": "_idParaDest-616; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                },
+                {
+                  "url": "https://arxiv.org/abs/2506.13267",
+                  "source_refs": [
+                    "AIBD-0484-source-0001"
+                  ],
+                  "title": "Cited upstream original or public access route",
+                  "relationship": "Cited upstream original or public access route",
+                  "contribution": "The paper reports DIII-D control from the first discharge without tuning, not electricity production.",
+                  "locator": "Experimental-controller abstract",
+                  "access_status": "Read"
+                },
+                {
+                  "url": "https://arxiv.org/html/2412.03786v1",
+                  "source_refs": [
+                    "AIBD-0484-source-0001"
+                  ],
+                  "title": "Cited upstream original or public access route",
+                  "relationship": "Cited upstream original or public access route",
+                  "contribution": "Five plasma shapes are compared with magnetic data and established simulators.",
+                  "locator": "Simulator validation",
+                  "access_status": "Abstract and introduction read"
+                }
+              ],
+              "limitations": "The first paper abstract supports control from the first discharge without tuning; the simulator paper compares five plasma shapes. Neither establishes commercial electricity benefits. Full papers were not fully read.",
+              "origin_chain": "ITU submission → https://arxiv.org/abs/2506.13267 (experimental controller) and https://arxiv.org/html/2412.03786v1 (simulator validation)."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0484-source-0001",
+            "retained_source_order": [
+              "AIBD-0484-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex compared the retained account and evidence with selected sections of the original ITU project submission (_idParaDest-616; Sections 2.1–2.3). This is a partial source review; underlying claims are not independently verified, and no human approval is implied.",
+          "basis": "Case-specific public-source inspection. systems[].autonomy_permissions human_oversight outcomes[].beneficiaries systems[].model_name infrastructure_dependencies[]",
           "record_fields": [],
           "source_refs": [
             "AIBD-0484-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "ITU’s Use Case 13 conveys Next Step Fusion’s account. The relevant experimental publications, shot records, and independent DIII-D confirmation are not separately retained. The project submission was read at _idParaDest-616; Sections 2.1–2.3. The publication-page error was bypassed through ITU’s public API; external references and underlying measurements remain unreviewed.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "ITU’s Use Case 13 conveys Next Step Fusion’s account. The relevant experimental publications, shot records, and independent DIII-D confirmation are not separately retained. The project submission was read at _idParaDest-616; Sections 2.1–2.3. The publication-page error was bypassed through ITU’s public API; external references and underlying measurements remain unreviewed."
+          "answer": "Read Soft Actor-Critic, privileged training observations, simulator-to-control-system integration, and the cited DIII-D research. Read the experimental paper abstract and the simulator paper abstract/introduction."
         }
       },
       "strategic_assessments[]": {
@@ -1781,19 +1924,25 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The reinforcement-learning controller is reported to have controlled plasma parameters during DIII-D research experiments in 2023–24."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Next Step Fusion reports that reinforcement learning controlled plasma parameters at DIII-D during 2023–24 and improved controller training. Energy benefits remain future-facing.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: experimental parameter control and controller training at DIII-D.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0484-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Next Step Fusion reinforcement-learning plasma controller remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The reinforcement-learning controller is reported to have controlled plasma parameters during DIII-D research experiments in 2023–24."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -1841,19 +1990,25 @@
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The control system uses Soft Actor-Critic reinforcement learning, with a critic that receives additional simulation state during training."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Next Step Fusion reports that reinforcement learning controlled plasma parameters at DIII-D during 2023–24 and improved controller training. Energy benefits remain future-facing.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-616: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0484-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record identifies Next Step Fusion reinforcement-learning plasma controller, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The control system uses Soft Actor-Critic reinforcement learning, with a critic that receives additional simulation state during training."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -2000,18 +2155,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 36,
-      "reviewed": 3,
+      "known": 41,
+      "reviewed": 9,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 9,
       "record_mapped": 34,
-      "review_not_assessed": 54,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 36,
+        "value_present": 41,
         "not_reported": 0,
-        "unresolved": 55,
+        "unresolved": 50,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

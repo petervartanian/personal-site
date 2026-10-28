@@ -1202,16 +1202,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: The UAE Ministry of Finance reports that its live assistant provides instant bilingual answers and document search, reducing routine manual effort. Cost savings remain expected.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed missingness: document assistance, no response-accuracy audit.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0485-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of MOF IntelliServe in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Document retrieval makes source checking possible, but the account does not evaluate answer accuracy or establish that the assistant can issue authoritative financial decisions.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Users probably need to check consequential answers against the ministry’s underlying documents or staff guidance.",
+          "editor_note": "Document retrieval makes source checking possible, but the account does not evaluate answer accuracy or establish that the assistant can issue authoritative financial decisions."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1619,23 +1623,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-623",
+                "source_refs": [
+                  "AIBD-0485-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read the submission’s OpenAI adaptation claim. The ministry inquiry URL redirects to a current service page, which did not itself expose model details in the inspected material.",
+                "locator": "_idParaDest-623; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://mof.gov.ae/en/services/submit-inquiries-about-the-ministrys-services/",
+                "source_refs": [
+                  "AIBD-0485-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "The viewed service material does not independently specify the internal AI model.",
+                "locator": "Redirected inquiry service",
+                "access_status": "Current service page inspected in part"
+              }
+            ],
+            "latest_limitations": "The linked service page does not independently establish the claimed internal model configuration."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0485-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The linked service page does not independently establish the claimed internal model configuration."
         }
       },
       "sources[].citation_locator": {
@@ -1731,27 +1764,88 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-623",
+                "source_refs": [
+                  "AIBD-0485-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read the submission’s OpenAI adaptation claim. The ministry inquiry URL redirects to a current service page, which did not itself expose model details in the inspected material.",
+                "locator": "_idParaDest-623; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://mof.gov.ae/en/services/submit-inquiries-about-the-ministrys-services/",
+                "source_refs": [
+                  "AIBD-0485-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "The viewed service material does not independently specify the internal AI model.",
+                "locator": "Redirected inquiry service",
+                "access_status": "Current service page inspected in part"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-623",
+                  "source_refs": [
+                    "AIBD-0485-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Read the submission’s OpenAI adaptation claim. The ministry inquiry URL redirects to a current service page, which did not itself expose model details in the inspected material.",
+                  "locator": "_idParaDest-623; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                },
+                {
+                  "url": "https://mof.gov.ae/en/services/submit-inquiries-about-the-ministrys-services/",
+                  "source_refs": [
+                    "AIBD-0485-source-0001"
+                  ],
+                  "title": "Cited upstream original or public access route",
+                  "relationship": "Cited upstream original or public access route",
+                  "contribution": "The viewed service material does not independently specify the internal AI model.",
+                  "locator": "Redirected inquiry service",
+                  "access_status": "Current service page inspected in part"
+                }
+              ],
+              "limitations": "The linked service page does not independently establish the claimed internal model configuration.",
+              "origin_chain": "ITU submission → https://mof.gov.ae/general-inquiries/ → https://mof.gov.ae/en/services/submit-inquiries-about-the-ministrys-services/."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0485-source-0001",
+            "retained_source_order": [
+              "AIBD-0485-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. The Ministry of Finance supplies the deployment and benefit claims. Operational logs, error audits, user studies, and financial calculations were not inspected. Technology-provider participation is not independent outcome verification.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight systems[].model_name",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0485-source-0001"
           ],
-          "reviewed_on": "2026-10-27",
-          "attempted_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The Ministry of Finance supplies the deployment and benefit claims. Operational logs, error audits, user studies, and financial calculations were not inspected. Technology-provider participation is not independent outcome verification.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The Ministry of Finance supplies the deployment and benefit claims. Operational logs, error audits, user studies, and financial calculations were not inspected. Technology-provider participation is not independent outcome verification."
+          "answer": "Read the submission’s OpenAI adaptation claim. The ministry inquiry URL redirects to a current service page, which did not itself expose model details in the inspected material."
         }
       },
       "strategic_assessments[]": {
@@ -1840,34 +1934,46 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "MOF IntelliServe answers inquiries in two languages and searches ministry documents."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: The UAE Ministry of Finance reports that its live assistant provides instant bilingual answers and document search, reducing routine manual effort. Cost savings remain expected.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: production bilingual answers and document search.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0485-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of MOF IntelliServe have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "MOF IntelliServe answers inquiries in two languages and searches ministry documents."
+        }
       },
       "systems[].model_name": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The submission describes pretrained OpenAI models adapted to Ministry of Finance data, without identifying a particular model or version."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: The UAE Ministry of Finance reports that its live assistant provides instant bilingual answers and document search, reducing routine manual effort. Cost savings remain expected.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-623: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0485-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record identifies MOF IntelliServe, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The submission describes pretrained OpenAI models adapted to Ministry of Finance data, without identifying a particular model or version."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -2010,18 +2116,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 34,
-      "reviewed": 3,
+      "known": 38,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 32,
-      "review_not_assessed": 56,
+      "review_not_assessed": 52,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 34,
+        "value_present": 38,
         "not_reported": 0,
-        "unresolved": 57,
+        "unresolved": 53,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

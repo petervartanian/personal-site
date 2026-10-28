@@ -1677,16 +1677,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Cheshire Constabulary's facial recognition matched CCTV of an unknown Northwich dealer to Keenan Hughes; he and Vincent Potter were stopped on 17 May 2024 with crack cocaine and jailed on 1 July 2024.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and AI-role assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0232-source-0001",
+            "AIBD-0232-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The officer explicitly said that Hughes was not known locally, and the convictions followed physical and phone evidence.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely advantage was identifying a person beyond local officers’ familiarity, while the main safeguard was corroboration beyond the facial match.",
+          "editor_note": "The officer explicitly said that Hughes was not known locally, and the convictions followed physical and phone evidence."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1923,26 +1928,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0232-source-0001",
-            "AIBD-0232-source-0002",
-            "AIBD-0232-source-0003",
-            "AIBD-0232-source-0004"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.cheshire.police.uk/news/cheshire/news/articles/2024/6/facial-recognition-technology-helps-to-identify-northwich-drug-dealers/",
+                "source_refs": [
+                  "AIBD-0232-source-0001"
+                ],
+                "title": "original police account",
+                "relationship": "original police account",
+                "contribution": "A retrospective match named Hughes; a later stop produced drugs and knives, and phone messages supported prosecution.",
+                "locator": "Investigation, match, patrol stop and phone evidence paragraphs",
+                "access_status": "Full release read"
+              }
+            ],
+            "latest_limitations": "No vendor, match score or court transcript was obtained."
+          }
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0232-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No vendor, match score or court transcript was obtained."
         }
       },
       "sources[].citation_locator": {
@@ -2114,7 +2133,14 @@
                   "AIBD-0232-source-0001"
                 ],
                 "locator": "Cheshire Constabulary release: CCTV match to Hughes, May 17 stop, seized evidence, and July 1 sentences",
-                "contribution": "The force’s own account identifies the recognition step and later investigation. Repetition in an incidents database adds no independent verification."
+                "contribution": "The force’s own account identifies the recognition step and later investigation. Repetition in an incidents database adds no independent verification.",
+                "latest_inspection": {
+                  "title": "original police account",
+                  "relationship": "original police account",
+                  "contribution": "A retrospective match named Hughes; a later stop produced drugs and knives, and phone messages supported prosecution.",
+                  "locator": "Investigation, match, patrol stop and phone evidence paragraphs",
+                  "access_status": "Full release read"
+                }
               }
             ],
             "retained_source_order": [
@@ -2130,12 +2156,31 @@
             ],
             "limitations": "Identification of a suspect is distinct from proof of guilt; officers also obtained drugs, knives, phones, and messages. The two convictions do not measure community harm prevented or general recognition accuracy. The police narrative was checked, while the court files and matching logs were not. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0232-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.cheshire.police.uk/news/cheshire/news/articles/2024/6/facial-recognition-technology-helps-to-identify-northwich-drug-dealers/",
+                  "source_refs": [
+                    "AIBD-0232-source-0001"
+                  ],
+                  "title": "original police account",
+                  "relationship": "original police account",
+                  "contribution": "A retrospective match named Hughes; a later stop produced drugs and knives, and phone messages supported prosecution.",
+                  "locator": "Investigation, match, patrol stop and phone evidence paragraphs",
+                  "access_status": "Full release read"
+                }
+              ],
+              "limitations": "No vendor, match score or court transcript was obtained.",
+              "origin_chain": "Local news and OECD follow the Cheshire release. Keep the force as the source of the investigative sequence and distinguish it from a court judgment."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at Cheshire Constabulary release: CCTV match to Hughes, May 17 stop, seized evidence, and July 1 sentences. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0232-source-0001"
@@ -2192,19 +2237,26 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Officers treated the match as an investigative lead. Later patrol recognition, searches and seized evidence supported the prosecution."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Cheshire Constabulary's facial recognition matched CCTV of an unknown Northwich dealer to Keenan Hughes; he and Vincent Potter were stopped on 17 May 2024 with crack cocaine and jailed on 1 July 2024.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: May arrest and July pleas.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0232-source-0001",
+            "AIBD-0232-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Cheshire Constabulary facial recognition system (retrospective) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Officers treated the match as an investigative lead. Later patrol recognition, searches and seized evidence supported the prosecution."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2237,19 +2289,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A face from recorded CCTV was compared with police-held images to suggest the identity of a suspect who was not known locally."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Cheshire Constabulary's facial recognition matched CCTV of an unknown Northwich dealer to Keenan Hughes; he and Vincent Potter were stopped on 17 May 2024 with crack cocaine and jailed on 1 July 2024.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: retrospective match to Hughes.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0232-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Cheshire Constabulary facial recognition system (retrospective) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A face from recorded CCTV was compared with police-held images to suggest the identity of a suspect who was not known locally."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2414,18 +2472,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 41,
-      "reviewed": 3,
+      "known": 44,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 38,
-      "review_not_assessed": 50,
+      "review_not_assessed": 46,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 41,
+        "value_present": 44,
         "not_reported": 0,
-        "unresolved": 50,
+        "unresolved": 47,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

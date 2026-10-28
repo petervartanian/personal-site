@@ -1459,19 +1459,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VoteMate provides conversational ballot research, while improvements in voter knowledge and participation remain unmeasured in the reviewed sources.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Staff review AI-written candidate profiles. Users receive links to the underlying sources."
         },
-        "reason": "Human oversight of VoteMate AI ballot assistant in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "VoteMate’s October 2026 disclosure names its information providers, model providers, source ranking, and human review of candidate profiles. Transparency page, Election data, How our AI works, Human oversight, and Infrastructure.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0595-source-0003"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Staff review AI-written candidate profiles. Users receive links to the underlying sources."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1671,16 +1677,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VoteMate provides conversational ballot research, while improvements in voter knowledge and participation remain unmeasured in the reviewed sources.",
-          "record_fields": [
-            "summary"
+          "basis": "VoteMate’s October 2026 disclosure names its information providers, model providers, source ranking, and human review of candidate profiles. Transparency page, Election data, How our AI works, Human oversight, and Infrastructure.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0595-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Profiles refresh about every 30 days, while live search is a separate process.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A candidate profile could remain stale after a recent change in position.",
+          "editor_note": "Profiles refresh about every 30 days, while live search is a separate process."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1906,23 +1916,38 @@
               "title": "VoteMate Launches to Help Every American Vote with Confidence",
               "date": "2025-10-16",
               "qualification": "The October 16, 2025 release announces the public launch that day. Later pilot usage is a separate outcome reported in the submission."
-            }
+            },
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://votemateus.org/transparency",
+                "source_refs": [
+                  "AIBD-0595-source-0003"
+                ],
+                "title": "Original study or firsthand account",
+                "relationship": "Original study or firsthand account",
+                "contribution": "VoteMate’s October 2026 disclosure names its information providers, model providers, source ranking, and human review of candidate profiles.",
+                "locator": "Transparency page, Election data, How our AI works, Human oversight, and Infrastructure.",
+                "access_status": "Relevant substantive original passages read; the locator identifies the inspected scope."
+              }
+            ],
+            "latest_limitations": "These are the operator’s current disclosures, not an independent test or proof that the same configuration existed at launch."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Recorded the inspected source versions and access limitations; this does not imply access to unavailable upstream evidence.",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0595-source-0001",
-            "AIBD-0595-source-0002",
-            "AIBD-0595-source-0003",
-            "AIBD-0595-source-0004"
+            "AIBD-0595-source-0003"
           ],
           "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
-        "coverage": "complete"
+        "coverage": "complete",
+        "display": {
+          "answer": "These are the operator’s current disclosures, not an independent test or proof that the same configuration existed at launch."
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -2137,7 +2162,14 @@
                 "display_name": "VoteMate",
                 "contribution": "Current source stack, provider disclosures, review process, and safeguards.",
                 "locator": "Election Data; The AI models we use; Human oversight; October 2026 Change Log.",
-                "relationship": "Original current developer documentation; not contemporaneous proof of every 2025 system detail."
+                "relationship": "Original current developer documentation; not contemporaneous proof of every 2025 system detail.",
+                "latest_inspection": {
+                  "title": "Original study or firsthand account",
+                  "relationship": "Original study or firsthand account",
+                  "contribution": "VoteMate’s October 2026 disclosure names its information providers, model providers, source ranking, and human review of candidate profiles.",
+                  "locator": "Transparency page, Election data, How our AI works, Human oversight, and Infrastructure.",
+                  "access_status": "Relevant substantive original passages read; the locator identifies the inspected scope."
+                }
               },
               {
                 "url": "https://docs.google.com/spreadsheets/d/1ZDVVXiGeMcKJlq4F3GvvZALDtLliGeJtdDV6Zhr_p-0/edit#gid=0",
@@ -2160,18 +2192,36 @@
             "review_scope": "Read the retained public sources. No raw performance data, private material, or independently replicated outcome evaluation was obtained.",
             "access_limitations": [
               "The retained public accounts were inspected. No raw outcome dataset or independent replication was obtained."
-            ]
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://votemateus.org/transparency",
+                  "source_refs": [
+                    "AIBD-0595-source-0003"
+                  ],
+                  "title": "Original study or firsthand account",
+                  "relationship": "Original study or firsthand account",
+                  "contribution": "VoteMate’s October 2026 disclosure names its information providers, model providers, source ranking, and human review of candidate profiles.",
+                  "locator": "Transparency page, Election data, How our AI works, Human oversight, and Infrastructure.",
+                  "access_status": "Relevant substantive original passages read; the locator identifies the inspected scope."
+                }
+              ],
+              "limitations": "These are the operator’s current disclosures, not an independent test or proof that the same configuration existed at launch.",
+              "origin_chain": "https://votemateus.org/transparency"
+            },
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Traced the retained evidence to the reviewed original accounts and preserved shared origins, chronology, and access limits.",
+          "basis": "Case-specific public-source inspection. The proposed answers were checked against the inspected original passages.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0595-source-0001",
-            "AIBD-0595-source-0002",
-            "AIBD-0595-source-0003",
-            "AIBD-0595-source-0004"
+            "AIBD-0595-source-0003"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2255,19 +2305,25 @@
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VoteMate provides conversational ballot research, while improvements in voter knowledge and participation remain unmeasured in the reviewed sources.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "Documentation of the configuration used in this case is needed."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "VoteMate retrieves election information and supplements unanswered questions with live web search."
         },
-        "reason": "The configuration of VoteMate AI ballot assistant used in this case remains unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "VoteMate’s October 2026 disclosure names its information providers, model providers, source ranking, and human review of candidate profiles. Transparency page, Election data, How our AI works, Human oversight, and Infrastructure.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0595-source-0003"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "VoteMate retrieves election information and supplements unanswered questions with live web search."
+        }
       },
       "systems[].inputs_outputs": {
         "state": "unresolved",
@@ -2300,19 +2356,25 @@
         "coverage": "partial"
       },
       "systems[].model_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: VoteMate provides conversational ballot research, while improvements in voter knowledge and participation remain unmeasured in the reviewed sources.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "Documentation identifying the model release used in this case is needed."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The October 2026 disclosure names Anthropic, OpenAI, and Microsoft among its providers, without exact model versions."
         },
-        "reason": "The model release used by VoteMate AI ballot assistant remains unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "VoteMate’s October 2026 disclosure names its information providers, model providers, source ranking, and human review of candidate profiles. Transparency page, Election data, How our AI works, Human oversight, and Infrastructure.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0595-source-0003"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The October 2026 disclosure names Anthropic, OpenAI, and Microsoft among its providers, without exact model versions."
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -2447,18 +2509,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 40,
-      "reviewed": 18,
+      "known": 43,
+      "reviewed": 22,
       "reviewed_complete": 17,
-      "reviewed_partial": 1,
+      "reviewed_partial": 5,
       "record_mapped": 22,
-      "review_not_assessed": 51,
+      "review_not_assessed": 47,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 40,
+        "value_present": 43,
         "not_reported": 0,
-        "unresolved": 51,
+        "unresolved": 48,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

@@ -1406,16 +1406,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: GeoGPT reports marine-image recognition in 40 milliseconds versus 40 seconds manually, alongside species-classification and exploration tools.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed missingness: 40 milliseconds versus 40 seconds; 81.3% accuracy; class distribution and reference labels omitted.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0412-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The reported processing time is much shorter than manual analysis, while 81.3% accuracy leaves a material error rate and no species-level error distribution is supplied.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The speed advantage probably allows researchers to inspect much larger image collections, but uncertain classifications still require expert checking before ecological conclusions.",
+          "editor_note": "The reported processing time is much shorter than manual analysis, while 81.3% accuracy leaves a material error rate and no species-level error distribution is supplied."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1597,23 +1601,41 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-176",
+                "source_refs": [
+                  "AIBD-0412-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Original model table names Llama, Qwen, Mixtral, and DeepSeek R1 with post-training. The platform combines retrieval, exploration-risk tools, and marine applications.",
+                "locator": "_idParaDest-176; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_limitations": "Only relevant technical, deployment, and references passages inspected; benchmark protocol remains missing."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0412-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Only relevant technical, deployment, and references passages inspected; benchmark protocol remains missing."
         }
       },
       "sources[].citation_locator": {
@@ -1709,21 +1731,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-176",
+                "source_refs": [
+                  "AIBD-0412-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Original model table names Llama, Qwen, Mixtral, and DeepSeek R1 with post-training. The platform combines retrieval, exploration-risk tools, and marine applications.",
+                "locator": "_idParaDest-176; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-176",
+                  "source_refs": [
+                    "AIBD-0412-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Original model table names Llama, Qwen, Mixtral, and DeepSeek R1 with post-training. The platform combines retrieval, exploration-risk tools, and marine applications.",
+                  "locator": "_idParaDest-176; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
+              ],
+              "limitations": "Only relevant technical, deployment, and references passages inspected; benchmark protocol remains missing.",
+              "origin_chain": "Zhejiang Lab submission -> GeoGPT model repository and project platform; references do not tie one model to the marine benchmark."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0412-source-0001",
+            "retained_source_order": [
+              "AIBD-0412-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex compared the retained account and evidence with selected sections of the original ITU project submission (_idParaDest-176; Section 2.1 excerpts on recognition accuracy, manual comparison, and project status). This is a partial source review; underlying claims are not independently verified, and no human approval is implied.",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs outcomes[].tradeoffs systems[].model_name",
           "record_fields": [],
           "source_refs": [
             "AIBD-0412-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "ITU’s marine Use Case 1 conveys Zhejiang Lab’s account. The benchmark dataset, timing protocol, and field monitoring decisions are not separately retained. The project submission was read at _idParaDest-176; Section 2.1 excerpts on recognition accuracy, manual comparison, and project status. The publication-page error was bypassed through ITU’s public API; external references and underlying measurements remain unreviewed.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "ITU’s marine Use Case 1 conveys Zhejiang Lab’s account. The benchmark dataset, timing protocol, and field monitoring decisions are not separately retained. The project submission was read at _idParaDest-176; Section 2.1 excerpts on recognition accuracy, manual comparison, and project status. The publication-page error was bypassed through ITU’s public API; external references and underlying measurements remain unreviewed."
+          "answer": "Original model table names Llama, Qwen, Mixtral, and DeepSeek R1 with post-training. The platform combines retrieval, exploration-risk tools, and marine applications."
         }
       },
       "strategic_assessments[]": {
@@ -1812,34 +1879,46 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "GeoGPT classifies deep-sea species in marine images and returns image-level identification results."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: GeoGPT reports marine-image recognition in 40 milliseconds versus 40 seconds manually, alongside species-classification and exploration tools.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: marine-image recognition, 81.3% species identification accuracy, 40 milliseconds per image.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0412-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of GeoGPT have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "GeoGPT classifies deep-sea species in marine images and returns image-level identification results."
+        }
       },
       "systems[].model_name": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "GeoGPT uses a portfolio that includes Llama, Qwen, Mixtral, and DeepSeek R1, adapted for geoscience. The submission does not assign the marine-image result to a particular one."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: GeoGPT reports marine-image recognition in 40 milliseconds versus 40 seconds manually, alongside species-classification and exploration tools.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-176: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0412-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record identifies GeoGPT, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "GeoGPT uses a portfolio that includes Llama, Qwen, Mixtral, and DeepSeek R1, adapted for geoscience. The submission does not assign the marine-image result to a particular one."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -1985,18 +2064,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 34,
-      "reviewed": 3,
+      "known": 38,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 32,
-      "review_not_assessed": 56,
+      "review_not_assessed": 52,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 34,
+        "value_present": 38,
         "not_reported": 0,
-        "unresolved": 57,
+        "unresolved": 53,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

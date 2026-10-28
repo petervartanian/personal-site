@@ -1817,19 +1817,25 @@
         "coverage": "partial"
       },
       "outcomes[].duration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Ejection fraction reached 55% at four months, after treatment, weight loss and recovery from possible post-viral illness."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: At Mayo Clinic two ECGs scored 97.88% and 98.67% for reduced ejection fraction in a 41-year-old with no cardiac history; echo confirmed HFrEF, therapy followed, EF 55% at 4 months. Developer-authored.",
-          "record_fields": [
-            "summary"
+          "basis": "The clinical report documents high AI-ECG scores followed by echocardiography. Recovery followed medical treatment, weight loss and possible recovery from viral illness. This single case has no untreated comparison. The patient was already admitted and receiving diuretics before the AI review. Original case report, clinical course and four-month follow-up.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0268-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Dated observation of the same outcome and population is needed to establish persistence or recurrence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The duration of the claimed benefit is not separately established. Dated follow-up on the same outcome is needed to distinguish a one-time result from recurring or sustained benefit; later work on another system or population does not establish persistence here. The recorded follow-up says: The Mayo-developed low-ejection-fraction algorithm, licensed to Eko Health and trained on Mayo's ECG dataset, received FDA clearance in early April 2024 for use with Eko's digital stethoscopes, and Mayo authors continued to publish AI-ECG case reports through 2025.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Ejection fraction reached 55% at four months, after treatment, weight loss and recovery from possible post-viral illness."
+        }
       },
       "outcomes[].id": {
         "state": "unresolved",
@@ -1910,16 +1916,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: At Mayo Clinic two ECGs scored 97.88% and 98.67% for reduced ejection fraction in a 41-year-old with no cardiac history; echo confirmed HFrEF, therapy followed, EF 55% at 4 months. Developer-authored.",
-          "record_fields": [
-            "summary"
+          "basis": "The clinical report documents high AI-ECG scores followed by echocardiography. Recovery followed medical treatment, weight loss and possible recovery from viral illness. This single case has no untreated comparison. The patient was already admitted and receiving diuretics before the AI review. Original case report, clinical course and four-month follow-up.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0268-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The reported recovery followed several therapeutic and biological changes after the model’s alert.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely contribution was earlier recognition and referral for echocardiography, rather than the model directly producing cardiac recovery.",
+          "editor_note": "The reported recovery followed several therapeutic and biological changes after the model’s alert."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2224,28 +2234,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0268-source-0001",
-            "AIBD-0268-source-0002",
-            "AIBD-0268-source-0003",
-            "AIBD-0268-source-0004",
-            "AIBD-0268-source-0005",
-            "AIBD-0268-source-0006"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8890344/",
+                "source_refs": [
+                  "AIBD-0268-source-0001"
+                ],
+                "title": "Inspected retained source",
+                "relationship": "Inspected retained source",
+                "contribution": "The clinical report documents high AI-ECG scores followed by echocardiography. Recovery followed medical treatment, weight loss and possible recovery from viral illness.",
+                "locator": "Original case report, clinical course and four-month follow-up.",
+                "access_status": "Relevant original passages read, as specified by the locator."
+              }
+            ],
+            "latest_limitations": "This single case has no untreated comparison. The patient was already admitted and receiving diuretics before the AI review."
+          }
         },
-        "reason": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0268-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "This single case has no untreated comparison. The patient was already admitted and receiving diuretics before the AI review."
         }
       },
       "sources[].citation_locator": {
@@ -2443,27 +2465,69 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0268-source-0001",
-            "AIBD-0268-source-0002"
-          ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8890344/",
+                "source_refs": [
+                  "AIBD-0268-source-0001"
+                ],
+                "title": "Inspected retained source",
+                "relationship": "Inspected retained source",
+                "contribution": "The clinical report documents high AI-ECG scores followed by echocardiography. Recovery followed medical treatment, weight loss and possible recovery from viral illness.",
+                "locator": "Original case report, clinical course and four-month follow-up.",
+                "access_status": "Relevant original passages read, as specified by the locator."
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8890344/",
+                  "source_refs": [
+                    "AIBD-0268-source-0001"
+                  ],
+                  "title": "Inspected retained source",
+                  "relationship": "Inspected retained source",
+                  "contribution": "The clinical report documents high AI-ECG scores followed by echocardiography. Recovery followed medical treatment, weight loss and possible recovery from viral illness.",
+                  "locator": "Original case report, clinical course and four-month follow-up.",
+                  "access_status": "Relevant original passages read, as specified by the locator."
+                }
+              ],
+              "limitations": "This single case has no untreated comparison. The patient was already admitted and receiving diuretics before the AI review.",
+              "origin_chain": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8890344/"
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0268-source-0001",
+            "retained_source_order": [
+              "AIBD-0268-source-0001",
+              "AIBD-0268-source-0002",
+              "AIBD-0268-source-0003",
+              "AIBD-0268-source-0004",
+              "AIBD-0268-source-0005",
+              "AIBD-0268-source-0006"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "The retained source trail for Mayo Clinic AI-ECG flags low ejection fraction at 97.88%; 41-year-old treated, EF recovers to 55% has not been fully verified. The references support this editorial screening only.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Each retained proposal was compared with the inspected passages. Fields outside this scope retain their prior review status.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0268-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The retained references have not been fully traced to their original evidence."
+          "answer": "The clinical report documents high AI-ECG scores followed by echocardiography. Recovery followed medical treatment, weight loss and possible recovery from viral illness."
         }
       },
       "strategic_assessments[]": {
@@ -2512,19 +2576,25 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The model estimated the probability of reduced ejection fraction; clinicians confirmed impaired function and prescribed treatment."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: At Mayo Clinic two ECGs scored 97.88% and 98.67% for reduced ejection fraction in a 41-year-old with no cardiac history; echo confirmed HFrEF, therapy followed, EF 55% at 4 months. Developer-authored.",
-          "record_fields": [
-            "summary"
+          "basis": "The clinical report documents high AI-ECG scores followed by echocardiography. Recovery followed medical treatment, weight loss and possible recovery from viral illness. This single case has no untreated comparison. The patient was already admitted and receiving diuretics before the AI review. Original case report, clinical course and four-month follow-up.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0268-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Mayo Clinic AI-ECG low-ejection-fraction algorithm (AI-ECG dashboard) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The model estimated the probability of reduced ejection fraction; clinicians confirmed impaired function and prescribed treatment."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2700,71 +2770,40 @@
       "workflow": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "Harmon, Witt, Friedman and Attia (Cardiovascular Digital Health Journal, 24 August 2021) report a 41-year-old man with class III obesity, sleep apnea, no cardiac history. Two electrocardiograms (ECGs) on Mayo's AI-ECG dashboard gave reduced-ejection-fraction probabilities of 97.88% and 98.67%. Echocardiography next day confirmed reduced function. Guideline-directed therapy for new heart failure with reduced ejection fraction (HFrEF) began. At four months his ejection fraction had risen to 55%, attributed by the authors to therapy, recovery from post-viral sequelae and weight loss. All four authors are at Mayo Clinic, which developed the algorithm and licensed it to Eko and Anumana. Friedman, Attia and other inventors may receive financial benefit. The same group published further cases. Dhawan et al. (PACE, 2024): AI-ECGs predicting left-bundle-branch-block cardiomyopathy six years before presentation. Kenyon et al. (J Pers Med, 2024): AI-ECG prompting an early AL amyloidosis diagnosis. Liu et al. (HeartRhythm Case Reports, 2025): defibrillator decision-making. No source outside Mayo was found for these cases.",
-            "replication": {
-              "produced_by": [
-                "Routine 12-lead ECGs scored by the low-EF network",
-                "A dashboard that clinicians consult during evaluation",
-                "Confirmatory echocardiography and guideline-directed therapy"
-              ],
-              "must_hold": [
-                "The algorithm is deployed in the clinical workflow",
-                "Clinicians act on a high probability score"
-              ],
-              "echoes": [
-                {
-                  "date": "2024-04-07",
-                  "setting": "Mayo Clinic Rochester: 70-year-old with LBBB-induced cardiomyopathy",
-                  "outcome": "recurred",
-                  "source": "https://doi.org/10.1111/pace.14980"
-                },
-                {
-                  "date": "2024-05-24",
-                  "setting": "Mayo Clinic Phoenix: 69-year-old woman, AI-ECG amyloidosis probability prompted biopsy",
-                  "model_version": "AI-ECG amyloidosis model",
-                  "outcome": "recurred",
-                  "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11205191/"
-                },
-                {
-                  "date": "2025-07-26",
-                  "setting": "Mayo Clinic Health System, La Crosse: AI-ECG used in defibrillator decision",
-                  "outcome": "unknown",
-                  "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12666949/"
-                }
-              ]
-            }
-          }
+          "kind": "text",
+          "text": "Two high AI-ECG scores prompted echocardiography the next day, followed by treatment for newly recognized heart failure."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "replication"
+          "kind": "curatorial",
+          "basis": "The clinical report documents high AI-ECG scores followed by echocardiography. Recovery followed medical treatment, weight loss and possible recovery from viral illness. This single case has no untreated comparison. The patient was already admitted and receiving diuretics before the AI review. Original case report, clinical course and four-month follow-up.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0268-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Two high AI-ECG scores prompted echocardiography the next day, followed by treatment for newly recognized heart failure."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 39,
-      "reviewed": 3,
+      "known": 43,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 37,
-      "review_not_assessed": 51,
+      "reviewed_partial": 8,
+      "record_mapped": 36,
+      "review_not_assessed": 47,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 39,
+        "value_present": 43,
         "not_reported": 0,
-        "unresolved": 52,
+        "unresolved": 48,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

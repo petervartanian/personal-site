@@ -1390,19 +1390,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The intended workflow requires physician authorization and weekly review with a remote cardiologist and on-site staff. The two illustrated patients were managed independently of those recommendations."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Mount Sinai authors describe ForeSight-HF (GPT-5 mini on ProviderLoop) recommending diuresis for a warm/wet and de-escalation for a cold/dry nursing-home patient; both were managed independently.",
-          "record_fields": [
-            "summary"
+          "basis": "Original JACC paper, intended use and clinical outcomes.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0273-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of ForeSight-HF (large-language-model clinical decision support on the ProviderLoop platform) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The intended workflow requires physician authorization and weekly review with a remote cardiologist and on-site staff. The two illustrated patients were managed independently of those recommendations."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1439,19 +1445,25 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Clinicians in nursing facilities and their patients are the intended beneficiaries. These two cases demonstrate recommendation generation, not a measured clinical benefit from using it."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Mount Sinai authors describe ForeSight-HF (GPT-5 mini on ProviderLoop) recommending diuresis for a warm/wet and de-escalation for a cold/dry nursing-home patient; both were managed independently.",
-          "record_fields": [
-            "summary"
+          "basis": "Original JACC paper, intended use and proof-of-concept design.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0273-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has personal, organizational, societal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Clinicians in nursing facilities and their patients are the intended beneficiaries. These two cases demonstrate recommendation generation, not a measured clinical benefit from using it."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1623,19 +1635,25 @@
         }
       },
       "outcomes[].tradeoffs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The cases show that the model could assemble plausible recommendations, but actual treatment sometimes differed. The patients’ improvement cannot establish that following the AI would have produced the same result."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Mount Sinai authors describe ForeSight-HF (GPT-5 mini on ProviderLoop) recommending diuresis for a warm/wet and de-escalation for a cold/dry nursing-home patient; both were managed independently.",
-          "record_fields": [
-            "summary"
+          "basis": "Original JACC paper, case outcomes and separation from AI care.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0273-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The cases show that the model could assemble plausible recommendations, but actual treatment sometimes differed. The patients’ improvement cannot establish that following the AI would have produced the same result."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1899,26 +1917,50 @@
                 "access": "complete publisher-deposited JATS full text read",
                 "doi": "10.1016/j.jaccas.2026.108561"
               }
-            ]
+            ],
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13420647/",
+                "source_refs": [
+                  "AIBD-0273-source-0001",
+                  "AIBD-0273-source-0002"
+                ],
+                "title": "original abstract",
+                "relationship": "original abstract",
+                "contribution": "Two illustrative nursing-facility cases.",
+                "locator": "Abstract",
+                "access_status": "Substantive text read."
+              },
+              {
+                "url": "https://www.jacc.org/doi/10.1016/j.jaccas.2026.108561",
+                "source_refs": [
+                  "AIBD-0273-source-0001"
+                ],
+                "title": "publisher original",
+                "relationship": "publisher original",
+                "contribution": "Two-stage baseline/weekly note processing; outputs explicitly did not guide care; ProviderLoop ownership disclosed.",
+                "locator": "ForeSight-HF System; Intended use; Clinical cases; disclosures",
+                "access_status": "Full paper retrieved and architecture, intended use, case outcomes and disclosures read."
+              }
+            ],
+            "latest_limitations": "No prospective use or clinical benefit."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Recorded which versions were inspected and which origins or supplements could not be read.",
-          "record_fields": [
-            "evidence"
-          ],
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0273-source-0001",
             "AIBD-0273-source-0002"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "complete",
         "display": {
-          "answer": "The complete article is available in the publisher’s XML through Europe PMC, including its references and declarations. The article provides no supplementary dataset or appendix.",
-          "editor_note": ""
+          "answer": "No prospective use or clinical benefit."
         }
       },
       "sources[].citation_locator": {
@@ -2065,7 +2107,27 @@
                 "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13420647/",
                 "title": "AI-Driven Heart Failure Decision Support in Skilled Nursing Facilities",
                 "published_on": "2026-06-03",
-                "relationship": "Both retained quotations come from one vendor-affiliated case report, not two studies or independent confirmations."
+                "relationship": "Both retained quotations come from one vendor-affiliated case report, not two studies or independent confirmations.",
+                "latest_inspection": {
+                  "title": "original abstract",
+                  "relationship": "original abstract",
+                  "contribution": "Two illustrative nursing-facility cases.",
+                  "locator": "Abstract",
+                  "access_status": "Substantive text read."
+                },
+                "contribution": "Two illustrative nursing-facility cases.",
+                "locator": "Abstract"
+              },
+              {
+                "url": "https://www.jacc.org/doi/10.1016/j.jaccas.2026.108561",
+                "source_refs": [
+                  "AIBD-0273-source-0001"
+                ],
+                "title": "publisher original",
+                "relationship": "publisher original",
+                "contribution": "Two-stage baseline/weekly note processing; outputs explicitly did not guide care; ProviderLoop ownership disclosed.",
+                "locator": "ForeSight-HF System; Intended use; Clinical cases; disclosures",
+                "access_status": "Full paper retrieved and architecture, intended use, case outcomes and disclosures read."
               }
             ],
             "excluded_republications": [],
@@ -2133,22 +2195,50 @@
               }
             ],
             "related_material": [],
-            "scope": "Complete review of retained-source lineage and access status. This does not mean that inaccessible upstream documents were inspected, that every required case field is complete, or that the original claims were independently verified."
+            "scope": "Complete review of retained-source lineage and access status. This does not mean that inaccessible upstream documents were inspected, that every required case field is complete, or that the original claims were independently verified.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13420647/",
+                  "source_refs": [
+                    "AIBD-0273-source-0001",
+                    "AIBD-0273-source-0002"
+                  ],
+                  "title": "original abstract",
+                  "relationship": "original abstract",
+                  "contribution": "Two illustrative nursing-facility cases.",
+                  "locator": "Abstract",
+                  "access_status": "Substantive text read."
+                },
+                {
+                  "url": "https://www.jacc.org/doi/10.1016/j.jaccas.2026.108561",
+                  "source_refs": [
+                    "AIBD-0273-source-0001"
+                  ],
+                  "title": "publisher original",
+                  "relationship": "publisher original",
+                  "contribution": "Two-stage baseline/weekly note processing; outputs explicitly did not guide care; ProviderLoop ownership disclosed.",
+                  "locator": "ForeSight-HF System; Intended use; Clinical cases; disclosures",
+                  "access_status": "Full paper retrieved and architecture, intended use, case outcomes and disclosures read."
+                }
+              ],
+              "limitations": "No prospective use or clinical benefit.",
+              "origin_chain": "PMC abstract, with direct PMC browser challenge → JACC full article."
+            },
+            "reviewed_on": "2026-10-27"
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Read the complete original JATS article, including both case histories, table, references, and disclosures. Clarified that the system did not guide clinical care. Access limits are enumerated in the review.",
-          "record_fields": [
-            "evidence",
-            "account",
-            "ai_role"
-          ],
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0273-source-0001",
             "AIBD-0273-source-0002"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "complete",
@@ -2207,19 +2297,25 @@
         }
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The tool generated illustrative advice and did not direct treatment in either reported case."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Mount Sinai authors describe ForeSight-HF (GPT-5 mini on ProviderLoop) recommending diuresis for a warm/wet and de-escalation for a cold/dry nursing-home patient; both were managed independently.",
-          "record_fields": [
-            "summary"
+          "basis": "Original JACC paper, intended use.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0273-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by ForeSight-HF (large-language-model clinical decision support on the ProviderLoop platform) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The tool generated illustrative advice and did not direct treatment in either reported case."
+        }
       },
       "systems[].component_role": {
         "state": "value_present",
@@ -2259,19 +2355,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Unstructured nursing-facility notes were summarized into baseline and weekly updates. The tool generated heart-failure likelihood, confidence, exacerbation-risk, and hemodynamic assessments with care suggestions."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Mount Sinai authors describe ForeSight-HF (GPT-5 mini on ProviderLoop) recommending diuresis for a warm/wet and de-escalation for a cold/dry nursing-home patient; both were managed independently.",
-          "record_fields": [
-            "summary"
+          "basis": "Original JACC paper, architecture and scoring sections.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0273-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of ForeSight-HF (large-language-model clinical decision support on the ProviderLoop platform) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Unstructured nursing-facility notes were summarized into baseline and weekly updates. The tool generated heart-failure likelihood, confidence, exacerbation-risk, and hemodynamic assessments with care suggestions."
+        }
       },
       "systems[].model_name": {
         "state": "value_present",
@@ -2454,18 +2556,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 42,
-      "reviewed": 13,
+      "known": 47,
+      "reviewed": 18,
       "reviewed_complete": 3,
-      "reviewed_partial": 10,
+      "reviewed_partial": 15,
       "record_mapped": 29,
-      "review_not_assessed": 49,
+      "review_not_assessed": 44,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 42,
+        "value_present": 47,
         "not_reported": 0,
-        "unresolved": 49,
+        "unresolved": 44,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

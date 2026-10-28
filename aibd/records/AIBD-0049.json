@@ -1392,19 +1392,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "NHS diagnostic laboratories and clinicians reviewed and confirmed candidate findings before reporting a genetic diagnosis or changing care."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Phenotype-driven ML prioritization helped diagnose 25% of 2,183 probands in the NHS pilot; a quarter of diagnoses were immediately actionable.",
-          "record_fields": [
-            "summary"
+          "basis": "ai_role: clinical confirmation and reporting by diagnostic laboratories and clinicians.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0049-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Exomiser phenotype-driven variant prioritization (machine-learning-assisted scoring and ranking) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "NHS diagnostic laboratories and clinicians reviewed and confirmed candidate findings before reporting a genetic diagnosis or changing care."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1912,24 +1918,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0049-source-0001",
-            "AIBD-0049-source-0002"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7613219/",
+                "source_refs": [
+                  "AIBD-0049-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Exomiser ranks rare segregating pathogenic variants using phenotype matches. NHS clinical scientists and clinicians review the variants under ACMG guidelines before diagnostic reports.",
+                "locator": "Diagnostic Pipeline; Diagnostic Yield",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The separate 2025 optimization study was not rechecked; the proposal concerns the original NHS pilot."
+          }
         },
-        "reason": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0049-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The separate 2025 optimization study was not rechecked; the proposal concerns the original NHS pilot."
         }
       },
       "sources[].citation_locator": {
@@ -2049,28 +2071,65 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. The pilot study supplies the original cohort results. The 2025 prioritization study is a separate evaluation, not an independent remeasurement of this pilot. Only the pilot's extracted abstract and opening methods were inspected.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0049-source-0001",
-            "AIBD-0049-source-0002"
-          ],
-          "reviewed_on": "2026-10-27",
-          "attempted_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7613219/",
+                "source_refs": [
+                  "AIBD-0049-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Exomiser ranks rare segregating pathogenic variants using phenotype matches. NHS clinical scientists and clinicians review the variants under ACMG guidelines before diagnostic reports.",
+                "locator": "Diagnostic Pipeline; Diagnostic Yield",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7613219/",
+                  "source_refs": [
+                    "AIBD-0049-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Exomiser ranks rare segregating pathogenic variants using phenotype matches. NHS clinical scientists and clinicians review the variants under ACMG guidelines before diagnostic reports.",
+                  "locator": "Diagnostic Pipeline; Diagnostic Yield",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The separate 2025 optimization study was not rechecked; the proposal concerns the original NHS pilot.",
+              "origin_chain": "Retained citation to the original report or research article."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0049-source-0001",
+            "retained_source_order": [
+              "AIBD-0049-source-0001",
+              "AIBD-0049-source-0002"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "The pilot study supplies the original cohort results. The 2025 prioritization study is a separate evaluation, not an independent remeasurement of this pilot. Only the pilot's extracted abstract and opening methods were inspected.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight systems[].component_role",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0049-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The pilot study supplies the original cohort results. The 2025 prioritization study is a separate evaluation, not an independent remeasurement of this pilot. Only the pilot's extracted abstract and opening methods were inspected."
+          "answer": "Exomiser ranks rare segregating pathogenic variants using phenotype matches. NHS clinical scientists and clinicians review the variants under ACMG guidelines before diagnostic reports."
         }
       },
       "strategic_assessments[]": {
@@ -2133,16 +2192,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Phenotype-driven ML prioritization helped diagnose 25% of 2,183 probands in the NHS pilot; a quarter of diagnoses were immediately actionable.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: 92% of 490 diagnoses from panels or Exomiser's top five. ai_role: complementary routes.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0049-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation is needed that explains each component’s role."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The role of each component in Exomiser phenotype-driven variant prioritization (machine-learning-assisted scoring and ranking) remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The reported yield concentrated in panels and the top five candidates, which supports prioritization as its practical mechanism. The combined result does not make all diagnoses attributable to Exomiser.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Exomiser probably reduced the number of variants that clinicians needed to examine closely, while gene panels and clinical review remained complementary routes to a diagnosis.",
+          "editor_note": "The reported yield concentrated in panels and the top five candidates, which supports prioritization as its practical mechanism. The combined result does not make all diagnoses attributable to Exomiser."
+        }
       },
       "systems[].deployment_configuration": {
         "state": "unresolved",
@@ -2160,19 +2223,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Exomiser combined candidate genetic variants with structured patient phenotypes to rank possible diagnoses alongside applied gene panels."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Phenotype-driven ML prioritization helped diagnose 25% of 2,183 probands in the NHS pilot; a quarter of diagnoses were immediately actionable.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: genome sequencing, family data, HPO terms, and top-ranked variants.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0049-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Exomiser phenotype-driven variant prioritization (machine-learning-assisted scoring and ranking) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Exomiser combined candidate genetic variants with structured patient phenotypes to rank possible diagnoses alongside applied gene panels."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2345,18 +2414,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 38,
-      "reviewed": 3,
+      "known": 42,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 36,
-      "review_not_assessed": 52,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 38,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 53,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

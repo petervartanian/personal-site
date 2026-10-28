@@ -1531,19 +1531,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Archive partners planned to compare machine transcripts with human transcripts across dialects, audio quality and sung forms."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Iwi broadcaster's ASR, trained on 310 hours of community recordings (86% accuracy, 2022), reported at 92% in 2024; archive tests announced in 2024 with results to come; no speaker outcome documented.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: Auckland evaluation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0319-source-0001",
+            "AIBD-0319-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Te Hiku Media te reo Māori automatic speech recognition and transcription tool (Papa Reo platform; trained with Mozilla DeepSpeech-era open-source tooling, later NVIDIA NeMo) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Archive partners planned to compare machine transcripts with human transcripts across dialects, audio quality and sung forms."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1749,16 +1756,22 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Iwi broadcaster's ASR, trained on 310 hours of community recordings (86% accuracy, 2022), reported at 92% in 2024; archive tests announced in 2024 with results to come; no speaker outcome documented.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: broadcasting use and archive test design.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0319-source-0001",
+            "AIBD-0319-source-0002",
+            "AIBD-0319-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The model was reported to work well for broadcasting, while the independent tests deliberately examined dialect and recording mismatches.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely initial benefit was less manual transcription work for speech resembling the training material, with more correction needed for difficult archival audio.",
+          "editor_note": "The model was reported to work well for broadcasting, while the independent tests deliberately examined dialect and recording mismatches."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2045,27 +2058,54 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.auckland.ac.nz/en/news/2024/03/18/te-reo-artificial-intelligence.html",
+                "source_refs": [
+                  "AIBD-0319-source-0001",
+                  "AIBD-0319-source-0002"
+                ],
+                "title": "original archive project announcement",
+                "relationship": "original archive project announcement",
+                "contribution": "Auckland announced that it would compare archive transcriptions with human output; it did not report results.",
+                "locator": "Planned sample and human-comparison paragraphs",
+                "access_status": "Full announcement read"
+              },
+              {
+                "url": "https://blogs.nvidia.com/blog/te-hiku-media-maori-speech-ai/",
+                "source_refs": [
+                  "AIBD-0319-source-0004"
+                ],
+                "title": "original supplier interview with developer",
+                "relationship": "original supplier interview with developer",
+                "contribution": "The developer described local training on eight A100 GPUs, NeMo, community consent and the Kaituhi service;92% accuracy remains a developer claim.",
+                "locator": "Turning to trustworthy AI",
+                "access_status": "Full report read"
+              }
+            ],
+            "latest_limitations": "The archive comparison has no reported result here; no held-out accuracy dataset was inspected."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0319-source-0001",
             "AIBD-0319-source-0002",
-            "AIBD-0319-source-0003",
-            "AIBD-0319-source-0004",
-            "AIBD-0319-source-0005"
+            "AIBD-0319-source-0004"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The archive comparison has no reported result here; no held-out accuracy dataset was inspected."
         }
       },
       "sources[].citation_locator": {
@@ -2256,10 +2296,29 @@
               {
                 "url": "https://www.auckland.ac.nz/en/news/2024/03/18/te-reo-artificial-intelligence.html",
                 "source_refs": [
-                  "AIBD-0319-source-0001"
+                  "AIBD-0319-source-0001",
+                  "AIBD-0319-source-0002"
                 ],
                 "locator": "University of Auckland March 18, 2024 announcement: proposed comparisons with human transcripts across dialects and recording qualities",
-                "contribution": "The archive partner describes a planned evaluation and existing broadcaster use. It does not report the completed test or independently validate the developer’s accuracy claim."
+                "contribution": "The archive partner describes a planned evaluation and existing broadcaster use. It does not report the completed test or independently validate the developer’s accuracy claim.",
+                "latest_inspection": {
+                  "title": "original archive project announcement",
+                  "relationship": "original archive project announcement",
+                  "contribution": "Auckland announced that it would compare archive transcriptions with human output; it did not report results.",
+                  "locator": "Planned sample and human-comparison paragraphs",
+                  "access_status": "Full announcement read"
+                }
+              },
+              {
+                "url": "https://blogs.nvidia.com/blog/te-hiku-media-maori-speech-ai/",
+                "source_refs": [
+                  "AIBD-0319-source-0004"
+                ],
+                "title": "original supplier interview with developer",
+                "relationship": "original supplier interview with developer",
+                "contribution": "The developer described local training on eight A100 GPUs, NeMo, community consent and the Kaituhi service;92% accuracy remains a developer claim.",
+                "locator": "Turning to trustworthy AI",
+                "access_status": "Full report read"
               }
             ],
             "retained_source_order": [
@@ -2277,15 +2336,48 @@
             ],
             "limitations": "The archival comparison is prospective in the source, so it does not establish measured archive access or language-revitalization outcomes. The 92% accuracy figure comes from other retained provider-related sources and was not checked against a benchmark definition, dialect mix, or independent evaluation. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0319-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.auckland.ac.nz/en/news/2024/03/18/te-reo-artificial-intelligence.html",
+                  "source_refs": [
+                    "AIBD-0319-source-0001",
+                    "AIBD-0319-source-0002"
+                  ],
+                  "title": "original archive project announcement",
+                  "relationship": "original archive project announcement",
+                  "contribution": "Auckland announced that it would compare archive transcriptions with human output; it did not report results.",
+                  "locator": "Planned sample and human-comparison paragraphs",
+                  "access_status": "Full announcement read"
+                },
+                {
+                  "url": "https://blogs.nvidia.com/blog/te-hiku-media-maori-speech-ai/",
+                  "source_refs": [
+                    "AIBD-0319-source-0004"
+                  ],
+                  "title": "original supplier interview with developer",
+                  "relationship": "original supplier interview with developer",
+                  "contribution": "The developer described local training on eight A100 GPUs, NeMo, community consent and the Kaituhi service;92% accuracy remains a developer claim.",
+                  "locator": "Turning to trustworthy AI",
+                  "access_status": "Full report read"
+                }
+              ],
+              "limitations": "The archive comparison has no reported result here; no held-out accuracy dataset was inspected.",
+              "origin_chain": "Auckland establishes the archive collaboration; NVIDIA interviews Te Hiku for architecture and performance. Earlier Mozilla and later NeMo accounts describe different stages; duplicate Auckland IDs are one source."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at University of Auckland March 18, 2024 announcement: proposed comparisons with human transcripts across dialects and recording qualities. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0319-source-0001"
+            "AIBD-0319-source-0001",
+            "AIBD-0319-source-0002",
+            "AIBD-0319-source-0004"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2370,34 +2462,47 @@
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The earlier model used Mozilla open-source tooling; the 2024 account describes training with NVIDIA NeMo. These refer to successive development stages."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Iwi broadcaster's ASR, trained on 310 hours of community recordings (86% accuracy, 2022), reported at 92% in 2024; archive tests announced in 2024 with results to come; no speaker outcome documented.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: 86% earlier model and 92% later claim.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0319-source-0003",
+            "AIBD-0319-source-0004"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the configuration used in this case is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The configuration of Te Hiku Media te reo Māori automatic speech recognition and transcription tool (Papa Reo platform; trained with Mozilla DeepSpeech-era open-source tooling, later NVIDIA NeMo) used in this case remains unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The earlier model used Mozilla open-source tooling; the 2024 account describes training with NVIDIA NeMo. These refer to successive development stages."
+        }
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Recorded te reo Māori speech became draft text through automatic speech recognition on the Papa Reo platform."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Iwi broadcaster's ASR, trained on 310 hours of community recordings (86% accuracy, 2022), reported at 92% in 2024; archive tests announced in 2024 with results to come; no speaker outcome documented.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: archive transcription and platform.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0319-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Te Hiku Media te reo Māori automatic speech recognition and transcription tool (Papa Reo platform; trained with Mozilla DeepSpeech-era open-source tooling, later NVIDIA NeMo) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Recorded te reo Māori speech became draft text through automatic speech recognition on the Papa Reo platform."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2567,18 +2672,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 38,
-      "reviewed": 3,
+      "known": 42,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 35,
-      "review_not_assessed": 53,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 38,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 53,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

@@ -1425,19 +1425,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Users contributed reports, and police maintained the blocklist. Developers needed to update the classifier as scam wording changed."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MHA told Parliament in November 2023 that ScamShield, built by Open Government Products with the NCPC and the Police, had about 750,000 downloads, about 80,000 numbers blacklisted and about 5 milli...",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: reports, police intelligence, and model adaptation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0179-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of ScamShield app in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Users contributed reports, and police maintained the blocklist. Developers needed to update the classifier as scam wording changed."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1489,19 +1495,25 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiary_count": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "By October 2023, the app had about 750,000 downloads. Downloads and flagged messages do not count people whose financial losses were demonstrably prevented."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MHA told Parliament in November 2023 that ScamShield, built by Open Government Products with the NCPC and the Police, had about 750,000 downloads, about 80,000 numbers blacklisted and about 5 milli...",
-          "record_fields": [
-            "summary"
+          "basis": "Account: download count, five million flagged texts, and absence of victim-level evaluation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0179-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "The numerator, denominator, unit, observation period, and overlap need confirmation; study exposure or audience reach cannot be assumed to count beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "A beneficiary count is not separately established. Any number in the account must be distinguished as actually benefiting, exposed, eligible, or intended, with its unit, period, and overlap limits. The retained metric is: about 5 million SMSes had been flagged to users as potential scams",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "By October 2023, the app had about 750,000 downloads. Downloads and flagged messages do not count people whose financial losses were demonstrably prevented."
+        }
       },
       "outcomes[].benefit_type": {
         "state": "value_present",
@@ -1647,16 +1659,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MHA told Parliament in November 2023 that ScamShield, built by Open Government Products with the NCPC and the Police, had about 750,000 downloads, about 80,000 numbers blacklisted and about 5 milli...",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: changing scam tactics and current blocklist requirement.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0179-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The developer explicitly described changing attacks as an adaptation problem, and the two mechanisms depend on learned patterns and known numbers.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The app probably reduced exposure to suspicious messages before users engaged with them, but it could not guarantee protection from new wording or numbers that were not yet recognized.",
+          "editor_note": "The developer explicitly described changing attacks as an adaptation problem, and the two mechanisms depend on learned patterns and known numbers."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1947,25 +1963,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.mha.gov.sg/media-room/newsroom/oral-reply-to-pq-on-effectiveness-of-scamshield-in-preventing-scams/",
+                "source_refs": [
+                  "AIBD-0179-source-0001"
+                ],
+                "title": "original ministerial answer",
+                "relationship": "original ministerial answer",
+                "contribution": "750,000 downloads are not unique users; 80,000 blacklisted numbers and five million flagged messages are distinct from 180 million telco-blocked calls.",
+                "locator": "November 22, 2023, paragraphs 1–4",
+                "access_status": "Full answer read"
+              },
+              {
+                "url": "https://govinsider.asia/intl-en/article/meet-singapores-latest-weapon-against-scams-open-government-products-scamshield",
+                "source_refs": [
+                  "AIBD-0179-source-0002"
+                ],
+                "title": "original product-manager interview",
+                "relationship": "original product-manager interview",
+                "contribution": "The model runs on the device, examines unknown-sender texts, files suspected scams, and is regularly retrained. Police and user reports contribute to call lists.",
+                "locator": "How it works and Ensuring user privacy",
+                "access_status": "Full body retrieved and read; saved 011-179.txt"
+              }
+            ],
+            "latest_limitations": "The 95% claim lacks an inspected test dataset, and neither source counts financial losses prevented."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0179-source-0001",
-            "AIBD-0179-source-0002",
-            "AIBD-0179-source-0003"
+            "AIBD-0179-source-0002"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The 95% claim lacks an inspected test dataset, and neither source counts financial losses prevented."
         }
       },
       "sources[].citation_locator": {
@@ -2103,27 +2146,89 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.mha.gov.sg/media-room/newsroom/oral-reply-to-pq-on-effectiveness-of-scamshield-in-preventing-scams/",
+                "source_refs": [
+                  "AIBD-0179-source-0001"
+                ],
+                "title": "original ministerial answer",
+                "relationship": "original ministerial answer",
+                "contribution": "750,000 downloads are not unique users; 80,000 blacklisted numbers and five million flagged messages are distinct from 180 million telco-blocked calls.",
+                "locator": "November 22, 2023, paragraphs 1–4",
+                "access_status": "Full answer read"
+              },
+              {
+                "url": "https://govinsider.asia/intl-en/article/meet-singapores-latest-weapon-against-scams-open-government-products-scamshield",
+                "source_refs": [
+                  "AIBD-0179-source-0002"
+                ],
+                "title": "original product-manager interview",
+                "relationship": "original product-manager interview",
+                "contribution": "The model runs on the device, examines unknown-sender texts, files suspected scams, and is regularly retrained. Police and user reports contribute to call lists.",
+                "locator": "How it works and Ensuring user privacy",
+                "access_status": "Full body retrieved and read; saved 011-179.txt"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.mha.gov.sg/media-room/newsroom/oral-reply-to-pq-on-effectiveness-of-scamshield-in-preventing-scams/",
+                  "source_refs": [
+                    "AIBD-0179-source-0001"
+                  ],
+                  "title": "original ministerial answer",
+                  "relationship": "original ministerial answer",
+                  "contribution": "750,000 downloads are not unique users; 80,000 blacklisted numbers and five million flagged messages are distinct from 180 million telco-blocked calls.",
+                  "locator": "November 22, 2023, paragraphs 1–4",
+                  "access_status": "Full answer read"
+                },
+                {
+                  "url": "https://govinsider.asia/intl-en/article/meet-singapores-latest-weapon-against-scams-open-government-products-scamshield",
+                  "source_refs": [
+                    "AIBD-0179-source-0002"
+                  ],
+                  "title": "original product-manager interview",
+                  "relationship": "original product-manager interview",
+                  "contribution": "The model runs on the device, examines unknown-sender texts, files suspected scams, and is regularly retrained. Police and user reports contribute to call lists.",
+                  "locator": "How it works and Ensuring user privacy",
+                  "access_status": "Full body retrieved and read; saved 011-179.txt"
+                }
+              ],
+              "limitations": "The 95% claim lacks an inspected test dataset, and neither source counts financial losses prevented.",
+              "origin_chain": "Government answer for usage counts plus firsthand product-manager interview for implementation."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0179-source-0001",
+            "retained_source_order": [
+              "AIBD-0179-source-0001",
+              "AIBD-0179-source-0002",
+              "AIBD-0179-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. All four proposals survive.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0179-source-0001",
             "AIBD-0179-source-0002"
           ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The retained source trail for Singapore's ScamShield flags about 5 million SMSes and blocks about 80,000 scam numbers by October 2023 has not been fully verified. The references support this editorial screening only.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The retained references have not been fully traced to their original evidence."
+          "answer": "750,000 downloads are not unique users; 80,000 blacklisted numbers and five million flagged messages are distinct from 180 million telco-blocked calls."
         }
       },
       "strategic_assessments[]": {
@@ -2169,19 +2274,26 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The on-device model filtered suspected scam texts into a junk folder. Call blocking used a police-maintained number list rather than the text classifier."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MHA told Parliament in November 2023 that ScamShield, built by Open Government Products with the NCPC and the Police, had about 750,000 downloads, about 80,000 numbers blacklisted and about 5 milli...",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: separate SMS classification and call-blocklist functions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0179-source-0001",
+            "AIBD-0179-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by ScamShield app remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The on-device model filtered suspected scam texts into a junk folder. Call blocking used a police-maintained number list rather than the text classifier."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2403,18 +2515,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 3,
+      "known": 42,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 35,
-      "review_not_assessed": 53,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

@@ -1345,19 +1345,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A relationship manager supplied the initial suspicion. Bank staff then reviewed accounts that the graph tool linked to the suspected network."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Bank F’s network tool found phone numbers and email addresses shared by three companies. Further account checks indicated possible money laundering.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: human intelligence seed, CRM link, graph expansion, and account reviews.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0174-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Bank F network (graph) analytics solution implemented in Hong Kong in 2013 in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A relationship manager supplied the initial suspicion. Bank staff then reviewed accounts that the graph tool linked to the suspected network."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1848,24 +1854,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0174-source-0001",
-            "AIBD-0174-source-0002"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.hkma.gov.hk/media/eng/doc/key-information/guidelines-and-circular/2021/20210121e2a1.pdf",
+                "source_refs": [
+                  "AIBD-0174-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Manager links first two companies; graph tool adds Company C from shared phone/email; bank reviews accounts. $50 million assumes a 10% loss on exposures.",
+                "locator": "Bank F case, printed pages 24–25",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "Bank F is anonymous, so the underlying case files cannot be independently traced."
+          }
         },
-        "reason": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0174-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Bank F is anonymous, so the underlying case files cannot be independently traced."
         }
       },
       "sources[].citation_locator": {
@@ -1974,7 +1996,7 @@
         "value": {
           "kind": "structured",
           "data": {
-            "reviewed_on": "2026-10-25",
+            "reviewed_on": "2026-10-27",
             "lead_source_ref": "AIBD-0174-source-0001",
             "retained_source_order": [
               "AIBD-0174-source-0001",
@@ -1988,7 +2010,14 @@
                 "relationship": "HKMA/Deloitte report based on participating banks’ experience; not an independent audit of realized savings.",
                 "source_refs": [
                   "AIBD-0174-source-0001"
-                ]
+                ],
+                "latest_inspection": {
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Manager links first two companies; graph tool adds Company C from shared phone/email; bank reviews accounts. $50 million assumes a 10% loss on exposures.",
+                  "locator": "Bank F case, printed pages 24–25",
+                  "access_status": "content inspected"
+                }
               },
               {
                 "url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2021/01/20210121-3/",
@@ -2001,18 +2030,38 @@
               }
             ],
             "excluded_or_consolidated_sources": [],
-            "review_scope": "Whether the specified sources establish the reported benefit, their document types, and their authorship relationships. Other fields and sources were not comprehensively reassessed."
+            "review_scope": "Whether the specified sources establish the reported benefit, their document types, and their authorship relationships. Other fields and sources were not comprehensively reassessed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.hkma.gov.hk/media/eng/doc/key-information/guidelines-and-circular/2021/20210121e2a1.pdf",
+                  "source_refs": [
+                    "AIBD-0174-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Manager links first two companies; graph tool adds Company C from shared phone/email; bank reviews accounts. $50 million assumes a 10% loss on exposures.",
+                  "locator": "Bank F case, printed pages 24–25",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "Bank F is anonymous, so the underlying case files cannot be independently traced.",
+              "origin_chain": "HKMA/Deloitte original interview-based case study; anonymous bank submission is the underlying evidence."
+            },
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "A limited source-role review; each inspected source and its contribution is identified.",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight systems[].component_role",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0174-source-0001",
-            "AIBD-0174-source-0002"
+            "AIBD-0174-source-0001"
           ],
-          "reviewed_on": "2026-10-25"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
@@ -2080,16 +2129,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Bank F’s network tool found phone numbers and email addresses shared by three companies. Further account checks indicated possible money laundering.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: network analytics and matching contact details, with machine-learning use unstated.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0174-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation is needed that explains each component’s role."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The role of each component in Bank F network (graph) analytics solution implemented in Hong Kong in 2013 remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The concrete reported operation was following shared phone numbers and email addresses. Those links support an analytics role, while the source does not identify learned parameters or a training process.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The system most likely functioned as an investigative graph-search and entity-linking tool; the retained account does not require a machine-learning explanation for matching contact details.",
+          "editor_note": "The concrete reported operation was following shared phone numbers and email addresses. Those links support an analytics role, while the source does not identify learned parameters or a training process."
+        }
       },
       "systems[].deployment_configuration": {
         "state": "unresolved",
@@ -2107,19 +2160,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The network tool linked customer, trade, payment, and registry records, including shared phone numbers and email addresses, to reveal related companies."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Bank F’s network tool found phone numbers and email addresses shared by three companies. Further account checks indicated possible money laundering.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: data sources and links from the first two accounts to additional companies.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0174-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Bank F network (graph) analytics solution implemented in Hong Kong in 2013 have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The network tool linked customer, trade, payment, and registry records, including shared phone numbers and email addresses, to reveal related companies."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2299,18 +2358,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 2,
+      "known": 40,
+      "reviewed": 6,
       "reviewed_complete": 0,
-      "reviewed_partial": 2,
+      "reviewed_partial": 6,
       "record_mapped": 35,
-      "review_not_assessed": 54,
+      "review_not_assessed": 50,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 40,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 51,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

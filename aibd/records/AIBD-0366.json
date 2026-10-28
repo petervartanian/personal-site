@@ -1,20 +1,20 @@
 {
   "id": "AIBD-0366",
-  "title": "Xuanwu Hospital implants China's first closed-loop responsive neurostimulator, Epilcure, with an on-skull AI chip in a man with drug-resistant bilateral temporal lobe epilepsy (9 Mar 2022)",
-  "summary": "9 Mar 2022: Xuanwu Hospital, Beijing, implanted Epilcure, a closed-loop neurostimulator whose on-skull AI chip monitors EEG and stimulates on predicted seizures, in a man with drug-resistant epilepsy.",
+  "title": "Xuanwu Hospital implants Epilcure, a responsive neurostimulator, in a man with drug-resistant bilateral temporal lobe epilepsy on March 9, 2022",
+  "summary": "Xuanwu Hospital implanted Epilcure in March 2022. Later methods describe threshold-triggered stimulation; a learned seizure predictor and this patient’s benefit remain unestablished.",
   "date_observed": "2022-03-09",
   "date_basis": "unassessed",
   "date_precision": "unassessed",
   "benefit_status": "intended",
   "source_collection": null,
   "source_entry": null,
-  "account": "On 9 March 2022 a team at Xuanwu Hospital, Capital Medical University, Beijing, implanted the Epilcure closed-loop responsive neurostimulation system. Hospital president Zhao Guoguang and neurosurgeon Shan Yongzhi led it. The patient, a man with drug-resistant bilateral temporal lobe epilepsy, was the first enrollee in a hospital-led NMPA registration clinical trial. Sources: cnBeta and Kuai Keji (12 March 2022), both citing the neurosurgery department's WeChat account. The reports describe an AI chip implanted in the skull, with intracranial electrodes monitoring electroencephalography (EEG) rhythms around the clock. On predicting an imminent seizure, it delivers an interfering rhythm to block seizure formation at the focus. Bilateral temporal lobe epilepsy is called a relative contraindication for open surgery. The operation went smoothly and the stimulator's indicators worked normally during surgery. Post-operative reconstruction showed precise electrode placement and clear EEG signals (cnBeta). No seizure outcome, patient age or follow-up is reported; the device's maker is not named.",
+  "account": "On 9 March 2022 a team at Xuanwu Hospital, Capital Medical University, Beijing, implanted the Epilcure closed-loop responsive neurostimulation system. Hospital president Zhao Guoguang and neurosurgeon Shan Yongzhi led it. The patient, a man with drug-resistant bilateral temporal lobe epilepsy, was the first enrollee in a hospital-led NMPA registration clinical trial. Sources: cnBeta and Kuai Keji (12 March 2022), both citing the neurosurgery department's WeChat account. The reports describe an AI chip implanted in the skull, with intracranial electrodes monitoring electroencephalography (EEG) rhythms around the clock. The reports say that the device predicts an imminent seizure and delivers an interfering rhythm to block seizure formation at the focus. Bilateral temporal lobe epilepsy is called a relative contraindication for open surgery. The operation went smoothly and the stimulator's indicators worked normally during surgery. Post-operative reconstruction showed precise electrode placement and clear EEG signals (cnBeta). The initial accounts give no seizure outcome, patient age or follow-up for this patient. A later clinical-team paper identifies the maker as Hangzhou Genlight MedTech and describes five clinician-configured detection algorithms that trigger stimulation when signal measures cross set thresholds. That paper does not establish that a learned model predicted seizures or link an individual seizure outcome to this first implantation.",
   "category": "benefit created",
   "unexpected": false,
   "purpose": "Epilcure was built to detect the onset of seizures from continuously monitored intracranial EEG and deliver stimulation to abort them in people with drug-resistant epilepsy. Implanting it for that purpose was the intended use, though no seizure outcome is yet reported.",
   "system": "Epilcure closed-loop responsive neurostimulation system (brain-computer interface)",
   "model_version": null,
-  "developer": null,
+  "developer": "Hangzhou Genlight MedTech Co. Ltd. (GenLight MedTech), identified in the later clinical-team publication.",
   "deployer": "Xuanwu Hospital, Capital Medical University, Beijing",
   "location": "Beijing, China",
   "domain": "Healthcare (epilepsy; responsive neurostimulation)",
@@ -33,7 +33,7 @@
   ],
   "ai_role": {
     "status": "unassessed",
-    "statement": "The hospital, as relayed by the reports, describes the AI element as an on-skull chip. It monitors intracranial EEG continuously and predicts imminent seizures to trigger interfering stimulation. The read reports establish only that the implant functioned during surgery and that electrodes were placed precisely. No detection or stimulation event, seizure count or follow-up is reported. What the AI contributed to the patient cannot be assessed from these sources."
+    "statement": "The hospital announcement described AI-assisted EEG monitoring and automatic stimulation. The later clinical paper describes five clinician-configured signal-detection algorithms and threshold-triggered stimulation, so it does not establish that a learned model predicted seizures."
   },
   "evidence": [
     {
@@ -71,17 +71,27 @@
       "date": null,
       "written_by": "independent",
       "quote": "The AI chip continuously monitors brain activity and intervenes to prevent seizures, marking a significant clinical application of AI in healthcare with direct positive impact on patient health."
+    },
+    {
+      "kind": "peer-reviewed study",
+      "citation": "Yang Y, Wei P, Shi J, et al. Early assessment of responsive neurostimulation for drug-resistant epilepsy in China: A multicenter, self-controlled study. Chinese Medical Journal. 2025;138(4):430–440. Published online November 27, 2024. doi:10.1097/CM9.0000000000003292.",
+      "title": "Early assessment of responsive neurostimulation for drug-resistant epilepsy in China: A multicenter, self-controlled study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11845213/",
+      "date": "2024-11-27",
+      "written_by": "deployer",
+      "quote": null,
+      "supports_benefit": false
     }
   ],
   "replication": {
     "produced_by": [
       "Intracranial electrodes at the epileptic focus feeding continuous EEG to a chip implanted in the skull",
-      "A seizure-prediction routine on the chip that triggers an interfering stimulation rhythm when it predicts an imminent seizure",
+      "Clinician-configured EEG detection algorithms that trigger stimulation when signal measures cross set thresholds, as described in the later clinical paper",
       "Enrollment in the hospital-led NMPA registration trial for patients whose epilepsy is drug-resistant and unsuited to open surgery"
     ],
     "must_hold": [
       "Electrode placement is precise and signals are clear, as the post-operative reconstruction reported here",
-      "The prediction fires early enough and specifically enough to abort seizures, which no cited source yet documents"
+      "Detection and stimulation settings must be appropriate for the patient; a seizure outcome for this first implantation is not established by the inspected sources"
     ],
     "echoes": []
   },
@@ -125,11 +135,11 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: three independent news reports and a registry entry. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "claim_basis": "Sources: three independent news reports, a registry entry and the deployer's peer-reviewed study. For the benefit itself, the cited sources include no independent study or report and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0366",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "41dfc915e72605da93d385e71c20b38e309a7f2f9df801f4ebf4ca6889cd7fc0",
+    "source_fingerprint": "c290c5d0bcf33a66409bd7885fa955645ce753f086fd653ca0c877310be0487f",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -144,7 +154,8 @@
       "AIBD-0366-source-0001",
       "AIBD-0366-source-0002",
       "AIBD-0366-source-0003",
-      "AIBD-0366-source-0004"
+      "AIBD-0366-source-0004",
+      "AIBD-0366-source-0005"
     ],
     "families": {
       "strategic assessments": {
@@ -260,19 +271,25 @@
         "coverage": "partial"
       },
       "ai_contribution": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: 9 Mar 2022: Xuanwu Hospital, Beijing, implanted Epilcure, a closed-loop neurostimulator whose on-skull AI chip monitors EEG and stimulates on predicted seizures, in a man with drug-resistant epilepsy.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "A causal or process account is needed that separates the AI contribution from human work, conventional software, and concurrent changes."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The hospital announcement described AI-assisted EEG monitoring and automatic stimulation. The later clinical paper describes five clinician-configured signal-detection algorithms and threshold-triggered stimulation, so it does not establish that a learned model predicted seizures."
         },
-        "reason": "The hospital, as relayed by the reports, describes the AI element as an on-skull chip. It monitors intracranial EEG continuously and predicts imminent seizures to trigger interfering stimulation. The read reports establish only that the implant functioned during surgery and that electrodes were placed precisely. No detection or stimulation event, seizure count or follow-up is reported. What the AI contributed to the patient cannot be assessed from these sources. The separate contribution of AI remains unassessed; comparison with human work, ordinary software, and simultaneous changes is needed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "The original technical methods support closed-loop automation but qualify the news account’s specific AI-prediction claim. Technical information and stimulation protocol",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0366-source-0005"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The hospital announcement described AI-assisted EEG monitoring and automatic stimulation. The later clinical paper describes five clinician-configured signal-detection algorithms and threshold-triggered stimulation, so it does not establish that a learned model predicted seizures."
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -282,7 +299,7 @@
             "category": "benefit created",
             "ai_role": {
               "status": "unassessed",
-              "statement": "The hospital, as relayed by the reports, describes the AI element as an on-skull chip. It monitors intracranial EEG continuously and predicts imminent seizures to trigger interfering stimulation. The read reports establish only that the implant functioned during surgery and that electrodes were placed precisely. No detection or stimulation event, seizure count or follow-up is reported. What the AI contributed to the patient cannot be assessed from these sources."
+              "statement": "The hospital announcement described AI-assisted EEG monitoring and automatic stimulation. The later clinical paper describes five clinician-configured signal-detection algorithms and threshold-triggered stimulation, so it does not establish that a learned model predicted seizures."
             }
           }
         },
@@ -397,7 +414,7 @@
             "confidence": "medium",
             "evidence_word": "reported",
             "claim_status": "Independently reported",
-            "basis": "Sources: three independent news reports and a registry entry. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "basis": "Sources: three independent news reports, a registry entry and the deployer's peer-reviewed study. For the benefit itself, the cited sources include no independent study or report and no finding by a regulator or court.",
             "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
           }
         },
@@ -520,37 +537,22 @@
       "brief": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "answer": "9 Mar 2022: Xuanwu Hospital, Beijing, implanted Epilcure, a closed-loop neurostimulator whose on-skull AI chip monitors EEG and stimulates on predicted seizures, in a man with drug-resistant epilepsy.\n\nSuccessful placement and clear EEG signals are technical outcomes, not reduced seizure frequency, improved quality of life, or established safety over time. The mechanism’s ability to block a seizure is presented as its intended operation. Patient follow-up and a trial results report are needed to assess clinical benefit.\n\nThe hospital, as relayed by the reports, describes the AI element as an on-skull chip. It monitors intracranial EEG continuously and predicts imminent seizures to trigger interfering stimulation. The read reports establish only that the implant functioned during surgery and that electrodes were placed precisely. No detection or stimulation event, seizure count or follow-up is reported. What the AI contributed to the patient cannot be assessed from these sources.",
-            "source_refs": [
-              "AIBD-0366-source-0001",
-              "AIBD-0366-source-0002",
-              "AIBD-0366-source-0003",
-              "AIBD-0366-source-0004"
-            ],
-            "scope": "A presentation of the retained summary and available qualifications, not new evidence review or a complete synthesis of every claim."
-          }
+          "kind": "text",
+          "text": "Xuanwu Hospital implanted Epilcure in March 2022. Later methods describe threshold-triggered stimulation; a learned seizure predictor and this patient’s benefit remain unestablished."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Curatorial presentation of the retained case summary and existing qualifications. No external source was opened and no new evidentiary judgment was made for this brief.",
-          "record_fields": [
-            "summary",
-            "title",
-            "ai_role"
-          ],
+          "kind": "source_review",
+          "basis": "The inspected later clinical methods qualify the early hospital announcement’s AI-prediction language. Preserve the original announcement as an attributed claim and distinguish patient-specific results. Study design; Technical information and stimulation protocol",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0366-source-0001",
-            "AIBD-0366-source-0002",
-            "AIBD-0366-source-0003",
-            "AIBD-0366-source-0004"
-          ]
+            "AIBD-0366-source-0005"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "9 Mar 2022: Xuanwu Hospital, Beijing, implanted Epilcure, a closed-loop neurostimulator whose on-skull AI chip monitors EEG and stimulates on predicted seizures, in a man with drug-resistant epilepsy.\n\nSuccessful placement and clear EEG signals are technical outcomes, not reduced seizure frequency, improved quality of life, or established safety over time. The mechanism’s ability to block a seizure is presented as its intended operation. Patient follow-up and a trial results report are needed to assess clinical benefit.\n\nThe hospital, as relayed by the reports, describes the AI element as an on-skull chip. It monitors intracranial EEG continuously and predicts imminent seizures to trigger interfering stimulation. The read reports establish only that the implant functioned during surgery and that electrodes were placed precisely. No detection or stimulation event, seizure count or follow-up is reported. What the AI contributed to the patient cannot be assessed from these sources."
+          "answer": "Xuanwu Hospital implanted Epilcure in March 2022. Later methods describe threshold-triggered stimulation; a learned seizure predictor and this patient’s benefit remain unestablished."
         }
       },
       "case_kind": {
@@ -675,77 +677,42 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "Successful placement and clear EEG signals are technical outcomes, not reduced seizure frequency, improved quality of life, or established safety over time. The mechanism’s ability to block a seizure is presented as its intended operation. Patient follow-up and a trial results report are needed to assess clinical benefit."
+          "text": "The initial reports establish implantation, precise electrode placement and clear EEG signals. The later 19-patient paper provides device methods but does not establish this first patient’s individual seizure outcome. A learned seizure-prediction model remains unestablished."
         },
         "provenance": {
-          "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at cnBeta March 12, 2022 account: March 9 implantation, precise electrodes, clear EEG, and described closed-loop mechanism. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "kind": "curatorial",
+          "basis": "The inspected later clinical methods qualify the early hospital announcement’s AI-prediction language. Preserve the original announcement as an attributed claim and distinguish patient-specific results. Study design; Technical information and stimulation protocol",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0366-source-0001"
+            "AIBD-0366-source-0005"
           ],
           "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "Successful placement and clear EEG signals are technical outcomes, not reduced seizure frequency, improved quality of life, or established safety over time. The mechanism’s ability to block a seizure is presented as its intended operation. Patient follow-up and a trial results report are needed to assess clinical benefit."
+          "answer": "The initial reports establish implantation, precise electrode placement and clear EEG signals. The later 19-patient paper provides device methods but does not establish this first patient’s individual seizure outcome. A learned seizure-prediction model remains unestablished."
         }
       },
       "claims[].proposition": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "retained_case_account": "On 9 March 2022 a team at Xuanwu Hospital, Capital Medical University, Beijing, implanted the Epilcure closed-loop responsive neurostimulation system. Hospital president Zhao Guoguang and neurosurgeon Shan Yongzhi led it. The patient, a man with drug-resistant bilateral temporal lobe epilepsy, was the first enrollee in a hospital-led NMPA registration clinical trial. Sources: cnBeta and Kuai Keji (12 March 2022), both citing the neurosurgery department's WeChat account. The reports describe an AI chip implanted in the skull, with intracranial electrodes monitoring electroencephalography (EEG) rhythms around the clock. On predicting an imminent seizure, it delivers an interfering rhythm to block seizure formation at the focus. Bilateral temporal lobe epilepsy is called a relative contraindication for open surgery. The operation went smoothly and the stimulator's indicators worked normally during surgery. Post-operative reconstruction showed precise electrode placement and clear EEG signals (cnBeta). No seizure outcome, patient age or follow-up is reported; the device's maker is not named.",
-            "retained_ai_contribution_statement": {
-              "status": "unassessed",
-              "statement": "The hospital, as relayed by the reports, describes the AI element as an on-skull chip. It monitors intracranial EEG continuously and predicts imminent seizures to trigger interfering stimulation. The read reports establish only that the implant functioned during surgery and that electrodes were placed precisely. No detection or stimulation event, seizure count or follow-up is reported. What the AI contributed to the patient cannot be assessed from these sources."
-            },
-            "retained_source_statements": [
-              {
-                "source_ref": "AIBD-0366-source-0001",
-                "statement": "术中刺激器各项指标均工作正常，术后重建显示电极位置精准",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0366-source-0002",
-                "statement": "通过将人工智能芯片植入颅骨，颅内电极植入脑内",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0366-source-0003",
-                "statement": "一旦预测到即将发生的癫痫，即启动外源性干扰节律",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0366-source-0004",
-                "statement": "The AI chip continuously monitors brain activity and intervenes to prevent seizures, marking a significant clinical application of AI in healthcare with direct positive impact on patient health.",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              }
-            ],
-            "scope": "Existing assertions are preserved as a case-level bundle. They have not been separated into atomic claims or independently verified by this assignment."
-          }
+          "kind": "text",
+          "text": "Xuanwu Hospital implanted Epilcure in March 2022. Later methods describe threshold-triggered stimulation; a learned seizure predictor and this patient’s benefit remain unestablished."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the retained case or existing profile metadata. This assignment performs no new source review or evidentiary assessment.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "The inspected later clinical methods qualify the early hospital announcement’s AI-prediction language. Preserve the original announcement as an attributed claim and distinguish patient-specific results. Study design; Technical information and stimulation protocol",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0366-source-0001",
-            "AIBD-0366-source-0002",
-            "AIBD-0366-source-0003",
-            "AIBD-0366-source-0004"
-          ]
+            "AIBD-0366-source-0005"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "9 Mar 2022: Xuanwu Hospital, Beijing, implanted Epilcure, a closed-loop neurostimulator whose on-skull AI chip monitors EEG and stimulates on predicted seizures, in a man with drug-resistant epilepsy."
+          "answer": "Xuanwu Hospital implanted Epilcure in March 2022. Later methods describe threshold-triggered stimulation; a learned seizure predictor and this patient’s benefit remain unestablished."
         }
       },
       "cross_border_flows[]": {
@@ -1392,19 +1359,27 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "In the later clinical protocol, clinicians used recorded EEG to select detection algorithms and thresholds, then adjusted stimulation settings. Patients or family members could switch the device on or off and monitor its battery."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: 9 Mar 2022: Xuanwu Hospital, Beijing, implanted Epilcure, a closed-loop neurostimulator whose on-skull AI chip monitors EEG and stimulates on predicted seizures, in a man with drug-resistant epilepsy.",
-          "record_fields": [
-            "summary"
+          "basis": "Clinical-team Epilcure paper, Technical information and stimulation protocol; later technical clarification of the retained device account.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0366-source-0005",
+            "AIBD-0366-source-0001",
+            "AIBD-0366-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Epilcure closed-loop responsive neurostimulation system (brain-computer interface) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "In the later clinical protocol, clinicians used recorded EEG to select detection algorithms and thresholds, then adjusted stimulation settings. Patients or family members could switch the device on or off and monitor its battery."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1496,7 +1471,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "On 9 March 2022 a team at Xuanwu Hospital, Capital Medical University, Beijing, implanted the Epilcure closed-loop responsive neurostimulation system. Hospital president Zhao Guoguang and neurosurgeon Shan Yongzhi led it. The patient, a man with drug-resistant bilateral temporal lobe epilepsy, was the first enrollee in a hospital-led NMPA registration clinical trial. Sources: cnBeta and Kuai Keji (12 March 2022), both citing the neurosurgery department's WeChat account. The reports describe an AI chip implanted in the skull, with intracranial electrodes monitoring electroencephalography (EEG) rhythms around the clock. On predicting an imminent seizure, it delivers an interfering rhythm to block seizure formation at the focus. Bilateral temporal lobe epilepsy is called a relative contraindication for open surgery. The operation went smoothly and the stimulator's indicators worked normally during surgery. Post-operative reconstruction showed precise electrode placement and clear EEG signals (cnBeta). No seizure outcome, patient age or follow-up is reported; the device's maker is not named.",
+            "account": "On 9 March 2022 a team at Xuanwu Hospital, Capital Medical University, Beijing, implanted the Epilcure closed-loop responsive neurostimulation system. Hospital president Zhao Guoguang and neurosurgeon Shan Yongzhi led it. The patient, a man with drug-resistant bilateral temporal lobe epilepsy, was the first enrollee in a hospital-led NMPA registration clinical trial. Sources: cnBeta and Kuai Keji (12 March 2022), both citing the neurosurgery department's WeChat account. The reports describe an AI chip implanted in the skull, with intracranial electrodes monitoring electroencephalography (EEG) rhythms around the clock. The reports say that the device predicts an imminent seizure and delivers an interfering rhythm to block seizure formation at the focus. Bilateral temporal lobe epilepsy is called a relative contraindication for open surgery. The operation went smoothly and the stimulator's indicators worked normally during surgery. Post-operative reconstruction showed precise electrode placement and clear EEG signals (cnBeta). The initial accounts give no seizure outcome, patient age or follow-up for this patient. A later clinical-team paper identifies the maker as Hangzhou Genlight MedTech and describes five clinician-configured detection algorithms that trigger stimulation when signal measures cross set thresholds. That paper does not establish that a learned model predicted seizures or link an individual seizure outcome to this first implantation.",
             "benefit_type": "Improved Physical Health"
           }
         },
@@ -1603,19 +1578,26 @@
         }
       },
       "outcomes[].tradeoffs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The implant offered a plausible option when bilateral seizure origins made open surgery less suitable, but it required invasive electrode placement without a reported seizure benefit yet."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: 9 Mar 2022: Xuanwu Hospital, Beijing, implanted Epilcure, a closed-loop neurostimulator whose on-skull AI chip monitors EEG and stimulates on predicted seizures, in a man with drug-resistant epilepsy.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: bilateral temporal epilepsy, surgical contraindication and no follow-up.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0366-source-0001",
+            "AIBD-0366-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The implant offered a plausible option when bilateral seizure origins made open surgery less suitable, but it required invasive electrode placement without a reported seizure benefit yet."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1754,12 +1736,12 @@
             "replication": {
               "produced_by": [
                 "Intracranial electrodes at the epileptic focus feeding continuous EEG to a chip implanted in the skull",
-                "A seizure-prediction routine on the chip that triggers an interfering stimulation rhythm when it predicts an imminent seizure",
+                "Clinician-configured EEG detection algorithms that trigger stimulation when signal measures cross set thresholds, as described in the later clinical paper",
                 "Enrollment in the hospital-led NMPA registration trial for patients whose epilepsy is drug-resistant and unsuited to open surgery"
               ],
               "must_hold": [
                 "Electrode placement is precise and signals are clear, as the post-operative reconstruction reported here",
-                "The prediction fires early enough and specifically enough to abort seizures, which no cited source yet documents"
+                "Detection and stimulation settings must be appropriate for the patient; a seizure outcome for this first implantation is not established by the inspected sources"
               ],
               "echoes": []
             }
@@ -1841,26 +1823,70 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.cnbeta.com.tw/articles/tech/1246089.htm",
+                "source_refs": [
+                  "AIBD-0366-source-0001"
+                ],
+                "title": "intermediary reproducing hospital statement",
+                "relationship": "intermediary reproducing hospital statement",
+                "contribution": "March 9 implantation, bilateral temporal epilepsy, intended sensing and stimulation; no patient-specific follow-up outcome.",
+                "locator": "Hospital announcement reproduced in the March 17 report",
+                "access_status": "Relevant original text inspected through public web retrieval."
+              },
+              {
+                "url": "https://www.healtech.com.cn/news/info.html?id=139",
+                "source_refs": [
+                  "AIBD-0366-source-0001"
+                ],
+                "title": "public republication of hospital account",
+                "relationship": "public republication of hospital account",
+                "contribution": "Preoperative multidisciplinary assessment, robot-assisted electrode placement, registration-trial framing and postoperative mobility.",
+                "locator": "Hospital narrative reproduced with credit to 神外前沿",
+                "access_status": "Relevant original text inspected through public web retrieval."
+              },
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11845213/",
+                "source_refs": [
+                  "AIBD-0366-source-0005",
+                  "AIBD-0366-source-0001",
+                  "AIBD-0366-source-0002",
+                  "AIBD-0366-source-0003",
+                  "AIBD-0366-source-0004"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Later clinical-team study identifies GenLight MedTech and five clinician-configured detection algorithms. Stimulation triggers when signal measures cross configured thresholds; clinicians set and adjust both detection and stimulation.",
+                "locator": "Study design; Technical information and stimulation protocol",
+                "access_status": "Relevant original text inspected through public web retrieval."
+              }
+            ],
+            "latest_limitations": "The first hospital WeChat original was not recovered. The later 19-patient study does not establish the first named operation’s individual seizure outcome."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0366-source-0001",
+            "AIBD-0366-source-0005",
             "AIBD-0366-source-0002",
             "AIBD-0366-source-0003",
             "AIBD-0366-source-0004"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The first hospital WeChat original was not recovered. The later 19-patient study does not establish the first named operation’s individual seizure outcome."
         }
       },
       "sources[].citation_locator": {
@@ -1903,6 +1929,15 @@
                 "url": "https://oecd.ai/en/incidents/2022-03-11-af88",
                 "written_by": "independent",
                 "quote": "The AI chip continuously monitors brain activity and intervenes to prevent seizures, marking a significant clinical application of AI in healthcare with direct positive impact on patient health."
+              },
+              {
+                "kind": "peer-reviewed study",
+                "citation": "Yang Y, Wei P, Shi J, et al. Early assessment of responsive neurostimulation for drug-resistant epilepsy in China: A multicenter, self-controlled study. Chinese Medical Journal. 2025;138(4):430–440. Published online November 27, 2024. doi:10.1097/CM9.0000000000003292.",
+                "title": "Early assessment of responsive neurostimulation for drug-resistant epilepsy in China: A multicenter, self-controlled study",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11845213/",
+                "date": "2024-11-27",
+                "written_by": "deployer",
+                "supports_benefit": false
               }
             ]
           }
@@ -1926,9 +1961,10 @@
             "AIBD-0366-source-0001",
             "AIBD-0366-source-0002",
             "AIBD-0366-source-0003",
-            "AIBD-0366-source-0004"
+            "AIBD-0366-source-0004",
+            "AIBD-0366-source-0005"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained evidence in reviewed order"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2002,6 +2038,15 @@
                 "url": "https://oecd.ai/en/incidents/2022-03-11-af88",
                 "written_by": "independent",
                 "quote": "The AI chip continuously monitors brain activity and intervenes to prevent seizures, marking a significant clinical application of AI in healthcare with direct positive impact on patient health."
+              },
+              {
+                "kind": "peer-reviewed study",
+                "citation": "Yang Y, Wei P, Shi J, et al. Early assessment of responsive neurostimulation for drug-resistant epilepsy in China: A multicenter, self-controlled study. Chinese Medical Journal. 2025;138(4):430–440. Published online November 27, 2024. doi:10.1097/CM9.0000000000003292.",
+                "title": "Early assessment of responsive neurostimulation for drug-resistant epilepsy in China: A multicenter, self-controlled study",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11845213/",
+                "date": "2024-11-27",
+                "written_by": "deployer",
+                "supports_benefit": false
               }
             ]
           }
@@ -2032,14 +2077,48 @@
                   "AIBD-0366-source-0001"
                 ],
                 "locator": "cnBeta March 12, 2022 account: March 9 implantation, precise electrodes, clear EEG, and described closed-loop mechanism",
-                "contribution": "cnBeta credits Kuai Keji and the Xuanwu neurosurgery WeChat account. The original hospital post and clinical trial follow-up were not reopened."
+                "contribution": "cnBeta credits Kuai Keji and the Xuanwu neurosurgery WeChat account. The original hospital post and clinical trial follow-up were not reopened.",
+                "latest_inspection": {
+                  "title": "intermediary reproducing hospital statement",
+                  "relationship": "intermediary reproducing hospital statement",
+                  "contribution": "March 9 implantation, bilateral temporal epilepsy, intended sensing and stimulation; no patient-specific follow-up outcome.",
+                  "locator": "Hospital announcement reproduced in the March 17 report",
+                  "access_status": "Relevant original text inspected through public web retrieval."
+                }
+              },
+              {
+                "url": "https://www.healtech.com.cn/news/info.html?id=139",
+                "source_refs": [
+                  "AIBD-0366-source-0001"
+                ],
+                "title": "public republication of hospital account",
+                "relationship": "public republication of hospital account",
+                "contribution": "Preoperative multidisciplinary assessment, robot-assisted electrode placement, registration-trial framing and postoperative mobility.",
+                "locator": "Hospital narrative reproduced with credit to 神外前沿",
+                "access_status": "Relevant original text inspected through public web retrieval."
+              },
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11845213/",
+                "source_refs": [
+                  "AIBD-0366-source-0005",
+                  "AIBD-0366-source-0001",
+                  "AIBD-0366-source-0002",
+                  "AIBD-0366-source-0003",
+                  "AIBD-0366-source-0004"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Later clinical-team study identifies GenLight MedTech and five clinician-configured detection algorithms. Stimulation triggers when signal measures cross configured thresholds; clinicians set and adjust both detection and stimulation.",
+                "locator": "Study design; Technical information and stimulation protocol",
+                "access_status": "Relevant original text inspected through public web retrieval."
               }
             ],
             "retained_source_order": [
               "AIBD-0366-source-0001",
               "AIBD-0366-source-0002",
               "AIBD-0366-source-0003",
-              "AIBD-0366-source-0004"
+              "AIBD-0366-source-0004",
+              "AIBD-0366-source-0005"
             ],
             "unreviewed_source_refs": [
               "AIBD-0366-source-0002",
@@ -2048,22 +2127,82 @@
             ],
             "limitations": "Successful placement and clear EEG signals are technical outcomes, not reduced seizure frequency, improved quality of life, or established safety over time. The mechanism’s ability to block a seizure is presented as its intended operation. Patient follow-up and a trial results report are needed to assess clinical benefit. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0366-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "corrections": [
+              {
+                "answer": "News reports repeat Xuanwu Neurosurgery announcement; public medical-company republication inspected; subsequent clinical-team paper provides original technical methods. The first hospital WeChat original was not recovered. The later 19-patient study does not establish the first named operation’s individual seizure outcome.",
+                "basis": "Replace the stale first-route display with the completed research chain and its actual access limits. Study design; Technical information and stimulation protocol",
+                "source_refs": [
+                  "AIBD-0366-source-0001",
+                  "AIBD-0366-source-0005"
+                ],
+                "reviewed_on": "2026-10-27"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.cnbeta.com.tw/articles/tech/1246089.htm",
+                  "source_refs": [
+                    "AIBD-0366-source-0001"
+                  ],
+                  "title": "intermediary reproducing hospital statement",
+                  "relationship": "intermediary reproducing hospital statement",
+                  "contribution": "March 9 implantation, bilateral temporal epilepsy, intended sensing and stimulation; no patient-specific follow-up outcome.",
+                  "locator": "Hospital announcement reproduced in the March 17 report",
+                  "access_status": "Relevant original text inspected through public web retrieval."
+                },
+                {
+                  "url": "https://www.healtech.com.cn/news/info.html?id=139",
+                  "source_refs": [
+                    "AIBD-0366-source-0001"
+                  ],
+                  "title": "public republication of hospital account",
+                  "relationship": "public republication of hospital account",
+                  "contribution": "Preoperative multidisciplinary assessment, robot-assisted electrode placement, registration-trial framing and postoperative mobility.",
+                  "locator": "Hospital narrative reproduced with credit to 神外前沿",
+                  "access_status": "Relevant original text inspected through public web retrieval."
+                },
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11845213/",
+                  "source_refs": [
+                    "AIBD-0366-source-0005",
+                    "AIBD-0366-source-0001",
+                    "AIBD-0366-source-0002",
+                    "AIBD-0366-source-0003",
+                    "AIBD-0366-source-0004"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Later clinical-team study identifies GenLight MedTech and five clinician-configured detection algorithms. Stimulation triggers when signal measures cross configured thresholds; clinicians set and adjust both detection and stimulation.",
+                  "locator": "Study design; Technical information and stimulation protocol",
+                  "access_status": "Relevant original text inspected through public web retrieval."
+                }
+              ],
+              "limitations": "The first hospital WeChat original was not recovered. The later 19-patient study does not establish the first named operation’s individual seizure outcome.",
+              "origin_chain": "News reports repeat Xuanwu Neurosurgery announcement; public medical-company republication inspected; subsequent clinical-team paper provides original technical methods."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at cnBeta March 12, 2022 account: March 9 implantation, precise electrodes, clear EEG, and described closed-loop mechanism. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. systems[].autonomy_permissions human_oversight outcomes[].tradeoffs",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0366-source-0001"
+            "AIBD-0366-source-0001",
+            "AIBD-0366-source-0005",
+            "AIBD-0366-source-0002",
+            "AIBD-0366-source-0003",
+            "AIBD-0366-source-0004"
           ],
           "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "cnBeta credits Kuai Keji and the Xuanwu neurosurgery WeChat account. The original hospital post and clinical trial follow-up were not reopened."
+          "answer": "News reports repeat Xuanwu Neurosurgery announcement; public medical-company republication inspected; subsequent clinical-team paper provides original technical methods. The first hospital WeChat original was not recovered. The later 19-patient study does not establish the first named operation’s individual seizure outcome."
         }
       },
       "strategic_assessments[]": {
@@ -2093,8 +2232,8 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "summary": "9 Mar 2022: Xuanwu Hospital, Beijing, implanted Epilcure, a closed-loop neurostimulator whose on-skull AI chip monitors EEG and stimulates on predicted seizures, in a man with drug-resistant epilepsy.",
-            "account": "On 9 March 2022 a team at Xuanwu Hospital, Capital Medical University, Beijing, implanted the Epilcure closed-loop responsive neurostimulation system. Hospital president Zhao Guoguang and neurosurgeon Shan Yongzhi led it. The patient, a man with drug-resistant bilateral temporal lobe epilepsy, was the first enrollee in a hospital-led NMPA registration clinical trial. Sources: cnBeta and Kuai Keji (12 March 2022), both citing the neurosurgery department's WeChat account. The reports describe an AI chip implanted in the skull, with intracranial electrodes monitoring electroencephalography (EEG) rhythms around the clock. On predicting an imminent seizure, it delivers an interfering rhythm to block seizure formation at the focus. Bilateral temporal lobe epilepsy is called a relative contraindication for open surgery. The operation went smoothly and the stimulator's indicators worked normally during surgery. Post-operative reconstruction showed precise electrode placement and clear EEG signals (cnBeta). No seizure outcome, patient age or follow-up is reported; the device's maker is not named."
+            "summary": "Xuanwu Hospital implanted Epilcure in March 2022. Later methods describe threshold-triggered stimulation; a learned seizure predictor and this patient’s benefit remain unestablished.",
+            "account": "On 9 March 2022 a team at Xuanwu Hospital, Capital Medical University, Beijing, implanted the Epilcure closed-loop responsive neurostimulation system. Hospital president Zhao Guoguang and neurosurgeon Shan Yongzhi led it. The patient, a man with drug-resistant bilateral temporal lobe epilepsy, was the first enrollee in a hospital-led NMPA registration clinical trial. Sources: cnBeta and Kuai Keji (12 March 2022), both citing the neurosurgery department's WeChat account. The reports describe an AI chip implanted in the skull, with intracranial electrodes monitoring electroencephalography (EEG) rhythms around the clock. The reports say that the device predicts an imminent seizure and delivers an interfering rhythm to block seizure formation at the focus. Bilateral temporal lobe epilepsy is called a relative contraindication for open surgery. The operation went smoothly and the stimulator's indicators worked normally during surgery. Post-operative reconstruction showed precise electrode placement and clear EEG signals (cnBeta). The initial accounts give no seizure outcome, patient age or follow-up for this patient. A later clinical-team paper identifies the maker as Hangzhou Genlight MedTech and describes five clinician-configured detection algorithms that trigger stimulation when signal measures cross set thresholds. That paper does not establish that a learned model predicted seizures or link an individual seizure outcome to this first implantation."
           }
         },
         "provenance": {
@@ -2110,19 +2249,27 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The implant was intended to monitor intracranial EEG continuously and trigger stimulation automatically when configured detectors recognized abnormal activity. The later clinical protocol describes signal thresholds, rather than establishing a learned seizure-prediction model."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: 9 Mar 2022: Xuanwu Hospital, Beijing, implanted Epilcure, a closed-loop neurostimulator whose on-skull AI chip monitors EEG and stimulates on predicted seizures, in a man with drug-resistant epilepsy.",
-          "record_fields": [
-            "summary"
+          "basis": "Retained hospital account, checked against the later clinical-team paper, Technical information and stimulation protocol.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0366-source-0005",
+            "AIBD-0366-source-0001",
+            "AIBD-0366-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Epilcure closed-loop responsive neurostimulation system (brain-computer interface) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The implant was intended to monitor intracranial EEG continuously and trigger stimulation automatically when configured detectors recognized abnormal activity. The later clinical protocol describes signal thresholds, rather than establishing a learned seizure-prediction model."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2257,7 +2404,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "title": "Xuanwu Hospital implants China's first closed-loop responsive neurostimulator, Epilcure, with an on-skull AI chip in a man with drug-resistant bilateral temporal lobe epilepsy (9 Mar 2022)",
+            "title": "Xuanwu Hospital implants Epilcure, a responsive neurostimulator, in a man with drug-resistant bilateral temporal lobe epilepsy on March 9, 2022",
             "headline": "Xuanwu Hospital implants China's first responsive neurostimulator"
           }
         },
@@ -2278,9 +2425,9 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "41dfc915e72605da93d385e71c20b38e309a7f2f9df801f4ebf4ca6889cd7fc0"
+            "c290c5d0bcf33a66409bd7885fa955645ce753f086fd653ca0c877310be0487f"
           ],
-          "role": "SHA-256 of normalized original case data"
+          "role": "SHA-256 of normalized case data"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2296,16 +2443,16 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "On 9 March 2022 a team at Xuanwu Hospital, Capital Medical University, Beijing, implanted the Epilcure closed-loop responsive neurostimulation system. Hospital president Zhao Guoguang and neurosurgeon Shan Yongzhi led it. The patient, a man with drug-resistant bilateral temporal lobe epilepsy, was the first enrollee in a hospital-led NMPA registration clinical trial. Sources: cnBeta and Kuai Keji (12 March 2022), both citing the neurosurgery department's WeChat account. The reports describe an AI chip implanted in the skull, with intracranial electrodes monitoring electroencephalography (EEG) rhythms around the clock. On predicting an imminent seizure, it delivers an interfering rhythm to block seizure formation at the focus. Bilateral temporal lobe epilepsy is called a relative contraindication for open surgery. The operation went smoothly and the stimulator's indicators worked normally during surgery. Post-operative reconstruction showed precise electrode placement and clear EEG signals (cnBeta). No seizure outcome, patient age or follow-up is reported; the device's maker is not named.",
+            "account": "On 9 March 2022 a team at Xuanwu Hospital, Capital Medical University, Beijing, implanted the Epilcure closed-loop responsive neurostimulation system. Hospital president Zhao Guoguang and neurosurgeon Shan Yongzhi led it. The patient, a man with drug-resistant bilateral temporal lobe epilepsy, was the first enrollee in a hospital-led NMPA registration clinical trial. Sources: cnBeta and Kuai Keji (12 March 2022), both citing the neurosurgery department's WeChat account. The reports describe an AI chip implanted in the skull, with intracranial electrodes monitoring electroencephalography (EEG) rhythms around the clock. The reports say that the device predicts an imminent seizure and delivers an interfering rhythm to block seizure formation at the focus. Bilateral temporal lobe epilepsy is called a relative contraindication for open surgery. The operation went smoothly and the stimulator's indicators worked normally during surgery. Post-operative reconstruction showed precise electrode placement and clear EEG signals (cnBeta). The initial accounts give no seizure outcome, patient age or follow-up for this patient. A later clinical-team paper identifies the maker as Hangzhou Genlight MedTech and describes five clinician-configured detection algorithms that trigger stimulation when signal measures cross set thresholds. That paper does not establish that a learned model predicted seizures or link an individual seizure outcome to this first implantation.",
             "replication": {
               "produced_by": [
                 "Intracranial electrodes at the epileptic focus feeding continuous EEG to a chip implanted in the skull",
-                "A seizure-prediction routine on the chip that triggers an interfering stimulation rhythm when it predicts an imminent seizure",
+                "Clinician-configured EEG detection algorithms that trigger stimulation when signal measures cross set thresholds, as described in the later clinical paper",
                 "Enrollment in the hospital-led NMPA registration trial for patients whose epilepsy is drug-resistant and unsuited to open surgery"
               ],
               "must_hold": [
                 "Electrode placement is precise and signals are clear, as the post-operative reconstruction reported here",
-                "The prediction fires early enough and specifically enough to abort seizures, which no cited source yet documents"
+                "Detection and stimulation settings must be appropriate for the patient; a seizure outcome for this first implantation is not established by the inspected sources"
               ],
               "echoes": []
             }
@@ -2327,18 +2474,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 35,
-      "reviewed": 3,
+      "known": 40,
+      "reviewed": 10,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 32,
-      "review_not_assessed": 56,
+      "reviewed_partial": 10,
+      "record_mapped": 30,
+      "review_not_assessed": 51,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 35,
+        "value_present": 40,
         "not_reported": 0,
-        "unresolved": 56,
+        "unresolved": 51,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

@@ -1,14 +1,14 @@
 {
   "id": "AIBD-0278",
-  "title": "MatterGen generates TaCr2O6; SIAT synthesizes a disordered version with bulk modulus 169 GPa against a 200 GPa target",
-  "summary": "Microsoft's diffusion model generated a structure conditioned on bulk modulus 200 GPa; SIAT (Shenzhen) synthesized it and measured 169 GPa, with Ta/Cr compositional disorder. Vendor co-authored proof.",
+  "title": "MatterGen proposes TaCr2O6; researchers synthesize it and estimate a bulk modulus of 169 GPa against a 200 GPa target",
+  "summary": "Researchers synthesized MatterGen’s proposed TaCr2O6 and estimated its bulk modulus at 169 GPa from indentation measurements, below the 200 GPa design target.",
   "date_observed": "2025-01-16",
   "date_basis": "unassessed",
   "date_precision": "unassessed",
   "benefit_status": "reported",
   "source_collection": null,
   "source_entry": null,
-  "account": "Zeni et al. (Nature, 16 January 2025) are Microsoft Research AI for Science with co-authors including the Shenzhen Institutes of Advanced Technology. They present MatterGen, a diffusion model over 3D crystal geometry trained on about 608,000 stable materials. Its outputs are reported as more than twice as likely to be new and stable as those of earlier generative models. As a proof of concept they synthesized one generated structure and measured its property “within 20% of our target”. Microsoft's blog identifies the compound as TaCr2O6, generated for a bulk modulus of 200 GPa. Prof Li Wenjie's SIAT group measured 169 GPa. The structure matched MatterGen's proposal “with the caveat of compositional disorder between Ta and Cr”. The synthesis is vendor co-authored, and a Nature news critique of 1 October 2025 was paywalled beyond its lede. That critique is not among the sources, and no independent experimental replication was found.",
+  "account": "Zeni et al. reported MatterGen in Nature on January 16,2025. The diffusion model was trained on 607,683 stable crystal structures. For experimental validation, successive filters reduced generated candidates to 75 and experts selected four for synthesis. One produced TaCr2O6 with compositional disorder between Ta and Cr. Researchers measured Young’s modulus by nanoindentation and estimated bulk modulus using a DFT-computed Poisson ratio of 0.30. Four estimates yielded 158±11 GPa; the authors chose the maximum,169 GPa, as their best estimate for a potentially noncompact powder sample, against a 200 GPatarget. The synthesis and measurement belong to the vendor-coauthored study; independent experimental replication is not established.",
   "category": "general benefit",
   "unexpected": false,
   "purpose": "Generate novel stable inorganic materials conditioned on target properties",
@@ -41,7 +41,7 @@
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "MatterGen generated the structure that SIAT then synthesized. Both the generation and the measurement are reported by the vendor and its co-authors in the Nature paper and the Microsoft blog. No independent confirmation of novelty or utility is among the sources."
+    "statement": "MatterGen generated candidates that researchers filtered and selected for synthesis. One of four selected candidates yielded disordered TaCr2O6. Researchers estimated its bulk modulus from nanoindentation measurements and a computed Poisson ratio; the reported 169 GPa was the maximum of four estimates. The developer-coauthored study does not establish independent replication or commercial usefulness."
   },
   "evidence": [
     {
@@ -75,8 +75,8 @@
     "echoes": []
   },
   "paired_incident": null,
-  "headline": "Microsoft's MatterGen generates TaCr2O6, measured at 169 GPa",
-  "metric": "a bulk modulus of 200 GPa and measured at 169 GPa",
+  "headline": "MatterGen proposes a material with an estimated 169 GPa bulk modulus",
+  "metric": "Estimated bulk modulus of 169 GPa; target 200 GPa",
   "comparator": {
     "against": "previous generative models for crystal structures (DiffCSP, CDVAE and others) on the same benchmark",
     "before": "not stated as a figure in the text (previous generative models)",
@@ -143,7 +143,7 @@
   "profile": {
     "case_id": "AIBD-0278",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "3871fc44a5be122453cc81ab4774d65686ecdd31843fde9ef578600961374a30",
+    "source_fingerprint": "f9833bdb1c4fedf4c651f083040941ca792763079caacd72aa52a75ab9705d93",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -276,24 +276,23 @@
       "ai_contribution": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ai_role": {
-              "status": "assessed",
-              "statement": "MatterGen generated the structure that SIAT then synthesized. Both the generation and the measurement are reported by the vendor and its co-authors in the Nature paper and the Microsoft blog. No independent confirmation of novelty or utility is among the sources."
-            }
-          }
+          "kind": "text",
+          "text": "MatterGen generated candidates that researchers filtered and selected for synthesis. One of four selected candidates yielded disordered TaCr2O6. Researchers estimated its bulk modulus from nanoindentation measurements and a computed Poisson ratio; the reported 169 GPa was the maximum of four estimates. The developer-coauthored study does not establish independent replication or commercial usefulness."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ai_role"
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Experimental validation; Figure 6",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0278-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "MatterGen generated candidates that researchers filtered and selected for synthesis. One of four selected candidates yielded disordered TaCr2O6. Researchers estimated its bulk modulus from nanoindentation measurements and a computed Poisson ratio; the reported 169 GPa was the maximum of four estimates. The developer-coauthored study does not establish independent replication or commercial usefulness."
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -303,7 +302,7 @@
             "category": "general benefit",
             "ai_role": {
               "status": "assessed",
-              "statement": "MatterGen generated the structure that SIAT then synthesized. Both the generation and the measurement are reported by the vendor and its co-authors in the Nature paper and the Microsoft blog. No independent confirmation of novelty or utility is among the sources."
+              "statement": "MatterGen generated candidates that researchers filtered and selected for synthesis. One of four selected candidates yielded disordered TaCr2O6. Researchers estimated its bulk modulus from nanoindentation measurements and a computed Poisson ratio; the reported 169 GPa was the maximum of four estimates. The developer-coauthored study does not establish independent replication or commercial usefulness."
             }
           }
         },
@@ -559,32 +558,22 @@
       "brief": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "answer": "Microsoft's diffusion model generated a structure conditioned on bulk modulus 200 GPa; SIAT (Shenzhen) synthesized it and measured 169 GPa, with Ta/Cr compositional disorder. Vendor co-authored proof.\n\nOne synthesized structure with compositional disorder and a modulus below the target does not establish general generation reliability or commercial usefulness. The experiment includes developer collaborators and lacks independent replication in the retained evidence.",
-            "source_refs": [
-              "AIBD-0278-source-0001",
-              "AIBD-0278-source-0002"
-            ],
-            "scope": "A presentation of the retained summary and available qualifications, not new evidence review or a complete synthesis of every claim."
-          }
+          "kind": "text",
+          "text": "Researchers synthesized MatterGen’s proposed TaCr2O6 and estimated its bulk modulus at 169 GPa from indentation measurements, below the 200 GPa design target."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Curatorial presentation of the retained case summary and existing qualifications. No external source was opened and no new evidentiary judgment was made for this brief.",
-          "record_fields": [
-            "summary",
-            "title"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Experimental validation; Figure 6",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0278-source-0001",
-            "AIBD-0278-source-0002"
-          ]
+            "AIBD-0278-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "Microsoft's diffusion model generated a structure conditioned on bulk modulus 200 GPa; SIAT (Shenzhen) synthesized it and measured 169 GPa, with Ta/Cr compositional disorder. Vendor co-authored proof.\n\nOne synthesized structure with compositional disorder and a modulus below the target does not establish general generation reliability or commercial usefulness. The experiment includes developer collaborators and lacks independent replication in the retained evidence."
+          "answer": "Researchers synthesized MatterGen’s proposed TaCr2O6 and estimated its bulk modulus at 169 GPa from indentation measurements, below the 200 GPa design target."
         }
       },
       "case_kind": {
@@ -697,71 +686,42 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "One synthesized structure with compositional disorder and a modulus below the target does not establish general generation reliability or commercial usefulness. The experiment includes developer collaborators and lacks independent replication in the retained evidence."
+          "text": "The reported 169 GPa bulk modulus was estimated from indentation measurements and a computed Poisson ratio, using the maximum of four estimates. One synthesized candidate does not establish general generation reliability, independent replication or commercial usefulness."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Experimental validation; Figure 6",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0278-source-0001",
-            "AIBD-0278-source-0002"
+            "AIBD-0278-source-0001"
           ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "One synthesized structure with compositional disorder and a modulus below the target does not establish general generation reliability or commercial usefulness. The experiment includes developer collaborators and lacks independent replication in the retained evidence."
+          "answer": "The reported 169 GPa bulk modulus was estimated from indentation measurements and a computed Poisson ratio, using the maximum of four estimates. One synthesized candidate does not establish general generation reliability, independent replication or commercial usefulness."
         }
       },
       "claims[].proposition": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "retained_case_account": "Zeni et al. (Nature, 16 January 2025) are Microsoft Research AI for Science with co-authors including the Shenzhen Institutes of Advanced Technology. They present MatterGen, a diffusion model over 3D crystal geometry trained on about 608,000 stable materials. Its outputs are reported as more than twice as likely to be new and stable as those of earlier generative models. As a proof of concept they synthesized one generated structure and measured its property “within 20% of our target”. Microsoft's blog identifies the compound as TaCr2O6, generated for a bulk modulus of 200 GPa. Prof Li Wenjie's SIAT group measured 169 GPa. The structure matched MatterGen's proposal “with the caveat of compositional disorder between Ta and Cr”. The synthesis is vendor co-authored, and a Nature news critique of 1 October 2025 was paywalled beyond its lede. That critique is not among the sources, and no independent experimental replication was found.",
-            "retained_ai_contribution_statement": {
-              "status": "assessed",
-              "statement": "MatterGen generated the structure that SIAT then synthesized. Both the generation and the measurement are reported by the vendor and its co-authors in the Nature paper and the Microsoft blog. No independent confirmation of novelty or utility is among the sources."
-            },
-            "retained_source_statements": [
-              {
-                "source_ref": "AIBD-0278-source-0001",
-                "statement": "As a proof of concept, we synthesize one of the generated structures and measure its property value to be within 20% of our target.",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0278-source-0002",
-                "statement": "The synthesized material's structure aligns with the one proposed by MatterGen, with the caveat of compositional disorder between Ta and Cr.",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              }
-            ],
-            "scope": "Existing assertions are preserved as a case-level bundle. They have not been separated into atomic claims or independently verified by this assignment."
-          }
+          "kind": "text",
+          "text": "Researchers synthesized MatterGen’s proposed TaCr2O6 and estimated its bulk modulus at 169 GPa from indentation measurements, below the 200 GPa design target."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the retained case or existing profile metadata. This assignment performs no new source review or evidentiary assessment.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Experimental validation; Figure 6",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0278-source-0001",
-            "AIBD-0278-source-0002"
-          ]
+            "AIBD-0278-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "Microsoft's diffusion model generated a structure conditioned on bulk modulus 200 GPa; SIAT (Shenzhen) synthesized it and measured 169 GPa, with Ta/Cr compositional disorder. Vendor co-authored proof."
+          "answer": "Researchers synthesized MatterGen’s proposed TaCr2O6 and estimated its bulk modulus at 169 GPa from indentation measurements, below the 200 GPa design target."
         }
       },
       "cross_border_flows[]": {
@@ -1390,19 +1350,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers filtered candidates and selected four for synthesis; one succeeded. They estimated its bulk modulus from measured indentation stiffness and a computed Poisson ratio."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Microsoft's diffusion model generated a structure conditioned on bulk modulus 200 GPa; SIAT (Shenzhen) synthesized it and measured 169 GPa, with Ta/Cr compositional disorder. Vendor co-authored proof.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: SIAT synthesis.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0278-source-0001",
+            "AIBD-0278-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of MatterGen in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Researchers filtered candidates and selected four for synthesis; one succeeded. They estimated its bulk modulus from measured indentation stiffness and a computed Poisson ratio."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1442,16 +1409,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Microsoft's diffusion model generated a structure conditioned on bulk modulus 200 GPa; SIAT (Shenzhen) synthesized it and measured 169 GPa, with Ta/Cr compositional disorder. Vendor co-authored proof.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: one proof-of-concept synthesis.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0278-source-0001",
+            "AIBD-0278-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has personal, organizational, societal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "One synthesized compound approximated the requested modulus, but no application-level benefit or independent utility confirmation is reported.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Materials researchers probably gained a promising starting structure for laboratory work, with practical industrial utility still untested in the retained evidence.",
+          "editor_note": "One synthesized compound approximated the requested modulus, but no application-level benefit or independent utility confirmation is reported."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1494,7 +1466,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "Zeni et al. (Nature, 16 January 2025) are Microsoft Research AI for Science with co-authors including the Shenzhen Institutes of Advanced Technology. They present MatterGen, a diffusion model over 3D crystal geometry trained on about 608,000 stable materials. Its outputs are reported as more than twice as likely to be new and stable as those of earlier generative models. As a proof of concept they synthesized one generated structure and measured its property “within 20% of our target”. Microsoft's blog identifies the compound as TaCr2O6, generated for a bulk modulus of 200 GPa. Prof Li Wenjie's SIAT group measured 169 GPa. The structure matched MatterGen's proposal “with the caveat of compositional disorder between Ta and Cr”. The synthesis is vendor co-authored, and a Nature news critique of 1 October 2025 was paywalled beyond its lede. That critique is not among the sources, and no independent experimental replication was found.",
+            "account": "Zeni et al. reported MatterGen in Nature on January 16,2025. The diffusion model was trained on 607,683 stable crystal structures. For experimental validation, successive filters reduced generated candidates to 75 and experts selected four for synthesis. One produced TaCr2O6 with compositional disorder between Ta and Cr. Researchers measured Young’s modulus by nanoindentation and estimated bulk modulus using a DFT-computed Poisson ratio of 0.30. Four estimates yielded 158±11 GPa; the authors chose the maximum,169 GPa, as their best estimate for a potentially noncompact powder sample, against a 200 GPatarget. The synthesis and measurement belong to the vendor-coauthored study; independent experimental replication is not established.",
             "benefit_type": "Improved Knowledge Discovery"
           }
         },
@@ -1591,43 +1563,44 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "Reported synthesis and measurement of a material proposed by MatterGen."
+          "text": "Researchers report synthesis of a MatterGen-proposed material and an estimated bulk modulus derived from experimental indentation data."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Experimental validation; Figure 6",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0278-source-0001",
-            "AIBD-0278-source-0002"
+            "AIBD-0278-source-0001"
           ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "Reported synthesis and measurement of a material proposed by MatterGen."
+          "answer": "Researchers report synthesis of a MatterGen-proposed material and an estimated bulk modulus derived from experimental indentation data."
         }
       },
       "outcomes[].tradeoffs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Only one of four selected candidates was synthesized. Its compositional disorder and estimated modulus below target show that the model did not precisely determine the laboratory outcome."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Microsoft's diffusion model generated a structure conditioned on bulk modulus 200 GPa; SIAT (Shenzhen) synthesized it and measured 169 GPa, with Ta/Cr compositional disorder. Vendor co-authored proof.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: Ta/Cr disorder and 169 versus 200 GPa.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0278-source-0001",
+            "AIBD-0278-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Only one of four selected candidates was synthesized. Its compositional disorder and estimated modulus below target show that the model did not precisely determine the laboratory outcome."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1870,24 +1843,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0278-source-0001",
-            "AIBD-0278-source-0002"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11922738/",
+                "source_refs": [
+                  "AIBD-0278-source-0001"
+                ],
+                "title": "original Nature study",
+                "relationship": "original Nature study",
+                "contribution": "Filtering reduced generated structures to 75, experts chose four, and one synthesis succeeded. Bulk modulus was estimated from nanoindentation and a DFT Poisson ratio;169 GPa was the maximum of four values, with 158±11 GPa reported.",
+                "locator": "Experimental validation; Figure 6",
+                "access_status": "Model, data and experimental-validation sections read"
+              }
+            ],
+            "latest_limitations": "Supplementary experimental details were not freshly read; the exact 169 GPafigure is an inferred modulus, not a direct bulk-compression measurement."
+          }
         },
-        "reason": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0278-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Supplementary experimental details were not freshly read; the exact 169 GPafigure is an inferred modulus, not a direct bulk-compression measurement."
         }
       },
       "sources[].citation_locator": {
@@ -2007,27 +1996,65 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0278-source-0001",
-            "AIBD-0278-source-0002"
-          ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11922738/",
+                "source_refs": [
+                  "AIBD-0278-source-0001"
+                ],
+                "title": "original Nature study",
+                "relationship": "original Nature study",
+                "contribution": "Filtering reduced generated structures to 75, experts chose four, and one synthesis succeeded. Bulk modulus was estimated from nanoindentation and a DFT Poisson ratio;169 GPa was the maximum of four values, with 158±11 GPa reported.",
+                "locator": "Experimental validation; Figure 6",
+                "access_status": "Model, data and experimental-validation sections read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11922738/",
+                  "source_refs": [
+                    "AIBD-0278-source-0001"
+                  ],
+                  "title": "original Nature study",
+                  "relationship": "original Nature study",
+                  "contribution": "Filtering reduced generated structures to 75, experts chose four, and one synthesis succeeded. Bulk modulus was estimated from nanoindentation and a DFT Poisson ratio;169 GPa was the maximum of four values, with 158±11 GPa reported.",
+                  "locator": "Experimental validation; Figure 6",
+                  "access_status": "Model, data and experimental-validation sections read"
+                }
+              ],
+              "limitations": "Supplementary experimental details were not freshly read; the exact 169 GPafigure is an inferred modulus, not a direct bulk-compression measurement.",
+              "origin_chain": "Microsoft’s blog summarizes the vendor-coauthored Nature study. Synthesis is part of that work, not an independent replication."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0278-source-0001",
+            "retained_source_order": [
+              "AIBD-0278-source-0001",
+              "AIBD-0278-source-0002"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "The retained source trail for MatterGen generates TaCr2O6; SIAT synthesizes a disordered version with bulk modulus 169 GPa against a 200 GPa target has not been fully verified. The references support this editorial screening only.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0278-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The retained references have not been fully traced to their original evidence."
+          "answer": "Microsoft’s blog summarizes the vendor-coauthored Nature study. Synthesis is part of that work, not an independent replication. Supplementary experimental details were not freshly read; the exact 169 GPafigure is an inferred modulus, not a direct bulk-compression measurement."
         }
       },
       "strategic_assessments[]": {
@@ -2055,8 +2082,8 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "summary": "Microsoft's diffusion model generated a structure conditioned on bulk modulus 200 GPa; SIAT (Shenzhen) synthesized it and measured 169 GPa, with Ta/Cr compositional disorder. Vendor co-authored proof.",
-            "account": "Zeni et al. (Nature, 16 January 2025) are Microsoft Research AI for Science with co-authors including the Shenzhen Institutes of Advanced Technology. They present MatterGen, a diffusion model over 3D crystal geometry trained on about 608,000 stable materials. Its outputs are reported as more than twice as likely to be new and stable as those of earlier generative models. As a proof of concept they synthesized one generated structure and measured its property “within 20% of our target”. Microsoft's blog identifies the compound as TaCr2O6, generated for a bulk modulus of 200 GPa. Prof Li Wenjie's SIAT group measured 169 GPa. The structure matched MatterGen's proposal “with the caveat of compositional disorder between Ta and Cr”. The synthesis is vendor co-authored, and a Nature news critique of 1 October 2025 was paywalled beyond its lede. That critique is not among the sources, and no independent experimental replication was found."
+            "summary": "Researchers synthesized MatterGen’s proposed TaCr2O6 and estimated its bulk modulus at 169 GPa from indentation measurements, below the 200 GPa design target.",
+            "account": "Zeni et al. reported MatterGen in Nature on January 16,2025. The diffusion model was trained on 607,683 stable crystal structures. For experimental validation, successive filters reduced generated candidates to 75 and experts selected four for synthesis. One produced TaCr2O6 with compositional disorder between Ta and Cr. Researchers measured Young’s modulus by nanoindentation and estimated bulk modulus using a DFT-computed Poisson ratio of 0.30. Four estimates yielded 158±11 GPa; the authors chose the maximum,169 GPa, as their best estimate for a potentially noncompact powder sample, against a 200 GPatarget. The synthesis and measurement belong to the vendor-coauthored study; independent experimental replication is not established."
           }
         },
         "provenance": {
@@ -2117,19 +2144,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A target material property guided a diffusion model that generated candidate three-dimensional crystal structures."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Microsoft's diffusion model generated a structure conditioned on bulk modulus 200 GPa; SIAT (Shenzhen) synthesized it and measured 169 GPa, with Ta/Cr compositional disorder. Vendor co-authored proof.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: geometry model and 200 GPa target.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0278-source-0001",
+            "AIBD-0278-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of MatterGen have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A target material property guided a diffusion model that generated candidate three-dimensional crystal structures."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2223,8 +2257,8 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "title": "MatterGen generates TaCr2O6; SIAT synthesizes a disordered version with bulk modulus 169 GPa against a 200 GPa target",
-            "headline": "Microsoft's MatterGen generates TaCr2O6, measured at 169 GPa"
+            "title": "MatterGen proposes TaCr2O6; researchers synthesize it and estimate a bulk modulus of 169 GPa against a 200 GPa target",
+            "headline": "MatterGen proposes a material with an estimated 169 GPa bulk modulus"
           }
         },
         "provenance": {
@@ -2244,9 +2278,9 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "3871fc44a5be122453cc81ab4774d65686ecdd31843fde9ef578600961374a30"
+            "f9833bdb1c4fedf4c651f083040941ca792763079caacd72aa52a75ab9705d93"
           ],
-          "role": "SHA-256 of normalized original case data"
+          "role": "SHA-256 of normalized case data"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2262,7 +2296,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "Zeni et al. (Nature, 16 January 2025) are Microsoft Research AI for Science with co-authors including the Shenzhen Institutes of Advanced Technology. They present MatterGen, a diffusion model over 3D crystal geometry trained on about 608,000 stable materials. Its outputs are reported as more than twice as likely to be new and stable as those of earlier generative models. As a proof of concept they synthesized one generated structure and measured its property “within 20% of our target”. Microsoft's blog identifies the compound as TaCr2O6, generated for a bulk modulus of 200 GPa. Prof Li Wenjie's SIAT group measured 169 GPa. The structure matched MatterGen's proposal “with the caveat of compositional disorder between Ta and Cr”. The synthesis is vendor co-authored, and a Nature news critique of 1 October 2025 was paywalled beyond its lede. That critique is not among the sources, and no independent experimental replication was found.",
+            "account": "Zeni et al. reported MatterGen in Nature on January 16,2025. The diffusion model was trained on 607,683 stable crystal structures. For experimental validation, successive filters reduced generated candidates to 75 and experts selected four for synthesis. One produced TaCr2O6 with compositional disorder between Ta and Cr. Researchers measured Young’s modulus by nanoindentation and estimated bulk modulus using a DFT-computed Poisson ratio of 0.30. Four estimates yielded 158±11 GPa; the authors chose the maximum,169 GPa, as their best estimate for a potentially noncompact powder sample, against a 200 GPatarget. The synthesis and measurement belong to the vendor-coauthored study; independent experimental replication is not established.",
             "replication": {
               "produced_by": [
                 "Diffusion model fine-tuned on a bulk-modulus target",
@@ -2292,18 +2326,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 3,
+      "known": 42,
+      "reviewed": 11,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 35,
-      "review_not_assessed": 53,
+      "reviewed_partial": 11,
+      "record_mapped": 32,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

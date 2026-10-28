@@ -1398,19 +1398,25 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Leeds reports over 40% more applications processed per officer, less research time, and improved officer wellbeing during its Xylo pilot.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The disclosed architecture uses AWS in London and a managed database, with model processing under EU residency agreements."
         },
-        "reason": "The infrastructure needed for Xylo Core AI planning workspace has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "The council reports pilot time savings. Its earlier ATRS disclosure identifies API-based GPT-5, Gemini2.5Pro, and Claude Sonnet4, with retrieval and mandatory officer approval. LGA successes/results; ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0553-source-0003"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The disclosed architecture uses AWS in London and a managed database, with model processing under EU residency agreements."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1586,16 +1592,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Leeds reports over 40% more applications processed per officer, less research time, and improved officer wellbeing during its Xylo pilot.",
-          "record_fields": [
-            "summary"
+          "basis": "The council reports pilot time savings. Its earlier ATRS disclosure identifies API-based GPT-5, Gemini2.5Pro, and Claude Sonnet4, with retrieval and mandatory officer approval. LGA successes/results; ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0553-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Xylo prepares policy suggestions and draft text, so the remaining review needs to verify applicability as well as readability.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The main practical risk is that a relevant-looking policy reference survives an officer’s review despite being wrong.",
+          "editor_note": "Xylo prepares policy suggestions and draft text, so the remaining review needs to verify applicability as well as readability."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1817,26 +1827,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
+                "source_refs": [
+                  "AIBD-0553-source-0001"
+                ],
+                "title": "Original council account",
+                "relationship": "Original council account",
+                "contribution": "The council reports pilot time savings. Its earlier ATRS disclosure identifies API-based GPT-5, Gemini2.5Pro, and Claude Sonnet4, with retrieval and mandatory officer approval.",
+                "locator": "LGA successes/results; ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2.",
+                "access_status": "Substantive original text retrieved and read with the web research tool; direct HTTP retrieval returned403."
+              },
+              {
+                "url": "https://www.gov.uk/algorithmic-transparency-records/leeds-city-council-xylo-core",
+                "source_refs": [
+                  "AIBD-0553-source-0003"
+                ],
+                "title": "Original technical disclosure by the council",
+                "relationship": "Original technical disclosure by the council",
+                "contribution": "Names model versions, hosting, retrieval, and officer authority. This is an earlier technical snapshot, not independent outcome corroboration.",
+                "locator": "ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2",
+                "access_status": "Sections1–4.3 inspected in the published full text."
+              }
+            ],
+            "latest_limitations": "The technical disclosure is dated November 27,2025 and does not establish that every later pilot task used the same model. LGA results rely on interviews and usage data."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0553-source-0001",
-            "AIBD-0553-source-0002",
-            "AIBD-0553-source-0003",
-            "AIBD-0553-source-0004"
+            "AIBD-0553-source-0003"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The technical disclosure is dated November 27,2025 and does not establish that every later pilot task used the same model. LGA results rely on interviews and usage data."
         }
       },
       "sources[].citation_locator": {
@@ -2021,7 +2057,16 @@
                 "title": "Leeds City Council and Xylo: transforming planning with AI",
                 "published_on": "2026-05-08",
                 "relationship": "deployer",
-                "citation": "Leeds City Council and Xylo, published by the Local Government Association. Leeds City Council and Xylo: transforming planning with AI. 2026-05-08. Sections “The collaborative process,” “Successes and results,” and “Risk identification and mitigation.” Original project account with pilot participation and outcome figures; no underlying evaluation dataset or independent assessment."
+                "citation": "Leeds City Council and Xylo, published by the Local Government Association. Leeds City Council and Xylo: transforming planning with AI. 2026-05-08. Sections “The collaborative process,” “Successes and results,” and “Risk identification and mitigation.” Original project account with pilot participation and outcome figures; no underlying evaluation dataset or independent assessment.",
+                "latest_inspection": {
+                  "title": "Original council account",
+                  "relationship": "Original council account",
+                  "contribution": "The council reports pilot time savings. Its earlier ATRS disclosure identifies API-based GPT-5, Gemini2.5Pro, and Claude Sonnet4, with retrieval and mandatory officer approval.",
+                  "locator": "LGA successes/results; ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2.",
+                  "access_status": "Substantive original text retrieved and read with the web research tool; direct HTTP retrieval returned403."
+                },
+                "contribution": "The council reports pilot time savings. Its earlier ATRS disclosure identifies API-based GPT-5, Gemini2.5Pro, and Claude Sonnet4, with retrieval and mandatory officer approval.",
+                "locator": "LGA successes/results; ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2."
               },
               {
                 "source_refs": [
@@ -2041,7 +2086,16 @@
                 "title": "Leeds City Council: Xylo Core",
                 "published_on": "2025-11-27",
                 "relationship": "deployer",
-                "citation": "Leeds City Council and Xylo. Leeds City Council: Xylo Core. 2025-11-27. Algorithmic Transparency Recording Standard, §§2.1, 3.2–3.3, 4.1–4.2, and 5.1–5.2. Original council/supplier disclosure of system design, named model versions, human review, and risks. Publication on GOV.UK is not independent regulatory confirmation of the outcomes."
+                "citation": "Leeds City Council and Xylo. Leeds City Council: Xylo Core. 2025-11-27. Algorithmic Transparency Recording Standard, §§2.1, 3.2–3.3, 4.1–4.2, and 5.1–5.2. Original council/supplier disclosure of system design, named model versions, human review, and risks. Publication on GOV.UK is not independent regulatory confirmation of the outcomes.",
+                "latest_inspection": {
+                  "title": "Original technical disclosure by the council",
+                  "relationship": "Original technical disclosure by the council",
+                  "contribution": "Names model versions, hosting, retrieval, and officer authority. This is an earlier technical snapshot, not independent outcome corroboration.",
+                  "locator": "ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2",
+                  "access_status": "Sections1–4.3 inspected in the published full text."
+                },
+                "contribution": "Names model versions, hosting, retrieval, and officer authority. This is an earlier technical snapshot, not independent outcome corroboration.",
+                "locator": "ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2"
               },
               {
                 "source_refs": [
@@ -2170,20 +2224,48 @@
                 "method": "Read the original public page through the web tool.",
                 "scope": "ATRS 2.1; 3.1–3.2, 3.5. Human review, override authority, and absence of automated approval/refusal inspected October 27, 2026."
               }
-            ]
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai",
+                  "source_refs": [
+                    "AIBD-0553-source-0001"
+                  ],
+                  "title": "Original council account",
+                  "relationship": "Original council account",
+                  "contribution": "The council reports pilot time savings. Its earlier ATRS disclosure identifies API-based GPT-5, Gemini2.5Pro, and Claude Sonnet4, with retrieval and mandatory officer approval.",
+                  "locator": "LGA successes/results; ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2.",
+                  "access_status": "Substantive original text retrieved and read with the web research tool; direct HTTP retrieval returned403."
+                },
+                {
+                  "url": "https://www.gov.uk/algorithmic-transparency-records/leeds-city-council-xylo-core",
+                  "source_refs": [
+                    "AIBD-0553-source-0003"
+                  ],
+                  "title": "Original technical disclosure by the council",
+                  "relationship": "Original technical disclosure by the council",
+                  "contribution": "Names model versions, hosting, retrieval, and officer authority. This is an earlier technical snapshot, not independent outcome corroboration.",
+                  "locator": "ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2",
+                  "access_status": "Sections1–4.3 inspected in the published full text."
+                }
+              ],
+              "limitations": "The technical disclosure is dated November 27,2025 and does not establish that every later pilot task used the same model. LGA results rely on interviews and usage data.",
+              "origin_chain": "https://www.local.gov.uk/case-studies/leeds-city-council-and-xylo-transforming-planning-ai"
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Traced the original project reports, corrected publication chronology to March 12, 2026, identified disclosed model versions, and distinguished pilot participation from unpublished outcome denominators. Additional inspection for the October 27, 2026 editorial reconstruction: ATRS 2.1; 3.1–3.2, 3.5. Human review, override authority, and absence of automated approval/refusal inspected October 27, 2026.",
-          "record_fields": [
-            "evidence"
-          ],
+          "basis": "Case-specific public-source inspection. Every proposal below was assessed against the original account and its stated stage of deployment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0553-source-0001",
-            "AIBD-0553-source-0002",
-            "AIBD-0553-source-0003",
-            "AIBD-0553-source-0004"
+            "AIBD-0553-source-0003"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2243,19 +2325,25 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Leeds reports over 40% more applications processed per officer, less research time, and improved officer wellbeing during its Xylo pilot.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Officers must accept each suggestion. Xylo does not decide whether to approve an application."
         },
-        "reason": "The limits on autonomous action by Xylo Core AI planning workspace remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "The council reports pilot time savings. Its earlier ATRS disclosure identifies API-based GPT-5, Gemini2.5Pro, and Claude Sonnet4, with retrieval and mandatory officer approval. LGA successes/results; ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0553-source-0003"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Officers must accept each suggestion. Xylo does not decide whether to approve an application."
+        }
       },
       "systems[].component_role": {
         "state": "value_present",
@@ -2279,20 +2367,22 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "The council’s November 2025 disclosure listed gpt-5-2025-08-07, gemini-2.5-pro, and claude-sonnet-4@20250514."
+          "text": "Xylo retrieves planning documents and calls model APIs. It reports no additional model fine-tuning."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
-          "record_fields": [
-            "model_version",
-            "system",
-            "ai_role"
+          "kind": "source_review",
+          "basis": "The council reports pilot time savings. Its earlier ATRS disclosure identifies API-based GPT-5, Gemini2.5Pro, and Claude Sonnet4, with retrieval and mandatory officer approval. LGA successes/results; ATRS sections2.1,3.2,4.1.1,4.1.4,4.2.1–4.2.2.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0553-source-0003"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Xylo retrieves planning documents and calls model APIs. It reports no additional model fine-tuning."
+        }
       },
       "systems[].inputs_outputs": {
         "state": "unresolved",
@@ -2497,18 +2587,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 40,
-      "reviewed": 6,
+      "known": 43,
+      "reviewed": 11,
       "reviewed_complete": 1,
-      "reviewed_partial": 5,
-      "record_mapped": 34,
-      "review_not_assessed": 51,
+      "reviewed_partial": 10,
+      "record_mapped": 33,
+      "review_not_assessed": 47,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 40,
+        "value_present": 43,
         "not_reported": 0,
-        "unresolved": 51,
+        "unresolved": 48,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

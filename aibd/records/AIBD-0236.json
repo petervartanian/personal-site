@@ -1429,19 +1429,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Heelan selected the code, verified the finding and managed disclosure; kernel maintainers applied the fix."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Sean Heelan, benchmarking o3 on ksmbd with no scaffolding, had the model surface an unknown use-after-free in the SMB logoff handler; the kernel CNA published CVE-2025–37899 on 20 May 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and CVE record.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0236-source-0001",
+            "AIBD-0236-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of OpenAI o3 in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Heelan selected the code, verified the finding and managed disclosure; kernel maintainers applied the fix."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1653,16 +1660,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Sean Heelan, benchmarking o3 on ksmbd with no scaffolding, had the model surface an unknown use-after-free in the SMB logoff handler; the kernel CNA published CVE-2025–37899 on 20 May 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and AI-role assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0236-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The finding was new, but Heelan reported false positives in other runs and retained the verification role.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely efficiency gain was broad code inspection, offset by expert effort to reject false positives and validate a real concurrency bug.",
+          "editor_note": "The finding was new, but Heelan reported false positives in other runs and retained the verification role."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1895,25 +1906,51 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0236-source-0001",
-            "AIBD-0236-source-0002",
-            "AIBD-0236-source-0003"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/",
+                "source_refs": [
+                  "AIBD-0236-source-0001"
+                ],
+                "title": "Researcher’s original experiment account",
+                "relationship": "Researcher’s original experiment account",
+                "contribution": "Heelan used the plain o3 API with about 12,000 lines and 100 repeated runs, then recognized and verified a new session-logoff use-after-free. He reports a poor signal-to-noise ratio and expert validation requirements.",
+                "locator": "Opening; “o3 finds a 0-day”; author’s cost reply",
+                "access_status": "Main experiment, novel finding and limitations read"
+              },
+              {
+                "url": "https://cveawg.mitre.org/api/cve/CVE-2025-37899",
+                "source_refs": [
+                  "AIBD-0236-source-0001"
+                ],
+                "title": "Linux CNA’s original vulnerability record",
+                "relationship": "Linux CNA’s original vulnerability record",
+                "contribution": "Linux confirms the session-logoff use-after-free and identifies fixed commits. This corroborates the vulnerability and repair, not the AI experiment’s performance rate.",
+                "locator": "containers.cna.descriptions, affected and references",
+                "access_status": "Full public JSON record read"
+              }
+            ],
+            "latest_limitations": "Experiment output was sampled repeatedly and includes many false positives. The case does not establish an autonomous security audit or production-wide prevention benefit."
+          }
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0236-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Experiment output was sampled repeatedly and includes many false positives. The case does not establish an autonomous security audit or production-wide prevention benefit."
         }
       },
       "sources[].citation_locator": {
@@ -2053,27 +2090,88 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0236-source-0001",
-            "AIBD-0236-source-0002"
-          ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/",
+                "source_refs": [
+                  "AIBD-0236-source-0001"
+                ],
+                "title": "Researcher’s original experiment account",
+                "relationship": "Researcher’s original experiment account",
+                "contribution": "Heelan used the plain o3 API with about 12,000 lines and 100 repeated runs, then recognized and verified a new session-logoff use-after-free. He reports a poor signal-to-noise ratio and expert validation requirements.",
+                "locator": "Opening; “o3 finds a 0-day”; author’s cost reply",
+                "access_status": "Main experiment, novel finding and limitations read"
+              },
+              {
+                "url": "https://cveawg.mitre.org/api/cve/CVE-2025-37899",
+                "source_refs": [
+                  "AIBD-0236-source-0001"
+                ],
+                "title": "Linux CNA’s original vulnerability record",
+                "relationship": "Linux CNA’s original vulnerability record",
+                "contribution": "Linux confirms the session-logoff use-after-free and identifies fixed commits. This corroborates the vulnerability and repair, not the AI experiment’s performance rate.",
+                "locator": "containers.cna.descriptions, affected and references",
+                "access_status": "Full public JSON record read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/",
+                  "source_refs": [
+                    "AIBD-0236-source-0001"
+                  ],
+                  "title": "Researcher’s original experiment account",
+                  "relationship": "Researcher’s original experiment account",
+                  "contribution": "Heelan used the plain o3 API with about 12,000 lines and 100 repeated runs, then recognized and verified a new session-logoff use-after-free. He reports a poor signal-to-noise ratio and expert validation requirements.",
+                  "locator": "Opening; “o3 finds a 0-day”; author’s cost reply",
+                  "access_status": "Main experiment, novel finding and limitations read"
+                },
+                {
+                  "url": "https://cveawg.mitre.org/api/cve/CVE-2025-37899",
+                  "source_refs": [
+                    "AIBD-0236-source-0001"
+                  ],
+                  "title": "Linux CNA’s original vulnerability record",
+                  "relationship": "Linux CNA’s original vulnerability record",
+                  "contribution": "Linux confirms the session-logoff use-after-free and identifies fixed commits. This corroborates the vulnerability and repair, not the AI experiment’s performance rate.",
+                  "locator": "containers.cna.descriptions, affected and references",
+                  "access_status": "Full public JSON record read"
+                }
+              ],
+              "limitations": "Experiment output was sampled repeatedly and includes many false positives. The case does not establish an autonomous security audit or production-wide prevention benefit.",
+              "origin_chain": "Linuxiac summarizes Heelan’s firsthand blog. The CVE page resolves to the public Linux CNA record and links the kernel fixes; the blog supports discovery attribution and the CNA supports the resolved defect."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0236-source-0001",
+            "retained_source_order": [
+              "AIBD-0236-source-0001",
+              "AIBD-0236-source-0002",
+              "AIBD-0236-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "The retained source trail for OpenAI o3 finds CVE-2025–37899, a remote use-after-free in the Linux kernel's ksmbd; patched in all maintained branches has not been fully verified. The references support this editorial screening only.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0236-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The retained references have not been fully traced to their original evidence."
+          "answer": "Heelan used the plain o3 API with about 12,000 lines and 100 repeated runs, then recognized and verified a new session-logoff use-after-free. He reports a poor signal-to-noise ratio and expert validation requirements."
         }
       },
       "strategic_assessments[]": {
@@ -2152,34 +2250,46 @@
         "coverage": "partial"
       },
       "systems[].deployment_configuration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Heelan used o3 through the plain API with about 12,000 lines of SMB handler code and no agents, tools or additional scaffolding."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Sean Heelan, benchmarking o3 on ksmbd with no scaffolding, had the model surface an unknown use-after-free in the SMB logoff handler; the kernel CNA published CVE-2025–37899 on 20 May 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: benchmark setup.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0236-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the configuration used in this case is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The configuration of OpenAI o3 used in this case remains unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Heelan used o3 through the plain API with about 12,000 lines of SMB handler code and no agents, tools or additional scaffolding."
+        }
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The model received source code and returned a suspected use-after-free involving a session user during logoff."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Sean Heelan, benchmarking o3 on ksmbd with no scaffolding, had the model surface an unknown use-after-free in the SMB logoff handler; the kernel CNA published CVE-2025–37899 on 20 May 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: bug mechanism.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0236-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of OpenAI o3 have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The model received source code and returned a suspected use-after-free involving a session user during logoff."
+        }
       },
       "systems[].model_name": {
         "state": "value_present",
@@ -2355,18 +2465,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 40,
-      "reviewed": 3,
+      "known": 45,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 38,
-      "review_not_assessed": 50,
+      "review_not_assessed": 45,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 40,
+        "value_present": 45,
         "not_reported": 0,
-        "unresolved": 51,
+        "unresolved": 46,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

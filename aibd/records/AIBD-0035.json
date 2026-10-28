@@ -1552,19 +1552,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Alþingi's transcribers edited the generated drafts before publication and assessed whether the drafts were useful."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Reykjavik University's ASR has produced Althingi's first-draft speech transcripts in production since January 2019 (Interspeech 2019).",
-          "record_fields": [
-            "summary"
+          "basis": "ai_role: editors still post-edit. Account: transcribers graded 77% of transcripts as Good.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0035-source-0001",
+            "AIBD-0035-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Althingi ASR system (time-delay deep neural network acoustic model, n-gram language model, punctuation and paragraph models) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Alþingi's transcribers edited the generated drafts before publication and assessed whether the drafts were useful."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1586,19 +1593,25 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A virtual server received speech audio and metadata from Alþingi’s systems, created a draft, and sent it to Documentum for manual editing before publication."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Reykjavik University's ASR has produced Althingi's first-draft speech transcripts in production since January 2019 (Interspeech 2019).",
-          "record_fields": [
-            "summary"
+          "basis": "Original paper §2.3, Integration with the Althingi system.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0035-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for Althingi ASR system (time-delay deep neural network acoustic model, n-gram language model, punctuation and paragraph models) has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A virtual server received speech audio and metadata from Alþingi’s systems, created a draft, and sent it to Documentum for manual editing before publication."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1767,19 +1780,26 @@
         }
       },
       "outcomes[].tradeoffs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Editors still corrected the drafts. The team kept n-gram rescoring because recurrent neural-network rescoring used more memory and time without improving the sampled production speeches."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Reykjavik University's ASR has produced Althingi's first-draft speech transcripts in production since January 2019 (Interspeech 2019).",
-          "record_fields": [
-            "summary"
+          "basis": "Original paper: model comparison and integration sections.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0035-source-0001",
+            "AIBD-0035-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Editors still corrected the drafts. The team kept n-gram rescoring because recurrent neural-network rescoring used more memory and time without improving the sampled production speeches."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2062,27 +2082,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0035-source-0001",
-            "AIBD-0035-source-0002",
-            "AIBD-0035-source-0003",
-            "AIBD-0035-source-0004",
-            "AIBD-0035-source-0005"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.isca-archive.org/interspeech_2019/helgadottir19_interspeech.pdf",
+                "source_refs": [
+                  "AIBD-0035-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "ASR drafts enter Documentum for manual editing; a virtual server integrates with parliamentary systems; n-grams were retained because RNN rescoring consumed more time and memory without a field gain.",
+                "locator": "Introduction; §2.3; model comparison",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": ""
+          }
         },
-        "reason": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0035-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The relevant passages of the original public source were available for inspection."
         }
       },
       "sources[].citation_locator": {
@@ -2274,7 +2307,14 @@
                   "AIBD-0035-source-0001"
                 ],
                 "locator": "Interspeech 2019 paper, Abstract and section 1 Introduction",
-                "contribution": "The system developers’ paper reports production use and results from 625 speeches."
+                "contribution": "The system developers’ paper reports production use and results from 625 speeches.",
+                "latest_inspection": {
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "ASR drafts enter Documentum for manual editing; a virtual server integrates with parliamentary systems; n-grams were retained because RNN rescoring consumed more time and memory without a field gain.",
+                  "locator": "Introduction; §2.3; model comparison",
+                  "access_status": "content inspected"
+                }
               }
             ],
             "retained_source_order": [
@@ -2292,12 +2332,31 @@
             ],
             "limitations": "Recognition accuracy and transcript grades establish a working capability. They do not quantify net staff time saved or eliminate the need for human editing, punctuation correction, and publication checks. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0035-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.isca-archive.org/interspeech_2019/helgadottir19_interspeech.pdf",
+                  "source_refs": [
+                    "AIBD-0035-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "ASR drafts enter Documentum for manual editing; a virtual server integrates with parliamentary systems; n-grams were retained because RNN rescoring consumed more time and memory without a field gain.",
+                  "locator": "Introduction; §2.3; model comparison",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "",
+              "origin_chain": "Retained citation to the original report or research article."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at Interspeech 2019 paper, Abstract and section 1 Introduction. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight outcomes[].tradeoffs infrastructure_dependencies[]",
           "record_fields": [],
           "source_refs": [
             "AIBD-0035-source-0001"
@@ -2400,19 +2459,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The recognizer converted recorded Icelandic parliamentary speech into draft text using a time-delay neural acoustic model and an n-gram language model."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Reykjavik University's ASR has produced Althingi's first-draft speech transcripts in production since January 2019 (Interspeech 2019).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: production model and replacement of the first manual transcription stage.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0035-source-0001",
+            "AIBD-0035-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Althingi ASR system (time-delay deep neural network acoustic model, n-gram language model, punctuation and paragraph models) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The recognizer converted recorded Icelandic parliamentary speech into draft text using a time-delay neural acoustic model and an n-gram language model."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2583,18 +2649,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 40,
-      "reviewed": 3,
+      "known": 45,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 37,
-      "review_not_assessed": 51,
+      "review_not_assessed": 46,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 40,
+        "value_present": 45,
         "not_reported": 0,
-        "unresolved": 51,
+        "unresolved": 46,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

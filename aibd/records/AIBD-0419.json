@@ -200,19 +200,25 @@
         "coverage": "partial"
       },
       "ai_contribution": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The proposed AI contribution is learned scheduling and explanations for resource allocation. The reported 150% increase in GPU availability is attributed to virtualization and resource sharing."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: TeleAI describes reinforcement-learning scheduling and LLM assistance for computing clusters. Its reported GPU-availability gains come from virtualization and resource sharing.",
-          "record_fields": [
-            "summary"
+          "basis": "Account explicitly separates learned scheduling from virtualization-derived availability gains.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0419-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A causal or process account is needed that separates the AI contribution from human work, conventional software, and concurrent changes."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Reinforcement-learning agents learn scheduling policies; LLMs are intended to explain or assist scheduling decisions. The separate contribution of AI remains unassessed; comparison with human work, ordinary software, and simultaneous changes is needed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The proposed AI contribution is learned scheduling and explanations for resource allocation. The reported 150% increase in GPU availability is attributed to virtualization and resource sharing."
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -1390,16 +1396,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: TeleAI describes reinforcement-learning scheduling and LLM assistance for computing clusters. Its reported GPU-availability gains come from virtualization and resource sharing.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed missingness: GPU availability gains and no measured AI-specific energy or carbon reduction.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0419-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Virtualization changes how much hardware can be used. Without a fixed-workload energy comparison, increased access can coexist with higher aggregate consumption.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Higher GPU availability does not by itself imply lower electricity use; better utilization could also permit more total computing work.",
+          "editor_note": "Virtualization changes how much hardware can be used. Without a fixed-workload energy comparison, increased access can coexist with higher aggregate consumption."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1581,23 +1591,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-218",
+                "source_refs": [
+                  "AIBD-0419-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Original describes FGD plus future reinforcement-learning and generative tools. USENIX author abstract confirms FGD reduced unallocated GPUs by up to49% on an emulated6200-GPU cluster.",
+                "locator": "_idParaDest-218; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://www.usenix.org/conference/atc23/presentation/weng",
+                "source_refs": [
+                  "AIBD-0419-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "The GPU scheduling experiment reports 49% fewer unallocated GPUs in an emulated 6,200-GPU cluster; this is not a measured energy saving.",
+                "locator": "Author abstract",
+                "access_status": "Read"
+              }
+            ],
+            "latest_limitations": "FGD utilization is neither a direct energy measure nor a demonstrated reinforcement-learning benefit."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0419-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "FGD utilization is neither a direct energy measure nor a demonstrated reinforcement-learning benefit."
         }
       },
       "sources[].citation_locator": {
@@ -1709,7 +1748,26 @@
                 "locator": "ITU AI for Good: Innovate for Impact, anchor _idParaDest-218, summary table and sections 2.1–2.3",
                 "contribution": "The original ITU publication contains the contributor’s description, with information stated as current to June 2025. Its publication by ITU does not independently validate the outcomes. The cited underlying studies and project records were not separately reopened.",
                 "retrieval_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en",
-                "content_locator": "_idParaDest-218"
+                "content_locator": "_idParaDest-218",
+                "latest_inspection": {
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Original describes FGD plus future reinforcement-learning and generative tools. USENIX author abstract confirms FGD reduced unallocated GPUs by up to49% on an emulated6200-GPU cluster.",
+                  "locator": "_idParaDest-218; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
+              },
+              {
+                "url": "https://www.usenix.org/conference/atc23/presentation/weng",
+                "source_refs": [
+                  "AIBD-0419-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "The GPU scheduling experiment reports 49% fewer unallocated GPUs in an emulated 6,200-GPU cluster; this is not a measured energy saving.",
+                "locator": "Author abstract",
+                "access_status": "Read"
               }
             ],
             "retained_source_order": [
@@ -1718,12 +1776,43 @@
             "unreviewed_source_refs": [],
             "limitations": "The 150% increase concerns GPU availability from virtualization, and the up-to-49% result concerns unallocated GPUs in scheduling simulations. Neither directly measures energy or carbon saved by the proposed multi-cluster AI system. Learned scheduling, generative explanations, and broader coordination are partly future research. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0419-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-218",
+                  "source_refs": [
+                    "AIBD-0419-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Original describes FGD plus future reinforcement-learning and generative tools. USENIX author abstract confirms FGD reduced unallocated GPUs by up to49% on an emulated6200-GPU cluster.",
+                  "locator": "_idParaDest-218; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                },
+                {
+                  "url": "https://www.usenix.org/conference/atc23/presentation/weng",
+                  "source_refs": [
+                    "AIBD-0419-source-0001"
+                  ],
+                  "title": "Cited upstream original or public access route",
+                  "relationship": "Cited upstream original or public access route",
+                  "contribution": "The GPU scheduling experiment reports 49% fewer unallocated GPUs in an emulated 6,200-GPU cluster; this is not a measured energy saving.",
+                  "locator": "Author abstract",
+                  "access_status": "Read"
+                }
+              ],
+              "limitations": "FGD utilization is neither a direct energy measure nor a demonstrated reinforcement-learning benefit.",
+              "origin_chain": "TeleAI submission -> Weng et al., USENIX ATC2023, original author abstract inspected."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at ITU AI for Good: Innovate for Impact, anchor _idParaDest-218, summary table and sections 2.1–2.3. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. ai_contribution systems[].component_role outcomes[].tradeoffs",
           "record_fields": [],
           "source_refs": [
             "AIBD-0419-source-0001"
@@ -1792,19 +1881,25 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Reinforcement-learning agents are intended to schedule computing resources, while language models explain scheduling or resource-management choices."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: TeleAI describes reinforcement-learning scheduling and LLM assistance for computing clusters. Its reported GPU-availability gains come from virtualization and resource sharing.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: reinforcement-learning scheduling and LLM explanations.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0419-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation is needed that explains each component’s role."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The role of each component in AI for green multi-cluster: Intelligent management towards green and low-carbon, large-scale multi-clusters remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Reinforcement-learning agents are intended to schedule computing resources, while language models explain scheduling or resource-management choices."
+        }
       },
       "systems[].deployment_configuration": {
         "state": "unresolved",
@@ -1995,18 +2090,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 33,
-      "reviewed": 3,
+      "known": 36,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 30,
-      "review_not_assessed": 58,
+      "review_not_assessed": 54,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 33,
+        "value_present": 36,
         "not_reported": 0,
-        "unresolved": 58,
+        "unresolved": 55,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

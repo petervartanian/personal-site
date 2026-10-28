@@ -1363,19 +1363,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Dr. Gilmer reviewed the existing MRI, diagnosed a tethered cord associated with spina bifida occulta, and performed surgery."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Mother entered son's MRI notes and symptoms into ChatGPT; it suggested tethered cord syndrome, confirmed and operated on by a neurosurgeon.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: specialist review, diagnosis, and release surgery.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0060-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of ChatGPT in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Dr. Gilmer reviewed the existing MRI, diagnosed a tethered cord associated with spina bifida occulta, and performed surgery."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1497,19 +1503,25 @@
         "coverage": "partial"
       },
       "outcomes[].duration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "At the September 2023 report, Alex was still recovering from surgery performed a few weeks earlier."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Mother entered son's MRI notes and symptoms into ChatGPT; it suggested tethered cord syndrome, confirmed and operated on by a neurosurgeon.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: reporting date and recovery status.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0060-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Dated observation of the same outcome and population is needed to establish persistence or recurrence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The duration of the claimed benefit is not separately established. Dated follow-up on the same outcome is needed to distinguish a one-time result from recurring or sustained benefit; later work on another system or population does not establish persistence here. The recorded follow-up says: No later development found.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "At the September 2023 report, Alex was still recovering from surgery performed a few weeks earlier."
+        }
       },
       "outcomes[].id": {
         "state": "unresolved",
@@ -1576,16 +1588,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Mother entered son's MRI notes and symptoms into ChatGPT; it suggested tethered cord syndrome, confirmed and operated on by a neurosurgeon.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: detailed records, suggested syndrome, and specialist re-review.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0060-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The account describes repeated unsuccessful consultations and an AI suggestion followed by a neurosurgeon's independent image review. The practical change was redirecting the search, not obtaining new imaging evidence from the chatbot.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The model probably helped Courtney connect a long history of symptoms into a hypothesis that warranted a new specialist review, but the diagnostic evidence remained in the MRI and clinical assessment.",
+          "editor_note": "The account describes repeated unsuccessful consultations and an AI suggestion followed by a neurosurgeon's independent image review. The practical change was redirecting the search, not obtaining new imaging evidence from the chatbot."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1840,24 +1856,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0060-source-0001",
-            "AIBD-0060-source-0002"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.today.com/health/mom-chatgpt-diagnosis-pain-rcna101843",
+                "source_refs": [
+                  "AIBD-0060-source-0001"
+                ],
+                "title": "original interviews with parent and treating neurosurgeon",
+                "relationship": "original interviews with parent and treating neurosurgeon",
+                "contribution": "Courtney entered MRI notes and symptoms, sought a new specialist after the tethered-cord suggestion, and Gilmer confirmed the anatomical problem and operated.",
+                "locator": "Mother's line-by-line MRI account; Gilmer's diagnostic and surgery explanation; recovery section",
+                "access_status": "Web reader blocked, but public HTTP body retrieved and read; saved 011-060.txt"
+              }
+            ],
+            "latest_limitations": "The prompt transcript and model release are absent, and the report describes ongoing recovery rather than a measured long-term outcome."
+          }
         },
-        "reason": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0060-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The prompt transcript and model release are absent, and the report describes ongoing recovery rather than a measured long-term outcome."
         }
       },
       "sources[].citation_locator": {
@@ -1991,7 +2023,14 @@
                   "AIBD-0060-source-0001"
                 ],
                 "locator": "TODAY report, opening account of the ChatGPT suggestion and retained clinician excerpts",
-                "contribution": "The report records the mother’s account and a clinician interview; original clinical records were not inspected."
+                "contribution": "The report records the mother’s account and a clinician interview; original clinical records were not inspected.",
+                "latest_inspection": {
+                  "title": "original interviews with parent and treating neurosurgeon",
+                  "relationship": "original interviews with parent and treating neurosurgeon",
+                  "contribution": "Courtney entered MRI notes and symptoms, sought a new specialist after the tethered-cord suggestion, and Gilmer confirmed the anatomical problem and operated.",
+                  "locator": "Mother's line-by-line MRI account; Gilmer's diagnostic and surgery explanation; recovery section",
+                  "access_status": "Web reader blocked, but public HTTP body retrieved and read; saved 011-060.txt"
+                }
               }
             ],
             "retained_source_order": [
@@ -2021,17 +2060,34 @@
                   "https://openai.com/index/chatgpt-can-now-see-hear-and-speak/"
                 ]
               }
-            ]
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.today.com/health/mom-chatgpt-diagnosis-pain-rcna101843",
+                  "source_refs": [
+                    "AIBD-0060-source-0001"
+                  ],
+                  "title": "original interviews with parent and treating neurosurgeon",
+                  "relationship": "original interviews with parent and treating neurosurgeon",
+                  "contribution": "Courtney entered MRI notes and symptoms, sought a new specialist after the tethered-cord suggestion, and Gilmer confirmed the anatomical problem and operated.",
+                  "locator": "Mother's line-by-line MRI account; Gilmer's diagnostic and surgery explanation; recovery section",
+                  "access_status": "Web reader blocked, but public HTTP body retrieved and read; saved 011-060.txt"
+                }
+              ],
+              "limitations": "The prompt transcript and model release are absent, and the report describes ongoing recovery rather than a measured long-term outcome.",
+              "origin_chain": "Retained TODAY report, read directly after the web reader failed."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at TODAY report, opening account of the ChatGPT suggestion and retained clinician excerpts. This is a partial review of the benefit/status claim and its limits, not a complete source audit. Additional inspection for the October 27, 2026 editorial reconstruction: Retained maternal account and existing source-lineage assessment; OpenAI’s March 14, 2023 announcement, ChatGPT Plus section. The TODAY page did not return readable content in this pass. Retained account and existing source-lineage assessment; OpenAI’s September 25, 2023 announcement, rollout paragraphs. The original interview could not be reopened.",
+          "basis": "Case-specific public-source inspection. All four proposals survive.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0060-source-0001",
-            "https://openai.com/index/gpt-4-research/",
-            "https://openai.com/index/chatgpt-can-now-see-hear-and-speak/"
+            "AIBD-0060-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2134,19 +2190,25 @@
         }
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Courtney entered MRI report text and detailed observations about Alex's symptoms. ChatGPT proposed tethered cord syndrome as a possible explanation."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Mother entered son's MRI notes and symptoms into ChatGPT; it suggested tethered cord syndrome, confirmed and operated on by a neurosurgeon.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: line-by-line MRI notes, symptoms, and named hypothesis.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0060-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of ChatGPT have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Courtney entered MRI report text and detailed observations about Alex's symptoms. ChatGPT proposed tethered cord syndrome as a possible explanation."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2315,18 +2377,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 40,
-      "reviewed": 5,
+      "known": 44,
+      "reviewed": 10,
       "reviewed_complete": 0,
-      "reviewed_partial": 5,
+      "reviewed_partial": 10,
       "record_mapped": 37,
-      "review_not_assessed": 49,
+      "review_not_assessed": 44,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 40,
+        "value_present": 44,
         "not_reported": 0,
-        "unresolved": 51,
+        "unresolved": 47,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

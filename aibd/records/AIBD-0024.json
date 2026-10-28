@@ -1446,19 +1446,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Clinicians diagnosed Wolff-Parkinson-White syndrome from a 12-lead ECG, considered the symptoms and band readings, and performed electrophysiology testing and catheter ablation."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Galaxy Fit recorded a resting pulse of 188 bpm; a routine ECG next day showed WPW and the band's records supported referral for successful ablation (South Korea, 2020).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: routine ECG on 19 June and electrophysiology study and ablation on 29 June.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0024-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Samsung Galaxy Fit heart-rate monitor and Galaxy Watch ECG app in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Clinicians diagnosed Wolff-Parkinson-White syndrome from a 12-lead ECG, considered the symptoms and band readings, and performed electrophysiology testing and catheter ablation."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1963,25 +1969,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0024-source-0001",
-            "AIBD-0024-source-0002",
-            "AIBD-0024-source-0003"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8075737/",
+                "source_refs": [
+                  "AIBD-0024-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Clinicians combined ECG, symptoms, and wearable pulse records before referral, electrophysiology, and ablation.",
+                "locator": "Abstract: Case presentation",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "Only the original abstract was retrievable through this route; the later Galaxy Watch 4 report was not re-evaluated."
+          }
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0024-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Only the original abstract was retrievable through this route; the later Galaxy Watch 4 report was not re-evaluated."
         }
       },
       "sources[].citation_locator": {
@@ -2121,23 +2142,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8075737/",
+                "source_refs": [
+                  "AIBD-0024-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Clinicians combined ECG, symptoms, and wearable pulse records before referral, electrophysiology, and ablation.",
+                "locator": "Abstract: Case presentation",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8075737/",
+                  "source_refs": [
+                    "AIBD-0024-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Clinicians combined ECG, symptoms, and wearable pulse records before referral, electrophysiology, and ablation.",
+                  "locator": "Abstract: Case presentation",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "Only the original abstract was retrievable through this route; the later Galaxy Watch 4 report was not re-evaluated.",
+              "origin_chain": "Retained citation to the original report or research article."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0024-source-0001",
+            "retained_source_order": [
+              "AIBD-0024-source-0001",
+              "AIBD-0024-source-0002",
+              "AIBD-0024-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0024-source-0001",
-            "AIBD-0024-source-0002",
-            "AIBD-0024-source-0003"
+            "AIBD-0024-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "The WPW case report is the origin for the first patient. The ventricular-tachycardia report concerns another patient, and the systematic review summarizes cases rather than adding an independent outcome for either person. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The WPW case report is the origin for the first patient. The ventricular-tachycardia report concerns another patient, and the systematic review summarizes cases rather than adding an independent outcome for either person. The source chain has not been independently checked in this pass."
+          "answer": "Clinicians combined ECG, symptoms, and wearable pulse records before referral, electrophysiology, and ablation."
         }
       },
       "strategic_assessments[]": {
@@ -2235,19 +2299,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The Galaxy Fit recorded pulse optically, including a peak resting rate of 188 beats per minute during the woman's symptoms."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Galaxy Fit recorded a resting pulse of 188 bpm; a routine ECG next day showed WPW and the band's records supported referral for successful ablation (South Korea, 2020).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: Samsung Galaxy Fit SM-R370, photoplethysmography, and the 18 June 2020 episode.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0024-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Samsung Galaxy Fit heart-rate monitor and Galaxy Watch ECG app have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The Galaxy Fit recorded pulse optically, including a peak resting rate of 188 beats per minute during the woman's symptoms."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2428,18 +2498,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 43,
-      "reviewed": 3,
+      "known": 47,
+      "reviewed": 6,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 6,
       "record_mapped": 41,
-      "review_not_assessed": 47,
+      "review_not_assessed": 44,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 43,
+        "value_present": 47,
         "not_reported": 0,
-        "unresolved": 48,
+        "unresolved": 44,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

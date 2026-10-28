@@ -1426,19 +1426,26 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Bret Peters avoided a collision during the reported encounter. The evidence does not identify an injury that certainly would have occurred without the maneuver."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Bret Peters's Model S on Autopilot braked and moved right as a wrong-way car came at him on Highway 49, NC; TeslaCam recorded the near miss.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: no collision; attribution rests on the driver's account and footage descriptions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0109-source-0001",
+            "AIBD-0109-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has personal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Bret Peters avoided a collision during the reported encounter. The evidence does not identify an injury that certainly would have occurred without the maneuver."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1590,16 +1597,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Bret Peters's Model S on Autopilot braked and moved right as a wrong-way car came at him on Highway 49, NC; TeslaCam recorded the near miss.",
-          "record_fields": [
-            "summary"
+          "basis": "replication.must_hold: adjacent lane availability. ai_role: both vehicles swerved.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0109-source-0001",
+            "AIBD-0109-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Peters specifically said that the adjacent lane was clear, while the video descriptions show the oncoming car swerving away. Both changes increased separation, so the no-collision outcome cannot be assigned wholly to one action.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A clear lane to the right probably made the evasive maneuver feasible. The other driver's movement toward the median also reduced the collision risk.",
+          "editor_note": "Peters specifically said that the adjacent lane was clear, while the video descriptions show the oncoming car swerving away. Both changes increased separation, so the no-collision outcome cannot be assigned wholly to one action."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1825,25 +1837,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0109-source-0001",
-            "AIBD-0109-source-0002",
-            "AIBD-0109-source-0003"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.dailymail.co.uk/news/article-8092899/Model-S-Tesla-swerves-Autopilot-avoid-wrong-way-driver-dark-North-Carolina-highway.html",
+                "source_refs": [
+                  "AIBD-0109-source-0001"
+                ],
+                "title": "intermediary",
+                "relationship": "intermediary",
+                "contribution": "Driver says that braking and steering preceded his response; article describes an available right lane and the other car moving toward the median.",
+                "locator": "Report quoting Peters and describing TeslaCam footage",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The original Fox 46 report was sought through public search but not located. The video and vehicle logs were not inspected directly. A normal web fetch of the article was restricted; its text was accessible through Exa."
+          }
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0109-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The original Fox 46 report was sought through public search but not located. The video and vehicle logs were not inspected directly. A normal web fetch of the article was restricted; its text was accessible through Exa."
         }
       },
       "sources[].citation_locator": {
@@ -1997,7 +2024,14 @@
                   "AIBD-0109-source-0001"
                 ],
                 "locator": "Daily Mail account: Bret Peters’s Facebook statement and Fox 46 interview, followed by the description of both vehicles swerving",
-                "contribution": "The retrieved article reproduces the driver’s statements and describes footage. The original post, complete video, vehicle telemetry, and any police assessment were not separately reviewed."
+                "contribution": "The retrieved article reproduces the driver’s statements and describes footage. The original post, complete video, vehicle telemetry, and any police assessment were not separately reviewed.",
+                "latest_inspection": {
+                  "title": "intermediary",
+                  "relationship": "intermediary",
+                  "contribution": "Driver says that braking and steering preceded his response; article describes an available right lane and the other car moving toward the median.",
+                  "locator": "Report quoting Peters and describing TeslaCam footage",
+                  "access_status": "content inspected"
+                }
               }
             ],
             "retained_source_order": [
@@ -2011,12 +2045,31 @@
             ],
             "limitations": "The driver’s account and video description do not provide control logs that isolate Autopilot’s actions from driver inputs. The oncoming car also swerved. A collision-free encounter does not establish that a fatal crash was otherwise inevitable or estimate the system’s general safety effect. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0109-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "intermediary_only",
+              "source_inspections": [
+                {
+                  "url": "https://www.dailymail.co.uk/news/article-8092899/Model-S-Tesla-swerves-Autopilot-avoid-wrong-way-driver-dark-North-Carolina-highway.html",
+                  "source_refs": [
+                    "AIBD-0109-source-0001"
+                  ],
+                  "title": "intermediary",
+                  "relationship": "intermediary",
+                  "contribution": "Driver says that braking and steering preceded his response; article describes an available right lane and the other car moving toward the median.",
+                  "locator": "Report quoting Peters and describing TeslaCam footage",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The original Fox 46 report was sought through public search but not located. The video and vehicle logs were not inspected directly. A normal web fetch of the article was restricted; its text was accessible through Exa.",
+              "origin_chain": "Daily Mail reproduces Peters’s public statement and Fox 46 interview; original interview/video was not retrieved."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at Daily Mail account: Bret Peters’s Facebook statement and Fox 46 interview, followed by the description of both vehicles swerving. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. systems[].autonomy_permissions outcomes[].tradeoffs outcomes[].beneficiaries",
           "record_fields": [],
           "source_refs": [
             "AIBD-0109-source-0001"
@@ -2072,19 +2125,27 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Peters reported that Autopilot braked and steered right before he reacted. The video descriptions show movement into the right lane but do not independently establish which control system initiated it."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Bret Peters's Model S on Autopilot braked and moved right as a wrong-way car came at him on Highway 49, NC; TeslaCam recorded the near miss.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role distinguish the driver's attribution from the maneuver visible in footage.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0109-source-0001",
+            "AIBD-0109-source-0002",
+            "AIBD-0109-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Tesla Autopilot on a 2020 Model S, with TeslaCam dashcam recording remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Peters reported that Autopilot braked and steered right before he reacted. The video descriptions show movement into the right lane but do not independently establish which control system initiated it."
+        }
       },
       "systems[].component_role": {
         "state": "value_present",
@@ -2309,18 +2370,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 42,
-      "reviewed": 3,
+      "known": 45,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 39,
-      "review_not_assessed": 49,
+      "review_not_assessed": 45,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 42,
+        "value_present": 45,
         "not_reported": 0,
-        "unresolved": 49,
+        "unresolved": 46,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

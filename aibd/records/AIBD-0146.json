@@ -1559,19 +1559,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers submitted the linked object to the Minor Planet Center, which published its designation and orbit."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: HelioLinc3D linked sparse ATLAS detections into PHA 2022 SF289, published by the Minor Planet Center in MPEC 2023-O26 (Jul 2023).",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: MPC publication and confirmation of new-object linkage.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0146-source-0001",
+            "AIBD-0146-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of HelioLinc3D (heliocentric linking algorithm for Rubin Observatory solar-system processing) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Researchers submitted the linked object to the Minor Planet Center, which published its designation and orbit."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1783,16 +1790,22 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: HelioLinc3D linked sparse ATLAS detections into PHA 2022 SF289, published by the Minor Planet Center in MPEC 2023-O26 (Jul 2023).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: earlier imaging, insufficient same-night detections, and no foreseeable Earth risk.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0146-source-0001",
+            "AIBD-0146-source-0003",
+            "AIBD-0146-source-0004"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "ATLAS had already photographed the asteroid, but the conventional same-night requirement prevented linkage. The retained orbit carried no foreseeable impact risk.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely gain was making sparse multi-night observations useful for discovery, rather than detecting an object absent from the images or establishing that an impact threatened Earth.",
+          "editor_note": "ATLAS had already photographed the asteroid, but the conventional same-night requirement prevented linkage. The retained orbit carried no foreseeable impact risk."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2030,28 +2043,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0146-source-0001",
-            "AIBD-0146-source-0002",
-            "AIBD-0146-source-0003",
-            "AIBD-0146-source-0004",
-            "AIBD-0146-source-0005",
-            "AIBD-0146-source-0006"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.washington.edu/news/2023/07/31/heliolinc3d/",
+                "source_refs": [
+                  "AIBD-0146-source-0004"
+                ],
+                "title": "original research-team account",
+                "relationship": "original research-team account",
+                "contribution": "HelioLinc3D linked ATLAS detections across four nights that lacked the four same-night detections needed by the earlier search. Other surveys supplied confirmation; projected motion did not threaten Earth.",
+                "locator": "Discovery and confirmation paragraphs",
+                "access_status": "Full substantive body read"
+              },
+              {
+                "url": "https://minorplanetcenter.net/mpec/K23/K23O26.html",
+                "source_refs": [
+                  "AIBD-0146-source-0001"
+                ],
+                "title": "original discovery circular",
+                "relationship": "original discovery circular",
+                "contribution": "The circular lists ATLAS and Pan-STARRS observations, Earth MOID 0.0015 AU, and the PHA classification.",
+                "locator": "MPEC 2023-O26, July 18, 2023; observations and orbital elements",
+                "access_status": "Full text retrieved and read; saved 010-146.txt"
+              }
+            ],
+            "latest_limitations": "This establishes discovery and classification, not an averted impact. The algorithm's classification as machine learning remains unsupported."
+          }
         },
-        "reason": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0146-source-0004",
+            "AIBD-0146-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "This establishes discovery and classification, not an averted impact. The algorithm's classification as machine learning remains unsupported."
         }
       },
       "sources[].citation_locator": {
@@ -2201,7 +2238,7 @@
         "value": {
           "kind": "structured",
           "data": {
-            "reviewed_on": "2026-10-25",
+            "reviewed_on": "2026-10-27",
             "lead_source_ref": "AIBD-0146-source-0001",
             "retained_source_order": [
               "AIBD-0146-source-0001",
@@ -2219,7 +2256,14 @@
                 "relationship": "Minor Planet Center astronomical circular.",
                 "source_refs": [
                   "AIBD-0146-source-0001"
-                ]
+                ],
+                "latest_inspection": {
+                  "title": "original discovery circular",
+                  "relationship": "original discovery circular",
+                  "contribution": "The circular lists ATLAS and Pan-STARRS observations, Earth MOID 0.0015 AU, and the PHA classification.",
+                  "locator": "MPEC 2023-O26, July 18, 2023; observations and orbital elements",
+                  "access_status": "Full text retrieved and read; saved 010-146.txt"
+                }
               },
               {
                 "url": "https://www.washington.edu/news/2023/07/31/heliolinc3d/",
@@ -2228,22 +2272,61 @@
                 "relationship": "The developer’s original announcement; distinct from the MPC orbit record.",
                 "source_refs": [
                   "AIBD-0146-source-0004"
-                ]
+                ],
+                "latest_inspection": {
+                  "title": "original research-team account",
+                  "relationship": "original research-team account",
+                  "contribution": "HelioLinc3D linked ATLAS detections across four nights that lacked the four same-night detections needed by the earlier search. Other surveys supplied confirmation; projected motion did not threaten Earth.",
+                  "locator": "Discovery and confirmation paragraphs",
+                  "access_status": "Full substantive body read"
+                }
               }
             ],
             "excluded_or_consolidated_sources": [],
-            "review_scope": "Whether the specified sources establish the reported benefit, their document types, and their authorship relationships. Other fields and sources were not comprehensively reassessed."
+            "review_scope": "Whether the specified sources establish the reported benefit, their document types, and their authorship relationships. Other fields and sources were not comprehensively reassessed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.washington.edu/news/2023/07/31/heliolinc3d/",
+                  "source_refs": [
+                    "AIBD-0146-source-0004"
+                  ],
+                  "title": "original research-team account",
+                  "relationship": "original research-team account",
+                  "contribution": "HelioLinc3D linked ATLAS detections across four nights that lacked the four same-night detections needed by the earlier search. Other surveys supplied confirmation; projected motion did not threaten Earth.",
+                  "locator": "Discovery and confirmation paragraphs",
+                  "access_status": "Full substantive body read"
+                },
+                {
+                  "url": "https://minorplanetcenter.net/mpec/K23/K23O26.html",
+                  "source_refs": [
+                    "AIBD-0146-source-0001"
+                  ],
+                  "title": "original discovery circular",
+                  "relationship": "original discovery circular",
+                  "contribution": "The circular lists ATLAS and Pan-STARRS observations, Earth MOID 0.0015 AU, and the PHA classification.",
+                  "locator": "MPEC 2023-O26, July 18, 2023; observations and orbital elements",
+                  "access_status": "Full text retrieved and read; saved 010-146.txt"
+                }
+              ],
+              "limitations": "This establishes discovery and classification, not an averted impact. The algorithm's classification as machine learning remains unsupported.",
+              "origin_chain": "UW discovery account to its linked Minor Planet Center circular."
+            },
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "A limited source-role review; each inspected source and its contribution is identified.",
+          "basis": "Case-specific public-source inspection. All three proposals survive.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0146-source-0001",
-            "AIBD-0146-source-0004"
+            "AIBD-0146-source-0004",
+            "AIBD-0146-source-0001"
           ],
-          "reviewed_on": "2026-10-25"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
@@ -2342,19 +2425,28 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "HelioLinc3D linked sparse asteroid detections from different nights to derive an orbit for 2022 SF289."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: HelioLinc3D linked sparse ATLAS detections into PHA 2022 SF289, published by the Minor Planet Center in MPEC 2023-O26 (Jul 2023).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: ATLAS archival detections and cross-night linking.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0146-source-0001",
+            "AIBD-0146-source-0003",
+            "AIBD-0146-source-0004",
+            "AIBD-0146-source-0005"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of HelioLinc3D (heliocentric linking algorithm for Rubin Observatory solar-system processing) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "HelioLinc3D linked sparse asteroid detections from different nights to derive an orbit for 2022 SF289."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2518,18 +2610,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 36,
-      "reviewed": 2,
+      "known": 39,
+      "reviewed": 6,
       "reviewed_complete": 0,
-      "reviewed_partial": 2,
+      "reviewed_partial": 6,
       "record_mapped": 34,
-      "review_not_assessed": 55,
+      "review_not_assessed": 51,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 36,
+        "value_present": 39,
         "not_reported": 0,
-        "unresolved": 55,
+        "unresolved": 52,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

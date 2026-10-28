@@ -1613,19 +1613,26 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Morgan McGrath was the reported beneficiary of this emergency response. The larger monitoring studies involved different patients."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: IEEE Spectrum (6 February 2018): an Embrace wristband alerted the mother of Morgan McGrath, 26, of Fulton, Mo., during a seizure about 15 months earlier; she called paramedics and McGrath survived.",
-          "record_fields": [
-            "summary"
+          "basis": "The original account describes a caregiver alert followed by paramedic response. FDA documentation limits the device to adjunctive detection of convulsive seizures. The clinical validation sample is separate from McGrath’s rescue and does not prove that an alert prevents death. IEEE incident account; FDA device description and indications.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0296-source-0001",
+            "AIBD-0296-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has personal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Morgan McGrath was the reported beneficiary of this emergency response. The larger monitoring studies involved different patients."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1774,19 +1781,26 @@
         }
       },
       "outcomes[].tradeoffs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "False alarms and broken connectivity could reduce the value of monitoring, and seizures without convulsions fell outside the demonstrated detection capability."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: IEEE Spectrum (6 February 2018): an Embrace wristband alerted the mother of Morgan McGrath, 26, of Fulton, Mo., during a seizure about 15 months earlier; she called paramedics and McGrath survived.",
-          "record_fields": [
-            "summary"
+          "basis": "The original account describes a caregiver alert followed by paramedic response. FDA documentation limits the device to adjunctive detection of convulsive seizures. The clinical validation sample is separate from McGrath’s rescue and does not prove that an alert prevents death. IEEE incident account; FDA device description and indications.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0296-source-0001",
+            "AIBD-0296-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "False alarms and broken connectivity could reduce the value of monitoring, and seizures without convulsions fell outside the demonstrated detection capability."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2069,27 +2083,63 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://spectrum.ieee.org/this-seizuredetecting-smartwatch-could-save-your-life",
+                "source_refs": [
+                  "AIBD-0296-source-0001"
+                ],
+                "title": "IEEE reporting with a linked beneficiary testimonial",
+                "relationship": "IEEE reporting with a linked beneficiary testimonial",
+                "contribution": "IEEE reports that Embrace alerted McGrath’s mother, who called paramedics. It links McGrath’s account to an Empatica testimonial. The report also describes a separate death despite an alert and explains the importance of a prompt caregiver response.",
+                "locator": "IEEE report, device and alert description and the paragraphs about Morgan McGrath and the separate fatal case.",
+                "access_status": "The cached text contained only limited page content. The incident and device passages were read through the public web-tool extraction of the IEEE article."
+              },
+              {
+                "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf17/K172935.pdf",
+                "source_refs": [
+                  "AIBD-0296-source-0003"
+                ],
+                "title": "Original FDA clearance and manufacturer’s device summary",
+                "relationship": "Original FDA clearance and manufacturer’s device summary",
+                "contribution": "The submission describes an on-device algorithm that processes electrodermal activity and movement, then sends a command to a paired phone to alert caregivers. The indicated use is adjunctive monitoring of adults at rest for patterns associated with generalized tonic-clonic seizures. It is not intended to guide therapy decisions.",
+                "locator": "FDA K172935, 510(k) Summary, Device Description, Indications for Use, and the comparison of clinical-outcome indications.",
+                "access_status": "The specified passages were read in saved public-source text."
+              },
+              {
+                "url": "https://blog.empatica.com/morgans-story-11fe8d7f6031",
+                "source_refs": [
+                  "AIBD-0296-source-0001"
+                ],
+                "title": "Beneficiary testimonial linked by IEEE; inaccessible on this check",
+                "relationship": "Beneficiary testimonial linked by IEEE; inaccessible on this check",
+                "contribution": "No additional incident fact was established from this inaccessible page.",
+                "locator": "IEEE article, link attached to Morgan McGrath’s testimonial.",
+                "access_status": "Following the IEEE testimonial link returned an access failure after redirect to https://empatica.com/blog/morgans-story-11fe8d7f6031.html. The testimonial body was not read."
+              }
+            ],
+            "latest_limitations": "The clinical validation sample is separate from McGrath’s rescue and does not prove that an alert prevents death. The beneficiary testimonial linked by IEEE was inaccessible on the follow-up check, so the rescue account remains mediated by IEEE rather than newly confirmed from the testimonial."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0296-source-0001",
-            "AIBD-0296-source-0002",
-            "AIBD-0296-source-0003",
-            "AIBD-0296-source-0004",
-            "AIBD-0296-source-0005"
+            "AIBD-0296-source-0003"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The clinical validation sample is separate from McGrath’s rescue and does not prove that an alert prevents death. The beneficiary testimonial linked by IEEE was inaccessible on the follow-up check, so the rescue account remains mediated by IEEE rather than newly confirmed from the testimonial."
         }
       },
       "sources[].citation_locator": {
@@ -2283,7 +2333,36 @@
                   "AIBD-0296-source-0001"
                 ],
                 "locator": "IEEE Spectrum article: McGrath’s November 2016 event and following discussion of the fatal 20-year-old case",
-                "contribution": "The reporting describes McGrath’s experience and quotes her vendor testimonial. Later validation studies and the underlying emergency record were not reopened."
+                "contribution": "The reporting describes McGrath’s experience and quotes her vendor testimonial. Later validation studies and the underlying emergency record were not reopened.",
+                "latest_inspection": {
+                  "title": "IEEE reporting with a linked beneficiary testimonial",
+                  "relationship": "IEEE reporting with a linked beneficiary testimonial",
+                  "contribution": "IEEE reports that Embrace alerted McGrath’s mother, who called paramedics. It links McGrath’s account to an Empatica testimonial. The report also describes a separate death despite an alert and explains the importance of a prompt caregiver response.",
+                  "locator": "IEEE report, device and alert description and the paragraphs about Morgan McGrath and the separate fatal case.",
+                  "access_status": "The cached text contained only limited page content. The incident and device passages were read through the public web-tool extraction of the IEEE article."
+                }
+              },
+              {
+                "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf17/K172935.pdf",
+                "source_refs": [
+                  "AIBD-0296-source-0003"
+                ],
+                "title": "Original FDA clearance and manufacturer’s device summary",
+                "relationship": "Original FDA clearance and manufacturer’s device summary",
+                "contribution": "The submission describes an on-device algorithm that processes electrodermal activity and movement, then sends a command to a paired phone to alert caregivers. The indicated use is adjunctive monitoring of adults at rest for patterns associated with generalized tonic-clonic seizures. It is not intended to guide therapy decisions.",
+                "locator": "FDA K172935, 510(k) Summary, Device Description, Indications for Use, and the comparison of clinical-outcome indications.",
+                "access_status": "The specified passages were read in saved public-source text."
+              },
+              {
+                "url": "https://blog.empatica.com/morgans-story-11fe8d7f6031",
+                "source_refs": [
+                  "AIBD-0296-source-0001"
+                ],
+                "title": "Beneficiary testimonial linked by IEEE; inaccessible on this check",
+                "relationship": "Beneficiary testimonial linked by IEEE; inaccessible on this check",
+                "contribution": "No additional incident fact was established from this inaccessible page.",
+                "locator": "IEEE article, link attached to Morgan McGrath’s testimonial.",
+                "access_status": "Following the IEEE testimonial link returned an access failure after redirect to https://empatica.com/blog/morgans-story-11fe8d7f6031.html. The testimonial body was not read."
               }
             ],
             "retained_source_order": [
@@ -2301,15 +2380,57 @@
             ],
             "limitations": "The rescue rests on a single account and a vendor-hosted testimonial rather than independent clinical records. Survival does not measure the device’s causal effect on mortality. The same article describes a fatal case despite a successful alert, showing that timely human response is a separate requirement. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0296-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://spectrum.ieee.org/this-seizuredetecting-smartwatch-could-save-your-life",
+                  "source_refs": [
+                    "AIBD-0296-source-0001"
+                  ],
+                  "title": "IEEE reporting with a linked beneficiary testimonial",
+                  "relationship": "IEEE reporting with a linked beneficiary testimonial",
+                  "contribution": "IEEE reports that Embrace alerted McGrath’s mother, who called paramedics. It links McGrath’s account to an Empatica testimonial. The report also describes a separate death despite an alert and explains the importance of a prompt caregiver response.",
+                  "locator": "IEEE report, device and alert description and the paragraphs about Morgan McGrath and the separate fatal case.",
+                  "access_status": "The cached text contained only limited page content. The incident and device passages were read through the public web-tool extraction of the IEEE article."
+                },
+                {
+                  "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf17/K172935.pdf",
+                  "source_refs": [
+                    "AIBD-0296-source-0003"
+                  ],
+                  "title": "Original FDA clearance and manufacturer’s device summary",
+                  "relationship": "Original FDA clearance and manufacturer’s device summary",
+                  "contribution": "The submission describes an on-device algorithm that processes electrodermal activity and movement, then sends a command to a paired phone to alert caregivers. The indicated use is adjunctive monitoring of adults at rest for patterns associated with generalized tonic-clonic seizures. It is not intended to guide therapy decisions.",
+                  "locator": "FDA K172935, 510(k) Summary, Device Description, Indications for Use, and the comparison of clinical-outcome indications.",
+                  "access_status": "The specified passages were read in saved public-source text."
+                },
+                {
+                  "url": "https://blog.empatica.com/morgans-story-11fe8d7f6031",
+                  "source_refs": [
+                    "AIBD-0296-source-0001"
+                  ],
+                  "title": "Beneficiary testimonial linked by IEEE; inaccessible on this check",
+                  "relationship": "Beneficiary testimonial linked by IEEE; inaccessible on this check",
+                  "contribution": "No additional incident fact was established from this inaccessible page.",
+                  "locator": "IEEE article, link attached to Morgan McGrath’s testimonial.",
+                  "access_status": "Following the IEEE testimonial link returned an access failure after redirect to https://empatica.com/blog/morgans-story-11fe8d7f6031.html. The testimonial body was not read."
+                }
+              ],
+              "limitations": "The clinical validation sample is separate from McGrath’s rescue and does not prove that an alert prevents death. The beneficiary testimonial linked by IEEE was inaccessible on the follow-up check, so the rescue account remains mediated by IEEE rather than newly confirmed from the testimonial.",
+              "origin_chain": "https://spectrum.ieee.org/this-seizuredetecting-smartwatch-could-save-your-life; https://www.accessdata.fda.gov/cdrh_docs/pdf17/K172935.pdf; IEEE links the McGrath account to https://blog.empatica.com/morgans-story-11fe8d7f6031, which redirected to an inaccessible Empatica page."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at IEEE Spectrum article: McGrath’s November 2016 event and following discussion of the fatal 20-year-old case. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Each retained proposal was compared with the inspected passages. Fields outside this scope retain their prior review status.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0296-source-0001"
+            "AIBD-0296-source-0001",
+            "AIBD-0296-source-0003"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2416,19 +2537,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The wristband measured skin conductance and movement, classified a possible convulsive seizure, and passed an alert to the phone app for caregiver calls and texts."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: IEEE Spectrum (6 February 2018): an Embrace wristband alerted the mother of Morgan McGrath, 26, of Fulton, Mo., during a seizure about 15 months earlier; she called paramedics and McGrath survived.",
-          "record_fields": [
-            "summary"
+          "basis": "The original account describes a caregiver alert followed by paramedic response. FDA documentation limits the device to adjunctive detection of convulsive seizures. The clinical validation sample is separate from McGrath’s rescue and does not prove that an alert prevents death. IEEE incident account; FDA device description and indications.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0296-source-0001",
+            "AIBD-0296-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Empatica Embrace wrist-worn seizure detection (electrodermal activity and accelerometer, on-board algorithm) with the Alert smartphone app have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The wristband measured skin conductance and movement, classified a possible convulsive seizure, and passed an alert to the phone app for caregiver calls and texts."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2567,66 +2695,41 @@
       "workflow": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "Elie Dolgin reported in IEEE Spectrum on 6 February 2018 on Morgan McGrath, a 26-year-old teacher from Fulton, Missouri. She “suffered an epileptic seizure that left her unresponsive, frothing at the mouth, with blue lips, and not breathing”. The article dates the seizure to “fifteen months ago”, about November 2016. Her wrist-worn Embrace device alerted her mother, who called the paramedics, and “thanks to a timely response, McGrath is alive and well today”. The article says it records skin conductance and three-axis accelerometer data and “uses a proprietary algorithm to signal when someone is having a convulsive seizure”. The app sends a text or call to pre-specified caregivers. In testing on 135 patients over more than 6,500 hours it “correctly identified nearly every single seizure”. The Food and Drug Administration (FDA) cleared Embrace (Empatica S.r.l.) under 510(k) K172935 on 26 January 2018, after the McGrath event. The 510(k) summary describes an on-board algorithm validated against video electroencephalography (EEG). On detecting a likely generalized tonic-clonic seizure, it messages the Alert app to call and text designated caregivers. A later prospective multicenter study (Onorati et al. 2021) by Empatica staff with hospital co-authors reports sensitivity for a predefined machine-learning algorithm. It was 0.92 in children and 0.94 in adults. An independent Montreal epilepsy-monitoring-unit study (Jahani et al. 2026) found the Embrace2 detected all 16 convulsive seizures while worn and working. Alerts reached caregivers in 15 of 16 cases, with 29 false alarms. The McGrath rescue rests on this single news item. The Empatica case-study abstract (Regalia, Onorati, Picard, American Epilepsy Society) is not among the sources. No second account of the McGrath event was found.",
-            "replication": {
-              "produced_by": [
-                "A convulsive (generalized tonic-clonic) seizure, the only type the device is cleared to detect",
-                "The wristband worn and paired with a phone running the Alert app, with a caregiver designated",
-                "A caregiver able to reach the patient or call emergency services on receiving the alert"
-              ],
-              "must_hold": [
-                "Connectivity between watch, phone and caregiver (one of 16 alerts in Montreal failed on a Wi-Fi disconnection)",
-                "Caregivers tolerate false alarms (29 in 373 monitoring days in Montreal, mostly from routine movements)",
-                "Focal seizures without convulsions are not detected (none of 510 in Montreal)"
-              ],
-              "echoes": [
-                {
-                  "date": "2026-01-07",
-                  "setting": "Center hospitalier de l'Université de Montréal epilepsy monitoring unit, 72 patients, April 2024 to June 2025; alerts routed to nursing staff",
-                  "model_version": "Embrace2",
-                  "outcome": "recurred",
-                  "source": "Jahani et al. (2026) Epilepsia 67(4):1802-1816, https://pmc.ncbi.nlm.nih.gov/articles/PMC13075604/ (quote: 'The Embrace2 wrist‐worn device detected all 16 FBTCSs/GTCSs that occurred while the device was functioning and worn, but none of 510 FSs.')"
-                },
-                {
-                  "date": "2021-08-18",
-                  "setting": "Multicentre epilepsy-monitoring-unit study, 152 patients (85 children), 66 convulsive seizures; detection performance only, no home alerts",
-                  "outcome": "recurred",
-                  "source": "Onorati et al. (2021) Front Neurol 12:724904, https://pmc.ncbi.nlm.nih.gov/articles/PMC8418082/ (sensitivity 0.92 pediatric, 0.94 adult; false alarm rate 1.26 and 0.57 per 24 h)"
-                }
-              ]
-            }
-          }
+          "kind": "text",
+          "text": "Embrace alerted McGrath’s mother, who called paramedics. The emergency response completed the chain from detection to assistance."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "replication"
+          "kind": "curatorial",
+          "basis": "The original account describes a caregiver alert followed by paramedic response. FDA documentation limits the device to adjunctive detection of convulsive seizures. The clinical validation sample is separate from McGrath’s rescue and does not prove that an alert prevents death. IEEE incident account; FDA device description and indications.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0296-source-0001",
+            "AIBD-0296-source-0003"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Embrace alerted McGrath’s mother, who called paramedics. The emergency response completed the chain from detection to assistance."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 43,
-      "reviewed": 3,
+      "known": 47,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 40,
-      "review_not_assessed": 48,
+      "reviewed_partial": 8,
+      "record_mapped": 39,
+      "review_not_assessed": 44,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 43,
+        "value_present": 47,
         "not_reported": 0,
-        "unresolved": 48,
+        "unresolved": 44,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

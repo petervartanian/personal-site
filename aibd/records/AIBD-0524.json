@@ -1189,16 +1189,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: UNHCR is fine-tuning Kurdish speech recognition for humanitarian interviews. Faster processing and more inclusive decisions remain intended benefits.",
-          "record_fields": [
-            "summary"
+          "basis": "Reviewed missingness: dialect coverage and errors absent; correction of interview transcription needed.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0524-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of UNHCR Kurdish ASR and KoboToolbox integration in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "An incorrect name, event, negation, or time can materially change an interview account. The retained evidence lacks dialect-specific testing and explicitly leaves correction of consequential errors unresolved.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Interviewers would probably need to review consequential transcript passages with the speaker before using them in a case record.",
+          "editor_note": "An incorrect name, event, negation, or time can materially change an interview account. The retained evidence lacks dialect-specific testing and explicitly leaves correction of consequential errors unresolved."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1598,23 +1602,63 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-860",
+                "source_refs": [
+                  "AIBD-0524-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read local training and planned KoboToolbox integration. Both linked public model cards were read: Whisper small adaptation and w2v-BERT 2.0 adaptation on Common Voice 16.0.",
+                "locator": "_idParaDest-860; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://huggingface.co/roshna-omer/whisper-small-Kurdish-Sorani-10",
+                "source_refs": [
+                  "AIBD-0524-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "Confirms Whisper-small adaptation but leaves dataset detail and use limitations incomplete.",
+                "locator": "Model card and evaluation table",
+                "access_status": "Read"
+              },
+              {
+                "url": "https://huggingface.co/roshna-omer/w2v-bert-2.0-krd-colab-CV16.0",
+                "source_refs": [
+                  "AIBD-0524-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "Confirms w2v-BERT adaptation to Common Voice 16.0; no humanitarian deployment established.",
+                "locator": "Model card and evaluation table",
+                "access_status": "Read"
+              }
+            ],
+            "latest_limitations": "The cards report evaluation metrics but lack detailed use limitations and do not establish humanitarian interview accuracy or completed Kobo deployment."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0524-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The cards report evaluation metrics but lack detailed use limitations and do not establish humanitarian interview accuracy or completed Kobo deployment."
         }
       },
       "sources[].citation_locator": {
@@ -1710,21 +1754,110 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-860",
+                "source_refs": [
+                  "AIBD-0524-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read local training and planned KoboToolbox integration. Both linked public model cards were read: Whisper small adaptation and w2v-BERT 2.0 adaptation on Common Voice 16.0.",
+                "locator": "_idParaDest-860; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://huggingface.co/roshna-omer/whisper-small-Kurdish-Sorani-10",
+                "source_refs": [
+                  "AIBD-0524-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "Confirms Whisper-small adaptation but leaves dataset detail and use limitations incomplete.",
+                "locator": "Model card and evaluation table",
+                "access_status": "Read"
+              },
+              {
+                "url": "https://huggingface.co/roshna-omer/w2v-bert-2.0-krd-colab-CV16.0",
+                "source_refs": [
+                  "AIBD-0524-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "Confirms w2v-BERT adaptation to Common Voice 16.0; no humanitarian deployment established.",
+                "locator": "Model card and evaluation table",
+                "access_status": "Read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-860",
+                  "source_refs": [
+                    "AIBD-0524-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Read local training and planned KoboToolbox integration. Both linked public model cards were read: Whisper small adaptation and w2v-BERT 2.0 adaptation on Common Voice 16.0.",
+                  "locator": "_idParaDest-860; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                },
+                {
+                  "url": "https://huggingface.co/roshna-omer/whisper-small-Kurdish-Sorani-10",
+                  "source_refs": [
+                    "AIBD-0524-source-0001"
+                  ],
+                  "title": "Cited upstream original or public access route",
+                  "relationship": "Cited upstream original or public access route",
+                  "contribution": "Confirms Whisper-small adaptation but leaves dataset detail and use limitations incomplete.",
+                  "locator": "Model card and evaluation table",
+                  "access_status": "Read"
+                },
+                {
+                  "url": "https://huggingface.co/roshna-omer/w2v-bert-2.0-krd-colab-CV16.0",
+                  "source_refs": [
+                    "AIBD-0524-source-0001"
+                  ],
+                  "title": "Cited upstream original or public access route",
+                  "relationship": "Cited upstream original or public access route",
+                  "contribution": "Confirms w2v-BERT adaptation to Common Voice 16.0; no humanitarian deployment established.",
+                  "locator": "Model card and evaluation table",
+                  "access_status": "Read"
+                }
+              ],
+              "limitations": "The cards report evaluation metrics but lack detailed use limitations and do not establish humanitarian interview accuracy or completed Kobo deployment.",
+              "origin_chain": "UNHCR submission → ITU → https://huggingface.co/roshna-omer/whisper-small-Kurdish-Sorani-10 and https://huggingface.co/roshna-omer/w2v-bert-2.0-krd-colab-CV16.0."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0524-source-0001",
+            "retained_source_order": [
+              "AIBD-0524-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight systems[].model_name",
           "record_fields": [],
           "source_refs": [
             "AIBD-0524-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "ITU’s Use Case 6 conveys UNHCR’s development account. Evaluation corpora, interview outcomes, and independent language assessments are not separately retained. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "ITU’s Use Case 6 conveys UNHCR’s development account. Evaluation corpora, interview outcomes, and independent language assessments are not separately retained. The source chain has not been independently checked in this pass."
+          "answer": "Read local training and planned KoboToolbox integration. Both linked public model cards were read: Whisper small adaptation and w2v-BERT 2.0 adaptation on Common Voice 16.0."
         }
       },
       "strategic_assessments[]": {
@@ -1813,34 +1946,46 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The developing Kurdish speech-recognition system transcribes humanitarian interviews and is intended to integrate with KoboToolbox."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: UNHCR is fine-tuning Kurdish speech recognition for humanitarian interviews. Faster processing and more inclusive decisions remain intended benefits.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and system identity: Kurdish ASR fine-tuning and KoboToolbox integration.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0524-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of UNHCR Kurdish ASR and KoboToolbox integration have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The developing Kurdish speech-recognition system transcribes humanitarian interviews and is intended to integrate with KoboToolbox."
+        }
       },
       "systems[].model_name": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The project references Kurdish adaptations of Whisper small and w2v-BERT 2.0 as speech-recognition starting points. A completed humanitarian deployment is not established."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: UNHCR is fine-tuning Kurdish speech recognition for humanitarian interviews. Faster processing and more inclusive decisions remain intended benefits.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-860: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0524-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record identifies UNHCR Kurdish ASR and KoboToolbox integration, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The project references Kurdish adaptations of Whisper small and w2v-BERT 2.0 as speech-recognition starting points. A completed humanitarian deployment is not established."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -1987,18 +2132,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 33,
-      "reviewed": 3,
+      "known": 37,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 31,
-      "review_not_assessed": 57,
+      "review_not_assessed": 53,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 33,
+        "value_present": 37,
         "not_reported": 0,
-        "unresolved": 58,
+        "unresolved": 54,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

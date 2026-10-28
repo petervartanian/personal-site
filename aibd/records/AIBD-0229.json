@@ -51,6 +51,15 @@
       "date": "2024-05-23",
       "written_by": "independent",
       "quote": "In total, he’s facing 26 charges, including 13 felonies."
+    },
+    {
+      "kind": "report",
+      "citation": "Pindrop. Pindrop Reveals TTS Engine Behind Biden AI Robocall. 2024-01-25",
+      "title": "Pindrop Reveals TTS Engine Behind Biden AI Robocall",
+      "url": "https://www.pindrop.com/resources/article/pindrop-reveals-tts-engine-behind-biden-ai-robocall",
+      "date": "2024-01-25",
+      "written_by": "makers",
+      "quote": null
     }
   ],
   "replication": {
@@ -117,11 +126,11 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: two independent news reports. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "claim_basis": "Sources: two independent news reports and the makers' report. The cited evidence includes no independent study or report and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0229",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "63f2cc8768b835eae0e58a76380a8a9433ff35f5eb6dbe7038a04e5e91ede56f",
+    "source_fingerprint": "255ce057342c7a1d68b37b8d852e4d1742c25d43d3d809031d43a6c970eb6ec5",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -142,7 +151,8 @@
     ],
     "source_ids": [
       "AIBD-0229-source-0001",
-      "AIBD-0229-source-0002"
+      "AIBD-0229-source-0002",
+      "AIBD-0229-source-0003"
     ],
     "families": {
       "strategic assessments": {
@@ -400,7 +410,7 @@
             "confidence": "medium",
             "evidence_word": "reported",
             "claim_status": "Independently reported",
-            "basis": "Sources: two independent news reports. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "basis": "Sources: two independent news reports and the makers' report. The cited evidence includes no independent study or report and no finding by a regulator or court.",
             "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
           }
         },
@@ -1340,19 +1350,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers compared several detector results, with a separate Berkeley team corroborating synthetic audio and a likely ElevenLabs origin."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: After a deepfake Biden robocall targeted New Hampshire's Jan 2024 primary, Pindrop's analysis against 120+ voice engines pointed to ElevenLabs; Hany Farid's Berkeley team reached the same conclusion.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: independent model and ElevenLabs detector.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0229-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Pindrop deepfake audio analysis (voice-engine attribution) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Researchers compared several detector results, with a separate Berkeley team corroborating synthetic audio and a likely ElevenLabs origin."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1556,16 +1572,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: After a deepfake Biden robocall targeted New Hampshire's Jan 2024 primary, Pindrop's analysis against 120+ voice engines pointed to ElevenLabs; Hany Farid's Berkeley team reached the same conclusion.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: engine attribution and later charges.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0229-source-0001",
+            "AIBD-0229-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The models analyzed audio signatures, while the later criminal investigation concerned a human operator and is not linked to this analysis in the sources.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Agreement across detectors increased confidence in synthetic origin, but attribution to a voice engine did not identify the person who created or commissioned the call.",
+          "editor_note": "The models analyzed audio signatures, while the later criminal investigation concerned a human operator and is not linked to this analysis in the sources."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1797,24 +1818,53 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.wired.com/story/biden-robocall-deepfake-elevenlabs/",
+                "source_refs": [
+                  "AIBD-0229-source-0001"
+                ],
+                "title": "original independent reporting and detector check",
+                "relationship": "original independent reporting and detector check",
+                "contribution": "WIRED repeated the 84% vendor classifier result and obtained a separate Berkeley analysis.",
+                "locator": "Pindrop interview, ElevenLabs check and Farid interview",
+                "access_status": "Full report read"
+              },
+              {
+                "url": "https://www.pindrop.com/resources/article/pindrop-reveals-tts-engine-behind-biden-ai-robocall",
+                "source_refs": [
+                  "AIBD-0229-source-0003",
+                  "AIBD-0229-source-0001"
+                ],
+                "title": "original vendor technical analysis",
+                "relationship": "original vendor technical analysis",
+                "contribution": "The engine analyzed 155 quarter-second segments at 8 kHz, compared fakeprint embeddings against 122 engines and attributed the sample to ElevenLabs or a similar system.",
+                "locator": "Four-stage process; Liveness score; TTS system revealed",
+                "access_status": "Full analysis read"
+              }
+            ],
+            "latest_limitations": "Models and underlying calibration data were not available; likelihood is the developer’s score."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0229-source-0001",
-            "AIBD-0229-source-0002"
+            "AIBD-0229-source-0003"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Models and underlying calibration data were not available; likelihood is the developer’s score."
         }
       },
       "sources[].citation_locator": {
@@ -1840,6 +1890,14 @@
                 "date": "2024-05-23",
                 "written_by": "independent",
                 "quote": "In total, he’s facing 26 charges, including 13 felonies."
+              },
+              {
+                "kind": "report",
+                "citation": "Pindrop. Pindrop Reveals TTS Engine Behind Biden AI Robocall. 2024-01-25",
+                "title": "Pindrop Reveals TTS Engine Behind Biden AI Robocall",
+                "url": "https://www.pindrop.com/resources/article/pindrop-reveals-tts-engine-behind-biden-ai-robocall",
+                "date": "2024-01-25",
+                "written_by": "makers"
               }
             ]
           }
@@ -1861,9 +1919,10 @@
           "kind": "identifiers",
           "identifiers": [
             "AIBD-0229-source-0001",
-            "AIBD-0229-source-0002"
+            "AIBD-0229-source-0002",
+            "AIBD-0229-source-0003"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained evidence in reviewed order"
         },
         "provenance": {
           "kind": "curatorial",
@@ -1918,6 +1977,14 @@
                 "date": "2024-05-23",
                 "written_by": "independent",
                 "quote": "In total, he’s facing 26 charges, including 13 felonies."
+              },
+              {
+                "kind": "report",
+                "citation": "Pindrop. Pindrop Reveals TTS Engine Behind Biden AI Robocall. 2024-01-25",
+                "title": "Pindrop Reveals TTS Engine Behind Biden AI Robocall",
+                "url": "https://www.pindrop.com/resources/article/pindrop-reveals-tts-engine-behind-biden-ai-robocall",
+                "date": "2024-01-25",
+                "written_by": "makers"
               }
             ]
           }
@@ -1934,22 +2001,91 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.wired.com/story/biden-robocall-deepfake-elevenlabs/",
+                "source_refs": [
+                  "AIBD-0229-source-0001"
+                ],
+                "title": "original independent reporting and detector check",
+                "relationship": "original independent reporting and detector check",
+                "contribution": "WIRED repeated the 84% vendor classifier result and obtained a separate Berkeley analysis.",
+                "locator": "Pindrop interview, ElevenLabs check and Farid interview",
+                "access_status": "Full report read"
+              },
+              {
+                "url": "https://www.pindrop.com/resources/article/pindrop-reveals-tts-engine-behind-biden-ai-robocall",
+                "source_refs": [
+                  "AIBD-0229-source-0003",
+                  "AIBD-0229-source-0001"
+                ],
+                "title": "original vendor technical analysis",
+                "relationship": "original vendor technical analysis",
+                "contribution": "The engine analyzed 155 quarter-second segments at 8 kHz, compared fakeprint embeddings against 122 engines and attributed the sample to ElevenLabs or a similar system.",
+                "locator": "Four-stage process; Liveness score; TTS system revealed",
+                "access_status": "Full analysis read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.wired.com/story/biden-robocall-deepfake-elevenlabs/",
+                  "source_refs": [
+                    "AIBD-0229-source-0001"
+                  ],
+                  "title": "original independent reporting and detector check",
+                  "relationship": "original independent reporting and detector check",
+                  "contribution": "WIRED repeated the 84% vendor classifier result and obtained a separate Berkeley analysis.",
+                  "locator": "Pindrop interview, ElevenLabs check and Farid interview",
+                  "access_status": "Full report read"
+                },
+                {
+                  "url": "https://www.pindrop.com/resources/article/pindrop-reveals-tts-engine-behind-biden-ai-robocall",
+                  "source_refs": [
+                    "AIBD-0229-source-0003",
+                    "AIBD-0229-source-0001"
+                  ],
+                  "title": "original vendor technical analysis",
+                  "relationship": "original vendor technical analysis",
+                  "contribution": "The engine analyzed 155 quarter-second segments at 8 kHz, compared fakeprint embeddings against 122 engines and attributed the sample to ElevenLabs or a similar system.",
+                  "locator": "Four-stage process; Liveness score; TTS system revealed",
+                  "access_status": "Full analysis read"
+                }
+              ],
+              "limitations": "Models and underlying calibration data were not available; likelihood is the developer’s score.",
+              "origin_chain": "WIRED links to Pindrop’s January 25 technical analysis and independently consults Berkeley. Later criminal reporting concerns actor identification, not proof of this detector’s role."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0229-source-0001",
+            "retained_source_order": [
+              "AIBD-0229-source-0001",
+              "AIBD-0229-source-0002",
+              "AIBD-0229-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0229-source-0001",
-            "AIBD-0229-source-0002"
+            "AIBD-0229-source-0003"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "WIRED reports Pindrop’s analysis, Berkeley’s separate analysis, and its own reproduction of the ElevenLabs detector. NHPR supplies later legal developments without linking them causally to those analyses; the underlying technical reports are not retained. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "WIRED reports Pindrop’s analysis, Berkeley’s separate analysis, and its own reproduction of the ElevenLabs detector. NHPR supplies later legal developments without linking them causally to those analyses; the underlying technical reports are not retained. The source chain has not been independently checked in this pass."
+          "answer": "WIRED repeated the 84% vendor classifier result and obtained a separate Berkeley analysis."
         }
       },
       "strategic_assessments[]": {
@@ -2039,19 +2175,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A 39-second robocall recording was compared with signatures of more than 120 synthesis engines to estimate whether and how it was generated."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: After a deepfake Biden robocall targeted New Hampshire's Jan 2024 primary, Pindrop's analysis against 120+ voice engines pointed to ElevenLabs; Hany Farid's Berkeley team reached the same conclusion.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: Pindrop analysis.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0229-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Pindrop deepfake audio analysis (voice-engine attribution) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A 39-second robocall recording was compared with signatures of more than 120 synthesis engines to estimate whether and how it was generated."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2166,9 +2308,9 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "63f2cc8768b835eae0e58a76380a8a9433ff35f5eb6dbe7038a04e5e91ede56f"
+            "255ce057342c7a1d68b37b8d852e4d1742c25d43d3d809031d43a6c970eb6ec5"
           ],
-          "role": "SHA-256 of normalized original case data"
+          "role": "SHA-256 of normalized case data"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2215,18 +2357,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 3,
+      "known": 41,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 35,
-      "review_not_assessed": 53,
+      "review_not_assessed": 49,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 41,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 50,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

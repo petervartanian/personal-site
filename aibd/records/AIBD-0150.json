@@ -969,24 +969,24 @@
         "coverage": "partial"
       },
       "economics[].costs[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "She started with free ChatGPT and later paid $20 a month each for ChatGPT and Perplexity Pro."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
+          "basis": "account replication and NBC subscription-cost paragraph.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0150-source-0001",
-            "AIBD-0150-source-0002",
-            "AIBD-0150-source-0003",
-            "AIBD-0150-source-0004"
+            "AIBD-0150-source-0001"
           ],
-          "follow_up": "Preserve itemized costs with their periods and source scope. Require an actual monetary-observation record first. Missing costs are unresolved, never zero; do not invent costs from current list prices."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "A monetary observation is recorded, but cost components has not been assigned with a supported value. The retained amount is roughly $55,000.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "A monetary observation is recorded, but cost components has not been assigned with a supported value. The retained amount is roughly $55,000."
+          "answer": "She started with free ChatGPT and later paid $20 a month each for ChatGPT and Perplexity Pro."
         }
       },
       "economics[].counterfactual": {
@@ -1693,16 +1693,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Long Beach tenant Lynn White used ChatGPT and Perplexity to overturn her eviction on appeal, avoiding about $55,000 in penalties, per NBC.",
-          "record_fields": [
-            "summary"
+          "basis": "account and later: NBC interview and later Community Note pointing to appellate cases.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0150-source-0001",
+            "AIBD-0150-source-0004"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Editor's assessment: the original reporting establishes her use and claimed benefit, but not the legal basis or finality of the result.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The tools made legal research and drafting more accessible to her. Whether their suggestions determined the result remains unclear because the report supplies no ruling or case record, and a later challenge to the reported outcome remains unresolved.",
+          "editor_note": "Editor's assessment: the original reporting establishes her use and claimed benefit, but not the legal basis or finality of the result."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1961,26 +1966,51 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0150-source-0001",
-            "AIBD-0150-source-0002",
-            "AIBD-0150-source-0003",
-            "AIBD-0150-source-0004"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.nbcnews.com/tech/innovation/ai-chatgpt-court-law-legal-lawyer-self-represent-pro-se-attorney-rcna230401",
+                "source_refs": [
+                  "AIBD-0150-source-0001"
+                ],
+                "title": "original interview reporting",
+                "relationship": "original interview reporting",
+                "contribution": "Reported document analysis, drafting and $40 monthly subscriptions; article asserts victory without a ruling.",
+                "locator": "White interview and subscription paragraphs; saved018-150.txt",
+                "access_status": "Full article fetched through public HTTP and relevant White paragraphs read"
+              },
+              {
+                "url": "https://appellatecases.courtinfo.ca.gov/search.cfm?dist=2",
+                "source_refs": [
+                  "AIBD-0150-source-0001"
+                ],
+                "title": "original or upstream route",
+                "relationship": "original or upstream route",
+                "contribution": "Workflow and costs retained; outcome not independently confirmed.",
+                "locator": "Relevant case section",
+                "access_status": "Search form/CAPTCHA only; no case record read"
+              }
+            ],
+            "latest_limitations": "Court search presents CAPTCHA; no docket or judgment inspected. Later challenge remains unresolved."
+          }
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0150-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Court search presents CAPTCHA; no docket or judgment inspected. Later challenge remains unresolved."
         }
       },
       "sources[].citation_locator": {
@@ -2138,24 +2168,89 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.nbcnews.com/tech/innovation/ai-chatgpt-court-law-legal-lawyer-self-represent-pro-se-attorney-rcna230401",
+                "source_refs": [
+                  "AIBD-0150-source-0001"
+                ],
+                "title": "original interview reporting",
+                "relationship": "original interview reporting",
+                "contribution": "Reported document analysis, drafting and $40 monthly subscriptions; article asserts victory without a ruling.",
+                "locator": "White interview and subscription paragraphs; saved018-150.txt",
+                "access_status": "Full article fetched through public HTTP and relevant White paragraphs read"
+              },
+              {
+                "url": "https://appellatecases.courtinfo.ca.gov/search.cfm?dist=2",
+                "source_refs": [
+                  "AIBD-0150-source-0001"
+                ],
+                "title": "original or upstream route",
+                "relationship": "original or upstream route",
+                "contribution": "Workflow and costs retained; outcome not independently confirmed.",
+                "locator": "Relevant case section",
+                "access_status": "Search form/CAPTCHA only; no case record read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.nbcnews.com/tech/innovation/ai-chatgpt-court-law-legal-lawyer-self-represent-pro-se-attorney-rcna230401",
+                  "source_refs": [
+                    "AIBD-0150-source-0001"
+                  ],
+                  "title": "original interview reporting",
+                  "relationship": "original interview reporting",
+                  "contribution": "Reported document analysis, drafting and $40 monthly subscriptions; article asserts victory without a ruling.",
+                  "locator": "White interview and subscription paragraphs; saved018-150.txt",
+                  "access_status": "Full article fetched through public HTTP and relevant White paragraphs read"
+                },
+                {
+                  "url": "https://appellatecases.courtinfo.ca.gov/search.cfm?dist=2",
+                  "source_refs": [
+                    "AIBD-0150-source-0001"
+                  ],
+                  "title": "original or upstream route",
+                  "relationship": "original or upstream route",
+                  "contribution": "Workflow and costs retained; outcome not independently confirmed.",
+                  "locator": "Relevant case section",
+                  "access_status": "Search form/CAPTCHA only; no case record read"
+                }
+              ],
+              "limitations": "Court search presents CAPTCHA; no docket or judgment inspected. Later challenge remains unresolved.",
+              "origin_chain": "NBC interview original read; California appellate portal attempted for later challenge."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0150-source-0001",
+            "retained_source_order": [
+              "AIBD-0150-source-0001",
+              "AIBD-0150-source-0002",
+              "AIBD-0150-source-0003",
+              "AIBD-0150-source-0004"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Workflow and costs retained; outcome not independently confirmed.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0150-source-0001",
-            "AIBD-0150-source-0002",
-            "AIBD-0150-source-0003",
-            "AIBD-0150-source-0004"
+            "AIBD-0150-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "NBC’s interview is the origin for the success claim, and the translated reports repeat it. The community note supplies potential court-record leads, but neither it nor the social post substitutes for the orders. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "NBC’s interview is the origin for the success claim, and the translated reports repeat it. The community note supplies potential court-record leads, but neither it nor the social post substitutes for the orders. The source chain has not been independently checked in this pass."
+          "answer": "Reported document analysis, drafting and $40 monthly subscriptions; article asserts victory without a ruling."
         }
       },
       "strategic_assessments[]": {
@@ -2205,16 +2300,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Long Beach tenant Lynn White used ChatGPT and Perplexity to overturn her eviction on appeal, avoiding about $55,000 in penalties, per NBC.",
-          "record_fields": [
-            "summary"
+          "basis": "account: litigant's document uploads, research and court responses.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0150-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by ChatGPT (paid plan, $20 a month) and Perplexity Pro ($20 a month) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Editor's assessment: NBC describes self-representation supported by chatbots and does not report that either tool acted independently in court.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "White selected the arguments and submitted her court responses. The tools had an advisory and drafting role, while judicial decisions remained with the court.",
+          "editor_note": "Editor's assessment: NBC describes self-representation supported by chatbots and does not report that either tool acted independently in court."
+        }
       },
       "systems[].component_role": {
         "state": "value_present",
@@ -2254,19 +2353,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "White supplied case documents and details. ChatGPT and Perplexity helped her identify possible procedural errors, research rules, and draft responses to the court."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Long Beach tenant Lynn White used ChatGPT and Perplexity to overturn her eviction on appeal, avoiding about $55,000 in penalties, per NBC.",
-          "record_fields": [
-            "summary"
+          "basis": "account and NBC original interview paragraphs about White's documents and drafts.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0150-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of ChatGPT (paid plan, $20 a month) and Perplexity Pro ($20 a month) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "White supplied case documents and details. ChatGPT and Perplexity helped her identify possible procedural errors, research rules, and draft responses to the court."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2439,18 +2544,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 43,
-      "reviewed": 3,
+      "known": 47,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 41,
-      "review_not_assessed": 47,
+      "review_not_assessed": 42,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 43,
+        "value_present": 47,
         "not_reported": 0,
-        "unresolved": 48,
+        "unresolved": 44,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

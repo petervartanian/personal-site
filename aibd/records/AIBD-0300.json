@@ -1376,19 +1376,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The patient brought the notifications and ECG recordings to clinicians, who selected CPAP and deferred ablation while considering its effect."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Fukuoka case (Cureus, 26 May 2026): sleep-apnoea notifications prompted consultation; watch ECGs showed AF only after “elevated” breathing-disturbance nights; CPAP under way, no polysomnography.",
-          "record_fields": [
-            "summary"
+          "basis": "Retained case account, abstract corroborates patient-activated ECG sequence.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0300-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Apple Watch Sleep Apnea Notification Feature (breathing-disturbance notifications) and the ECG app in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The patient brought the notifications and ECG recordings to clinicians, who selected CPAP and deferred ablation while considering its effect."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1596,19 +1602,25 @@
         }
       },
       "outcomes[].tradeoffs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A temporal association between breathing disturbance and AF does not confirm sleep apnea or prove that it caused the arrhythmia. No polysomnography or treatment response established that link in this case."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Fukuoka case (Cureus, 26 May 2026): sleep-apnoea notifications prompted consultation; watch ECGs showed AF only after “elevated” breathing-disturbance nights; CPAP under way, no polysomnography.",
-          "record_fields": [
-            "summary"
+          "basis": "Original abstract and retained limitations.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0300-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A temporal association between breathing disturbance and AF does not confirm sleep apnea or prove that it caused the arrhythmia. No polysomnography or treatment response established that link in this case."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1870,7 +1882,7 @@
         "value": {
           "kind": "structured",
           "data": {
-            "reviewed_on": "2026-10-24",
+            "reviewed_on": "2026-10-27",
             "versions_and_access": [
               {
                 "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13301138/",
@@ -1891,26 +1903,48 @@
               "No polysomnography, controlled counterfactual, or treatment response is reported.",
               "Nightly breathing-disturbance categories and the feature's 30-day sleep-apnea notification are related but distinct outputs.",
               "Apple's underlying training and validation records were not publicly available for independent reproduction."
-            ]
+            ],
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13301138/",
+                "source_refs": [
+                  "AIBD-0300-source-0001"
+                ],
+                "title": "original abstract",
+                "relationship": "original abstract",
+                "contribution": "Patient-activated morning ECGs associated with elevated nighttime breathing disturbance.",
+                "locator": "Abstract",
+                "access_status": "Abstract retrieved; full PMC open returned browser challenge."
+              },
+              {
+                "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf24/K240929.pdf",
+                "source_refs": [
+                  "AIBD-0300-source-0002"
+                ],
+                "title": "manufacturer regulatory original",
+                "relationship": "manufacturer regulatory original",
+                "contribution": "Accelerometer data, 30-day windows, notification is not diagnosis or instantaneous measurement.",
+                "locator": "Device description and indications",
+                "access_status": "Substantive text read."
+              }
+            ],
+            "latest_limitations": "Detailed CPAP and device pairing remain retained-account facts. No polysomnography or treatment outcome."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Read the available originals and relevant source chains, with unresolved access and evidentiary limits recorded explicitly.",
-          "record_fields": [
-            "evidence"
-          ],
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0300-source-0001",
             "AIBD-0300-source-0002"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "complete",
         "display": {
-          "answer": "The clinical report gives no sleep-study confirmation or treatment response and does not identify the ECG classifier’s contribution. Nightly breathing-disturbance ratings differ from the feature’s 30-day notification. Apple’s underlying training and validation records are not public.",
-          "editor_note": ""
+          "answer": "Detailed CPAP and device pairing remain retained-account facts. No polysomnography or treatment outcome."
         }
       },
       "sources[].citation_locator": {
@@ -2048,7 +2082,7 @@
         "value": {
           "kind": "structured",
           "data": {
-            "reviewed_on": "2026-10-24",
+            "reviewed_on": "2026-10-27",
             "lead_source_ref": "AIBD-0300-source-0001",
             "retained_source_order": [
               "AIBD-0300-source-0001",
@@ -2062,7 +2096,14 @@
                 "relationship": "Treating clinical authors report the episode and declare no relevant support or financial relationships.",
                 "source_refs": [
                   "AIBD-0300-source-0001"
-                ]
+                ],
+                "latest_inspection": {
+                  "title": "original abstract",
+                  "relationship": "original abstract",
+                  "contribution": "Patient-activated morning ECGs associated with elevated nighttime breathing disturbance.",
+                  "locator": "Abstract",
+                  "access_status": "Abstract retrieved; full PMC open returned browser challenge."
+                }
               },
               {
                 "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf24/K240929.pdf",
@@ -2071,7 +2112,14 @@
                 "relationship": "Mixed file: FDA's decision plus Apple's technical submission. The technical claims are maker-authored.",
                 "source_refs": [
                   "AIBD-0300-source-0002"
-                ]
+                ],
+                "latest_inspection": {
+                  "title": "manufacturer regulatory original",
+                  "relationship": "manufacturer regulatory original",
+                  "contribution": "Accelerometer data, 30-day windows, notification is not diagnosis or instantaneous measurement.",
+                  "locator": "Device description and indications",
+                  "access_status": "Substantive text read."
+                }
               }
             ],
             "claim_chains": [
@@ -2122,20 +2170,50 @@
                 "reason": "Duplicate excerpt of the retained clinical report or technical submission."
               }
             ],
-            "review_scope": "Traced the claims in this case through accessible original publications and relevant embedded references, tables, appendices, corrections, and supplements. The stated access limits remain unresolved."
+            "review_scope": "Traced the claims in this case through accessible original publications and relevant embedded references, tables, appendices, corrections, and supplements. The stated access limits remain unresolved.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13301138/",
+                  "source_refs": [
+                    "AIBD-0300-source-0001"
+                  ],
+                  "title": "original abstract",
+                  "relationship": "original abstract",
+                  "contribution": "Patient-activated morning ECGs associated with elevated nighttime breathing disturbance.",
+                  "locator": "Abstract",
+                  "access_status": "Abstract retrieved; full PMC open returned browser challenge."
+                },
+                {
+                  "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf24/K240929.pdf",
+                  "source_refs": [
+                    "AIBD-0300-source-0002"
+                  ],
+                  "title": "manufacturer regulatory original",
+                  "relationship": "manufacturer regulatory original",
+                  "contribution": "Accelerometer data, 30-day windows, notification is not diagnosis or instantaneous measurement.",
+                  "locator": "Device description and indications",
+                  "access_status": "Substantive text read."
+                }
+              ],
+              "limitations": "Detailed CPAP and device pairing remain retained-account facts. No polysomnography or treatment outcome.",
+              "origin_chain": "Original case abstract → FDA-hosted manufacturer device description; full clinical text blocked."
+            },
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Read the available originals and relevant source chains, with unresolved access and evidentiary limits recorded explicitly.",
-          "record_fields": [
-            "evidence"
-          ],
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0300-source-0001",
             "AIBD-0300-source-0002"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "complete",
@@ -2194,19 +2272,26 @@
         }
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Breathing analysis ran in the background, but ECG recordings were patient-activated and treatment decisions remained with clinicians."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Fukuoka case (Cureus, 26 May 2026): sleep-apnoea notifications prompted consultation; watch ECGs showed AF only after “elevated” breathing-disturbance nights; CPAP under way, no polysomnography.",
-          "record_fields": [
-            "summary"
+          "basis": "FDA device description and original abstract.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0300-source-0001",
+            "AIBD-0300-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Apple Watch Sleep Apnea Notification Feature (breathing-disturbance notifications) and the ECG app remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Breathing analysis ran in the background, but ECG recordings were patient-activated and treatment decisions remained with clinicians."
+        }
       },
       "systems[].component_role": {
         "state": "value_present",
@@ -2246,19 +2331,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The watch used movement data during sleep to estimate breathing disturbance. The patient separately initiated ECG recordings, which clinicians related to the preceding night’s breathing pattern."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Fukuoka case (Cureus, 26 May 2026): sleep-apnoea notifications prompted consultation; watch ECGs showed AF only after “elevated” breathing-disturbance nights; CPAP under way, no polysomnography.",
-          "record_fields": [
-            "summary"
+          "basis": "Original abstract, retained clinical details and FDA device description.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0300-source-0001",
+            "AIBD-0300-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Apple Watch Sleep Apnea Notification Feature (breathing-disturbance notifications) and the ECG app have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The watch used movement data during sleep to estimate breathing disturbance. The patient separately initiated ECG recordings, which clinicians related to the preceding night’s breathing pattern."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2435,18 +2527,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 42,
-      "reviewed": 11,
+      "known": 46,
+      "reviewed": 15,
       "reviewed_complete": 3,
-      "reviewed_partial": 8,
+      "reviewed_partial": 12,
       "record_mapped": 31,
-      "review_not_assessed": 49,
+      "review_not_assessed": 45,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 42,
+        "value_present": 46,
         "not_reported": 0,
-        "unresolved": 49,
+        "unresolved": 45,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

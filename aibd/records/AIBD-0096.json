@@ -1469,19 +1469,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Health workers screened symptoms and obtained radiographs. Xpert testing or clinical assessment determined diagnoses, and the program linked diagnosed patients to treatment."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: KNCV/USAID deployment Jan–Sep 2022: CAD4TB v7 screened 94,694 people in eight Nigerian states; 2,337 TB cases diagnosed, 97% treated",
-          "record_fields": [
-            "summary"
+          "basis": "Account: parallel screening, confirmatory investigation, clinical diagnoses, and treatment initiation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0096-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of CAD4TB computer-aided detection on ultra-portable digital chest X-ray in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Health workers screened symptoms and obtained radiographs. Xpert testing or clinical assessment determined diagnoses, and the program linked diagnosed patients to treatment."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1691,16 +1697,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: KNCV/USAID deployment Jan–Sep 2022: CAD4TB v7 screened 94,694 people in eight Nigerian states; 2,337 TB cases diagnosed, 97% treated",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: 30.9% of text-reported diagnoses scored below threshold.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0096-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Those below-threshold cases could not have entered investigation through the CAD threshold alone. The parallel pathway therefore materially limits any claim that the AI was the sole detector.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The symptom pathway probably protected against missed disease below the imaging threshold: 723 of the 2,337 text-reported diagnoses had CAD scores below 50.",
+          "editor_note": "Those below-threshold cases could not have entered investigation through the CAD threshold alone. The parallel pathway therefore materially limits any claim that the AI was the sole detector."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1997,25 +2007,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0096-source-0001",
-            "AIBD-0096-source-0002",
-            "AIBD-0096-source-0003"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12257310/",
+                "source_refs": [
+                  "AIBD-0096-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Parallel symptom-or-CAD referral led to confirmatory investigation. Two-person teams transported samples to GeneXpert facilities. Results identify 723 diagnosed patients below CAD 50.",
+                "locator": "Introduction; Methods 2.2–2.3; Results and Table 4",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The original’s conflicting diagnosis totals remain unresolved; the six-state companion and later annual report were not rechecked."
+          }
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0096-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The original’s conflicting diagnosis totals remain unresolved; the six-state companion and later annual report were not rechecked."
         }
       },
       "sources[].citation_locator": {
@@ -2153,23 +2178,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12257310/",
+                "source_refs": [
+                  "AIBD-0096-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Parallel symptom-or-CAD referral led to confirmatory investigation. Two-person teams transported samples to GeneXpert facilities. Results identify 723 diagnosed patients below CAD 50.",
+                "locator": "Introduction; Methods 2.2–2.3; Results and Table 4",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12257310/",
+                  "source_refs": [
+                    "AIBD-0096-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Parallel symptom-or-CAD referral led to confirmatory investigation. Two-person teams transported samples to GeneXpert facilities. Results identify 723 diagnosed patients below CAD 50.",
+                  "locator": "Introduction; Methods 2.2–2.3; Results and Table 4",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The original’s conflicting diagnosis totals remain unresolved; the six-state companion and later annual report were not rechecked.",
+              "origin_chain": "Retained citation to the original report or research article."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0096-source-0001",
+            "retained_source_order": [
+              "AIBD-0096-source-0001",
+              "AIBD-0096-source-0002",
+              "AIBD-0096-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].autonomy_permissions human_oversight outcomes[].tradeoffs",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0096-source-0001",
-            "AIBD-0096-source-0002",
-            "AIBD-0096-source-0003"
+            "AIBD-0096-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "The two implementing-organization papers cover different state groupings and partly related programs. The annual report is later scale-up evidence, not a resolution of the original table-versus-text discrepancy. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The two implementing-organization papers cover different state groupings and partly related programs. The annual report is later scale-up evidence, not a resolution of the original table-versus-text discrepancy. The source chain has not been independently checked in this pass."
+          "answer": "Parallel symptom-or-CAD referral led to confirmatory investigation. Two-person teams transported samples to GeneXpert facilities. Results identify 723 diagnosed patients below CAD 50."
         }
       },
       "strategic_assessments[]": {
@@ -2215,19 +2283,25 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A CAD4TB score of at least 50 triggered further TB investigation, but a positive symptom screen could independently trigger the same pathway."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: KNCV/USAID deployment Jan–Sep 2022: CAD4TB v7 screened 94,694 people in eight Nigerian states; 2,337 TB cases diagnosed, 97% treated",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: parallel symptom-or-CAD referral rule.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0096-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by CAD4TB computer-aided detection on ultra-portable digital chest X-ray remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A CAD4TB score of at least 50 triggered further TB investigation, but a positive symptom screen could independently trigger the same pathway."
+        }
       },
       "systems[].component_role": {
         "state": "value_present",
@@ -2465,18 +2539,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 42,
-      "reviewed": 3,
+      "known": 46,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 40,
-      "review_not_assessed": 48,
+      "review_not_assessed": 44,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 42,
+        "value_present": 46,
         "not_reported": 0,
-        "unresolved": 49,
+        "unresolved": 45,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

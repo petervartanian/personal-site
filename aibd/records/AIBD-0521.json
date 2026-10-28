@@ -1194,16 +1194,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Huazhong University reports that 343 deaf users regained speech capabilities with AI-guided lip-reading practice. The university also claims threefold learning efficiency.",
-          "record_fields": [
-            "summary"
+          "basis": "Reviewed missingness: human support and training combined with AI feedback; school and rehabilitation-center settings.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0521-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of AI lip-reading and speech-development system in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The deployment settings and explicit combination of training, human support, and feedback support a supervised learning intervention. The reported speech gains cannot be assigned to software alone.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Teachers or rehabilitation staff probably structure the practice and assess progress alongside the AI feedback.",
+          "editor_note": "The deployment settings and explicit combination of training, human support, and feedback support a supervised learning intervention. The reported speech gains cannot be assigned to software alone."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1606,23 +1610,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-842",
+                "source_refs": [
+                  "AIBD-0521-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read cloud inference, corrective visual feedback, reported school/rehabilitation deployment, and planned local processing. Read the linked repository, which describes a 399-clip movie dataset for micro lip reading.",
+                "locator": "_idParaDest-842; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://github.com/HUST-DPKW/Micro-lip-reading/blob/main/index.md",
+                "source_refs": [
+                  "AIBD-0521-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "Describes a 399-clip movie dataset, not the claimed 343-person rehabilitation evaluation.",
+                "locator": "Dataset introduction",
+                "access_status": "Read"
+              }
+            ],
+            "latest_limitations": "The repository is not evidence for the claimed 343-user rehabilitation outcome. Dataset mirrors on personal storage were not accessed."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0521-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The repository is not evidence for the claimed 343-user rehabilitation outcome. Dataset mirrors on personal storage were not accessed."
         }
       },
       "sources[].citation_locator": {
@@ -1718,27 +1751,88 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-842",
+                "source_refs": [
+                  "AIBD-0521-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read cloud inference, corrective visual feedback, reported school/rehabilitation deployment, and planned local processing. Read the linked repository, which describes a 399-clip movie dataset for micro lip reading.",
+                "locator": "_idParaDest-842; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://github.com/HUST-DPKW/Micro-lip-reading/blob/main/index.md",
+                "source_refs": [
+                  "AIBD-0521-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "Describes a 399-clip movie dataset, not the claimed 343-person rehabilitation evaluation.",
+                "locator": "Dataset introduction",
+                "access_status": "Read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-842",
+                  "source_refs": [
+                    "AIBD-0521-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Read cloud inference, corrective visual feedback, reported school/rehabilitation deployment, and planned local processing. Read the linked repository, which describes a 399-clip movie dataset for micro lip reading.",
+                  "locator": "_idParaDest-842; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                },
+                {
+                  "url": "https://github.com/HUST-DPKW/Micro-lip-reading/blob/main/index.md",
+                  "source_refs": [
+                    "AIBD-0521-source-0001"
+                  ],
+                  "title": "Cited upstream original or public access route",
+                  "relationship": "Cited upstream original or public access route",
+                  "contribution": "Describes a 399-clip movie dataset, not the claimed 343-person rehabilitation evaluation.",
+                  "locator": "Dataset introduction",
+                  "access_status": "Read"
+                }
+              ],
+              "limitations": "The repository is not evidence for the claimed 343-user rehabilitation outcome. Dataset mirrors on personal storage were not accessed.",
+              "origin_chain": "HUST submission → ITU → https://github.com/HUST-DPKW/Micro-lip-reading/blob/main/index.md (dataset introduction read)."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0521-source-0001",
+            "retained_source_order": [
+              "AIBD-0521-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. Huazhong's submission describes school and rehabilitation-center deployment. Individual or aggregate assessments, partner validation, and comparison data were not inspected. The submission itself is not independent confirmation of restored speech.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].component_role human_oversight systems[].deployment_configuration",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0521-source-0001"
           ],
-          "reviewed_on": "2026-10-27",
-          "attempted_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Huazhong's submission describes school and rehabilitation-center deployment. Individual or aggregate assessments, partner validation, and comparison data were not inspected. The submission itself is not independent confirmation of restored speech.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "Huazhong's submission describes school and rehabilitation-center deployment. Individual or aggregate assessments, partner validation, and comparison data were not inspected. The submission itself is not independent confirmation of restored speech."
+          "answer": "Read cloud inference, corrective visual feedback, reported school/rehabilitation deployment, and planned local processing. Read the linked repository, which describes a 399-clip movie dataset for micro lip reading."
         }
       },
       "strategic_assessments[]": {
@@ -1797,34 +1891,46 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system gives AI-guided feedback during lip-reading and speech-development practice in schools and rehabilitation centers."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Huazhong University reports that 343 deaf users regained speech capabilities with AI-guided lip-reading practice. The university also claims threefold learning efficiency.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: AI-guided lip-reading practice and center/school deployment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0521-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation is needed that explains each component’s role."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The role of each component in AI lip-reading and speech-development system remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The system gives AI-guided feedback during lip-reading and speech-development practice in schools and rehabilitation centers."
+        }
       },
       "systems[].deployment_configuration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The submission describes cloud inference through client applications, with free access through schools and rehabilitation centers. Local processing is a planned extension."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Huazhong University reports that 343 deaf users regained speech capabilities with AI-guided lip-reading practice. The university also claims threefold learning efficiency.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-842: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0521-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the configuration used in this case is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The configuration of AI lip-reading and speech-development system used in this case remains unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The submission describes cloud inference through client applications, with free access through schools and rehabilitation centers. Local processing is a planned extension."
+        }
       },
       "systems[].inputs_outputs": {
         "state": "unresolved",
@@ -2001,18 +2107,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 35,
-      "reviewed": 3,
+      "known": 39,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 33,
-      "review_not_assessed": 55,
+      "review_not_assessed": 51,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 35,
+        "value_present": 39,
         "not_reported": 0,
-        "unresolved": 56,
+        "unresolved": 52,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

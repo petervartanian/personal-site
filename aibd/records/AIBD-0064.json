@@ -1440,19 +1440,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The hospital team assessed Jean Hines and arranged transfer. Specialists at the John Radcliffe Hospital performed the thrombectomy."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AI-supported scan identified Jean Hines's major stroke on arrival; transferred in 25 minutes for successful thrombectomy; good recovery.",
-          "record_fields": [
-            "summary"
+          "basis": "account: Royal Berkshire assessment and ambulance transfer followed by Oxford intervention.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0064-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Brainomix 360 Stroke in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The hospital team assessed Jean Hines and arranged transfer. Specialists at the John Radcliffe Hospital performed the thrombectomy."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1477,16 +1483,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AI-supported scan identified Jean Hines's major stroke on arrival; transferred in 25 minutes for successful thrombectomy; good recovery.",
-          "record_fields": [
-            "summary"
+          "basis": "account: scan on arrival,25-minute departure, John Radcliffe thrombectomy.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0064-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for Brainomix 360 Stroke has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Editor's assessment: image analysis could shorten the decision, but treatment depended on the documented transfer and specialist procedure.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The useful pathway depended on immediate CT scanning, rapid image review, ambulance transfer, and access to a hospital that could perform thrombectomy.",
+          "editor_note": "Editor's assessment: image analysis could shorten the decision, but treatment depended on the documented transfer and specialist procedure."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1658,16 +1668,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AI-supported scan identified Jean Hines's major stroke on arrival; transferred in 25 minutes for successful thrombectomy; good recovery.",
-          "record_fields": [
-            "summary"
+          "basis": "account and comparator:25-minute transfer departure and successful thrombectomy; broader study is a different population.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0064-source-0001",
+            "AIBD-0064-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Editor's assessment: the report gives the actual pathway and outcome without a patient-specific counterfactual.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The favorable recovery is consistent with the benefit of fast treatment, but this single case cannot show how much time the software saved or whether the outcome would have differed without it.",
+          "editor_note": "Editor's assessment: the report gives the actual pathway and outcome without a patient-specific counterfactual."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1936,25 +1951,51 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0064-source-0001",
-            "AIBD-0064-source-0002",
-            "AIBD-0064-source-0003"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.england.nhs.uk/2025/12/life-changing-ai-support-helping-stroke-patients-get-a-second-chance/",
+                "source_refs": [
+                  "AIBD-0064-source-0001"
+                ],
+                "title": "NHS original",
+                "relationship": "NHS original",
+                "contribution": "Original host body unavailable.",
+                "locator": "Original announcement",
+                "access_status": "JavaScript challenge; public HTTP returned empty body"
+              },
+              {
+                "url": "https://www.wired-gov.net/wg/news.nsf/articles/Lifechanging+AI+support+helping+stroke+patients+get+a+second+chance+03122025160500",
+                "source_refs": [
+                  "AIBD-0064-source-0001"
+                ],
+                "title": "syndicated NHS original announcement",
+                "relationship": "syndicated NHS original announcement",
+                "contribution": "Immediate CT, departure25 minutes after arrival, transfer to Oxford and thrombectomy; patient credits speed.",
+                "locator": "Jean Hines paragraphs42–44",
+                "access_status": "Full relevant text read"
+              }
+            ],
+            "latest_limitations": "Individual outcome is a promotional patient account, not a matched comparison."
+          }
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0064-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Individual outcome is a promotional patient account, not a matched comparison."
         }
       },
       "sources[].citation_locator": {
@@ -2094,21 +2135,88 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.england.nhs.uk/2025/12/life-changing-ai-support-helping-stroke-patients-get-a-second-chance/",
+                "source_refs": [
+                  "AIBD-0064-source-0001"
+                ],
+                "title": "NHS original",
+                "relationship": "NHS original",
+                "contribution": "Original host body unavailable.",
+                "locator": "Original announcement",
+                "access_status": "JavaScript challenge; public HTTP returned empty body"
+              },
+              {
+                "url": "https://www.wired-gov.net/wg/news.nsf/articles/Lifechanging+AI+support+helping+stroke+patients+get+a+second+chance+03122025160500",
+                "source_refs": [
+                  "AIBD-0064-source-0001"
+                ],
+                "title": "syndicated NHS original announcement",
+                "relationship": "syndicated NHS original announcement",
+                "contribution": "Immediate CT, departure25 minutes after arrival, transfer to Oxford and thrombectomy; patient credits speed.",
+                "locator": "Jean Hines paragraphs42–44",
+                "access_status": "Full relevant text read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.england.nhs.uk/2025/12/life-changing-ai-support-helping-stroke-patients-get-a-second-chance/",
+                  "source_refs": [
+                    "AIBD-0064-source-0001"
+                  ],
+                  "title": "NHS original",
+                  "relationship": "NHS original",
+                  "contribution": "Original host body unavailable.",
+                  "locator": "Original announcement",
+                  "access_status": "JavaScript challenge; public HTTP returned empty body"
+                },
+                {
+                  "url": "https://www.wired-gov.net/wg/news.nsf/articles/Lifechanging+AI+support+helping+stroke+patients+get+a+second+chance+03122025160500",
+                  "source_refs": [
+                    "AIBD-0064-source-0001"
+                  ],
+                  "title": "syndicated NHS original announcement",
+                  "relationship": "syndicated NHS original announcement",
+                  "contribution": "Immediate CT, departure25 minutes after arrival, transfer to Oxford and thrombectomy; patient credits speed.",
+                  "locator": "Jean Hines paragraphs42–44",
+                  "access_status": "Full relevant text read"
+                }
+              ],
+              "limitations": "Individual outcome is a promotional patient account, not a matched comparison.",
+              "origin_chain": "NHS announcement inaccessible on its host -> attributed full NHS release on WiredGov."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0064-source-0001",
+            "retained_source_order": [
+              "AIBD-0064-source-0001",
+              "AIBD-0064-source-0002",
+              "AIBD-0064-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex critically reviewed the retained case account and attributed evidence excerpts. The original source was not reopened successfully in this review; the judgment is curatorial and partial, not fresh source verification.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals survive as workflow descriptions; no individual time saving invented.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0064-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "The NHS URL was requested through Exa, but the response contained only the page title, so its body could not be rechecked. The retained excerpts were assessed, but their original source chain remains unverified in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The NHS URL was requested through Exa, but the response contained only the page title, so its body could not be rechecked. The original source chain remains unverified in this pass."
+          "answer": "Original host body unavailable."
         }
       },
       "strategic_assessments[]": {
@@ -2199,19 +2307,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Brainomix analyzed the emergency CT images and supported recognition of a major stroke requiring urgent transfer for thrombectomy."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: AI-supported scan identified Jean Hines's major stroke on arrival; transferred in 25 minutes for successful thrombectomy; good recovery.",
-          "record_fields": [
-            "summary"
+          "basis": "account and NHS release: immediate scan, major stroke, transfer within 25 minutes.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0064-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Brainomix 360 Stroke have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Brainomix analyzed the emergency CT images and supported recognition of a major stroke requiring urgent transfer for thrombectomy."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2381,18 +2495,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 39,
-      "reviewed": 3,
+      "known": 43,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 37,
-      "review_not_assessed": 51,
+      "review_not_assessed": 46,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 39,
+        "value_present": 43,
         "not_reported": 0,
-        "unresolved": 52,
+        "unresolved": 48,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

@@ -1438,19 +1438,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Paramedics first alerted the stroke center. Dr. Mehta used the imaging alert to mobilize the catheterization team, which performed thrombectomy."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: RapidAI's automated LVO alert mobilized the stroke team for Eric, 29; thrombectomy restored flow under 60 minutes from arrival; no deficits.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: EMS pre-notification, physician mobilization, and thrombectomy.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0079-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of RapidAI imaging platform (automated LVO detection) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Paramedics first alerted the stroke center. Dr. Mehta used the imaging alert to mobilize the catheterization team, which performed thrombectomy."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1475,16 +1481,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: RapidAI's automated LVO alert mobilized the stroke team for Eric, 29; thrombectomy restored flow under 60 minutes from arrival; no deficits.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: comprehensive stroke center, in-house team, and pre-notification.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0079-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for RapidAI imaging platform (automated LVO detection) has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The report links the result to a comprehensive stroke center, advance notification, and immediate team activation. The under-60-minute restoration of flow was a coordinated clinical outcome.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The alert probably mattered because a thrombectomy-capable team and treatment room were already available; the same rapid classification alone could not deliver reperfusion at a site without that pathway.",
+          "editor_note": "The report links the result to a comprehensive stroke center, advance notification, and immediate team activation. The under-60-minute restoration of flow was a coordinated clinical outcome."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1920,25 +1930,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0079-source-0001",
-            "AIBD-0079-source-0002",
-            "AIBD-0079-source-0003"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.mhs.net/news/2022/05/memorial-neuroscience-institute-uses-ai-to-optimize-care-and-positive-outcomes-for-stroke-patients",
+                "source_refs": [
+                  "AIBD-0079-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "EMS alerted the hospital first; CT triggered RapidAI’s LVO alert; Mehta mobilized the cath lab; thrombectomy restored flow within 60 minutes of arrival.",
+                "locator": "Patient account and Dr. Mehta’s workflow explanation",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "This is a hospital account, without a matched counterfactual or independent medical record review."
+          }
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0079-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "This is a hospital account, without a matched counterfactual or independent medical record review."
         }
       },
       "sources[].citation_locator": {
@@ -2078,28 +2103,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. All three entries are quotations from one hospital story. They supply workflow, timing, and interpretation but are not three independent reports. Clinical records and an independently assessed comparator were not inspected.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0079-source-0001",
-            "AIBD-0079-source-0002",
-            "AIBD-0079-source-0003"
-          ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.mhs.net/news/2022/05/memorial-neuroscience-institute-uses-ai-to-optimize-care-and-positive-outcomes-for-stroke-patients",
+                "source_refs": [
+                  "AIBD-0079-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "EMS alerted the hospital first; CT triggered RapidAI’s LVO alert; Mehta mobilized the cath lab; thrombectomy restored flow within 60 minutes of arrival.",
+                "locator": "Patient account and Dr. Mehta’s workflow explanation",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.mhs.net/news/2022/05/memorial-neuroscience-institute-uses-ai-to-optimize-care-and-positive-outcomes-for-stroke-patients",
+                  "source_refs": [
+                    "AIBD-0079-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "EMS alerted the hospital first; CT triggered RapidAI’s LVO alert; Mehta mobilized the cath lab; thrombectomy restored flow within 60 minutes of arrival.",
+                  "locator": "Patient account and Dr. Mehta’s workflow explanation",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "This is a hospital account, without a matched counterfactual or independent medical record review.",
+              "origin_chain": "Retained citation to the original report or research article."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0079-source-0001",
+            "retained_source_order": [
+              "AIBD-0079-source-0001",
+              "AIBD-0079-source-0002",
+              "AIBD-0079-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "All three entries are quotations from one hospital story. They supply workflow, timing, and interpretation but are not three independent reports. Clinical records and an independently assessed comparator were not inspected.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight infrastructure_dependencies[]",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0079-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "All three entries are quotations from one hospital story. They supply workflow, timing, and interpretation but are not three independent reports. Clinical records and an independently assessed comparator were not inspected."
+          "answer": "EMS alerted the hospital first; CT triggered RapidAI’s LVO alert; Mehta mobilized the cath lab; thrombectomy restored flow within 60 minutes of arrival."
         }
       },
       "strategic_assessments[]": {
@@ -2190,19 +2253,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "RapidAI analyzed the CT scan for a large-vessel occlusion and sent the finding to the neurointerventionalist's smartphone and smartwatch."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: RapidAI's automated LVO alert mobilized the stroke team for Eric, 29; thrombectomy restored flow under 60 minutes from arrival; no deficits.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: automated LVO finding and direct device alert.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0079-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of RapidAI imaging platform (automated LVO detection) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "RapidAI analyzed the CT scan for a large-vessel occlusion and sent the finding to the neurointerventionalist's smartphone and smartwatch."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2365,18 +2434,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 3,
+      "known": 41,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 35,
-      "review_not_assessed": 53,
+      "review_not_assessed": 49,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 41,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 50,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

@@ -566,20 +566,19 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "basis": "VivaCity feeds traffic observations into Aimsun; Alchera Pinch Point Analysis supports bus planning. The bus-priority evaluation framework was still being implemented. Overview, technologies, benefits, and next steps.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0552-source-0001"
           ],
-          "follow_up": "The strength of each claim needs assessment against the original evidence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record contains 1 source entries. The strength of the evidence for each claim remains unassessed.",
-        "review_state": "not_assessed",
+        "reason": "The account names deployed tools but describes the evaluation of bus priority as work in progress.",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The record contains 1 source entries. The strength of the evidence for each claim remains unassessed."
+          "answer": "The evidence supports operational use more strongly than a measured reduction in congestion.",
+          "editor_note": "The account names deployed tools but describes the evaluation of bus priority as work in progress."
         }
       },
       "claims[].missingness": {
@@ -1339,16 +1338,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Lancashire reports that AI traffic predictions, junction observations, and congestion analysis support transport decisions and bus-route planning.",
-          "record_fields": [
-            "summary"
+          "basis": "VivaCity feeds traffic observations into Aimsun; Alchera Pinch Point Analysis supports bus planning. The bus-priority evaluation framework was still being implemented. Overview, technologies, benefits, and next steps.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0552-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Dated observation of the same outcome and population is needed to establish persistence or recurrence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The duration of the claimed benefit is not separately established. Dated follow-up on the same outcome is needed to distinguish a one-time result from recurring or sustained benefit; later work on another system or population does not establish persistence here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Traffic forecasts lose practical value when road conditions change, and the described platform uses live observations.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Any congestion benefit would probably depend on repeated use of current traffic data.",
+          "editor_note": "Traffic forecasts lose practical value when road conditions change, and the described platform uses live observations."
+        }
       },
       "outcomes[].id": {
         "state": "unresolved",
@@ -1615,23 +1618,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.local.gov.uk/case-studies/lancashire-county-council-strategic-approach-deploying-ai-transport",
+                "source_refs": [
+                  "AIBD-0552-source-0001"
+                ],
+                "title": "Original council account",
+                "relationship": "Original council account",
+                "contribution": "VivaCity feeds traffic observations into Aimsun; Alchera Pinch Point Analysis supports bus planning. The bus-priority evaluation framework was still being implemented.",
+                "locator": "Overview, technologies, benefits, and next steps.",
+                "access_status": "Substantive original text retrieved and read with the web research tool; direct HTTP retrieval returned403."
+              }
+            ],
+            "latest_limitations": "No underlying traffic evaluation or measured congestion effect is supplied."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0552-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No underlying traffic evaluation or measured congestion effect is supplied."
         }
       },
       "sources[].citation_locator": {
@@ -1743,7 +1763,14 @@
                   "AIBD-0552-source-0001"
                 ],
                 "locator": "LGA Lancashire case study: “AI used in the Future Mobility Programme” and “Next steps”",
-                "contribution": "The LGA case study presents the council’s account of its own project. The underlying evaluation files, calculation worksheets, and independent replication were not reviewed."
+                "contribution": "The LGA case study presents the council’s account of its own project. The underlying evaluation files, calculation worksheets, and independent replication were not reviewed.",
+                "latest_inspection": {
+                  "title": "Original council account",
+                  "relationship": "Original council account",
+                  "contribution": "VivaCity feeds traffic observations into Aimsun; Alchera Pinch Point Analysis supports bus planning. The bus-priority evaluation framework was still being implemented.",
+                  "locator": "Overview, technologies, benefits, and next steps.",
+                  "access_status": "Substantive original text retrieved and read with the web research tool; direct HTTP retrieval returned403."
+                }
               }
             ],
             "retained_source_order": [
@@ -1752,12 +1779,31 @@
             "unreviewed_source_refs": [],
             "limitations": "Planning use is an operational output, not a measured reduction in congestion, journey time, injuries, or missed buses. The tools work alongside transport policy, staff expertise, and infrastructure investment. The article describes an evaluation framework being implemented, rather than supplying its outcome results. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0552-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.local.gov.uk/case-studies/lancashire-county-council-strategic-approach-deploying-ai-transport",
+                  "source_refs": [
+                    "AIBD-0552-source-0001"
+                  ],
+                  "title": "Original council account",
+                  "relationship": "Original council account",
+                  "contribution": "VivaCity feeds traffic observations into Aimsun; Alchera Pinch Point Analysis supports bus planning. The bus-priority evaluation framework was still being implemented.",
+                  "locator": "Overview, technologies, benefits, and next steps.",
+                  "access_status": "Substantive original text retrieved and read with the web research tool; direct HTTP retrieval returned403."
+                }
+              ],
+              "limitations": "No underlying traffic evaluation or measured congestion effect is supplied.",
+              "origin_chain": "https://www.local.gov.uk/case-studies/lancashire-county-council-strategic-approach-deploying-ai-transport"
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at LGA Lancashire case study: “AI used in the Future Mobility Programme” and “Next steps”. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Every proposal below was assessed against the original account and its stated stage of deployment.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0552-source-0001"
@@ -1826,19 +1872,25 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Lancashire reports that AI traffic predictions, junction observations, and congestion analysis support transport decisions and bus-route planning.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "Documentation is needed that explains each component’s role."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "VivaCity classifies road users, while Aimsun forecasts traffic and Alchera identifies congestion hotspots."
         },
-        "reason": "The role of each component in Future Mobility Platform using Aimsun Real Time, VivaCity sensors, and Alchera Pinch Point Analysis remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "VivaCity feeds traffic observations into Aimsun; Alchera Pinch Point Analysis supports bus planning. The bus-priority evaluation framework was still being implemented. Overview, technologies, benefits, and next steps.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0552-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "VivaCity classifies road users, while Aimsun forecasts traffic and Alchera identifies congestion hotspots."
+        }
       },
       "systems[].deployment_configuration": {
         "state": "unresolved",
@@ -1856,19 +1908,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Lancashire reports that AI traffic predictions, junction observations, and congestion analysis support transport decisions and bus-route planning.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Roadside observations feed traffic models that council engineers use for transport planning."
         },
-        "reason": "The inputs and outputs of Future Mobility Platform using Aimsun Real Time, VivaCity sensors, and Alchera Pinch Point Analysis have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "VivaCity feeds traffic observations into Aimsun; Alchera Pinch Point Analysis supports bus planning. The bus-priority evaluation framework was still being implemented. Overview, technologies, benefits, and next steps.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0552-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Roadside observations feed traffic models that council engineers use for transport planning."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2030,18 +2088,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 36,
-      "reviewed": 3,
+      "known": 39,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 33,
-      "review_not_assessed": 55,
+      "review_not_assessed": 50,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 36,
+        "value_present": 39,
         "not_reported": 0,
-        "unresolved": 55,
+        "unresolved": 52,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

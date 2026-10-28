@@ -1386,19 +1386,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Guards approached the flagged people and learned information that the video could not establish, including stated intent or a suicide note."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Asilla told Kyodo that camera alerts prompted guards to intervene in two apparent suicide risks. The facilities and dates were not identified, and the company is the sole source of those accounts.",
-          "record_fields": [
-            "summary"
+          "basis": "Kyodo’s two company-attributed case descriptions.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0234-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Asilla AI behavior-analysis system for security cameras in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Guards approached the flagged people and learned information that the video could not establish, including stated intent or a suicide note."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1619,16 +1625,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Asilla told Kyodo that camera alerts prompted guards to intervene in two apparent suicide risks. The facilities and dates were not identified, and the company is the sole source of those accounts.",
-          "record_fields": [
-            "summary"
+          "basis": "Kyodo behavior examples and subsequent intervention details.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0234-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The system infers risk from behavior; the decisive information in the reported cases came from staff contact.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Pacing or lingering is not specific to suicidal intent. The likely value is directing a timely welfare check, while false alerts and inappropriate assumptions about harmless behavior remain practical concerns.",
+          "editor_note": "The system infers risk from behavior; the decisive information in the reported cases came from staff contact."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1924,26 +1934,49 @@
                 "url": "https://jp.asilla.com/post/version-2-4-20240126",
                 "access": "complete original product release read"
               }
-            ]
+            ],
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.straitstimes.com/asia/east-asia/japan-stations-facilities-use-ai-system-to-prevent-suicide-by-jumping",
+                "source_refs": [
+                  "AIBD-0234-source-0001"
+                ],
+                "title": "original agency reporting, syndicated",
+                "relationship": "original agency reporting, syndicated",
+                "contribution": "Company attributes guard interventions to detected behavior; no facility identities or dates.",
+                "locator": "Two intervention accounts",
+                "access_status": "Substantive text read."
+              },
+              {
+                "url": "https://jp.asilla.com/post/version-2-4-20240126",
+                "source_refs": [
+                  "AIBD-0234-source-0002"
+                ],
+                "title": "vendor original",
+                "relationship": "vendor original",
+                "contribution": "Version 2.4 uses trajectories, position and body motion; existing cameras and local server operation described.",
+                "locator": "Jump-risk feature and architecture description",
+                "access_status": "Substantive text read."
+              }
+            ],
+            "latest_limitations": "Product document does not verify either intervention or the deployed version."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Recorded which versions were inspected and which origins or supplements could not be read.",
-          "record_fields": [
-            "evidence"
-          ],
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0234-source-0001",
             "AIBD-0234-source-0002"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "complete",
         "display": {
-          "answer": "The complete Kyodo report is available through The Straits Times. Chiba TV identifies its original distribution link, which is inaccessible. Asilla’s original product release is available.",
-          "editor_note": ""
+          "answer": "Product document does not verify either intervention or the deployed version."
         }
       },
       "sources[].citation_locator": {
@@ -2087,7 +2120,16 @@
                 "url": "https://www.straitstimes.com/asia/east-asia/japan-stations-facilities-use-ai-system-to-prevent-suicide-by-jumping",
                 "title": "Japan stations, facilities use AI system to prevent suicide by jumping",
                 "published_on": "2026-06-01",
-                "relationship": "Kyodo’s report is original journalism carried by The Straits Times. The two intervention accounts are explicitly attributed to Asilla, not independently confirmed by the reporter."
+                "relationship": "Kyodo’s report is original journalism carried by The Straits Times. The two intervention accounts are explicitly attributed to Asilla, not independently confirmed by the reporter.",
+                "latest_inspection": {
+                  "title": "original agency reporting, syndicated",
+                  "relationship": "original agency reporting, syndicated",
+                  "contribution": "Company attributes guard interventions to detected behavior; no facility identities or dates.",
+                  "locator": "Two intervention accounts",
+                  "access_status": "Substantive text read."
+                },
+                "contribution": "Company attributes guard interventions to detected behavior; no facility identities or dates.",
+                "locator": "Two intervention accounts"
               },
               {
                 "source_refs": [
@@ -2096,7 +2138,16 @@
                 "url": "https://jp.asilla.com/post/version-2-4-20240126",
                 "title": "アジラ、最先端のAI警備システム『AI Security asilla』をバージョンアップ。ver.2.4のリリースを開始！",
                 "published_on": "2024-01-26",
-                "relationship": "Asilla’s January 2024 release identifies the product function and technical inputs. It is separate primary documentation of the mechanism, not corroboration of the two events."
+                "relationship": "Asilla’s January 2024 release identifies the product function and technical inputs. It is separate primary documentation of the mechanism, not corroboration of the two events.",
+                "latest_inspection": {
+                  "title": "vendor original",
+                  "relationship": "vendor original",
+                  "contribution": "Version 2.4 uses trajectories, position and body motion; existing cameras and local server operation described.",
+                  "locator": "Jump-risk feature and architecture description",
+                  "access_status": "Substantive text read."
+                },
+                "contribution": "Version 2.4 uses trajectories, position and body motion; existing cameras and local server operation described.",
+                "locator": "Jump-risk feature and architecture description"
               }
             ],
             "excluded_republications": [
@@ -2184,22 +2235,49 @@
                 "relationship": "A separate deployment and useful operational caution. It is not attributed to the two anonymous interventions and is not counted as corroboration."
               }
             ],
-            "scope": "Complete review of retained-source lineage and access status. This does not mean that inaccessible upstream documents were inspected, that every required case field is complete, or that the original claims were independently verified."
+            "scope": "Complete review of retained-source lineage and access status. This does not mean that inaccessible upstream documents were inspected, that every required case field is complete, or that the original claims were independently verified.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.straitstimes.com/asia/east-asia/japan-stations-facilities-use-ai-system-to-prevent-suicide-by-jumping",
+                  "source_refs": [
+                    "AIBD-0234-source-0001"
+                  ],
+                  "title": "original agency reporting, syndicated",
+                  "relationship": "original agency reporting, syndicated",
+                  "contribution": "Company attributes guard interventions to detected behavior; no facility identities or dates.",
+                  "locator": "Two intervention accounts",
+                  "access_status": "Substantive text read."
+                },
+                {
+                  "url": "https://jp.asilla.com/post/version-2-4-20240126",
+                  "source_refs": [
+                    "AIBD-0234-source-0002"
+                  ],
+                  "title": "vendor original",
+                  "relationship": "vendor original",
+                  "contribution": "Version 2.4 uses trajectories, position and body motion; existing cameras and local server operation described.",
+                  "locator": "Jump-risk feature and architecture description",
+                  "access_status": "Substantive text read."
+                }
+              ],
+              "limitations": "Product document does not verify either intervention or the deployed version.",
+              "origin_chain": "Straits Times → Kyodo company interviews; Asilla original product release corroborates mechanism."
+            },
+            "reviewed_on": "2026-10-27"
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Kept Kyodo’s original reporting through its identified syndication, added the developer’s actual product documentation, and removed OECD as corroboration. Access limits are enumerated in the review.",
-          "record_fields": [
-            "evidence",
-            "account",
-            "ai_role"
-          ],
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0234-source-0001",
             "AIBD-0234-source-0002"
           ],
-          "reviewed_on": "2026-10-24"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "complete",
@@ -2254,19 +2332,26 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The system flagged concerning behavior and sometimes issued warnings. Staff carried out the personal intervention."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Asilla told Kyodo that camera alerts prompted guards to intervene in two apparent suicide risks. The facilities and dates were not identified, and the company is the sole source of those accounts.",
-          "record_fields": [
-            "summary"
+          "basis": "Kyodo reporting and Asilla product description.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Asilla AI behavior-analysis system for security cameras remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The system flagged concerning behavior and sometimes issued warnings. Staff carried out the personal intervention."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2299,19 +2384,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Camera footage is analyzed for movement, position, and body-motion patterns associated with a possible jump risk. Alerts direct staff toward the person and location."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Asilla told Kyodo that camera alerts prompted guards to intervene in two apparent suicide risks. The facilities and dates were not identified, and the company is the sole source of those accounts.",
-          "record_fields": [
-            "summary"
+          "basis": "Asilla version 2.4 product description and Kyodo reporting.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0234-source-0001",
+            "AIBD-0234-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Asilla AI behavior-analysis system for security cameras have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Camera footage is analyzed for movement, position, and body-motion patterns associated with a possible jump risk. Alerts direct staff toward the person and location."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2484,18 +2576,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 38,
-      "reviewed": 13,
+      "known": 41,
+      "reviewed": 17,
       "reviewed_complete": 3,
-      "reviewed_partial": 10,
+      "reviewed_partial": 14,
       "record_mapped": 25,
-      "review_not_assessed": 53,
+      "review_not_assessed": 49,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 38,
+        "value_present": 41,
         "not_reported": 0,
-        "unresolved": 53,
+        "unresolved": 50,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

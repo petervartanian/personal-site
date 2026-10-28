@@ -1432,19 +1432,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "An exact evaluator rejected invalid constructions, while mathematician Jordan Ellenberg inspected the outputs and used an observed symmetry to redirect the search."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: FunSearch produced a size-512 cap set in dimension 8 and new asymptotic bounds, published in Nature with independent commentary.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: automatic checking and human refinement.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001",
+            "AIBD-0015-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of FunSearch using Codey, a PaLM 2-based code model, with an evolutionary search and automated evaluator in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "An exact evaluator rejected invalid constructions, while mathematician Jordan Ellenberg inspected the outputs and used an observed symmetry to redirect the search."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1466,19 +1473,25 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The search required an executable representation of candidate programs and a fast, exact test of whether their generated sets satisfied the problem's constraints."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: FunSearch produced a size-512 cap set in dimension 8 and new asymptotic bounds, published in Nature with independent commentary.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: program proposals, automated evaluation, and explicit finite objects.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for FunSearch using Codey, a PaLM 2-based code model, with an evolutionary search and automated evaluator has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The search required an executable representation of candidate programs and a fast, exact test of whether their generated sets satisfied the problem's constraints."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -1650,16 +1663,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: FunSearch produced a size-512 cap set in dimension 8 and new asymptotic bounds, published in Nature with independent commentary.",
-          "record_fields": [
-            "summary"
+          "basis": "replication.must_hold: exact rejection of invalid constructions and independently checkable objects.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0015-source-0001",
+            "AIBD-0015-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The reported discoveries were explicit constructions checked mechanically. That reliable feedback supplied the selection signal for the evolutionary loop.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The method probably works best on problems where candidate quality can be checked cheaply and exactly; an unreliable evaluator could reward attractive but invalid programs.",
+          "editor_note": "The reported discoveries were explicit constructions checked mechanically. That reliable feedback supplied the selection signal for the evolutionary loop."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1911,7 +1929,7 @@
         "value": {
           "kind": "structured",
           "data": {
-            "reviewed_on": "2026-10-25",
+            "reviewed_on": "2026-10-27",
             "versions_and_access": [
               {
                 "source_ref": "AIBD-0015-source-0001",
@@ -1931,22 +1949,36 @@
                 "version": "Source version at the stated URL.",
                 "reviewed_on": "2026-10-25"
               }
-            ]
+            ],
+            "latest_inspections": [
+              {
+                "url": "https://www.nature.com/articles/s41586-023-06924-6",
+                "source_refs": [
+                  "AIBD-0015-source-0001"
+                ],
+                "title": "original FunSearch research",
+                "relationship": "original FunSearch research",
+                "contribution": "A frozen language model proposes program changes, exact evaluators score them, and a program database supports repeated evolutionary search. The paper establishes the 512-element construction and improved asymptotic lower bound.",
+                "locator": "FunSearch approach, Distributed approach, cap-set constructions",
+                "access_status": "Full article retrieved; architecture, cap-set results and distributed implementation read; saved 011-015.txt"
+              }
+            ],
+            "latest_limitations": "Success depends on an available evaluator and a suitable program skeleton; mathematical significance is separate from construction validity."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Reviewed the original materials for AI identity and operation. Other source assessments remain unchanged.",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0015-source-0001"
           ],
-          "reviewed_on": "2026-10-25"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The original article and its supplementary methods were accessible."
+          "answer": "Success depends on an available evaluator and a suitable program skeleton; mathematical significance is separate from construction validity."
         }
       },
       "sources[].citation_locator": {
@@ -2108,7 +2140,7 @@
         "value": {
           "kind": "structured",
           "data": {
-            "reviewed_on": "2026-10-25",
+            "reviewed_on": "2026-10-27",
             "origins": [
               {
                 "url": "https://www.nature.com/articles/s41586-023-06924-6",
@@ -2117,7 +2149,14 @@
                 ],
                 "locator": "Pretrained LLM; Specification; Evaluation",
                 "contribution": "Identifies Codey and PaLM 2 and separates code generation from execution and evaluation.",
-                "relationship": "Original research or documentation from the system’s researchers. This supports identity and methods, not independent verification of benefits."
+                "relationship": "Original research or documentation from the system’s researchers. This supports identity and methods, not independent verification of benefits.",
+                "latest_inspection": {
+                  "title": "original FunSearch research",
+                  "relationship": "original FunSearch research",
+                  "contribution": "A frozen language model proposes program changes, exact evaluators score them, and a program database supports repeated evolutionary search. The paper establishes the 512-element construction and improved asymptotic lower bound.",
+                  "locator": "FunSearch approach, Distributed approach, cap-set constructions",
+                  "access_status": "Full article retrieved; architecture, cap-set results and distributed implementation read; saved 011-015.txt"
+                }
               },
               {
                 "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06924-6/MediaObjects/41586_2023_6924_MOESM1_ESM.pdf",
@@ -2136,17 +2175,38 @@
               "AIBD-0015-source-0004"
             ],
             "lead_source_ref": "AIBD-0015-source-0001",
-            "review_scope": "AI identity and operation; existing benefit and source-independence assessments are retained."
+            "review_scope": "AI identity and operation; existing benefit and source-independence assessments are retained.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.nature.com/articles/s41586-023-06924-6",
+                  "source_refs": [
+                    "AIBD-0015-source-0001"
+                  ],
+                  "title": "original FunSearch research",
+                  "relationship": "original FunSearch research",
+                  "contribution": "A frozen language model proposes program changes, exact evaluators score them, and a program database supports repeated evolutionary search. The paper establishes the 512-element construction and improved asymptotic lower bound.",
+                  "locator": "FunSearch approach, Distributed approach, cap-set constructions",
+                  "access_status": "Full article retrieved; architecture, cap-set results and distributed implementation read; saved 011-015.txt"
+                }
+              ],
+              "limitations": "Success depends on an available evaluator and a suitable program skeleton; mathematical significance is separate from construction validity.",
+              "origin_chain": "Nature research article, including its methodological explanation."
+            },
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Reviewed the original materials for AI identity and operation. Other source assessments remain unchanged.",
+          "basis": "Case-specific public-source inspection. All three proposals survive.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0015-source-0001"
           ],
-          "reviewed_on": "2026-10-25"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
@@ -2435,18 +2495,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 43,
-      "reviewed": 10,
+      "known": 45,
+      "reviewed": 13,
       "reviewed_complete": 0,
-      "reviewed_partial": 10,
+      "reviewed_partial": 13,
       "record_mapped": 34,
-      "review_not_assessed": 47,
+      "review_not_assessed": 44,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 43,
+        "value_present": 45,
         "not_reported": 1,
-        "unresolved": 47,
+        "unresolved": 45,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

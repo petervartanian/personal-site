@@ -1494,19 +1494,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Researchers trained the decoders on the participant's attempted speech and operated the real-time system within the BRAVO trial."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: 253-electrode ECoG and deep-learning decoder let Ann Johnson, mute since a 2005 stroke, produce text, synthesized speech and an avatar",
-          "record_fields": [
-            "summary"
+          "basis": "Account and replication: trial, under-two-week training, and research infrastructure.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0003-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of UCSF multimodal speech neuroprosthesis (BRAVO trial) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Researchers trained the decoders on the participant's attempted speech and operated the real-time system within the BRAVO trial."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1710,16 +1716,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: 253-electrode ECoG and deep-learning decoder let Ann Johnson, mute since a 2005 stroke, produce text, synthesized speech and an avatar",
-          "record_fields": [
-            "summary"
+          "basis": "Original Nature study, Abstract and Overview of multimodal speech-decoding system.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0003-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The study uses distinct decoding pathways for text, speech audio, and facial movement. Expressive presentation can add value, but the text error rate cannot be treated as the measured error rate of every output.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The personalized voice and animated face probably conveyed identity and expression beyond text alone. Each output still needed its own accuracy checks; the text decoder’s median word error rate was about 25%.",
+          "editor_note": "The study uses distinct decoding pathways for text, speech audio, and facial movement. Expressive presentation can add value, but the text error rate cannot be treated as the measured error rate of every output."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2008,26 +2018,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0003-source-0001",
-            "AIBD-0003-source-0002",
-            "AIBD-0003-source-0003",
-            "AIBD-0003-source-0004"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10826467/",
+                "source_refs": [
+                  "AIBD-0003-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "The BRAVO participant attempted prompted sentences. Separate models decoded text, speech sounds, and articulatory gestures from 253 ECoG channels; held-out text testing had a 25.5% median error rate.",
+                "locator": "Abstract; Overview of multimodal speech-decoding system; Text decoding",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The voice and text pathways were separately evaluated. The 2025 successor study was not rechecked."
+          }
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0003-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The voice and text pathways were separately evaluated. The 2025 successor study was not rechecked."
         }
       },
       "sources[].citation_locator": {
@@ -2185,24 +2209,67 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10826467/",
+                "source_refs": [
+                  "AIBD-0003-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "The BRAVO participant attempted prompted sentences. Separate models decoded text, speech sounds, and articulatory gestures from 253 ECoG channels; held-out text testing had a 25.5% median error rate.",
+                "locator": "Abstract; Overview of multimodal speech-decoding system; Text decoding",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10826467/",
+                  "source_refs": [
+                    "AIBD-0003-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "The BRAVO participant attempted prompted sentences. Separate models decoded text, speech sounds, and articulatory gestures from 253 ECoG channels; held-out text testing had a 25.5% median error rate.",
+                  "locator": "Abstract; Overview of multimodal speech-decoding system; Text decoding",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The voice and text pathways were separately evaluated. The 2025 successor study was not rechecked.",
+              "origin_chain": "Retained citation to the original report or research article."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0003-source-0001",
+            "retained_source_order": [
+              "AIBD-0003-source-0001",
+              "AIBD-0003-source-0002",
+              "AIBD-0003-source-0003",
+              "AIBD-0003-source-0004"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight outcomes[].tradeoffs",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0003-source-0001",
-            "AIBD-0003-source-0002",
-            "AIBD-0003-source-0003",
-            "AIBD-0003-source-0004"
+            "AIBD-0003-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "The Metzger paper is the originating study. The NBC and NPR reports describe that work, while the Berkeley announcement concerns a later system and cannot independently reproduce the original result. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The Metzger paper is the originating study. The NBC and NPR reports describe that work, while the Berkeley announcement concerns a later system and cannot independently reproduce the original result. The source chain has not been independently checked in this pass."
+          "answer": "The BRAVO participant attempted prompted sentences. Separate models decoded text, speech sounds, and articulatory gestures from 253 ECoG channels; held-out text testing had a 25.5% median error rate."
         }
       },
       "strategic_assessments[]": {
@@ -2304,21 +2371,22 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "The system converted cortical recordings into text, synthesized speech, and gestures by an avatar."
+          "text": "Cortical signals from attempted speech were decoded into text, synthesized speech based on Johnson's earlier voice, and movements of a facial avatar."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
-          "record_fields": [
-            "system",
-            "ai_role",
-            "replication",
-            "account"
+          "kind": "curatorial",
+          "basis": "Account and ai_role: 253-channel ECoG and three decoded outputs.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0003-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Cortical signals from attempted speech were decoded into text, synthesized speech based on Johnson's earlier voice, and movements of a facial avatar."
+        }
       },
       "systems[].model_name": {
         "state": "value_present",
@@ -2510,18 +2578,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 45,
-      "reviewed": 3,
+      "known": 48,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 43,
-      "review_not_assessed": 45,
+      "reviewed_partial": 7,
+      "record_mapped": 42,
+      "review_not_assessed": 42,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 45,
+        "value_present": 48,
         "not_reported": 0,
-        "unresolved": 46,
+        "unresolved": 43,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

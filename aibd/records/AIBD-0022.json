@@ -1364,19 +1364,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Clinicians treated the home reading as a reason to investigate, ordered CT angiography, and diagnosed and treated pulmonary embolism."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Apple Watch Series 7 SpO2 of 88% prompted CT angiography that found pulmonary embolism; anticoagulated and discharged (Japan).",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: clinical decision and confirmatory imaging.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0022-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Apple Watch Blood Oxygen app in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Clinicians treated the home reading as a reason to investigate, ordered CT angiography, and diagnosed and treated pulmonary embolism."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1498,19 +1504,25 @@
         "coverage": "partial"
       },
       "outcomes[].duration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Supplemental oxygen stopped on hospital day six, and the patient was discharged on day fifteen."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Apple Watch Series 7 SpO2 of 88% prompted CT angiography that found pulmonary embolism; anticoagulated and discharged (Japan).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: treatment course and discharge.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0022-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Dated observation of the same outcome and population is needed to establish persistence or recurrence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The duration of the claimed benefit is not separately established. Dated follow-up on the same outcome is needed to distinguish a one-time result from recurring or sustained benefit; later work on another system or population does not establish persistence here. The recorded follow-up says: No development after the 2022 case report was found; the 2025 methemoglobinemia report involved a different patient and mechanism.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Supplemental oxygen stopped on hospital day six, and the patient was discharged on day fifteen."
+        }
       },
       "outcomes[].id": {
         "state": "unresolved",
@@ -1577,16 +1589,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Apple Watch Series 7 SpO2 of 88% prompted CT angiography that found pulmonary embolism; anticoagulated and discharged (Japan).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: 88% home measurement versus 97% hospital measurement, followed by urgent imaging.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0022-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The diagnostic decision followed the discrepancy between the earlier watch reading and later hospital measurement. The record does not establish a fully automated warning or a watch-based embolism diagnosis.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely advantage was preserving evidence of a low-oxygen episode outside the hospital; a single normal reading during assessment could otherwise have obscured that history.",
+          "editor_note": "The diagnostic decision followed the discrepancy between the earlier watch reading and later hospital measurement. The record does not establish a fully automated warning or a watch-based embolism diagnosis."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1859,24 +1875,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0022-source-0001",
-            "AIBD-0022-source-0002"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9494381/",
+                "source_refs": [
+                  "AIBD-0022-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "The early-morning watch reading of 88% contrasted with the hospital’s 97%; clinicians obtained CT angiography, treated PE and DVT, stopped oxygen on day six, and discharged her on day fifteen.",
+                "locator": "Case narrative and follow-up",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The later separate patient report was not rechecked."
+          }
         },
-        "reason": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0022-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 2 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The later separate patient report was not rechecked."
         }
       },
       "sources[].citation_locator": {
@@ -2010,7 +2042,14 @@
                   "AIBD-0022-source-0001"
                 ],
                 "locator": "QJM case narrative preceding Figure 1 and treatment account following Figure 2",
-                "contribution": "The treating clinicians’ original case report describes the watch reading, confirmatory CT, anticoagulation, and discharge."
+                "contribution": "The treating clinicians’ original case report describes the watch reading, confirmatory CT, anticoagulation, and discharge.",
+                "latest_inspection": {
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "The early-morning watch reading of 88% contrasted with the hospital’s 97%; clinicians obtained CT angiography, treated PE and DVT, stopped oxygen on day six, and discharged her on day fifteen.",
+                  "locator": "Case narrative and follow-up",
+                  "access_status": "content inspected"
+                }
               }
             ],
             "retained_source_order": [
@@ -2022,12 +2061,31 @@
             ],
             "limitations": "This is a single clinical case, and the clinicians made the diagnosis using CT and treated the patient. The inspected report does not isolate a learned AI component or establish the diagnostic accuracy of smartwatch readings across patients. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0022-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9494381/",
+                  "source_refs": [
+                    "AIBD-0022-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "The early-morning watch reading of 88% contrasted with the hospital’s 97%; clinicians obtained CT angiography, treated PE and DVT, stopped oxygen on day six, and discharged her on day fifteen.",
+                  "locator": "Case narrative and follow-up",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The later separate patient report was not rechecked.",
+              "origin_chain": "Retained citation to the original report or research article."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at QJM case narrative preceding Figure 1 and treatment account following Figure 2. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight outcomes[].tradeoffs outcomes[].duration",
           "record_fields": [],
           "source_refs": [
             "AIBD-0022-source-0001"
@@ -2134,19 +2192,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The watch recorded an early-morning oxygen saturation of 88%, providing information that differed from the later hospital spot reading of 97%."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Apple Watch Series 7 SpO2 of 88% prompted CT angiography that found pulmonary embolism; anticoagulated and discharged (Japan).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: watch and hospital oxygen measurements.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0022-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Apple Watch Blood Oxygen app have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The watch recorded an early-morning oxygen saturation of 88%, providing information that differed from the later hospital spot reading of 97%."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2327,18 +2391,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 44,
-      "reviewed": 3,
+      "known": 48,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 41,
-      "review_not_assessed": 47,
+      "review_not_assessed": 42,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 44,
+        "value_present": 48,
         "not_reported": 0,
-        "unresolved": 47,
+        "unresolved": 43,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

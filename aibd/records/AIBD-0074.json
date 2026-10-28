@@ -1520,19 +1520,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Curator Franz Smola researched historical descriptions, and Emil Wallner used that evidence to guide the model's output for institutional display."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: ML color reconstruction of Klimt's destroyed Faculty Paintings launched 7 October 2021 with the Belvedere, shown in its 2025 exhibition",
-          "record_fields": [
-            "summary"
+          "basis": "Account: named curator and model developer, written descriptions, and Belvedere display.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0074-source-0001",
+            "AIBD-0074-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of The Klimt Color Enigma colourisation model (Google Arts & Culture Lab) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Curator Franz Smola researched historical descriptions, and Emil Wallner used that evidence to guide the model's output for institutional display."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1743,16 +1750,22 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: ML color reconstruction of Klimt's destroyed Faculty Paintings launched 7 October 2021 with the Belvedere, shown in its 2025 exhibition",
-          "record_fields": [
-            "summary"
+          "basis": "ai_role and replication: fixed colors from written testimony mixed with statistical proposals.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0074-source-0001",
+            "AIBD-0074-source-0002",
+            "AIBD-0074-source-0004"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The output combines directly supplied historical colors with learned guesses. Those two sources support different degrees of confidence within the same image.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Areas covered by written color testimony probably carry greater historical confidence than areas colored only from patterns learned from other paintings.",
+          "editor_note": "The output combines directly supplied historical colors with learned guesses. Those two sources support different degrees of confidence within the same image."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2047,26 +2060,62 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0074-source-0001",
-            "AIBD-0074-source-0002",
-            "AIBD-0074-source-0003",
-            "AIBD-0074-source-0004"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.belvedere.at/en/gustav-klimt-pigment-pixel",
+                "source_refs": [
+                  "AIBD-0074-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "The museum describes AI recolorization of surviving photographs and the 2025 display at original size on the ceiling.",
+                "locator": "The Exhibition",
+                "access_status": "content inspected"
+              },
+              {
+                "url": "https://artsandculture.google.com/experiment/the-klimt-color-enigma/RQGqxyx62-kMyA?hl=en",
+                "source_refs": [
+                  "AIBD-0074-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Smola researched contemporary color descriptions, matched colors to surviving Klimt works, and supplied region-specific color hints to Wallner’s model.",
+                "locator": "Steps 1 and 2",
+                "access_status": "content inspected"
+              },
+              {
+                "url": "https://www.belvedere.at/sites/default/files/2025-02/Pressemappe_EN.pdf",
+                "source_refs": [
+                  "AIBD-0074-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "The museum explicitly describes the colors as an approximation, not an authentic reconstruction.",
+                "locator": "PDF page 6, exhibition text Reconstructing Klimt",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The retained story URL timed out; the same project’s official experiment description was accessible. The originals were destroyed, so exact color fidelity cannot be tested."
+          }
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0074-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The retained story URL timed out; the same project’s official experiment description was accessible. The originals were destroyed, so exact color fidelity cannot be tested."
         }
       },
       "sources[].citation_locator": {
@@ -2224,24 +2273,111 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.belvedere.at/en/gustav-klimt-pigment-pixel",
+                "source_refs": [
+                  "AIBD-0074-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "The museum describes AI recolorization of surviving photographs and the 2025 display at original size on the ceiling.",
+                "locator": "The Exhibition",
+                "access_status": "content inspected"
+              },
+              {
+                "url": "https://artsandculture.google.com/experiment/the-klimt-color-enigma/RQGqxyx62-kMyA?hl=en",
+                "source_refs": [
+                  "AIBD-0074-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Smola researched contemporary color descriptions, matched colors to surviving Klimt works, and supplied region-specific color hints to Wallner’s model.",
+                "locator": "Steps 1 and 2",
+                "access_status": "content inspected"
+              },
+              {
+                "url": "https://www.belvedere.at/sites/default/files/2025-02/Pressemappe_EN.pdf",
+                "source_refs": [
+                  "AIBD-0074-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "The museum explicitly describes the colors as an approximation, not an authentic reconstruction.",
+                "locator": "PDF page 6, exhibition text Reconstructing Klimt",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.belvedere.at/en/gustav-klimt-pigment-pixel",
+                  "source_refs": [
+                    "AIBD-0074-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "The museum describes AI recolorization of surviving photographs and the 2025 display at original size on the ceiling.",
+                  "locator": "The Exhibition",
+                  "access_status": "content inspected"
+                },
+                {
+                  "url": "https://artsandculture.google.com/experiment/the-klimt-color-enigma/RQGqxyx62-kMyA?hl=en",
+                  "source_refs": [
+                    "AIBD-0074-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Smola researched contemporary color descriptions, matched colors to surviving Klimt works, and supplied region-specific color hints to Wallner’s model.",
+                  "locator": "Steps 1 and 2",
+                  "access_status": "content inspected"
+                },
+                {
+                  "url": "https://www.belvedere.at/sites/default/files/2025-02/Pressemappe_EN.pdf",
+                  "source_refs": [
+                    "AIBD-0074-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "The museum explicitly describes the colors as an approximation, not an authentic reconstruction.",
+                  "locator": "PDF page 6, exhibition text Reconstructing Klimt",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The retained story URL timed out; the same project’s official experiment description was accessible. The originals were destroyed, so exact color fidelity cannot be tested.",
+              "origin_chain": "Retained museum and Google citations to the museum exhibition and Google’s original project description."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0074-source-0001",
+            "retained_source_order": [
+              "AIBD-0074-source-0001",
+              "AIBD-0074-source-0002",
+              "AIBD-0074-source-0003",
+              "AIBD-0074-source-0004"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight outcomes[].tradeoffs",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0074-source-0001",
-            "AIBD-0074-source-0002",
-            "AIBD-0074-source-0003",
-            "AIBD-0074-source-0004"
+            "AIBD-0074-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "Google’s project account and the Belvedere exhibition page are originating descriptions. The news stories report the same reconstruction and do not independently establish the correctness of the generated colors. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "Google’s project account and the Belvedere exhibition page are originating descriptions. The news stories report the same reconstruction and do not independently establish the correctness of the generated colors. The source chain has not been independently checked in this pass."
+          "answer": "The museum describes AI recolorization of surviving photographs and the 2025 display at original size on the ceiling."
         }
       },
       "strategic_assessments[]": {
@@ -2333,19 +2469,27 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The colorization model proposed colors for surviving monochrome photographs, while documented color descriptions supplied fixed guidance for particular regions."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: ML color reconstruction of Klimt's destroyed Faculty Paintings launched 7 October 2021 with the Belvedere, shown in its 2025 exhibition",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: artwork pretraining, Klimt adaptation, and curator-supplied color testimony.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0074-source-0001",
+            "AIBD-0074-source-0002",
+            "AIBD-0074-source-0004"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of The Klimt Color Enigma colourisation model (Google Arts & Culture Lab) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The colorization model proposed colors for surviving monochrome photographs, while documented color descriptions supplied fixed guidance for particular regions."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2517,18 +2661,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 38,
-      "reviewed": 3,
+      "known": 42,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 36,
-      "review_not_assessed": 52,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 38,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 53,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

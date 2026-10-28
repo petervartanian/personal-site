@@ -1634,19 +1634,22 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "Examination staff scanned the admit card, captured the photograph, and acted on the mismatch."
+          "text": "Staff performed the check and escalated the mismatch, but the woman left before the principal was informed."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the existing case description without a new external source review.",
-          "record_fields": [
-            "ai_role",
-            "account"
+          "kind": "curatorial",
+          "basis": "KEA director's statement in New Indian Express.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0128-source-0003"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Staff performed the check and escalated the mismatch, but the woman left before the principal was informed."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1852,16 +1855,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: KEA's facial recognition app flagged a woman with a forged CET admit card in Bengaluru on 17 April 2025; she fled before writing the paper.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: replaced photograph, QR-linked candidate record, mismatch, and flight.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0128-source-0001",
+            "AIBD-0128-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "A visual comparison with the altered card could have matched the impersonator. The separate registration record was the useful control in this episode.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Checking the registered image probably defeated the pasted photograph, but detection did not lead to an immediate arrest.",
+          "editor_note": "A visual comparison with the altered card could have matched the impersonator. The separate registration record was the useful control in this episode."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2099,29 +2107,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0128-source-0001",
-            "AIBD-0128-source-0002",
-            "AIBD-0128-source-0003",
-            "AIBD-0128-source-0004",
-            "AIBD-0128-source-0005",
-            "AIBD-0128-source-0006",
-            "AIBD-0128-source-0007"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.newindianexpress.com/cities/bengaluru/2025/Apr/18/qr-code-facial-recognition-app-exposes-impersonator-in-bengaluru",
+                "source_refs": [
+                  "AIBD-0128-source-0003"
+                ],
+                "title": "Original reporting with named KEA official",
+                "relationship": "Original reporting with named KEA official",
+                "contribution": "Live image mismatched registered photo; suspect fled and a report with video was requested.",
+                "locator": "KEA director H Prasanna quotation and mismatch paragraph",
+                "access_status": "Complete report read"
+              }
+            ],
+            "latest_limitations": "Underlying app log and investigation outcome are not supplied."
+          }
         },
-        "reason": "The 7 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0128-source-0003"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 7 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Underlying app log and investigation outcome are not supplied."
         }
       },
       "sources[].citation_locator": {
@@ -2354,6 +2373,17 @@
                 ],
                 "locator": "The Hindu April 17, 2025 report: H. Prasanna’s statement on the mismatch, flight, requested report, and planned legal action",
                 "contribution": "The article attributes the incident to KEA’s executive director. The underlying statement, video, investigation outcome, and validation dataset were not independently reviewed."
+              },
+              {
+                "url": "https://www.newindianexpress.com/cities/bengaluru/2025/Apr/18/qr-code-facial-recognition-app-exposes-impersonator-in-bengaluru",
+                "source_refs": [
+                  "AIBD-0128-source-0003"
+                ],
+                "title": "Original reporting with named KEA official",
+                "relationship": "Original reporting with named KEA official",
+                "contribution": "Live image mismatched registered photo; suspect fled and a report with video was requested.",
+                "locator": "KEA director H Prasanna quotation and mismatch paragraph",
+                "access_status": "Complete report read"
               }
             ],
             "retained_source_order": [
@@ -2375,15 +2405,34 @@
             ],
             "limitations": "The evidence supports a reported detection and referral for investigation, not a final adjudication of identity fraud. One apparent successful match does not establish false-positive rates or system-wide fairness, and the large attendance counts are not validation results. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0128-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.newindianexpress.com/cities/bengaluru/2025/Apr/18/qr-code-facial-recognition-app-exposes-impersonator-in-bengaluru",
+                  "source_refs": [
+                    "AIBD-0128-source-0003"
+                  ],
+                  "title": "Original reporting with named KEA official",
+                  "relationship": "Original reporting with named KEA official",
+                  "contribution": "Live image mismatched registered photo; suspect fled and a report with video was requested.",
+                  "locator": "KEA director H Prasanna quotation and mismatch paragraph",
+                  "access_status": "Complete report read"
+                }
+              ],
+              "limitations": "Underlying app log and investigation outcome are not supplied.",
+              "origin_chain": "Express News Service reporting directly quotes KEA executive director."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at The Hindu April 17, 2025 report: H. Prasanna’s statement on the mismatch, flight, requested report, and planned legal action. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Registry-image mechanism, staff oversight, and limited outcome survive.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0128-source-0001"
+            "AIBD-0128-source-0003"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2485,19 +2534,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Staff scanned the admit card's QR code and captured a live photograph, which the app compared with the registered candidate's image."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: KEA's facial recognition app flagged a woman with a forged CET admit card in Bengaluru on 17 April 2025; she fled before writing the paper.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and New Indian Express report, mismatch against photo on record.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0128-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Karnataka Examinations Authority QR code-based facial recognition app (CET-2025 candidate verification) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Staff scanned the admit card's QR code and captured a live photograph, which the app compared with the registered candidate's image."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2662,18 +2717,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 40,
-      "reviewed": 3,
+      "known": 42,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 37,
-      "review_not_assessed": 51,
+      "reviewed_partial": 7,
+      "record_mapped": 36,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 40,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 51,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

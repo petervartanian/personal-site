@@ -1804,19 +1804,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Scouts, government personnel, and citizens submitted observations. FAO specialists and coordinated ground and air teams used the information to organize locust control."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: PlantVillage's app, built with FAO in under a month in 2020, gathered 240,000+ records; AI removed unusable data; FAO credits the tech-enabled operation with averting USD 1.56 billion in losses.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: contributors, FAO daily intake, EarthRanger coordination, and 28 aircraft.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0193-source-0001",
+            "AIBD-0193-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of eLocust3m (PlantVillage) with AI data validation feeding FAO's Desert Locust Information Service in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Scouts, government personnel, and citizens submitted observations. FAO specialists and coordinated ground and air teams used the information to organize locust control."
+        }
       },
       "id": {
         "state": "value_present",
@@ -2362,26 +2369,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0193-source-0001",
-            "AIBD-0193-source-0002",
-            "AIBD-0193-source-0003",
-            "AIBD-0193-source-0004"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en",
+                "source_refs": [
+                  "AIBD-0193-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "FAO describes removing erroneous records and passing locations to ground/air teams, with Garmin and EarthRanger supporting the wider operation.",
+                "locator": "Remote communication tools; Detection from the air",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "No isolated estimate of the AI cleaning contribution is reported."
+          }
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0193-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No isolated estimate of the AI cleaning contribution is reported."
         }
       },
       "sources[].citation_locator": {
@@ -2553,7 +2574,14 @@
                   "AIBD-0193-source-0001"
                 ],
                 "locator": "FAO feature: smartphone and Garmin reporting, unusable records, PlantVillage cleaning, and EarthRanger coordination of 28 aircraft",
-                "contribution": "FAO is the response operator and source of its impact estimates. Its narrative establishes operational use but does not independently identify AI’s marginal contribution."
+                "contribution": "FAO is the response operator and source of its impact estimates. Its narrative establishes operational use but does not independently identify AI’s marginal contribution.",
+                "latest_inspection": {
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "FAO describes removing erroneous records and passing locations to ground/air teams, with Garmin and EarthRanger supporting the wider operation.",
+                  "locator": "Remote communication tools; Detection from the air",
+                  "access_status": "content inspected"
+                }
               }
             ],
             "retained_source_order": [
@@ -2569,12 +2597,31 @@
             ],
             "limitations": "The estimated losses avoided belong to the whole response, including scouts, aircraft, spraying, satellite communication, and coordination. They cannot be assigned to the data-cleaning model alone. The model’s error rates and the counterfactual calculation behind the US$1.56 billion estimate were not verified. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0193-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.fao.org/newsroom/story/A-high-tech-response-is-helping-countries-win-the-battle-against-Desert-Locusts/en",
+                  "source_refs": [
+                    "AIBD-0193-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "FAO describes removing erroneous records and passing locations to ground/air teams, with Garmin and EarthRanger supporting the wider operation.",
+                  "locator": "Remote communication tools; Detection from the air",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "No isolated estimate of the AI cleaning contribution is reported.",
+              "origin_chain": "Retained citation to the original report or research article."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at FAO feature: smartphone and Garmin reporting, unusable records, PlantVillage cleaning, and EarthRanger coordination of 28 aircraft. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight",
           "record_fields": [],
           "source_refs": [
             "AIBD-0193-source-0001"
@@ -2683,19 +2730,27 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "eLocust3M gathered georeferenced sightings and photographs. Algorithms checked images and filtered unusable records before FAO passed useful locations to control teams."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: PlantVillage's app, built with FAO in under a month in 2020, gathered 240,000+ records; AI removed unusable data; FAO credits the tech-enabled operation with averting USD 1.56 billion in losses.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: photo checking, daily record filtering, and location sharing.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0193-source-0001",
+            "AIBD-0193-source-0002",
+            "AIBD-0193-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of eLocust3m (PlantVillage) with AI data validation feeding FAO's Desert Locust Information Service have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "eLocust3M gathered georeferenced sightings and photographs. Algorithms checked images and filtered unusable records before FAO passed useful locations to control teams."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2887,18 +2942,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 52,
-      "reviewed": 3,
+      "known": 55,
+      "reviewed": 6,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 6,
       "record_mapped": 49,
-      "review_not_assessed": 39,
+      "review_not_assessed": 36,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 52,
+        "value_present": 55,
         "not_reported": 0,
-        "unresolved": 39,
+        "unresolved": 36,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

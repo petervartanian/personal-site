@@ -1,14 +1,14 @@
 {
   "id": "AIBD-0335",
-  "title": "France's Foncier innovant aerial-image AI detects 140,000 undeclared pools and about €40 million in extra property tax by 20 March 2024; Dordogne alone 1,500 in 2023",
-  "summary": "Minister Cazenave (20 March 2024): DGFiP's AI tool detected 140,000 undeclared pools, c. €40m extra property tax for local authorities; Dordogne found 1,500 in 2023. No commune-level figure found.",
+  "title": "DGFiP reports that Foncier innovant detected 140,000 taxable pools in 2023, with a different overview giving more than 120,000",
+  "summary": "DGFiP’s 2023 annual report attributes 140,000 taxable pool detections and €40 million in added local revenue to Foncier innovant. Another section gives more than 120,000 pools.",
   "date_observed": "2024-03-20",
   "date_basis": "unassessed",
   "date_precision": "unassessed",
   "benefit_status": "mixed",
   "source_collection": null,
   "source_entry": null,
-  "account": "On 20 March 2024 Thomas Cazenave, minister for public accounts, presented the first bilan of the government's anti-fraud plan at Bercy. He said the DGFiP's algorithmic tool, Foncier innovant, introduced in October 2021, had detected 140,000 undeclared swimming pools. The tool detects pools and buildings on IGN aerial photographs and compares them with declarations. An agent then checks each detection. That would let local authorities collect about €40 million in property tax. Owners received DGFiP letters asking them to regularize (RMC, Ouest-France, L'Indépendant, 21 March 2024). CNews (11 June 2024) cites the DGFiP annual activity report as reported by Ouest-France. It gives 140,000 pools identified in 2023 and €40 million that should have been paid in 2023. That compares with 20,000 pools in the 2022 experiment in nine départements (20 Minutes). L'Indépendant instead states 120,000 for 2022, so the press accounts of the yearly split disagree. At département level, ici (France Bleu) reported on 24 March 2024 on the Dordogne public-finance office. It had found about 1,500 undeclared pools in 2023 among some 30,000 in the département. It would send property-tax catch-up notices by the end of March. No official DGFiP or ministry document is among the sources, as the ministry's website was not available. No commune-level result was found.",
+  "account": "On 20 March 2024 Thomas Cazenave, minister for public accounts, presented the first bilan of the government's anti-fraud plan at Bercy. He said the DGFiP's algorithmic tool, Foncier innovant, introduced in October 2021, had detected 140,000 undeclared swimming pools. The tool detects pools and buildings on IGN aerial photographs and compares them with declarations. An agent then checks each detection. That would let local authorities collect about €40 million in property tax. Owners received DGFiP letters asking them to regularize (RMC, Ouest-France, L'Indépendant, 21 March 2024). CNews (11 June 2024) cites the DGFiP annual activity report as reported by Ouest-France. It gives 140,000 pools identified in 2023 and €40 million that should have been paid in 2023. That compares with 20,000 pools in the 2022 experiment in nine départements (20 Minutes). L'Indépendant instead states 120,000 for 2022, so the press accounts of the yearly split disagree. At département level, ici (France Bleu) reported on 24 March 2024 on the Dordogne public-finance office. It had found about 1,500 undeclared pools in 2023 among some 30,000 in the département. It would send property-tax catch-up notices by the end of March. DGFiP’s original 2023 annual report is now available. Its pool-control section reports 140,000 taxable pools in 2023, compared with 20,000 in 2022, and €40 million in additional local property-tax revenue. Its separate cadastral overview says more than 120,000 pools, an internal numerical difference that remains unresolved. No commune-level result was found.",
   "category": "benefit created",
   "unexpected": false,
   "purpose": "Detect undeclared pools and buildings from aerial imagery so that they are added to the cadastral base and taxed. This was the tool's intended purpose.",
@@ -41,9 +41,18 @@
   ],
   "ai_role": {
     "status": "assessed",
-    "statement": "The AI detects pool outlines on aerial photographs and compares them with declarations. An agent verifies each detection before the construction is added to the cadastral value (Ouest-France). The 140,000 pools and €40 million are the minister's own attribution to the tool, relayed by several news outlets. CNews cites the DGFiP annual report via Ouest-France. No official document is among the sources. A CGT Finances publiques official told Ouest-France that field colleagues put the algorithm's error threshold at 55–60%. So the detections required substantial human checking. No commune-level outcome is on record. The Dordogne figure is the most local one read."
+    "statement": "Foncier innovant extracted pool outlines from IGN aerial images and compared them with tax declarations. Tax officers systematically verified anomalies before contacting owners. DGFiP’s 2023 annual report states that 140,000 taxable pools were detected in 2023, compared with 20,000 in 2022, representing€40 million in additional local property-tax revenue. A separate overview in the report says more than 120,000 pools. The figures are the deploying administration’s account, not an independent error-rate evaluation."
   },
   "evidence": [
+    {
+      "kind": "descriptive report",
+      "citation": "Direction générale des Finances publiques. Généralisation du \"Foncier innovant\". 2023-06-02",
+      "title": "Généralisation du \"Foncier innovant\"",
+      "url": "https://www.impots.gouv.fr/actualite/generalisation-du-foncier-innovant",
+      "date": "2023-06-02",
+      "written_by": "deployer",
+      "quote": null
+    },
     {
       "kind": "news report",
       "citation": "Dussourt, G. (2024). Grâce à l'IA, l'Etat découvre 140.000 piscines non déclarées et récupère 40 millions d'euros. RMC, 21 Mar 2024 (quoting minister Thomas Cazenave).",
@@ -97,6 +106,15 @@
       "date": "2024-06-12",
       "written_by": "independent",
       "quote": "En 2022, 20.000 piscines non déclarées avaient ainsi été repérées pour un redressement estimé à 10 millions d’euros."
+    },
+    {
+      "kind": "report",
+      "citation": "Direction générale des Finances publiques. Rapport d’activité 2023",
+      "title": "Rapport d’activité 2023",
+      "url": "https://www.economie.gouv.fr/files/files/directions_services/dgfip/Rapport/2023/ra_2023.pdf",
+      "date": null,
+      "written_by": "deployer",
+      "quote": null
     }
   ],
   "replication": {
@@ -220,11 +238,11 @@
   "confidence": "reported",
   "shade": "medium",
   "claim_status": "Independently reported",
-  "claim_basis": "Sources: five independent news reports. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+  "claim_basis": "Sources: five independent news reports, the deployer's report and the deployer's descriptive report. The cited evidence includes no independent study or report and no finding by a regulator or court.",
   "profile": {
     "case_id": "AIBD-0335",
     "catalog_version": "1.0.0",
-    "source_fingerprint": "a003da7e5be2b270e339b6ac0f3f1a7551902ce515bf8e5d9ceb286cac68170a",
+    "source_fingerprint": "4c55dfcc92babf4e354483fd701d97b2e1078fb80dcf763959409d064dac87b4",
     "collection_refs": [
       {
         "collection_id": "aibd",
@@ -245,7 +263,9 @@
       "AIBD-0335-source-0003",
       "AIBD-0335-source-0004",
       "AIBD-0335-source-0005",
-      "AIBD-0335-source-0006"
+      "AIBD-0335-source-0006",
+      "AIBD-0335-source-0007",
+      "AIBD-0335-source-0008"
     ],
     "families": {
       "strategic assessments": {
@@ -255,12 +275,12 @@
           "basis": "Explicit unresolved assignment from the retained structured material. No new source inspection or substantive field review is claimed.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Establish whether a relevant strategic assessments record exists, identify its source and scope, and assess the individual questions."
         },
@@ -276,12 +296,12 @@
           "basis": "Explicit unresolved assignment from the retained structured material. No new source inspection or substantive field review is claimed.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Establish whether a relevant evaluations record exists, identify its source and scope, and assess the individual questions."
         },
@@ -317,12 +337,12 @@
           "basis": "Explicit unresolved assignment from the retained structured material. No new source inspection or substantive field review is claimed.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Establish whether a relevant institutional decisions record exists, identify its source and scope, and assess the individual questions."
         },
@@ -372,24 +392,23 @@
       "ai_contribution": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ai_role": {
-              "status": "assessed",
-              "statement": "The AI detects pool outlines on aerial photographs and compares them with declarations. An agent verifies each detection before the construction is added to the cadastral value (Ouest-France). The 140,000 pools and €40 million are the minister's own attribution to the tool, relayed by several news outlets. CNews cites the DGFiP annual report via Ouest-France. No official document is among the sources. A CGT Finances publiques official told Ouest-France that field colleagues put the algorithm's error threshold at 55–60%. So the detections required substantial human checking. No commune-level outcome is on record. The Dordogne figure is the most local one read."
-            }
-          }
+          "kind": "text",
+          "text": "Foncier innovant extracted pool outlines from IGN aerial images and compared them with tax declarations. Tax officers systematically verified anomalies before contacting owners. DGFiP’s 2023 annual report states that 140,000 taxable pools were detected in 2023, compared with 20,000 in 2022, representing€40 million in additional local property-tax revenue. A separate overview in the report says more than 120,000 pools. The figures are the deploying administration’s account, not an independent error-rate evaluation."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ai_role"
+          "kind": "source_review",
+          "basis": "The original official report is now accessible and resolves the main yearly split, while preserving its separate 120,000 overview. Piscines non déclarées : le dispositif de contrôle généralisé; Le cadastre, état civil de la propriété",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0335-source-0008"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Foncier innovant extracted pool outlines from IGN aerial images and compared them with tax declarations. Tax officers systematically verified anomalies before contacting owners. DGFiP’s 2023 annual report states that 140,000 taxable pools were detected in 2023, compared with 20,000 in 2022, representing€40 million in additional local property-tax revenue. A separate overview in the report says more than 120,000 pools. The figures are the deploying administration’s account, not an independent error-rate evaluation."
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -399,7 +418,7 @@
             "category": "benefit created",
             "ai_role": {
               "status": "assessed",
-              "statement": "The AI detects pool outlines on aerial photographs and compares them with declarations. An agent verifies each detection before the construction is added to the cadastral value (Ouest-France). The 140,000 pools and €40 million are the minister's own attribution to the tool, relayed by several news outlets. CNews cites the DGFiP annual report via Ouest-France. No official document is among the sources. A CGT Finances publiques official told Ouest-France that field colleagues put the algorithm's error threshold at 55–60%. So the detections required substantial human checking. No commune-level outcome is on record. The Dordogne figure is the most local one read."
+              "statement": "Foncier innovant extracted pool outlines from IGN aerial images and compared them with tax declarations. Tax officers systematically verified anomalies before contacting owners. DGFiP’s 2023 annual report states that 140,000 taxable pools were detected in 2023, compared with 20,000 in 2022, representing€40 million in additional local property-tax revenue. A separate overview in the report says more than 120,000 pools. The figures are the deploying administration’s account, not an independent error-rate evaluation."
             }
           }
         },
@@ -447,12 +466,12 @@
                 "method": "curatorial",
                 "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
                 "source_refs": [
-                  "AIBD-0335-source-0001",
                   "AIBD-0335-source-0002",
                   "AIBD-0335-source-0003",
                   "AIBD-0335-source-0004",
                   "AIBD-0335-source-0005",
-                  "AIBD-0335-source-0006"
+                  "AIBD-0335-source-0006",
+                  "AIBD-0335-source-0007"
                 ],
                 "review_coverage": "partial"
               },
@@ -464,12 +483,12 @@
                 "method": "curatorial",
                 "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
                 "source_refs": [
-                  "AIBD-0335-source-0001",
                   "AIBD-0335-source-0002",
                   "AIBD-0335-source-0003",
                   "AIBD-0335-source-0004",
                   "AIBD-0335-source-0005",
-                  "AIBD-0335-source-0006"
+                  "AIBD-0335-source-0006",
+                  "AIBD-0335-source-0007"
                 ],
                 "review_coverage": "partial"
               }
@@ -483,12 +502,12 @@
           "basis": "Mapped from dated review provenance already stored on the named case fields. This mapping performs no new review and does not infer human approval or original rating authorship.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ]
         },
         "review_state": "record_mapped",
@@ -539,7 +558,7 @@
             "confidence": "medium",
             "evidence_word": "reported",
             "claim_status": "Independently reported",
-            "basis": "Sources: five independent news reports. The cited evidence includes no independent study or report and no finding by a regulator or court.",
+            "basis": "Sources: five independent news reports, the deployer's report and the deployer's descriptive report. The cited evidence includes no independent study or report and no finding by a regulator or court.",
             "interpretation": "Existing display rule preserved; the richer outcome-specific confidence question still needs review."
           }
         },
@@ -621,12 +640,12 @@
             "benefit_status"
           ],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ]
         },
         "review_state": "record_mapped",
@@ -687,40 +706,22 @@
       "brief": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "answer": "Minister Cazenave (20 March 2024): DGFiP's AI tool detected 140,000 undeclared pools, c. €40m extra property tax for local authorities; Dordogne found 1,500 in 2023. No commune-level figure found.\n\nThe retained reports differ on annual detection totals and describe expected receipts alongside recovery language. The original DGFiP report, assessed versus collected tax, appeal outcomes, human verification costs, and the denominator of the quoted 55–60% error rate need checking.",
-            "source_refs": [
-              "AIBD-0335-source-0001",
-              "AIBD-0335-source-0002",
-              "AIBD-0335-source-0003",
-              "AIBD-0335-source-0004",
-              "AIBD-0335-source-0005",
-              "AIBD-0335-source-0006"
-            ],
-            "scope": "A presentation of the retained summary and available qualifications, not new evidence review or a complete synthesis of every claim."
-          }
+          "kind": "text",
+          "text": "DGFiP’s 2023 annual report attributes 140,000 taxable pool detections and €40 million in added local revenue to Foncier innovant. Another section gives more than 120,000 pools."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Curatorial presentation of the retained case summary and existing qualifications. No external source was opened and no new evidentiary judgment was made for this brief.",
-          "record_fields": [
-            "summary",
-            "title"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Piscines non déclarées : le dispositif de contrôle généralisé; Le cadastre, état civil de la propriété",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
-            "AIBD-0335-source-0002",
-            "AIBD-0335-source-0003",
-            "AIBD-0335-source-0004",
-            "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
-          ]
+            "AIBD-0335-source-0008"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "Minister Cazenave (20 March 2024): DGFiP's AI tool detected 140,000 undeclared pools, c. €40m extra property tax for local authorities; Dordogne found 1,500 in 2023. No commune-level figure found.\n\nThe retained reports differ on annual detection totals and describe expected receipts alongside recovery language. The original DGFiP report, assessed versus collected tax, appeal outcomes, human verification costs, and the denominator of the quoted 55–60% error rate need checking."
+          "answer": "DGFiP’s 2023 annual report attributes 140,000 taxable pool detections and €40 million in added local revenue to Foncier innovant. Another section gives more than 120,000 pools."
         }
       },
       "case_kind": {
@@ -750,12 +751,12 @@
           "basis": "Explicit unresolved assignment from the retained structured material. No new source inspection or substantive field review is claimed.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Compare the underlying events and outcome scope before assigning a duplicate, overlap, follow-up, or comparable-harm relationship."
         },
@@ -771,42 +772,42 @@
             "retained_statement_links": [
               {
                 "statement": "ce sont 140.000 piscines qui ont été détectées et qui permettront à nos collectivités de récolter 40 millions d’euros au titre de la taxe foncière",
-                "source_ref": "AIBD-0335-source-0001",
+                "source_ref": "AIBD-0335-source-0002",
                 "url": "https://rmc.bfmtv.com/actualites/economie/grace-a-l-ia-l-etat-decouvre-140-000-piscines-non-declarees-et-recupere-40-millions-d-euros_AV-202403210525.html",
                 "citation": "Dussourt, G. (2024). Grâce à l'IA, l'Etat découvre 140.000 piscines non déclarées et récupère 40 millions d'euros. RMC, 21 Mar 2024 (quoting minister Thomas Cazenave).",
                 "relationship": "The existing record attributes this quotation to this source. Its support for the case-level outcome or AI contribution has not been separately classified."
               },
               {
                 "statement": "l’outil algorithmique introduit par la DGFiP en octobre 2021 avait permis la détection de 140 000 piscines, pour 40 millions d’euros de recettes supplémentaires",
-                "source_ref": "AIBD-0335-source-0002",
+                "source_ref": "AIBD-0335-source-0003",
                 "url": "https://www.ouest-france.fr/economie/budget/garages-verandas-piscines-comment-le-fisc-repere-les-batiments-non-declares-46394b0a-e780-11ee-95e5-de9a0852a727",
                 "citation": "Ouest-France (2024). Garages, vérandas, piscines… Comment le fisc repère les bâtiments non déclarés. 21 Mar 2024.",
                 "relationship": "The existing record attributes this quotation to this source. Its support for the case-level outcome or AI contribution has not been separately classified."
               },
               {
                 "statement": "D’après mes collègues sur le terrain, le seuil d’erreurs des algorithmes atteint 55 à 60% en ce moment",
-                "source_ref": "AIBD-0335-source-0003",
+                "source_ref": "AIBD-0335-source-0004",
                 "url": "https://www.ouest-france.fr/economie/budget/garages-verandas-piscines-comment-le-fisc-repere-les-batiments-non-declares-46394b0a-e780-11ee-95e5-de9a0852a727",
                 "citation": "Ouest-France (2024). Same article, statements on verification and on error rates (Olivier Vilois, CGT Finances publiques).",
                 "relationship": "The existing record attributes this quotation to this source. Its support for the case-level outcome or AI contribution has not been separately classified."
               },
               {
                 "statement": "En 2023, cette technique a permis à la Direction générale des finances publiques d'identifier 140.000 piscines non déclarées, selon son rapport annuel d'activité publié par Ouest France.",
-                "source_ref": "AIBD-0335-source-0004",
+                "source_ref": "AIBD-0335-source-0005",
                 "url": "https://www.cnews.fr/france/2024-06-11/piscines-non-declarees-le-fisc-repere-140000-fraudeurs-grace-lia-1511264",
                 "citation": "CNews (2024). Piscines non déclarées : le fisc repère 140.000 fraudeurs grâce à l'IA. 11 Jun 2024 (citing the DGFiP annual activity report via Ouest-France).",
                 "relationship": "The existing record attributes this quotation to this source. Its support for the case-level outcome or AI contribution has not been separately classified."
               },
               {
                 "statement": "Les finances publiques de Dordogne ont repéré quelque 1.500 piscines non déclarées au fisc en Dordogne, au cours de l'année 2023, sur les quelque 30.000 piscines du département.",
-                "source_ref": "AIBD-0335-source-0005",
+                "source_ref": "AIBD-0335-source-0006",
                 "url": "https://www.ici.fr/infos/societe/le-fisc-decouvre-1500-piscines-non-declarees-en-dordogne-grace-a-l-intelligence-artificielle-4899279",
                 "citation": "Bertrand, M. (2024). Le fisc découvre 1.500 piscines non-déclarées en Dordogne grâce à l'intelligence artificielle. ici (France Bleu Périgord), 24 Mar 2024.",
                 "relationship": "The existing record attributes this quotation to this source. Its support for the case-level outcome or AI contribution has not been separately classified."
               },
               {
                 "statement": "En 2022, 20.000 piscines non déclarées avaient ainsi été repérées pour un redressement estimé à 10 millions d’euros.",
-                "source_ref": "AIBD-0335-source-0006",
+                "source_ref": "AIBD-0335-source-0007",
                 "url": "https://www.20minutes.fr/economie/4095936-20240612-taxe-fonciere-grace-ia-fisc-repere-140-000-piscines-non-declarees-2023",
                 "citation": "20 Minutes (2024). Taxe foncière : Grâce à l'IA, le fisc a repéré 140.000 piscines non déclarées en 2023. 12 Jun 2024.",
                 "relationship": "The existing record attributes this quotation to this source. Its support for the case-level outcome or AI contribution has not been separately classified."
@@ -822,12 +823,12 @@
             "evidence"
           ],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ]
         },
         "review_state": "record_mapped",
@@ -845,12 +846,12 @@
             "evidence"
           ],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "The strength of each claim needs assessment against the original evidence."
         },
@@ -865,94 +866,42 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "The retained reports differ on annual detection totals and describe expected receipts alongside recovery language. The original DGFiP report, assessed versus collected tax, appeal outcomes, human verification costs, and the denominator of the quoted 55–60% error rate need checking."
+          "text": "The original annual report gives 140,000 pools in one section and more than 120,000 in another. It does not provide an independent error-rate evaluation or resolve collected versus assessed revenue, appeal outcomes or verification costs."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Piscines non déclarées : le dispositif de contrôle généralisé; Le cadastre, état civil de la propriété",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
-            "AIBD-0335-source-0002",
-            "AIBD-0335-source-0003",
-            "AIBD-0335-source-0004",
-            "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0008"
           ],
           "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The retained reports differ on annual detection totals and describe expected receipts alongside recovery language. The original DGFiP report, assessed versus collected tax, appeal outcomes, human verification costs, and the denominator of the quoted 55–60% error rate need checking."
+          "answer": "The original annual report gives 140,000 pools in one section and more than 120,000 in another. It does not provide an independent error-rate evaluation or resolve collected versus assessed revenue, appeal outcomes or verification costs."
         }
       },
       "claims[].proposition": {
         "state": "value_present",
         "value": {
-          "kind": "structured",
-          "data": {
-            "retained_case_account": "On 20 March 2024 Thomas Cazenave, minister for public accounts, presented the first bilan of the government's anti-fraud plan at Bercy. He said the DGFiP's algorithmic tool, Foncier innovant, introduced in October 2021, had detected 140,000 undeclared swimming pools. The tool detects pools and buildings on IGN aerial photographs and compares them with declarations. An agent then checks each detection. That would let local authorities collect about €40 million in property tax. Owners received DGFiP letters asking them to regularize (RMC, Ouest-France, L'Indépendant, 21 March 2024). CNews (11 June 2024) cites the DGFiP annual activity report as reported by Ouest-France. It gives 140,000 pools identified in 2023 and €40 million that should have been paid in 2023. That compares with 20,000 pools in the 2022 experiment in nine départements (20 Minutes). L'Indépendant instead states 120,000 for 2022, so the press accounts of the yearly split disagree. At département level, ici (France Bleu) reported on 24 March 2024 on the Dordogne public-finance office. It had found about 1,500 undeclared pools in 2023 among some 30,000 in the département. It would send property-tax catch-up notices by the end of March. No official DGFiP or ministry document is among the sources, as the ministry's website was not available. No commune-level result was found.",
-            "retained_ai_contribution_statement": {
-              "status": "assessed",
-              "statement": "The AI detects pool outlines on aerial photographs and compares them with declarations. An agent verifies each detection before the construction is added to the cadastral value (Ouest-France). The 140,000 pools and €40 million are the minister's own attribution to the tool, relayed by several news outlets. CNews cites the DGFiP annual report via Ouest-France. No official document is among the sources. A CGT Finances publiques official told Ouest-France that field colleagues put the algorithm's error threshold at 55–60%. So the detections required substantial human checking. No commune-level outcome is on record. The Dordogne figure is the most local one read."
-            },
-            "retained_source_statements": [
-              {
-                "source_ref": "AIBD-0335-source-0001",
-                "statement": "ce sont 140.000 piscines qui ont été détectées et qui permettront à nos collectivités de récolter 40 millions d’euros au titre de la taxe foncière",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0335-source-0002",
-                "statement": "l’outil algorithmique introduit par la DGFiP en octobre 2021 avait permis la détection de 140 000 piscines, pour 40 millions d’euros de recettes supplémentaires",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0335-source-0003",
-                "statement": "D’après mes collègues sur le terrain, le seuil d’erreurs des algorithmes atteint 55 à 60% en ce moment",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0335-source-0004",
-                "statement": "En 2023, cette technique a permis à la Direction générale des finances publiques d'identifier 140.000 piscines non déclarées, selon son rapport annuel d'activité publié par Ouest France.",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0335-source-0005",
-                "statement": "Les finances publiques de Dordogne ont repéré quelque 1.500 piscines non déclarées au fisc en Dordogne, au cours de l'année 2023, sur les quelque 30.000 piscines du département.",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              },
-              {
-                "source_ref": "AIBD-0335-source-0006",
-                "statement": "En 2022, 20.000 piscines non déclarées avaient ainsi été repérées pour un redressement estimé à 10 millions d’euros.",
-                "attribution": "Quotation retained in the existing record; not freshly checked."
-              }
-            ],
-            "scope": "Existing assertions are preserved as a case-level bundle. They have not been separated into atomic claims or independently verified by this assignment."
-          }
+          "kind": "text",
+          "text": "DGFiP’s 2023 annual report attributes 140,000 taxable pool detections and €40 million in added local revenue to Foncier innovant. Another section gives more than 120,000 pools."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Mapped from the retained case or existing profile metadata. This assignment performs no new source review or evidentiary assessment.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Dependent wording must agree with the inspected original and the associated correction. Piscines non déclarées : le dispositif de contrôle généralisé; Le cadastre, état civil de la propriété",
+          "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
-            "AIBD-0335-source-0002",
-            "AIBD-0335-source-0003",
-            "AIBD-0335-source-0004",
-            "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
-          ]
+            "AIBD-0335-source-0008"
+          ],
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "Minister Cazenave (20 March 2024): DGFiP's AI tool detected 140,000 undeclared pools, c. €40m extra property tax for local authorities; Dordogne found 1,500 in 2023. No commune-level figure found."
+          "answer": "DGFiP’s 2023 annual report attributes 140,000 taxable pool detections and €40 million in added local revenue to Foncier innovant. Another section gives more than 120,000 pools."
         }
       },
       "cross_border_flows[]": {
@@ -977,12 +926,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant institutional decisions record exists. Then identify its source and assign action and observed consequence without inventing a related entity."
         },
@@ -1001,12 +950,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant institutional decisions record exists. Then identify its source and assign decision grounds and alternatives without inventing a related entity."
         },
@@ -1025,12 +974,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant institutional decisions record exists. Then identify its source and assign institution and decision without inventing a related entity."
         },
@@ -1049,12 +998,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant institutional decisions record exists. Then identify its source and assign what would show success without inventing a related entity."
         },
@@ -1119,12 +1068,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Preserve itemized costs with their periods and source scope. Require an actual monetary-observation record first. Missing costs are unresolved, never zero; do not invent costs from current list prices."
         },
@@ -1142,12 +1091,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Map the actual alternative, matched volume, quality, and horizon. Require an actual monetary-observation record first. Do not use an unrelated worst-case loss or budget as the avoided amount."
         },
@@ -1165,12 +1114,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Map only stated currency, nominal/real basis, price year, and documented conversion. Require an actual monetary-observation record first. An ambiguous dollar sign does not establish USD; do not assign a price year from publication date."
         },
@@ -1188,12 +1137,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Use gross, net, or unspecified according to the stated included and excluded costs. Require an actual monetary-observation record first. Do not infer net benefit because costs are not recorded."
         },
@@ -1237,12 +1186,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Map the stated one-time/annual/per-user/total basis and coverage period. Require an actual monetary-observation record first. Do not annualize a one-time claim or treat a maximum as a typical gain."
         },
@@ -1271,12 +1220,12 @@
             "value"
           ],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ]
         },
         "review_state": "record_mapped",
@@ -1318,12 +1267,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Preserve numerator, denominator, horizon, and source status. Require an actual monetary-observation record first. Do not calculate ROI without complete matched costs and benefits or present annual capacity value as cash payback."
         },
@@ -1341,12 +1290,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Retain the reported method and assumptions, or a separately labeled reproducible AIBD calculation. Require an actual monetary-observation record first. Do not invent wage rates, discount rates, social values, or currency conversions."
         },
@@ -1364,12 +1313,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign increment attributable to ai without inventing a related entity."
         },
@@ -1388,12 +1337,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign comparator and baseline without inventing a related entity."
         },
@@ -1412,12 +1361,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign evaluation design without inventing a related entity."
         },
@@ -1436,12 +1385,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign difference from the comparator without inventing a related entity."
         },
@@ -1460,12 +1409,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign exposure denominator without inventing a related entity."
         },
@@ -1484,12 +1433,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign evaluation identifier without inventing a related entity."
         },
@@ -1508,12 +1457,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign measurement method without inventing a related entity."
         },
@@ -1532,12 +1481,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign measured outcome without inventing a related entity."
         },
@@ -1556,12 +1505,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign reproduction materials without inventing a related entity."
         },
@@ -1580,12 +1529,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign setting and sample without inventing a related entity."
         },
@@ -1604,12 +1553,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant evaluations record exists. Then identify its source and assign uncertainty and limitations without inventing a related entity."
         },
@@ -1634,12 +1583,12 @@
             "evidence"
           ],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Add an exact identifier or link when a relevant external record is established, preserving its relationship rather than treating it as equivalent."
         },
@@ -1676,19 +1625,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A tax officer checked each detection before cadastral values were changed and owners were asked to regularize their declarations."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Minister Cazenave (20 March 2024): DGFiP's AI tool detected 140,000 undeclared pools, c. €40m extra property tax for local authorities; Dordogne found 1,500 in 2023. No commune-level figure found.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: verification and letters.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0335-source-0003",
+            "AIBD-0335-source-0004"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Foncier innovant (DGFiP deep-learning detection of pools and buildings on IGN aerial photographs, built with Capgemini and Google) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A tax officer checked each detection before cadastral values were changed and owners were asked to regularize their declarations."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1725,19 +1681,26 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Local authorities were the intended revenue beneficiaries, while affected owners faced property-tax catch-up notices."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Minister Cazenave (20 March 2024): DGFiP's AI tool detected 140,000 undeclared pools, c. €40m extra property tax for local authorities; Dordogne found 1,500 in 2023. No commune-level figure found.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: local tax revenue and Dordogne notices.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0335-source-0002",
+            "AIBD-0335-source-0006"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has personal, organizational, societal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Local authorities were the intended revenue beneficiaries, while affected owners faced property-tax catch-up notices."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1780,7 +1743,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "On 20 March 2024 Thomas Cazenave, minister for public accounts, presented the first bilan of the government's anti-fraud plan at Bercy. He said the DGFiP's algorithmic tool, Foncier innovant, introduced in October 2021, had detected 140,000 undeclared swimming pools. The tool detects pools and buildings on IGN aerial photographs and compares them with declarations. An agent then checks each detection. That would let local authorities collect about €40 million in property tax. Owners received DGFiP letters asking them to regularize (RMC, Ouest-France, L'Indépendant, 21 March 2024). CNews (11 June 2024) cites the DGFiP annual activity report as reported by Ouest-France. It gives 140,000 pools identified in 2023 and €40 million that should have been paid in 2023. That compares with 20,000 pools in the 2022 experiment in nine départements (20 Minutes). L'Indépendant instead states 120,000 for 2022, so the press accounts of the yearly split disagree. At département level, ici (France Bleu) reported on 24 March 2024 on the Dordogne public-finance office. It had found about 1,500 undeclared pools in 2023 among some 30,000 in the département. It would send property-tax catch-up notices by the end of March. No official DGFiP or ministry document is among the sources, as the ministry's website was not available. No commune-level result was found.",
+            "account": "On 20 March 2024 Thomas Cazenave, minister for public accounts, presented the first bilan of the government's anti-fraud plan at Bercy. He said the DGFiP's algorithmic tool, Foncier innovant, introduced in October 2021, had detected 140,000 undeclared swimming pools. The tool detects pools and buildings on IGN aerial photographs and compares them with declarations. An agent then checks each detection. That would let local authorities collect about €40 million in property tax. Owners received DGFiP letters asking them to regularize (RMC, Ouest-France, L'Indépendant, 21 March 2024). CNews (11 June 2024) cites the DGFiP annual activity report as reported by Ouest-France. It gives 140,000 pools identified in 2023 and €40 million that should have been paid in 2023. That compares with 20,000 pools in the 2022 experiment in nine départements (20 Minutes). L'Indépendant instead states 120,000 for 2022, so the press accounts of the yearly split disagree. At département level, ici (France Bleu) reported on 24 March 2024 on the Dordogne public-finance office. It had found about 1,500 undeclared pools in 2023 among some 30,000 in the département. It would send property-tax catch-up notices by the end of March. DGFiP’s original 2023 annual report is now available. Its pool-control section reports 140,000 taxable pools in 2023, compared with 20,000 in 2022, and €40 million in additional local property-tax revenue. Its separate cadastral overview says more than 120,000 pools, an internal numerical difference that remains unresolved. No commune-level result was found.",
             "benefit_type": "Increased Product Revenue"
           }
         },
@@ -1886,12 +1849,12 @@
           "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -1905,16 +1868,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Minister Cazenave (20 March 2024): DGFiP's AI tool detected 140,000 undeclared pools, c. €40m extra property tax for local authorities; Dordogne found 1,500 in 2023. No commune-level figure found.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: error-rate claim and officer checking.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0335-source-0004"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "A union official reported a 55–60% error level, making review capacity central to any net efficiency gain.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely gain was broader screening of properties, offset by substantial manual verification when the algorithm mistook other features for taxable construction.",
+          "editor_note": "A union official reported a 55–60% error level, making review capacity central to any net efficiency gain."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2233,28 +2200,62 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.impots.gouv.fr/actualite/generalisation-du-foncier-innovant",
+                "source_refs": [
+                  "AIBD-0335-source-0001",
+                  "AIBD-0335-source-0003",
+                  "AIBD-0335-source-0004"
+                ],
+                "title": "original tax-administration methods account",
+                "relationship": "original tax-administration methods account",
+                "contribution": "An officer systematically checks each anomaly; more than 20,000 pools were taxed in 2022, and 120,000 owners were contacted from May 2023.",
+                "locator": "Sections 2–4",
+                "access_status": "Full page read"
+              },
+              {
+                "url": "https://www.economie.gouv.fr/files/files/directions_services/dgfip/Rapport/2023/ra_2023.pdf",
+                "source_refs": [
+                  "AIBD-0335-source-0008",
+                  "AIBD-0335-source-0002",
+                  "AIBD-0335-source-0005",
+                  "AIBD-0335-source-0007"
+                ],
+                "title": "original annual activity report",
+                "relationship": "original annual activity report",
+                "contribution": "The report states 140,000 taxable pools detected in 2023 and€40 million additional revenue; a separate overview says more than 120,000.",
+                "locator": "Piscines non déclarées : le dispositif de contrôle généralisé; Le cadastre, état civil de la propriété",
+                "access_status": "Pool-control sections read in PDF text"
+              }
+            ],
+            "latest_limitations": "Dordogne’s local result and the union’s error estimate were not independently remeasured."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0335-source-0001",
-            "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
+            "AIBD-0335-source-0008",
+            "AIBD-0335-source-0002",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0007"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 6 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Dordogne’s local result and the union’s error estimate were not independently remeasured."
         }
       },
       "sources[].citation_locator": {
@@ -2263,6 +2264,14 @@
           "kind": "record_fields",
           "fields": {
             "evidence": [
+              {
+                "kind": "descriptive report",
+                "citation": "Direction générale des Finances publiques. Généralisation du \"Foncier innovant\". 2023-06-02",
+                "title": "Généralisation du \"Foncier innovant\"",
+                "url": "https://www.impots.gouv.fr/actualite/generalisation-du-foncier-innovant",
+                "date": "2023-06-02",
+                "written_by": "deployer"
+              },
               {
                 "kind": "news report",
                 "citation": "Dussourt, G. (2024). Grâce à l'IA, l'Etat découvre 140.000 piscines non déclarées et récupère 40 millions d'euros. RMC, 21 Mar 2024 (quoting minister Thomas Cazenave).",
@@ -2316,6 +2325,13 @@
                 "date": "2024-06-12",
                 "written_by": "independent",
                 "quote": "En 2022, 20.000 piscines non déclarées avaient ainsi été repérées pour un redressement estimé à 10 millions d’euros."
+              },
+              {
+                "kind": "report",
+                "citation": "Direction générale des Finances publiques. Rapport d’activité 2023",
+                "title": "Rapport d’activité 2023",
+                "url": "https://www.economie.gouv.fr/files/files/directions_services/dgfip/Rapport/2023/ra_2023.pdf",
+                "written_by": "deployer"
               }
             ]
           }
@@ -2341,9 +2357,11 @@
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007",
+            "AIBD-0335-source-0008"
           ],
-          "role": "Existing evidence items, in their original order"
+          "role": "Retained evidence in reviewed order"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2363,12 +2381,12 @@
             "evidence"
           ],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "Identify each original language, whether a translation was used, and its method or provenance from actual source metadata or inspection."
         },
@@ -2385,6 +2403,14 @@
           "kind": "record_fields",
           "fields": {
             "evidence": [
+              {
+                "kind": "descriptive report",
+                "citation": "Direction générale des Finances publiques. Généralisation du \"Foncier innovant\". 2023-06-02",
+                "title": "Généralisation du \"Foncier innovant\"",
+                "url": "https://www.impots.gouv.fr/actualite/generalisation-du-foncier-innovant",
+                "date": "2023-06-02",
+                "written_by": "deployer"
+              },
               {
                 "kind": "news report",
                 "citation": "Dussourt, G. (2024). Grâce à l'IA, l'Etat découvre 140.000 piscines non déclarées et récupère 40 millions d'euros. RMC, 21 Mar 2024 (quoting minister Thomas Cazenave).",
@@ -2438,6 +2464,13 @@
                 "date": "2024-06-12",
                 "written_by": "independent",
                 "quote": "En 2022, 20.000 piscines non déclarées avaient ainsi été repérées pour un redressement estimé à 10 millions d’euros."
+              },
+              {
+                "kind": "report",
+                "citation": "Direction générale des Finances publiques. Rapport d’activité 2023",
+                "title": "Rapport d’activité 2023",
+                "url": "https://www.economie.gouv.fr/files/files/directions_services/dgfip/Rapport/2023/ra_2023.pdf",
+                "written_by": "deployer"
               }
             ]
           }
@@ -2454,26 +2487,109 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.impots.gouv.fr/actualite/generalisation-du-foncier-innovant",
+                "source_refs": [
+                  "AIBD-0335-source-0001",
+                  "AIBD-0335-source-0003",
+                  "AIBD-0335-source-0004"
+                ],
+                "title": "original tax-administration methods account",
+                "relationship": "original tax-administration methods account",
+                "contribution": "An officer systematically checks each anomaly; more than 20,000 pools were taxed in 2022, and 120,000 owners were contacted from May 2023.",
+                "locator": "Sections 2–4",
+                "access_status": "Full page read"
+              },
+              {
+                "url": "https://www.economie.gouv.fr/files/files/directions_services/dgfip/Rapport/2023/ra_2023.pdf",
+                "source_refs": [
+                  "AIBD-0335-source-0008",
+                  "AIBD-0335-source-0002",
+                  "AIBD-0335-source-0005",
+                  "AIBD-0335-source-0007"
+                ],
+                "title": "original annual activity report",
+                "relationship": "original annual activity report",
+                "contribution": "The report states 140,000 taxable pools detected in 2023 and€40 million additional revenue; a separate overview says more than 120,000.",
+                "locator": "Piscines non déclarées : le dispositif de contrôle généralisé; Le cadastre, état civil de la propriété",
+                "access_status": "Pool-control sections read in PDF text"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.impots.gouv.fr/actualite/generalisation-du-foncier-innovant",
+                  "source_refs": [
+                    "AIBD-0335-source-0001",
+                    "AIBD-0335-source-0003",
+                    "AIBD-0335-source-0004"
+                  ],
+                  "title": "original tax-administration methods account",
+                  "relationship": "original tax-administration methods account",
+                  "contribution": "An officer systematically checks each anomaly; more than 20,000 pools were taxed in 2022, and 120,000 owners were contacted from May 2023.",
+                  "locator": "Sections 2–4",
+                  "access_status": "Full page read"
+                },
+                {
+                  "url": "https://www.economie.gouv.fr/files/files/directions_services/dgfip/Rapport/2023/ra_2023.pdf",
+                  "source_refs": [
+                    "AIBD-0335-source-0008",
+                    "AIBD-0335-source-0002",
+                    "AIBD-0335-source-0005",
+                    "AIBD-0335-source-0007"
+                  ],
+                  "title": "original annual activity report",
+                  "relationship": "original annual activity report",
+                  "contribution": "The report states 140,000 taxable pools detected in 2023 and€40 million additional revenue; a separate overview says more than 120,000.",
+                  "locator": "Piscines non déclarées : le dispositif de contrôle généralisé; Le cadastre, état civil de la propriété",
+                  "access_status": "Pool-control sections read in PDF text"
+                }
+              ],
+              "limitations": "Dordogne’s local result and the union’s error estimate were not independently remeasured.",
+              "origin_chain": "Press claims trace to the minister and DGFiP annual report. The official report now resolves the main yearly split:20,000 in 2022 and 140,000 in 2023; retain its separate 120,000 overview as an internal inconsistency."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0335-source-0001",
+            "retained_source_order": [
+              "AIBD-0335-source-0001",
+              "AIBD-0335-source-0002",
+              "AIBD-0335-source-0003",
+              "AIBD-0335-source-0004",
+              "AIBD-0335-source-0005",
+              "AIBD-0335-source-0006",
+              "AIBD-0335-source-0007",
+              "AIBD-0335-source-0008"
+            ],
+            "ordering_basis": "The inspected original directly supports or materially qualifies the central case account. Earlier citations remain attached to their existing claims."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0335-source-0001",
-            "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
+            "AIBD-0335-source-0008",
+            "AIBD-0335-source-0002",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0007"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "The minister’s statement and DGFiP report are the common upstream origins of the national articles, but neither official document is retained. The Dordogne report adds a local account, and the union quote supplies an unvalidated error estimate. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The minister’s statement and DGFiP report are the common upstream origins of the national articles, but neither official document is retained. The Dordogne report adds a local account, and the union quote supplies an unvalidated error estimate. The source chain has not been independently checked in this pass."
+          "answer": "Press claims trace to the minister and DGFiP annual report. The official report now resolves the main yearly split:20,000 in 2022 and 140,000 in 2023; retain its separate 120,000 overview as an internal inconsistency. Dordogne’s local result and the union’s error estimate were not independently remeasured."
         }
       },
       "strategic_assessments[]": {
@@ -2483,12 +2599,12 @@
           "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0335-source-0001",
             "AIBD-0335-source-0002",
             "AIBD-0335-source-0003",
             "AIBD-0335-source-0004",
             "AIBD-0335-source-0005",
-            "AIBD-0335-source-0006"
+            "AIBD-0335-source-0006",
+            "AIBD-0335-source-0007"
           ],
           "follow_up": "First establish whether a relevant strategic assessments record exists. Then identify its source and assign geopolitical interpretation without inventing a related entity."
         },
@@ -2505,8 +2621,8 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "summary": "Minister Cazenave (20 March 2024): DGFiP's AI tool detected 140,000 undeclared pools, c. €40m extra property tax for local authorities; Dordogne found 1,500 in 2023. No commune-level figure found.",
-            "account": "On 20 March 2024 Thomas Cazenave, minister for public accounts, presented the first bilan of the government's anti-fraud plan at Bercy. He said the DGFiP's algorithmic tool, Foncier innovant, introduced in October 2021, had detected 140,000 undeclared swimming pools. The tool detects pools and buildings on IGN aerial photographs and compares them with declarations. An agent then checks each detection. That would let local authorities collect about €40 million in property tax. Owners received DGFiP letters asking them to regularize (RMC, Ouest-France, L'Indépendant, 21 March 2024). CNews (11 June 2024) cites the DGFiP annual activity report as reported by Ouest-France. It gives 140,000 pools identified in 2023 and €40 million that should have been paid in 2023. That compares with 20,000 pools in the 2022 experiment in nine départements (20 Minutes). L'Indépendant instead states 120,000 for 2022, so the press accounts of the yearly split disagree. At département level, ici (France Bleu) reported on 24 March 2024 on the Dordogne public-finance office. It had found about 1,500 undeclared pools in 2023 among some 30,000 in the département. It would send property-tax catch-up notices by the end of March. No official DGFiP or ministry document is among the sources, as the ministry's website was not available. No commune-level result was found."
+            "summary": "DGFiP’s 2023 annual report attributes 140,000 taxable pool detections and €40 million in added local revenue to Foncier innovant. Another section gives more than 120,000 pools.",
+            "account": "On 20 March 2024 Thomas Cazenave, minister for public accounts, presented the first bilan of the government's anti-fraud plan at Bercy. He said the DGFiP's algorithmic tool, Foncier innovant, introduced in October 2021, had detected 140,000 undeclared swimming pools. The tool detects pools and buildings on IGN aerial photographs and compares them with declarations. An agent then checks each detection. That would let local authorities collect about €40 million in property tax. Owners received DGFiP letters asking them to regularize (RMC, Ouest-France, L'Indépendant, 21 March 2024). CNews (11 June 2024) cites the DGFiP annual activity report as reported by Ouest-France. It gives 140,000 pools identified in 2023 and €40 million that should have been paid in 2023. That compares with 20,000 pools in the 2022 experiment in nine départements (20 Minutes). L'Indépendant instead states 120,000 for 2022, so the press accounts of the yearly split disagree. At département level, ici (France Bleu) reported on 24 March 2024 on the Dordogne public-finance office. It had found about 1,500 undeclared pools in 2023 among some 30,000 in the département. It would send property-tax catch-up notices by the end of March. DGFiP’s original 2023 annual report is now available. Its pool-control section reports 140,000 taxable pools in 2023, compared with 20,000 in 2022, and €40 million in additional local property-tax revenue. Its separate cadastral overview says more than 120,000 pools, an internal numerical difference that remains unresolved. No commune-level result was found."
           }
         },
         "provenance": {
@@ -2567,19 +2683,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Aerial photographs were checked for pools and buildings, then compared with property declarations to produce candidates for review."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Minister Cazenave (20 March 2024): DGFiP's AI tool detected 140,000 undeclared pools, c. €40m extra property tax for local authorities; Dordogne found 1,500 in 2023. No commune-level figure found.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: IGN imagery and tax declarations.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0335-source-0002",
+            "AIBD-0335-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Foncier innovant (DGFiP deep-learning detection of pools and buildings on IGN aerial photographs, built with Capgemini and Google) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Aerial photographs were checked for pools and buildings, then compared with property declarations to produce candidates for review."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2673,7 +2796,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "title": "France's Foncier innovant aerial-image AI detects 140,000 undeclared pools and about €40 million in extra property tax by 20 March 2024; Dordogne alone 1,500 in 2023",
+            "title": "DGFiP reports that Foncier innovant detected 140,000 taxable pools in 2023, with a different overview giving more than 120,000",
             "headline": "Foncier innovant finds 140,000 undeclared pools"
           }
         },
@@ -2694,9 +2817,9 @@
         "value": {
           "kind": "identifiers",
           "identifiers": [
-            "a003da7e5be2b270e339b6ac0f3f1a7551902ce515bf8e5d9ceb286cac68170a"
+            "4c55dfcc92babf4e354483fd701d97b2e1078fb80dcf763959409d064dac87b4"
           ],
-          "role": "SHA-256 of normalized original case data"
+          "role": "SHA-256 of normalized case data"
         },
         "provenance": {
           "kind": "curatorial",
@@ -2712,7 +2835,7 @@
         "value": {
           "kind": "record_fields",
           "fields": {
-            "account": "On 20 March 2024 Thomas Cazenave, minister for public accounts, presented the first bilan of the government's anti-fraud plan at Bercy. He said the DGFiP's algorithmic tool, Foncier innovant, introduced in October 2021, had detected 140,000 undeclared swimming pools. The tool detects pools and buildings on IGN aerial photographs and compares them with declarations. An agent then checks each detection. That would let local authorities collect about €40 million in property tax. Owners received DGFiP letters asking them to regularize (RMC, Ouest-France, L'Indépendant, 21 March 2024). CNews (11 June 2024) cites the DGFiP annual activity report as reported by Ouest-France. It gives 140,000 pools identified in 2023 and €40 million that should have been paid in 2023. That compares with 20,000 pools in the 2022 experiment in nine départements (20 Minutes). L'Indépendant instead states 120,000 for 2022, so the press accounts of the yearly split disagree. At département level, ici (France Bleu) reported on 24 March 2024 on the Dordogne public-finance office. It had found about 1,500 undeclared pools in 2023 among some 30,000 in the département. It would send property-tax catch-up notices by the end of March. No official DGFiP or ministry document is among the sources, as the ministry's website was not available. No commune-level result was found.",
+            "account": "On 20 March 2024 Thomas Cazenave, minister for public accounts, presented the first bilan of the government's anti-fraud plan at Bercy. He said the DGFiP's algorithmic tool, Foncier innovant, introduced in October 2021, had detected 140,000 undeclared swimming pools. The tool detects pools and buildings on IGN aerial photographs and compares them with declarations. An agent then checks each detection. That would let local authorities collect about €40 million in property tax. Owners received DGFiP letters asking them to regularize (RMC, Ouest-France, L'Indépendant, 21 March 2024). CNews (11 June 2024) cites the DGFiP annual activity report as reported by Ouest-France. It gives 140,000 pools identified in 2023 and €40 million that should have been paid in 2023. That compares with 20,000 pools in the 2022 experiment in nine départements (20 Minutes). L'Indépendant instead states 120,000 for 2022, so the press accounts of the yearly split disagree. At département level, ici (France Bleu) reported on 24 March 2024 on the Dordogne public-finance office. It had found about 1,500 undeclared pools in 2023 among some 30,000 in the département. It would send property-tax catch-up notices by the end of March. DGFiP’s original 2023 annual report is now available. Its pool-control section reports 140,000 taxable pools in 2023, compared with 20,000 in 2022, and €40 million in additional local property-tax revenue. Its separate cadastral overview says more than 120,000 pools, an internal numerical difference that remains unresolved. No commune-level result was found.",
             "replication": {
               "produced_by": [
                 "IGN aerial photographs covering the whole territory",
@@ -2765,18 +2888,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 42,
-      "reviewed": 3,
+      "known": 47,
+      "reviewed": 11,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 40,
-      "review_not_assessed": 48,
+      "reviewed_partial": 11,
+      "record_mapped": 37,
+      "review_not_assessed": 43,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 42,
+        "value_present": 47,
         "not_reported": 0,
-        "unresolved": 49,
+        "unresolved": 44,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

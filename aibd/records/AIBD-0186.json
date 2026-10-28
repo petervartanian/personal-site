@@ -871,21 +871,24 @@
         "coverage": "partial"
       },
       "economics[].costs[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Estimated 2015 costs were $57.1 million, including $19.5 million for development, $4.8 million for modeling, and $28.9 million for investigations."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
+          "basis": "Account and replication list the total and these contractor and investigation components.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0186-source-0001"
           ],
-          "follow_up": "Preserve itemized costs with their periods and source scope. Require an actual monetary-observation record first. Missing costs are unresolved, never zero; do not invent costs from current list prices."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "A monetary observation is recorded, but cost components has not been assigned with a supported value. The retained amount is $654.8 million.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "A monetary observation is recorded, but cost components has not been assigned with a supported value. The retained amount is $654.8 million."
+          "answer": "Estimated 2015 costs were $57.1 million, including $19.5 million for development, $4.8 million for modeling, and $28.9 million for investigations."
         }
       },
       "economics[].counterfactual": {
@@ -1318,16 +1321,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: CMS's return-on-investment report for the Fraud Prevention System's fourth implementation year counts $654.8 million in inappropriate Medicare payments identified or prevented in 2015 against $57.1...",
-          "record_fields": [
-            "summary"
+          "basis": "Account: pre-payment denials, suspensions, revocations, referrals, and $28.9 million in investigation costs in replication.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0186-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Fraud Prevention System (FPS) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The report attributes savings both to system-triggered actions and to investigations that the system assisted. Its separate administrative levers imply different levels of human decision-making rather than a single autonomous fraud decision.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Investigators and CMS officials probably determined which flagged cases justified payment suspension, billing-privilege revocation, or recovery action, while some pre-payment edits could block claims automatically.",
+          "editor_note": "The report attributes savings both to system-triggered actions and to investigations that the system assisted. Its separate administrative levers imply different levels of human decision-making rather than a single autonomous fraud decision."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1824,23 +1831,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.cms.gov/about-cms/components/cpi/downloads/fraud-prevention-system-return-on-investment-fourth-implementation-year-2015.pdf",
+                "source_refs": [
+                  "AIBD-0186-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Actual payment edits are distinguished from projected cost avoidance and recovery referrals; costs total $57.1 million including $28.9 million investigations.",
+                "locator": "Pages 1–2; Tables 1–2 and notes",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "No detailed model architecture is disclosed."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0186-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No detailed model architecture is disclosed."
         }
       },
       "sources[].citation_locator": {
@@ -1938,26 +1962,64 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.cms.gov/about-cms/components/cpi/downloads/fraud-prevention-system-return-on-investment-fourth-implementation-year-2015.pdf",
+                "source_refs": [
+                  "AIBD-0186-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Actual payment edits are distinguished from projected cost avoidance and recovery referrals; costs total $57.1 million including $28.9 million investigations.",
+                "locator": "Pages 1–2; Tables 1–2 and notes",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.cms.gov/about-cms/components/cpi/downloads/fraud-prevention-system-return-on-investment-fourth-implementation-year-2015.pdf",
+                  "source_refs": [
+                    "AIBD-0186-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Actual payment edits are distinguished from projected cost avoidance and recovery referrals; costs total $57.1 million including $28.9 million investigations.",
+                  "locator": "Pages 1–2; Tables 1–2 and notes",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "No detailed model architecture is disclosed.",
+              "origin_chain": "Archived retained CMS PDF to the same report on the live CMS public site."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0186-source-0001",
+            "retained_source_order": [
+              "AIBD-0186-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. The archived CMS report is the institutional origin. Its reported OIG certification and contractor contributions require separate documents to assess independence and technique. The report and underlying audit were not reopened.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight economics[].costs[]",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0186-source-0001"
           ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The archived CMS report is the institutional origin. Its reported OIG certification and contractor contributions require separate documents to assess independence and technique. The report and underlying audit were not reopened.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The archived CMS report is the institutional origin. Its reported OIG certification and contractor contributions require separate documents to assess independence and technique. The report and underlying audit were not reopened."
+          "answer": "Actual payment edits are distinguished from projected cost avoidance and recovery referrals; costs total $57.1 million including $28.9 million investigations."
         }
       },
       "strategic_assessments[]": {
@@ -2046,19 +2108,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "FPS processed Medicare claims through edits and models to produce payment checks and investigative leads for program-integrity contractors."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: CMS's return-on-investment report for the Fraud Prevention System's fourth implementation year counts $654.8 million in inappropriate Medicare payments identified or prevented in 2015 against $57.1...",
-          "record_fields": [
-            "summary"
+          "basis": "replication.produced_by identifies claims data, FPS edits and models, and Zone Program Integrity Contractor leads.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0186-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Fraud Prevention System (FPS) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "FPS processed Medicare claims through edits and models to produce payment checks and investigative leads for program-integrity contractors."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2241,18 +2309,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 38,
-      "reviewed": 3,
+      "known": 42,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 36,
-      "review_not_assessed": 52,
+      "review_not_assessed": 48,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 38,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 53,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

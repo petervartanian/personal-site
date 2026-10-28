@@ -1335,19 +1335,25 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Borrowers whom FICO classified below prime but whom LendingClub placed in better grades received the clearest reported pricing benefit."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Jagtiani and Lemieux found that LendingClub rating grades' correlation with FICO fell from about 80% (2007 loans) to about 35% (2014–15) and that some traditionally subprime borrowers received bett...",
-          "record_fields": [
-            "summary"
+          "basis": "Account: some subprime borrowers moved into better grades; 8% of A-rated and 28% of B-rated 2015 borrowers had FICO scores below 680.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0176-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has personal, societal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Borrowers whom FICO classified below prime but whom LendingClub placed in better grades received the clearest reported pricing benefit."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1776,23 +1782,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://doi.org/10.21799/frbp.wp.2018.15",
+                "source_refs": [
+                  "AIBD-0176-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Loan-level comparison identifies lower prices for some borrowers assigned better grades than FICO suggests; the article does not reveal a specific proprietary learned model.",
+                "locator": "Abstract and Introduction",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The proprietary model itself was not available."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0176-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The proprietary model itself was not available."
         }
       },
       "sources[].citation_locator": {
@@ -1904,7 +1927,14 @@
                   "AIBD-0176-source-0001"
                 ],
                 "locator": "Philadelphia Fed working paper abstract: rating/FICO correlation, loan performance, better grades, and default-risk-adjusted spreads",
-                "contribution": "The original working paper reports an observational loan-level comparison. Full matching assumptions, model details, and the journal revision were not reassessed."
+                "contribution": "The original working paper reports an observational loan-level comparison. Full matching assumptions, model details, and the journal revision were not reassessed.",
+                "latest_inspection": {
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Loan-level comparison identifies lower prices for some borrowers assigned better grades than FICO suggests; the article does not reveal a specific proprietary learned model.",
+                  "locator": "Abstract and Introduction",
+                  "access_status": "content inspected"
+                }
               }
             ],
             "retained_source_order": [
@@ -1913,12 +1943,31 @@
             "unreviewed_source_refs": [],
             "limitations": "The loan comparison does not isolate machine learning from alternative data, pricing, selection into the platform, or other lender differences. Lower interest spreads are not a complete measure of borrower welfare, and the paper’s observational results cannot establish fairness or benefits for all subprime borrowers. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0176-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://doi.org/10.21799/frbp.wp.2018.15",
+                  "source_refs": [
+                    "AIBD-0176-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Loan-level comparison identifies lower prices for some borrowers assigned better grades than FICO suggests; the article does not reveal a specific proprietary learned model.",
+                  "locator": "Abstract and Introduction",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The proprietary model itself was not available.",
+              "origin_chain": "Retained citation to the original report or research article."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at Philadelphia Fed working paper abstract: rating/FICO correlation, loan performance, better grades, and default-risk-adjusted spreads. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs outcomes[].beneficiaries systems[].component_role",
           "record_fields": [],
           "source_refs": [
             "AIBD-0176-source-0001"
@@ -1990,16 +2039,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Jagtiani and Lemieux found that LendingClub rating grades' correlation with FICO fell from about 80% (2007 loans) to about 35% (2014–15) and that some traditionally subprime borrowers received bett...",
-          "record_fields": [
-            "summary"
+          "basis": "Account and ai_role: predictive loan grades and alternative data, with technique unestablished.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0176-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation is needed that explains each component’s role."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The role of each component in LendingClub rating-grade model (grades A to G) remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The paper demonstrates that the lender's grades diverged from FICO and predicted repayment. Those findings establish additional predictive information more directly than they establish a particular algorithm.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The most defensible reconstruction is a proprietary underwriting and grading model that incorporated alternative data; machine learning may have contributed, but the retained study does not identify a learned model or isolate its role.",
+          "editor_note": "The paper demonstrates that the lender's grades diverged from FICO and predicted repayment. Those findings establish additional predictive information more directly than they establish a particular algorithm."
+        }
       },
       "systems[].deployment_configuration": {
         "state": "unresolved",
@@ -2017,19 +2070,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "LendingClub's grading system used information beyond FICO to assign loan grades that helped determine borrowing costs."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Jagtiani and Lemieux found that LendingClub rating grades' correlation with FICO fell from about 80% (2007 loans) to about 35% (2014–15) and that some traditionally subprime borrowers received bett...",
-          "record_fields": [
-            "summary"
+          "basis": "Account: falling correlation between grades and FICO, better grades for some subprime borrowers, and lower-priced credit.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0176-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of LendingClub rating-grade model (grades A to G) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "LendingClub's grading system used information beyond FICO to assign loan grades that helped determine borrowing costs."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2198,18 +2257,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 3,
+      "known": 40,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 34,
-      "review_not_assessed": 54,
+      "review_not_assessed": 50,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 40,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 51,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

@@ -1585,19 +1585,26 @@
         "coverage": "partial"
       },
       "infrastructure_dependencies[]": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The operation depended on vessel-tracking data, near-real-time communication across agencies, and patrol boats able to intercept the ship."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MV NIKA seized by Indonesia 12 July 2019 after INTERPOL tracking with OceanMind and GFW; captain convicted, owner fined, vessel forfeited; no cited source documents an AI detection.",
-          "record_fields": [
-            "summary"
+          "basis": "INTERPOL and GFW describe analysts tracking the ship and helping officials choose an interception point. The described operation does not establish an automated AI detection. Original operational accounts, tracking and interception sequence.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0347-source-0001",
+            "AIBD-0347-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the infrastructure needed for this deployment is required."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The infrastructure needed for Global Fishing Watch vessel-tracking platform and analysts; OceanMind analysis for INTERPOL (no AI component documented for this case) has not been assessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The operation depended on vessel-tracking data, near-real-time communication across agencies, and patrol boats able to intercept the ship."
+        }
       },
       "outcomes[].beneficiaries": {
         "state": "unresolved",
@@ -2073,27 +2080,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.interpol.int/en/News-and-Events/News/2019/INTERPOL-supports-apprehension-of-vessel-suspected-of-illegal-fishing",
+                "source_refs": [
+                  "AIBD-0347-source-0001"
+                ],
+                "title": "Inspected retained source",
+                "relationship": "Inspected retained source",
+                "contribution": "INTERPOL and GFW describe analysts tracking the ship and helping officials choose an interception point.",
+                "locator": "Original operational accounts, tracking and interception sequence.",
+                "access_status": "Relevant original passages read, as specified by the locator."
+              },
+              {
+                "url": "https://globalfishingwatch.org/article/capture-mv-nika-case/",
+                "source_refs": [
+                  "AIBD-0347-source-0003"
+                ],
+                "title": "Inspected retained source",
+                "relationship": "Inspected retained source",
+                "contribution": "INTERPOL and GFW describe analysts tracking the ship and helping officials choose an interception point.",
+                "locator": "Original operational accounts, tracking and interception sequence.",
+                "access_status": "Relevant original passages read, as specified by the locator."
+              }
+            ],
+            "latest_limitations": "The described operation does not establish an automated AI detection."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0347-source-0001",
-            "AIBD-0347-source-0002",
-            "AIBD-0347-source-0003",
-            "AIBD-0347-source-0004",
-            "AIBD-0347-source-0005"
+            "AIBD-0347-source-0003"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The described operation does not establish an automated AI detection."
         }
       },
       "sources[].citation_locator": {
@@ -2285,7 +2317,25 @@
                   "AIBD-0347-source-0001"
                 ],
                 "locator": "INTERPOL July 22, 2019 release: daily OceanMind-supported reports and hourly Global Fishing Watch updates before apprehension",
-                "contribution": "The original police-coordination release describes support from the two organizations without identifying machine learning. Generic provider descriptions do not fill that gap."
+                "contribution": "The original police-coordination release describes support from the two organizations without identifying machine learning. Generic provider descriptions do not fill that gap.",
+                "latest_inspection": {
+                  "title": "Inspected retained source",
+                  "relationship": "Inspected retained source",
+                  "contribution": "INTERPOL and GFW describe analysts tracking the ship and helping officials choose an interception point.",
+                  "locator": "Original operational accounts, tracking and interception sequence.",
+                  "access_status": "Relevant original passages read, as specified by the locator."
+                }
+              },
+              {
+                "url": "https://globalfishingwatch.org/article/capture-mv-nika-case/",
+                "source_refs": [
+                  "AIBD-0347-source-0003"
+                ],
+                "title": "Inspected retained source",
+                "relationship": "Inspected retained source",
+                "contribution": "INTERPOL and GFW describe analysts tracking the ship and helping officials choose an interception point.",
+                "locator": "Original operational accounts, tracking and interception sequence.",
+                "access_status": "Relevant original passages read, as specified by the locator."
               }
             ],
             "retained_source_order": [
@@ -2303,15 +2353,46 @@
             ],
             "limitations": "Human tracking and information sharing are documented. A general statement that OceanMind uses AI cannot prove that AI generated the lead or course prediction in this event. The later conviction account was not reopened, and the case’s eligibility as an AI benefit remains unresolved. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0347-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.interpol.int/en/News-and-Events/News/2019/INTERPOL-supports-apprehension-of-vessel-suspected-of-illegal-fishing",
+                  "source_refs": [
+                    "AIBD-0347-source-0001"
+                  ],
+                  "title": "Inspected retained source",
+                  "relationship": "Inspected retained source",
+                  "contribution": "INTERPOL and GFW describe analysts tracking the ship and helping officials choose an interception point.",
+                  "locator": "Original operational accounts, tracking and interception sequence.",
+                  "access_status": "Relevant original passages read, as specified by the locator."
+                },
+                {
+                  "url": "https://globalfishingwatch.org/article/capture-mv-nika-case/",
+                  "source_refs": [
+                    "AIBD-0347-source-0003"
+                  ],
+                  "title": "Inspected retained source",
+                  "relationship": "Inspected retained source",
+                  "contribution": "INTERPOL and GFW describe analysts tracking the ship and helping officials choose an interception point.",
+                  "locator": "Original operational accounts, tracking and interception sequence.",
+                  "access_status": "Relevant original passages read, as specified by the locator."
+                }
+              ],
+              "limitations": "The described operation does not establish an automated AI detection.",
+              "origin_chain": "https://www.interpol.int/en/News-and-Events/News/2019/INTERPOL-supports-apprehension-of-vessel-suspected-of-illegal-fishing; https://globalfishingwatch.org/article/capture-mv-nika-case/"
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at INTERPOL July 22, 2019 release: daily OceanMind-supported reports and hourly Global Fishing Watch updates before apprehension. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. Each retained proposal was compared with the inspected passages. Fields outside this scope retain their prior review status.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0347-source-0001"
+            "AIBD-0347-source-0001",
+            "AIBD-0347-source-0003"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2369,16 +2450,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: MV NIKA seized by Indonesia 12 July 2019 after INTERPOL tracking with OceanMind and GFW; captain convicted, owner fined, vessel forfeited; no cited source documents an AI detection.",
-          "record_fields": [
-            "summary"
+          "basis": "INTERPOL and GFW describe analysts tracking the ship and helping officials choose an interception point. The described operation does not establish an automated AI detection. Original operational accounts, tracking and interception sequence.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0347-source-0001",
+            "AIBD-0347-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Global Fishing Watch vessel-tracking platform and analysts; OceanMind analysis for INTERPOL (no AI component documented for this case) remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The operational accounts name analysts who predicted the course and officials who coordinated the boats. They do not describe an automated decision.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The operation most likely relied on analysts’ judgments and official command decisions, rather than an autonomous detection or interdiction system.",
+          "editor_note": "The operational accounts name analysts who predicted the course and officials who coordinated the boats. They do not describe an automated decision."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2554,60 +2640,41 @@
       "workflow": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "INTERPOL reported on 22 July 2019 that the MV NIKA had been detained by Indonesian authorities. The vessel was suspected of illegal fishing in the Southern Ocean. Its owner also owned the blacklisted STS 50 intercepted in Indonesia in 2018. INTERPOL tracked the vessel's movement with support from the UK not-for-profit OceanMind, sending daily reports to Indonesia, New Zealand, Panama, the UK and the US. Hourly updates aided by Global Fishing Watch (GFW) followed as it approached Indonesian waters. GFW's account (23 July 2019) says GFW analyst Imam Prakoso helped track the vessel from February 2019 after it illegally switched off its tracking system. It says a live multi-way communication between Indonesian naval and fishery officials, INTERPOL and GFW analyst Charles Kilgour exchanged information. GFW analysts helped predict its course and identify rendezvous points. Indonesian patrol boats ORCA 2 and ORCA 3 intercepted it on 12 July 2019 at 08:06 local time. The court outcome comes from a UK Government Blue Belt blog of 5 June 2021. That blog was no longer available as of 20 October 2026. The Indonesian Supreme Court gave its verdict on 27 February 2020, the captain was convicted, the owner fined Rp300,000,000 and the vessel forfeited. None of the sources describes a machine-learning or AI detection. OceanMind's homepage says only, in general terms, that it uses satellites, AI and human expertise.",
-            "replication": {
-              "produced_by": [
-                "A blacklisted vessel whose identity and ownership were already known to INTERPOL and CCAMLR",
-                "Continuous tracking by OceanMind and GFW analysts with daily, then hourly, reports to coastal states",
-                "Indonesian patrol vessels positioned at predicted rendezvous points",
-                "Indonesian prosecution leading to a Supreme Court verdict"
-              ],
-              "must_hold": [
-                "A coastal state willing and able to intercept and prosecute",
-                "Analyst capacity to follow a vessel that has switched off its tracking system",
-                "Information sharing between INTERPOL, NGOs and national agencies in near real time",
-                "Documentation of what, if anything, an automated system contributed, which is absent here"
-              ],
-              "echoes": [
-                {
-                  "setting": "STS 50, a blacklisted vessel of the same owner, intercepted in Indonesia in 2018 (INTERPOL release); AI role equally undocumented",
-                  "outcome": "unknown",
-                  "source": "https://www.interpol.int/en/News-and-Events/News/2019/INTERPOL-supports-apprehension-of-vessel-suspected-of-illegal-fishing"
-                }
-              ]
-            }
-          }
+          "kind": "text",
+          "text": "Analysts followed the vessel, shared increasingly frequent updates, and helped Indonesian officials choose an interception point for patrol boats."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "replication"
+          "kind": "curatorial",
+          "basis": "INTERPOL and GFW describe analysts tracking the ship and helping officials choose an interception point. The described operation does not establish an automated AI detection. Original operational accounts, tracking and interception sequence.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0347-source-0001",
+            "AIBD-0347-source-0003"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Analysts followed the vessel, shared increasingly frequent updates, and helped Indonesian officials choose an interception point for patrol boats."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 38,
-      "reviewed": 3,
+      "known": 40,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 35,
-      "review_not_assessed": 53,
+      "reviewed_partial": 7,
+      "record_mapped": 34,
+      "review_not_assessed": 50,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 38,
+        "value_present": 40,
         "not_reported": 0,
-        "unresolved": 53,
+        "unresolved": 51,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

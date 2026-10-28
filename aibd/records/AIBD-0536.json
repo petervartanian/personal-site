@@ -1424,16 +1424,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Researchers report simulated energy-efficiency gains of about 9.2% from driving advice. The system has not been deployed, so real vehicle and emissions benefits remain unknown.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed missingness: approximately 9.2% simulated efficiency gain and unresolved travel-time tradeoffs.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0536-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The evaluation compares battery use and travel time, but it does not specify the tradeoff. Lower energy consumption alone does not establish that a route or driving recommendation is preferable for the user.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The simulated energy gain may come partly from slower or otherwise less convenient travel, so it needs to be judged alongside journey time.",
+          "editor_note": "The evaluation compares battery use and travel time, but it does not specify the tradeoff. Lower energy consumption alone does not establish that a route or driving recommendation is preferable for the user."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1615,23 +1619,41 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-939",
+                "source_refs": [
+                  "AIBD-0536-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read the full forecast-to-Mistral advisory design, terrain inputs, proposed edge deployment, and explicit not-yet-deployed pilot table.",
+                "locator": "_idParaDest-939; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_limitations": "Chronos naming and claimed model size are inconsistent, so no checkpoint or parameter count is adopted."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0536-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Chronos naming and claimed model size are inconsistent, so no checkpoint or parameter count is adopted."
         }
       },
       "sources[].citation_locator": {
@@ -1727,21 +1749,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-939",
+                "source_refs": [
+                  "AIBD-0536-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read the full forecast-to-Mistral advisory design, terrain inputs, proposed edge deployment, and explicit not-yet-deployed pilot table.",
+                "locator": "_idParaDest-939; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-939",
+                  "source_refs": [
+                    "AIBD-0536-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Read the full forecast-to-Mistral advisory design, terrain inputs, proposed edge deployment, and explicit not-yet-deployed pilot table.",
+                  "locator": "_idParaDest-939; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
+              ],
+              "limitations": "Chronos naming and claimed model size are inconsistent, so no checkpoint or parameter count is adopted.",
+              "origin_chain": "Research proposal → ITU; other eco-driving systems are comparison material."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0536-source-0001",
+            "retained_source_order": [
+              "AIBD-0536-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex compared the retained account and evidence with selected sections of the original ITU project submission (_idParaDest-939; The first 6,800 characters of section 2 and both Sample Results (Simulation) passages; remainder and reference list not fully read). This is a partial source review; underlying claims are not independently verified, and no human approval is implied.",
+          "basis": "Case-specific public-source inspection. systems[].component_role outcomes[].tradeoffs",
           "record_fields": [],
           "source_refs": [
             "AIBD-0536-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "ITU’s Use Case 9 conveys the researchers’ simulated findings. Simulation code, benchmark inputs, and an independent road trial are not retained. The project submission was read at _idParaDest-939; The first 6,800 characters of section 2 and both Sample Results (Simulation) passages; remainder and reference list not fully read. The publication-page error was bypassed through ITU’s public API; external references and underlying measurements remain unreviewed.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "ITU’s Use Case 9 conveys the researchers’ simulated findings. Simulation code, benchmark inputs, and an independent road trial are not retained. The project submission was read at _idParaDest-939; The first 6,800 characters of section 2 and both Sample Results (Simulation) passages; remainder and reference list not fully read. The publication-page error was bypassed through ITU’s public API; external references and underlying measurements remain unreviewed."
+          "answer": "Read the full forecast-to-Mistral advisory design, terrain inputs, proposed edge deployment, and explicit not-yet-deployed pilot table."
         }
       },
       "strategic_assessments[]": {
@@ -1800,19 +1867,25 @@
         "coverage": "partial"
       },
       "systems[].component_role": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The proposed pipeline forecasts battery use from vehicle and terrain data, then uses Mistral to turn forecasts into driving advice. Reported simulation examples do not establish an operating in-vehicle system."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Researchers report simulated energy-efficiency gains of about 9.2% from driving advice. The system has not been deployed, so real vehicle and emissions benefits remain unknown.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-939: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0536-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation is needed that explains each component’s role."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The role of each component in AI vehicle-endurance prediction and advisory system remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The proposed pipeline forecasts battery use from vehicle and terrain data, then uses Mistral to turn forecasts into driving advice. Reported simulation examples do not establish an operating in-vehicle system."
+        }
       },
       "systems[].deployment_configuration": {
         "state": "unresolved",
@@ -1999,18 +2072,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 32,
-      "reviewed": 3,
+      "known": 35,
+      "reviewed": 6,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 6,
       "record_mapped": 30,
-      "review_not_assessed": 58,
+      "review_not_assessed": 55,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 32,
+        "value_present": 35,
         "not_reported": 0,
-        "unresolved": 59,
+        "unresolved": 56,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

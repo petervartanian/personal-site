@@ -578,21 +578,21 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "The counts of processed articles and event entries do not establish extraction precision, event recall, correct geocoding, or deduplication. Media coverage biases may shape the resource. No emergency decision or avoided loss is attributed to its use."
+          "text": "The ITU submission reports 38,000 event entries, while HSE’s current project page describes approximately 11,700 messages and 8,300 unique events. Their dates, coverage, and counting units have not been reconciled. Neither count establishes extraction precision, recall, or downstream emergency-management benefit."
         },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "The original institutional page reveals a version or counting-unit difference that the retained count alone does not explain. Preserve the reported38,000 figure as an attributed submission claim. Current database description and processing methods",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0416-source-0001"
+            "https://geography.hse.ru/georisks/results"
           ],
           "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The counts of processed articles and event entries do not establish extraction precision, event recall, correct geocoding, or deduplication. Media coverage biases may shape the resource. No emergency decision or avoided loss is attributed to its use."
+          "answer": "The ITU submission reports 38,000 event entries, while HSE’s current project page describes approximately 11,700 messages and 8,300 unique events. Their dates, coverage, and counting units have not been reconciled. Neither count establishes extraction precision, recall, or downstream emergency-management benefit."
         }
       },
       "claims[].proposition": {
@@ -1412,16 +1412,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: HSE reports an operational pipeline that extracted a 38,000-event natural-hazard database from eight million Russian-language articles.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed missingness: digital mass-media corpus, media-coverage bias, event recall not established.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0416-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The input is mass-media reporting rather than a systematic hazard census, so extraction can organize existing coverage without recovering unreported events.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The database probably makes reported hazards easier to study, but places and events that attract less media coverage will be underrepresented.",
+          "editor_note": "The input is mass-media reporting rather than a systematic hazard census, so extraction can organize existing coverage without recovering unreported events."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1607,23 +1611,52 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-200",
+                "source_refs": [
+                  "AIBD-0416-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "ITU describes prompts and QA filters. The linked HSE original methods page describes manual normalization of casualties and loss values and non-generative checks.",
+                "locator": "_idParaDest-200; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://geography.hse.ru/georisks/results",
+                "source_refs": [
+                  "AIBD-0416-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "The page describes manual normalization and approximately 11.7 thousand messages and 8.3 thousand unique events, which differs from the ITU account’s 38,000-event count.",
+                "locator": "Methods and current database counts",
+                "access_status": "Read in Russian"
+              }
+            ],
+            "latest_limitations": "The currently linked HSE page reports8.3k individual events in an11.7k-message user dataset, while ITU says38k events. Versions and definitions need reconciliation."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0416-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The currently linked HSE page reports8.3k individual events in an11.7k-message user dataset, while ITU says38k events. Versions and definitions need reconciliation."
         }
       },
       "sources[].citation_locator": {
@@ -1719,21 +1752,88 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-200",
+                "source_refs": [
+                  "AIBD-0416-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "ITU describes prompts and QA filters. The linked HSE original methods page describes manual normalization of casualties and loss values and non-generative checks.",
+                "locator": "_idParaDest-200; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              },
+              {
+                "url": "https://geography.hse.ru/georisks/results",
+                "source_refs": [
+                  "AIBD-0416-source-0001"
+                ],
+                "title": "Cited upstream original or public access route",
+                "relationship": "Cited upstream original or public access route",
+                "contribution": "The page describes manual normalization and approximately 11.7 thousand messages and 8.3 thousand unique events, which differs from the ITU account’s 38,000-event count.",
+                "locator": "Methods and current database counts",
+                "access_status": "Read in Russian"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-200",
+                  "source_refs": [
+                    "AIBD-0416-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "ITU describes prompts and QA filters. The linked HSE original methods page describes manual normalization of casualties and loss values and non-generative checks.",
+                  "locator": "_idParaDest-200; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                },
+                {
+                  "url": "https://geography.hse.ru/georisks/results",
+                  "source_refs": [
+                    "AIBD-0416-source-0001"
+                  ],
+                  "title": "Cited upstream original or public access route",
+                  "relationship": "Cited upstream original or public access route",
+                  "contribution": "The page describes manual normalization and approximately 11.7 thousand messages and 8.3 thousand unique events, which differs from the ITU account’s 38,000-event count.",
+                  "locator": "Methods and current database counts",
+                  "access_status": "Read in Russian"
+                }
+              ],
+              "limitations": "The currently linked HSE page reports8.3k individual events in an11.7k-message user dataset, while ITU says38k events. Versions and definitions need reconciliation.",
+              "origin_chain": "HSE submission -> geography.hse.ru/georisks/results, original Russian project methods and data description read."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0416-source-0001",
+            "retained_source_order": [
+              "AIBD-0416-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs outcomes[].tradeoffs",
           "record_fields": [],
           "source_refs": [
             "AIBD-0416-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "ITU’s Use Case 5 supplies HSE University’s project account. The underlying corpus, event-level validation, and any downstream evaluation are not retained as separate evidence. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "ITU’s Use Case 5 supplies HSE University’s project account. The underlying corpus, event-level validation, and any downstream evaluation are not retained as separate evidence. The source chain has not been independently checked in this pass."
+          "answer": "ITU describes prompts and QA filters. The linked HSE original methods page describes manual normalization of casualties and loss values and non-generative checks."
         }
       },
       "strategic_assessments[]": {
@@ -1822,19 +1922,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The language model extracts natural-hazard events from Russian-language news, structures their details, and assigns geographic locations."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: HSE reports an operational pipeline that extracted a 38,000-event natural-hazard database from eight million Russian-language articles.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: identify, structure, and geocode reports; eight million articles and 38,000 event entries for 2018–2024.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0416-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of LLM-driven creation of natural hazard geodatabase from digital mass media have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The language model extracts natural-hazard events from Russian-language news, structures their details, and assigns geographic locations."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -1995,18 +2101,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 35,
-      "reviewed": 3,
+      "known": 38,
+      "reviewed": 6,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 6,
       "record_mapped": 33,
-      "review_not_assessed": 55,
+      "review_not_assessed": 52,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 35,
+        "value_present": 38,
         "not_reported": 0,
-        "unresolved": 56,
+        "unresolved": 53,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

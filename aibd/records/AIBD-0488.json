@@ -203,24 +203,23 @@
       "ai_contribution": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "ai_role": {
-              "status": "assessed",
-              "statement": "AI is described as validating payroll data, detecting exceptions, and supporting the interface. Other automation also executes processing and payments, so AI's separate contribution is unknown."
-            }
-          }
+          "kind": "text",
+          "text": "AI operates within a wider payroll-automation system, and its separate share of the reported processing-time reduction is unknown."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "ai_role"
+          "kind": "curatorial",
+          "basis": "Account and summary explicitly leave AI-specific attribution unresolved.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0488-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "AI operates within a wider payroll-automation system, and its separate share of the reported processing-time reduction is unknown."
+        }
       },
       "ai_relationship": {
         "state": "value_present",
@@ -1248,16 +1247,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: The UAE Ministry of Finance reports that its live AI-enabled payroll system reduced processing time by up to 95%. AI's share of the wider automation gain is not isolated.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed missingness: live federal payroll, up-to-95% time reduction, accuracy and exceptions unassessed.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0488-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has organizational, personal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The measured claim concerns processing time, not payroll accuracy or payment dates. The immediate efficiency mechanism therefore belongs to the administrative workflow.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Payroll administrators are the most direct likely beneficiaries of shorter processing; employees benefit only if pay becomes more timely or accurate.",
+          "editor_note": "The measured claim concerns processing time, not payroll accuracy or payment dates. The immediate efficiency mechanism therefore belongs to the administrative workflow."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1609,23 +1612,41 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-641",
+                "source_refs": [
+                  "AIBD-0488-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read Llama 3.1 8B, UiPath, Oracle, Impala, and Flask components. Chatbot inquiry handling is described partly as future work.",
+                "locator": "_idParaDest-641; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_limitations": "The listed components are not proof that every proposed payroll function was already live."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0488-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The listed components are not proof that every proposed payroll function was already live."
         }
       },
       "sources[].citation_locator": {
@@ -1721,21 +1742,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-641",
+                "source_refs": [
+                  "AIBD-0488-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Read Llama 3.1 8B, UiPath, Oracle, Impala, and Flask components. Chatbot inquiry handling is described partly as future work.",
+                "locator": "_idParaDest-641; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-641",
+                  "source_refs": [
+                    "AIBD-0488-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Read Llama 3.1 8B, UiPath, Oracle, Impala, and Flask components. Chatbot inquiry handling is described partly as future work.",
+                  "locator": "_idParaDest-641; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
+              ],
+              "limitations": "The listed components are not proof that every proposed payroll function was already live.",
+              "origin_chain": "Project submission → ITU; private payroll portal was not accessed."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0488-source-0001",
+            "retained_source_order": [
+              "AIBD-0488-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex compared the retained account and evidence with selected sections of the original ITU project submission (_idParaDest-641; The first 6,800 characters of section 2, including live status and the 95% claim). This is a partial source review; underlying claims are not independently verified, and no human approval is implied.",
+          "basis": "Case-specific public-source inspection. outcomes[].beneficiaries ai_contribution systems[].model_name",
           "record_fields": [],
           "source_refs": [
             "AIBD-0488-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "ITU’s Use Case 4 supplies the deploying ministry’s account. Original timing measurements, payroll-error analysis, and an independent audit are not retained. The project submission was read at _idParaDest-641; The first 6,800 characters of section 2, including live status and the 95% claim. The publication-page error was bypassed through ITU’s public API; external references and underlying measurements remain unreviewed.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "ITU’s Use Case 4 supplies the deploying ministry’s account. Original timing measurements, payroll-error analysis, and an independent audit are not retained. The project submission was read at _idParaDest-641; The first 6,800 characters of section 2, including live status and the 95% claim. The publication-page error was bypassed through ITU’s public API; external references and underlying measurements remain unreviewed."
+          "answer": "Read Llama 3.1 8B, UiPath, Oracle, Impala, and Flask components. Chatbot inquiry handling is described partly as future work."
         }
       },
       "strategic_assessments[]": {
@@ -1839,19 +1905,25 @@
         "coverage": "partial"
       },
       "systems[].model_name": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The submission identifies Llama 3.1 8B, alongside UiPath automation, Oracle payroll, an Impala data lake, and a Flask interface."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: The UAE Ministry of Finance reports that its live AI-enabled payroll system reduced processing time by up to 95%. AI's share of the wider automation gain is not isolated.",
-          "record_fields": [
-            "summary"
+          "basis": "Original ITU submission at _idParaDest-641: model, pilot, description, or future-work passage inspected.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0488-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Contemporaneous technical documentation is needed to identify the underlying model separately from the application."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record identifies AI Payroll Guard, but no separate underlying-model identification is available in this field. The model name and its role need confirmation from a contemporaneous technical or deployment account; an application name alone is insufficient.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The submission identifies Llama 3.1 8B, alongside UiPath automation, Oracle payroll, an Impala data lake, and a Flask interface."
+        }
       },
       "systems[].model_version": {
         "state": "unresolved",
@@ -1994,18 +2066,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 35,
-      "reviewed": 3,
+      "known": 38,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 33,
-      "review_not_assessed": 55,
+      "reviewed_partial": 7,
+      "record_mapped": 32,
+      "review_not_assessed": 52,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 35,
+        "value_present": 38,
         "not_reported": 0,
-        "unresolved": 56,
+        "unresolved": 53,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

@@ -660,19 +660,25 @@
         "coverage": "partial"
       },
       "availability": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "GraphCast forecasts were publicly visible on ECMWF’s experimental charts during the event."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: DeepMind says a live GraphCast run on ECMWF's site forecast Lee's Nova Scotia landfall about nine days ahead; NHC records landfall 16 September 2023; no forecaster use of the run is documented.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: ECMWF editorial.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0341-source-0006"
           ],
-          "source_refs": [],
-          "follow_up": "A dated source establishing the terms of access is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Access to GraphCast (Google DeepMind graph neural network weather model), experimental live run on ECMWF public charts has not been established for a stated date. A published demonstration does not establish public availability.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "GraphCast forecasts were publicly visible on ECMWF’s experimental charts during the event."
+        }
       },
       "brief": {
         "state": "value_present",
@@ -1801,16 +1807,23 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: DeepMind says a live GraphCast run on ECMWF's site forecast Lee's Nova Scotia landfall about nine days ahead; NHC records landfall 16 September 2023; no forecaster use of the run is documented.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: nine-day claim, NHC report and absent decision evidence.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0341-source-0001",
+            "AIBD-0341-source-0002",
+            "AIBD-0341-source-0004",
+            "AIBD-0341-source-0006"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has personal, organizational, societal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "A nine-day track forecast could expand preparation time only if forecasters trusted and acted on it. The sources document the forecast claim but not that step.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The most plausible practical benefit was additional long-range guidance for forecasters, but no retained source shows that an official warning or preparation decision used this run.",
+          "editor_note": "A nine-day track forecast could expand preparation time only if forecasters trusted and acted on it. The sources document the forecast claim but not that step."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -2285,30 +2298,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0341-source-0001",
-            "AIBD-0341-source-0002",
-            "AIBD-0341-source-0003",
-            "AIBD-0341-source-0004",
-            "AIBD-0341-source-0005",
-            "AIBD-0341-source-0006",
-            "AIBD-0341-source-0007",
-            "AIBD-0341-source-0008"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/",
+                "source_refs": [
+                  "AIBD-0341-source-0001"
+                ],
+                "title": "Original developer announcement",
+                "relationship": "Original developer announcement",
+                "contribution": "GraphCast generates weather fields; a simple cyclone tracker is applied. Nine-day Lee claim originates with developer.",
+                "locator": "Forecasting variables and cyclone tracker paragraphs",
+                "access_status": "Architecture and Hurricane Lee claim read"
+              }
+            ],
+            "latest_limitations": "Archived run and actual forecaster decisions not newly verified."
+          }
         },
-        "reason": "The 8 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0341-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 8 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Archived run and actual forecaster decisions not newly verified."
         }
       },
       "sources[].citation_locator": {
@@ -2544,27 +2567,71 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0341-source-0001",
-            "AIBD-0341-source-0002"
-          ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/",
+                "source_refs": [
+                  "AIBD-0341-source-0001"
+                ],
+                "title": "Original developer announcement",
+                "relationship": "Original developer announcement",
+                "contribution": "GraphCast generates weather fields; a simple cyclone tracker is applied. Nine-day Lee claim originates with developer.",
+                "locator": "Forecasting variables and cyclone tracker paragraphs",
+                "access_status": "Architecture and Hurricane Lee claim read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/",
+                  "source_refs": [
+                    "AIBD-0341-source-0001"
+                  ],
+                  "title": "Original developer announcement",
+                  "relationship": "Original developer announcement",
+                  "contribution": "GraphCast generates weather fields; a simple cyclone tracker is applied. Nine-day Lee claim originates with developer.",
+                  "locator": "Forecasting variables and cyclone tracker paragraphs",
+                  "access_status": "Architecture and Hurricane Lee claim read"
+                }
+              ],
+              "limitations": "Archived run and actual forecaster decisions not newly verified.",
+              "origin_chain": "DeepMind original Lee forecast claim → experimental ECMWF run; official hurricane report is separate verification of actual landfall, not use of AI."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0341-source-0001",
+            "retained_source_order": [
+              "AIBD-0341-source-0001",
+              "AIBD-0341-source-0002",
+              "AIBD-0341-source-0003",
+              "AIBD-0341-source-0004",
+              "AIBD-0341-source-0005",
+              "AIBD-0341-source-0006",
+              "AIBD-0341-source-0007",
+              "AIBD-0341-source-0008"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "The retained source trail for A GraphCast live run on ECMWF charts may have forecast Hurricane Lee's Nova Scotia landfall about nine days ahead has not been fully verified. The references support this editorial screening only.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0341-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The retained references have not been fully traced to their original evidence."
+          "answer": "GraphCast generates weather fields; a simple cyclone tracker is applied. Nine-day Lee claim originates with developer."
         }
       },
       "strategic_assessments[]": {
@@ -2667,19 +2734,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "ECMWF initial weather conditions were processed by GraphCast to generate an experimental forecast of Lee’s path."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: DeepMind says a live GraphCast run on ECMWF's site forecast Lee's Nova Scotia landfall about nine days ahead; NHC records landfall 16 September 2023; no forecaster use of the run is documented.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: live public-chart run.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0341-source-0001",
+            "AIBD-0341-source-0006"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of GraphCast (Google DeepMind graph neural network weather model), experimental live run on ECMWF public charts have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "ECMWF initial weather conditions were processed by GraphCast to generate an experimental forecast of Lee’s path."
+        }
       },
       "systems[].model_name": {
         "state": "value_present",
@@ -2862,18 +2936,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 42,
-      "reviewed": 3,
+      "known": 46,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 40,
-      "review_not_assessed": 48,
+      "review_not_assessed": 44,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 42,
+        "value_present": 46,
         "not_reported": 0,
-        "unresolved": 49,
+        "unresolved": 45,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

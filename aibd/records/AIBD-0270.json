@@ -1277,19 +1277,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The authors needed to check the suggested literature and MRI synthesis against the papers before using it in their review."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Chinese neurologists used ChatGPT to help review published MRI findings of cerebral intravascular large B-cell lymphoma for a 59-year-old's case report; the diagnosis came from biopsy, not the model.",
-          "record_fields": [
-            "summary"
+          "basis": "Conditions and account: literature review after biopsy.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0270-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of ChatGPT using GPT-4o in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The authors needed to check the suggested literature and MRI synthesis against the papers before using it in their review."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1329,16 +1335,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Chinese neurologists used ChatGPT to help review published MRI findings of cerebral intravascular large B-cell lymphoma for a 59-year-old's case report; the diagnosis came from biopsy, not the model.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and AI-role assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0270-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has personal, organizational, societal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The model’s documented role begins with literature synthesis after a biopsy diagnosis.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The likely beneficiaries were the authors and later readers of the review; the patient’s diagnosis and treatment were already determined without ChatGPT.",
+          "editor_note": "The model’s documented role begins with literature synthesis after a biopsy diagnosis."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1769,7 +1779,7 @@
         "value": {
           "kind": "structured",
           "data": {
-            "reviewed_on": "2026-10-25",
+            "reviewed_on": "2026-10-27",
             "versions_and_access": [
               {
                 "source_ref": "AIBD-0270-source-0001",
@@ -1781,22 +1791,36 @@
             ],
             "limitations": [
               "DataSheet1.docx and Table1.xlsx were linked but not inspected."
-            ]
+            ],
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11602322/",
+                "source_refs": [
+                  "AIBD-0270-source-0001"
+                ],
+                "title": "original case report and literature review",
+                "relationship": "original case report and literature review",
+                "contribution": "Two radiologists selected 11 papers describing 57 patients and supplied MRI information to GPT-4o; the generated synthesis lacked specific diagnostic imaging features.",
+                "locator": "Literature review with assistance of ChatGPT",
+                "access_status": "Clinical discussion and ChatGPT methods section read"
+              }
+            ],
+            "latest_limitations": "Supplemental prompts were not inspected; no measured writing-time benefit is reported."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Read the original full-text paper. Section 4 and the Acknowledgments expressly identify ChatGPT-4o for the literature review. Supplementary DOCX and XLSX files were identified but not inspected.",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0270-source-0001"
           ],
-          "reviewed_on": "2026-10-25"
+          "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The full article was accessible. Its supplementary files have not been inspected."
+          "answer": "Supplemental prompts were not inspected; no measured writing-time benefit is reported."
         }
       },
       "sources[].citation_locator": {
@@ -1900,7 +1924,7 @@
         "value": {
           "kind": "structured",
           "data": {
-            "reviewed_on": "2026-10-25",
+            "reviewed_on": "2026-10-27",
             "lead_source_ref": "AIBD-0270-source-0001",
             "retained_source_order": [
               "AIBD-0270-source-0001"
@@ -1914,7 +1938,14 @@
                 "display_name": "Frontiers in Immunology",
                 "contribution": "The authors identify the use of GPT-4o for their review of MRI findings from 11 papers.",
                 "locator": "Section 4, first paragraph; Acknowledgments.",
-                "relationship": "Original account from the researchers who used the model. The clinical diagnosis and treatment preceded this literature review."
+                "relationship": "Original account from the researchers who used the model. The clinical diagnosis and treatment preceded this literature review.",
+                "latest_inspection": {
+                  "title": "original case report and literature review",
+                  "relationship": "original case report and literature review",
+                  "contribution": "Two radiologists selected 11 papers describing 57 patients and supplied MRI information to GPT-4o; the generated synthesis lacked specific diagnostic imaging features.",
+                  "locator": "Literature review with assistance of ChatGPT",
+                  "access_status": "Clinical discussion and ChatGPT methods section read"
+                }
               }
             ],
             "claim_chains": [
@@ -1939,16 +1970,36 @@
                   "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2024.1478163/full"
                 ]
               }
-            ]
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11602322/",
+                  "source_refs": [
+                    "AIBD-0270-source-0001"
+                  ],
+                  "title": "original case report and literature review",
+                  "relationship": "original case report and literature review",
+                  "contribution": "Two radiologists selected 11 papers describing 57 patients and supplied MRI information to GPT-4o; the generated synthesis lacked specific diagnostic imaging features.",
+                  "locator": "Literature review with assistance of ChatGPT",
+                  "access_status": "Clinical discussion and ChatGPT methods section read"
+                }
+              ],
+              "limitations": "Supplemental prompts were not inspected; no measured writing-time benefit is reported.",
+              "origin_chain": "The treating authors’ paper is the original account. Its ChatGPT analysis concerns selected literature after clinical diagnosis, not patient-facing decision support."
+            },
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Read the original full-text paper. Section 4 and the Acknowledgments expressly identify ChatGPT-4o for the literature review. Supplementary DOCX and XLSX files were identified but not inspected. Additional inspection for the October 27, 2026 editorial reconstruction: Original paper inspected at the publisher: section 4 and Acknowledgments. The source link to supplementary material was followed, but the linked files were not retrieved.",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0270-source-0001",
-            "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2024.1478163/full"
+            "AIBD-0270-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
@@ -2053,19 +2104,25 @@
         }
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "MRI descriptions from published literature were used to produce a draft synthesis of features associated with intravascular lymphoma."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Chinese neurologists used ChatGPT to help review published MRI findings of cerebral intravascular large B-cell lymphoma for a 59-year-old's case report; the diagnosis came from biopsy, not the model.",
-          "record_fields": [
-            "summary"
+          "basis": "System and existing role answer.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0270-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of ChatGPT using GPT-4o have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "MRI descriptions from published literature were used to produce a draft synthesis of features associated with intravascular lymphoma."
+        }
       },
       "systems[].model_name": {
         "state": "value_present",
@@ -2242,18 +2299,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 40,
-      "reviewed": 6,
+      "known": 42,
+      "reviewed": 9,
       "reviewed_complete": 0,
-      "reviewed_partial": 6,
+      "reviewed_partial": 9,
       "record_mapped": 35,
-      "review_not_assessed": 50,
+      "review_not_assessed": 47,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 40,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 51,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

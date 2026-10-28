@@ -1496,19 +1496,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Clinicians read the smartwatch trace and confirmed ventricular tachycardia with hospital monitoring and electrophysiology testing."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: A smartwatch ECG recorded a 165 bpm wide-complex tachycardia during palpitations; VT was confirmed on telemetry, an ICD placed and later shocked VT, and ablation stopped the VT (JACC Case Rep 2025).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: trace morphology, telemetry and induced VT.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0288-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Smartwatch ECG function with high-heart-rate warning (brand and model not stated) in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Clinicians read the smartwatch trace and confirmed ventricular tachycardia with hospital monitoring and electrophysiology testing."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1630,19 +1636,25 @@
         "coverage": "partial"
       },
       "outcomes[].duration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The patient required further treatment three months later after recurrent ventricular tachycardia, followed by successful ablation."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: A smartwatch ECG recorded a 165 bpm wide-complex tachycardia during palpitations; VT was confirmed on telemetry, an ICD placed and later shocked VT, and ablation stopped the VT (JACC Case Rep 2025).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: ICD shock and subsequent ablation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0288-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Dated observation of the same outcome and population is needed to establish persistence or recurrence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The duration of the claimed benefit is not separately established. Dated follow-up on the same outcome is needed to distinguish a one-time result from recurring or sustained benefit; later work on another system or population does not establish persistence here. The recorded follow-up says: The ICD shock and ablation are undated events within the same report; nothing after publication was found.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The patient required further treatment three months later after recurrent ventricular tachycardia, followed by successful ablation."
+        }
       },
       "outcomes[].id": {
         "state": "unresolved",
@@ -1715,16 +1727,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: A smartwatch ECG recorded a 165 bpm wide-complex tachycardia during palpitations; VT was confirmed on telemetry, an ICD placed and later shocked VT, and ablation stopped the VT (JACC Case Rep 2025).",
-          "record_fields": [
-            "summary"
+          "basis": "Account: symptomatic recording versus sinus rhythm on admission.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0288-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "Admission rhythm was normal and the device did not continuously record ECG.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The watch’s likely advantage was capturing an intermittent episode while it occurred, but that depended on the patient remaining able to start a recording.",
+          "editor_note": "Admission rhythm was normal and the device did not continuously record ECG."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1965,26 +1981,46 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12245455/",
+                "source_refs": [
+                  "AIBD-0288-source-0001",
+                  "AIBD-0288-source-0002",
+                  "AIBD-0288-source-0003",
+                  "AIBD-0288-source-0004"
+                ],
+                "title": "Original clinical case report",
+                "relationship": "Original clinical case report",
+                "contribution": "The patient activated a 10-second ECG during symptoms. The watch warned of a heart rate above 150; clinicians diagnosed VT. Recurrence three months later led to ablation after ICD treatment.",
+                "locator": "Discussion paragraph beginning “In our case”; Medical Intervention",
+                "access_status": "Case, medical intervention, discussion and follow-up read"
+              }
+            ],
+            "latest_limitations": "The paper does not name the device or establish an automatic VT classifier. The benefit depends on symptom-triggered recording and clinician interpretation."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0288-source-0001",
             "AIBD-0288-source-0002",
             "AIBD-0288-source-0003",
             "AIBD-0288-source-0004"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The paper does not name the device or establish an automatic VT classifier. The benefit depends on symptom-triggered recording and clinician interpretation."
         }
       },
       "sources[].citation_locator": {
@@ -2144,27 +2180,76 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12245455/",
+                "source_refs": [
+                  "AIBD-0288-source-0001",
+                  "AIBD-0288-source-0002",
+                  "AIBD-0288-source-0003",
+                  "AIBD-0288-source-0004"
+                ],
+                "title": "Original clinical case report",
+                "relationship": "Original clinical case report",
+                "contribution": "The patient activated a 10-second ECG during symptoms. The watch warned of a heart rate above 150; clinicians diagnosed VT. Recurrence three months later led to ablation after ICD treatment.",
+                "locator": "Discussion paragraph beginning “In our case”; Medical Intervention",
+                "access_status": "Case, medical intervention, discussion and follow-up read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12245455/",
+                  "source_refs": [
+                    "AIBD-0288-source-0001",
+                    "AIBD-0288-source-0002",
+                    "AIBD-0288-source-0003",
+                    "AIBD-0288-source-0004"
+                  ],
+                  "title": "Original clinical case report",
+                  "relationship": "Original clinical case report",
+                  "contribution": "The patient activated a 10-second ECG during symptoms. The watch warned of a heart rate above 150; clinicians diagnosed VT. Recurrence three months later led to ablation after ICD treatment.",
+                  "locator": "Discussion paragraph beginning “In our case”; Medical Intervention",
+                  "access_status": "Case, medical intervention, discussion and follow-up read"
+                }
+              ],
+              "limitations": "The paper does not name the device or establish an automatic VT classifier. The benefit depends on symptom-triggered recording and clinician interpretation.",
+              "origin_chain": "All four retained entries point to the same original clinical case report; they are locators within one work, not four independent sources."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0288-source-0001",
+            "retained_source_order": [
+              "AIBD-0288-source-0001",
+              "AIBD-0288-source-0002",
+              "AIBD-0288-source-0003",
+              "AIBD-0288-source-0004"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex individually reviewed the retained case account, its description of the AI contribution, and the cited evidence excerpts. This is a partial editorial assessment of that material. Original-source verification remains incomplete, and no independent human approval is recorded.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0288-source-0001",
-            "AIBD-0288-source-0002"
+            "AIBD-0288-source-0002",
+            "AIBD-0288-source-0003",
+            "AIBD-0288-source-0004"
           ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Resolve the specific support gaps described in this assessment and inspect the remaining original evidence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The retained source trail for Smartwatch single-lead ECG captures a 165 bpm wide-complex tachycardia in a 64-year-old man; Emory diagnoses ventricular tachycardia, implants a defibrillator and later ablates has not been fully verified. The references support this editorial screening only.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The retained references have not been fully traced to their original evidence."
+          "answer": "The patient activated a 10-second ECG during symptoms. The watch warned of a heart rate above 150; clinicians diagnosed VT. Recurrence three months later led to ablation after ICD treatment."
         }
       },
       "strategic_assessments[]": {
@@ -2256,19 +2341,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The user-triggered recording captured a short single-lead ECG and returned a high-heart-rate warning; it did not label the rhythm as ventricular tachycardia."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: A smartwatch ECG recorded a 165 bpm wide-complex tachycardia during palpitations; VT was confirmed on telemetry, an ICD placed and later shocked VT, and ablation stopped the VT (JACC Case Rep 2025).",
-          "record_fields": [
-            "summary"
+          "basis": "Account and AI-role assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0288-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Smartwatch ECG function with high-heart-rate warning (brand and model not stated) have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The user-triggered recording captured a short single-lead ECG and returned a high-heart-rate warning; it did not label the rhythm as ventricular tachycardia."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2438,18 +2529,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 39,
-      "reviewed": 3,
+      "known": 44,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 37,
-      "review_not_assessed": 51,
+      "review_not_assessed": 46,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 39,
+        "value_present": 44,
         "not_reported": 0,
-        "unresolved": 52,
+        "unresolved": 47,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

@@ -1505,16 +1505,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: DIY Render’s EDIT generates and revises property images for design discussions; faster sales and measured time savings remain unverified.",
-          "record_fields": [
-            "summary"
+          "basis": "EDIT’s product page presents conceptual image editing. Its policy identifies Google Gemini and, for some features, Replicate. Product workflow and FAQ; privacy policy section 3 and terms sections 3–5, May 23, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0599-source-0001",
+            "AIBD-0599-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The provider says that conceptual edits work better than precise refinements and does not present the output as an accurate architectural rendering.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A polished concept could be mistaken for a feasible design or a property’s current condition.",
+          "editor_note": "The provider says that conceptual edits work better than precise refinements and does not present the output as an accurate architectural rendering."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1729,12 +1734,38 @@
               "title": "Legal: EDIT by DIY Render",
               "date": "2026-05-23",
               "basis": "Dated service description, not an event or measured benefit date."
-            }
+            },
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://3das.com/edit/",
+                "source_refs": [
+                  "AIBD-0599-source-0001"
+                ],
+                "title": "Current developer product page",
+                "relationship": "Current developer product page",
+                "contribution": "The product page describes uploading an image, refining a prompt with an assistant, optionally adding a reference image, and generating edits. It recommends conceptual communication rather than precise architectural solutions. It does not identify the model providers named in the separate legal policy.",
+                "locator": "EDIT product page, How does EDIT work? and FAQs.",
+                "access_status": "The direct saved retrieval returned 403. The product workflow and FAQs were read through the public web-tool extraction."
+              },
+              {
+                "url": "https://edit.diyrender.com/legal.html",
+                "source_refs": [
+                  "AIBD-0599-source-0002"
+                ],
+                "title": "Developer’s privacy policy and terms",
+                "relationship": "Developer’s privacy policy and terms",
+                "contribution": "The policy states that prompts, images, and related inputs may be processed by Google Gemini and, for some features, Replicate and underlying model providers. It distinguishes browser-to-provider processing with a user’s API key from processing through the application’s servers or proxies.",
+                "locator": "EDIT legal page, updated May 23, 2026, Privacy Policy section 3 and Terms of Service sections 3 and 5.",
+                "access_status": "The specified passages were read in saved public-source text."
+              }
+            ],
+            "latest_limitations": "The provider does not disclose an exact model release or a comparative productivity study."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Recorded the inspected source versions and access limitations; this does not imply access to unavailable upstream evidence.",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0599-source-0001",
@@ -1743,7 +1774,10 @@
           "reviewed_on": "2026-10-27"
         },
         "review_state": "reviewed",
-        "coverage": "complete"
+        "coverage": "complete",
+        "display": {
+          "answer": "The provider does not disclose an exact model release or a comparative productivity study."
+        }
       },
       "sources[].citation_locator": {
         "state": "value_present",
@@ -1884,7 +1918,14 @@
                 "display_name": "3DAS EDIT product documentation",
                 "contribution": "Identifies intended uses, examples, workflow, and limits of precise refinements.",
                 "locator": "How Does EDIT Work, Who Uses EDIT, and Can I Use EDIT Images Commercially sections.",
-                "relationship": "Original maker product claims; no independent outcome study."
+                "relationship": "Original maker product claims; no independent outcome study.",
+                "latest_inspection": {
+                  "title": "Current developer product page",
+                  "relationship": "Current developer product page",
+                  "contribution": "The product page describes uploading an image, refining a prompt with an assistant, optionally adding a reference image, and generating edits. It recommends conceptual communication rather than precise architectural solutions. It does not identify the model providers named in the separate legal policy.",
+                  "locator": "EDIT product page, How does EDIT work? and FAQs.",
+                  "access_status": "The direct saved retrieval returned 403. The product workflow and FAQs were read through the public web-tool extraction."
+                }
               },
               {
                 "url": "https://edit.diyrender.com/legal.html",
@@ -1894,7 +1935,14 @@
                 "display_name": "3DAS EDIT service documentation",
                 "contribution": "Identifies operator, dated service existence, Gemini and Replicate processing, and accuracy limitations.",
                 "locator": "Privacy Policy sections 1, 3, 6; Terms sections 3 and 5; updated date May 23, 2026.",
-                "relationship": "Original maker documentation; retained as technical and chronological context, not benefit evidence."
+                "relationship": "Original maker documentation; retained as technical and chronological context, not benefit evidence.",
+                "latest_inspection": {
+                  "title": "Developer’s privacy policy and terms",
+                  "relationship": "Developer’s privacy policy and terms",
+                  "contribution": "The policy states that prompts, images, and related inputs may be processed by Google Gemini and, for some features, Replicate and underlying model providers. It distinguishes browser-to-provider processing with a user’s API key from processing through the application’s servers or proxies.",
+                  "locator": "EDIT legal page, updated May 23, 2026, Privacy Policy section 3 and Terms of Service sections 3 and 5.",
+                  "access_status": "The specified passages were read in saved public-source text."
+                }
               }
             ],
             "review_scope": "Read the external product page and dated service documentation. Product claims support intended faster visualization, with no measured transaction or time-saving effect. The sheet’s general home-staging statistics are not treated as a product evaluation.",
@@ -1920,12 +1968,44 @@
               "url": "https://docs.google.com/spreadsheets/d/1ZDVVXiGeMcKJlq4F3GvvZALDtLliGeJtdDV6Zhr_p-0/edit#gid=0",
               "role": "Lead identification only; not independent benefit evidence."
             },
-            "reviewed_on": "2026-10-27"
+            "reviewed_on": "2026-10-27",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://3das.com/edit/",
+                  "source_refs": [
+                    "AIBD-0599-source-0001"
+                  ],
+                  "title": "Current developer product page",
+                  "relationship": "Current developer product page",
+                  "contribution": "The product page describes uploading an image, refining a prompt with an assistant, optionally adding a reference image, and generating edits. It recommends conceptual communication rather than precise architectural solutions. It does not identify the model providers named in the separate legal policy.",
+                  "locator": "EDIT product page, How does EDIT work? and FAQs.",
+                  "access_status": "The direct saved retrieval returned 403. The product workflow and FAQs were read through the public web-tool extraction."
+                },
+                {
+                  "url": "https://edit.diyrender.com/legal.html",
+                  "source_refs": [
+                    "AIBD-0599-source-0002"
+                  ],
+                  "title": "Developer’s privacy policy and terms",
+                  "relationship": "Developer’s privacy policy and terms",
+                  "contribution": "The policy states that prompts, images, and related inputs may be processed by Google Gemini and, for some features, Replicate and underlying model providers. It distinguishes browser-to-provider processing with a user’s API key from processing through the application’s servers or proxies.",
+                  "locator": "EDIT legal page, updated May 23, 2026, Privacy Policy section 3 and Terms of Service sections 3 and 5.",
+                  "access_status": "The specified passages were read in saved public-source text."
+                }
+              ],
+              "limitations": "The provider does not disclose an exact model release or a comparative productivity study.",
+              "origin_chain": "https://3das.com/edit/; https://edit.diyrender.com/legal.html"
+            },
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Traced the retained evidence to the reviewed original accounts and preserved shared origins, chronology, and access limits.",
+          "basis": "Case-specific public-source inspection. The proposed answers were checked against the inspected original passages.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0599-source-0001",
@@ -2024,19 +2104,26 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: DIY Render’s EDIT generates and revises property images for design discussions; faster sales and measured time savings remain unverified.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A property image and editing request produce a revised concept image."
         },
-        "reason": "The inputs and outputs of EDIT by DIY Render have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "EDIT’s product page presents conceptual image editing. Its policy identifies Google Gemini and, for some features, Replicate. Product workflow and FAQ; privacy policy section 3 and terms sections 3–5, May 23, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0599-source-0001",
+            "AIBD-0599-source-0002"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A property image and editing request produce a revised concept image."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2054,19 +2141,26 @@
         "coverage": "partial"
       },
       "systems[].model_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: DIY Render’s EDIT generates and revises property images for design discussions; faster sales and measured time savings remain unverified.",
-          "record_fields": [
-            "summary"
-          ],
-          "source_refs": [],
-          "follow_up": "Documentation identifying the model release used in this case is needed."
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The May 2026 policy names Google Gemini and models hosted through Replicate, without exact releases."
         },
-        "reason": "The model release used by EDIT by DIY Render remains unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "provenance": {
+          "kind": "source_review",
+          "basis": "EDIT’s product page presents conceptual image editing. Its policy identifies Google Gemini and, for some features, Replicate. Product workflow and FAQ; privacy policy section 3 and terms sections 3–5, May 23, 2026.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0599-source-0001",
+            "AIBD-0599-source-0002"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The May 2026 policy names Google Gemini and models hosted through Replicate, without exact releases."
+        }
       },
       "systems[].product_name": {
         "state": "value_present",
@@ -2196,18 +2290,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 39,
-      "reviewed": 19,
+      "known": 41,
+      "reviewed": 22,
       "reviewed_complete": 18,
-      "reviewed_partial": 1,
+      "reviewed_partial": 4,
       "record_mapped": 20,
-      "review_not_assessed": 52,
+      "review_not_assessed": 49,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 39,
+        "value_present": 41,
         "not_reported": 0,
-        "unresolved": 52,
+        "unresolved": 50,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

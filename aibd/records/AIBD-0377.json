@@ -1511,19 +1511,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Waymo handled the referral, and police conducted the stop, searched the car, and detained the passengers."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: LA Times (12 September 2026): before 4 a.m. on 3 Sep Waymo pulled a robotaxi over in the Richmond District after detecting a firearm violation; SFPD found a loaded ghost gun and booked two minors.",
-          "record_fields": [
-            "summary"
+          "basis": "Los Angeles Times original reporting, company and police statements.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0377-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Waymo driverless ride-hail vehicle (Waymo Driver) with the company's in-ride monitoring and terms-of-service enforcement in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Waymo handled the referral, and police conducted the stop, searched the car, and detained the passengers."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1735,19 +1741,25 @@
         }
       },
       "outcomes[].tradeoffs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The incident shows that a fleet operator could interrupt a ride and summon police. It does not establish the accuracy of automatic firearm detection or that a shooting was imminent."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: LA Times (12 September 2026): before 4 a.m. on 3 Sep Waymo pulled a robotaxi over in the Richmond District after detecting a firearm violation; SFPD found a loaded ghost gun and booked two minors.",
-          "record_fields": [
-            "summary"
+          "basis": "Los Angeles Times original report, undisclosed detection mechanism and ongoing investigation.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0377-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The incident shows that a fleet operator could interrupt a ride and summon police. It does not establish the accuracy of automatic firearm detection or that a shooting was imminent."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1977,27 +1989,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0377-source-0001",
-            "AIBD-0377-source-0002",
-            "AIBD-0377-source-0003",
-            "AIBD-0377-source-0004",
-            "AIBD-0377-source-0005"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.spokesman.com/stories/2026/sep/12/waymo-pulls-over-calls-police-on-juvenile-riders-w/",
+                "source_refs": [
+                  "AIBD-0377-source-0001"
+                ],
+                "title": "Original reporting syndicated from Los Angeles Times",
+                "relationship": "Original reporting syndicated from Los Angeles Times",
+                "contribution": "Waymo confirmed company detection and stopping, but did not disclose an automated detection method. Police described search and juvenile custody.",
+                "locator": "Iris Kwok article, company and police statements",
+                "access_status": "Full report read"
+              }
+            ],
+            "latest_limitations": "Syndication is one report, not independent corroboration. Police statement not separately retrieved. Detection mechanism remains undisclosed."
+          }
         },
-        "reason": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0377-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "Syndication is one report, not independent corroboration. Police statement not separately retrieved. Detection mechanism remains undisclosed."
         }
       },
       "sources[].citation_locator": {
@@ -2177,30 +2202,68 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. The Los Angeles Times syndication supplies Waymo's statement; other reporting adds police details and explicitly notes uncertainty about detection. OECD makes a stronger attribution without retained technical support. Underlying logs and police records were not inspected.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0377-source-0001",
-            "AIBD-0377-source-0002",
-            "AIBD-0377-source-0003",
-            "AIBD-0377-source-0004",
-            "AIBD-0377-source-0005"
-          ],
-          "reviewed_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.spokesman.com/stories/2026/sep/12/waymo-pulls-over-calls-police-on-juvenile-riders-w/",
+                "source_refs": [
+                  "AIBD-0377-source-0001"
+                ],
+                "title": "Original reporting syndicated from Los Angeles Times",
+                "relationship": "Original reporting syndicated from Los Angeles Times",
+                "contribution": "Waymo confirmed company detection and stopping, but did not disclose an automated detection method. Police described search and juvenile custody.",
+                "locator": "Iris Kwok article, company and police statements",
+                "access_status": "Full report read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://www.spokesman.com/stories/2026/sep/12/waymo-pulls-over-calls-police-on-juvenile-riders-w/",
+                  "source_refs": [
+                    "AIBD-0377-source-0001"
+                  ],
+                  "title": "Original reporting syndicated from Los Angeles Times",
+                  "relationship": "Original reporting syndicated from Los Angeles Times",
+                  "contribution": "Waymo confirmed company detection and stopping, but did not disclose an automated detection method. Police described search and juvenile custody.",
+                  "locator": "Iris Kwok article, company and police statements",
+                  "access_status": "Full report read"
+                }
+              ],
+              "limitations": "Syndication is one report, not independent corroboration. Police statement not separately retrieved. Detection mechanism remains undisclosed.",
+              "origin_chain": "Spokesman-Review syndication → Iris Kwok, Los Angeles Times direct Waymo statement and SFPD statement."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0377-source-0001",
+            "retained_source_order": [
+              "AIBD-0377-source-0001",
+              "AIBD-0377-source-0002",
+              "AIBD-0377-source-0003",
+              "AIBD-0377-source-0004",
+              "AIBD-0377-source-0005"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "The Los Angeles Times syndication supplies Waymo's statement; other reporting adds police details and explicitly notes uncertainty about detection. OECD makes a stronger attribution without retained technical support. Underlying logs and police records were not inspected.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0377-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The Los Angeles Times syndication supplies Waymo's statement; other reporting adds police details and explicitly notes uncertainty about detection. OECD makes a stronger attribution without retained technical support. Underlying logs and police records were not inspected."
+          "answer": "Waymo confirmed company detection and stopping, but did not disclose an automated detection method. Police described search and juvenile custody."
         }
       },
       "strategic_assessments[]": {
@@ -2248,19 +2311,25 @@
         "coverage": "partial"
       },
       "systems[].autonomy_permissions": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The driverless car could carry out a stop after a company intervention. The sources do not establish whether software or staff detected the firearm or initiated the police referral."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: LA Times (12 September 2026): before 4 a.m. on 3 Sep Waymo pulled a robotaxi over in the Richmond District after detecting a firearm violation; SFPD found a loaded ghost gun and booked two minors.",
-          "record_fields": [
-            "summary"
+          "basis": "Los Angeles Times original reporting, spokesperson statement.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0377-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Documentation of the system’s operating limits is needed."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The limits on autonomous action by Waymo driverless ride-hail vehicle (Waymo Driver) with the company's in-ride monitoring and terms-of-service enforcement remain unconfirmed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The driverless car could carry out a stop after a company intervention. The sources do not establish whether software or staff detected the firearm or initiated the police referral."
+        }
       },
       "systems[].component_role": {
         "state": "unresolved",
@@ -2470,18 +2539,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 37,
-      "reviewed": 3,
+      "known": 42,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 35,
-      "review_not_assessed": 53,
+      "review_not_assessed": 49,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 37,
+        "value_present": 42,
         "not_reported": 0,
-        "unresolved": 54,
+        "unresolved": 49,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

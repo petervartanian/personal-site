@@ -1621,19 +1621,25 @@
         "coverage": "partial"
       },
       "outcomes[].beneficiaries": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Patients with diabetes at participating primary-care sites received screening, and 2,412 analyzed patients were referred for disease, image-quality or visual-acuity concerns."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: At nine primary-care sites (Dec 2018-Mar 2020) Google's deep-learning system graded fundus photos in real time, 94.7% accuracy for vision-threatening DR, 2,412 referrals; a fifth of images rejected.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: nine sites and referral count.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0275-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has personal, organizational, societal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Patients with diabetes at participating primary-care sites received screening, and 2,412 analyzed patients were referred for disease, image-quality or visual-acuity concerns."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1791,19 +1797,25 @@
         }
       },
       "outcomes[].tradeoffs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Image-quality rejection required repeat photography and sometimes unnecessary referrals. Slow or failed internet connections delayed screening, despite rapid grading when connectivity worked."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: At nine primary-care sites (Dec 2018-Mar 2020) Google's deep-learning system graded fundus photos in real time, 94.7% accuracy for vision-threatening DR, 2,412 referrals; a fifth of images rejected.",
-          "record_fields": [
-            "summary"
+          "basis": "CHI 2020 original paper, post-deployment findings and Discussion; retained account of the same field study.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0275-source-0002"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Image-quality rejection required repeat photography and sometimes unnecessary referrals. Slow or failed internet connections delayed screening, despite rapid grading when connectivity worked."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2096,27 +2108,51 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0275-source-0001",
-            "AIBD-0275-source-0002",
-            "AIBD-0275-source-0003",
-            "AIBD-0275-source-0004",
-            "AIBD-0275-source-0005"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://doi.org/10.1016/s2589-7500(22)00017-6",
+                "source_refs": [
+                  "AIBD-0275-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Nine sites, real-time grades, specialist over-reading and 2,412 referrals among 7,651 analyzed patients.",
+                "locator": "Original abstract, Methods and Findings",
+                "access_status": "Relevant original text inspected through public web retrieval."
+              },
+              {
+                "url": "https://doi.org/10.1145/3313831.3376718",
+                "source_refs": [
+                  "AIBD-0275-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "21% of 1,838 images failed gradability. Nurses repeated photography, some uploads took 60–90 seconds, and one two-hour outage halved a screening session. Referral protocol was revised to await specialist review of ungradable images.",
+                "locator": "Post-deployment findings: Gradability; Internet speed and connectivity; Discussion",
+                "access_status": "Relevant original text inspected through public web retrieval."
+              }
+            ],
+            "latest_limitations": "The 2020 qualitative sample and 2018–2020 clinical cohort are distinct. Later expansion claims were not re-evaluated."
+          }
         },
-        "reason": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0275-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 5 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The 2020 qualitative sample and 2018–2020 clinical cohort are distinct. Later expansion claims were not re-evaluated."
         }
       },
       "sources[].citation_locator": {
@@ -2306,7 +2342,25 @@
                   "AIBD-0275-source-0001"
                 ],
                 "locator": "Lancet Digital Health abstract: enrollment, referrals, accuracy/sensitivity/specificity, and implementation qualifications",
-                "contribution": "The original Google/Rajavithi-funded cohort study reports diagnostic performance. Patient treatment completion, visual outcomes, and independent implementation reporting were not reviewed in full."
+                "contribution": "The original Google/Rajavithi-funded cohort study reports diagnostic performance. Patient treatment completion, visual outcomes, and independent implementation reporting were not reviewed in full.",
+                "latest_inspection": {
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Nine sites, real-time grades, specialist over-reading and 2,412 referrals among 7,651 analyzed patients.",
+                  "locator": "Original abstract, Methods and Findings",
+                  "access_status": "Relevant original text inspected through public web retrieval."
+                }
+              },
+              {
+                "url": "https://doi.org/10.1145/3313831.3376718",
+                "source_refs": [
+                  "AIBD-0275-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "21% of 1,838 images failed gradability. Nurses repeated photography, some uploads took 60–90 seconds, and one two-hour outage halved a screening session. Referral protocol was revised to await specialist review of ungradable images.",
+                "locator": "Post-deployment findings: Gradability; Internet speed and connectivity; Discussion",
+                "access_status": "Relevant original text inspected through public web retrieval."
               }
             ],
             "retained_source_order": [
@@ -2324,12 +2378,42 @@
             ],
             "limitations": "Diagnostic accuracy and referral counts are not measured vision preserved. Referrals also included ungradable images and low acuity, and the study abstract stresses workflow and social conditions. The retained field report raises image-rejection burdens, while later million-person screening plans remain prospective and were not rechecked. Other retained sources, complete methods, and supplementary material were not rechecked in this pass.",
             "lead_source_ref": "AIBD-0275-source-0001",
-            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed."
+            "ordering_basis": "The sole inspected origin in this partial lineage assessment directly supports the assessed case. Other retained sources remain explicitly unreviewed.",
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://doi.org/10.1016/s2589-7500(22)00017-6",
+                  "source_refs": [
+                    "AIBD-0275-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Nine sites, real-time grades, specialist over-reading and 2,412 referrals among 7,651 analyzed patients.",
+                  "locator": "Original abstract, Methods and Findings",
+                  "access_status": "Relevant original text inspected through public web retrieval."
+                },
+                {
+                  "url": "https://doi.org/10.1145/3313831.3376718",
+                  "source_refs": [
+                    "AIBD-0275-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "21% of 1,838 images failed gradability. Nurses repeated photography, some uploads took 60–90 seconds, and one two-hour outage halved a screening session. Referral protocol was revised to await specialist review of ungradable images.",
+                  "locator": "Post-deployment findings: Gradability; Internet speed and connectivity; Discussion",
+                  "access_status": "Relevant original text inspected through public web retrieval."
+                }
+              ],
+              "limitations": "The 2020 qualitative sample and 2018–2020 clinical cohort are distinct. Later expansion claims were not re-evaluated.",
+              "origin_chain": "Retained Lancet DOI opened through Exa; retained MIT Technology Review account traced to the original CHI paper."
+            }
           }
         },
         "provenance": {
           "kind": "source_review",
-          "basis": "Codex reviewed the retrieved source passages at Lancet Digital Health abstract: enrollment, referrals, accuracy/sensitivity/specificity, and implementation qualifications. This is a partial review of the benefit/status claim and its limits, not a complete source audit.",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs outcomes[].tradeoffs outcomes[].beneficiaries",
           "record_fields": [],
           "source_refs": [
             "AIBD-0275-source-0001"
@@ -2439,19 +2523,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Retinal photographs produced disease grades and real-time referral recommendations, with specialists reading the images as a safety check."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: At nine primary-care sites (Dec 2018-Mar 2020) Google's deep-learning system graded fundus photos in real time, 94.7% accuracy for vision-threatening DR, 2,412 referrals; a fifth of images rejected.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and AI-role assessment: prospective screening and over-reading.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0275-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Google Health deep-learning diabetic retinopathy screening system have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Retinal photographs produced disease grades and real-time referral recommendations, with specialists reading the images as a safety check."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2637,18 +2727,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 43,
-      "reviewed": 3,
+      "known": 47,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 7,
       "record_mapped": 40,
-      "review_not_assessed": 48,
+      "review_not_assessed": 44,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 43,
+        "value_present": 47,
         "not_reported": 0,
-        "unresolved": 48,
+        "unresolved": 44,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

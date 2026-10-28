@@ -1484,19 +1484,25 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Ranger teams entered the suggested blocks, searched for poaching, removed snares, and recorded what they found. They were not told each block's predicted risk class."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: PAWS-directed ranger patrols in Srepok Wildlife Sanctuary removed over 1,000 snares in December 2018, versus 200–300 in a typical month.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: 72 rangers in teams of eight, blinded block assignments, and snare removals.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0029-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of PAWS (Protection Assistant for Wildlife Security), enhanced iWare-E predictive model with Gaussian-process uncertainty and game-theoretic patrol planning in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Ranger teams entered the suggested blocks, searched for poaching, removed snares, and recorded what they found. They were not told each block's predicted risk class."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1710,16 +1716,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: PAWS-directed ranger patrols in Srepok Wildlife Sanctuary removed over 1,000 snares in December 2018, versus 200–300 in a typical month.",
-          "record_fields": [
-            "summary"
+          "basis": "replication: historical SMART records, sparse positive labels, and spatial stability of poaching.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0029-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The model learned from historical patrol detections, which can only label places and periods that patrols observed. The retained record also requires poacher behavior to remain spatially predictable.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The risk map probably reflected where rangers had previously searched as well as where poaching occurred, making continued patrols outside familiar hotspots important for detecting shifts.",
+          "editor_note": "The model learned from historical patrol detections, which can only label places and periods that patrols observed. The retained record also requires poacher behavior to remain spatially predictable."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2004,25 +2014,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0029-source-0001",
-            "AIBD-0029-source-0002",
-            "AIBD-0029-source-0003"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://arxiv.org/pdf/1903.06669",
+                "source_refs": [
+                  "AIBD-0029-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "PAWS combines risk prediction and patrol planning; the paper expressly discusses biased patrol observations, imperfect detection, and over 1,000 snares removed in Srepok.",
+                "locator": "Abstract and Introduction, version 3 dated November 6, 2019",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_limitations": "The inspected opening sections establish the field test and bias mechanism; the detailed allocation table was not re-read."
+          }
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0029-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The inspected opening sections establish the field test and bias mechanism; the detailed allocation table was not re-read."
         }
       },
       "sources[].citation_locator": {
@@ -2162,29 +2187,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. The PDF and abstract refer to the same PAWS paper and must count as one work. Mongabay reports ranger experience. The retrieved abstract confirms field tests but does not contain the detailed 1,000-snare result or the controls needed to verify it.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0029-source-0001",
-            "AIBD-0029-source-0002",
-            "AIBD-0029-source-0003"
-          ],
-          "reviewed_on": "2026-10-27",
-          "attempted_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://arxiv.org/pdf/1903.06669",
+                "source_refs": [
+                  "AIBD-0029-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "PAWS combines risk prediction and patrol planning; the paper expressly discusses biased patrol observations, imperfect detection, and over 1,000 snares removed in Srepok.",
+                "locator": "Abstract and Introduction, version 3 dated November 6, 2019",
+                "access_status": "content inspected"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://arxiv.org/pdf/1903.06669",
+                  "source_refs": [
+                    "AIBD-0029-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "PAWS combines risk prediction and patrol planning; the paper expressly discusses biased patrol observations, imperfect detection, and over 1,000 snares removed in Srepok.",
+                  "locator": "Abstract and Introduction, version 3 dated November 6, 2019",
+                  "access_status": "content inspected"
+                }
+              ],
+              "limitations": "The inspected opening sections establish the field test and bias mechanism; the detailed allocation table was not re-read.",
+              "origin_chain": "Retained citation to the original report or research article."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0029-source-0001",
+            "retained_source_order": [
+              "AIBD-0029-source-0001",
+              "AIBD-0029-source-0002",
+              "AIBD-0029-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
         },
-        "reason": "The PDF and abstract refer to the same PAWS paper and must count as one work. Mongabay reports ranger experience. The retrieved abstract confirms field tests but does not contain the detailed 1,000-snare result or the controls needed to verify it.",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight outcomes[].tradeoffs",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0029-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The PDF and abstract refer to the same PAWS paper and must count as one work. Mongabay reports ranger experience. The retrieved abstract confirms field tests but does not contain the detailed 1,000-snare result or the controls needed to verify it."
+          "answer": "PAWS combines risk prediction and patrol planning; the paper expressly discusses biased patrol observations, imperfect detection, and over 1,000 snares removed in Srepok."
         }
       },
       "strategic_assessments[]": {
@@ -2285,21 +2347,22 @@
         "state": "value_present",
         "value": {
           "kind": "text",
-          "text": "The models used historical patrol data to estimate where poaching was likely."
+          "text": "PAWS used previous patrol records to estimate poaching risk and supplied the center coordinates of fifteen 3-by-3-kilometer patrol blocks."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Separated the model, software, hardware, or operation already described in the existing record. No new source review is claimed.",
-          "record_fields": [
-            "system",
-            "ai_role",
-            "replication",
-            "account"
+          "kind": "curatorial",
+          "basis": "Account: fifteen selected blocks. replication: SMART patrol records from 2015–2018.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0029-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "PAWS used previous patrol records to estimate poaching risk and supplied the center coordinates of fifteen 3-by-3-kilometer patrol blocks."
+        }
       },
       "systems[].model_name": {
         "state": "value_present",
@@ -2490,18 +2553,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 45,
-      "reviewed": 3,
+      "known": 48,
+      "reviewed": 7,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 43,
-      "review_not_assessed": 45,
+      "reviewed_partial": 7,
+      "record_mapped": 42,
+      "review_not_assessed": 42,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 45,
+        "value_present": 48,
         "not_reported": 0,
-        "unresolved": 46,
+        "unresolved": 43,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

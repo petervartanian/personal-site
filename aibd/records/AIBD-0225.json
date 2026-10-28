@@ -1529,19 +1529,26 @@
         "coverage": "partial"
       },
       "human_oversight": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Human researchers handled attribution and disclosure, and SQLite maintainers released the fix in version 3.50.2."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Google says Big Sleep, fed indicators that attackers were staging a zero-day, isolated SQLite CVE-2025–6965; SQLite shipped the fix in 3.50.2 on 28 June 2025, announced 15 July 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: named CVE credit and release.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0225-source-0002",
+            "AIBD-0225-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of Big Sleep in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Human researchers handled attribution and disclosure, and SQLite maintainers released the fix in version 3.50.2."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1581,16 +1588,21 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Google says Big Sleep, fed indicators that attackers were staging a zero-day, isolated SQLite CVE-2025–6965; SQLite shipped the fix in 3.50.2 on 28 June 2025, announced 15 July 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: maintained software release with security fix.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0225-source-0002",
+            "AIBD-0225-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "The recipients need to be named or defined as a population, distinguishing actual from intended beneficiaries."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The record has organizational, societal assessments, but the actual beneficiaries have not been separately extracted into this field. Their identities or defined populations, and the distinction between actual and intended beneficiaries, need confirmation.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "A released patch only changes exposure when incorporated into deployed software.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "SQLite users could benefit once they installed a version containing the fix; the record does not establish how many users were protected.",
+          "editor_note": "A released patch only changes exposure when incorporated into deployed software."
+        }
       },
       "outcomes[].beneficiary_count": {
         "state": "unresolved",
@@ -1746,19 +1758,27 @@
         }
       },
       "outcomes[].tradeoffs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The strongest supported benefit is finding a patchable flaw from incomplete clues. Preventing an imminent attack remains a separate, unverified claim."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Google says Big Sleep, fed indicators that attackers were staging a zero-day, isolated SQLite CVE-2025–6965; SQLite shipped the fix in 3.50.2 on 28 June 2025, announced 15 July 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: confirmed fix versus undisclosed threat staging.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0225-source-0001",
+            "AIBD-0225-source-0002",
+            "AIBD-0225-source-0003"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The strongest supported benefit is finding a patchable flaw from incomplete clues. Preventing an imminent attack remains a separate, unverified claim."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -2071,26 +2091,75 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://therecord.media/google-big-sleep-ai-tool-found-bug",
+                "source_refs": [
+                  "AIBD-0225-source-0001"
+                ],
+                "title": "Original interview with Google spokesperson",
+                "relationship": "Original interview with Google spokesperson",
+                "contribution": "The spokesperson distinguishes human threat intelligence from the Big Sleep task of identifying the vulnerability; actors and indicators remain undisclosed.",
+                "locator": "Spokesperson’s account of artifacts and isolation",
+                "access_status": "Full report read"
+              },
+              {
+                "url": "https://blog.google/technology/safety-security/cybersecurity-updates-summer-2025/",
+                "source_refs": [
+                  "AIBD-0225-source-0004"
+                ],
+                "title": "Original company benefit claim",
+                "relationship": "Original company benefit claim",
+                "contribution": "Google claims that its combination of threat intelligence and Big Sleep prevented imminent exploitation.",
+                "locator": "15 July 2025, opening security section",
+                "access_status": "Big Sleep section read"
+              },
+              {
+                "url": "https://cveawg.mitre.org/api/cve/CVE-2025-6965",
+                "source_refs": [
+                  "AIBD-0225-source-0001"
+                ],
+                "title": "Original Google CNA record",
+                "relationship": "Original Google CNA record",
+                "contribution": "The credit names Vlad Stolyarov with assistance from Big Sleep. The defect concerns aggregate terms exceeding available columns; affected versions precede 3.50.2.",
+                "locator": "credits, description and affected versions",
+                "access_status": "Full public JSON read"
+              },
+              {
+                "url": "https://sqlite.org/releaselog/3_50_2.html",
+                "source_refs": [
+                  "AIBD-0225-source-0003"
+                ],
+                "title": "Independent maintainer’s original release log",
+                "relationship": "Independent maintainer’s original release log",
+                "contribution": "SQLite documents the corresponding aggregate-term fix in 3.50.2, independently establishing repair but not imminent hostile use.",
+                "locator": "28 June 2025, item 24",
+                "access_status": "Specific release changes read"
+              }
+            ],
+            "latest_limitations": "No threat artifacts or actor identity were available. The public patch does not establish universal installation or quantify attacks prevented."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0225-source-0001",
-            "AIBD-0225-source-0002",
-            "AIBD-0225-source-0003",
-            "AIBD-0225-source-0004"
+            "AIBD-0225-source-0004",
+            "AIBD-0225-source-0003"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 4 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No threat artifacts or actor identity were available. The public patch does not establish universal installation or quantify attacks prevented."
         }
       },
       "sources[].citation_locator": {
@@ -2250,24 +2319,135 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://therecord.media/google-big-sleep-ai-tool-found-bug",
+                "source_refs": [
+                  "AIBD-0225-source-0001"
+                ],
+                "title": "Original interview with Google spokesperson",
+                "relationship": "Original interview with Google spokesperson",
+                "contribution": "The spokesperson distinguishes human threat intelligence from the Big Sleep task of identifying the vulnerability; actors and indicators remain undisclosed.",
+                "locator": "Spokesperson’s account of artifacts and isolation",
+                "access_status": "Full report read"
+              },
+              {
+                "url": "https://blog.google/technology/safety-security/cybersecurity-updates-summer-2025/",
+                "source_refs": [
+                  "AIBD-0225-source-0004"
+                ],
+                "title": "Original company benefit claim",
+                "relationship": "Original company benefit claim",
+                "contribution": "Google claims that its combination of threat intelligence and Big Sleep prevented imminent exploitation.",
+                "locator": "15 July 2025, opening security section",
+                "access_status": "Big Sleep section read"
+              },
+              {
+                "url": "https://cveawg.mitre.org/api/cve/CVE-2025-6965",
+                "source_refs": [
+                  "AIBD-0225-source-0001"
+                ],
+                "title": "Original Google CNA record",
+                "relationship": "Original Google CNA record",
+                "contribution": "The credit names Vlad Stolyarov with assistance from Big Sleep. The defect concerns aggregate terms exceeding available columns; affected versions precede 3.50.2.",
+                "locator": "credits, description and affected versions",
+                "access_status": "Full public JSON read"
+              },
+              {
+                "url": "https://sqlite.org/releaselog/3_50_2.html",
+                "source_refs": [
+                  "AIBD-0225-source-0003"
+                ],
+                "title": "Independent maintainer’s original release log",
+                "relationship": "Independent maintainer’s original release log",
+                "contribution": "SQLite documents the corresponding aggregate-term fix in 3.50.2, independently establishing repair but not imminent hostile use.",
+                "locator": "28 June 2025, item 24",
+                "access_status": "Specific release changes read"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "original_read",
+              "source_inspections": [
+                {
+                  "url": "https://therecord.media/google-big-sleep-ai-tool-found-bug",
+                  "source_refs": [
+                    "AIBD-0225-source-0001"
+                  ],
+                  "title": "Original interview with Google spokesperson",
+                  "relationship": "Original interview with Google spokesperson",
+                  "contribution": "The spokesperson distinguishes human threat intelligence from the Big Sleep task of identifying the vulnerability; actors and indicators remain undisclosed.",
+                  "locator": "Spokesperson’s account of artifacts and isolation",
+                  "access_status": "Full report read"
+                },
+                {
+                  "url": "https://blog.google/technology/safety-security/cybersecurity-updates-summer-2025/",
+                  "source_refs": [
+                    "AIBD-0225-source-0004"
+                  ],
+                  "title": "Original company benefit claim",
+                  "relationship": "Original company benefit claim",
+                  "contribution": "Google claims that its combination of threat intelligence and Big Sleep prevented imminent exploitation.",
+                  "locator": "15 July 2025, opening security section",
+                  "access_status": "Big Sleep section read"
+                },
+                {
+                  "url": "https://cveawg.mitre.org/api/cve/CVE-2025-6965",
+                  "source_refs": [
+                    "AIBD-0225-source-0001"
+                  ],
+                  "title": "Original Google CNA record",
+                  "relationship": "Original Google CNA record",
+                  "contribution": "The credit names Vlad Stolyarov with assistance from Big Sleep. The defect concerns aggregate terms exceeding available columns; affected versions precede 3.50.2.",
+                  "locator": "credits, description and affected versions",
+                  "access_status": "Full public JSON read"
+                },
+                {
+                  "url": "https://sqlite.org/releaselog/3_50_2.html",
+                  "source_refs": [
+                    "AIBD-0225-source-0003"
+                  ],
+                  "title": "Independent maintainer’s original release log",
+                  "relationship": "Independent maintainer’s original release log",
+                  "contribution": "SQLite documents the corresponding aggregate-term fix in 3.50.2, independently establishing repair but not imminent hostile use.",
+                  "locator": "28 June 2025, item 24",
+                  "access_status": "Specific release changes read"
+                }
+              ],
+              "limitations": "No threat artifacts or actor identity were available. The public patch does not establish universal installation or quantify attacks prevented.",
+              "origin_chain": "Google’s announcement and its spokesperson support the intelligence-assisted discovery account. The CNA record identifies the defect and credits. SQLite’s release log independently supports the fix; repetitions of Google’s threat account are not independent confirmation."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0225-source-0001",
+            "retained_source_order": [
+              "AIBD-0225-source-0001",
+              "AIBD-0225-source-0002",
+              "AIBD-0225-source-0003",
+              "AIBD-0225-source-0004"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. Proposals reviewed against the inspected source text; source limitations retained.",
           "record_fields": [],
           "source_refs": [
             "AIBD-0225-source-0001",
-            "AIBD-0225-source-0002",
-            "AIBD-0225-source-0003",
-            "AIBD-0225-source-0004"
+            "AIBD-0225-source-0004",
+            "AIBD-0225-source-0003"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "The CVE credits a Google analyst assisted by Big Sleep; SQLite’s release supports the fix. The Record relays Google’s threat-intelligence explanation, and the later curl finding concerns another vulnerability. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The CVE credits a Google analyst assisted by Big Sleep; SQLite’s release supports the fix. The Record relays Google’s threat-intelligence explanation, and the later curl finding concerns another vulnerability. The source chain has not been independently checked in this pass."
+          "answer": "The spokesperson distinguishes human threat intelligence from the Big Sleep task of identifying the vulnerability; actors and indicators remain undisclosed."
         }
       },
       "strategic_assessments[]": {
@@ -2359,19 +2539,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "Human threat analysts supplied partial artifacts, and Big Sleep helped isolate the corresponding SQLite vulnerability."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Google says Big Sleep, fed indicators that attackers were staging a zero-day, isolated SQLite CVE-2025–6965; SQLite shipped the fix in 3.50.2 on 28 June 2025, announced 15 July 2025.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: spokesperson’s description.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0225-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of Big Sleep have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Human threat analysts supplied partial artifacts, and Big Sleep helped isolate the corresponding SQLite vulnerability."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -2549,18 +2735,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 38,
-      "reviewed": 3,
+      "known": 43,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 8,
       "record_mapped": 36,
-      "review_not_assessed": 52,
+      "review_not_assessed": 47,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 38,
+        "value_present": 43,
         "not_reported": 0,
-        "unresolved": 53,
+        "unresolved": 48,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

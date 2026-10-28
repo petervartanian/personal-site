@@ -1559,19 +1559,25 @@
         "coverage": "partial"
       },
       "outcomes[].duration": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The prospective evaluation covered October 2022, with daily median triage times of 8–13 minutes."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Two-stage NLP (keyword filter plus logistic regression) screened 102,471 chat messages in October 2022 (AUC 0.98, sensitivity 0.98); daily median receipt-to-triage time 8–13 min versus 9 h before.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: 102,471 messages over October.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0311-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Dated observation of the same outcome and population is needed to establish persistence or recurrence."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The duration of the claimed benefit is not separately established. Dated follow-up on the same outcome is needed to distinguish a one-time result from recurring or sustained benefit; later work on another system or population does not establish persistence here. The recorded follow-up says: No source dated after the October 2022 prospective deployment reports whether CMD-1 kept running or was adopted elsewhere; the January 2024 Stanford HAI piece only restates the paper's results.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The prospective evaluation covered October 2022, with daily median triage times of 8–13 minutes."
+        }
       },
       "outcomes[].id": {
         "state": "unresolved",
@@ -1643,16 +1649,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Two-stage NLP (keyword filter plus logistic regression) screened 102,471 chat messages in October 2022 (AUC 0.98, sensitivity 0.98); daily median receipt-to-triage time 8–13 min versus 9 h before.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: prospective sensitivity 0.98 and PPV 0.66.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0311-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Case-specific adverse effects and resource costs need assessment, including who bears them and when."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Costs and harms in this case remain unassessed. A linked comparable incident would not establish that the same harm occurred here.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The reported positive predictive value was 0.66, so false alerts were a material part of the specialist queue.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The very high recall probably came with additional review work because about one-third of prospective positive flags were not confirmed crises.",
+          "editor_note": "The reported positive predictive value was 0.66, so false alerts were a material part of the specialist queue."
+        }
       },
       "outcomes[].unexpected": {
         "state": "value_present",
@@ -1910,25 +1920,40 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
-        "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
-          "source_refs": [
-            "AIBD-0311-source-0001",
-            "AIBD-0311-source-0002",
-            "AIBD-0311-source-0003"
-          ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10663535/",
+                "source_refs": [
+                  "AIBD-0311-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Every flagged message received human review, other messages retained ordinary review, and the system combined a crisis-term filter with a classifier and Slack alerts. October’s analyzed set was 102,471 messages; daily median triage took 8–13 minutes.",
+                "locator": "Introduction; Results; Response times; Method, inclusion criteria and labeling",
+                "access_status": "Original content inspected in the saved public-source retrieval."
+              }
+            ],
+            "latest_limitations": "The paper’s narrative and figure contain inconsistent 120,000/102,471 message totals. Methods and the main results support 102,471. Unflagged messages not subsequently escalated were presumed true negatives, so missed crises could be undercounted."
+          }
         },
-        "reason": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "provenance": {
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0311-source-0001"
+          ],
+          "reviewed_on": "2026-10-27"
+        },
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 3 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "The paper’s narrative and figure contain inconsistent 120,000/102,471 message totals. Methods and the main results support 102,471. Unflagged messages not subsequently escalated were presumed true negatives, so missed crises could be undercounted."
         }
       },
       "sources[].citation_locator": {
@@ -2068,23 +2093,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10663535/",
+                "source_refs": [
+                  "AIBD-0311-source-0001"
+                ],
+                "title": "original",
+                "relationship": "original",
+                "contribution": "Every flagged message received human review, other messages retained ordinary review, and the system combined a crisis-term filter with a classifier and Slack alerts. October’s analyzed set was 102,471 messages; daily median triage took 8–13 minutes.",
+                "locator": "Introduction; Results; Response times; Method, inclusion criteria and labeling",
+                "access_status": "Original content inspected in the saved public-source retrieval."
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10663535/",
+                  "source_refs": [
+                    "AIBD-0311-source-0001"
+                  ],
+                  "title": "original",
+                  "relationship": "original",
+                  "contribution": "Every flagged message received human review, other messages retained ordinary review, and the system combined a crisis-term filter with a classifier and Slack alerts. October’s analyzed set was 102,471 messages; daily median triage took 8–13 minutes.",
+                  "locator": "Introduction; Results; Response times; Method, inclusion criteria and labeling",
+                  "access_status": "Original content inspected in the saved public-source retrieval."
+                }
+              ],
+              "limitations": "The paper’s narrative and figure contain inconsistent 120,000/102,471 message totals. Methods and the main results support 102,471. Unflagged messages not subsequently escalated were presumed true negatives, so missed crises could be undercounted.",
+              "origin_chain": "Retained citation to the original report or research article."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0311-source-0001",
+            "retained_source_order": [
+              "AIBD-0311-source-0001",
+              "AIBD-0311-source-0002",
+              "AIBD-0311-source-0003"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed this entry’s retained account, AI-role statement, and evidence excerpts. This is a partial curatorial review of retained material, not a fresh external source verification or independent human approval.",
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs workflow outcomes[].tradeoffs outcomes[].duration",
           "record_fields": [],
           "source_refs": [
-            "AIBD-0311-source-0001",
-            "AIBD-0311-source-0002",
-            "AIBD-0311-source-0003"
+            "AIBD-0311-source-0001"
           ],
           "reviewed_on": "2026-10-27"
         },
-        "reason": "The two paper entries are one Cerebral-led study with disclosed employment and equity interests. Stanford HAI restates it with differing headline numbers, not independent validation; the original paper should govern the numerical comparison. The source chain has not been independently checked in this pass.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The two paper entries are one Cerebral-led study with disclosed employment and equity interests. Stanford HAI restates it with differing headline numbers, not independent validation; the original paper should govern the numerical comparison. The source chain has not been independently checked in this pass."
+          "answer": "Every flagged message received human review, other messages retained ordinary review, and the system combined a crisis-term filter with a classifier and Slack alerts. October’s analyzed set was 102,471 messages; daily median triage took 8–13 minutes."
         }
       },
       "strategic_assessments[]": {
@@ -2182,19 +2250,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "A keyword filter selected chat messages for a logistic-regression classifier, which sent likely crises to specialists through Slack."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: Two-stage NLP (keyword filter plus logistic regression) screened 102,471 chat messages in October 2022 (AUC 0.98, sensitivity 0.98); daily median receipt-to-triage time 8–13 min versus 9 h before.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: two-stage architecture.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0311-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of CMD-1 (Crisis Message Detector 1): key-word filter followed by a logistic-regression classifier on chat messages have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "A keyword filter selected chat messages for a logistic-regression classifier, which sent likely crises to specialists through Slack."
+        }
       },
       "systems[].model_name": {
         "state": "value_present",
@@ -2337,52 +2411,40 @@
       "workflow": {
         "state": "value_present",
         "value": {
-          "kind": "record_fields",
-          "fields": {
-            "account": "Swaminathan, López and colleagues published in npj Digital Medicine on 21 November 2023. They are at Cerebral Inc., a national tele-mental-health provider, and Stanford University School of Medicine. They described developing and deploying Crisis Message Detector 1 (CMD-1). CMD-1 is a two-stage natural-language-processing system: key-word filtering, then logistic regression. It flags patient chat messages indicating possible suicidal or homicidal ideation, domestic violence or non-suicidal self-injury. It surfaces them to Cerebral's crisis specialists via a Slack interface. The model was trained on 721 messages (32% potential crises) sent between 1 April 2021 and 1 April 2022. It was evaluated on a retrospective test set of 481 messages: AUC 0.82, sensitivity 0.99, PPV 0.35. A prospective test set had 102,471 messages from 1 to 31 October 2022 (AUC 0.98; sensitivity 0.98; PPV 0.66). 9,795 of these passed the key-word filter. In the prospective period the daily median time from message receipt to crisis-specialist triage was 8 to 13 minutes. Before deployment it averaged more than 9 hours, per Cerebral's internal analysis. False negatives reached specialists through usual channels. Seven authors report salary and equity in Cerebral and three part-time employment there. Stanford HAI's account (8 January 2024) gives the reduction as “from 10 hours to under 10 minutes” with 97% sensitivity and specificity. Those figures differ slightly from the paper's. No downstream patient outcome (hospitalization, emergency department (ED) use, attempts) is reported.",
-            "replication": {
-              "produced_by": [
-                "Thousands of daily patient chat messages on a telehealth platform with a crisis response team already in place",
-                "A key-word filter followed by a logistic-regression classifier trained on 721 labeled messages",
-                "A Slack-based workflow in which crisis specialists review and label surfaced messages"
-              ],
-              "must_hold": [
-                "Crisis specialists available to act on surfaced messages within minutes",
-                "A high-recall filter stage, since messages that do not pass it are classified as non-crises automatically",
-                "Message volume and language similar to the training data. The authors note the prospective PPV was 0.66"
-              ],
-              "echoes": []
-            }
-          }
+          "kind": "text",
+          "text": "Crisis specialists reviewed every flagged message before an intervention. Messages that the system did not flag continued through ordinary human review, and support staff could escalate missed crises."
         },
         "provenance": {
-          "kind": "legacy_record",
-          "basis": "Preserved from the existing AIBD record; external sources were not rechecked.",
-          "record_fields": [
-            "account",
-            "replication"
+          "kind": "curatorial",
+          "basis": "Original article, Introduction and Method: prospective labeling and clinical workflow.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0311-source-0001"
           ],
-          "source_refs": []
+          "reviewed_on": "2026-10-27"
         },
-        "review_state": "record_mapped",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Crisis specialists reviewed every flagged message before an intervention. Messages that the system did not flag continued through ordinary human review, and support staff could escalate missed crises."
+        }
       }
     },
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 41,
-      "reviewed": 3,
+      "known": 45,
+      "reviewed": 8,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
-      "record_mapped": 39,
-      "review_not_assessed": 49,
+      "reviewed_partial": 8,
+      "record_mapped": 38,
+      "review_not_assessed": 45,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 41,
+        "value_present": 45,
         "not_reported": 0,
-        "unresolved": 50,
+        "unresolved": 46,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,

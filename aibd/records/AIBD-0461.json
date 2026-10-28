@@ -1184,16 +1184,20 @@
         "state": "unresolved",
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: A Zambian research project proposes summaries and warnings for potentially harmful terms-of-service and privacy-policy clauses.",
-          "record_fields": [
-            "summary"
+          "basis": "Account and reviewed missingness: final-year project, expert annotations planned, legal reliability not demonstrated.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0461-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "Actual deployment oversight needs confirmation from an operating procedure or firsthand account; replication requirements alone are insufficient."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "Human oversight of AI model to summarize, rate, and flag potentially harmful clauses found in terms of service or privacy policy agreements for digital services in this case remains unassessed.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "reason": "The project proposes summaries and ratings rather than a binding legal determination. Expert annotations remain planned, so its most credible role is directing attention rather than establishing enforceability.",
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "Users would probably use the warnings to decide which clauses deserve closer reading or qualified legal advice.",
+          "editor_note": "The project proposes summaries and ratings rather than a binding legal determination. Expert annotations remain planned, so its most credible role is directing attention rather than establishing enforceability."
+        }
       },
       "id": {
         "state": "value_present",
@@ -1594,23 +1598,41 @@
         "coverage": "partial"
       },
       "sources[].access_version": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "reviewed_on": "2026-10-27",
+            "latest_inspections": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-471",
+                "source_refs": [
+                  "AIBD-0461-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Source describes fair/unfair-clause classification and summaries; more documents and professional annotations are future work.",
+                "locator": "_idParaDest-471; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_limitations": "No pilot or legal-classification benchmark supplied."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "This is an explicit unresolved assignment from the current structured data inventory. It does not claim that external sources were opened or that this question received substantive review.",
-          "record_fields": [
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Access results recorded for the specific sources and passages listed in the lineage assessment.",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0461-source-0001"
           ],
-          "follow_up": "Use actual URL-specific access logs, version or archive identifiers, and documented correction or retraction checks. Do not invent an access event."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access.",
-        "review_state": "not_assessed",
+        "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The 1 retained source entries do not have a populated record of URL-specific access dates, inspected versions, and correction checks. A date of field review does not establish a date of source access."
+          "answer": "No pilot or legal-classification benchmark supplied."
         }
       },
       "sources[].citation_locator": {
@@ -1706,27 +1728,66 @@
         "coverage": "partial"
       },
       "sources[].upstream_sources": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "structured",
+          "data": {
+            "origins": [
+              {
+                "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-471",
+                "source_refs": [
+                  "AIBD-0461-source-0001"
+                ],
+                "title": "Original project-submitted account published by ITU",
+                "relationship": "Original project-submitted account published by ITU",
+                "contribution": "Source describes fair/unfair-clause classification and summaries; more documents and professional annotations are future work.",
+                "locator": "_idParaDest-471; model/training and pilot table passages where present; description, future-work, and reference passages",
+                "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+              }
+            ],
+            "latest_review": {
+              "reviewed_on": "2026-10-27",
+              "status": "partial_original",
+              "source_inspections": [
+                {
+                  "url": "https://www.itu.int/epublications/publication/ai-for-good-innovate-for-impact#_idParaDest-471",
+                  "source_refs": [
+                    "AIBD-0461-source-0001"
+                  ],
+                  "title": "Original project-submitted account published by ITU",
+                  "relationship": "Original project-submitted account published by ITU",
+                  "contribution": "Source describes fair/unfair-clause classification and summaries; more documents and professional annotations are future work.",
+                  "locator": "_idParaDest-471; model/training and pilot table passages where present; description, future-work, and reference passages",
+                  "access_status": "Official API returned publication HTML; case-specific source passages inspected.",
+                  "access_url": "https://www.itu.int/epublications/api/v1/translation/ai-for-good-innovate-for-impact/en"
+                }
+              ],
+              "limitations": "No pilot or legal-classification benchmark supplied.",
+              "origin_chain": "Zambian project submission -> studies of reading privacy terms, not this model’s legal accuracy."
+            },
+            "reviewed_on": "2026-10-27",
+            "scope": "The listed original sources or intermediaries were inspected for the identified claims. Access limits remain explicit.",
+            "lead_source_ref": "AIBD-0461-source-0001",
+            "retained_source_order": [
+              "AIBD-0461-source-0001"
+            ],
+            "ordering_basis": "The existing lead supports the central case account. Additional material records the original evidence and its qualifications; source independence is assessed separately."
+          }
+        },
         "provenance": {
-          "kind": "curatorial",
-          "basis": "Codex reviewed the retained citation relationships and the access results recorded in this pass. This is a partial lineage assessment and does not authorize a fully reviewed source order. The project submission is the source for the proposed tool and expected effects. An expert-labeled evaluation and a user study were not inspected; general legal relevance is not evidence of this tool's accuracy.",
-          "record_fields": [
-            "account",
-            "ai_role",
-            "evidence"
-          ],
+          "kind": "source_review",
+          "basis": "Case-specific public-source inspection. systems[].inputs_outputs human_oversight",
+          "record_fields": [],
           "source_refs": [
             "AIBD-0461-source-0001"
           ],
-          "reviewed_on": "2026-10-27",
-          "attempted_on": "2026-10-27",
-          "follow_up": "Inspect the remaining originals and underlying methods, and resolve the specific support gaps identified here before treating this assessment as complete."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The project submission is the source for the proposed tool and expected effects. An expert-labeled evaluation and a user study were not inspected; general legal relevance is not evidence of this tool's accuracy.",
         "review_state": "reviewed",
         "coverage": "partial",
         "display": {
-          "answer": "The project submission is the source for the proposed tool and expected effects. An expert-labeled evaluation and a user study were not inspected; general legal relevance is not evidence of this tool's accuracy."
+          "answer": "Source describes fair/unfair-clause classification and summaries; more documents and professional annotations are future work."
         }
       },
       "strategic_assessments[]": {
@@ -1815,19 +1876,25 @@
         "coverage": "partial"
       },
       "systems[].inputs_outputs": {
-        "state": "unresolved",
+        "state": "value_present",
+        "value": {
+          "kind": "text",
+          "text": "The proposed model would read terms-of-service and privacy agreements, summarize them, and flag clauses that may compromise rights or privacy."
+        },
         "provenance": {
           "kind": "curatorial",
-          "basis": "Codex assignment from retained material: Assign an explicit unresolved disposition and identify the evidence needed; do not infer factual absence from an empty field. No original source was newly inspected; this assignment does not claim a substantive review. Retained case context: A Zambian research project proposes summaries and warnings for potentially harmful terms-of-service and privacy-policy clauses.",
-          "record_fields": [
-            "summary"
+          "basis": "Account: proposed agreement summaries and harmful-clause flags.",
+          "record_fields": [],
+          "source_refs": [
+            "AIBD-0461-source-0001"
           ],
-          "source_refs": [],
-          "follow_up": "A description is needed that traces the data through the deployed system."
+          "reviewed_on": "2026-10-27"
         },
-        "reason": "The inputs and outputs of AI model to summarize, rate, and flag potentially harmful clauses found in terms of service or privacy policy agreements for digital services have not been specified.",
-        "review_state": "not_assessed",
-        "coverage": "partial"
+        "review_state": "reviewed",
+        "coverage": "partial",
+        "display": {
+          "answer": "The proposed model would read terms-of-service and privacy agreements, summarize them, and flag clauses that may compromise rights or privacy."
+        }
       },
       "systems[].model_name": {
         "state": "unresolved",
@@ -1984,18 +2051,18 @@
     "summary": {
       "total": 91,
       "addressed": 91,
-      "known": 31,
-      "reviewed": 3,
+      "known": 34,
+      "reviewed": 6,
       "reviewed_complete": 0,
-      "reviewed_partial": 3,
+      "reviewed_partial": 6,
       "record_mapped": 29,
-      "review_not_assessed": 59,
+      "review_not_assessed": 56,
       "not_assessed": 0,
       "complete": false,
       "by_state": {
-        "value_present": 31,
+        "value_present": 34,
         "not_reported": 0,
-        "unresolved": 60,
+        "unresolved": 57,
         "not_assessed": 0,
         "not_applicable": 0,
         "withheld": 0,
