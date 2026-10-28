@@ -9,6 +9,7 @@
   var text = draft.querySelector('[data-contribution-body]');
   var status = draft.querySelector('[data-contribution-status]');
   var email = draft.querySelector('[data-contribution-email]');
+  var submission = draft.querySelector('[data-contribution-submit]');
   var kind = params.get('kind');
   if (labels[kind]) fields.kind.value = kind;
   fields.case.value = params.get('case') || '';
@@ -28,8 +29,14 @@
     if (fields.who.value.trim()) lines.push('', 'Credit: ' + fields.who.value.trim());
     text.value = lines.join('\n');
     email.href = 'mailto:' + form.dataset.contact + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text.value);
+    if (submission) {
+      var address = new URL(form.dataset.submissionUrl);
+      address.searchParams.set('title', subject);
+      address.searchParams.set('body', text.value);
+      submission.href = address.href;
+    }
     draft.hidden = false;
-    status.textContent = 'The draft is ready. Nothing has been sent.';
+    status.textContent = 'The draft is ready. Nothing has been sent. GitHub assigns a tracking number after you submit it there.';
     text.focus({preventScroll: true});
     draft.scrollIntoView({block: 'nearest', behavior: 'auto'});
   });
@@ -41,5 +48,13 @@
       text.focus(); text.select();
       status.textContent = 'The draft is selected for copying.';
     }
+  });
+  var download = draft.querySelector('[data-contribution-download]');
+  if (download) download.addEventListener('click', function () {
+    var url = URL.createObjectURL(new Blob([text.value + '\n'], {type: 'text/plain;charset=utf-8'}));
+    var link = document.createElement('a');
+    link.href = url; link.download = 'aibd-contribution.txt';
+    document.body.appendChild(link); link.click(); link.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
   });
 }());

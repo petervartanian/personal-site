@@ -78,9 +78,11 @@
   const dialog = document.getElementById('benefit-legend');
   if (!button || !dialog) return;
 
-  button.addEventListener('click', () => {
+  let returnTrigger = button;
+  function openLegend(trigger) {
+    returnTrigger = trigger;
     if (typeof dialog.showModal !== 'function') {
-      window.location.href = 'cases.html?open=method';
+      window.location.href = dialog.querySelector('.benefit-legend-method a').href;
       return;
     }
     if ('showPopover' in HTMLElement.prototype) {
@@ -88,9 +90,11 @@
     }
     dialog.showModal();
     dialog.querySelector('.door-key-body').scrollTop = 0;
-  });
+  }
+  button.addEventListener('click', () => openLegend(button));
+  document.addEventListener('click', event => { const trigger = event.target.closest('[data-rating-guide]'); if (trigger) openLegend(trigger); });
   dialog.querySelector('[data-legend-close]').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('close', () => button.focus({ preventScroll: true }));
+  dialog.addEventListener('close', () => returnTrigger.focus({ preventScroll: true }));
   function outside(event) {
     const bounds = dialog.getBoundingClientRect();
     return event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
@@ -372,11 +376,15 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
 // Shelf: the cases a reader keeps, in localStorage, on every page.
 (function () {
   var KEY = 'aibd-shelf';
-  function ids() { try { var v = JSON.parse(window.localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return []; } }
-  function save(list) { try { window.localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) {} }
+  var sharedIds = null;
+  function readAddress(address) { sharedIds = address.has('compare') && window.AIBDExplorer ? window.AIBDExplorer.caseIds(address.get('compare')) : null; }
+  readAddress(new URLSearchParams(window.location.search));
+  function ids() { if (sharedIds !== null) return sharedIds.slice(); try { var v = JSON.parse(window.localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return []; } }
+  function save(list) { if (sharedIds !== null) { sharedIds = list.slice(); return; } try { window.localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) {} }
   var lastCleared = [];
   var shelf = window.aibdShelf = {
     ids: ids,
+    readAddress: readAddress,
     has: function (id) { return ids().indexOf(id) !== -1; },
     toggle: function (id) { var list = ids(), i = list.indexOf(id); if (i === -1) list.push(id); else list.splice(i, 1); save(list); return i === -1; },
     clear: function () { save([]); }
@@ -386,7 +394,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     document.querySelectorAll('[data-shelf-link]').forEach(function (a) { a.textContent = n ? 'Compare (' + n + ')' : 'Compare'; });
     document.querySelectorAll('[data-keep]').forEach(function (b) {
       var id = b.getAttribute('data-keep'), on = shelf.has(id);
-      var label = on ? b.getAttribute('data-kept-label') || 'Kept' : b.getAttribute('data-keep-label') || 'Keep this case';
+      var label = on ? b.getAttribute('data-kept-label') || 'Selected' : b.getAttribute('data-keep-label') || 'Compare';
       b.textContent = label; b.setAttribute('aria-pressed', String(on));
       b.setAttribute('aria-label', label + (/\b(benefit|case)\b/i.test(label) ? '' : ' benefit') + ' № ' + id.replace('AIBD-', '') + (b.closest('[data-compare]') ? ' from comparison' : ''));
     });
@@ -397,10 +405,14 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-keep]');
     if (b) {
-      var comparison = b.closest('[data-compare]');
-      shelf.toggle(b.getAttribute('data-keep')); paint();
+      var comparison = b.closest('[data-compare]'), table = b.closest('.case-table'), keptId = b.getAttribute('data-keep');
+      shelf.toggle(keptId); paint();
       if (window.aibdApply) window.aibdApply();
-      if (!b.isConnected) { var target = comparison && comparison.childElementCount ? comparison : document.querySelector('[data-compare-open]'); if (target) target.focus({ preventScroll: true }); }
+      if (!b.isConnected) {
+        var replacement = table && Array.from(table.querySelectorAll('[data-keep]')).find(function (button) { return button.getAttribute('data-keep') === keptId; });
+        var target = replacement || (comparison && comparison.childElementCount ? comparison : document.querySelector('[data-compare-open]'));
+        if (target) target.focus({ preventScroll: true });
+      }
       return;
     }
     if (e.target.closest('[data-shelf-clear]')) { lastCleared = ids(); shelf.clear(); paint(); document.querySelectorAll('[data-shelf-undo]').forEach(function (u) { u.hidden = !lastCleared.length; }); if (window.aibdApply) window.aibdApply(); return; }
@@ -442,7 +454,8 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
 (function () {
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
-  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'deployer', 'harm'];
+  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'deployer', 'harm', 'status'];
+  var explorerCore = window.AIBDExplorer;
   var compareData = null, compareLoading = false, compareFailed = false;
   var compareStatus = ex.querySelector('[data-compare-status]');
   var compareMessage = ex.querySelector('[data-compare-message]');
@@ -511,8 +524,11 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       observedEntityLogos.delete(image);
     });
   }
-  // One tool at a time: the open one, or none.
+  // Filters are independent of the selected view. Older ?open=lists links remain valid.
+  var initialAddress = new URLSearchParams(window.location.search);
+  var filtersOpen = initialAddress.get('filters') === '1' || initialAddress.get('open') === 'lists';
   var openTool = (new URLSearchParams(window.location.search).get('open') || '').split(',').map(function (k) { return ALIAS[k] || k; }).filter(function (k) { return PANELS.indexOf(k) !== -1; })[0] || null;
+  if (openTool === 'lists') openTool = null;
   function goTo() {
     if (!pendingTo) return;
     var target = document.getElementById(pendingTo); if (!target) return;
@@ -539,14 +555,16 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   }
   function applyTools() {
     PANELS.forEach(function (k) {
-      var on = k === openTool;
+      var on = k === 'lists' ? filtersOpen : k === openTool;
       var panel = ex.querySelector('[data-tool-panel="' + k + '"]'); if (panel) { panel.hidden = !on; if (on) loadFragment(panel); }
-      if (k === 'table' || k === 'shelf') { if (on || (openTool !== 'table' && openTool !== 'shelf')) { ex.classList.toggle('tabular', on); var th = ex.querySelector('[data-table-head]'); if (th) th.hidden = !on; } }
+      if (k === 'table') ex.classList.toggle('table-view', on);
     });
+    ex.classList.toggle('filters-open', filtersOpen);
     if (viewSelect) viewSelect.value = VIEWS.indexOf(openTool) !== -1 ? openTool : '';
+    ex.querySelectorAll('[data-explorer-view]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.explorerView === (VIEWS.indexOf(openTool) !== -1 ? openTool : openTool ? '__tool__' : ''))); });
     paintOptionsState();
     ex.querySelectorAll('[data-open-tool]').forEach(function (b) {
-      var on = (b.getAttribute('data-open-tool') || null) === openTool;
+      var on = b.getAttribute('data-open-tool') === 'lists' ? filtersOpen : (b.getAttribute('data-open-tool') || null) === openTool;
       b.classList.toggle('on', on);
       if (b.hasAttribute('aria-expanded')) b.setAttribute('aria-expanded', String(on));
       if (b.hasAttribute('aria-pressed')) b.setAttribute('aria-pressed', String(on));
@@ -555,13 +573,16 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (compare) compare.hidden = false;
   }
   ex.addEventListener('click', function (e) {
+    if (e.target.closest('[data-filter-close]')) { filtersOpen = false; applyTools(); apply(true); focusControl(ex.querySelector('[data-open-tool=lists]')); return; }
+    var view = e.target.closest('[data-explorer-view]');
+    if (view) { openTool = view.dataset.explorerView || null; applyTools(); apply(true); return; }
     var c = e.target.closest('[data-tool-close]');
     if (c) {
       e.preventDefault();
       var previousTool = openTool;
       openTool = null; applyTools(); apply(true);
       var target = previousTool === 'lists' ? ex.querySelector('[data-open-tool="lists"]') : previousTool === 'shelf' ? ex.querySelector('[data-compare-open]:not([hidden])') : previousTool === 'roles' ? roleSelect : null;
-      target = target || viewSelect;
+      target = target || ex.querySelector('[data-explorer-view="' + (VIEWS.indexOf(previousTool) !== -1 ? previousTool : '') + '"]');
       focusControl(target);
       var top = controls || ex.querySelector('.lede') || ex;
       top.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
@@ -573,7 +594,12 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   window.addEventListener('popstate', function () {
     var p = new URLSearchParams(window.location.search);
     openTool = (p.get('open') || '').split(',').map(function (k) { return ALIAS[k] || k; }).filter(function (k) { return PANELS.indexOf(k) !== -1; })[0] || null;
+    filtersOpen = p.get('filters') === '1' || openTool === 'lists';
+    if (openTool === 'lists') openTool = null;
+    if (window.aibdShelf) { window.aibdShelf.readAddress(p); window.aibdShelf.paint(); }
     if (typeof readFilters === 'function') readFilters(p);
+    if (typeof readTrend === 'function') readTrend(p);
+    if (typeof readComparisonFields === 'function') { selectedComparisonFields = readComparisonFields(p); paintComparisonFields(); }
     if (typeof setRole === 'function') setRole(p.get('role') || '');
     readSort(p);
     applyTools(); apply();
@@ -601,6 +627,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       var on = x.getAttribute('data-sort-key') === (key || 'depth');
       x.classList.toggle('on', on);
       x.setAttribute('aria-pressed', String(on));
+      if (x.closest('th')) x.closest('th').setAttribute('aria-sort', on ? (dir === 1 ? 'descending' : 'ascending') : 'none');
       x.setAttribute('aria-label', x.textContent + (on ? ', ' + (dir === 1 ? 'descending' : 'ascending') + '; reverse order' : '; sort'));
     });
     if (sortSelect) {
@@ -708,7 +735,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var sec = document.getElementById('j-' + land.getAttribute('data-value').replace(/ /g, '-').toLowerCase());
     if (sec) { sec.classList.remove('folded'); var fb = sec.querySelector('[data-fold]'); if (fb) fb.setAttribute('aria-expanded', 'true'); setTimeout(function () { sec.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' }); }, 80); }
   });
-  var LABELS = { type: 'type', group: 'beneficiary', harm: 'harm on record', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', deployer: 'deployer', made: 'made in' };
+  var LABELS = { type: 'type', group: 'beneficiary', harm: 'related harm', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', deployer: 'deployer', made: 'made in', status: 'benefit status' };
   var PAGE = 40, showAll = false;
   var returnPosition = history.state && history.state.aibdExplorer;
   if (returnPosition && returnPosition.url !== window.location.href) returnPosition = null;
@@ -769,10 +796,22 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var q = ex.querySelector('[data-q]') || document.querySelector('[data-search-input]');
   var count = ex.querySelector('[data-count]');
   var params = new URLSearchParams(window.location.search);
+  var dateFrom = '', dateTo = '';
+  var fromInput = ex.querySelector('[data-date-from]'), toInput = ex.querySelector('[data-date-to]');
+  var trendGroup = 'status', trendMode = 'count';
+  function readTrend(p) {
+    trendGroup = ['status', 'sector', 'depth', 'evidence', 'type'].indexOf(p.get('group_by')) !== -1 ? p.get('group_by') : 'status';
+    trendMode = p.get('measure') === 'share' ? 'share' : 'count';
+    if (ex.querySelector('[data-trend-group]')) ex.querySelector('[data-trend-group]').value = trendGroup;
+  }
+  readTrend(params);
   var active = {};
   function readFilters(p) {
     KEYS.forEach(function (k) { var v = p.get(k); active[k] = {}; if (v) v.split('|').forEach(function (x) { active[k][x] = true; }); });
     if (q) q.value = p.get('q') || '';
+    dateFrom = explorerCore.validDate(p.get('from')); dateTo = explorerCore.validDate(p.get('to_date'));
+    if (fromInput) fromInput.value = dateFrom; if (toInput) toInput.value = dateTo;
+    if ((dateFrom || dateTo) && fromInput) fromInput.closest('details').open = true;
   }
   var role = params.get('role') || '';
   var ROLE_SORT = { buyer: ['evidence', 1], regulator: ['evidence', 1], insurer: ['depth', 1], reporter: ['date', 1] };
@@ -783,7 +822,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       if (c.lstatus && c.lstatus !== 'unknown') s += ' Since then: ' + c.lstatus + (c.ldate ? ', ' + c.ldate : '') + '.';
       return s;
     }
-    if (role === 'regulator') return c.claim + '.' + (c.dep_name ? ' Deployed by ' + c.dep_name + '.' : '') + (c.lstatus === 'litigated' ? ' Litigated' + (c.ldate ? ' on ' + c.ldate : '') + '.' : '') + (c.harm ? ' A harm of the same kind is on record.' : '');
+    if (role === 'regulator') return c.claim + '.' + (c.dep_name ? ' Deployed by ' + c.dep_name + '.' : '') + (c.lstatus === 'litigated' ? ' Litigated' + (c.ldate ? ' on ' + c.ldate : '') + '.' : '') + (c.harm ? ' A related incident concerns a similar kind of system and stakeholder.' : '');
     if (role === 'insurer') return (c.val ? c.val + '.' : 'No value stated by a source.') + (c.lstatus && c.lstatus !== 'unknown' ? ' Since then: ' + c.lstatus + '.' : '') + ' ' + c.cat + '.';
     if (role === 'reporter') return c.sum + ' ' + c.cb;
     return '';
@@ -918,6 +957,111 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var passage = document.createTextNode(explanation.text + (explanation.also.length ? ' Also matches: ' + explanation.also.join(', ') + '.' : ''));
     cached.matchLine.replaceChildren(label, passage);
   }
+  function escapeText(value) { return String(value == null ? '' : value).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var statusNames = { reported: 'Reported', intended: 'Intended', mixed: 'Reported and intended', unclear: 'Unclear' };
+  var evidenceNames = { found: 'Court or regulator finding', studied: 'Independently studied', reported: 'Independently reported', claimed: 'An involved party’s account' };
+  function groupName(group, value) {
+    if (group === 'status') return statusNames[value] || value;
+    if (group === 'evidence') return evidenceNames[value] || value;
+    if (group === 'depth') return value === 'n/a' ? 'Depth not established' : 'Depth ' + value;
+    return value;
+  }
+  function paintTable(visible) {
+    var body = ex.querySelector('[data-case-table-body]'); if (!body) return;
+    body.innerHTML = visible.map(function (row) {
+      var d = rowData.get(row).data, heading = row.querySelector('h3 a'), date = row.querySelector('.meta time');
+      var selected = window.aibdShelf && window.aibdShelf.has(d.id);
+      return '<tr><th scope="row"><a href="records/' + escapeText(d.id) + '.html">' + escapeText(heading.textContent) + '</a><small>' + escapeText(statusNames[d.status] || 'Unclear') + '</small></th>' +
+        '<td>' + escapeText(d.depth === 'n/a' ? 'Not established' : d.depth) + '</td><td>' + escapeText(d.sector) + '</td><td>' + (date ? '<time datetime="' + escapeText(d.date) + '">' + escapeText(date.parentNode.textContent.trim()) + '</time>' : 'Not established') + '</td><td>' + escapeText(evidenceNames[d.evidence] || d.evidence) + '</td><td>' + escapeText(d.sources) + '</td><td><button type="button" class="case-select" data-keep="' + escapeText(d.id) + '" data-keep-label="Compare" data-kept-label="Selected" aria-pressed="' + selected + '">' + (selected ? 'Selected' : 'Compare') + '</button></td></tr>';
+    }).join('');
+    if (window.aibdShelf) window.aibdShelf.paint();
+  }
+  function paintTrends() {
+    var chart = ex.querySelector('[data-trend-chart]'); if (!chart) return;
+    var summary = explorerCore.aggregate(matchedRows.map(function (row) { return rowData.get(row).data; }), trendGroup);
+    var palette = ['#16778c', '#397a4c', '#755392', '#bb4744', '#8f6c13', '#365c73', '#98644f', '#54585b'];
+    var color = function (category) { return palette[summary.categories.indexOf(category) % palette.length]; };
+    var peak = Math.max.apply(null, [1].concat(summary.years.map(function (year) { return year.total; })));
+    var title = ex.querySelector('[data-trend-title]');
+    if (title) title.textContent = (trendMode === 'share' ? 'Share of benefits' : 'Benefit cases') + ' by year and ' + ({ status: 'benefit status', sector: 'sector', depth: 'depth', evidence: 'evidence', type: 'benefit type' }[trendGroup]);
+    ex.querySelectorAll('[data-trend-mode]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.trendMode === trendMode)); });
+    var html = '<ol class="trend-years" aria-label="Cases by year">', dataHtml = '';
+    summary.years.forEach(function (year) {
+      html += '<li><span class="trend-year">' + year.year + '</span><div class="trend-bar-track"><div class="trend-bar" style="width:' + (trendMode === 'share' ? 100 : 100 * year.total / peak) + '%">';
+      dataHtml += '<table class="trend-data-table"><caption>' + year.year + ' - ' + year.total + (year.total === 1 ? ' case' : ' cases') + '</caption><thead><tr><th scope="col">Category</th><th scope="col">Cases</th><th scope="col">Share<span class="visually-hidden"> of ' + year.year + '</span></th></tr></thead><tbody>';
+      summary.categories.forEach(function (category) {
+        var n = year.groups[category] || 0; if (!n) return;
+        var share = 100 * n / year.total, label = groupName(trendGroup, category) + ', ' + n + (n === 1 ? ' case' : ' cases') + ', ' + share.toFixed(1) + '% of ' + year.year;
+        var address = new URLSearchParams();
+        if (q && q.value.trim()) address.set('q', q.value.trim());
+        KEYS.forEach(function (key) { var values = Object.keys(active[key]); if (values.length) address.set(key, values.join('|')); });
+        if (role) address.set('role', role);
+        if (sortState.key) address.set('sort', sortState.key + ':' + (sortState.dir === 1 ? 'desc' : 'asc'));
+        address.set('from', dateFrom && dateFrom > year.year + '-01-01' ? dateFrom : year.year + '-01-01');
+        address.set('to_date', dateTo && dateTo < year.year + '-12-31' ? dateTo : year.year + '-12-31');
+        address.set(trendGroup, category);
+        var href = 'cases.html?' + escapeText(address.toString()), linkLabel = escapeText(label + '. Open these cases.');
+        html += '<a href="' + href + '" style="width:' + share + '%;--trend-fill:' + color(category) + '" title="' + escapeText(label) + '" aria-label="' + linkLabel + '"><span>' + n + '</span></a>';
+        dataHtml += '<tr><th scope="row"><a href="' + href + '" aria-label="' + linkLabel + '">' + escapeText(groupName(trendGroup, category)) + '</a></th><td>' + n + '</td><td>' + share.toFixed(1) + '%</td></tr>';
+      });
+      html += '</div></div><span class="trend-total">' + (trendMode === 'share' ? '100%' : year.total) + '</span></li>';
+      dataHtml += '</tbody></table>';
+    });
+    chart.innerHTML = summary.years.length ? html + '</ol>' : '<p class="note">No dated cases match these filters.</p>';
+    var data = ex.querySelector('[data-trend-data]');
+    if (data) { data.innerHTML = dataHtml; data.closest('details').hidden = !summary.years.length; }
+    var key = ex.querySelector('[data-trend-key]');
+    if (key) key.innerHTML = summary.categories.map(function (category) { return '<span><i style="background:' + color(category) + '"></i>' + escapeText(groupName(trendGroup, category)) + '</span>'; }).join('');
+  }
+  [fromInput, toInput].forEach(function (input) {
+    if (input) input.addEventListener('change', function () { dateFrom = explorerCore.validDate(fromInput.value); dateTo = explorerCore.validDate(toInput.value); apply(true); });
+  });
+  ex.querySelectorAll('[data-facet-search]').forEach(function (input) {
+    input.addEventListener('input', function () {
+      var group = input.closest('[data-facet-group]'), term = search.normalize(input.value), found = 0;
+      group.querySelectorAll('[data-facet]').forEach(function (option) { option.hidden = search.normalize(option.dataset.value).indexOf(term) === -1; if (!option.hidden) found++; });
+      var empty = group.querySelector('[data-facet-empty]'); if (empty) empty.hidden = !!found;
+    });
+  });
+  var trendSelect = ex.querySelector('[data-trend-group]');
+  if (trendSelect) trendSelect.addEventListener('change', function () { trendGroup = trendSelect.value; apply(true); });
+  ex.querySelectorAll('[data-trend-mode]').forEach(function (button) { button.addEventListener('click', function () { trendMode = button.dataset.trendMode; apply(true); }); });
+  function feedback(message) { var box = ex.querySelector('[data-explorer-feedback]'); if (box) { box.textContent = message; box.hidden = !message; } }
+  var shareButton = ex.querySelector('[data-share-results]');
+  if (shareButton) shareButton.addEventListener('click', function () {
+    apply();
+    var address = window.location.href, fallback = ex.querySelector('[data-share-address]'), input = ex.querySelector('[data-share-input]');
+    function showAddress() { if (fallback && input) { fallback.hidden = false; input.value = address; input.focus(); input.select(); } feedback('The link is ready to copy.'); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(address).then(function () { feedback('Link copied.'); }).catch(showAddress);
+    else showAddress();
+  });
+  function download(name, type, body) {
+    var address = URL.createObjectURL(new Blob([body], { type: type })), link = document.createElement('a');
+    link.href = address; link.download = name; document.body.appendChild(link); link.click(); link.remove(); setTimeout(function () { URL.revokeObjectURL(address); }, 10000);
+  }
+  ex.querySelectorAll('[data-export-results]').forEach(function (button) { button.addEventListener('click', function () {
+    var selection = matchedRows.slice(), ids = new Set(selection.map(function (row) { return row.dataset.id; })), query = window.location.href;
+    if (openTool !== 'shelf' && searchLoading) { feedback('Search is still loading. Try the download when the results are ready.'); return; }
+    if (!selection.length) { feedback('No cases match these filters.'); return; }
+    var filename = 'aibd-' + selection.length + '-cases-' + new Date().toISOString().slice(0, 10);
+    if (button.dataset.exportResults === 'csv') {
+      var lines = selection.map(function (row) { var d = rowData.get(row).data; return [d.id, row.querySelector('h3 a').textContent.trim(), statusNames[d.status] || d.status, d.date, d.dateBasis, d.country.split('|').join('; '), d.sector, d.type, d.depth, evidenceNames[d.evidence] || d.evidence, d.sources, row.querySelector('.metric')?.textContent.trim() || '', new URL('records/' + d.id + '.html', window.location.href).href]; });
+      download(filename + '.csv', 'text/csv;charset=utf-8', explorerCore.csv(['ID', 'Case', 'Benefit status', 'Date', 'Date basis', 'Countries', 'Sector', 'Benefit type', 'Depth', 'Evidence', 'Source count', 'Reported measure', 'Case link'], lines));
+      feedback(selection.length + ' cases downloaded as a CSV overview.'); return;
+    }
+    button.disabled = true; feedback('Preparing the selected records…');
+    fetch('data/records.json').then(function (response) { if (!response.ok) throw new Error('Download unavailable'); return response.json(); }).then(function (data) {
+      var records = Array.isArray(data) ? data : data.records;
+      if (!Array.isArray(records)) throw new Error('Unexpected data format');
+      var selected = records.filter(function (record) { return ids.has(record.id); });
+      if (selected.length !== ids.size) throw new Error('The published data is updating');
+      var order = new Map(selection.map(function (row, index) { return [row.dataset.id, index]; }));
+      selected.sort(function (a, b) { return order.get(a.id) - order.get(b.id); });
+      download(filename + '.json', 'application/json', JSON.stringify({ exported_at: new Date().toISOString(), view: query, records: selected }, null, 2) + '\n');
+      feedback(selected.length + ' records downloaded.');
+    }).catch(function () { feedback('The records could not be downloaded. Please try again.'); }).finally(function () { button.disabled = false; });
+  }); });
+
   function paintCharts() {
     if (openTool !== 'timeline' && openTool !== 'matrix') return;
     var matchedIds = new Set(), counts = Object.create(null), totals = Object.create(null);
@@ -931,6 +1075,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       peak = Math.max(peak, n);
     });
     if (openTool === 'timeline') {
+      paintTrends();
       var hiddenFocus = false;
       ex.querySelectorAll('.soundings [data-case-id]').forEach(function (mark) {
         var visible = matchedIds.has(mark.dataset.caseId);
@@ -947,6 +1092,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     function matrixAddress(type, depth) {
       var address = new URLSearchParams();
       if (q && q.value.trim()) address.set('q', q.value.trim());
+      if (dateFrom) address.set('from', dateFrom); if (dateTo) address.set('to_date', dateTo);
       KEYS.forEach(function (key) { var values = Object.keys(active[key]); if (values.length) address.set(key, values.join('|')); });
       address.set('type', type);
       if (depth !== undefined) address.set('depth', depth);
@@ -970,12 +1116,18 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   }
   window.aibdApply = function () { apply(); };
   function apply(push) {
-    var text = q ? q.value.trim() : '';
+    var comparing = openTool === 'shelf';
+    // A comparison is an explicit selection. Keep the list query in the address
+    // so that returning to a browsing view restores it without dropping cases.
+    var text = !comparing && q ? q.value.trim() : '';
     var terms = search.parse(text);
-    var activeKeys = KEYS.filter(function (key) { return hasAny(active[key]); });
-    var shelfIds = openTool === 'shelf' ? new Set(window.aibdShelf ? window.aibdShelf.ids() : []) : null;
-    var filtered = Boolean(text || shelfIds || activeKeys.length);
-    if (clear) clear.hidden = !text && !activeKeys.length;
+    var activeKeys = comparing ? [] : KEYS.filter(function (key) { return hasAny(active[key]); });
+    var shelfIds = comparing ? new Set(window.aibdShelf ? window.aibdShelf.ids() : []) : null;
+    var datedFilter = !comparing && !!(dateFrom || dateTo);
+    var filtered = Boolean(text || shelfIds || activeKeys.length || datedFilter);
+    var dateError = ex.querySelector('[data-date-error]');
+    if (dateError) dateError.hidden = !(dateFrom && dateTo && dateFrom > dateTo);
+    if (clear) clear.hidden = !text && !activeKeys.length && !datedFilter;
     var facetCounts = baseCounts;
     if (text && !searchText) loadSearch();
     resultList.setAttribute('aria-busy', String(Boolean(text && searchLoading)));
@@ -991,6 +1143,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     rows.forEach(function (row) {
       var cached = rowData.get(row), data = cached.data;
       if (shelfIds && !shelfIds.has(data.id)) return;
+      if (!comparing && !explorerCore.inDateRange(data.date, dateFrom, dateTo)) return;
       cached.matches = text ? search.match(searchText ? searchText[data.id] : cached.titleField, terms) : [];
       if (text && cached.matches === null) return;
       var failed = activeKeys.filter(function (key) {
@@ -1006,13 +1159,15 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var visibleRows = showAll ? matchedRows : matchedRows.slice(0, PAGE);
     visibleRows.forEach(function (row) { paintSearchMatch(row, rowData.get(row).matches); });
     renderRows(visibleRows);
+    resultList.hidden = openTool === 'table' || openTool === 'shelf';
+    if (openTool === 'table') paintTable(visibleRows);
     if (more) { more.hidden = showAll || shown <= PAGE; more.textContent = 'Show all ' + shown; }
     var empty = ex.querySelector('[data-empty]'); if (empty) empty.hidden = shown > 0 || openTool === 'shelf' || Boolean(text && searchLoading);
     if (openTool === 'shelf' && window.aibdRenderCompare) window.aibdRenderCompare();
     paintCompareStatus();
     buttons.forEach(function (b) {
       var info = buttonData.get(b), k = info.key, v = info.value, n = facetCounts[k][v] || 0;
-      if (info.panel && info.panel !== openTool) return;
+      if (info.panel && info.panel !== openTool && !(info.panel === 'lists' && filtersOpen)) return;
       var on = !!active[k][v];
       if (info.count === n && info.on === on) return;
       if (info.badge) info.badge.textContent = n;
@@ -1030,10 +1185,10 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       ex.querySelectorAll('.gaz [data-route]').forEach(function (b) { var parts = b.getAttribute('data-route').split('|'); b.classList.toggle('on', !!(active.made && active.made[parts[0]] && active.country && active.country[parts[1]])); });
     }
     if (count) {
-      count.textContent = text && searchLoading ? 'Searching all fields…' : filtered ? shown + ' of ' + rows.length + ' cases' : rows.length + ' cases';
+      count.textContent = comparing ? shown + ' selected cases' : text && searchLoading ? 'Searching all fields…' : filtered ? shown + ' of ' + rows.length + ' cases' : rows.length + ' cases';
       var mirror = ex.querySelector('[data-count-mirror]'); if (mirror) mirror.textContent = shown + ' of ' + rows.length + ' cases';
     }
-    KEYS.forEach(function (k) { if (hasAny(active[k])) { var g = ex.querySelector('[data-facet-group="' + k + '"]'); if (g) { g.removeAttribute('data-collapsed'); var h = g.querySelector('[data-facet-head]'); if (h) h.setAttribute('aria-expanded', 'true'); } } });
+    KEYS.forEach(function (k) { if (hasAny(active[k])) { var g = ex.querySelector('[data-facet-group="' + k + '"]'); if (g) { g.removeAttribute('data-collapsed'); if (g.tagName === 'DETAILS') g.open = true; var h = g.querySelector('[data-facet-head]'); if (h) h.setAttribute('aria-expanded', 'true'); } } });
     var activeBox = ex.querySelector('[data-active]');
     if (activeBox) {
       activeBox.innerHTML = '';
@@ -1057,12 +1212,21 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
         var t = document.createElement('span'); t.className = 'active-text'; t.textContent = '“' + q.value.trim() + '”';
         activeBox.appendChild(t);
       }
-      activeBox.hidden = !any;
+      if (datedFilter) {
+        any = true; var dates = document.createElement('button'); dates.type = 'button'; dates.className = 'active-chip'; dates.dataset.clearDates = ''; dates.textContent = (dateFrom || 'Any start') + ' to ' + (dateTo || 'any end') + ' ×'; activeBox.appendChild(dates);
+      }
+      activeBox.hidden = !any || comparing;
+      var filterNumber = ex.querySelector('[data-filter-number]');
+      if (filterNumber) { var selections = activeKeys.reduce(function (n, key) { return n + Object.keys(active[key]).length; }, 0) + (datedFilter ? 1 : 0); filterNumber.textContent = selections; filterNumber.hidden = !selections; }
     }
     var next = new URLSearchParams();
     if (q && q.value.trim()) next.set('q', q.value.trim());
     KEYS.forEach(function (k) { var vs = Object.keys(active[k]); if (vs.length) next.set(k, vs.join('|')); });
     if (openTool) next.set('open', openTool);
+    if (filtersOpen) next.set('filters', '1');
+    if (dateFrom) next.set('from', dateFrom); if (dateTo) next.set('to_date', dateTo);
+    if (openTool === 'timeline') { next.set('group_by', trendGroup); next.set('measure', trendMode); }
+    if (openTool === 'shelf') { next.set('compare', (window.aibdShelf ? window.aibdShelf.ids() : []).join(',')); if (selectedComparisonFields) next.set('fields', selectedComparisonFields.join(',')); }
     if (openTool === 'submit') ['case', 'kind'].forEach(function (key) { if (params.has(key)) next.set(key, params.get(key)); });
     if (role) next.set('role', role);
     if (sortState.key) next.set('sort', sortState.key + ':' + (sortState.dir === 1 ? 'desc' : 'asc'));
@@ -1080,14 +1244,15 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (active[k][v]) delete active[k][v]; else active[k][v] = true;
     apply(true);
   });
-  function clearAll() { KEYS.forEach(function (k) { active[k] = {}; }); if (q) q.value = ''; apply(true); }
+  function clearAll() { KEYS.forEach(function (k) { active[k] = {}; }); if (q) q.value = ''; dateFrom = ''; dateTo = ''; if (fromInput) fromInput.value = ''; if (toInput) toInput.value = ''; apply(true); }
   ex.addEventListener('click', function (e) {
-    if (e.target.closest('[data-clear-all]')) { clearAll(); return; }
+    if (e.target.closest('[data-clear-all], [data-filter-reset]')) { clearAll(); return; }
+    if (e.target.closest('[data-clear-dates]')) { dateFrom = ''; dateTo = ''; fromInput.value = ''; toInput.value = ''; apply(true); return; }
     var o = e.target.closest('[data-open-tool]');
     if (o) {
       e.preventDefault();
       var requested = o.getAttribute('data-open-tool') || null;
-      openTool = requested === 'lists' && openTool === requested ? null : requested;
+      if (requested === 'lists') filtersOpen = !filtersOpen; else openTool = requested;
       applyTools(); apply(true);
       var target = o.getAttribute('data-scroll') ? ex.querySelector('[data-facet-group="' + o.getAttribute('data-scroll') + '"]') : null;
       if (target) target.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
@@ -1133,7 +1298,9 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var fieldsButton = ex.querySelector('[data-compare-fields-open]');
   var fieldCheckboxes = fieldsDialog ? Array.from(fieldsDialog.querySelectorAll('[data-compare-field]')) : [];
   var knownComparisonFields = fieldCheckboxes.map(function (checkbox) { return checkbox.value; });
-  function readComparisonFields() {
+  function readComparisonFields(address) {
+    address = address || new URLSearchParams(window.location.search);
+    if (address.has('fields')) { var linked = address.get('fields').split(',').filter(function (key) { return knownComparisonFields.indexOf(key) !== -1; }); if (linked.length) return Array.from(new Set(linked)); }
     try {
       var saved = JSON.parse(localStorage.getItem(comparisonFieldsKey));
       var selected = Array.isArray(saved) ? knownComparisonFields.filter(function (key) { return saved.indexOf(key) !== -1; }) : [];
@@ -1163,6 +1330,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       paintComparisonFields();
       try { localStorage.setItem(comparisonFieldsKey, JSON.stringify(selectedComparisonFields)); } catch (error) {}
       if (window.aibdRenderCompare) window.aibdRenderCompare();
+      apply();
     });
     window.addEventListener('storage', function (event) {
       if (event.key !== comparisonFieldsKey && event.key !== null) return;

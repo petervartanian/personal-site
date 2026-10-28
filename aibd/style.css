@@ -1225,6 +1225,9 @@ body.door .footer-inner { padding-inline: 24px; }
 }
 
 /* The calibration strips frame an uninterrupted neutral reading surface. */
+.skip-to-content { position:fixed; z-index:1000; top:8px; left:50%; transform:translate(-50%,-200%); padding:10px 18px; color:var(--ink); background:var(--paper); border:var(--rule-width) solid var(--accent); }
+.skip-to-content:focus { transform:translate(-50%,0); outline:2px solid var(--accent); outline-offset:2px; }
+@media (pointer:coarse) { .contribution-actions a,.contribution-actions button { display:inline-flex; align-items:center; min-height:44px; margin-right:18px; } }
 body:not(.collection-page):not(.money-page)::before {
   background: var(--paper);
 }
