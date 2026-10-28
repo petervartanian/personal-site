@@ -83,7 +83,9 @@
 .field-row .field-editor-note { margin-top:6px; color:var(--ink-2); font-size:13px; line-height:21px; }
 .field-editor-note em { font-style:italic; }
 .field-review { margin-top:4px; color:var(--ink-3); font:13px/21px var(--sans); }
-.field-review>summary { width:fit-content; max-width:100%; padding-block:2px; cursor:pointer; overflow-wrap:break-word; }
+.field-review>summary { width:fit-content; max-width:100%; padding-block:2px; cursor:pointer; overflow-wrap:break-word; list-style:none; }
+.field-review>summary::-webkit-details-marker { display:none; }
+.field-review>summary::marker { content:""; }
 .field-review[open]>summary { margin-bottom:4px; }
 .field-row .field-review p { margin:0 0 5px; text-align:left; text-wrap:pretty; }
 .field-row .field-answer { overflow-wrap:anywhere; }
