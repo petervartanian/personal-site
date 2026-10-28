@@ -23,7 +23,7 @@
 <link rel="icon" href="data:,">
 <link rel="alternate" type="application/atom+xml" title="New additions and updates" href="feed.xml">
 <link rel="stylesheet" href="style.css?v=8d610f881d">
-<link rel="stylesheet" href="requirements.css?v=c13a8c7ec9"><script src="app.js?v=a9519d2065" defer></script>
+<link rel="stylesheet" href="requirements.css?v=b8fa068124"><script src="app.js?v=a9519d2065" defer></script>
 </head>
 <body class="fields-page">
 <svg class="evidence-defs" width="0" height="0" aria-hidden="true" focusable="false">
@@ -85,19 +85,52 @@
   <caption>Review of public questions</caption>
   <thead><tr><th scope="col">Status</th><th scope="col">All 600 cases</th><th scope="col">600 with some review</th></tr></thead>
   <tbody>
-    <tr><th scope="row">Fully reviewed</th><td>1,720</td><td>1,720</td></tr>
-    <tr><th scope="row">Partly reviewed</th><td>4,586</td><td>4,586</td></tr>
-    <tr><th scope="row">Mapped information, review pending</th><td>19,876</td><td>19,876</td></tr>
-    <tr><th scope="row">No recorded field review</th><td>28,418</td><td>28,418</td></tr>
+    <tr><th scope="row"><svg class="review-symbol review-symbol--reviewed_complete" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+<circle class="symbol-fill" cx="10" cy="10" r="7"/>
+</svg> Fully reviewed</th><td>1,720</td><td>1,720</td></tr>
+    <tr><th scope="row"><svg class="review-symbol review-symbol--reviewed_partial" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+<circle class="symbol-outline" cx="10" cy="10" r="7"/>
+<path class="symbol-fill" d="M10 3a7 7 0 0 0 0 14Z"/>
+</svg> Partly reviewed</th><td>4,586</td><td>4,586</td></tr>
+    <tr><th scope="row"><svg class="review-symbol review-symbol--record_mapped" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+<circle class="symbol-outline" cx="10" cy="10" r="7"/>
+<circle class="symbol-fill" cx="10" cy="10" r="2.2"/></svg> Awaiting review</th><td>19,876</td><td>19,876</td></tr>
+    <tr><th scope="row"><svg class="review-symbol review-symbol--not_assessed" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+<circle class="symbol-outline" cx="10" cy="10" r="7"/>
+</svg> Not reviewed</th><td>28,418</td><td>28,418</td></tr>
   </tbody>
   <tfoot><tr><th scope="row">Total questions</th><td>54,600</td><td>54,600</td></tr></tfoot>
 </table>
+<p>The center dot indicates that information has been recorded and awaits review. An empty circle indicates that no field review is recorded.</p>
 <p>A complete review can conclude that the sources do not report an answer or that a question remains unresolved. A field with text is not necessarily reviewed. Imported information and partial reviews do not count as fully reviewed.</p>
 <p>Benefit depth, evidence strength, and review coverage are separate. 341 cases have a recorded depth rating, while 23 have a depth field marked reviewed. Completing a review does not establish that the benefit occurred or that AI caused it.</p>
 <p>Each field can show its documented review basis, date, and sources. Source review, editorial judgment, and derivation are distinguished. These labels do not by themselves identify a human reviewer or establish independent verification. An inference is explained beside the answer when it has been recorded.</p>
 <p>A partial editorial review can identify the reported or intended outcome and the specific evidence that is still needed by examining the retained account and source excerpts. It does not establish that the original sources have been freshly verified. A source review identifies the passages that were inspected and any remaining access or scope limits. The field details identify Codex assistance where it is recorded.</p>
 <p>Related questions can share one review of an evaluation, monetary observation, strategic assessment, or institutional decision. These totals count question coverage, not independent review actions. In the downloaded data, <code>addressed</code> counts listed questions, including unchecked questions.</p>
 <p><a href="data/coverage.csv">Download the field coverage table</a>.</p>
+</section>
+<section id="field-qualifications" aria-labelledby="field-qualifications-heading">
+<h2 id="field-qualifications-heading">Qualifications to an answer</h2>
+<p>These symbols describe the answer or its sources, separately from the extent of review. An answer marked Inferred can also be Unresolved when the evidence supports a likely answer without settling the question.</p>
+<dl class="review-qualification-legend">
+  <div><dt><svg class="qualification-symbol qualification-symbol--inferred" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+<g fill="currentColor" stroke="none"><circle cx="10" cy="5" r="1.6"/><circle cx="5" cy="14" r="1.6"/><circle cx="15" cy="14" r="1.6"/></g>
+</svg> Inferred</dt><dd>The answer is a reasoned judgment, with its basis explained in a note.</dd></div>
+  <div><dt><svg class="qualification-symbol qualification-symbol--unresolved" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+<path d="M6.5 5.5a3.5 3.5 0 0 1 7 0c0 2.5-3.5 2.5-3.5 5"/><circle cx="10" cy="15.5" r="1" fill="currentColor" stroke="none"/>
+</svg> Unresolved</dt><dd>The available evidence does not settle the question.</dd></div>
+  <div><dt><svg class="qualification-symbol qualification-symbol--not_reported" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+<path d="M5 2h7l4 4v12H5Z M12 2v4h4 M8 12h5"/>
+</svg> Not reported</dt><dd>The inspected sources do not supply this information.</dd></div>
+  <div><dt><svg class="qualification-symbol qualification-symbol--source_unavailable" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+<g transform="rotate(-35 10 10)"><path d="M8 6H6a4 4 0 0 0 0 8h2 M12 6h2a4 4 0 0 1 0 8h-2 M6 10h2 M12 10h2"/></g>
+</svg> Source unavailable</dt><dd>The source could not be inspected.</dd></div>
+  <div><dt><svg class="qualification-symbol qualification-symbol--not_applicable" width="24" height="16" viewBox="0 0 28 20" aria-hidden="true" focusable="false">
+<text x="14" y="14" text-anchor="middle" fill="currentColor" stroke="none" font-family="sans-serif" font-size="11">N/A</text>
+</svg> Not applicable</dt><dd>The question does not apply to this case.</dd></div>
+  <div><dt><svg class="qualification-symbol qualification-symbol--withheld" width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+<rect x="5" y="9" width="10" height="8" rx="1.5"/><path d="M7 9V6a3 3 0 0 1 6 0v3"/><circle cx="10" cy="13" r="1" fill="currentColor" stroke="none"/></svg> Withheld</dt><dd>The information is intentionally omitted from the public record.</dd></div>
+</dl>
 </section>
 <div class="fields-counts"><div><strong>91</strong><span>public case fields</span></div><div><strong>5</strong><span>internal editorial fields</span></div><div><strong>6</strong><span>collection definitions</span></div></div>
 <h2>Seven ways to state what is known</h2>
