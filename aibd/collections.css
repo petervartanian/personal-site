@@ -1,5 +1,138 @@
 /* Four editorial forms, each shaped by the questions that its cases answer. */
 .collection-page { --collection-ink: #344d65; --collection-pad: clamp(20px, 3vw, 40px); }
+/* The reference strips echo each painting's palette and tonal range. */
+.collection-querist {
+  --border-colors: linear-gradient(to bottom,
+    #193d35 0% 14%,
+    #3d7050 14% 29%,
+    #8c9b35 29% 42%,
+    #d7bd3c 42% 51%,
+    #d47b50 51% 62%,
+    #bd5143 62% 71%,
+    #e3d8b8 71% 80%,
+    #6d9b98 80% 90%,
+    #322f30 90% 100%
+  );
+  --border-grays: linear-gradient(to bottom,
+    #f8f8f8 0% 7%,
+    #e1e1e1 7% 14%,
+    #d6d6d6 14% 21.5%,
+    #cbcbcb 21.5% 29%,
+    #c1c1c1 29% 35.5%,
+    #b9b9b9 35.5% 42%,
+    #b3b3b3 42% 46.5%,
+    #b0b0b0 46.5% 51%,
+    #aeaeae 51% 56.5%,
+    #aaaaaa 56.5% 62%,
+    #a8a8a8 62% 66.5%,
+    #a3a3a3 66.5% 71%,
+    #9c9c9c 71% 75.5%,
+    #8c8c8c 75.5% 80%,
+    #686868 80% 85%,
+    #4e4e4e 85% 90%,
+    #333333 90% 95%,
+    #121212 95% 100%
+  );
+}
+.collection-viator {
+  --border-colors: linear-gradient(to bottom,
+    #295268 0% 12%,
+    #3a7e8a 12% 28%,
+    #89ada7 28% 40%,
+    #d7c690 40% 50%,
+    #c99a3d 50% 60%,
+    #a7522d 60% 73%,
+    #dbbd81 73% 83%,
+    #697453 83% 91%,
+    #223e44 91% 100%
+  );
+  --border-grays: linear-gradient(to bottom,
+    #f8f8f8 0% 6%,
+    #e3e3e3 6% 12%,
+    #dbdbdb 12% 20%,
+    #d6d6d6 20% 28%,
+    #d0d0d0 28% 34%,
+    #cccccc 34% 40%,
+    #c7c7c7 40% 45%,
+    #c2c2c2 45% 50%,
+    #bdbdbd 50% 55%,
+    #b7b7b7 55% 60%,
+    #b1b1b1 60% 66.5%,
+    #a7a7a7 66.5% 73%,
+    #9e9e9e 73% 78%,
+    #949494 78% 83%,
+    #868686 83% 87%,
+    #6b6b6b 87% 91%,
+    #2c2c2c 91% 95.5%,
+    #121212 95.5% 100%
+  );
+}
+.collection-adyt {
+  --border-colors: linear-gradient(to bottom,
+    #416da0 0% 14%,
+    #77a2c7 14% 25%,
+    #527d61 25% 42%,
+    #b0ab36 42% 53%,
+    #e5bc3d 53% 65%,
+    #c77e69 65% 73%,
+    #e2c8a2 73% 85%,
+    #7e778d 85% 92%,
+    #365342 92% 100%
+  );
+  --border-grays: linear-gradient(to bottom,
+    #f8f8f8 0% 7%,
+    #e5e5e5 7% 14%,
+    #dbdbdb 14% 19.5%,
+    #d0d0d0 19.5% 25%,
+    #c5c5c5 25% 33.5%,
+    #bbbbbb 33.5% 42%,
+    #b1b1b1 42% 47.5%,
+    #a8a8a8 47.5% 53%,
+    #9f9f9f 53% 59%,
+    #979797 59% 65%,
+    #909090 65% 69%,
+    #888888 69% 73%,
+    #7e7e7e 73% 79%,
+    #707070 79% 85%,
+    #5e5e5e 85% 88.5%,
+    #494949 88.5% 92%,
+    #2e2e2e 92% 96%,
+    #121212 96% 100%
+  );
+}
+.collection-chanticleer {
+  --border-colors: linear-gradient(to bottom,
+    #354d7a 0% 9%,
+    #4c9aa2 9% 21%,
+    #51a27b 21% 30%,
+    #dac548 30% 44%,
+    #e29b35 44% 57%,
+    #bc5748 57% 66%,
+    #ece3cc 66% 82%,
+    #8a8745 82% 92%,
+    #303c4d 92% 100%
+  );
+  --border-grays: linear-gradient(to bottom,
+    #f8f8f8 0% 4.5%,
+    #efefef 4.5% 9%,
+    #e8e8e8 9% 15%,
+    #e3e3e3 15% 21%,
+    #dcdcdc 21% 25.5%,
+    #d5d5d5 25.5% 30%,
+    #cdcdcd 30% 37%,
+    #c6c6c6 37% 44%,
+    #bebebe 44% 50.5%,
+    #b7b7b7 50.5% 57%,
+    #b1b1b1 57% 61.5%,
+    #a7a7a7 61.5% 66%,
+    #9c9c9c 66% 74%,
+    #8a8a8a 74% 82%,
+    #757575 82% 87%,
+    #5c5c5c 87% 92%,
+    #373737 92% 96%,
+    #121212 96% 100%
+  );
+}
 .collection-page::before { transform: scale(1.02); }
 .collection-viator { --collection-ink: #255765; }
 .collection-adyt { --collection-ink: #375a43; }
