@@ -1,11 +1,12 @@
-import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor } from './state.mjs?v=20261026-brief';
-import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261026-brief';
-import { systemSelection, systemAnalysis } from './system.mjs?v=20261026-brief';
-import { frameworkAnalysis, frameworkTopics } from './framework.mjs?v=20261026-brief';
-import { findingsSelection, findingsAnalysis } from './findings.mjs?v=20261026-brief';
-import { sourceMarkup } from './sources.mjs?v=20261026-brief';
-import { reportingInventoryMarkup, comparisonForReference } from './reporting.mjs?v=20261026-brief';
-import { casePages, pageRoute, briefMarkup, gapsMarkup, methodMarkup, pageText, bindGapFilters, explorerVersion } from './pages.mjs?v=20261026-brief';
+import { views, navigationViews, navigationIdFor, causeConceptIds, readRoute, readLocation, caseRouteFor } from './state.mjs?v=20261027-cast';
+import { libraryMarkup, comparisonMarkup, selectionMarkup } from './catalog.mjs?v=20261027-cast';
+import { systemSelection, systemAnalysis } from './system.mjs?v=20261027-cast';
+import { frameworkAnalysis, frameworkTopics } from './framework.mjs?v=20261027-cast';
+import { findingsSelection, findingsAnalysis } from './findings.mjs?v=20261027-cast';
+import { sourceMarkup } from './sources.mjs?v=20261027-cast';
+import { reportingInventoryMarkup, comparisonForReference } from './reporting.mjs?v=20261027-cast';
+import { casePages, pageRoute, briefMarkup, gapsMarkup, methodMarkup, pageText, bindGapFilters, explorerVersion } from './pages.mjs?v=20261027-cast';
+import { safeguardMatrix } from './safeguards.mjs?v=20261027-cast';
 
 const feedbackAddress = 'peter.vartanian@icloud.com';
 function updateFooter() {
@@ -82,6 +83,8 @@ function renderSelection() {
   const nav = navigationIdFor(current);
   if (nav === 'framework') {
     $('selection').innerHTML = systemSelection(data, current, routeFor);
+  } else if (current.view === 'controls') {
+    $('selection').innerHTML = safeguardMatrix(data, {link: control => routeFor('controls', control.id), currentId: current.itemId});
   } else if (nav === 'findings') {
     $('selection').innerHTML = findingsSelection(data, current, routeFor);
   } else {
@@ -154,7 +157,7 @@ function setCaseHeader() {
   $('case-picker').innerHTML = catalog.map(entry => `<option value="${escape(entry.case.id)}" ${entry.case.id === data.case.id ? 'selected' : ''}>${escape(entry.case.title)}</option>`).join('');
 }
 
-const availablePages = () => casePages.filter(page => page.id !== 'gaps' || data.reporting?.fields?.length);
+const availablePages = () => casePages.filter(page => page.id !== 'gaps' || data.controls?.length);
 
 function navigationMarkup(remembered, active) {
   const pageLink = page => `<a data-view="${page.id}" class="page-tab" href="${pageRoute(data.case.id, page.id)}" ${page.id === active ? 'aria-current="page"' : ''}>${page.label}</a>`;
@@ -281,8 +284,7 @@ function render({focus = false, restoreHistory = false} = {}) {
   }
   updateChronologyControls();
   const comparison = comparisonForReference(data.reporting, current.reportingFieldId, item.id);
-  const field = data.reporting?.fields.find(entry => entry.id === current.reportingFieldId);
-  document.title = `${comparison?.title || field?.label || item.label || item.title} | AI Incident Explorer`;
+  document.title = `${comparison?.title || item.label || item.title} | AI Incident Explorer`;
   $('status').textContent = `${navigationViews.find(view => view.id === nav).label}: ${item.label || item.title}${current.compare ? '. Sources compared.' : ''}`;
   if (focusId && ['source-picker','inquiry-picker','findings-picker','reporting-field-select','reporting-stage-select'].includes(focusId)) $(focusId)?.focus({preventScroll: true});
   else if (sourceControl) document.querySelector('[data-source-compare],[data-source-single]')?.focus({preventScroll: true});
@@ -376,7 +378,7 @@ try {
     return caseData;
   }));
   const first = results[0].status === 'fulfilled' ? results[0].value : null;
-  catalog = results.filter(result => result.status === 'fulfilled').map(result => ({mitigationTaxonomy: first?.mitigationTaxonomy, reportingFramework: first?.reportingFramework, ...result.value, ...(result.value.case.id === 'hugging-face-1604' ? {reporting} : {})}));
+  catalog = results.filter(result => result.status === 'fulfilled').map(result => ({mitigationTaxonomy: first?.mitigationTaxonomy, ...result.value, ...(result.value.case.id === 'hugging-face-1604' ? {reporting} : {})}));
   if (!catalog.length) throw new Error('No incident accounts could be loaded');
   if (catalog.length < results.length) loadNotice = '<p class="load-notice" role="alert">One investigation could not be loaded. <button type="button" data-reload-cases>Retry</button></p>';
   render();

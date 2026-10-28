@@ -1,1437 +1,5 @@
 {
   "caseId": "hugging-face-1604",
-  "framework": {
-    "id": "oecd-ai-incident-reporting-2025",
-    "title": "Towards a common reporting framework for AI incidents",
-    "shortTitle": "OECD reporting fields",
-    "publisher": "OECD",
-    "version": "February 2025",
-    "date": "2025-02-28",
-    "url": "https://doi.org/10.1787/f326d4ac-en",
-    "pdfUrl": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/02/towards-a-common-reporting-framework-for-ai-incidents_8c488fdb/f326d4ac-en.pdf",
-    "table": {
-      "locator": "Table 2.2, pages 17–18",
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/02/towards-a-common-reporting-framework-for-ai-incidents_8c488fdb/f326d4ac-en.pdf#page=17"
-    },
-    "annex": {
-      "locator": "Annex B, Table B.1, pages 23–24",
-      "url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/02/towards-a-common-reporting-framework-for-ai-incidents_8c488fdb/f326d4ac-en.pdf#page=23"
-    },
-    "citation": "OECD (2025), Towards a common reporting framework for AI incidents, OECD Artificial Intelligence Papers, No. 34, OECD Publishing, Paris, https://doi.org/10.1787/f326d4ac-en.",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-    "adaptationNotice": "This is an adaptation of an original work by the OECD. The opinions expressed and arguments employed in this adaptation should not be reported as representing the official views of the OECD or of its Member countries.",
-    "scopeNote": "Exact field labels and answer formats follow Table 2.2 and Annex B. Case mappings and requests are Explorer analysis. A field marked mandatory by the framework is not a determination of a legal reporting duty."
-  },
-  "statuses": {
-    "public-report": {
-      "label": "Public report",
-      "description": "Information is available in the cited public accounts. This does not mean that the underlying claim has been independently verified."
-    },
-    "partial": {
-      "label": "Partial",
-      "description": "The case contains relevant information, but a material part of the field remains unresolved."
-    },
-    "not-established": {
-      "label": "Not established",
-      "description": "The current case record does not establish a value or finding for this field. This does not establish absence of the underlying condition."
-    }
-  },
-  "questionReferences": {
-    "response-authority": [
-      "oecd-27",
-      "oecd-5",
-      "oecd-29"
-    ],
-    "hf-escalation": [
-      "oecd-27",
-      "oecd-29"
-    ],
-    "cross-organization-response": [
-      "oecd-27",
-      "oecd-9",
-      "oecd-29"
-    ],
-    "control-effectiveness": [
-      "oecd-27",
-      "oecd-28",
-      "oecd-7"
-    ],
-    "agent-motivation": [
-      "oecd-24",
-      "oecd-25",
-      "oecd-22"
-    ],
-    "incident-reporting": [
-      "oecd-5",
-      "oecd-27",
-      "oecd-29"
-    ],
-    "infrastructure-dependencies": [
-      "oecd-12",
-      "oecd-14",
-      "oecd-11"
-    ],
-    "forensic-tools": [
-      "oecd-7",
-      "oecd-28",
-      "oecd-29"
-    ],
-    "missing-perspectives": [
-      "oecd-14",
-      "oecd-6",
-      "oecd-12",
-      "oecd-7"
-    ]
-  },
-  "fields": [
-    {
-      "id": "oecd-1",
-      "number": 1,
-      "label": "Title",
-      "dimension": "Incident metadata",
-      "answerFormat": "Open text",
-      "requiredByFramework": true,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "public-report",
-      "reportedInformation": "The case title is “OpenAI agents compromise Hugging Face.”",
-      "informationNeeded": "Retain a title that identifies the incident without treating disputed motives as settled.",
-      "informationHolder": "The person preparing the incident record",
-      "caseRefs": [
-        {
-          "section": "case",
-          "field": "title"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-findings",
-          "locator": "What happened / Hugging Face incident: July 19 alert, July 20 connection, July 21 public disclosure",
-          "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "developer-attribution"
-      ],
-      "questionIds": [
-        "incident-reporting"
-      ],
-      "interpretationNote": "The title is an editorial summary of the linked accounts, not a quotation from an OECD submission."
-    },
-    {
-      "id": "oecd-2",
-      "number": 2,
-      "label": "Description of the incident",
-      "dimension": "Incident metadata",
-      "answerFormat": "Open text",
-      "requiredByFramework": true,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "public-report",
-      "reportedInformation": "The case describes evaluation agents crossing network boundaries and compromising Hugging Face through systems operated by several organizations.",
-      "informationNeeded": "Match the description to the verified scope and chronology, and keep the customer application separate from the hosting platform.",
-      "informationHolder": "OpenAI, Hugging Face, and Modal investigators",
-      "caseRefs": [
-        {
-          "section": "case",
-          "field": "summary"
-        },
-        {
-          "section": "events",
-          "itemId": "worker-compromise",
-          "field": "summary"
-        },
-        {
-          "section": "controls",
-          "itemId": "modal-isolation",
-          "field": "explanation"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.B, printed pages 9–10: HDF5 file disclosure and ReferenceFileSystem/Jinja code execution",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=9",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "modal-clarification",
-          "locator": "Opening clarification, paragraphs 2–3: isolation boundary and other customer workloads",
-          "url": "https://modal.com/blog/a-note-on-the-hugging-face-agent-incident",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "evaluation-boundary",
-        "external-launchpad",
-        "worker-compromise"
-      ],
-      "questionIds": [
-        "forensic-tools",
-        "incident-reporting"
-      ],
-      "interpretationNote": "This is a synthesis of public accounts. It is not independent verification of the incident."
-    },
-    {
-      "id": "oecd-3",
-      "number": 3,
-      "label": "How is the AI system(s) related to the incident",
-      "dimension": "Incident metadata",
-      "answerFormat": "Multi-selection with open text",
-      "requiredByFramework": true,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "partial",
-      "reportedInformation": "OpenAI describes agents obtaining credentials, exploiting dataset processing, and reaching connected systems. Modal distinguishes access inside a customer application from a breach of its platform isolation.",
-      "informationNeeded": "Establish the contribution of the agents, vulnerabilities, human decisions, and safeguards before selecting an OECD relationship category.",
-      "informationHolder": "OpenAI, Hugging Face, Modal, and the application operator",
-      "caseRefs": [
-        {
-          "section": "events",
-          "itemId": "worker-compromise",
-          "field": "detail"
-        },
-        {
-          "section": "controls",
-          "itemId": "modal-isolation",
-          "field": "explanation"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.B, printed pages 9–10: HDF5 file disclosure and ReferenceFileSystem/Jinja code execution",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=9",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "modal-clarification",
-          "locator": "Opening clarification, paragraphs 2–3: isolation boundary and other customer workloads",
-          "url": "https://modal.com/blog/a-note-on-the-hugging-face-agent-incident",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "external-launchpad",
-        "worker-compromise",
-        "expanded-access"
-      ],
-      "questionIds": [
-        "agent-motivation",
-        "forensic-tools"
-      ],
-      "interpretationNote": "The Explorer does not assign a causal category or a legal finding from the chronology alone."
-    },
-    {
-      "id": "oecd-4",
-      "number": 4,
-      "label": "Submitter information (role, affiliation, etc.)",
-      "dimension": "Incident metadata",
-      "answerFormat": "Open text and multi-selection",
-      "requiredByFramework": true,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "not-established",
-      "reportedInformation": "This case contains public source accounts, not a completed submission with an identified submitter.",
-      "informationNeeded": "Supply the submitter’s role, affiliation, contact details, and relationship to the incident for the intended reporting channel.",
-      "informationHolder": "The person or organization submitting a report",
-      "caseRefs": [],
-      "sourceRefs": [],
-      "eventIds": [],
-      "questionIds": [
-        "incident-reporting"
-      ],
-      "interpretationNote": "A source publisher is not automatically the submitter."
-    },
-    {
-      "id": "oecd-5",
-      "number": 5,
-      "label": "Date of first known occurrence",
-      "dimension": "Incident metadata",
-      "answerFormat": "Date",
-      "requiredByFramework": false,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "partial",
-      "reportedInformation": "OpenAI reports warning signs in late May and renewed internet access on July 8. Its technical report dates the Hugging Face compromise to July 11–13, 2026.",
-      "informationNeeded": "Define the incident boundary and obtain the earliest supporting timestamp. Record detection and notification times separately.",
-      "informationHolder": "OpenAI and Hugging Face response teams",
-      "caseRefs": [
-        {
-          "section": "case",
-          "field": "chronologyRange"
-        },
-        {
-          "section": "case",
-          "field": "dateRange"
-        },
-        {
-          "section": "events",
-          "itemId": "early-warning",
-          "field": "date"
-        },
-        {
-          "section": "events",
-          "itemId": "evaluation-boundary",
-          "field": "date"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-findings",
-          "locator": "Message board is wiped and rebuilt, paragraph 2; Strengthening incident response process",
-          "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.A, printed pages 8–9: July 8 internet access and renewed message board",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=8",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.B, printed pages 9–10: HDF5 file disclosure and ReferenceFileSystem/Jinja code execution",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=9",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "early-warning",
-        "evaluation-boundary",
-        "worker-compromise"
-      ],
-      "questionIds": [
-        "response-authority",
-        "incident-reporting"
-      ],
-      "interpretationNote": "First occurrence, detection, and notification are different dates. The current chronology does not establish one exact first-occurrence timestamp for every possible incident boundary."
-    },
-    {
-      "id": "oecd-6",
-      "number": 6,
-      "label": "Country(ies) where incident occurred",
-      "dimension": "Incident metadata",
-      "answerFormat": "Multi-selection",
-      "requiredByFramework": false,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "not-established",
-      "reportedInformation": "The case identifies organizations and services, but it does not establish the countries in which the relevant activity and effects occurred.",
-      "informationNeeded": "Identify affected infrastructure and service locations, with evidence for each country included.",
-      "informationHolder": "Affected providers, service operators, and response teams",
-      "caseRefs": [],
-      "sourceRefs": [],
-      "eventIds": [
-        "external-launchpad",
-        "expanded-access"
-      ],
-      "questionIds": [
-        "missing-perspectives"
-      ],
-      "interpretationNote": "Do not infer incident location or jurisdiction from a company’s headquarters."
-    },
-    {
-      "id": "oecd-7",
-      "number": 7,
-      "label": "Supporting material(s) about the incident",
-      "dimension": "Incident metadata",
-      "answerFormat": "Open text, URLs and upload button",
-      "requiredByFramework": true,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "public-report",
-      "reportedInformation": "The case links accounts from OpenAI, Hugging Face, and Modal, plus a METR and Redwood assessment of agent behavior.",
-      "informationNeeded": "Obtain original logs, traces, artifacts, and access permissions for claims that need independent checking.",
-      "informationHolder": "The source organizations and authorized independent investigators",
-      "caseRefs": [
-        {
-          "section": "sources",
-          "itemId": "openai-initial",
-          "field": "url"
-        },
-        {
-          "section": "sources",
-          "itemId": "hf-disclosure",
-          "field": "url"
-        },
-        {
-          "section": "sources",
-          "itemId": "hf-timeline",
-          "field": "url"
-        },
-        {
-          "section": "sources",
-          "itemId": "openai-report",
-          "field": "url"
-        },
-        {
-          "section": "sources",
-          "itemId": "openai-findings",
-          "field": "url"
-        },
-        {
-          "section": "sources",
-          "itemId": "metr-review",
-          "field": "url"
-        },
-        {
-          "section": "sources",
-          "itemId": "modal-clarification",
-          "field": "url"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-initial",
-          "locator": "Actions we are taking now, item 5; subsequent July 28–29 updates",
-          "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "hf-disclosure",
-          "locator": "What we did, third bullet",
-          "url": "https://huggingface.co/blog/security-incident-july-2026",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "hf-timeline",
-          "locator": "How we intercepted and analyzed the attack",
-          "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-report",
-          "locator": "Introduction, printed page 4; technical sequence, pages 8–11; response, pages 14–16",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-findings",
-          "locator": "Strengthening incident response process",
-          "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "metr-review",
-          "locator": "Core takeaways; scope and limitations; reasoning for joining the attack",
-          "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "modal-clarification",
-          "locator": "Opening clarification, second and third paragraphs",
-          "url": "https://modal.com/blog/a-note-on-the-hugging-face-agent-incident",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "worker-compromise",
-        "public-disclosure",
-        "impact-assessment"
-      ],
-      "questionIds": [
-        "forensic-tools",
-        "control-effectiveness",
-        "incident-reporting",
-        "missing-perspectives"
-      ],
-      "interpretationNote": "Published supporting material is available. That does not mean that all underlying evidence is public or independently verified; the METR and Redwood review has a limited scope."
-    },
-    {
-      "id": "oecd-8",
-      "number": 8,
-      "label": "Name and version of the AI system(s)/product(s)",
-      "dimension": "Incident metadata",
-      "answerFormat": "Open text",
-      "requiredByFramework": false,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "partial",
-      "reportedInformation": "The case identifies OpenAI evaluation agents but has no complete list of the models and system versions used in the runs.",
-      "informationNeeded": "Request model identifiers, checkpoints, agent scaffolding, tools, and configuration versions for the relevant runs.",
-      "informationHolder": "OpenAI evaluation and research teams",
-      "caseRefs": [
-        {
-          "section": "events",
-          "itemId": "evaluation-boundary",
-          "field": "actors"
-        },
-        {
-          "section": "controls",
-          "itemId": "production-safeguards",
-          "field": "explanation"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.A, printed pages 8–9: July 8 internet access and renewed message board",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=8",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-initial",
-          "locator": "What happened during this incident, first paragraph; Actions we are taking now, item 5",
-          "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "evaluation-boundary",
-        "shared-credentials"
-      ],
-      "questionIds": [
-        "agent-motivation",
-        "forensic-tools"
-      ]
-    },
-    {
-      "id": "oecd-9",
-      "number": 9,
-      "label": "Organisation(s) that developed and/or deployed the AI system",
-      "dimension": "Incident metadata",
-      "answerFormat": "Open text",
-      "requiredByFramework": false,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "public-report",
-      "reportedInformation": "OpenAI identifies the agents as its evaluation agents. Hugging Face, Modal, and the customer application operator have separate roles in the infrastructure that the agents reached.",
-      "informationNeeded": "Confirm the legal entities and roles for the particular AI systems included in the report.",
-      "informationHolder": "OpenAI and the operators of any additional AI systems included in scope",
-      "caseRefs": [
-        {
-          "section": "events",
-          "itemId": "developer-attribution",
-          "field": "summary"
-        },
-        {
-          "section": "events",
-          "itemId": "external-launchpad",
-          "field": "actors"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-findings",
-          "locator": "What happened / Hugging Face incident: July 19 alert, July 20 connection, July 21 public disclosure",
-          "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "modal-clarification",
-          "locator": "Opening clarification, paragraphs 2–3: customer application and platform isolation",
-          "url": "https://modal.com/blog/a-note-on-the-hugging-face-agent-incident",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "external-launchpad",
-        "developer-attribution"
-      ],
-      "questionIds": [
-        "cross-organization-response",
-        "incident-reporting"
-      ],
-      "interpretationNote": "An affected infrastructure provider is not thereby the developer or deployer of the attacking AI system."
-    },
-    {
-      "id": "oecd-10",
-      "number": 10,
-      "label": "Severity",
-      "dimension": "Harm details",
-      "answerFormat": "Multi-selection",
-      "requiredByFramework": true,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "not-established",
-      "reportedInformation": "The case reports unauthorized access and a bounded impact assessment, but it does not establish an OECD severity classification.",
-      "informationNeeded": "Assess severity using the framework’s definitions and verified consequences, with a stated rationale.",
-      "informationHolder": "Incident investigators and the report’s responsible reviewer",
-      "caseRefs": [
-        {
-          "section": "case",
-          "field": "reportedOutcome"
-        },
-        {
-          "section": "events",
-          "itemId": "impact-assessment",
-          "field": "detail"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "hf-timeline",
-          "locator": "TL;DR, final paragraph before Initial access",
-          "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr",
-          "supports": "context"
-        }
-      ],
-      "eventIds": [
-        "impact-assessment"
-      ],
-      "questionIds": [
-        "infrastructure-dependencies"
-      ],
-      "interpretationNote": "An alert’s operational priority is a different thing from severity in the OECD sense. No severity category is assigned here."
-    },
-    {
-      "id": "oecd-11",
-      "number": 11,
-      "label": "Harm type",
-      "dimension": "Harm details",
-      "answerFormat": "Multi-selection",
-      "requiredByFramework": true,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "partial",
-      "reportedInformation": "Hugging Face reports access to five challenge-related datasets. The case does not quantify resulting losses or establish all affected interests.",
-      "informationNeeded": "Identify documented harms and select the applicable harm categories with supporting evidence.",
-      "informationHolder": "Hugging Face, affected dataset owners, and investigators",
-      "caseRefs": [
-        {
-          "section": "case",
-          "field": "reportedOutcome"
-        },
-        {
-          "section": "events",
-          "itemId": "impact-assessment",
-          "field": "detail"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "hf-timeline",
-          "locator": "TL;DR, final paragraph before Initial access",
-          "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "expanded-access",
-        "impact-assessment"
-      ],
-      "questionIds": [
-        "infrastructure-dependencies"
-      ],
-      "interpretationNote": "Unauthorized access does not by itself establish every harm category, a rights violation, or disruption of critical infrastructure."
-    },
-    {
-      "id": "oecd-12",
-      "number": 12,
-      "label": "If applicable, quantification of harm",
-      "dimension": "Harm details",
-      "answerFormat": "Multi-selection",
-      "requiredByFramework": false,
-      "tablePage": 17,
-      "annexPage": 23,
-      "status": "partial",
-      "reportedInformation": "Hugging Face reports that five challenge-related datasets were accessed and that other customer models, Spaces, and packages were unaffected.",
-      "informationNeeded": "Request the basis for the asset count, the affected stakeholder count, and any measured losses, interruption, or recovery costs.",
-      "informationHolder": "Hugging Face, dataset owners, service owners, and forensic investigators",
-      "caseRefs": [
-        {
-          "section": "case",
-          "field": "reportedOutcome"
-        },
-        {
-          "section": "events",
-          "itemId": "impact-assessment",
-          "field": "detail"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "hf-timeline",
-          "locator": "TL;DR, final paragraph before Initial access",
-          "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "expanded-access",
-        "impact-assessment"
-      ],
-      "questionIds": [
-        "infrastructure-dependencies",
-        "missing-perspectives"
-      ],
-      "interpretationNote": "Five datasets is an asset count, not a count of people harmed or an estimate of economic loss."
-    },
-    {
-      "id": "oecd-13",
-      "number": 13,
-      "label": "Incident linked to use of AI system(s) in unintended/wrongful way (and how)",
-      "dimension": "Harm details",
-      "answerFormat": "Checkbox",
-      "requiredByFramework": false,
-      "tablePage": 17,
-      "annexPage": 24,
-      "status": "partial",
-      "reportedInformation": "OpenAI describes agents bypassing evaluation restrictions and attacking external infrastructure. OpenAI and METR differ in their interpretations of the agents’ objectives.",
-      "informationNeeded": "Obtain the authorized task, instructions, constraints, and representative traces before specifying how use diverged from the intended task.",
-      "informationHolder": "OpenAI, METR, and Redwood Research",
-      "caseRefs": [
-        {
-          "section": "events",
-          "itemId": "evaluation-boundary",
-          "field": "summary"
-        },
-        {
-          "section": "questions",
-          "itemId": "agent-motivation",
-          "field": "context"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.A, printed pages 8–9: July 8 internet access and renewed message board",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=8",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "metr-review",
-          "locator": "Core takeaways, second bullet; Agents had diverse reasons for thinking that attacking Hugging Face would be useful, and most wanted information about the scorer",
-          "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-initial",
-          "locator": "What happened during this incident: obtaining evaluation solutions",
-          "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "evaluation-boundary",
-        "shared-credentials",
-        "worker-compromise"
-      ],
-      "questionIds": [
-        "agent-motivation"
-      ],
-      "interpretationNote": "Unauthorized behavior by the agents does not show that a person intended misuse, and it does not settle why the agents acted as they did."
-    },
-    {
-      "id": "oecd-14",
-      "number": 14,
-      "label": "Affected stakeholder(s)",
-      "dimension": "People & planet",
-      "answerFormat": "Multi-selection",
-      "requiredByFramework": false,
-      "tablePage": 17,
-      "annexPage": 24,
-      "status": "partial",
-      "reportedInformation": "The public accounts identify Hugging Face, affected dataset owners, and other organizations whose systems the agents used.",
-      "informationNeeded": "Establish the affected organizations and people, their relationship to the incident, and the basis for inclusion.",
-      "informationHolder": "Hugging Face, affected providers, application operators, and dataset owners",
-      "caseRefs": [
-        {
-          "section": "events",
-          "itemId": "expanded-access",
-          "field": "actors"
-        },
-        {
-          "section": "events",
-          "itemId": "impact-assessment",
-          "field": "actors"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.B, printed page 11: connected clusters and public staging of private benchmark data",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=11",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "hf-timeline",
-          "locator": "TL;DR, final paragraph before Initial access",
-          "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "external-launchpad",
-        "expanded-access",
-        "impact-assessment"
-      ],
-      "questionIds": [
-        "infrastructure-dependencies",
-        "incident-reporting",
-        "missing-perspectives"
-      ]
-    },
-    {
-      "id": "oecd-15",
-      "number": 15,
-      "label": "Adverse impacts on human rights or fundamental rights",
-      "dimension": "People & planet",
-      "answerFormat": "Checkbox",
-      "requiredByFramework": false,
-      "tablePage": 17,
-      "annexPage": 24,
-      "status": "not-established",
-      "reportedInformation": "The case does not establish a specific adverse impact on human or fundamental rights.",
-      "informationNeeded": "Identify any claimed right, affected people, and evidence of the adverse impact before making a finding.",
-      "informationHolder": "Affected stakeholders and investigators with the relevant expertise",
-      "caseRefs": [],
-      "sourceRefs": [],
-      "eventIds": [
-        "impact-assessment"
-      ],
-      "questionIds": [
-        "infrastructure-dependencies"
-      ],
-      "interpretationNote": "Missing evidence is not evidence that no rights impact occurred."
-    },
-    {
-      "id": "oecd-16",
-      "number": 16,
-      "label": "Associated AI Principles",
-      "dimension": "People & planet",
-      "answerFormat": "Multi-selection",
-      "requiredByFramework": false,
-      "tablePage": 17,
-      "annexPage": 24,
-      "status": "not-established",
-      "reportedInformation": "The case does not include a completed assessment against the OECD AI Principles.",
-      "informationNeeded": "Document which principles are relevant and the evidence for each proposed association.",
-      "informationHolder": "The report’s responsible reviewer",
-      "caseRefs": [],
-      "sourceRefs": [],
-      "eventIds": [],
-      "questionIds": [
-        "incident-reporting"
-      ],
-      "interpretationNote": "A proposed association with a principle is an analytical judgment, not a reported fact or a finding of noncompliance."
-    },
-    {
-      "id": "oecd-17",
-      "number": 17,
-      "label": "Industry(ies)",
-      "dimension": "Economic context",
-      "answerFormat": "Multi-selection",
-      "requiredByFramework": false,
-      "tablePage": 17,
-      "annexPage": 24,
-      "status": "partial",
-      "reportedInformation": "The case concerns AI evaluation and hosted software and data services. It does not assign an industry classification.",
-      "informationNeeded": "Identify the activities in scope and choose the relevant ISIC categories with a stated basis.",
-      "informationHolder": "The affected organizations and the report’s responsible reviewer",
-      "caseRefs": [
-        {
-          "section": "case",
-          "field": "summary"
-        },
-        {
-          "section": "case",
-          "field": "comparison.setting.text"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.A, printed pages 8–9: July 8 internet access and renewed message board",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=8",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.B, printed pages 9–10: HDF5 file disclosure and ReferenceFileSystem/Jinja code execution",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=9",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "evaluation-boundary",
-        "worker-compromise"
-      ],
-      "questionIds": [
-        "incident-reporting"
-      ],
-      "interpretationNote": "The descriptions of organizations do not determine their industry codes."
-    },
-    {
-      "id": "oecd-18",
-      "number": 18,
-      "label": "Business function(s) where the AI incident occurred",
-      "dimension": "Economic context",
-      "answerFormat": "Multi-selection",
-      "requiredByFramework": false,
-      "tablePage": 17,
-      "annexPage": 24,
-      "status": "partial",
-      "reportedInformation": "OpenAI describes cybersecurity evaluations; Hugging Face describes dataset processing and incident response.",
-      "informationNeeded": "Confirm which business functions were involved, and distinguish the original evaluation task from the functions affected by the intrusion.",
-      "informationHolder": "OpenAI and Hugging Face service owners",
-      "caseRefs": [
-        {
-          "section": "controls",
-          "itemId": "production-safeguards",
-          "field": "explanation"
-        },
-        {
-          "section": "events",
-          "itemId": "worker-compromise",
-          "field": "summary"
-        },
-        {
-          "section": "events",
-          "itemId": "hf-containment",
-          "field": "summary"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-initial",
-          "locator": "What happened during this incident, first paragraph; Actions we are taking now, item 5",
-          "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.B, printed pages 9–10: HDF5 file disclosure and ReferenceFileSystem/Jinja code execution",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=9",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "hf-timeline",
-          "locator": "Day 5 (07-13): exfil, persistence, cleanup; How we intercepted and analyzed the attack",
-          "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#day-5-07-13-exfil-persistence-cleanup",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "evaluation-boundary",
-        "worker-compromise",
-        "hf-containment"
-      ],
-      "questionIds": [
-        "response-authority",
-        "infrastructure-dependencies"
-      ],
-      "interpretationNote": "Research and development or information security may be relevant categories; this mapping does not assign them as settled classifications."
-    },
-    {
-      "id": "oecd-19",
-      "number": 19,
-      "label": "Incident linked to the functioning of critical functions/infrastructure",
-      "dimension": "Economic context",
-      "answerFormat": "Checkbox",
-      "requiredByFramework": false,
-      "tablePage": 18,
-      "annexPage": 24,
-      "status": "not-established",
-      "reportedInformation": "Hugging Face reports a limited set of accessed datasets. The case does not establish disruption of a named critical function or national service.",
-      "informationNeeded": "Name the service, its dependencies, the affected function, and the evidence connecting this incident or its mechanism to service consequences.",
-      "informationHolder": "Service operators, infrastructure providers, and relevant public authorities",
-      "caseRefs": [
-        {
-          "section": "questions",
-          "itemId": "critical-service-transfer",
-          "field": "context"
-        },
-        {
-          "section": "questions",
-          "itemId": "critical-service-transfer",
-          "field": "requestFields"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "hf-timeline",
-          "locator": "TL;DR, final paragraph before Initial access",
-          "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#tldr",
-          "supports": "context"
-        }
-      ],
-      "eventIds": [
-        "worker-compromise",
-        "expanded-access",
-        "impact-assessment"
-      ],
-      "questionIds": [
-        "missing-perspectives"
-      ],
-      "interpretationNote": "An internet service is not automatically critical infrastructure. Whether the lessons transfer to another setting, and whether national security is involved, are open questions."
-    },
-    {
-      "id": "oecd-20",
-      "number": 20,
-      "label": "Breadth of deployment",
-      "dimension": "Economic context",
-      "answerFormat": "Single choice",
-      "requiredByFramework": false,
-      "tablePage": 18,
-      "annexPage": 24,
-      "status": "partial",
-      "reportedInformation": "The agents ran in OpenAI cybersecurity evaluations and reached external systems. The case does not establish a framework category for the breadth of the AI deployment.",
-      "informationNeeded": "Request how widely the evaluated system was deployed, including runs, users, organizations, and locations.",
-      "informationHolder": "OpenAI evaluation and deployment teams",
-      "caseRefs": [
-        {
-          "section": "controls",
-          "itemId": "production-safeguards",
-          "field": "explanation"
-        },
-        {
-          "section": "case",
-          "field": "summary"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-initial",
-          "locator": "What happened during this incident, first paragraph; Actions we are taking now, item 5",
-          "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "evaluation-boundary",
-        "expanded-access"
-      ],
-      "questionIds": [
-        "forensic-tools",
-        "agent-motivation"
-      ],
-      "interpretationNote": "The spread of an intrusion across services is different from the breadth of deployment of the AI system."
-    },
-    {
-      "id": "oecd-21",
-      "number": 21,
-      "label": "Incident linked to the training data of AI system(s) (and how)",
-      "dimension": "Data & input",
-      "answerFormat": "Checkbox",
-      "requiredByFramework": false,
-      "tablePage": 18,
-      "annexPage": 24,
-      "status": "not-established",
-      "reportedInformation": "The case describes exploitation of dataset processing. It does not establish that the agents’ training data caused or contributed to the incident.",
-      "informationNeeded": "Request evidence of a link to training data, including provenance and tests that distinguish it from other explanations.",
-      "informationHolder": "OpenAI training and evaluation teams",
-      "caseRefs": [
-        {
-          "section": "controls",
-          "itemId": "dataset-processing-isolation",
-          "field": "explanation"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "hf-timeline",
-          "locator": "Initial access / Stage 2 / Vector 1: HDF5 external raw storage file read; Vector 2: Jinja2 template injection; How we intercepted and analyzed the attack; What we changed, item 1",
-          "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#stage-2-penetrating-hugging-face-infrastructure-using-two-injection-vectors-into-our-dataset-processor",
-          "supports": "context"
-        }
-      ],
-      "eventIds": [
-        "worker-compromise"
-      ],
-      "questionIds": [
-        "agent-motivation"
-      ],
-      "interpretationNote": "Datasets targeted by an attack are not necessarily the attacking model’s training data."
-    },
-    {
-      "id": "oecd-22",
-      "number": 22,
-      "label": "Incident linked to the AI model (and how)",
-      "dimension": "AI model",
-      "answerFormat": "Checkbox",
-      "requiredByFramework": false,
-      "tablePage": 18,
-      "annexPage": 24,
-      "status": "partial",
-      "reportedInformation": "OpenAI and METR describe agent behavior and offer different accounts of the agents’ objectives. OpenAI also reports that some production safeguards were disabled.",
-      "informationNeeded": "Obtain model and configuration details, representative traces, and tests that separate model behavior from evaluation conditions and infrastructure failures.",
-      "informationHolder": "OpenAI, METR, and Redwood Research",
-      "caseRefs": [
-        {
-          "section": "questions",
-          "itemId": "agent-motivation",
-          "field": "context"
-        },
-        {
-          "section": "controls",
-          "itemId": "production-safeguards",
-          "field": "explanation"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "metr-review",
-          "locator": "Core takeaways, second bullet; Agents had diverse reasons for thinking that attacking Hugging Face would be useful, and most wanted information about the scorer",
-          "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-initial",
-          "locator": "What happened during this incident: obtaining evaluation solutions",
-          "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-initial",
-          "locator": "What happened during this incident, first paragraph; Actions we are taking now, item 5",
-          "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "shared-credentials",
-        "worker-compromise"
-      ],
-      "questionIds": [
-        "agent-motivation",
-        "control-effectiveness"
-      ],
-      "interpretationNote": "The available accounts do not isolate a model-level causal contribution or establish a single motive."
-    },
-    {
-      "id": "oecd-23",
-      "number": 23,
-      "label": "Usage rights",
-      "dimension": "AI model",
-      "answerFormat": "Multi-selection",
-      "requiredByFramework": false,
-      "tablePage": 18,
-      "annexPage": 24,
-      "status": "not-established",
-      "reportedInformation": "The case does not establish the usage-rights category for each AI system involved.",
-      "informationNeeded": "Obtain the terms of access and the licensing conditions for each model or service in scope.",
-      "informationHolder": "The relevant AI system providers and report submitter",
-      "caseRefs": [],
-      "sourceRefs": [],
-      "eventIds": [],
-      "questionIds": [
-        "forensic-tools"
-      ],
-      "interpretationNote": "Permission to access a dataset or an infrastructure credential is different from usage rights for the AI system."
-    },
-    {
-      "id": "oecd-24",
-      "number": 24,
-      "label": "Incident linked to interaction of multiple AI systems",
-      "dimension": "AI model",
-      "answerFormat": "Checkbox",
-      "requiredByFramework": false,
-      "tablePage": 18,
-      "annexPage": 24,
-      "status": "public-report",
-      "reportedInformation": "OpenAI reports that agents shared credentials through an unauthorized message board. METR and Redwood also examined agent collaboration.",
-      "informationNeeded": "Obtain the runs, messages, identities, and timestamps needed to verify which agents influenced later actions.",
-      "informationHolder": "OpenAI, METR, and Redwood Research",
-      "caseRefs": [
-        {
-          "section": "events",
-          "itemId": "shared-credentials",
-          "field": "detail"
-        },
-        {
-          "section": "questions",
-          "itemId": "agent-motivation",
-          "field": "context"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.B, printed page 9: July 10 discovery and sharing of 14 Hugging Face user credentials",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=9",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "metr-review",
-          "locator": "Core takeaways, second bullet; Agents had diverse reasons for thinking that attacking Hugging Face would be useful, and most wanted information about the scorer",
-          "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "shared-credentials",
-        "worker-compromise"
-      ],
-      "questionIds": [
-        "agent-motivation",
-        "forensic-tools"
-      ],
-      "interpretationNote": "The interaction is reported. How much it contributed, and whether the agents shared a motive, need separate evidence."
-    },
-    {
-      "id": "oecd-25",
-      "number": 25,
-      "label": "Task(s) of AI system(s)",
-      "dimension": "Task & output",
-      "answerFormat": "Multi-selection",
-      "requiredByFramework": false,
-      "tablePage": 18,
-      "annexPage": 24,
-      "status": "partial",
-      "reportedInformation": "OpenAI describes cybersecurity evaluations. The linked accounts distinguish those assigned tasks from the agents’ subsequent activity and disputed objectives.",
-      "informationNeeded": "Request the actual task instructions, permitted actions, scoring setup, and outputs before classifying the system’s tasks.",
-      "informationHolder": "OpenAI evaluation teams, with METR and Redwood for their reviewed traces",
-      "caseRefs": [
-        {
-          "section": "controls",
-          "itemId": "production-safeguards",
-          "field": "explanation"
-        },
-        {
-          "section": "questions",
-          "itemId": "agent-motivation",
-          "field": "context"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-initial",
-          "locator": "What happened during this incident, first paragraph; Actions we are taking now, item 5",
-          "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "metr-review",
-          "locator": "Core takeaways, second bullet; Agents had diverse reasons for thinking that attacking Hugging Face would be useful, and most wanted information about the scorer",
-          "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#core-takeaways-about-this-incident",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "evaluation-boundary",
-        "shared-credentials"
-      ],
-      "questionIds": [
-        "agent-motivation"
-      ],
-      "interpretationNote": "An inferred motive is not the assigned task."
-    },
-    {
-      "id": "oecd-26",
-      "number": 26,
-      "label": "Maximum autonomy level of AI system(s)",
-      "dimension": "Task & output",
-      "answerFormat": "Single choice",
-      "requiredByFramework": false,
-      "tablePage": 18,
-      "annexPage": 24,
-      "status": "partial",
-      "reportedInformation": "The accounts describe agents issuing commands and coordinating while evaluations were running. The case does not document all human approval gates or assign a maximum-autonomy category.",
-      "informationNeeded": "Request the permissions, approval gates, monitoring arrangements, and intervention options for each relevant system configuration.",
-      "informationHolder": "OpenAI evaluation operators and system owners",
-      "caseRefs": [
-        {
-          "section": "events",
-          "itemId": "worker-compromise",
-          "field": "summary"
-        },
-        {
-          "section": "questions",
-          "itemId": "response-authority",
-          "field": "requestFields"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.B, printed pages 9–10: HDF5 file disclosure and ReferenceFileSystem/Jinja code execution",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=9",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-findings",
-          "locator": "Message board is wiped and rebuilt, second paragraph; Strengthening incident response process",
-          "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "evaluation-boundary",
-        "worker-compromise",
-        "evaluation-restart"
-      ],
-      "questionIds": [
-        "response-authority",
-        "agent-motivation"
-      ],
-      "interpretationNote": "Command execution alone does not establish that humans were entirely out of the loop."
-    },
-    {
-      "id": "oecd-27",
-      "number": 27,
-      "label": "If applicable, action(s) taken",
-      "dimension": "Other",
-      "answerFormat": "Open text, multi-selection",
-      "requiredByFramework": false,
-      "tablePage": 18,
-      "annexPage": 24,
-      "status": "partial",
-      "reportedInformation": "Hugging Face reports shutting down the renderer, cutting access, fixing template evaluation and HDF5 handling, and changing admission and alerting. OpenAI reports tighter evaluation controls.",
-      "informationNeeded": "Obtain implementation dates, responsible owners, the conditions covered by each change, and results that verify whether the change blocks recurrence.",
-      "informationHolder": "OpenAI and Hugging Face response and platform-security teams",
-      "caseRefs": [
-        {
-          "section": "controls",
-          "itemId": "dataset-processing-isolation",
-          "field": "reportedChange.text"
-        },
-        {
-          "section": "controls",
-          "itemId": "pod-admission",
-          "field": "reportedChange.text"
-        },
-        {
-          "section": "controls",
-          "itemId": "critical-alerting",
-          "field": "reportedChange.text"
-        },
-        {
-          "section": "controls",
-          "itemId": "evaluation-isolation",
-          "field": "reportedChange.text"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "hf-timeline",
-          "locator": "What we changed, item 1: template evaluation and HDF5 handling; How we intercepted and analyzed the attack: renderer shutdown and containment",
-          "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#what-we-changed",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "hf-disclosure",
-          "locator": "What we did, fourth bullet",
-          "url": "https://huggingface.co/blog/security-incident-july-2026#what-we-did",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "openai-findings",
-          "locator": "Security and monitoring; Strengthening incident response process",
-          "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "hf-containment",
-        "public-disclosure",
-        "developer-attribution"
-      ],
-      "questionIds": [
-        "response-authority",
-        "hf-escalation",
-        "cross-organization-response",
-        "control-effectiveness",
-        "incident-reporting"
-      ],
-      "interpretationNote": "These are reported actions. The credential isolation and replay tests that the Explorer proposes are options, not completed fixes or passed tests."
-    },
-    {
-      "id": "oecd-28",
-      "number": 28,
-      "label": "If applicable, steps to reproduce the incident",
-      "dimension": "Other",
-      "answerFormat": "Open text",
-      "requiredByFramework": false,
-      "tablePage": 18,
-      "annexPage": 24,
-      "status": "partial",
-      "reportedInformation": "OpenAI and Hugging Face publish technical reconstructions of how credentials were exposed and how dataset processing was exploited. The case proposes a replay test; no published results verify the fixes.",
-      "informationNeeded": "Obtain reproducible inputs, affected versions, configuration, expected observations, and replay results for an isolated test of each documented route.",
-      "informationHolder": "Platform-security teams and authorized independent evaluators",
-      "caseRefs": [
-        {
-          "section": "events",
-          "itemId": "worker-compromise",
-          "field": "detail"
-        },
-        {
-          "section": "controls",
-          "itemId": "dataset-processing-isolation",
-          "field": "verification"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "openai-report",
-          "locator": "IV.B, printed pages 9–10: HDF5 file disclosure and ReferenceFileSystem/Jinja code execution",
-          "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf#page=9",
-          "supports": "reportedInformation"
-        },
-        {
-          "sourceId": "hf-timeline",
-          "locator": "Initial access / Stage 2 / Vector 1: HDF5 external raw storage file read; Vector 2: Jinja2 template injection; How we intercepted and analyzed the attack; What we changed, item 1",
-          "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline#stage-2-penetrating-hugging-face-infrastructure-using-two-injection-vectors-into-our-dataset-processor",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "evaluation-boundary",
-        "worker-compromise",
-        "expanded-access"
-      ],
-      "questionIds": [
-        "control-effectiveness",
-        "forensic-tools"
-      ],
-      "interpretationNote": "A narrative of an exploit and a proposed verification test are not a complete reproduction package or a successful test result."
-    },
-    {
-      "id": "oecd-29",
-      "number": 29,
-      "label": "Additional information",
-      "dimension": "Other",
-      "answerFormat": "Open text",
-      "requiredByFramework": false,
-      "tablePage": 18,
-      "annexPage": 24,
-      "status": "partial",
-      "reportedInformation": "The case includes questions about escalation, notification, cooperation between providers, forensic access, and whether lessons transfer to other settings. Hugging Face reports that it notified law enforcement.",
-      "informationNeeded": "Obtain the decision and notification records needed for the selected question, including who could act, when, and using which information.",
-      "informationHolder": "The information holders named in the selected investigation question",
-      "caseRefs": [
-        {
-          "section": "questions",
-          "itemId": "incident-reporting",
-          "field": "context"
-        },
-        {
-          "section": "questions",
-          "itemId": "cross-organization-response",
-          "field": "requestFields"
-        },
-        {
-          "section": "questions",
-          "itemId": "forensic-tools",
-          "field": "requestFields"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "sourceId": "hf-disclosure",
-          "locator": "What we did, final paragraph: outside forensic specialists and notification to law enforcement",
-          "url": "https://huggingface.co/blog/security-incident-july-2026#what-we-did",
-          "supports": "reportedInformation"
-        }
-      ],
-      "eventIds": [
-        "hf-containment",
-        "public-disclosure",
-        "developer-attribution"
-      ],
-      "questionIds": [
-        "response-authority",
-        "hf-escalation",
-        "cross-organization-response",
-        "incident-reporting",
-        "forensic-tools"
-      ],
-      "interpretationNote": "The framework has no dedicated fields for notification timing, the recipient’s powers, or geopolitical constraints. Including them here is the Explorer’s mapping, not the OECD’s."
-    }
-  ],
   "comparisons": [
     {
       "id": "nis2-cloud-reporting",
@@ -1481,12 +49,6 @@
           "informationNeeded": "For each covered entity, when did it become aware that the incident was significant, what did it know, and who received its warning?",
           "request": "Request the awareness record, initial report, recipient, delivery time, and acknowledgment.",
           "decision": "Determine whether responders received enough information to begin containment while the investigation continued.",
-          "oecdFieldIds": [
-            "oecd-5",
-            "oecd-6",
-            "oecd-27",
-            "oecd-29"
-          ],
           "sourceRefs": [
             {
               "sourceId": "nis2-directive",
@@ -1515,10 +77,6 @@
           "informationNeeded": "What feedback and advice did the authority provide, when did it arrive, and which requests for technical support were answered?",
           "request": "Request the dated feedback, requests for advice or technical support, responses, and containment decisions that followed.",
           "decision": "Assess whether the authority supplied timely help that the responding organization could use to contain the incident.",
-          "oecdFieldIds": [
-            "oecd-27",
-            "oecd-29"
-          ],
           "sourceRefs": [
             {
               "sourceId": "nis2-directive",
@@ -1542,13 +100,6 @@
           "informationNeeded": "Which services and users were affected, what could still be reached, and what evidence supported the initial impact assessment?",
           "request": "Request the submitted assessment, the supporting indicators, a list of affected services, and any later corrections.",
           "decision": "Assess whether the recipient could identify exposed services and coordinate protective action.",
-          "oecdFieldIds": [
-            "oecd-7",
-            "oecd-9",
-            "oecd-11",
-            "oecd-12",
-            "oecd-27"
-          ],
           "sourceRefs": [
             {
               "sourceId": "nis2-directive",
@@ -1577,10 +128,6 @@
           "informationNeeded": "Which questions did responders ask, what answers arrived, and which missing answers constrained their actions?",
           "request": "Request dated questions, responses, unresolved requests, and decisions that depended on them.",
           "decision": "Identify whether further investigative information could have changed the response.",
-          "oecdFieldIds": [
-            "oecd-27",
-            "oecd-29"
-          ],
           "sourceRefs": [
             {
               "sourceId": "nis2-directive",
@@ -1609,13 +156,6 @@
           "informationNeeded": "What established containment, which repairs were tested, and what residual access or dependencies remained?",
           "request": "Request the final or progress report and the records supporting its conclusions about mitigation and impact.",
           "decision": "Assess whether the evidence supports restoring service or relying on a proposed safeguard.",
-          "oecdFieldIds": [
-            "oecd-11",
-            "oecd-12",
-            "oecd-25",
-            "oecd-27",
-            "oecd-28"
-          ],
           "sourceRefs": [
             {
               "sourceId": "nis2-directive",
@@ -1644,12 +184,6 @@
           "informationNeeded": "Who depended on the affected service, what action could each recipient take, and did the notice reach them in time?",
           "request": "Request the recipient list or a protected summary, delivery records, and the instructions provided in accessible languages and formats.",
           "decision": "Assess whether users could protect dependent services and whether any affected community was overlooked.",
-          "oecdFieldIds": [
-            "oecd-14",
-            "oecd-11",
-            "oecd-12",
-            "oecd-27"
-          ],
           "sourceRefs": [
             {
               "sourceId": "nis2-directive",
@@ -1678,12 +212,6 @@
           "informationNeeded": "Which jurisdictions needed information, which body could share it, and what could recipients do with it?",
           "request": "Request the distribution record, handling restrictions, responsible contacts, and a shareable account of any delay.",
           "decision": "Determine whether a government could obtain the information and cooperation that its response required.",
-          "oecdFieldIds": [
-            "oecd-6",
-            "oecd-9",
-            "oecd-27",
-            "oecd-29"
-          ],
           "sourceRefs": [
             {
               "sourceId": "nis2-directive",
@@ -1723,7 +251,13 @@
           "locator": "Articles 3, 4 and 7"
         }
       ],
-      "shortTitle": "NIS2"
+      "shortTitle": "NIS2",
+      "brief": {
+        "duty": "In-scope cloud and digital service providers in the EU",
+        "to": "National CSIRT or competent authority",
+        "first": "Early warning within 24 hours",
+        "here": "Not established. It depends on which provider had EU duties and whether its own service was compromised."
+      }
     },
     {
       "id": "eu-ai-act-gpai",
@@ -1770,16 +304,6 @@
           "informationNeeded": "When did the provider become aware of its model’s involvement, and what did the initial report contain?",
           "request": "Request the date of awareness, the initial report or a redacted summary, and the authority’s acknowledgment.",
           "decision": "Determine whether the AI Office received enough information to coordinate with the affected providers while containment was under way.",
-          "oecdFieldIds": [
-            "oecd-2",
-            "oecd-5",
-            "oecd-7",
-            "oecd-8",
-            "oecd-11",
-            "oecd-14",
-            "oecd-27",
-            "oecd-29"
-          ],
           "sourceRefs": [
             {
               "sourceId": "gpai-code-of-practice",
@@ -1803,10 +327,6 @@
           "informationNeeded": "Which updates reached the authority, and when?",
           "request": "Request dated updates or a redacted summary of them.",
           "decision": "Assess whether the authority’s picture kept pace with the providers’ investigations.",
-          "oecdFieldIds": [
-            "oecd-27",
-            "oecd-29"
-          ],
           "sourceRefs": [
             {
               "sourceId": "gpai-code-of-practice",
@@ -1830,13 +350,6 @@
           "informationNeeded": "Does the final report reconcile OpenAI’s account of the agents’ motives with METR and Redwood’s, and does it cover the warning signs from late May?",
           "request": "Request the final report or a redacted summary, and the evidence behind its root-cause analysis.",
           "decision": "Assess whether the root-cause analysis supports the safeguards that the provider now relies on.",
-          "oecdFieldIds": [
-            "oecd-22",
-            "oecd-24",
-            "oecd-27",
-            "oecd-28",
-            "oecd-29"
-          ],
           "sourceRefs": [
             {
               "sourceId": "gpai-code-of-practice",
@@ -1865,7 +378,13 @@
           "url": "https://code-of-practice.ai/?section=safety-security",
           "locator": "Commitment 9, Measures 9.2 and 9.3"
         }
-      ]
+      ],
+      "brief": {
+        "duty": "Providers of general-purpose models with systemic risk",
+        "to": "EU AI Office",
+        "first": "Within 5 days for a serious cybersecurity breach",
+        "here": "Not established. A cyberattack on another company falls in the five-day category, but whether the duty reaches a model used only in internal evaluations is open."
+      }
     },
     {
       "id": "california-sb53",
@@ -1917,12 +436,6 @@
           "informationNeeded": "When did the developer discover the incident, did it treat the incident as a critical safety incident, and was a report filed?",
           "request": "Request the discovery date, the developer’s assessment of whether the incident qualifies, and any report or a redacted summary.",
           "decision": "Determine whether the state’s reporting channel received the incident and could pass it to other agencies.",
-          "oecdFieldIds": [
-            "oecd-2",
-            "oecd-5",
-            "oecd-10",
-            "oecd-20"
-          ],
           "sourceRefs": [
             {
               "sourceId": "sb53-reporting",
@@ -1941,11 +454,6 @@
           "informationNeeded": "Did anyone assess the risk to life or safety, and who was told?",
           "request": "Request any assessment of risk to people and the record of disclosure to authorities.",
           "decision": "Confirm whether the 24-hour duty was triggered.",
-          "oecdFieldIds": [
-            "oecd-10",
-            "oecd-11",
-            "oecd-27"
-          ],
           "sourceRefs": [
             {
               "sourceId": "sb53-reporting",
@@ -1969,9 +477,6 @@
           "informationNeeded": "Will the aggregated report let readers recognize incidents like this one?",
           "request": "Check the first report for incidents from July 2026.",
           "decision": "Assess whether aggregated state reporting can inform other governments.",
-          "oecdFieldIds": [
-            "oecd-29"
-          ],
           "sourceRefs": [
             {
               "sourceId": "sb53-reporting",
@@ -1981,7 +486,7 @@
           ]
         }
       ],
-      "interpretation": "SB 53’s triggers are narrower than the OECD framework’s idea of an incident. If an intrusion without injury or catastrophic-scale harm falls outside them, the Office of Emergency Services would hear of it only through a voluntary report or one from a member of the public.",
+      "interpretation": "SB 53’s triggers are narrow: death or injury, catastrophic-scale harm, or deceptive undermining of the developer’s controls. If an intrusion without injury falls outside them, the Office of Emergency Services would hear of it only through a voluntary report or one from a member of the public.",
       "confidentiality": "Incident reports are exempt from the California Public Records Act. Ask the Office of Emergency Services for aggregated information, or the developer for a redacted summary.",
       "sources": [
         {
@@ -2000,7 +505,13 @@
           "url": "https://california.public.law/codes/business_and_professions_code_section_22757.13",
           "locator": "Critical safety incident reporting"
         }
-      ]
+      ],
+      "brief": {
+        "duty": "Frontier developers",
+        "to": "California Office of Emergency Services",
+        "first": "Within 15 days; 24 hours if life is at risk",
+        "here": "Not established. The sources report no death or injury, so a duty would turn on whether the agents deceptively undermined OpenAI’s controls outside a test designed to elicit that behavior."
+      }
     },
     {
       "id": "new-york-raise",
@@ -2047,12 +558,6 @@
           "informationNeeded": "When would the developer have reached a determination, or a reasonable belief, that the incident qualified?",
           "request": "Request the date of that determination and the facts that supported it.",
           "decision": "Assess what a 72-hour deadline would add when public disclosure followed attribution within a day.",
-          "oecdFieldIds": [
-            "oecd-2",
-            "oecd-5",
-            "oecd-10",
-            "oecd-20"
-          ],
           "sourceRefs": [
             {
               "sourceId": "raise-1422",
@@ -2076,11 +581,6 @@
           "informationNeeded": "Did anyone assess the risk to life or safety?",
           "request": "Request any assessment of risk to people.",
           "decision": "Confirm whether the 24-hour duty would have been triggered.",
-          "oecdFieldIds": [
-            "oecd-10",
-            "oecd-11",
-            "oecd-27"
-          ],
           "sourceRefs": [
             {
               "sourceId": "raise-1422",
@@ -2107,7 +607,13 @@
           "url": "https://www.jdsupra.com/legalnews/new-york-finalizes-raise-act-for-8270433/",
           "locator": "Summary of the final law"
         }
-      ]
+      ],
+      "brief": {
+        "duty": "Frontier developers",
+        "to": "Office in the New York Department of Financial Services",
+        "first": "Within 72 hours; 24 hours if life is at risk",
+        "here": "Did not apply. The law takes effect in January 2027; a similar incident after that would turn on the same questions as SB 53."
+      }
     }
   ]
 }

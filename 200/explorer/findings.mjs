@@ -1,3 +1,4 @@
+import { stateBadge } from './safeguards.mjs?v=20261027-cast';
 const escape = value => String(value ?? '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
 
 export function resolveFinding(data, current) {
@@ -29,7 +30,6 @@ export function findingsSelection(data, current, routeFor) {
 function legacyControlAnalysis(data, current, routeFor) {
   const control = data.controls.find(item => item.id === current.itemId);
   if (!control) return '';
-  const labels = {held:'Worked',failed:'Failed',absent:'Absent',disabled:'Off',unknown:'Unknown'};
   const source = sourceId => {
     const item = data.sources.find(entry => entry.id === sourceId);
     return item ? `<a class="citation" href="${escape(routeFor('controls',control.id,sourceId))}">${escape(item.publisher)}</a>` : '';
@@ -38,7 +38,7 @@ function legacyControlAnalysis(data, current, routeFor) {
   const logos = {OpenAI:'openai.png','Hugging Face':'hugging-face.svg',Modal:'modal.svg'};
   const owner = `<span class="organization-name">${logos[control.owner] ? `<img class="organization-logo" src="assets/${logos[control.owner]}" width="22" height="22" alt="">` : ''}${escape(control.owner)}</span>`;
   const change = control.reportedChange ? `<p class="finding-reported-change"><strong>Reported change.</strong> ${escape(control.reportedChange.text)} ${source(control.reportedChange.sourceId)}</p>` : '';
-  return `<article class="finding-analysis control-finding"><div class="detail-context"><span class="state state-${escape(control.state)}">${labels[control.state] || 'Unknown'}</span>${owner}</div><h2 id="analysis-title" tabindex="-1">${escape(control.title)}</h2><p class="finding-answer" data-claim="summary">${escape([control.summary,control.detail || control.explanation].filter(Boolean).join(' '))}</p>${change}<section class="finding-decision"><h3>Option to evaluate</h3><p>${escape(control.option)}</p>${control.implication ? `<p>${escape(control.implication)}</p>` : ''}</section><section class="finding-next"><h3>What would establish that it works?</h3><p>${escape(control.verification)}</p></section><nav class="finding-related" aria-label="Related findings">${related.map(item => `<a href="${escape(routeFor('findings',item.id))}">${escape(item.title)}</a>`).join('')}</nav></article>`;
+  return `<article class="finding-analysis control-finding"><div class="detail-context">${stateBadge(control.state)}${owner}</div><h2 id="analysis-title" tabindex="-1">${escape(control.title)}</h2><p class="finding-answer" data-claim="summary">${escape([control.summary,control.detail || control.explanation].filter(Boolean).join(' '))}</p>${change}<section class="finding-decision"><h3>Option to evaluate</h3><p>${escape(control.option)}</p>${control.implication ? `<p>${escape(control.implication)}</p>` : ''}</section><section class="finding-next"><h3>What would establish that it works?</h3><p>${escape(control.verification)}</p></section><nav class="finding-related" aria-label="Related findings">${related.map(item => `<a href="${escape(routeFor('findings',item.id))}">${escape(item.title)}</a>`).join('')}</nav></article>`;
 }
 
 export function findingsAnalysis(data, current, routeFor) {
@@ -54,10 +54,7 @@ export function findingsAnalysis(data, current, routeFor) {
   const relatedEvents = events.length ? `<nav class="finding-events" aria-label="Related events">${events.map(event => `<a href="${escape(routeFor('events',event.id))}"><time>${escape(event.date)}</time> ${escape(event.label)}</a>`).join('')}</nav>` : '';
   const systems = finding.relationshipIds.map(id => data.controlRelationships.find(item => item.id === id)).filter(Boolean);
   const relatedSystems = systems.length ? `<nav class="finding-systems" aria-label="Related system relationships">${systems.map(item => `<a href="${escape(routeFor('controlRelationships',item.id))}">${escape(item.title || item.controller)}</a>`).join('')}</nav>` : '';
-  const fields = data.reporting?.fields?.filter(field => field.questionIds.includes(finding.questionId)) || [];
-  const preferredField = data.reporting?.questionReferences?.[finding.questionId]?.find(id => fields.some(field => field.id === id)) || fields[0]?.id;
-  const reportingLink = preferredField ? `<a href="${escape(routeFor('findings',finding.id,undefined,preferredField))}">Reporting fields for this question</a>` : '';
   const legalLinks = (data.reporting?.comparisons || []).filter(item => item.questionId === finding.questionId).map(item => `<a href="${escape(routeFor('findings',finding.id,undefined,item.id))}">${escape(item.title)}</a>`).join('');
-  const references = reportingLink || legalLinks ? `<nav class="finding-reporting" aria-label="Reporting references">${reportingLink}${legalLinks}</nav>` : '';
+  const references = legalLinks ? `<nav class="finding-reporting" aria-label="Reporting laws compared">${legalLinks}</nav>` : '';
   return `<article class="finding-analysis"><h2 id="analysis-title" tabindex="-1">${escape(finding.question)}</h2><p class="finding-answer" data-claim="answer">${escape(finding.answer)}</p><section class="finding-decision is-lead"><h3>What this changes</h3><p>${escape(finding.decision)}</p>${changes}${finding.conditions ? `<p class="finding-conditions">${escape(finding.conditions)}</p>` : ''}</section><section class="finding-evidence"><h3>What the sources establish</h3><div class="finding-supported-claims">${facts}</div></section>${relatedControls}<section class="finding-next"><h3>What would resolve the remaining uncertainty?</h3><ul>${needs}</ul></section>${relatedEvents}${relatedSystems}${references}</article>`;
 }

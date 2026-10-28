@@ -33,12 +33,3 @@ export function frameworkAnalysis(item, data, citationLinks, routeFor, mechanism
   return detail + alternative + mechanism(item) + topics + `<dl class="account-links">${connections('Findings and questions','questions',item.questionIds)}</dl>` + classification;
 
 }
-
-export function safeguardsMatrix(data, current, routeFor, organizationName, stateLabel) {
-  const owners = [...new Set(data.controls.map(c => c.owner))];
-  const groups = Object.entries(data.mitigationTaxonomy.categories);
-  return `<section class="safeguard-matrix"><div class="matrix-heading"><h2>Safeguards across organizations</h2><p>Grouped by proposed category in MIT’s mitigation taxonomy.</p></div><div class="matrix-scroll" role="region" aria-label="Safeguards by category and owner" tabindex="0"><table><thead><tr><th scope="col">Mitigation category</th>${owners.map(owner => `<th scope="col">${organizationName(owner)}</th>`).join('')}</tr></thead><tbody>${groups.map(([code,category]) => `<tr><th scope="row"><span class="matrix-code">${escape(code)}</span>${escape(category.name)}</th>${owners.map(owner => {
-    const controls = data.controls.filter(c => c.owner === owner && c.classification.code === code);
-    return `<td>${controls.length ? controls.map(c => `<a class="matrix-control state-${escape(c.state)}" href="${routeFor('controls',c.id)}" ${c.id === current.itemId ? 'aria-current="true"' : ''}>${stateLabel(c)}<span class="matrix-control-name">${escape(c.title)}</span></a>`).join('') : '<span class="matrix-empty" aria-label="No safeguard mapped in this category for this organization">–</span>'}</td>`;
-  }).join('')}</tr>`).join('')}</tbody></table></div><p class="matrix-key">Statuses describe reported performance during the incident. A dash means that no safeguard is mapped here.</p></section>`;
-}

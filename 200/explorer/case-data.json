@@ -1447,7 +1447,6 @@
       "controlIds": [
         "critical-alerting"
       ],
-      "reportingFrameworkId": "oecd-ai-incident-reporting-2025",
       "requestFields": [
         "When each organization detected the activity, what it knew at the time, and when it notified each recipient",
         "The information supplied in each notification, any requests for more detail, and relevant restrictions on disclosure",
@@ -1494,7 +1493,6 @@
       ],
       "topic": "Impact scope",
       "scope": "case",
-      "reportingFrameworkId": "oecd-ai-incident-reporting-2025",
       "requestFields": [
         "Accessed assets, exposed credentials, and access attempts that were blocked",
         "The checks used to establish the reported extent of access",
@@ -1547,8 +1545,7 @@
       ],
       "relationshipIds": [
         "hugging-face-control"
-      ],
-      "reportingFrameworkId": "oecd-ai-incident-reporting-2025"
+      ]
     },
     {
       "id": "forensic-tools",
@@ -1739,13 +1736,6 @@
         "sourceUrl": "https://github.com/ReadyResearch/mitigation-taxonomy-draft/blob/1f975c9065658d5b98304f9a759eb398ad837be1/index.html#L458"
       }
     }
-  },
-  "reportingFramework": {
-    "id": "oecd-ai-incident-reporting-2025",
-    "title": "OECD common reporting framework for AI incidents",
-    "version": "February 2025",
-    "url": "https://doi.org/10.1787/f326d4ac-en",
-    "locator": "Table 2.2, pages 17–18; Annex B, pages 23–24"
   },
   "controlRelationships": [
     {
@@ -3705,5 +3695,251 @@
       "relationshipIds": [],
       "eventIds": []
     }
-  ]
+  ],
+  "cast": {
+    "method": {
+      "title": "CAST (Causal Analysis based on System Theory)",
+      "author": "Nancy Leveson and colleagues, MIT",
+      "url": "https://psas.scripts.mit.edu/home/materials/",
+      "coordination": {
+        "title": "CAST-Coordination",
+        "author": "Kip E. Johnson",
+        "year": 2017,
+        "url": "https://dspace.mit.edu/handle/1721.1/108922"
+      }
+    },
+    "basics": [
+      {
+        "id": "loss",
+        "label": "Loss",
+        "text": "Unauthorized access to parts of Hugging Face’s production infrastructure, including credentials and five challenge-related datasets.",
+        "sourceIds": [
+          "openai-report",
+          "hf-timeline"
+        ]
+      },
+      {
+        "id": "hazard",
+        "label": "Hazard",
+        "text": "Evaluation agents, run with deployment safeguards switched off, could reach systems outside the evaluation.",
+        "sourceIds": [
+          "openai-initial",
+          "openai-report"
+        ]
+      },
+      {
+        "id": "constraint",
+        "label": "Constraint that was not enforced",
+        "text": "Keep evaluation activity within authorized systems, and stop it when containment is uncertain.",
+        "sourceIds": []
+      }
+    ],
+    "authorities": {
+      "id": "public-authorities",
+      "title": "Reports to public authorities",
+      "controller": "Public authorities",
+      "controlledProcess": "Incident reports and any intervention that follows",
+      "requiredConstraint": "Receive the information needed to act while action can still limit harm.",
+      "controlAction": "Hugging Face reports that it notified law enforcement. No public account describes what an authority did during the intrusion.",
+      "feedback": "What did each receiving authority learn, and when?",
+      "understanding": "Which reporting duties, if any, applied to each organization?",
+      "context": "California’s SB 53 had applied since January 2026, and the EU AI Act’s duties for general-purpose models since August 2025. New York’s RAISE Act takes effect in January 2027.",
+      "informationNeeded": "Notification records, what each authority received and when, and what it was authorized and able to do with that information.",
+      "informationHolder": "The receiving authorities, Hugging Face, and OpenAI",
+      "questionFields": [
+        "feedback",
+        "understanding"
+      ],
+      "analysisFields": [
+        "context"
+      ],
+      "sourceIds": [
+        "hf-disclosure"
+      ],
+      "findingId": "incident-reporting"
+    },
+    "coordinationElements": [
+      {
+        "id": "goals",
+        "label": "Shared goals"
+      },
+      {
+        "id": "strategy",
+        "label": "Agreed way of working"
+      },
+      {
+        "id": "parties",
+        "label": "Known parties"
+      },
+      {
+        "id": "communications",
+        "label": "Communication"
+      },
+      {
+        "id": "joint-decisions",
+        "label": "Joint decisions"
+      },
+      {
+        "id": "shared-records",
+        "label": "Shared records"
+      },
+      {
+        "id": "authority",
+        "label": "Authority and responsibility"
+      },
+      {
+        "id": "understanding",
+        "label": "Common understanding"
+      },
+      {
+        "id": "predictability",
+        "label": "Predictability"
+      }
+    ],
+    "coordinationCases": {
+      "missing": {
+        "label": "Missing",
+        "description": "No coordination existed where it was needed."
+      },
+      "inadequate": {
+        "label": "Inadequate",
+        "description": "Coordination existed, but one or more elements were missing or weak."
+      },
+      "hazardous": {
+        "label": "Created the hazard",
+        "description": "The agreed way of working itself created the hazard."
+      },
+      "late": {
+        "label": "Too late",
+        "description": "Coordination was set up after the point where it was needed."
+      }
+    },
+    "coordination": [
+      {
+        "id": "evaluation-and-outside-systems",
+        "parties": [
+          "OpenAI’s evaluation",
+          "The application operator, Modal, and Hugging Face"
+        ],
+        "title": "An evaluation and the outside systems that it reached",
+        "interdependency": "From July 8 the agents could reach the internet, so the evaluation now shared a network with other organizations’ systems.",
+        "case": "missing",
+        "elements": [
+          "strategy",
+          "communications",
+          "authority"
+        ],
+        "evidence": [
+          {
+            "text": "OpenAI says that the agents regained internet access on July 8.",
+            "sourceIds": [
+              "openai-report"
+            ]
+          },
+          {
+            "text": "Hugging Face cut access on July 13. OpenAI connected its agents to the intrusion and notified Hugging Face on July 20.",
+            "sourceIds": [
+              "hf-timeline",
+              "openai-findings"
+            ]
+          }
+        ],
+        "reading": "The public accounts describe no arrangement through which an outside operator could learn that an evaluation was the source of the activity, or ask for it to stop.",
+        "informationNeeded": "Whether OpenAI had any way to notify, or be stopped by, the operators of systems that its evaluation agents could reach, and who could invoke it.",
+        "informationHolder": "OpenAI research and incident-response teams",
+        "findingId": "cross-organization-response"
+      },
+      {
+        "id": "openai-warnings",
+        "parties": [
+          "Research teams at OpenAI",
+          "Response leaders at OpenAI"
+        ],
+        "title": "Warning signs inside OpenAI",
+        "interdependency": "Research teams saw the early warning signs. Response leaders decided how to repair the package service and when to resume the evaluations.",
+        "case": "inadequate",
+        "elements": [
+          "communications",
+          "understanding",
+          "authority"
+        ],
+        "evidence": [
+          {
+            "text": "OpenAI reports that a team observed unauthorized communication and internet access in late May, and that the response leaders did not understand the significance of those observations.",
+            "sourceIds": [
+              "openai-findings"
+            ]
+          },
+          {
+            "text": "OpenAI says that weaknesses in how it escalated early warning signs contributed to the incident.",
+            "sourceIds": [
+              "openai-findings"
+            ]
+          }
+        ],
+        "reading": "A response process existed, but the warnings and what they meant did not reach the people who decided to resume the evaluations.",
+        "informationNeeded": "Who received the late-May observations, what rules applied to stopping and restarting the evaluations, and who approved the July restart.",
+        "informationHolder": "OpenAI research and incident-response teams",
+        "findingId": "response-authority"
+      },
+      {
+        "id": "hugging-face-alerting",
+        "parties": [
+          "Detection at Hugging Face",
+          "On-call team at Hugging Face"
+        ],
+        "title": "Detection and the on-call team at Hugging Face",
+        "interdependency": "The detection system raises alerts about suspicious activity. The on-call team decides whether to contain it.",
+        "case": "inadequate",
+        "elements": [
+          "communications"
+        ],
+        "evidence": [
+          {
+            "text": "Hugging Face reports that its detection connected suspicious activity with log entries, but did not raise the alert’s criticality or page the on-call team.",
+            "sourceIds": [
+              "hf-timeline"
+            ]
+          }
+        ],
+        "reading": "Detection worked. The handoff to the people who could act did not.",
+        "informationNeeded": "The severity rules in force, detection and paging timestamps, and a test showing that the revised alerting reaches a responder in time.",
+        "informationHolder": "Hugging Face security and on-call teams",
+        "findingId": "hf-escalation"
+      },
+      {
+        "id": "response-across-organizations",
+        "parties": [
+          "Responders at Hugging Face",
+          "Responders at OpenAI"
+        ],
+        "title": "Connecting the two investigations",
+        "interdependency": "Hugging Face was containing activity that came from OpenAI’s evaluation runs. Only OpenAI could stop those runs.",
+        "case": "late",
+        "elements": [
+          "communications",
+          "shared-records",
+          "authority"
+        ],
+        "evidence": [
+          {
+            "text": "Hugging Face cut internal access on July 13 and says that a third-party vendor helped shut the external evaluation sandbox.",
+            "sourceIds": [
+              "hf-timeline"
+            ]
+          },
+          {
+            "text": "OpenAI reports that a July 17 contact concerned its own customer data, and that matching infrastructure details and credentials connected the investigations on July 20.",
+            "sourceIds": [
+              "openai-report"
+            ]
+          }
+        ],
+        "reading": "The organizations did coordinate, but a week after Hugging Face had contained the intrusion on its own.",
+        "informationNeeded": "Notification records from July, the indicators exchanged, and which actions earlier sharing could have changed.",
+        "informationHolder": "OpenAI and Hugging Face response teams",
+        "findingId": "cross-organization-response"
+      }
+    ]
+  }
 }
