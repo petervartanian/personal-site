@@ -1192,7 +1192,8 @@ body.door .footer-inner { padding-inline: 24px; }
 @supports (mask-composite: exclude) or (-webkit-mask-composite: xor) {
   .masthead::after {
     content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
-    background: url("wordmark-art.svg?v=d99f9be17f") center var(--wordmark-top) / var(--wordmark-width) auto no-repeat;
+    /* The art SVG has no intrinsic ratio, so WebKit needs the height spelled out. */
+    background: url("wordmark-art.svg?v=d99f9be17f") center var(--wordmark-top) / var(--wordmark-width) calc(var(--wordmark-width) * 113 / 459) no-repeat;
   }
 }
 @media (max-width: 760px) {
