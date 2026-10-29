@@ -39,8 +39,9 @@ FORBIDDEN = {
 }
 SITEMAP_FILES = ("sitemap.xml", "aibd/sitemap.xml")
 AIBD_PAGES = {
-    "", "cases.html", "all-cases.html", "about.html", "fields.html",
-    "fructus.html", "querist.html", "viator.html", "adyt.html", "chanticleer.html",
+    "", "cases.html", "all-cases.html", "about.html", "fields.html", "guide.html",
+    "releases.html", "fructus.html", "querist.html", "viator.html", "adyt.html",
+    "chanticleer.html",
 }
 MAX_BYTES = 2_000_000
 
