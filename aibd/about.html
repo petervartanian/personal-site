@@ -86,9 +86,9 @@
   .about[data-note-layout="margin"] .about-note::before { display: none; }
   .about[data-note-layout="margin"] .about-note-leaders { display: block; }
 }
-.about-signature { margin: 36px 0 0; }
-.about-signature img { display: block; width: 259px; max-width: 70%; height: auto; }
-@media (min-width: 1000px) { .about-signature { width: calc(100% - var(--about-note-width) - var(--about-note-gap)); } }
+.about-signature { margin: 4px 0 0; }
+.about-signature img { display: block; width: 216px; max-width: 60%; height: auto; }
+.about-rule { max-width: 38rem; margin: 32px 0 28px; border: 0; border-top: var(--rule-width) solid var(--rule); }
 @media (max-width: 700px) { .about { padding: 8px 0 4px; } }
 @media print {
   .about, .about-intro { max-width: none; padding: 0; }
@@ -304,10 +304,15 @@ document.addEventListener('DOMContentLoaded', () => {
   <h1 id="about-title">About</h1>
   <p class="about-purpose">I’m Peter H. Vartanian, and I want more people to benefit from AI that has already helped someone else.</p>
   <p class="about-description">Therefore, I have undertaken to build this database so that others can judge whether a similar use of AI could help them. I document AI’s benefits as carefully as others have documented its harms; in so doing, I (i) trace each claim to its source and (ii) grade it by who made it.</p>
-  <p class="about-description">I admit a benefit only when I can identify the AI system that contributed to it; benefits intended but not yet realized also qualify.</p>
+  <p class="about-description">I admit a benefit only when I can identify the AI system that contributed to it (but benefits intended but not yet realized also qualify).</p>
   <p class="about-description">Because I record benefits alone, the database has no denominator: From it one can infer neither how often AI succeeds nor whether its goods outweigh its harms. The number of records measures the diligence of reporters, and my own, rather than the frequency of the “good.” A benefit absent from the database is, for all one knows, merely unrecorded.</p>
+  <p class="about-signature"><img src="signature.png?v=b20c00ff1a" alt="Peter H. Vartanian" width="216" height="40"></p>
   </div>
-  <ol class="about-claims">
+  <hr class="about-rule">
+  <ol class="about-claims" start="0">
+    <li><div class="about-claim-row">
+      <div class="about-claim"><strong>Over my career, and especially at the United Nations,</strong> where my work coincided with the “o1 era,” people wanted to know about AI’s benefits more than about its harms.</div>
+    </div></li>
     <li><div class="about-claim-row">
       <div class="about-claim"><strong>In 2024, AI-governance researchers Airlie Hilliard, Emre Kazim, and Stephan Ledain</strong> wrote in <em>AI and Ethics</em> that “there is a lack of an equivalent for positive outcomes” to the databases that document AI <span class="about-note-anchor">harms.<a class="about-note-ref about-note-link" href="#endnote-i" aria-label="Sidenote a"><span class="about-note-glyph" data-letter="a">a</span></a><button type="button" class="about-note-ref about-note-toggle" aria-label="Show sidenote a" aria-controls="endnote-i" aria-expanded="false"><span class="about-note-glyph" data-letter="a">a</span></button></span></div>
       <aside id="endnote-i" class="about-note" role="note" aria-label="Sidenote a" tabindex="-1">
@@ -353,7 +358,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </aside>
     </div></li>
   </ol>
-  <p class="about-signature"><img src="signature.png?v=b20c00ff1a" alt="Peter H. Vartanian" width="259" height="48"></p>
 </article>
 </main>
 <footer class="footer">
