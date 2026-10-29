@@ -11,7 +11,7 @@ const approved=new Set(JSON.parse(readFileSync(path.join(root,'content/public-fi
 const blocked=new Set(['arcolens','agency-costs','backdrive','correlator','explorer','haruspex','monitor']);
 test('public deployment contains only explicitly approved files',()=>{
   // Includes staged/tracked files even if ignored, plus new unignored files.
-  const files=new Set(execFileSync('git',['ls-files','--cached','--others','--exclude-standard','-z'],{cwd:root,encoding:'utf8'}).split('\0').filter(Boolean));
+  const files=new Set(execFileSync('git',['ls-files','--cached','--others','--exclude-standard','-z'],{cwd:root,encoding:'utf8',maxBuffer:1<<28}).split('\0').filter(Boolean));
   assert(files.size>20,'The public snapshot must not be empty');
   for(const name of files){
     // The reviewed builds are authorized only beneath /200/. Source checkouts

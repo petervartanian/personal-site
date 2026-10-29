@@ -1,0 +1,670 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "sc": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "conformsTo": "dct:conformsTo",
+    "citeAs": "cr:citeAs",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileObject": "cr:fileObject",
+    "recordSet": "cr:recordSet",
+    "source": "cr:source",
+    "column": "cr:column"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "name": "Artificial Intelligence Benefits Database",
+  "alternateName": "AIBD",
+  "description": "Reported and intended benefits of artificial intelligence, with sources, beneficiary-specific grades, system details, and monetary observations.",
+  "url": "https://petervartanian.xyz/aibd/",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "Person",
+    "name": "Peter H. Vartanian",
+    "sameAs": "https://orcid.org/0009-0009-8538-5811"
+  },
+  "datePublished": "2026-10-20",
+  "dateModified": "2026-10-29",
+  "citeAs": "Peter H. Vartanian, Artificial Intelligence Benefits Database, https://petervartanian.xyz/aibd/",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "records-csv",
+      "name": "records.csv",
+      "contentUrl": "https://petervartanian.xyz/aibd/data/records.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "6fb529f29c275457b635b594e06d5c61fd6532fe2c1b1feff2bc60237116efce"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "records-json",
+      "name": "records.json",
+      "contentUrl": "https://petervartanian.xyz/aibd/data/records.json",
+      "encodingFormat": "application/json",
+      "sha256": "b06c94bcd01c81cd8df8ac19f73941922430fc31ca2cbfc3dfd052318c220c50"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "records",
+      "name": "records",
+      "description": "One row per case, as in records.csv.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "records/id",
+          "name": "id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/date_observed",
+          "name": "date_observed",
+          "dataType": "sc:Date",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "date_observed"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/date_basis",
+          "name": "date_basis",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "date_basis"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/date_precision",
+          "name": "date_precision",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "date_precision"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/benefit_status",
+          "name": "benefit_status",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "benefit_status"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/source_collection",
+          "name": "source_collection",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "source_collection"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/source_entry",
+          "name": "source_entry",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "source_entry"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/title",
+          "name": "title",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "title"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/summary",
+          "name": "summary",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "summary"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/headline",
+          "name": "headline",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "headline"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/metric",
+          "name": "metric",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "metric"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/brief",
+          "name": "brief",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "brief"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/confidence",
+          "name": "confidence",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "confidence"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/claim_status",
+          "name": "claim_status",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "claim_status"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/category",
+          "name": "category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "category"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/unexpected",
+          "name": "unexpected",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "unexpected"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/system",
+          "name": "system",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "system"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/model_version",
+          "name": "model_version",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "model_version"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/developer",
+          "name": "developer",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "developer"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/developer_country",
+          "name": "developer_country",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "developer_country"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/deployer",
+          "name": "deployer",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "deployer"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/deployer_country",
+          "name": "deployer_country",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "deployer_country"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/location",
+          "name": "location",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "location"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/case_jurisdictions",
+          "name": "case_jurisdictions",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "case_jurisdictions"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/domain",
+          "name": "domain",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "domain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/segment",
+          "name": "segment",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "segment"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/benefit_type",
+          "name": "benefit_type",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "benefit_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/deepest",
+          "name": "deepest",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "deepest"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/groups",
+          "name": "groups",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "groups"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/sources",
+          "name": "sources",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "sources"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/echoes",
+          "name": "echoes",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "echoes"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/paired_incident",
+          "name": "paired_incident",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "paired_incident"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/comparator_against",
+          "name": "comparator_against",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "comparator_against"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/comparator_before",
+          "name": "comparator_before",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "comparator_before"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/comparator_after",
+          "name": "comparator_after",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "comparator_after"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/comparator_basis",
+          "name": "comparator_basis",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "comparator_basis"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/later_status",
+          "name": "later_status",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "later_status"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/later_date",
+          "name": "later_date",
+          "dataType": "sc:Date",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "later_date"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/value_amount",
+          "name": "value_amount",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "value_amount"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/value_what",
+          "name": "value_what",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "value_what"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/value_estimate",
+          "name": "value_estimate",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "value_estimate"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/updated",
+          "name": "updated",
+          "dataType": "sc:Date",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "updated"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "records/benefits",
+          "name": "benefits",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "records-csv"
+            },
+            "extract": {
+              "column": "benefits"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

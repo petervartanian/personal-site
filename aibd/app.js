@@ -454,7 +454,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
 (function () {
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
-  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'deployer', 'harm', 'status'];
+  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'deployer', 'harm', 'status', 'stage', 'import'];
   var explorerCore = window.AIBDExplorer;
   var compareData = null, compareLoading = false, compareFailed = false;
   var compareStatus = ex.querySelector('[data-compare-status]');
@@ -590,6 +590,13 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     }
     var s = e.target.closest('[data-show-cases]');
     if (s) { e.preventDefault(); var head = document.getElementById('cases'); if (head) head.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' }); }
+  });
+  // Escape closes the Filters panel, as its Close button does, unless an open popover handled it first.
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape' || !filtersOpen || e.defaultPrevented) return;
+    var panel = ex.querySelector('[data-tool-panel="lists"]');
+    if (!panel || panel.hidden) return;
+    filtersOpen = false; applyTools(); apply(true); focusControl(ex.querySelector('[data-open-tool=lists]'));
   });
   window.addEventListener('popstate', function () {
     var p = new URLSearchParams(window.location.search);
@@ -735,7 +742,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var sec = document.getElementById('j-' + land.getAttribute('data-value').replace(/ /g, '-').toLowerCase());
     if (sec) { sec.classList.remove('folded'); var fb = sec.querySelector('[data-fold]'); if (fb) fb.setAttribute('aria-expanded', 'true'); setTimeout(function () { sec.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' }); }, 80); }
   });
-  var LABELS = { type: 'type', group: 'beneficiary', harm: 'related harm', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', deployer: 'deployer', made: 'made in', status: 'benefit status' };
+  var LABELS = { type: 'type', group: 'beneficiary', harm: 'related harm', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', deployer: 'deployer', made: 'made in', status: 'benefit status', stage: 'stage of use', import: 'imported from' };
   var PAGE = 40, showAll = false;
   var returnPosition = history.state && history.state.aibdExplorer;
   if (returnPosition && returnPosition.url !== window.location.href) returnPosition = null;
@@ -959,7 +966,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   }
   function escapeText(value) { return String(value == null ? '' : value).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   var statusNames = { reported: 'Reported', intended: 'Intended', mixed: 'Reported and intended', unclear: 'Unclear' };
-  var evidenceNames = { found: 'Court or regulator finding', studied: 'Independently studied', reported: 'Independently reported', claimed: 'An involved party’s account' };
+  var evidenceNames = { found: 'Found by a court or regulator', studied: 'Independently studied', reported: 'Independently reported', claimed: 'Claimed by the parties' };
   function groupName(group, value) {
     if (group === 'status') return statusNames[value] || value;
     if (group === 'evidence') return evidenceNames[value] || value;
