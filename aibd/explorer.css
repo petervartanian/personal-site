@@ -56,7 +56,13 @@
 .explore .results .metric { margin-block:8px; font-size:14px; line-height:21px; }
 .case-rating-guide { display:block; padding:2px; border-radius:0; cursor:help; }
 .case-rating-guide:hover,.case-rating-guide:focus-visible { background:var(--paper); outline:var(--rule-width) solid var(--accent); outline-offset:3px; }
-.explore .case-table-scroll { max-width:100%; overflow:auto; margin-bottom:8px; }
+.explore .case-table-scroll { max-width:100%; overflow:auto; margin-bottom:8px;
+  /* Edge shadows appear only while columns are hidden past that edge. */
+  background:
+    linear-gradient(to right, var(--paper) 30%, transparent) left center / 40px 100% no-repeat local,
+    linear-gradient(to left, var(--paper) 30%, transparent) right center / 40px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgba(26, 35, 38, .5), transparent) left center / 20px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgba(26, 35, 38, .5), transparent) right center / 20px 100% no-repeat scroll; }
 .case-table { border-collapse:collapse; min-width:760px; width:100%; font:14px/22px var(--sans); }
 .case-table th,.case-table td { border-bottom:var(--rule-width) solid var(--rule); text-align:left; vertical-align:top; padding:12px 14px 12px 0; }
 .case-table thead th { position:sticky; top:0; background:var(--paper); font-size:13px; color:var(--ink-2); }

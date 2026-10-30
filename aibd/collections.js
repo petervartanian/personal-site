@@ -70,8 +70,8 @@
       const originValue = valueFor(origin);
       const destinationValue = valueFor(destination);
       let note = '';
-      if (!acceptsValue(origin, destinationValue)) note = `No cases list headquarters in ${destinationValue}.`;
-      else if (!acceptsValue(destination, originValue)) note = `No cases list ${originValue} as a case jurisdiction.`;
+      if (!acceptsValue(origin, destinationValue)) note = `No records list headquarters in ${destinationValue}.`;
+      else if (!acceptsValue(destination, originValue)) note = `No records list ${originValue} as a jurisdiction.`;
       button.disabled = Boolean(note);
       button.title = note;
       const explanation = collection.querySelector('[data-collection-swap-note]');
@@ -179,7 +179,7 @@
         window.aibdBindTips?.(group.list);
       }
       if (group.element) group.element.hidden = visible.length === 0;
-      if (group.count) group.count.textContent = `${matching.length} case${matching.length === 1 ? '' : 's'}`;
+      if (group.count) group.count.textContent = `${matching.length} record${matching.length === 1 ? '' : 's'}`;
     });
     updateChoices(state);
     updateStatistics(matchingRows);
@@ -188,8 +188,8 @@
     const filtered = Boolean(query || state.evidence || state.filters.length);
     if (count) {
       count.textContent = filtered
-        ? `${matchingRows.length} of ${rows.length} cases`
-        : `${rows.length} case${rows.length === 1 ? '' : 's'}`;
+        ? `${matchingRows.length} of ${rows.length} records`
+        : `${rows.length} record${rows.length === 1 ? '' : 's'}`;
     }
     if (empty) empty.hidden = matchingRows.length > 0;
     if (reset) reset.hidden = !filtered;

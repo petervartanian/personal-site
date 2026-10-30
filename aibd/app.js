@@ -396,10 +396,10 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       var id = b.getAttribute('data-keep'), on = shelf.has(id);
       var label = on ? b.getAttribute('data-kept-label') || 'Selected' : b.getAttribute('data-keep-label') || 'Compare';
       b.textContent = label; b.setAttribute('aria-pressed', String(on));
-      b.setAttribute('aria-label', label + (/\b(benefit|case)\b/i.test(label) ? '' : ' benefit') + ' № ' + id.replace('AIBD-', '') + (b.closest('[data-compare]') ? ' from comparison' : ''));
+      b.setAttribute('aria-label', label + (/\b(benefit|case|record)\b/i.test(label) ? '' : ' benefit') + ' № ' + id.replace('AIBD-', '') + (b.closest('[data-compare]') ? ' from comparison' : ''));
     });
     document.querySelectorAll('[data-shelf-count]').forEach(function (s) { s.textContent = String(n); });
-    document.querySelectorAll('[data-shelf-words]').forEach(function (s) { s.textContent = n ? n + (n === 1 ? ' case selected' : ' cases selected') : 'Nothing selected yet'; });
+    document.querySelectorAll('[data-shelf-words]').forEach(function (s) { s.textContent = n ? n + (n === 1 ? ' record selected' : ' records selected') : 'Nothing selected yet'; });
     document.querySelectorAll('[data-compare-open]').forEach(function (b) { b.hidden = false; });
   }
   document.addEventListener('click', function (e) {
@@ -624,7 +624,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (sortDescription) {
       var rule;
       if (!key || key === 'depth') rule = 'Depth ' + (dir === 1 ? '5 to 1' : '1 to 5') + '. Ties: evidence, latest date, then number. Unassessed depths follow.';
-      else if (key === 'date') rule = (dir === 1 ? 'Latest' : 'Earliest') + ' case date first. Dates marked ≤ use publication dates. Ties: evidence, depth, then number. Unassessed dates follow.';
+      else if (key === 'date') rule = (dir === 1 ? 'Latest' : 'Earliest') + ' record date first. Dates marked ≤ use publication dates. Ties: evidence, depth, then number. Unassessed dates follow.';
       else if (key === 'evidence') rule = (dir === 1 ? 'Courts and regulators, independent studies, independent reporting, then parties’ accounts.' : 'Parties’ accounts, independent reporting, independent studies, then courts and regulators.') + ' Ties: depth, latest date, then number.';
       else if (key === 'sources') rule = 'Publications, ' + (dir === 1 ? 'most' : 'fewest') + ' first. Several publications may describe one observation. Ties: depth, evidence, latest date, then number.';
       else rule = (key === 'headline' ? 'Title' : 'Sector') + (dir === 1 ? ', Z to A.' : ', A to Z.') + ' Ties: depth, evidence, latest date, then number.';
@@ -641,7 +641,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       var choice = key ? key + ':' + (dir === 1 ? 'desc' : 'asc') : 'depth:desc';
       var available = Array.prototype.some.call(sortSelect.options, function (option) { return option.value === choice; });
       var custom = sortSelect.querySelector('[data-column-order]');
-      if (custom) { custom.hidden = available; custom.textContent = (key === 'headline' ? 'Case' : key === 'sector' ? 'Sector' : 'Publications') + (key === 'sources' ? (dir === 1 ? ': high to low' : ': low to high') : (dir === 1 ? ': Z–A' : ': A–Z')); }
+      if (custom) { custom.hidden = available; custom.textContent = (key === 'headline' ? 'Record' : key === 'sector' ? 'Sector' : 'Publications') + (key === 'sources' ? (dir === 1 ? ': high to low' : ': low to high') : (dir === 1 ? ': Z–A' : ': A–Z')); }
       sortSelect.value = available ? choice : '';
     }
   }
@@ -805,11 +805,14 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var params = new URLSearchParams(window.location.search);
   var dateFrom = '', dateTo = '';
   var fromInput = ex.querySelector('[data-date-from]'), toInput = ex.querySelector('[data-date-to]');
-  var trendGroup = 'status', trendMode = 'count';
+  var trendGroup = 'status', trendMode = 'count', trendEvents = true;
   function readTrend(p) {
     trendGroup = ['status', 'sector', 'depth', 'evidence', 'type'].indexOf(p.get('group_by')) !== -1 ? p.get('group_by') : 'status';
     trendMode = p.get('measure') === 'share' ? 'share' : 'count';
+    // By default the years count only records dated to their event; a collection or publication date is not when a benefit happened.
+    trendEvents = p.get('dates') !== 'all';
     if (ex.querySelector('[data-trend-group]')) ex.querySelector('[data-trend-group]').value = trendGroup;
+    if (ex.querySelector('[data-trend-events]')) ex.querySelector('[data-trend-events]').checked = trendEvents;
   }
   readTrend(params);
   var active = {};
@@ -847,7 +850,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   function paintCompareStatus() {
     var needed = Boolean(role || (openTool === 'shelf' && window.aibdShelf && window.aibdShelf.ids().length));
     if (compareStatus) compareStatus.hidden = !needed || (!compareLoading && !compareFailed);
-    if (compareMessage) compareMessage.textContent = compareFailed ? 'Details for this view could not load.' : 'Loading case details…';
+    if (compareMessage) compareMessage.textContent = compareFailed ? 'Details for this view could not load.' : 'Loading record details…';
     if (compareRetry) { compareRetry.hidden = !compareFailed; compareRetry.disabled = compareLoading; }
     var box = ex.querySelector('[data-compare]');
     if (box) box.setAttribute('aria-busy', String(needed && compareLoading));
@@ -857,7 +860,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     compareLoading = true;
     paintCompareStatus();
     fetch('compare.json').then(function (response) {
-      if (!response.ok) throw new Error('Case details request failed');
+      if (!response.ok) throw new Error('Record details request failed');
       return response.json();
     }).then(function (data) {
       compareData = data; compareLoading = false;
@@ -899,7 +902,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     e.preventDefault();
     var f = submitForm.elements;
     var body = 'What happened:\n' + f.body.value.trim() + '\n\nSource: ' + f.source.value.trim() + (f.who.value.trim() ? '\n\nFrom: ' + f.who.value.trim() : '');
-    window.location.href = submitForm.getAttribute('action') + '?subject=' + encodeURIComponent('A case for the AI Benefits Database') + '&body=' + encodeURIComponent(body);
+    window.location.href = submitForm.getAttribute('action') + '?subject=' + encodeURIComponent('A record for the AI Benefits Database') + '&body=' + encodeURIComponent(body);
   });
   readSort(params);
   function hasAny(obj) { for (var k in obj) if (obj.hasOwnProperty(k)) return true; return false; }
@@ -985,20 +988,27 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   }
   function paintTrends() {
     var chart = ex.querySelector('[data-trend-chart]'); if (!chart) return;
-    var summary = explorerCore.aggregate(matchedRows.map(function (row) { return rowData.get(row).data; }), trendGroup);
+    var trendRows = matchedRows.map(function (row) { return rowData.get(row).data; });
+    var otherDates = trendRows.filter(function (d) { return d.date && d.dateBasis !== 'Observed'; }).length;
+    if (trendEvents) trendRows = trendRows.filter(function (d) { return d.dateBasis === 'Observed'; });
+    var summary = explorerCore.aggregate(trendRows, trendGroup);
+    var scope = ex.querySelector('[data-trend-scope]');
+    if (scope) scope.textContent = trendEvents
+      ? (otherDates ? otherDates + (otherDates === 1 ? ' record is' : ' records are') + ' left out because ' + (otherDates === 1 ? 'it carries' : 'they carry') + ' the date of a source, such as its publication or collection date.' : '')
+      : 'Years include dates taken from sources, such as publication and collection dates.';
     var palette = ['#16778c', '#397a4c', '#755392', '#bb4744', '#8f6c13', '#365c73', '#98644f', '#54585b'];
     var color = function (category) { return palette[summary.categories.indexOf(category) % palette.length]; };
     var peak = Math.max.apply(null, [1].concat(summary.years.map(function (year) { return year.total; })));
     var title = ex.querySelector('[data-trend-title]');
-    if (title) title.textContent = (trendMode === 'share' ? 'Share of benefits' : 'Benefit cases') + ' by year and ' + ({ status: 'benefit status', sector: 'sector', depth: 'depth', evidence: 'evidence', type: 'benefit type' }[trendGroup]);
+    if (title) title.textContent = (trendMode === 'share' ? 'Share of benefits' : 'Benefit records') + ' by year and ' + ({ status: 'benefit status', sector: 'sector', depth: 'depth', evidence: 'evidence', type: 'benefit type' }[trendGroup]);
     ex.querySelectorAll('[data-trend-mode]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.trendMode === trendMode)); });
-    var html = '<ol class="trend-years" aria-label="Cases by year">', dataHtml = '';
+    var html = '<ol class="trend-years" aria-label="Records by year">', dataHtml = '';
     summary.years.forEach(function (year) {
       html += '<li><span class="trend-year">' + year.year + '</span><div class="trend-bar-track"><div class="trend-bar" style="width:' + (trendMode === 'share' ? 100 : 100 * year.total / peak) + '%">';
-      dataHtml += '<table class="trend-data-table"><caption>' + year.year + ' - ' + year.total + (year.total === 1 ? ' case' : ' cases') + '</caption><thead><tr><th scope="col">Category</th><th scope="col">Cases</th><th scope="col">Share<span class="visually-hidden"> of ' + year.year + '</span></th></tr></thead><tbody>';
+      dataHtml += '<table class="trend-data-table"><caption>' + year.year + ' - ' + year.total + (year.total === 1 ? ' record' : ' records') + '</caption><thead><tr><th scope="col">Category</th><th scope="col">Records</th><th scope="col">Share<span class="visually-hidden"> of ' + year.year + '</span></th></tr></thead><tbody>';
       summary.categories.forEach(function (category) {
         var n = year.groups[category] || 0; if (!n) return;
-        var share = 100 * n / year.total, label = groupName(trendGroup, category) + ', ' + n + (n === 1 ? ' case' : ' cases') + ', ' + share.toFixed(1) + '% of ' + year.year;
+        var share = 100 * n / year.total, label = groupName(trendGroup, category) + ', ' + n + (n === 1 ? ' record' : ' records') + ', ' + share.toFixed(1) + '% of ' + year.year;
         var address = new URLSearchParams();
         if (q && q.value.trim()) address.set('q', q.value.trim());
         KEYS.forEach(function (key) { var values = Object.keys(active[key]); if (values.length) address.set(key, values.join('|')); });
@@ -1007,14 +1017,14 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
         address.set('from', dateFrom && dateFrom > year.year + '-01-01' ? dateFrom : year.year + '-01-01');
         address.set('to_date', dateTo && dateTo < year.year + '-12-31' ? dateTo : year.year + '-12-31');
         address.set(trendGroup, category);
-        var href = 'cases.html?' + escapeText(address.toString()), linkLabel = escapeText(label + '. Open these cases.');
+        var href = 'cases.html?' + escapeText(address.toString()), linkLabel = escapeText(label + '. Open these records.');
         html += '<a href="' + href + '" style="width:' + share + '%;--trend-fill:' + color(category) + '" title="' + escapeText(label) + '" aria-label="' + linkLabel + '"><span>' + n + '</span></a>';
         dataHtml += '<tr><th scope="row"><a href="' + href + '" aria-label="' + linkLabel + '">' + escapeText(groupName(trendGroup, category)) + '</a></th><td>' + n + '</td><td>' + share.toFixed(1) + '%</td></tr>';
       });
       html += '</div></div><span class="trend-total">' + (trendMode === 'share' ? '100%' : year.total) + '</span></li>';
       dataHtml += '</tbody></table>';
     });
-    chart.innerHTML = summary.years.length ? html + '</ol>' : '<p class="note">No dated cases match these filters.</p>';
+    chart.innerHTML = summary.years.length ? html + '</ol>' : '<p class="note">No dated records match these filters.</p>';
     var data = ex.querySelector('[data-trend-data]');
     if (data) { data.innerHTML = dataHtml; data.closest('details').hidden = !summary.years.length; }
     var key = ex.querySelector('[data-trend-key]');
@@ -1033,6 +1043,8 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var trendSelect = ex.querySelector('[data-trend-group]');
   if (trendSelect) trendSelect.addEventListener('change', function () { trendGroup = trendSelect.value; apply(true); });
   ex.querySelectorAll('[data-trend-mode]').forEach(function (button) { button.addEventListener('click', function () { trendMode = button.dataset.trendMode; apply(true); }); });
+  var trendEventsBox = ex.querySelector('[data-trend-events]');
+  if (trendEventsBox) trendEventsBox.addEventListener('change', function () { trendEvents = trendEventsBox.checked; apply(true); });
   function feedback(message) { var box = ex.querySelector('[data-explorer-feedback]'); if (box) { box.textContent = message; box.hidden = !message; } }
   var shareButton = ex.querySelector('[data-share-results]');
   if (shareButton) shareButton.addEventListener('click', function () {
@@ -1049,12 +1061,12 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   ex.querySelectorAll('[data-export-results]').forEach(function (button) { button.addEventListener('click', function () {
     var selection = matchedRows.slice(), ids = new Set(selection.map(function (row) { return row.dataset.id; })), query = window.location.href;
     if (openTool !== 'shelf' && searchLoading) { feedback('Search is still loading. Try the download when the results are ready.'); return; }
-    if (!selection.length) { feedback('No cases match these filters.'); return; }
-    var filename = 'aibd-' + selection.length + '-cases-' + new Date().toISOString().slice(0, 10);
+    if (!selection.length) { feedback('No records match these filters.'); return; }
+    var filename = 'aibd-' + selection.length + '-records-' + new Date().toISOString().slice(0, 10);
     if (button.dataset.exportResults === 'csv') {
       var lines = selection.map(function (row) { var d = rowData.get(row).data; return [d.id, row.querySelector('h3 a').textContent.trim(), statusNames[d.status] || d.status, d.date, d.dateBasis, d.country.split('|').join('; '), d.sector, d.type, d.depth, evidenceNames[d.evidence] || d.evidence, d.sources, row.querySelector('.metric')?.textContent.trim() || '', new URL('records/' + d.id + '.html', window.location.href).href]; });
-      download(filename + '.csv', 'text/csv;charset=utf-8', explorerCore.csv(['ID', 'Case', 'Benefit status', 'Date', 'Date basis', 'Countries', 'Sector', 'Benefit type', 'Depth', 'Evidence', 'Source count', 'Reported measure', 'Case link'], lines));
-      feedback(selection.length + ' cases downloaded as a CSV overview.'); return;
+      download(filename + '.csv', 'text/csv;charset=utf-8', explorerCore.csv(['ID', 'Record', 'Benefit status', 'Date', 'Date basis', 'Countries', 'Sector', 'Benefit type', 'Depth', 'Evidence', 'Source count', 'Reported measure', 'Record link'], lines));
+      feedback(selection.length + ' records downloaded as a CSV overview.'); return;
     }
     button.disabled = true; feedback('Preparing the selected records…');
     fetch('data/records.json').then(function (response) { if (!response.ok) throw new Error('Download unavailable'); return response.json(); }).then(function (data) {
@@ -1091,7 +1103,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       });
       if (hiddenFocus && q) q.focus({ preventScroll: true });
       var datedCount = ex.querySelector('[data-timeline-count]');
-      if (datedCount) datedCount.textContent = 'Dates are available for ' + dated + ' of ' + matchedRows.length + ' cases.';
+      if (datedCount) datedCount.textContent = 'Dates are available for ' + dated + ' of ' + matchedRows.length + ' records.';
       var unassessedCount = ex.querySelector('[data-timeline-unassessed]');
       if (unassessedCount) { unassessedCount.textContent = 'depth unassessed, ' + unassessed + ' records'; unassessedCount.toggleAttribute('hidden', !unassessed); }
       return;
@@ -1192,8 +1204,8 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
       ex.querySelectorAll('.gaz [data-route]').forEach(function (b) { var parts = b.getAttribute('data-route').split('|'); b.classList.toggle('on', !!(active.made && active.made[parts[0]] && active.country && active.country[parts[1]])); });
     }
     if (count) {
-      count.textContent = comparing ? shown + ' selected cases' : text && searchLoading ? 'Searching all fields…' : filtered ? shown + ' of ' + rows.length + ' cases' : rows.length + ' cases';
-      var mirror = ex.querySelector('[data-count-mirror]'); if (mirror) mirror.textContent = shown + ' of ' + rows.length + ' cases';
+      count.textContent = comparing ? shown + ' selected records' : text && searchLoading ? 'Searching all fields…' : filtered ? shown + ' of ' + rows.length + ' records' : rows.length + ' records';
+      var mirror = ex.querySelector('[data-count-mirror]'); if (mirror) mirror.textContent = shown + ' of ' + rows.length + ' records';
     }
     KEYS.forEach(function (k) { if (hasAny(active[k])) { var g = ex.querySelector('[data-facet-group="' + k + '"]'); if (g) { g.removeAttribute('data-collapsed'); if (g.tagName === 'DETAILS') g.open = true; var h = g.querySelector('[data-facet-head]'); if (h) h.setAttribute('aria-expanded', 'true'); } } });
     var activeBox = ex.querySelector('[data-active]');
@@ -1232,7 +1244,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (openTool) next.set('open', openTool);
     if (filtersOpen) next.set('filters', '1');
     if (dateFrom) next.set('from', dateFrom); if (dateTo) next.set('to_date', dateTo);
-    if (openTool === 'timeline') { next.set('group_by', trendGroup); next.set('measure', trendMode); }
+    if (openTool === 'timeline') { next.set('group_by', trendGroup); next.set('measure', trendMode); if (!trendEvents) next.set('dates', 'all'); }
     if (openTool === 'shelf') { next.set('compare', (window.aibdShelf ? window.aibdShelf.ids() : []).join(',')); if (selectedComparisonFields) next.set('fields', selectedComparisonFields.join(',')); }
     if (openTool === 'submit') ['case', 'kind'].forEach(function (key) { if (params.has(key)) next.set(key, params.get(key)); });
     if (role) next.set('role', role);
@@ -1370,7 +1382,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     ];
     var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]; }); };
     var cases = ids.filter(function (id) { return compareData[id]; });
-    var html = '<table class="compare"><caption class="visually-hidden">Comparison of selected cases</caption><thead><tr><th class="f" scope="col">Field</th>' + cases.map(function (id) { return '<th scope="col"><a href="records/' + id + '.html">' + esc(compareData[id].h) + '</a><small>№ ' + esc(id.replace('AIBD-', '')) + '</small><button type="button" class="textbtn" data-keep="' + esc(id) + '" data-keep-label="Add" data-kept-label="Remove" aria-label="Remove case ' + esc(id.replace('AIBD-', '')) + ' from comparison" aria-pressed="true">Remove</button></th>'; }).join('') + '</tr></thead><tbody>';
+    var html = '<table class="compare"><caption class="visually-hidden">Comparison of selected records</caption><thead><tr><th class="f" scope="col">Field</th>' + cases.map(function (id) { return '<th scope="col"><a href="records/' + id + '.html">' + esc(compareData[id].h) + '</a><small>№ ' + esc(id.replace('AIBD-', '')) + '</small><button type="button" class="textbtn" data-keep="' + esc(id) + '" data-keep-label="Add" data-kept-label="Remove" aria-label="Remove record ' + esc(id.replace('AIBD-', '')) + ' from comparison" aria-pressed="true">Remove</button></th>'; }).join('') + '</tr></thead><tbody>';
     fields.filter(function (field) { return selectedComparisonFields.indexOf(field[0]) !== -1; }).forEach(function (f) { html += '<tr data-comparison-field="' + f[0] + '"><th class="f" scope="row">' + f[1] + '</th>' + cases.map(function (id) { return '<td>' + esc(f[2](compareData[id])) + '</td>'; }).join('') + '</tr>'; });
     box.innerHTML = html + '</tbody></table>';
   };
