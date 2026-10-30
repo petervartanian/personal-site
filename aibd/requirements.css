@@ -57,7 +57,7 @@
 .record-fields-page .record-head h1 { grid-column:1; max-width:30ch; margin:0; font-size:clamp(30px,3vw,42px); line-height:1.16; text-wrap:balance; overflow-wrap:break-word; }
 .record-fields-page .record-head .sum { grid-column:1; max-width:66ch; margin:0; font-size:19px; line-height:1.5; text-wrap:pretty; hyphenate-limit-chars:7 3 3; }
 .record-fields-page .record-head .record-grades { position:static; grid-column:2; grid-row:1 / span 2; align-self:start; gap:12px; margin:0; padding-top:4px; }
-.record-overview { grid-column:1 / -1; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px 28px; margin:8px 0 0; padding-top:20px; border-top:var(--rule-width) solid var(--rule); }
+.record-overview { grid-column:1 / -1; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px 28px; margin:8px 0 0; padding-top:20px; border-top:var(--rule-width) solid var(--rule); }
 .record-overview>div { min-width:0; }
 .record-overview dt { margin-bottom:4px; color:var(--ink-2); font:13px/20px var(--sans); }
 .record-overview dd { margin:0; color:var(--ink); font:15px/22px var(--sans); overflow-wrap:break-word; }
@@ -133,6 +133,7 @@
 @media(max-width:800px) {
  .record-fields-page .record-head { column-gap:20px; }
  .record-overview { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .record-overview .record-kind { grid-column:1 / -1; }
  .field-row { grid-template-columns:minmax(120px,9rem) minmax(0,1fr); gap:20px; }
 }
 @media(max-width:600px) {
@@ -156,7 +157,7 @@
 }
 @media print {
  .record-fields-page .record-head { display:block; padding-bottom:20px; }
- .record-overview { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:18px; }
+ .record-overview { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); margin-top:18px; }
  .record-fields-page .record-head .record-grades { display:none; }
  .field-row,.record-overview>div { break-inside:avoid; }
  .field-group h2,.record-references h2 { break-after:avoid; }

@@ -454,7 +454,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
 (function () {
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
-  var KEYS = ['type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'deployer', 'harm', 'status', 'stage', 'import'];
+  var KEYS = ['kind', 'type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'deployer', 'harm', 'status', 'stage', 'import'];
   var explorerCore = window.AIBDExplorer;
   var compareData = null, compareLoading = false, compareFailed = false;
   var compareStatus = ex.querySelector('[data-compare-status]');
@@ -994,7 +994,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var summary = explorerCore.aggregate(trendRows, trendGroup);
     var scope = ex.querySelector('[data-trend-scope]');
     if (scope) scope.textContent = trendEvents
-      ? (otherDates ? otherDates + (otherDates === 1 ? ' record is' : ' records are') + ' left out because ' + (otherDates === 1 ? 'it carries' : 'they carry') + ' the date of a source, such as its publication or collection date.' : '')
+      ? (otherDates ? otherDates + (otherDates === 1 ? ' record is' : ' records are') + ' left out because ' + (otherDates === 1 ? 'its date comes' : 'their dates come') + ' from sources, such as a publication or collection date.' : '')
       : 'Years include dates taken from sources, such as publication and collection dates.';
     var palette = ['#16778c', '#397a4c', '#755392', '#bb4744', '#8f6c13', '#365c73', '#98644f', '#54585b'];
     var color = function (category) { return palette[summary.categories.indexOf(category) % palette.length]; };
