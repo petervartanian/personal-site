@@ -18,7 +18,6 @@
 .assessment-states dd{margin:0;font-family:var(--mono)}
 .assessment-case{font:400 clamp(1.35rem,3vw,1.8rem)/1.3 var(--serif)}
 .assessment-case a{color:inherit}
-.assessment-heading>p,.profile-definition,.profile-explanation,.profile-answer{ text-align:justify;text-align-last:left}
 .profile-group h2{font:400 1.65rem/1.3 var(--serif);margin-top:42px}
 .profile-field{padding:20px 0;border-top:var(--rule-width) solid var(--rule);scroll-margin-top:24px}
 .profile-field-heading{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:8px}
@@ -52,172 +51,103 @@
   .profile-values .profile-values{padding-left:10px}
 }
 
-/* The outcome and evidence precede the complete field profile. */
-.record-fields-page .record-head { display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:32px; row-gap:16px; padding:24px 0 28px; }
-.record-fields-page .record-head h1 { grid-column:1; max-width:30ch; margin:0; font-size:clamp(30px,3vw,42px); line-height:1.16; text-wrap:balance; overflow-wrap:break-word; }
-.record-fields-page .record-head .sum { grid-column:1; max-width:66ch; margin:0; font-size:19px; line-height:1.5; text-wrap:pretty; hyphenate-limit-chars:7 3 3; }
-.record-fields-page .record-head .record-grades { position:static; grid-column:2; grid-row:1 / span 2; align-self:start; gap:12px; margin:0; padding-top:4px; }
-.record-overview { grid-column:1 / -1; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px 28px; margin:8px 0 0; padding-top:20px; border-top:var(--rule-width) solid var(--rule); }
-.record-overview>div { min-width:0; }
-.record-overview dt { margin-bottom:4px; color:var(--ink-2); font:13px/20px var(--sans); }
-.record-overview dd { margin:0; color:var(--ink); font:15px/22px var(--sans); overflow-wrap:break-word; }
-.record-overview a { display:inline-block; padding-block:2px; }
-.record-fields-body { min-width:0; }
-.embedded-fields { scroll-margin-top:24px; }
-.field-group { padding:28px 0; border-bottom:var(--rule-width) solid var(--rule); }
-.field-group h2,.record-references h2 { margin:0 0 18px; font:500 24px/32px var(--serif); }
-.field-rows { margin:0; }
-.field-row { display:grid; grid-template-columns:minmax(130px,11.5rem) minmax(0,1fr); gap:24px; padding:9px 0; scroll-margin-top:24px; }
-.field-row dt { color:var(--ink-2); font:500 14px/23px var(--sans); overflow-wrap:break-word; }
-.field-row dd { min-width:0; margin:0; }
-.field-answer { font:15px/24px var(--sans); overflow-wrap:break-word; }
-.field-row p { max-width:72ch; margin:0; text-align:justify; text-align-last:left; text-wrap:pretty; hyphens:auto; -webkit-hyphens:auto; hyphenate-limit-chars:7 3 3; }
-.field-row-unassessed { padding-block:4px; }
-.field-row-unassessed dt,.field-row-unassessed .field-answer { color:var(--ink-3); font-size:13px; line-height:21px; }
-.field-row:not(.field-row-unassessed)+.field-row-unassessed { margin-top:10px; }
-.field-row .field-editor-note { margin-top:6px; color:var(--ink-2); font-size:13px; line-height:21px; }
-.field-editor-note em { font-style:italic; }
-.field-review { margin-top:4px; color:var(--ink-3); font:13px/21px var(--sans); }
-.field-review>summary { width:fit-content; max-width:100%; padding-block:2px; cursor:pointer; overflow-wrap:break-word; list-style:none; }
-.field-review>summary::-webkit-details-marker { display:none; }
-.field-review>summary::marker { content:""; }
-.field-review>summary { display:flex; flex-wrap:wrap; align-items:center; gap:2px 16px; }
-.field-review-status,.field-qualification { display:inline-flex; align-items:center; gap:6px; }
-.field-row .field-status-line { display:flex; flex-wrap:wrap; gap:2px 16px; margin-top:4px; color:var(--ink-3); font:13px/21px var(--sans); text-align:left; }
-.review-symbol,.qualification-symbol { display:inline-block; flex:none; vertical-align:-.15em; overflow:visible; }
-.review-symbol { --status-fill:currentColor; --status-outline:currentColor; stroke-width:1.6; stroke-linejoin:round; }
-.review-symbol .symbol-fill { fill:var(--status-fill); stroke:var(--status-outline); }
-.review-symbol .symbol-outline { fill:none; stroke:var(--status-outline); }
-.review-symbol--reviewed_complete { color:#246b45; }
-.review-symbol--reviewed_partial { color:#7b6100; --status-fill:#edc218; }
-.review-symbol--record_mapped { color:#b45b0a; }
-.review-symbol--not_assessed { color:#b33238; }
-.qualification-symbol { color:var(--ink-2); fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+/* Review states and qualifications, defined in words on the fields page. */
 .review-qualification-legend { margin:18px 0; }
 .review-qualification-legend>div { display:grid; grid-template-columns:11rem minmax(0,1fr); gap:20px; margin:12px 0; }
 .review-qualification-legend dt { font-weight:500; }
 .review-qualification-legend dd { margin:0; }
-.review-qualification-legend .review-symbol,.review-qualification-legend .qualification-symbol { margin-right:5px; }
 @media(max-width:600px) {
  .review-qualification-legend>div { grid-template-columns:minmax(0,1fr); gap:3px; }
 }
-@media(pointer:coarse) {
- .field-review>summary { min-height:44px; box-sizing:border-box; }
-}
-@media print, (forced-colors:active) {
- .review-symbol { color:CanvasText; --status-fill:currentColor; --status-outline:currentColor; }
- .qualification-symbol { color:CanvasText; }
-}
-.field-review[open]>summary { margin-bottom:4px; }
-.field-row .field-review p { margin:0 0 5px; text-align:left; text-wrap:pretty; }
-.field-row .field-answer { overflow-wrap:anywhere; }
-.field-row[data-field-key="version"] .field-answer { word-break:break-all; hyphens:none; -webkit-hyphens:none; text-align:left; }
-.field-review-details { max-width:72ch; color:var(--ink-2); }
-.field-review-label { font-weight:500; }
-.field-review-sources a { display:inline-block; padding-block:2px; overflow-wrap:anywhere; }
-.field-source-links { font-size:11px; line-height:1; vertical-align:super; white-space:normal; }
-.field-source-links a { white-space:nowrap; }
+
+/* A record page opens with its findings and the evidence for them, then the
+   facts, the account, the sources and the remaining fields that hold answers. */
+.record-fields-page .record-head { padding:24px 0 22px; }
+.record-fields-page .record-head h1 { max-width:30ch; margin:0 0 14px; font-size:clamp(30px,3vw,42px); line-height:1.16; text-wrap:balance; overflow-wrap:break-word; }
+.record-fields-page .record-head .sum { max-width:62ch; margin:0; color:var(--ink-2); font:19px/1.5 var(--serif); text-wrap:pretty; }
+.record-findings,.record-verdict,.record-links,.record-facts,.record-account,.record-references,.record-details,.record-cite { border-top:var(--rule-width) solid var(--rule); }
+.record-findings { padding:16px 0 14px; }
+.findings { margin:0; padding:0; list-style:none; }
+.finding,.record-verdict>div,.field-row { display:grid; grid-template-columns:minmax(150px,11.5rem) minmax(0,1fr); gap:24px; }
+.finding { padding:8px 0; scroll-margin-top:24px; }
+.finding-marks { min-width:0; }
+.finding-mark { display:flex; align-items:center; gap:8px; max-width:none; margin:0; font:15px/25px var(--sans); }
+.finding-mark .mk { flex:none; }
+.finding-depth { font-weight:600; }
+.finding-group { color:var(--ink-2); }
+.finding-text { max-width:68ch; margin:0; font:16px/25px var(--sans); text-wrap:pretty; }
+.finding-text strong { font-weight:600; }
+.source-number,.field-source-links a { color:var(--accent); font-size:12px; line-height:1; vertical-align:super; text-decoration:none; white-space:nowrap; }
+.depth-key { margin:8px 0 0; color:var(--ink-3); font:13px/20px var(--sans); max-width:none; }
+.depth-key a,.record-verdict dt a { color:inherit; }
+.record-verdict { margin:0; padding:12px 0 10px; }
+.record-verdict>div { padding:7px 0; }
+.record-verdict dt { color:var(--ink-2); font:500 14px/24px var(--sans); }
+.record-verdict dd { min-width:0; max-width:68ch; margin:0; font:15px/24px var(--sans); text-wrap:pretty; overflow-wrap:break-word; }
+.record-verdict dd p { max-width:none; margin:0; }
+.grade-scale { display:flex; flex-wrap:wrap; gap:2px 18px; }
+.grade { color:#9aa6ac; }
+.grade-current { color:var(--ink); font-weight:600; }
+.comparison-basis { color:var(--ink-2); }
+.record-links { display:flex; flex-wrap:wrap; align-items:center; gap:4px 24px; max-width:none; margin:0; padding:4px 0; font:14px/22px var(--sans); }
+.record-links a,.record-links button,.cite-tools a,.cite-tools button { display:inline-flex; align-items:center; min-height:44px; color:var(--accent); }
+.record-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:40px; margin:0; padding:14px 0; }
+.record-facts>div { display:grid; grid-template-columns:minmax(110px,9rem) minmax(0,1fr); gap:16px; padding:6px 0; }
+.record-facts dt { color:var(--ink-2); font:500 14px/23px var(--sans); }
+.record-facts dd { min-width:0; margin:0; font:15px/23px var(--sans); overflow-wrap:break-word; }
+.record-account,.record-references,.record-details,.record-cite { padding:28px 0; }
+.record-account h2,.record-references h2,.record-details h2,.record-cite h2 { margin:0 0 16px; font:500 24px/32px var(--serif); }
+.record-account>p { max-width:68ch; font:16px/26px var(--sans); text-wrap:pretty; }
+.record-fields-body { min-width:0; }
+.details-group { margin:24px 0 4px; font:600 15px/24px var(--sans); }
+.details-group:first-of-type { margin-top:0; }
+.field-rows { margin:0; }
+.field-row { padding:8px 0; scroll-margin-top:24px; }
+.field-row dt { color:var(--ink-2); font:500 14px/23px var(--sans); overflow-wrap:break-word; }
+.field-row dd { min-width:0; margin:0; }
+.field-row p { max-width:68ch; margin:0; text-wrap:pretty; }
+.field-answer { font:15px/24px var(--sans); overflow-wrap:break-word; }
+.field-row .field-editor-note { margin-top:6px; color:var(--ink-2); font-size:13px; line-height:21px; }
+.field-editor-note em { font-style:italic; }
 .field-row .field-related-link { margin-top:6px; font-size:14px; line-height:22px; overflow-wrap:anywhere; }
-.field-identity { display:inline-flex; align-items:center; gap:8px; max-width:100%; vertical-align:middle; line-height:24px; text-align:left; }
+.field-identity { display:inline-flex; align-items:center; gap:8px; max-width:100%; vertical-align:middle; line-height:24px; }
 .field-identity img { display:block; flex:none; object-fit:contain; margin:0; }
 .field-identity>span { min-width:0; }
-.record-references { padding-top:28px; }
+.open-questions { max-width:72ch; margin:16px 0 0; color:var(--ink-3); font:14px/22px var(--sans); }
 .compact-sources { margin:0; padding-left:26px; font-size:14px; line-height:23px; }
 .compact-sources li { padding:0 0 18px 8px; scroll-margin-top:24px; }
 .compact-sources p { max-width:78ch; margin:0; overflow-wrap:anywhere; text-wrap:pretty; }
 .compact-sources .source-note { margin-top:6px; color:var(--ink-2); }
 .compact-sources li::marker { color:var(--ink-3); font:12px/23px var(--mono); }
-.record-related { max-width:72ch; margin:16px 0 0; font-size:14px; line-height:22px; }
-.record-downloads { display:flex; flex-wrap:wrap; align-items:center; gap:4px 24px; margin-top:20px; padding-top:14px; border-top:var(--rule-width) solid var(--rule); font:14px/22px var(--sans); }
-.record-downloads a,.record-downloads button { display:inline-flex; align-items:center; min-height:44px; }
+.source-passages blockquote { max-width:72ch; margin:8px 0 0; padding-left:14px; border-left:var(--rule-width) solid var(--rule); color:var(--ink-2); font:15px/23px var(--serif); }
+.cite-text { max-width:72ch; margin:0 0 4px; font:15px/24px var(--sans); overflow-wrap:anywhere; }
+.cite-tools { display:flex; flex-wrap:wrap; align-items:center; gap:2px 22px; max-width:none; margin:0; font:14px/22px var(--sans); }
+.copy-status { min-height:22px; margin:0; color:var(--ink-2); font:14px/22px var(--sans); }
+.sidenotes li { overflow-wrap:anywhere; }
 @media(max-width:800px) {
- .record-fields-page .record-head { column-gap:20px; }
- .record-overview { grid-template-columns:repeat(2,minmax(0,1fr)); }
- .record-overview .record-kind { grid-column:1 / -1; }
- .field-row { grid-template-columns:minmax(120px,9rem) minmax(0,1fr); gap:20px; }
+ .record-facts { grid-template-columns:minmax(0,1fr); }
+ .finding,.record-verdict>div,.field-row { grid-template-columns:minmax(120px,9rem) minmax(0,1fr); gap:20px; }
 }
 @media(max-width:600px) {
- .record-fields-page .record-head { grid-template-columns:minmax(0,1fr); row-gap:16px; padding:16px 0 24px; }
- .record-fields-page .record-head h1 { max-width:30ch; font-size:clamp(28px,7.4vw,34px); line-height:1.18; }
- .record-fields-page .record-head .sum { max-width:60ch; font-size:clamp(1rem,4.35vw,1.125rem); line-height:1.55; text-align:justify; text-align-last:left; hyphens:auto; -webkit-hyphens:auto; hyphenate-limit-chars:6 2 3; -webkit-hyphenate-limit-before:2; -webkit-hyphenate-limit-after:3; }
- .record-fields-page .record-head .record-grades { grid-column:1; grid-row:auto; justify-content:flex-start; padding:0; }
- .record-overview { grid-row:3; gap:16px 20px; margin:0; padding-top:18px; }
- .record-overview dt { font-size:12px; line-height:18px; }
- .record-overview dd { font-size:14px; line-height:21px; }
- .field-group { padding-block:24px; }
- .field-group h2,.record-references h2 { margin-bottom:14px; font-size:22px; line-height:29px; }
- .field-row { grid-template-columns:minmax(0,1fr); gap:4px; padding:10px 0; }
- .field-row dt { font-size:13px; line-height:20px; }
- .field-answer { font-size:15px; line-height:24px; }
- .field-row-unassessed { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px; padding-block:4px; }
- .field-row-unassessed .field-answer { text-align:left; }
- .record-references { padding-top:24px; }
+ .record-fields-page .record-head { padding:16px 0 20px; }
+ .record-fields-page .record-head h1 { font-size:clamp(28px,7.4vw,34px); line-height:1.18; }
+ .record-fields-page .record-head .sum { font-size:clamp(1rem,4.35vw,1.125rem); line-height:1.55; }
+ .finding,.record-verdict>div,.record-facts>div,.field-row { grid-template-columns:minmax(0,1fr); gap:2px; }
+ .finding { padding:10px 0; }
+ .finding-marks { display:flex; flex-wrap:wrap; gap:0 18px; }
+ .record-account h2,.record-references h2,.record-details h2,.record-cite h2 { margin-bottom:14px; font-size:22px; line-height:29px; }
+ .record-account,.record-references,.record-details,.record-cite { padding:24px 0; }
  .compact-sources { padding-left:21px; }
  .compact-sources li { padding-left:5px; }
 }
 @media print {
- .record-fields-page .record-head { display:block; padding-bottom:20px; }
- .record-overview { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); margin-top:18px; }
- .record-fields-page .record-head .record-grades { display:none; }
- .field-row,.record-overview>div { break-inside:avoid; }
- .field-group h2,.record-references h2 { break-after:avoid; }
+ .record-links,.cite-tools,.copy-status { display:none !important; }
+ .finding,.record-verdict>div,.record-facts>div,.field-row { break-inside:avoid; }
+ .record-account h2,.record-references h2,.record-details h2,.record-cite h2 { break-after:avoid; }
 }
-
-/* A reading surface with a small, persistent index and a complete field view. */
-.record-tools { display:flex; flex-wrap:wrap; align-items:center; gap:4px 24px; padding:0 0 12px; font:14px/22px var(--sans); }
-.record-tools a,.record-tools button { display:inline-flex; align-items:center; min-height:44px; color:var(--accent); }
-.record-fields-page .record-grades { flex-wrap:wrap; max-width:160px; justify-content:flex-end; }
-.record-fields-page .record-grade-key { width:auto; height:auto; min-height:36px; font:13px/20px var(--sans); color:var(--accent); white-space:nowrap; }
-.record-reader { position:sticky; top:0; z-index:12; background:var(--paper); padding:8px 0; border-block:var(--rule-width) solid var(--rule); }
-.record-reading-switch { display:flex; align-items:center; gap:22px; font:15px/22px var(--sans); }
-.record-reading-switch button { min-height:38px; color:var(--ink-2); }
-.record-reading-switch button[aria-pressed="true"] { color:var(--accent); font-weight:600; text-decoration:underline; text-decoration-thickness:var(--rule-width); text-underline-offset:5px; }
-.record-sections { display:flex; flex-wrap:wrap; gap:2px 20px; font:13px/20px var(--sans); }
-.record-sections a { min-height:32px; display:inline-flex; align-items:center; color:var(--ink-2); text-decoration:none; }
-.record-sections a:hover,.record-sections a[aria-current="location"] { color:var(--accent); text-decoration:underline; text-decoration-thickness:var(--rule-width); text-underline-offset:4px; }
-.record-fields-page[data-reading="overview"] [data-record-extra] { display:none; }
-.record-fields-page[data-reading="overview"] .field-group { padding-block:22px; }
-.record-fields-page[data-reading="overview"] .field-group h2 { margin-bottom:12px; }
-.record-fields-page[data-reading="overview"] .field-row { padding-block:8px; }
-.record-fields-page .field-group h2,.record-fields-page #sources,.record-fields-page .field-row,.record-fields-page .compact-sources li,.record-fields-page .benefit-item,.record-fields-page .embedded-fields { scroll-margin-top:120px; }
-.field-review-action { color:var(--accent); font-size:12px; text-decoration:underline; text-decoration-thickness:var(--rule-width); text-underline-offset:3px; }
-.field-review>summary { min-height:32px; }
-.field-review[open] .field-review-action { font-weight:500; }
-.field-review-details { padding:4px 0 4px 22px; border-left:var(--rule-width) solid var(--rule); }
-.record-citation { width:min(680px,calc(100vw - 48px)); max-height:calc(100vh - 48px); box-sizing:border-box; padding:24px; border:var(--rule-width) solid var(--rule); background:var(--paper); color:var(--ink); font:15px/24px var(--sans); }
-.record-citation::backdrop { background:rgb(16 30 35 / 30%); }
-.record-citation-head { display:flex; justify-content:space-between; align-items:baseline; gap:20px; margin-bottom:18px; }
-.record-citation h2 { margin:0; font:500 28px/34px var(--serif); }
-.record-citation label { display:block; margin-bottom:7px; font-weight:500; }
-.record-citation textarea { display:block; box-sizing:border-box; width:100%; resize:vertical; padding:12px; border:var(--rule-width) solid var(--rule); background:var(--paper); color:var(--ink); font:14px/22px var(--sans); }
-.record-citation button,.record-citation a,.record-bibtex>summary { min-height:44px; }
-.record-citation button,.record-citation a { display:inline-flex; align-items:center; color:var(--accent); }
-.record-bibtex { margin-top:12px; border-top:var(--rule-width) solid var(--rule); }
-.record-bibtex>summary { display:flex; align-items:center; gap:12px; cursor:pointer; list-style:none; }
-.record-bibtex>summary::-webkit-details-marker { display:none; }
-.record-bibtex>summary::marker { content:""; }
-.record-bibtex>summary::after { content:"+"; font:18px/22px var(--sans); }
-.record-bibtex[open]>summary::after { content:"−"; }
-.record-bibtex textarea { font:12px/20px var(--mono); }
-.record-citation-version { margin:12px 0 0; color:var(--ink-2); overflow-wrap:anywhere; }
-.record-copy-status { margin:0; min-height:24px; color:var(--ink-2); }
-@media(max-width:700px) {
- .record-tools { gap:2px 20px; }
- .record-fields-page .record-grades { max-width:none; }
- .record-reader { padding-block:4px; }
- .record-sections { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:thin; gap:20px; }
- .record-sections a { flex:none; min-height:40px; }
- .record-fields-page .field-group h2,.record-fields-page #sources,.record-fields-page .field-row,.record-fields-page .compact-sources li,.record-fields-page .benefit-item,.record-fields-page .embedded-fields { scroll-margin-top:112px; }
- .record-fields-page .record-head .sum,.record-fields-page .field-row p,.record-fields-page .benefit-bundle .benefit-statement { text-align:left; text-align-last:auto; hyphens:none; -webkit-hyphens:none; }
- .record-fields-page .field-answer { overflow-wrap:break-word; }
- .record-citation { width:calc(100vw - 32px); padding:18px; }
- .record-citation h2 { font-size:25px; line-height:30px; }
-}
-@media (pointer:coarse) {
- .field-review>summary { min-height:44px; }
-}
-@media print {
- .record-tools,.record-reader,.record-citation { display:none !important; }
- .record-fields-page[data-reading="overview"] section[data-record-extra] { display:block; }
- .record-fields-page[data-reading="overview"] .field-row[data-record-extra] { display:grid; }
-}
+.comparison-figures { margin:6px 0 0; }
+.comparison-figures>div { display:grid; grid-template-columns:9.5rem minmax(0,1fr); gap:12px; }
+.comparison-figures dt { color:var(--ink-2); font:14px/24px var(--sans); }
+.comparison-figures dd { margin:0; }
+@media(max-width:600px) { .comparison-figures>div { grid-template-columns:minmax(0,1fr); gap:0; } }
+.nowrap { white-space: nowrap; }

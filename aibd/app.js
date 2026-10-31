@@ -454,7 +454,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
 (function () {
   var ex = document.querySelector('[data-explorer]');
   if (!ex) return;
-  var KEYS = ['kind', 'type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'deployer', 'harm', 'status', 'stage', 'import'];
+  var KEYS = ['kind', 'type', 'group', 'depth', 'sector', 'country', 'made', 'unexpected', 'evidence', 'claim', 'developer', 'deployer', 'harm', 'status', 'stage', 'import', 'comparison', 'later', 'independent'];
   var explorerCore = window.AIBDExplorer;
   var compareData = null, compareLoading = false, compareFailed = false;
   var compareStatus = ex.querySelector('[data-compare-status]');
@@ -624,7 +624,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     if (sortDescription) {
       var rule;
       if (!key || key === 'depth') rule = 'Depth ' + (dir === 1 ? '5 to 1' : '1 to 5') + '. Ties: evidence, latest date, then number. Unassessed depths follow.';
-      else if (key === 'date') rule = (dir === 1 ? 'Latest' : 'Earliest') + ' record date first. Dates marked ≤ use publication dates. Ties: evidence, depth, then number. Unassessed dates follow.';
+      else if (key === 'date') rule = (dir === 1 ? 'Latest' : 'Earliest') + ' record date first. Dates marked published are publication dates. Ties: evidence, depth, then number. Unassessed dates follow.';
       else if (key === 'evidence') rule = (dir === 1 ? 'Courts and regulators, independent studies, independent reporting, then parties’ accounts.' : 'Parties’ accounts, independent reporting, independent studies, then courts and regulators.') + ' Ties: depth, latest date, then number.';
       else if (key === 'sources') rule = 'Publications, ' + (dir === 1 ? 'most' : 'fewest') + ' first. Several publications may describe one observation. Ties: depth, evidence, latest date, then number.';
       else rule = (key === 'headline' ? 'Title' : 'Sector') + (dir === 1 ? ', Z to A.' : ', A to Z.') + ' Ties: depth, evidence, latest date, then number.';
@@ -742,7 +742,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var sec = document.getElementById('j-' + land.getAttribute('data-value').replace(/ /g, '-').toLowerCase());
     if (sec) { sec.classList.remove('folded'); var fb = sec.querySelector('[data-fold]'); if (fb) fb.setAttribute('aria-expanded', 'true'); setTimeout(function () { sec.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' }); }, 80); }
   });
-  var LABELS = { type: 'type', group: 'beneficiary', harm: 'related harm', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', deployer: 'deployer', made: 'made in', status: 'benefit status', stage: 'stage of use', import: 'imported from' };
+  var LABELS = { type: 'type', group: 'beneficiary', harm: 'related harm', depth: 'depth', sector: 'sector', country: 'country', year: 'year', unexpected: 'unexpected', evidence: 'confidence', claim: 'claim', developer: 'developer', deployer: 'deployer', made: 'made in', status: 'benefit status', stage: 'stage of use', import: 'imported from', kind: 'kind', comparison: 'comparison', later: 'later outcome', independent: '' };
   var PAGE = 40, showAll = false;
   var returnPosition = history.state && history.state.aibdExplorer;
   if (returnPosition && returnPosition.url !== window.location.href) returnPosition = null;
@@ -807,7 +807,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   var fromInput = ex.querySelector('[data-date-from]'), toInput = ex.querySelector('[data-date-to]');
   var trendGroup = 'status', trendMode = 'count', trendEvents = true;
   function readTrend(p) {
-    trendGroup = ['status', 'sector', 'depth', 'evidence', 'type'].indexOf(p.get('group_by')) !== -1 ? p.get('group_by') : 'status';
+    trendGroup = ['status', 'sector', 'depth', 'evidence', 'type', 'later', 'comparison'].indexOf(p.get('group_by')) !== -1 ? p.get('group_by') : 'status';
     trendMode = p.get('measure') === 'share' ? 'share' : 'count';
     // By default the years count only records dated to their event; a collection or publication date is not when a benefit happened.
     trendEvents = p.get('dates') !== 'all';
@@ -970,21 +970,24 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
   function escapeText(value) { return String(value == null ? '' : value).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   var statusNames = { reported: 'Reported', intended: 'Intended', mixed: 'Reported and intended', unclear: 'Unclear' };
   var evidenceNames = { found: 'Found by a court or regulator', studied: 'Independently studied', reported: 'Independently reported', claimed: 'Claimed by the parties' };
+  var comparisonNames = { measured: 'Measured', assumed: 'Assumed without a measurement', none: '' };
+  var laterNames = { persisted: 'Persisted', scaled: 'Scaled up', challenged: 'Challenged', litigated: 'Taken to court', reversed: 'Reversed', withdrawn: 'Withdrawn', unknown: 'Nothing later known', none: 'Not yet checked' };
   function groupName(group, value) {
     if (group === 'status') return statusNames[value] || value;
     if (group === 'evidence') return evidenceNames[value] || value;
     if (group === 'depth') return value === 'n/a' ? 'Depth not established' : 'Depth ' + value;
+    if (group === 'later') return laterNames[value] || value;
+    if (group === 'comparison') return value === 'none' ? 'No comparison recorded' : (comparisonNames[value] || value);
     return value;
   }
   function paintTable(visible) {
     var body = ex.querySelector('[data-case-table-body]'); if (!body) return;
     body.innerHTML = visible.map(function (row) {
       var d = rowData.get(row).data, heading = row.querySelector('h3 a'), date = row.querySelector('.meta time');
-      var selected = window.aibdShelf && window.aibdShelf.has(d.id);
+      var against = d.against ? escapeText(d.against) + '<small>' + escapeText(comparisonNames[d.comparison] || '') + '</small>' : 'Not recorded';
       return '<tr><th scope="row"><a href="records/' + escapeText(d.id) + '.html">' + escapeText(heading.textContent) + '</a><small>' + escapeText(statusNames[d.status] || 'Unclear') + '</small></th>' +
-        '<td>' + escapeText(d.depth === 'n/a' ? 'Not established' : d.depth) + '</td><td>' + escapeText(d.sector) + '</td><td>' + (date ? '<time datetime="' + escapeText(d.date) + '">' + escapeText(date.parentNode.textContent.trim()) + '</time>' : 'Not established') + '</td><td>' + escapeText(evidenceNames[d.evidence] || d.evidence) + '</td><td>' + escapeText(d.sources) + '</td><td><button type="button" class="case-select" data-keep="' + escapeText(d.id) + '" data-keep-label="Compare" data-kept-label="Selected" aria-pressed="' + selected + '">' + (selected ? 'Selected' : 'Compare') + '</button></td></tr>';
+        '<td>' + (d.result ? escapeText(d.result) : 'Not quantified') + '</td><td>' + against + '</td><td>' + escapeText(d.depths) + '</td><td>' + escapeText(d.type) + '</td><td>' + escapeText((d.country || '').split('|').join(', ')) + '</td><td>' + (date ? '<time datetime="' + escapeText(d.date) + '">' + escapeText(date.parentNode.textContent.trim()) + '</time>' : 'Not established') + '</td><td>' + escapeText(evidenceNames[d.evidence] || d.evidence) + '</td><td>' + escapeText(laterNames[d.later] || '') + '</td></tr>';
     }).join('');
-    if (window.aibdShelf) window.aibdShelf.paint();
   }
   function paintTrends() {
     var chart = ex.querySelector('[data-trend-chart]'); if (!chart) return;
@@ -1000,7 +1003,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
     var color = function (category) { return palette[summary.categories.indexOf(category) % palette.length]; };
     var peak = Math.max.apply(null, [1].concat(summary.years.map(function (year) { return year.total; })));
     var title = ex.querySelector('[data-trend-title]');
-    if (title) title.textContent = (trendMode === 'share' ? 'Share of benefits' : 'Benefit records') + ' by year and ' + ({ status: 'benefit status', sector: 'sector', depth: 'depth', evidence: 'evidence', type: 'benefit type' }[trendGroup]);
+    if (title) title.textContent = (trendMode === 'share' ? 'Share of benefits' : 'Benefit records') + ' by year and ' + ({ status: 'benefit status', sector: 'sector', depth: 'depth', evidence: 'evidence', type: 'benefit type', later: 'later outcome', comparison: 'comparison' }[trendGroup]);
     ex.querySelectorAll('[data-trend-mode]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.trendMode === trendMode)); });
     var html = '<ol class="trend-years" aria-label="Records by year">', dataHtml = '';
     summary.years.forEach(function (year) {
@@ -1218,7 +1221,7 @@ function reduced() { return window.matchMedia && window.matchMedia('(prefers-red
           var b = document.createElement('button');
           b.type = 'button'; b.className = 'active-chip';
           b.setAttribute('data-remove-facet', k); b.setAttribute('data-remove-value', v);
-          var kk = document.createElement('span'); kk.className = 'k'; kk.textContent = LABELS[k] + ' ';
+          var kk = document.createElement('span'); kk.className = 'k'; kk.textContent = LABELS[k] ? LABELS[k] + ' ' : '';
           var btn = ex.querySelector('[data-facet="' + k + '"][data-value="' + v.replace(/"/g, '\\"') + '"] .v');
           var vv = document.createElement('span'); vv.className = 'val'; vv.textContent = btn ? btn.textContent : v;
           var xx = document.createElement('span'); xx.className = 'x'; xx.textContent = ' ×';
